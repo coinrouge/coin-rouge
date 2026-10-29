@@ -25,6 +25,7 @@
   }
  },
  "_nat": {
-  "_note": "Nationalités saisies à la main quand Wikipédia ne les donne pas (code à 3 lettres, ex. FRA)."
+  "_note": "Nationalités saisies à la main quand Wikipédia ne les donne pas (code à 3 lettres, ex. FRA).",
+  "Ilian Bouafia": "FRA"
  }
 }

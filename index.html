@@ -68,6 +68,7 @@ button,input,select{font:inherit;color:inherit}
 .rdsvg .rdot{fill:currentColor;stroke:none}
 .rdpill{display:inline-flex;align-items:center;gap:5px;font-family:var(--f-data);font-weight:700;font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:1px 7px;border-radius:3px;border:1px solid #C8102E;color:#C8102E;margin-right:4px;vertical-align:1px}
 .rdpill .rdsvg{width:11px;height:11px}
+.rdend{margin:0 0 0 8px}
 .calname .rdpill{margin:0 0 0 8px;vertical-align:3px}
 .rdi{display:inline-flex;margin-left:6px;color:#C8102E;vertical-align:-1px}
 .rdi .rdsvg{width:13px;height:13px}
@@ -1251,7 +1252,7 @@ function evItem(e,t,openIds,isPast){
   const fr=e.fights.some(f=>f.a.fr||f.b.fr);
   return `<details class="ev ${evCls(e)}${isPast?" past":""}" data-id="${e.id}" ${openIds.includes(e.id)||anyHit?"open":""}>
       <summary><div class="dt"><b>${dayN(e.start)}</b><small>${monS(e.start)}</small></div>
-      <div><div class="sum-t"><a class="sumlink" href="#ev-${e.id}" title="Ouvrir la carte complète">${vsHTML({noRd:1,name:`${e.a} vs ${e.b}`,frA:e.fights[0].a.fr&&(e.fights[0].a.be?2:1),frB:e.fights[0].b.fr&&(e.fights[0].b.be?2:1),stA:e.fights[0].a.star,stB:e.fights[0].b.star,fr:fr&&!e.fights[0].a.fr&&!e.fights[0].b.fr&&((e.fights.some(f=>f.a.fr&&!f.a.be||f.b.fr&&!f.b.be)?1:0)|(e.fights.some(f=>f.a.be||f.b.be)?2:0))})}</a></div><div class="sum-m">${evBadge(e,1)} ${fr?`<span class="rdl rdpill">${RADAR_SVG}Radar francophone</span> `:""}${esc(e.venue)}, ${esc(e.city)} · ${isPast?"terminé":`début ${fmtT(e.start)}${e.tbc?" (à confirmer)":""}`}</div></div>
+      <div><div class="sum-t"><a class="sumlink" href="#ev-${e.id}" title="Ouvrir la carte complète">${vsHTML({noRd:1,name:`${e.a} vs ${e.b}`,frA:e.fights[0].a.fr&&(e.fights[0].a.be?2:1),frB:e.fights[0].b.fr&&(e.fights[0].b.be?2:1),stA:e.fights[0].a.star,stB:e.fights[0].b.star,fr:fr&&!e.fights[0].a.fr&&!e.fights[0].b.fr&&((e.fights.some(f=>f.a.fr&&!f.a.be||f.b.fr&&!f.b.be)?1:0)|(e.fights.some(f=>f.a.be||f.b.be)?2:0))})}</a></div><div class="sum-m">${evBadge(e,1)} ${esc(e.venue)}, ${esc(e.city)} · ${isPast?"terminé":`début ${fmtT(e.start)}${e.tbc?" (à confirmer)":""}`}${fr?` <span class="rdl rdpill rdend">${RADAR_SVG}Radar francophone</span>`:""}</div></div>
       <span class="chev" aria-hidden="true">▼</span></summary>
       <div class="inner">${schedHTML(e)}${cardHTML(e,t,{only:filter==="all"?"main":null})}${moreBtn(e,false)}</div></details>`;
 }

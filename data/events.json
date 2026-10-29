@@ -1,6 +1,7 @@
 {
- "updated": "2026-10-29T17:20:08.691Z",
- "source": "Wikipédia (en), licence CC BY-SA",
+ "updated": "2026-10-29T17:41:46.823Z",
+ "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
+ "presse": true,
  "events": [
   {
    "id": "ufc332",
@@ -589,6 +590,290 @@
    "wiki": "UFC Fight Night: Allen vs. Duncan"
   },
   {
+   "id": "pfl-carmouche-bishop",
+   "org": "PFL",
+   "name": "PFL Chicago",
+   "a": "Carmouche",
+   "b": "Bishop",
+   "venue": "Wintrust Arena",
+   "city": "Chicago",
+   "tz": "America/Chicago",
+   "tbc": 1,
+   "segs": [
+    {
+     "k": "prelims",
+     "t": "2026-10-16T22:00:00Z"
+    },
+    {
+     "k": "main",
+     "t": "2026-10-17T01:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "WFLW",
+     "r": 5,
+     "a": {
+      "n": "Jena Bishop",
+      "rec": "11-3-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Liz Carmouche",
+      "rec": "26-8-0",
+      "nat": "USA"
+     },
+     "title": "Titre Women's Flyweight",
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 5,
+      "time": "5:90"
+     }
+    },
+    {
+     "s": "main",
+     "w": "FW",
+     "r": 3,
+     "a": {
+      "n": "Timur Khizriev",
+      "rec": "18-0-0",
+      "nat": "RUS"
+     },
+     "b": {
+      "n": "Gabriel Braga"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision partagée",
+      "round": 3,
+      "time": "5:00"
+     }
+    },
+    {
+     "s": "main",
+     "w": "BW",
+     "r": 3,
+     "a": {
+      "n": "Sarvarjon Khamidov",
+      "rec": "17-1-0",
+      "nat": "TJK"
+     },
+     "b": {
+      "n": "Rafael do Nascimento",
+      "rec": "13-2-0",
+      "nat": "BRA"
+     },
+     "res": {
+      "w": "a",
+      "method": "KO (coups de poing)",
+      "round": 1,
+      "time": "1:49"
+     }
+    },
+    {
+     "s": "main",
+     "w": "WW",
+     "r": 3,
+     "a": {
+      "n": "Oualy Tandia"
+     },
+     "b": {
+      "n": "J.P. Saint Louis"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "WW",
+     "r": 3,
+     "a": {
+      "n": "Eliezer Kubanza",
+      "rec": "9-1-0",
+      "nat": "COD"
+     },
+     "b": {
+      "n": "Trey Waters",
+      "rec": "10-2-0",
+      "nat": "USA"
+     },
+     "res": {
+      "w": "a",
+      "method": "KO (coups de poing)",
+      "round": 1,
+      "time": "1:36"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "LHW",
+     "r": 3,
+     "a": {
+      "n": "Emiliano Sordi",
+      "rec": "27-14-1",
+      "nat": "ARG"
+     },
+     "b": {
+      "n": "Abraham Bably",
+      "rec": "8-3-0",
+      "nat": "GBR"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (coups de poing)",
+      "round": 2,
+      "time": "3:13"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "LW",
+     "r": 3,
+     "a": {
+      "n": "Kevin Pease",
+      "rec": "8-0-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Cássio Barão"
+     },
+     "res": {
+      "w": "a",
+      "method": "Soumission (étranglement arrière)",
+      "round": 1,
+      "time": "3:28"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "WFLW",
+     "r": 3,
+     "a": {
+      "n": "Shannon Clark",
+      "rec": "8-1-0",
+      "nat": "CAN"
+     },
+     "b": {
+      "n": "Lucero Acosta",
+      "rec": "6-2-0",
+      "nat": "MEX"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (coudes)",
+      "round": 3,
+      "time": "1:59"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "LW",
+     "r": 3,
+     "a": {
+      "n": "Gamid Khizriev",
+      "rec": "7-0-0",
+      "nat": "RUS"
+     },
+     "b": {
+      "n": "Michael Boylan",
+      "rec": "6-1-0",
+      "nat": "USA"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (coudes)",
+      "round": 1,
+      "time": "3:04"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "BW",
+     "r": 3,
+     "a": {
+      "n": "Cobey Fehr",
+      "rec": "4-0-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Rosario Romero"
+     },
+     "res": {
+      "w": "a",
+      "method": "Soumission technique (étranglement arrière)",
+      "round": 1,
+      "time": "0:58"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "LW",
+     "r": 3,
+     "a": {
+      "n": "Levan Khabalaev",
+      "rec": "6-0-0",
+      "nat": "GEO"
+     },
+     "b": {
+      "n": "Brock Hamer"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (knees and punches)",
+      "round": 1,
+      "time": "1:01"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "WFLW",
+     "r": 3,
+     "a": {
+      "n": "Paulina Wiśniewska",
+      "rec": "6-1-0",
+      "nat": "POL"
+     },
+     "b": {
+      "n": "Chelsea Hackett",
+      "rec": "5-3-1",
+      "nat": "AUS"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "FW",
+     "r": 3,
+     "a": {
+      "n": "Noah Hermosillo",
+      "rec": "1-0-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Caden Cox"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (body kick and punches)",
+      "round": 3,
+      "time": "1:43"
+     }
+    }
+   ],
+   "wiki": "PFL Chicago: Carmouche vs. Bishop 2"
+  },
+  {
    "id": "fn-buckley-malott",
    "org": "UFC",
    "name": "UFC Fight Night",
@@ -883,290 +1168,6 @@
     }
    ],
    "wiki": "UFC Fight Night: Buckley vs. Malott"
-  },
-  {
-   "id": "pfl-carmouche-bishop",
-   "org": "PFL",
-   "name": "PFL Chicago",
-   "a": "Carmouche",
-   "b": "Bishop",
-   "venue": "Wintrust Arena",
-   "city": "Chicago",
-   "tz": "America/Chicago",
-   "tbc": 1,
-   "segs": [
-    {
-     "k": "prelims",
-     "t": "2026-10-16T22:00:00Z"
-    },
-    {
-     "k": "main",
-     "t": "2026-10-17T01:00:00Z"
-    }
-   ],
-   "fights": [
-    {
-     "s": "main",
-     "w": "WFLW",
-     "r": 5,
-     "a": {
-      "n": "Jena Bishop",
-      "rec": "11-3-0",
-      "nat": "USA"
-     },
-     "b": {
-      "n": "Liz Carmouche",
-      "rec": "26-8-0",
-      "nat": "USA"
-     },
-     "title": "Titre Women's Flyweight",
-     "res": {
-      "w": "a",
-      "method": "Décision unanime",
-      "round": 5,
-      "time": "5:90"
-     }
-    },
-    {
-     "s": "main",
-     "w": "FW",
-     "r": 3,
-     "a": {
-      "n": "Timur Khizriev",
-      "rec": "18-0-0",
-      "nat": "RUS"
-     },
-     "b": {
-      "n": "Gabriel Braga"
-     },
-     "res": {
-      "w": "a",
-      "method": "Décision partagée",
-      "round": 3,
-      "time": "5:00"
-     }
-    },
-    {
-     "s": "main",
-     "w": "BW",
-     "r": 3,
-     "a": {
-      "n": "Sarvarjon Khamidov",
-      "rec": "17-1-0",
-      "nat": "TJK"
-     },
-     "b": {
-      "n": "Rafael do Nascimento",
-      "rec": "13-2-0",
-      "nat": "BRA"
-     },
-     "res": {
-      "w": "a",
-      "method": "KO (coups de poing)",
-      "round": 1,
-      "time": "1:49"
-     }
-    },
-    {
-     "s": "main",
-     "w": "WW",
-     "r": 3,
-     "a": {
-      "n": "Oualy Tandia"
-     },
-     "b": {
-      "n": "J.P. Saint Louis"
-     },
-     "res": {
-      "w": "a",
-      "method": "Décision unanime",
-      "round": 3,
-      "time": "5:00"
-     }
-    },
-    {
-     "s": "prelims",
-     "w": "WW",
-     "r": 3,
-     "a": {
-      "n": "Eliezer Kubanza",
-      "rec": "9-1-0",
-      "nat": "COD"
-     },
-     "b": {
-      "n": "Trey Waters",
-      "rec": "10-2-0",
-      "nat": "USA"
-     },
-     "res": {
-      "w": "a",
-      "method": "KO (coups de poing)",
-      "round": 1,
-      "time": "1:36"
-     }
-    },
-    {
-     "s": "prelims",
-     "w": "LHW",
-     "r": 3,
-     "a": {
-      "n": "Emiliano Sordi",
-      "rec": "27-14-1",
-      "nat": "ARG"
-     },
-     "b": {
-      "n": "Abraham Bably",
-      "rec": "8-3-0",
-      "nat": "GBR"
-     },
-     "res": {
-      "w": "a",
-      "method": "TKO (coups de poing)",
-      "round": 2,
-      "time": "3:13"
-     }
-    },
-    {
-     "s": "prelims",
-     "w": "LW",
-     "r": 3,
-     "a": {
-      "n": "Kevin Pease",
-      "rec": "8-0-0",
-      "nat": "USA"
-     },
-     "b": {
-      "n": "Cássio Barão"
-     },
-     "res": {
-      "w": "a",
-      "method": "Soumission (étranglement arrière)",
-      "round": 1,
-      "time": "3:28"
-     }
-    },
-    {
-     "s": "prelims",
-     "w": "WFLW",
-     "r": 3,
-     "a": {
-      "n": "Shannon Clark",
-      "rec": "8-1-0",
-      "nat": "CAN"
-     },
-     "b": {
-      "n": "Lucero Acosta",
-      "rec": "6-2-0",
-      "nat": "MEX"
-     },
-     "res": {
-      "w": "a",
-      "method": "TKO (coudes)",
-      "round": 3,
-      "time": "1:59"
-     }
-    },
-    {
-     "s": "prelims",
-     "w": "LW",
-     "r": 3,
-     "a": {
-      "n": "Gamid Khizriev",
-      "rec": "7-0-0",
-      "nat": "RUS"
-     },
-     "b": {
-      "n": "Michael Boylan",
-      "rec": "6-1-0",
-      "nat": "USA"
-     },
-     "res": {
-      "w": "a",
-      "method": "TKO (coudes)",
-      "round": 1,
-      "time": "3:04"
-     }
-    },
-    {
-     "s": "prelims",
-     "w": "BW",
-     "r": 3,
-     "a": {
-      "n": "Cobey Fehr",
-      "rec": "4-0-0",
-      "nat": "USA"
-     },
-     "b": {
-      "n": "Rosario Romero"
-     },
-     "res": {
-      "w": "a",
-      "method": "Soumission technique (étranglement arrière)",
-      "round": 1,
-      "time": "0:58"
-     }
-    },
-    {
-     "s": "prelims",
-     "w": "LW",
-     "r": 3,
-     "a": {
-      "n": "Levan Khabalaev",
-      "rec": "6-0-0",
-      "nat": "GEO"
-     },
-     "b": {
-      "n": "Brock Hamer"
-     },
-     "res": {
-      "w": "a",
-      "method": "TKO (knees and punches)",
-      "round": 1,
-      "time": "1:01"
-     }
-    },
-    {
-     "s": "prelims",
-     "w": "WFLW",
-     "r": 3,
-     "a": {
-      "n": "Paulina Wiśniewska",
-      "rec": "6-1-0",
-      "nat": "POL"
-     },
-     "b": {
-      "n": "Chelsea Hackett",
-      "rec": "5-3-1",
-      "nat": "AUS"
-     },
-     "res": {
-      "w": "a",
-      "method": "Décision unanime",
-      "round": 3,
-      "time": "5:00"
-     }
-    },
-    {
-     "s": "prelims",
-     "w": "FW",
-     "r": 3,
-     "a": {
-      "n": "Noah Hermosillo",
-      "rec": "1-0-0",
-      "nat": "USA"
-     },
-     "b": {
-      "n": "Caden Cox"
-     },
-     "res": {
-      "w": "a",
-      "method": "TKO (body kick and punches)",
-      "round": 3,
-      "time": "1:43"
-     }
-    }
-   ],
-   "wiki": "PFL Chicago: Carmouche vs. Bishop 2"
   },
   {
    "id": "ufc333",
@@ -1496,6 +1497,91 @@
    "wiki": "UFC 333"
   },
   {
+   "id": "bx-canelo-mbilli",
+   "sport": "boxe",
+   "org": "Boxe",
+   "name": "Riyadh Season",
+   "a": "Canelo",
+   "b": "M'billi",
+   "venue": "The Venue",
+   "city": "Riyad",
+   "tz": "Asia/Riyadh",
+   "tv": "DAZN (PPV)",
+   "segs": [
+    {
+     "k": "main",
+     "t": "2026-10-31T17:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "Super-moyens",
+     "r": 12,
+     "title": "Titre WBC super-moyens",
+     "t": "2026-10-31T20:30:00Z",
+     "a": {
+      "n": "Canelo Álvarez",
+      "nat": "MEX",
+      "rec": "63-3-2",
+      "star": 1
+     },
+     "b": {
+      "n": "Christian M'billi",
+      "nat": "FRA",
+      "champ": 1,
+      "fr": 1
+     }
+    },
+    {
+     "s": "main",
+     "w": "Super-moyens",
+     "r": 12,
+     "title": "Titre WBA super-moyens",
+     "a": {
+      "n": "Jaime Munguía",
+      "nat": "MEX",
+      "rec": "46-2-0"
+     },
+     "b": {
+      "n": "Nikita Zon",
+      "nat": "RUS",
+      "rec": "12-0-1"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Plumes",
+     "r": 12,
+     "title": "Titre WBO plumes",
+     "a": {
+      "n": "Rafael Espinoza",
+      "nat": "MEX",
+      "rec": "28-0-0",
+      "champ": 1
+     },
+     "b": {
+      "n": "Ricardo Blandón"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Super-plumes",
+     "r": 10,
+     "a": {
+      "n": "Raymundo Rojas García",
+      "nat": "MEX",
+      "rec": "16-2-0"
+     },
+     "b": {
+      "n": "Reito Tsutsumi",
+      "nat": "JPN",
+      "rec": "5-0-0"
+     }
+    }
+   ]
+  },
+  {
    "id": "fn-moicano-nolan",
    "org": "UFC",
    "name": "UFC Fight Night",
@@ -1697,6 +1783,100 @@
    "wiki": "UFC Fight Night: Moicano vs. Nolan"
   },
   {
+   "id": "bx-buatsi-hutchinson",
+   "sport": "boxe",
+   "org": "Boxe",
+   "name": "Queensberry",
+   "a": "Buatsi",
+   "b": "Hutchinson",
+   "venue": "AO Arena",
+   "city": "Manchester",
+   "tz": "Europe/London",
+   "tv": "DAZN",
+   "tbc": 1,
+   "segs": [
+    {
+     "k": "main",
+     "t": "2026-11-07T19:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "Mi-lourds",
+     "r": 12,
+     "title": "Titre WBC intérim mi-lourds",
+     "a": {
+      "n": "Joshua Buatsi",
+      "nat": "GBR"
+     },
+     "b": {
+      "n": "Willy Hutchinson",
+      "nat": "GBR"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Mi-lourds",
+     "r": 10,
+     "a": {
+      "n": "Brad Rea",
+      "nat": "GBR"
+     },
+     "b": {
+      "n": "Ezra Taylor",
+      "nat": "GBR"
+     }
+    }
+   ]
+  },
+  {
+   "id": "bx-billamsmith-clarke",
+   "sport": "boxe",
+   "org": "Boxe",
+   "name": "Zuffa Boxing",
+   "a": "Billam-Smith",
+   "b": "Clarke",
+   "venue": "Salle à confirmer",
+   "city": "Londres",
+   "tz": "Europe/London",
+   "tbc": 1,
+   "segs": [
+    {
+     "k": "main",
+     "t": "2026-11-07T19:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "Lourds-légers",
+     "r": 10,
+     "a": {
+      "n": "Chris Billam-Smith",
+      "nat": "GBR"
+     },
+     "b": {
+      "n": "Cheavon Clarke",
+      "nat": "GBR"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Moyens",
+     "r": 10,
+     "a": {
+      "n": "Denzel Bentley",
+      "nat": "GBR"
+     },
+     "b": {
+      "n": "Shane Mosley Jr.",
+      "nat": "USA"
+     }
+    }
+   ]
+  },
+  {
    "id": "fn-bonfim-brady",
    "org": "UFC",
    "name": "UFC Fight Night",
@@ -1894,188 +2074,6 @@
     }
    ],
    "wiki": "UFC Fight Night: Bonfim vs. Brady"
-  },
-  {
-   "id": "ufc334",
-   "org": "UFC",
-   "name": "UFC 334",
-   "a": "Gane",
-   "b": "Hokit",
-   "venue": "Madison Square Garden",
-   "city": "New York",
-   "tz": "America/New_York",
-   "segs": [
-    {
-     "k": "early",
-     "t": "2026-11-14T22:00:00Z"
-    },
-    {
-     "k": "prelims",
-     "t": "2026-11-15T00:00:00Z"
-    },
-    {
-     "k": "main",
-     "t": "2026-11-15T02:00:00Z"
-    }
-   ],
-   "fights": [
-    {
-     "s": "main",
-     "w": "HW",
-     "r": 5,
-     "a": {
-      "n": "Ciryl Gane",
-      "rec": "13-2-0",
-      "nat": "FRA",
-      "fr": 1,
-      "champ": 1
-     },
-     "b": {
-      "n": "Josh Hokit",
-      "rec": "10-0-0",
-      "nat": "USA"
-     },
-     "title": "Titre Heavyweight"
-    },
-    {
-     "s": "main",
-     "w": "WBW",
-     "r": 5,
-     "a": {
-      "n": "Kayla Harrison",
-      "rec": "19-1-0",
-      "nat": "USA",
-      "champ": 1
-     },
-     "b": {
-      "n": "Amanda Nunes",
-      "rec": "23-5-0",
-      "nat": "BRA"
-     },
-     "title": "Titre Women's Bantamweight"
-    },
-    {
-     "s": "main",
-     "w": "MW",
-     "r": 3,
-     "a": {
-      "n": "Caio Borralho",
-      "rec": "18-2-0",
-      "nat": "BRA"
-     },
-     "b": {
-      "n": "Yousri Belgaroui",
-      "rec": "11-3-0",
-      "nat": "NED"
-     }
-    },
-    {
-     "s": "main",
-     "w": "WW",
-     "r": 3,
-     "a": {
-      "n": "Uroš Medić",
-      "rec": "14-3-0",
-      "nat": "SRB"
-     },
-     "b": {
-      "n": "Kevin Holland",
-      "rec": "29-15-0",
-      "nat": "USA"
-     }
-    },
-    {
-     "s": "main",
-     "w": "FLW",
-     "r": 3,
-     "a": {
-      "n": "Bilal Hasan",
-      "rec": "10-0-0",
-      "nat": "IDN"
-     },
-     "b": {
-      "n": "Luis Gurule",
-      "rec": "11-4-0",
-      "nat": "USA"
-     }
-    },
-    {
-     "s": "prelims",
-     "w": "WW",
-     "r": 3,
-     "a": {
-      "n": "Stephen Thompson",
-      "rec": "17-9-1",
-      "nat": "USA"
-     },
-     "b": {
-      "n": "Charles Radtke",
-      "rec": "12-5-0",
-      "nat": "USA"
-     }
-    },
-    {
-     "s": "prelims",
-     "w": "LW",
-     "r": 3,
-     "a": {
-      "n": "Drew Dober",
-      "rec": "29-15-0",
-      "nat": "USA"
-     },
-     "b": {
-      "n": "Chris Duncan",
-      "rec": "15-2-0",
-      "nat": "GBR"
-     }
-    },
-    {
-     "s": "prelims",
-     "w": "LW",
-     "r": 3,
-     "a": {
-      "n": "Jim Miller",
-      "rec": "39-19-0",
-      "nat": "USA"
-     },
-     "b": {
-      "n": "Terrance McKinney",
-      "rec": "18-9-0",
-      "nat": "USA"
-     }
-    },
-    {
-     "s": "prelims",
-     "w": "MW",
-     "r": 3,
-     "a": {
-      "n": "Donte Johnson",
-      "rec": "9-0-0",
-      "nat": "USA"
-     },
-     "b": {
-      "n": "César Almeida",
-      "rec": "7-3-0",
-      "nat": "BRA"
-     }
-    },
-    {
-     "s": "early",
-     "w": "WBW",
-     "r": 3,
-     "a": {
-      "n": "Macy Chiasson",
-      "rec": "10-6-0",
-      "nat": "USA"
-     },
-     "b": {
-      "n": "Beatriz Mesquita",
-      "rec": "8-0-0",
-      "nat": "BRA"
-     }
-    }
-   ],
-   "wiki": "UFC 334"
   },
   {
    "id": "pfl-nemkov-bilostenniy",
@@ -2318,6 +2316,188 @@
    "wiki": "PFL Dubai: Nemkov vs. Bilostenniy"
   },
   {
+   "id": "ufc334",
+   "org": "UFC",
+   "name": "UFC 334",
+   "a": "Gane",
+   "b": "Hokit",
+   "venue": "Madison Square Garden",
+   "city": "New York",
+   "tz": "America/New_York",
+   "segs": [
+    {
+     "k": "early",
+     "t": "2026-11-14T22:00:00Z"
+    },
+    {
+     "k": "prelims",
+     "t": "2026-11-15T00:00:00Z"
+    },
+    {
+     "k": "main",
+     "t": "2026-11-15T02:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "HW",
+     "r": 5,
+     "a": {
+      "n": "Ciryl Gane",
+      "rec": "13-2-0",
+      "nat": "FRA",
+      "fr": 1,
+      "champ": 1
+     },
+     "b": {
+      "n": "Josh Hokit",
+      "rec": "10-0-0",
+      "nat": "USA"
+     },
+     "title": "Titre Heavyweight"
+    },
+    {
+     "s": "main",
+     "w": "WBW",
+     "r": 5,
+     "a": {
+      "n": "Kayla Harrison",
+      "rec": "19-1-0",
+      "nat": "USA",
+      "champ": 1
+     },
+     "b": {
+      "n": "Amanda Nunes",
+      "rec": "23-5-0",
+      "nat": "BRA"
+     },
+     "title": "Titre Women's Bantamweight"
+    },
+    {
+     "s": "main",
+     "w": "MW",
+     "r": 3,
+     "a": {
+      "n": "Caio Borralho",
+      "rec": "18-2-0",
+      "nat": "BRA"
+     },
+     "b": {
+      "n": "Yousri Belgaroui",
+      "rec": "11-3-0",
+      "nat": "NED"
+     }
+    },
+    {
+     "s": "main",
+     "w": "WW",
+     "r": 3,
+     "a": {
+      "n": "Uroš Medić",
+      "rec": "14-3-0",
+      "nat": "SRB"
+     },
+     "b": {
+      "n": "Kevin Holland",
+      "rec": "29-15-0",
+      "nat": "USA"
+     }
+    },
+    {
+     "s": "main",
+     "w": "FLW",
+     "r": 3,
+     "a": {
+      "n": "Bilal Hasan",
+      "rec": "10-0-0",
+      "nat": "IDN"
+     },
+     "b": {
+      "n": "Luis Gurule",
+      "rec": "11-4-0",
+      "nat": "USA"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "WW",
+     "r": 3,
+     "a": {
+      "n": "Stephen Thompson",
+      "rec": "17-9-1",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Charles Radtke",
+      "rec": "12-5-0",
+      "nat": "USA"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "LW",
+     "r": 3,
+     "a": {
+      "n": "Drew Dober",
+      "rec": "29-15-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Chris Duncan",
+      "rec": "15-2-0",
+      "nat": "GBR"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "LW",
+     "r": 3,
+     "a": {
+      "n": "Jim Miller",
+      "rec": "39-19-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Terrance McKinney",
+      "rec": "18-9-0",
+      "nat": "USA"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "MW",
+     "r": 3,
+     "a": {
+      "n": "Donte Johnson",
+      "rec": "9-0-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "César Almeida",
+      "rec": "7-3-0",
+      "nat": "BRA"
+     }
+    },
+    {
+     "s": "early",
+     "w": "WBW",
+     "r": 3,
+     "a": {
+      "n": "Macy Chiasson",
+      "rec": "10-6-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Beatriz Mesquita",
+      "rec": "8-0-0",
+      "nat": "BRA"
+     }
+    }
+   ],
+   "wiki": "UFC 334"
+  },
+  {
    "id": "fn-prochazka-stirling",
    "org": "UFC",
    "name": "UFC Fight Night",
@@ -2474,6 +2654,79 @@
     }
    ],
    "wiki": "UFC Fight Night: Procházka vs. Stirling"
+  },
+  {
+   "id": "bx-kabayel-hysa",
+   "sport": "boxe",
+   "org": "Boxe",
+   "name": "Bad Blood",
+   "a": "Kabayel",
+   "b": "Hysa",
+   "venue": "Merkur Spiel-Arena",
+   "city": "Düsseldorf",
+   "tz": "Europe/Berlin",
+   "tv": "DAZN",
+   "tbc": 1,
+   "segs": [
+    {
+     "k": "main",
+     "t": "2026-11-28T19:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "Lourds",
+     "r": 12,
+     "title": "Titre WBC lourds",
+     "a": {
+      "n": "Agit Kabayel",
+      "nat": "GER",
+      "champ": 1
+     },
+     "b": {
+      "n": "Nelson Hysa",
+      "nat": "ALB"
+     }
+    }
+   ]
+  },
+  {
+   "id": "bx-fury-joshua",
+   "sport": "boxe",
+   "org": "Boxe",
+   "name": "Boxe",
+   "a": "Fury",
+   "b": "Joshua",
+   "venue": "Principality Stadium",
+   "city": "Cardiff",
+   "tz": "Europe/London",
+   "tv": "Netflix",
+   "tbc": 1,
+   "segs": [
+    {
+     "k": "main",
+     "t": "2026-12-11T17:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "Lourds",
+     "r": 12,
+     "t": "2026-12-12T01:00:00Z",
+     "a": {
+      "n": "Tyson Fury",
+      "nat": "GBR",
+      "star": 1
+     },
+     "b": {
+      "n": "Anthony Joshua",
+      "nat": "GBR",
+      "star": 1
+     }
+    }
+   ]
   },
   {
    "id": "ufc335",
@@ -2651,7 +2904,9 @@
       "nat": "GBR"
      },
      "b": {
-      "n": "Ilian Bouafia"
+      "n": "Ilian Bouafia",
+      "nat": "FRA",
+      "fr": 1
      }
     },
     {
@@ -2793,6 +3048,30 @@
    "date": "2027-02-07",
    "name": "Affiche à annoncer",
    "org": "UFC Fight Night · Sydney"
+  },
+  {
+   "sport": "mma",
+   "date": "2026-11-27",
+   "name": "Hexagone MMA 49",
+   "org": "Hexagone MMA · Glaz Arena, Rennes",
+   "note": "Affiche à annoncer",
+   "fr": 1
+  },
+  {
+   "sport": "mma",
+   "date": "2027-01-08",
+   "name": "Hexagone MMA Paris",
+   "org": "Hexagone MMA · Zénith Paris La Villette",
+   "note": "Affiche à annoncer",
+   "fr": 1
+  },
+  {
+   "sport": "mma",
+   "date": "2027-01-15",
+   "name": "Hexagone MMA Montpellier",
+   "org": "Hexagone MMA · Zénith Sud, Montpellier",
+   "note": "Affiche à annoncer",
+   "fr": 1
   }
  ]
 }

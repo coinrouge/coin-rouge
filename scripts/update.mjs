@@ -16,11 +16,12 @@ const clean = (s) => s.replace(/\[[^\]]*\]/g, "").replace(/\s+/g, " ").trim();
 const cell = ($, el) => clean($(el).text());
 
 /* ---------- Correspondances ---------- */
-const WEIGHT = {
+const WEIGHT_ = {
   "Heavyweight": "HW", "Light Heavyweight": "LHW", "Middleweight": "MW", "Welterweight": "WW", "Lightweight": "LW",
   "Featherweight": "FW", "Bantamweight": "BW", "Flyweight": "FLW", "Women's Featherweight": "WFW",
   "Women's Bantamweight": "WBW", "Women's Flyweight": "WFLW", "Women's Strawweight": "WSW",
 };
+const WEIGHT = new Proxy(WEIGHT_, { get: (o, k) => Object.entries(o).find(([x]) => x.toLowerCase() === String(k).toLowerCase())?.[1] });
 const COUNTRY = {
   France: "FRA", Brazil: "BRA", Australia: "AUS", "New Zealand": "NZL", "United Kingdom": "GBR", England: "GBR", Scotland: "GBR",
   Wales: "GBR", "Northern Ireland": "GBR", "United States": "USA", Russia: "RUS", Netherlands: "NED", Serbia: "SRB",
@@ -31,16 +32,20 @@ const COUNTRY = {
   Canada: "CAN", China: "CHN", Turkey: "TUR", Uzbekistan: "UZB", Iran: "IRI", Croatia: "CRO", Ecuador: "ECU", Kyrgyzstan: "KGZ",
   Tajikistan: "TJK", Myanmar: "MYA", Angola: "ANG", Aruba: "ARU", Poland: "POL", Spain: "ESP", Portugal: "POR", Ireland: "IRL",
   "Republic of Ireland": "IRL", Ukraine: "UKR", Moldova: "MDA", Armenia: "ARM", Chile: "CHI", Colombia: "COL", Ecuador_: "ECU",
-  Norway: "NOR", Denmark: "DEN", Finland: "FIN", Switzerland: "SUI", Philippines: "PHI", Thailand: "THA", "Dagestan": "RUS",
+  Norway: "NOR", Denmark: "DEN", Finland: "FIN", Switzerland: "SUI", Philippines: "PHI", Thailand: "THA", "Dagestan": "RUS", "United Arab Emirates": "UAE", Morocco: "MAR", Algeria: "ALG", Tunisia: "TUN", Senegal: "SEN", "DR Congo": "COD",
+  "Democratic Republic of the Congo": "COD", Nigeria: "NGR", "South Africa": "RSA", Rwanda: "RWA", Egypt: "EGY", Jordan: "JOR", Lebanon: "LBN",
+  Chechnya: "RUS", Belarus: "BLR", Romania: "ROU", Bulgaria: "BUL", Greece: "GRE", Latvia: "LAT", Estonia: "EST", Mongolia: "MGL", Afghanistan: "AFG",
+  Guyana: "GUY", "Cuba": "CUB", "Dominican Republic": "DOM", "Puerto Rico": "PUR", Haiti: "HAI", Suriname: "SUR", "Ivory Coast": "CIV", Ghana: "GHA",
 };
 function tzFor(city, country) {
   const c = `${city} ${country}`;
   if (/Las Vegas|Nevada|Glendale|Phoenix|Seattle|Sacramento|Los Angeles|Anaheim|San Diego/.test(c)) return "America/Los_Angeles";
   if (/Denver|Salt Lake/.test(c)) return "America/Denver";
-  if (/Chicago|Nashville|Houston|Dallas|San Antonio|Kansas|Oklahoma|Austin|Milwaukee/.test(c)) return "America/Chicago";
+  if (/Chicago|Nashville|Houston|Dallas|San Antonio|Kansas|Oklahoma|Austin|Milwaukee|Texas|South Dakota|Illinois|Tennessee|Minnesota|Iowa|Wisconsin|Louisiana|Missouri/.test(c)) return "America/Chicago";
   if (/United States/.test(c)) return "America/New_York";
   const T = { Qatar: "Asia/Qatar", "United Arab Emirates": "Asia/Dubai", "Saudi Arabia": "Asia/Riyadh", Australia: "Australia/Sydney",
-    France: "Europe/Paris", "United Kingdom": "Europe/London", England: "Europe/London", Canada: "America/Toronto", Brazil: "America/Sao_Paulo",
+    France: "Europe/Paris", "United Kingdom": "Europe/London", England: "Europe/London", Scotland: "Europe/London", Wales: "Europe/London", "Northern Ireland": "Europe/London",
+    Ireland: "Europe/Dublin", Belgium: "Europe/Brussels", Spain: "Europe/Madrid", Germany: "Europe/Berlin", Italy: "Europe/Rome", Netherlands: "Europe/Amsterdam", Poland: "Europe/Warsaw", Canada: "America/Toronto", Brazil: "America/Sao_Paulo",
     Mexico: "America/Mexico_City", China: "Asia/Shanghai", Macau: "Asia/Macau", Azerbaijan: "Asia/Baku", Singapore: "Asia/Singapore", Japan: "Asia/Tokyo" };
   for (const k in T) if (c.includes(k)) return T[k];
   return "America/New_York";
@@ -78,39 +83,48 @@ function localToUtc(dateIso, hhmm, tz) {
 
 /* ---------- Combattants (nationalité, record) ---------- */
 async function fighters() {
-  const $ = await page("List of current UFC fighters");
   const map = {};
-  if (!$) return map;
+  for (const list of ["List of current UFC fighters", "List of current PFL fighters"]) {
+  const $ = await page(list);
+  if (!$) continue;
   $("table tr").each((_, tr) => {
     const td = $(tr).find("td");
     if (td.length < 8) return;
-    const name = cell($, td[1]).replace(/\s*\((c|ic)\)$/, "");
+    const name = cell($, td[1]).replace(/\s*\((c|ic)\)$/i, "");
     if (!name || /^\d/.test(name)) return;
     const f = $(td[0]);
     let country = f.find("a").attr("title") || f.find("img").attr("alt") || "";
     if (!country) { const src = f.find("img").attr("src") || ""; const m = src.match(/Flag_of_(?:the_)?([^./]+)/); if (m) country = decodeURIComponent(m[1]).replace(/_/g, " "); }
     const recm = cell($, td[td.length - 1]).match(/^(\d+)\s*[–-]\s*(\d+)(?:\s*[–-]\s*(\d+))?/);
-    map[name] = { nat: COUNTRY[country] || country || "", rec: recm ? [+recm[1], +recm[2], +(recm[3] || 0)] : null };
+    if (!map[name]) map[name] = { nat: COUNTRY[country] || country || "", rec: recm ? [+recm[1], +recm[2], +(recm[3] || 0)] : null };
   });
+  }
   console.log(`Combattants : ${Object.keys(map).length}`);
   return map;
 }
 
 /* ---------- Liste des soirées ---------- */
 function parseDate(s) { const t = Date.parse(s + " 12:00 UTC"); return isNaN(t) ? null : new Date(t).toISOString().slice(0, 10); }
+const PFL_TITLES = new Set();
+const pairKey = (a, b) => [a, b].map((s) => s.replace(/\s*\((c|ic)\)/gi, "").trim()).sort().join("|");
 async function eventList() {
   const out = [];
-  for (const year of [2026, 2027]) {
-    const $ = await page(`${year} in UFC`);
+  for (const [org, year] of [["UFC", 2026], ["UFC", 2027], ["PFL", 2026], ["PFL", 2027]]) {
+    const $ = await page(org === "UFC" ? `${year} in UFC` : `${year} in Professional Fighters League`);
     if (!$) continue;
     $("table").each((_, t) => {
+      if (org === "PFL" && /^Title fights/.test(cell($, $(t).find("tr").first()))) {
+        $(t).find("tr").each((_, tr) => { const c = $(tr).find("td,th").map((_, x) => cell($, x)).get(); if (/^(vs\.|def\.)/.test(c[2] || "")) PFL_TITLES.add(pairKey(c[1], c[3])); });
+        return;
+      }
       const head = $(t).find("tr").first().find("th").map((_, th) => cell($, th)).get();
       const iEv = head.indexOf("Event"), iDate = head.indexOf("Date");
       if (iEv < 0 || iDate < 0) return;
       $(t).find("tr").slice(1).each((_, tr) => {
         const c = $(tr).find("td,th").map((_, x) => cell($, x)).get();
         const name = c[iEv], date = parseDate(c[iDate] || "");
-        if (name && date && /^UFC/.test(name)) out.push({ name, date });
+        // PFL : seulement les grandes soirées « Ville: A vs. B » (pas les ligues régionales Africa / MENA)
+        if (name && date && (org === "UFC" ? /^UFC/.test(name) : /^PFL [^:]+:.+ vs\.? /.test(name) && !/^PFL (Africa|MENA)/.test(name))) out.push({ name, date, org });
       });
     });
   }
@@ -151,7 +165,10 @@ async function eventPage(name) {
   });
   if (!fights.length) return { title, info, fights };
   const main = fights.filter((f) => f.s === "main");
-  fights.forEach((f) => { f.r = f.title || f === main[0] ? 5 : 3; });
+  fights.forEach((f) => {
+    if (!f.title && PFL_TITLES.has(pairKey(f.a.n, f.b.n))) f.title = `Titre ${f.w}`;
+    f.r = f.title || (f === main[0] && !/^PFL/.test(name)) ? 5 : 3;
+  });
   return { title, info, fights };
 }
 
@@ -171,25 +188,29 @@ for (const e of list) {
   const vs = e.name.match(/:\s*(.+?)\s+vs\.?\s+(.+)$/);
   const cityFull = p?.info.City || "", venue = p?.info.Venue || "";
   const parts = cityFull.split(",").map((s) => s.trim());
-  const city = (parts[0] || "").replace(/ City$/, "").replace(/^(Enterprise|Paradise|Winchester)$/, "Las Vegas"), country = parts[parts.length - 1] || "";
+  const city = (parts[0] || "").replace(/ City$/, "").replace(/^(Enterprise|Paradise|Winchester)$/, "Las Vegas").replace(/^Décines-Charpieu$/, "Lyon").replace(/^Moon Township$/, "Pittsburgh").replace(/^Elmont$/, "New York"), country = parts[parts.length - 1] || "";
   const date = (p?.info.Date || "").match(/\((\d{4}-\d{2}-\d{2})\)/)?.[1] || e.date;
+  const pfl = e.org === "PFL";
+  const label = pfl ? e.name.split(":")[0] : num ? `UFC ${num[1]}` : "UFC Fight Night";
   if (!p || !p.fights.length || !vs) {
-    agenda.push({ sport: "mma", date, name: vs ? `${vs[1]} vs ${vs[2]}` : "Affiche à annoncer", org: `${num ? `UFC ${num[1]}` : "UFC Fight Night"}${city ? " · " + city : ""}` });
+    agenda.push({ sport: "mma", date, name: vs ? `${vs[1]} vs ${vs[2]}` : "Affiche à annoncer", org: `${pfl ? "PFL" : label}${city ? " · " + city : ""}` });
     continue;
   }
-  const id = num ? `ufc${num[1]}` : `fn-${[vs[1], vs[2]].map((s) => s.toLowerCase().normalize("NFD").replace(/[^a-z]/g, "")).join("-")}`;
+  const slug = [vs[1], vs[2]].map((s) => s.toLowerCase().normalize("NFD").replace(/[^a-z]/g, "")).join("-");
+  const id = num ? `ufc${num[1]}` : `${pfl ? "pfl" : "fn"}-${slug}`;
   const ov = overrides[id] || {};
   const tz = ov.tz || tzFor(cityFull, country);
   const hasEarly = p.fights.some((f) => f.s === "early");
   let segs, tbc = false;
   if (ov.segs) segs = ov.segs;
   else if (/United States/.test(country) || tz.startsWith("America/")) {
-    // Horaires habituels UFC aux États-Unis (heure de l'Est)
-    const H = num ? { early: "17:00", prelims: "19:00", main: "21:00" } : { early: "16:00", prelims: "17:00", main: "20:00" };
+    // Horaires habituels aux États-Unis (heure de l'Est), à confirmer pour la PFL
+    if (pfl) tbc = true;
+    const H = pfl ? { early: "17:00", prelims: "18:00", main: "21:00" } : num ? { early: "17:00", prelims: "19:00", main: "21:00" } : { early: "16:00", prelims: "17:00", main: "20:00" };
     segs = (hasEarly ? ["early", "prelims", "main"] : ["prelims", "main"]).map((k) => ({ k, t: localToUtc(date, H[k], "America/New_York") }));
   } else {
     // Hors États-Unis : main card vers 21h locales, à confirmer
-    const H = { early: "17:00", prelims: num ? "19:00" : "18:00", main: "21:00" };
+    const H = { early: "17:00", prelims: num ? "19:00" : "18:00", main: pfl ? "20:00" : "21:00" };
     segs = (hasEarly ? ["early", "prelims", "main"] : ["prelims", "main"]).map((k) => ({ k, t: localToUtc(date, H[k], tz) }));
     tbc = true;
   }
@@ -217,7 +238,7 @@ for (const e of list) {
     return o;
   });
   events.push({
-    id, name: num ? `UFC ${num[1]}` : "UFC Fight Night", a: vs[1].trim(), b: vs[2].trim(),
+    id, org: pfl ? "PFL" : "UFC", name: label, a: vs[1].trim().replace(/ \d+$/, ""), b: vs[2].trim().replace(/ \d+$/, ""),
     venue, city, tz, ...(tbc ? { tbc: 1 } : {}), segs, fights, wiki: p.title,
   });
   console.log(`  ${id} : ${fights.length} combats, ${fights.filter((f) => f.res).length} résultats`);

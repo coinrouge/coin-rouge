@@ -883,7 +883,8 @@ function heroEvent(t,pool=EVENTS){const nxt=pool.filter(e=>t<e.end);return nxt.f
 function flag(p){return p.fr?'<span class="fra" title="Français" aria-label="Français"><i></i><i></i><i></i></span>':'';}
 function nameHTML(p,side){
   const s=p.star?'<span class="star" aria-label="star">★</span>':'';
-  return `${esc(splitName(p).last)}${flag(p)}${s}`;
+  /* Côté droit : drapeau et étoile du côté intérieur, à gauche du nom */
+  return side==="b"?`${s}${flag(p)}${esc(splitName(p).last)}`:`${esc(splitName(p).last)}${flag(p)}${s}`;
 }
 /* Prénom à part, pour que le nom de famille, l'étoile et le cœur restent sur la même ligne */
 function splitName(p){

@@ -57,6 +57,7 @@ button,input,select{font:inherit;color:inherit}
 .rdsvg .rdot{fill:currentColor;stroke:none}
 .rdpill{display:inline-flex;align-items:center;gap:5px;font-family:var(--f-data);font-weight:700;font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:1px 7px;border-radius:3px;border:1px solid #C8102E;color:#C8102E;margin-right:4px;vertical-align:1px}
 .rdpill .rdsvg{width:11px;height:11px}
+.calname .rdpill{margin:0 0 0 8px;vertical-align:3px}
 .rdi{display:inline-flex;margin-left:6px;color:#C8102E;vertical-align:-1px}
 .rdi .rdsvg{width:13px;height:13px}
 :root[data-theme="dark"] .rdpill,:root[data-theme="dark"] .rdi{color:#FF5468;border-color:#FF5468}
@@ -1199,14 +1200,14 @@ function vsHTML(x){
   const st=on=>on?'<span class="vstar" title="Star" aria-label="star">★</span>':"";
   /* Une seule étoile, en fin de ligne, s'il y a au moins une vedette */
   const rd=!x.noRd&&(x.frA||x.frB||x.fr)?`<span class="rdi" title="Radar francophone" aria-label="Radar francophone">${RADAR_SVG}</span>`:"";
-  return `${esc(a)}${fl(x.frA)} vs ${esc(b)}${fl(x.frB)}${fl(x.fr)}${st(x.stA||x.stB)}${rd}`;
+  return `${esc(a)}${fl(x.frA)} vs ${esc(b)}${fl(x.frB)}${fl(x.fr)}${x.noSt?"":st(x.stA||x.stB)}${rd}`;
 }
 function agenda(t){
   const items=agendaItems(t);
   const shown=items.slice(0,8);
   document.getElementById("agenda").innerHTML=shown.map(x=>`<li class="${x.sport}">
     <span class="agd">${new Intl.DateTimeFormat("fr-FR",{timeZone:tz,day:"numeric",month:"short"}).format(x.ts).replace(".","")}</span>
-    <span class="agt">${x.id?`<a href="#ev-${x.id}">${vsHTML(x)}</a>`:vsHTML(x)}<small>${esc(x.org)}${x.note?" · "+esc(x.note):""}</small></span>
+    <span class="agt">${x.id?`<a href="#ev-${x.id}">${vsHTML({...x,noRd:1})}</a>`:vsHTML({...x,noRd:1})}<small>${esc(x.org)}${x.note?" · "+esc(x.note):""}</small></span>
     <span class="ags">${x.sport==="boxe"?"Boxe":"MMA"}</span></li>`).join("")||`<li class="agnone">Aucun événement à venir.</li>`;
   document.getElementById("agmore").textContent=`Calendrier complet · ${items.length} événements`;
 }
@@ -1222,7 +1223,7 @@ function calHTML(t){
     const wd=new Intl.DateTimeFormat("fr-FR",{timeZone:tz,weekday:"short"}).format(x.ts).replace(".","");
     return `<li class="calrow ${x.sport}">
       <div class="cald"><b>${dayN(x.ts)}</b><small>${wd}</small></div>
-      <div class="calt"><span class="calname">${vsHTML(x)}<span class="ags calsp">${x.sport==="boxe"?"Boxe":"MMA"}</span></span><span class="calorg">${esc(x.org)}${x.note?" · "+esc(x.note):""}</span><span class="calh">${main?`Main card <b>${fmtT(Date.parse(main.t))}</b>${ev.tbc?" <em>à confirmer</em>":""}`:"Horaire à confirmer"}</span></div>
+      <div class="calt"><span class="calname">${vsHTML({...x,noRd:1,noSt:1})}<span class="ags calsp">${x.sport==="boxe"?"Boxe":"MMA"}</span>${x.frA||x.frB||x.fr?`<span class="rdl rdpill">${RADAR_SVG}Radar francophone</span>`:""}${x.stA||x.stB?'<span class="vstar" title="Star">★</span>':""}</span><span class="calorg">${esc(x.org)}${x.note?" · "+esc(x.note):""}</span><span class="calh">${main?`Main card <b>${fmtT(Date.parse(main.t))}</b>${ev.tbc?" <em>à confirmer</em>":""}`:"Horaire à confirmer"}</span></div>
       <div class="cals">${x.id?`<a class="calgo" href="#ev-${x.id}">Fight card →</a>`:""}</div>
     </li>`;
   };

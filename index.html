@@ -1340,7 +1340,7 @@ const STARS=new Set(EVENTS.flatMap(e=>e.fights.flatMap(f=>[f.a,f.b])).filter(p=>
  /* Boxe */
  "Canelo Álvarez","Tyson Fury","Anthony Joshua","Oleksandr Usyk","Naoya Inoue","Terence Crawford","Dmitry Bivol","Artur Beterbiev","Gervonta Davis","Shakur Stevenson","Devin Haney","Ryan Garcia","Jake Paul","Deontay Wilder","David Benavidez","Jaime Munguía","Agit Kabayel","Daniel Dubois","Jai Opetaia","Junto Nakatani","Teofimo Lopez","Errol Spence Jr.","Vasiliy Lomachenko","Christian M'billi","Tony Yoka"].forEach(n=>STARS.add(n));
 /* Jamais vedette, même champion (choix de Manuel) */
-const NOSTAR=new Set(["Vadim Nemkov"]);;
+const NOSTAR=new Set([]);;
 fetch("data/events.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=>{
   if(!d||!Array.isArray(d.events)||!d.events.length) return;
   const past=EVENTS.filter(e=>!d.events.some(x=>x.id===e.id)&&e.fights.some(f=>f.res));

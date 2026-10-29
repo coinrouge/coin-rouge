@@ -6,7 +6,7 @@
    18,
    1
   ],
-  "v": 2
+  "v": 3
  },
  "Court McGee": {
   "nat": "USA",
@@ -15,7 +15,7 @@
    15,
    0
   ],
-  "v": 2
+  "v": 3
  },
  "Loopy Godínez": {
   "nat": "",
@@ -24,7 +24,7 @@
    6,
    0
   ],
-  "v": 2
+  "v": 3
  },
  "Gerald Meerschaert": {
   "nat": "USA",
@@ -33,7 +33,7 @@
    23,
    0
   ],
-  "v": 2
+  "v": 3
  },
  "Ismael Bonfim": null,
  "Niko Price": {
@@ -43,7 +43,7 @@
    11,
    0
   ],
-  "v": 2
+  "v": 3
  },
  "Gabriel Braga": null,
  "Oualy Tandia": null,
@@ -60,7 +60,7 @@
    0,
    0
   ],
-  "v": 2
+  "v": 3
  },
  "Marcos Degli": null,
  "Jonny Parsons": null,
@@ -71,7 +71,7 @@
    5,
    0
   ],
-  "v": 2
+  "v": 3
  },
  "Abubakar Nurmagomedov": {
   "nat": "RUS",
@@ -80,7 +80,7 @@
    4,
    1
   ],
-  "v": 2
+  "v": 3
  },
  "Joji Goto": null,
  "Shaqueme Rock": null,
@@ -100,7 +100,17 @@
    1,
    0
   ],
-  "v": 2
+  "v": 3
  },
- "Mauricio Partida": null
+ "Mauricio Partida": null,
+ "Natália Silva": null,
+ "Kayla Harrison": {
+  "nat": "USA",
+  "rec": [
+   19,
+   1,
+   0
+  ],
+  "v": 3
+ }
 }

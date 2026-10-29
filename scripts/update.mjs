@@ -107,8 +107,8 @@ async function fighters() {
 const cacheFile = new URL("../data/fighters-cache.json", import.meta.url);
 const cache = JSON.parse(await readFile(cacheFile, "utf8").catch(() => "{}"));
 async function lookup(name, roster) {
-  if (roster[name]) return roster[name];
-  if (name in cache && (cache[name] === null || cache[name].v === 2)) return cache[name];
+  if (roster[name]?.nat) return roster[name];
+  if (name in cache && (cache[name] === null || cache[name].v === 3)) return cache[name];
   let out = null;
   const $ = await page(name);
   if ($ && /mixed martial art/i.test($("p").slice(0, 3).text())) {
@@ -122,7 +122,8 @@ async function lookup(name, roster) {
     for (const k of [...Object.keys(COUNTRY), ...Object.keys(DEMONYM)]) if (new RegExp(`(^|[^A-Za-z])${k.replace(/[.()]/g, "\\$&")}([^A-Za-z]|$)`).test(raw)) { nat = COUNTRY[k] || DEMONYM[k]; break; }
     const n = (k) => +((info[k] || "").match(/^\d+/) || [0])[0];
     const rec = info.Total ? [n("Wins"), n("Losses"), n("Draws")] : null;
-    out = { nat, rec, v: 2 };
+    if (!nat) console.log(`  nationalité inconnue : ${name} ← ${JSON.stringify({ N: info.Nationality, C: info.Citizenship, B: info.Born })}`);
+    out = { nat, rec, v: 3 };
   }
   cache[name] = out;
   return out;
@@ -242,7 +243,7 @@ for (const e of list) {
   }
   if (ov.tbc !== undefined) tbc = ov.tbc;
   for (const [n, nat] of Object.entries(overrides._nat || {})) roster[n] = { ...(roster[n] || {}), nat };
-  for (const f of p.fights) for (const x of [f.a, f.b]) if (!roster[x.n] && x.n !== "TBA") { const r = await lookup(x.n, roster); if (r) roster[x.n] = r; }
+  for (const f of p.fights) for (const x of [f.a, f.b]) if (!roster[x.n]?.nat && x.n !== "TBA") { const r = await lookup(x.n, roster); if (r) roster[x.n] = { ...roster[x.n], ...r, nat: r.nat || roster[x.n]?.nat || "", rec: roster[x.n]?.rec || r.rec }; }
   const person = (x, res, mine) => {
     const r = roster[x.n];
     let rec = r?.rec ? [...r.rec] : null;

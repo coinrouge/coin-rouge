@@ -49,6 +49,8 @@ button,input,select{font:inherit;color:inherit}
 .brand{font-family:var(--f-display);font-weight:900;font-size:clamp(34px,7vw,52px);line-height:.9;letter-spacing:.01em;text-transform:uppercase;margin:0}
 .brand span{color:var(--red)}
 .homelink{color:inherit;text-decoration:none}
+.sumlink{color:inherit;text-decoration:none}
+.sumlink:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
 .homelink:hover span{text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:4px}
 .dbrand{font-family:var(--f-display);font-weight:900;font-size:22px;line-height:1;text-transform:uppercase;color:var(--ink);text-decoration:none;letter-spacing:.01em}
 .dbrand span{color:#C8102E}
@@ -1180,7 +1182,7 @@ function evItem(e,t,openIds,isPast){
   const fr=e.fights.some(f=>f.a.fr||f.b.fr);
   return `<details class="ev ${evCls(e)}${isPast?" past":""}" data-id="${e.id}" ${openIds.includes(e.id)||anyHit?"open":""}>
       <summary><div class="dt"><b>${dayN(e.start)}</b><small>${monS(e.start)}</small></div>
-      <div><div class="sum-t">${vsHTML({name:`${e.a} vs ${e.b}`,frA:e.fights[0].a.fr,frB:e.fights[0].b.fr,fr:fr&&!e.fights[0].a.fr&&!e.fights[0].b.fr})}</div><div class="sum-m">${evBadge(e,1)} ${esc(e.venue)}, ${esc(e.city)} · ${isPast?"terminé":`début ${fmtT(e.start)}${e.tbc?" (à confirmer)":""}`}</div></div>
+      <div><div class="sum-t"><a class="sumlink" href="#ev-${e.id}" title="Ouvrir la carte complète">${vsHTML({name:`${e.a} vs ${e.b}`,frA:e.fights[0].a.fr,frB:e.fights[0].b.fr,fr:fr&&!e.fights[0].a.fr&&!e.fights[0].b.fr})}</a></div><div class="sum-m">${evBadge(e,1)} ${esc(e.venue)}, ${esc(e.city)} · ${isPast?"terminé":`début ${fmtT(e.start)}${e.tbc?" (à confirmer)":""}`}</div></div>
       <span class="chev" aria-hidden="true">▼</span></summary>
       <div class="inner">${schedHTML(e)}${cardHTML(e,t,{only:filter==="all"?"main":null})}${moreBtn(e,false)}</div></details>`;
 }

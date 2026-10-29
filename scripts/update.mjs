@@ -32,7 +32,7 @@ const COUNTRY = {
   Canada: "CAN", China: "CHN", Turkey: "TUR", Uzbekistan: "UZB", Iran: "IRI", Croatia: "CRO", Ecuador: "ECU", Kyrgyzstan: "KGZ",
   Tajikistan: "TJK", Myanmar: "MYA", Angola: "ANG", Aruba: "ARU", Poland: "POL", Spain: "ESP", Portugal: "POR", Ireland: "IRL",
   "Republic of Ireland": "IRL", Ukraine: "UKR", Moldova: "MDA", Armenia: "ARM", Chile: "CHI", Colombia: "COL", Ecuador_: "ECU",
-  Norway: "NOR", Denmark: "DEN", Finland: "FIN", Switzerland: "SUI", Philippines: "PHI", Thailand: "THA", "Dagestan": "RUS", "United Arab Emirates": "UAE", Morocco: "MAR", Algeria: "ALG", Tunisia: "TUN", Senegal: "SEN", "DR Congo": "COD",
+  Norway: "NOR", Denmark: "DEN", Finland: "FIN", Switzerland: "SUI", Philippines: "PHI", Thailand: "THA", "Dagestan": "RUS", "United Arab Emirates": "UAE", "Saudi Arabia": "KSA", Qatar: "QAT", Morocco: "MAR", Algeria: "ALG", Tunisia: "TUN", Senegal: "SEN", "DR Congo": "COD",
   "Democratic Republic of the Congo": "COD", Nigeria: "NGR", "South Africa": "RSA", Rwanda: "RWA", Egypt: "EGY", Jordan: "JOR", Lebanon: "LBN",
   Chechnya: "RUS", Belarus: "BLR", Romania: "ROU", Bulgaria: "BUL", Greece: "GRE", Latvia: "LAT", Estonia: "EST", Mongolia: "MGL", Afghanistan: "AFG",
   Guyana: "GUY", "Cuba": "CUB", "Dominican Republic": "DOM", "Puerto Rico": "PUR", Haiti: "HAI", Suriname: "SUR", "Ivory Coast": "CIV", Ghana: "GHA", Zambia: "ZAM", Kenya: "KEN", Uganda: "UGA",
@@ -268,7 +268,7 @@ for (const e of list) {
   });
   events.push({
     id, org: pfl ? "PFL" : "UFC", name: label, a: vs[1].trim().replace(/ \d+$/, ""), b: vs[2].trim().replace(/ \d+$/, ""),
-    venue, city, tz, ...(tbc ? { tbc: 1 } : {}), segs, fights, wiki: p.title,
+    venue, city, ...(COUNTRY[country] ? { ctry: COUNTRY[country] } : {}), tz, ...(tbc ? { tbc: 1 } : {}), segs, fights, wiki: p.title,
   });
   console.log(`  ${id} : ${fights.length} combats, ${fights.filter((f) => f.res).length} résultats`);
 }

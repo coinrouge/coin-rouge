@@ -180,6 +180,7 @@ a.nm:hover{text-decoration:underline;text-decoration-thickness:2px;text-underlin
 .mid .rd{display:block}
 .fra{display:inline-flex;height:11px;width:17px;border:1px solid var(--line);vertical-align:2px;margin:0 4px;flex:none}
 .fra i{flex:1}.fra i:nth-child(1){background:var(--fra-b)}.fra i:nth-child(2){background:#fff}.fra i:nth-child(3){background:var(--fra-r)}
+.fra.bel i:nth-child(1){background:#000}.fra.bel i:nth-child(2){background:#FDDA24}.fra.bel i:nth-child(3){background:#EF3340}
 .star{color:var(--gold);font-size:.8em;margin:0 3px}
 .note{grid-column:2;font-size:12px;color:var(--muted);margin-top:-4px}
 
@@ -303,6 +304,7 @@ h2.h::after{content:"";flex:1;height:1px;background:var(--line)}
   .time b{font-size:16px}
 }
 /* Combat avec un Français : bande tricolore et fond bleuté, visible même en préliminaires */
+.bouts .bout.fr.be{padding-left:24px;padding-right:12px;border-radius:4px;border-bottom-color:transparent;margin-block:4px;background:linear-gradient(90deg,#000 0 4px,#FDDA24 4px 8px,#EF3340 8px 12px,var(--fr-t) 12px)}
 .bouts .bout.fr{background:linear-gradient(90deg,#0055A4 0 4px,#FFFFFF 4px 8px,#EF4135 8px 12px,var(--fr-t) 12px);
   padding-left:24px;padding-right:12px;border-radius:4px;border-bottom-color:transparent;margin-block:4px}
 /* Correctif : l'affiche s'empile en colonne (la grille de .hero-top ne s'applique pas) */
@@ -647,7 +649,7 @@ details.ev summary:hover .chev{color:var(--ink)}
       </label>
       <div class="seg" role="group" aria-label="Filtrer">
         <button type="button" data-f="all" aria-pressed="true">Tout</button>
-        <button type="button" data-f="fr" aria-pressed="false">Français</button>
+        <button type="button" data-f="fr" aria-pressed="false">Francophones</button>
         <button type="button" data-f="fav" aria-pressed="false">Favoris</button>
       </div>
       <div class="gearwrap">
@@ -880,7 +882,13 @@ const now=()=> simOffset!=null ? simOffset : Date.now();
 
 function heroEvent(t,pool=EVENTS){const nxt=pool.filter(e=>t<e.end);return nxt.find(e=>t>=e.start) || nxt.find(e=>e.org!=="PFL"&&e.sport!=="boxe") || nxt[0] || null;}
 
-function flag(p){return p.fr?'<span class="fra" title="Français" aria-label="Français"><i></i><i></i><i></i></span>':'';}
+/* Francophones : Français et Belges (drapeau de leur pays) */
+function flag(p){return p.fr?(p.be?'<span class="fra bel" title="Belge" aria-label="Belge"><i></i><i></i><i></i></span>':'<span class="fra" title="Français" aria-label="Français"><i></i><i></i><i></i></span>'):'';}
+/* Belges comptés comme francophones ; liste d'exclusion pour les Belges néerlandophones */
+const NOT_FRANCO=new Set([]);
+/* Francophones belges cités par Manuel, au cas où ils apparaissent (boxe, kick-boxing) */
+const BE_EXTRA={"Yassine Boughanem":"BEL","Youssef Boughanem":"BEL"};
+function markFranco(p){const n=p.nat||NAT[p.n];if(n==="FRA")p.fr=1;else if(n==="BEL"&&!NOT_FRANCO.has(p.n)){p.fr=1;p.be=1;}return p;}
 function nameHTML(p,side){
   const s=p.star?'<span class="star" aria-label="star">★</span>':'';
   /* Côté droit : drapeau et étoile du côté intérieur, à gauche du nom */
@@ -985,6 +993,7 @@ function hostFlag(ev){const c=ev.ctry||TZC[ev.tz];return c&&FLAGS[c]?`<span clas
 FLAGS.IDN='<rect width="30" height="10" fill="#CE1126"/><rect y="10" width="30" height="10" fill="#fff"/>';CTRY.IDN="Indonésie";
 Object.assign(NAT,{"Alexander Volkanovski":"AUS","Movsar Evloev":"RUS","Merab Dvalishvili":"GEO","Petr Yan":"RUS","Lone'er Kavanagh":"GBR","Alexander Volkov":"RUS","Aaron Pico":"USA","Dominick Reyes":"USA","Azamat Murzakanov":"RUS","Cam Rowston":"AUS","Grant Dawson":"USA","Colby Thicknesse":"AUS","Jacob Malkoun":"AUS","Daniel Santos":"BRA","Kody Steele":"USA","Iasmin Lucindo":"BRA","Nicolle Caliari":"BRA"});
 Object.assign(NAT,{"Ode Osbourne":"JAM","Cody Durden":"USA","Zach Reese":"USA","Mickey Gall":"USA","Gabriel Lourenço":"BRA","José Delano":"BRA","Murtazali Magomedov":"RUS","César Almeida":"BRA","Evan Elder":"USA","Samuel Sanches":"BRA","Tahir Abdullayev":"AZE","Seokhyeon Ko":"KOR","José Souza":"BRA","Lucas Fernando":"BRA","Bilal Hasan":"IDN","Andre Petroski":"USA"});
+Object.assign(NAT,BE_EXTRA);
 Object.assign(NAT,{"Salahdine Parnasse": "FRA", "Benoît Saint-Denis": "FRA", "Nassourdine Imavov": "FRA", "Manon Fiorot": "FRA", "Morgan Charrière": "FRA", "Farès Ziam": "FRA", "Axel Sola": "FRA", "William Gomis": "FRA", "Yanis Ghemmouri": "FRA", "Kevin Jousset": "FRA", "Nora Cornolle": "FRA", "Oumar Sy": "FRA", "Ange Loosa": "FRA", "Taylor Lapilus": "FRA", "Cédric Doumbè": "FRA", "Bafodé Gassama": "FRA", "Islam Makhachev": "RUS", "Tom Aspinall": "GBR", "Jon Jones": "USA", "Sean Strickland": "USA", "Merab Dvalishvili": "GEO", "Petr Yan": "RUS", "Alexander Volkanovski": "AUS", "Movsar Evloev": "RUS", "Max Holloway": "USA", "Justin Gaethje": "USA", "Paddy Pimblett": "GBR", "Sean O'Malley": "USA", "Alexandre Pantoja": "BRA", "Jack Della Maddalena": "AUS", "Belal Muhammad": "USA", "Leon Edwards": "GBR", "Kamaru Usman": "USA", "Magomed Ankalaev": "RUS", "Carlos Ulberg": "NZL", "Israel Adesanya": "NZL", "Robert Whittaker": "AUS", "Michael Chandler": "USA", "Shavkat Rakhmonov": "KAZ", "Umar Nurmagomedov": "RUS", "Natalia Silva": "BRA", "Julianna Peña": "USA", "Raquel Pennington": "USA", "Rose Namajunas": "USA", "Mackenzie Dern": "USA", "Jean Silva": "BRA", "Carlos Prates": "BRA", "Reinier de Ridder": "NED", "Brendan Allen": "USA", "Anthony Hernandez": "USA", "Jailton Almeida": "BRA", "Curtis Blaydes": "USA", "Derrick Lewis": "USA", "Rafael Fiziev": "AZE", "Mauricio Ruffy": "BRA", "Lerone Murphy": "GBR", "Brandon Royval": "USA", "Kai Kara-France": "NZL", "Tatsuro Taira": "JPN", "Payton Talbott": "USA", "Cory Sandhagen": "USA", "Deiveson Figueiredo": "BRA"});
 /* Annuaire complet (UFC, PFL, champions de boxe) chargé avec les données : nom → {nat, rec, sp} */
 const DIR=new Map();
@@ -1061,7 +1070,7 @@ function boutHTML(f,t,detail,total,me,ev,spoilOK){
   const fv=isFav(f.a.n)||isFav(f.b.n);
   const sf=!me&&!fv&&(f.a.star||f.b.star);
   const favLabel=`<span class="fvl">♥ Favori</span>`;
-  return `<div class="bout ${me?"me":""} ${sf?"starf":""} ${fv&&!me?"favf":""} ${fv?"hasfav":""} ${cls==="now"?"now":""} ${hits(f)?"hl":""} ${f.a.fr||f.b.fr?"fr":""}">
+  return `<div class="bout ${me?"me":""} ${sf?"starf":""} ${fv&&!me?"favf":""} ${fv?"hasfav":""} ${cls==="now"?"now":""} ${hits(f)?"hl":""} ${f.a.fr||f.b.fr?(f.a.be&&!f.b.fr||f.b.be&&!f.a.fr||f.a.be&&f.b.be?"fr be":"fr"):""}">
     ${me?`<div class="melabel"><span>Main event</span>${fv?favLabel:""}${f.r===5?"<em>5 rounds</em>":""}</div>`:""}
     ${fv&&!me?`<div class="melabel fl">${favLabel}${f.a.star||f.b.star?'<span class="slc">★ Combat vedette</span>':""}</div>`:""}
     ${sf?`<div class="melabel sl"><span>★ Combat vedette</span>${f.title?`<em>${esc(f.title)}</em>`:""}</div>`:""}
@@ -1104,7 +1113,7 @@ function render(){
   const heroEl=document.getElementById("hero");
   const othersEl=document.getElementById("others");
   if(!ev){
-    heroEl.innerHTML=sport==="boxe"?`<div class="none"><b>Pas encore de fight card de boxe détaillée</b><span>Les prochains galas de boxe sont listés dans « À venir ». Leurs cartes complètes arriveront avec la source de données automatique.</span></div>`:`<div class="none"><b>${filter==="fr"?"Aucun Français programmé":filter==="fav"?(FAVS.length?"Aucun favori programmé":"Pas encore de favoris"):"Aucune star programmée"}</b><span>${filter==="fr"?"Aucune des soirées UFC annoncées n'a de combattant français pour l'instant. Repasse sur « Tout » pour voir le radar tricolore, qui suit ceux qui pourraient être programmés.":filter==="fav"?(FAVS.length?"Aucun de tes combattants favoris n'est annoncé sur une soirée à venir.":"Repasse sur « Tout » et touche le cœur à côté d'un combattant pour l'ajouter."):"Aucune soirée annoncée ne correspond à ce filtre."}</span></div>`;
+    heroEl.innerHTML=sport==="boxe"?`<div class="none"><b>Pas encore de fight card de boxe détaillée</b><span>Les prochains galas de boxe sont listés dans « À venir ». Leurs cartes complètes arriveront avec la source de données automatique.</span></div>`:`<div class="none"><b>${filter==="fr"?"Aucun francophone programmé":filter==="fav"?(FAVS.length?"Aucun favori programmé":"Pas encore de favoris"):"Aucune star programmée"}</b><span>${filter==="fr"?"Aucune des soirées UFC annoncées n'a de combattant francophone pour l'instant. Repasse sur « Tout » pour voir le radar tricolore, qui suit ceux qui pourraient être programmés.":filter==="fav"?(FAVS.length?"Aucun de tes combattants favoris n'est annoncé sur une soirée à venir.":"Repasse sur « Tout » et touche le cœur à côté d'un combattant pour l'ajouter."):"Aucune soirée annoncée ne correspond à ce filtre."}</span></div>`;
     othersEl.innerHTML=`<div class="empty">Rien à afficher avec ce filtre.</div>`;
     document.getElementById("pastsec").hidden=true;
     findBox(t); favs(t); radar(); renderDetail(t); return;
@@ -1118,7 +1127,7 @@ function render(){
   document.getElementById("hero").innerHTML=`
     <a class="hero-top poster" href="#ev-${ev.id}" aria-label="Voir la fight card complète : ${esc(ev.a)} contre ${esc(ev.b)}">
       <div class="ptop">
-        <div class="eyebrow">${live?'<span class="pill live">En direct</span>':`<span class="pill next">${filter==="fr"?"Prochaine soirée avec un Français":filter==="star"?"Prochaine soirée avec des stars":filter==="fav"?"Prochaine soirée avec un favori":"Prochaine soirée"}</span>`}${evBadge(ev)}${mainF.title?`<span style="color:var(--gold)">${esc(mainF.title)}</span>`:""}</div>
+        <div class="eyebrow">${live?'<span class="pill live">En direct</span>':`<span class="pill next">${filter==="fr"?"Prochaine soirée avec un francophone":filter==="star"?"Prochaine soirée avec des stars":filter==="fav"?"Prochaine soirée avec un favori":"Prochaine soirée"}</span>`}${evBadge(ev)}${mainF.title?`<span style="color:var(--gold)">${esc(mainF.title)}</span>`:""}</div>
       </div>
       <h2 class="pduel">
         ${posterSide(mainF.a,"red")}
@@ -1142,7 +1151,7 @@ function render(){
 
   const others=pool.filter(e=>e!==ev);
   const openIds=[...document.querySelectorAll("details.ev[open]")].map(d=>d.dataset.id);
-  document.getElementById("others").innerHTML=others.map(e=>evItem(e,t,openIds)).join("") || `<div class="empty">Aucune autre soirée ${filter==="fr"?"avec un Français":filter==="star"?"avec des stars":filter==="fav"?"avec un favori":""} annoncée pour l'instant.</div>`;
+  document.getElementById("others").innerHTML=others.map(e=>evItem(e,t,openIds)).join("") || `<div class="empty">Aucune autre soirée ${filter==="fr"?"avec un francophone":filter==="star"?"avec des stars":filter==="fav"?"avec un favori":""} annoncée pour l'instant.</div>`;
   /* Soirées passées (30 derniers jours) : résultats visibles seulement en mode Spoil */
   const past=EVENTS.filter(e=>sport!=="boxe"&&t>=e.end&&t-e.end<30*864e5&&(filter==="all"||e.fights.some(match))).sort((a,b)=>b.start-a.start);
   document.getElementById("pastsec").hidden=!past.length;
@@ -1156,17 +1165,18 @@ function render(){
 const SPORTLBL={all:"MMA + Boxe",mma:"MMA",boxe:"Boxe"};
 function agendaItems(t){
   return [
-    ...EVENTS.filter(e=>t<e.end).map(e=>({sport:e.sport||"mma",ts:e.start,name:`${e.a} vs ${e.b}`,org:`${e.name} · ${e.city}`,id:e.id,frA:e.fights[0].a.fr,frB:e.fights[0].b.fr,stA:e.fights[0].a.star,stB:e.fights[0].b.star,fr:!e.fights[0].a.fr&&!e.fights[0].b.fr&&e.fights.some(f=>f.a.fr||f.b.fr)})),
+    ...EVENTS.filter(e=>t<e.end).map(e=>({sport:e.sport||"mma",ts:e.start,name:`${e.a} vs ${e.b}`,org:`${e.name} · ${e.city}`,id:e.id,frA:e.fights[0].a.fr&&(e.fights[0].a.be?2:1),frB:e.fights[0].b.fr&&(e.fights[0].b.be?2:1),stA:e.fights[0].a.star,stB:e.fights[0].b.star,fr:!e.fights[0].a.fr&&!e.fights[0].b.fr&&e.fights.some(f=>f.a.fr||f.b.fr)&&(e.fights.some(f=>f.a.fr&&!f.a.be||f.b.fr&&!f.b.be)?1:2)})),
     ...AGENDA.map(a=>({...a,ts:Date.parse(a.date+"T20:00:00Z")})).filter(a=>a.ts>t-864e5)
   ].filter(x=>sport==="all"||x.sport===sport).sort((a,b)=>a.ts-b.ts);
 }
 /* Titre « A vs B » avec le drapeau juste après le nom du Français */
 function vsHTML(x){
   const [a,b]=x.name.split(" vs ");
-  if(b===undefined) return esc(x.name)+(x.fr?flag({fr:1}):"");
+  const fl=v=>v?flag({fr:1,be:v===2}):"";
+  if(b===undefined) return esc(x.name)+fl(x.fr);
   const st=on=>on?'<span class="vstar" title="Star" aria-label="star">★</span>':"";
   /* Une seule étoile, en fin de ligne, s'il y a au moins une vedette */
-  return `${esc(a)}${x.frA?flag({fr:1}):""} vs ${esc(b)}${x.frB?flag({fr:1}):""}${x.fr?flag({fr:1}):""}${st(x.stA||x.stB)}`;
+  return `${esc(a)}${fl(x.frA)} vs ${esc(b)}${fl(x.frB)}${fl(x.fr)}${st(x.stA||x.stB)}`;
 }
 function agenda(t){
   const items=agendaItems(t);
@@ -1204,7 +1214,7 @@ function evItem(e,t,openIds,isPast){
   const fr=e.fights.some(f=>f.a.fr||f.b.fr);
   return `<details class="ev ${evCls(e)}${isPast?" past":""}" data-id="${e.id}" ${openIds.includes(e.id)||anyHit?"open":""}>
       <summary><div class="dt"><b>${dayN(e.start)}</b><small>${monS(e.start)}</small></div>
-      <div><div class="sum-t"><a class="sumlink" href="#ev-${e.id}" title="Ouvrir la carte complète">${vsHTML({name:`${e.a} vs ${e.b}`,frA:e.fights[0].a.fr,frB:e.fights[0].b.fr,stA:e.fights[0].a.star,stB:e.fights[0].b.star,fr:fr&&!e.fights[0].a.fr&&!e.fights[0].b.fr})}</a></div><div class="sum-m">${evBadge(e,1)} ${esc(e.venue)}, ${esc(e.city)} · ${isPast?"terminé":`début ${fmtT(e.start)}${e.tbc?" (à confirmer)":""}`}</div></div>
+      <div><div class="sum-t"><a class="sumlink" href="#ev-${e.id}" title="Ouvrir la carte complète">${vsHTML({name:`${e.a} vs ${e.b}`,frA:e.fights[0].a.fr&&(e.fights[0].a.be?2:1),frB:e.fights[0].b.fr&&(e.fights[0].b.be?2:1),stA:e.fights[0].a.star,stB:e.fights[0].b.star,fr:fr&&!e.fights[0].a.fr&&!e.fights[0].b.fr&&(e.fights.some(f=>f.a.fr&&!f.a.be||f.b.fr&&!f.b.be)?1:2)})}</a></div><div class="sum-m">${evBadge(e,1)} ${esc(e.venue)}, ${esc(e.city)} · ${isPast?"terminé":`début ${fmtT(e.start)}${e.tbc?" (à confirmer)":""}`}</div></div>
       <span class="chev" aria-hidden="true">▼</span></summary>
       <div class="inner">${schedHTML(e)}${cardHTML(e,t,{only:filter==="all"?"main":null})}${moreBtn(e,false)}</div></details>`;
 }
@@ -1225,7 +1235,7 @@ function findBox(t){
     const withFight=new Set(res.flatMap(({f})=>[f.a.n,f.b.n]));
     const seenN=new Set([...withFight].map(norm));
     const more=[...allFighters().keys()].filter(n=>{const k=norm(n);if(seenN.has(k)||!nameHit(n,query))return false;seenN.add(k);return true;}).slice(0,Math.max(0,8-res.length));
-    fd.innerHTML+=more.map(n=>{const d=DIR.get(n)||{};const nat=NAT[n]||d.nat;return `<div class="hit">${favBtn({n})}<span><b>${esc(n)}</b>${nat==="FRA"?flag({fr:1}):""}${d.rec?` · ${esc(d.rec)}`:""}${d.sp==="boxe"?" · boxe":""} · pas de combat annoncé${isFav(n)?' <em class="favok">· dans tes favoris</em>':""}</span></div>`;}).join("");
+    fd.innerHTML+=more.map(n=>{const d=DIR.get(n)||{};const nat=NAT[n]||d.nat;return `<div class="hit">${favBtn({n})}<span><b>${esc(n)}</b>${nat==="FRA"||nat==="BEL"&&!NOT_FRANCO.has(n)?flag({fr:1,be:nat==="BEL"}):""}${d.rec?` · ${esc(d.rec)}`:""}${d.sp==="boxe"?" · boxe":""} · pas de combat annoncé${isFav(n)?' <em class="favok">· dans tes favoris</em>':""}</span></div>`;}).join("");
     if(!fd.innerHTML) fd.innerHTML="Aucun combattant trouvé pour ce nom.";
   }
 }
@@ -1247,7 +1257,7 @@ function detailHTML(ev,t){
       <div class="dfacts">
         <div><small>Combats</small><b>${ev.fights.length}</b></div>
         ${titles.length?`<div><small>Ceintures en jeu</small><b>${esc(titles.join(" · "))}</b></div>`:""}
-        ${frN?`<div><small>Français</small><b>${frN} combat${frN>1?"s":""}</b></div>`:""}
+        ${frN?`<div><small>Francophones</small><b>${frN} combat${frN>1?"s":""}</b></div>`:""}
         ${ev.tv?`<div><small>Diffusion en France</small><b>${esc(ev.tv)}</b></div>`:ev.org==="PFL"||ev.sport==="boxe"?"":`<div><small>Diffusion en France</small><b>RMC Sport</b></div>`}
       </div>
       ${schedHTML(ev)}
@@ -1290,15 +1300,15 @@ window.addEventListener("hashchange",()=>renderDetail(now()));
 document.addEventListener("click",e=>{if(e.target.closest(".homelink")){e.preventDefault();if(location.hash)history.pushState(null,"",location.pathname+location.search);renderDetail(now());window.scrollTo({top:0,behavior:"smooth"});}});
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!document.getElementById("detail").hidden){location.hash="";}});
 function radar(){
-  /* Radar tricolore automatique : tous les Français programmés dans les soirées à venir */
+  /* Radar tricolore automatique : tous les francophones (Français, Belges) programmés dans les soirées à venir */
   const t=now();
   document.getElementById("radarsec").hidden=filter!=="all";
   const seen=new Set(), out=[];
   EVENTS.filter(e=>t<e.end&&(sport==="all"||(e.sport||"mma")===sport)).forEach(e=>e.fights.forEach(f=>[[f.a,f.b],[f.b,f.a]].forEach(([p,o])=>{
-    if(!(p.fr||NAT[p.n]==="FRA")||seen.has(p.n)) return;
+    markFranco(p); if(!p.fr||seen.has(p.n)) return;
     seen.add(p.n); out.push({p,o,e,f,main:f===e.fights[0]});
   })));
-  document.getElementById("radar").innerHTML=out.map(({p,o,e,f,main})=>`<a class="rcard ${evCls(e)}" href="#ev-${e.id}"><span class="st">${esc(e.name)} · ${fmtDS(e.start)}</span><span class="nm">${esc(p.n)}${flag({fr:1})}${p.star?'<span class="star">★</span>':""}</span><p>Contre ${esc(o.n)}${f.title?` · <b class="rt">${esc(f.title)}</b>`:""}${main?" · combat principal":""} · ${t>=f.est?"en cours":`${f.known&&!e.tbc?"":"vers "}${fmtT(f.est)}`}</p></a>`).join("")||`<div class="empty">Aucun Français programmé pour l'instant.</div>`;
+  document.getElementById("radar").innerHTML=out.map(({p,o,e,f,main})=>`<a class="rcard ${evCls(e)}" href="#ev-${e.id}"><span class="st">${esc(e.name)} · ${fmtDS(e.start)}</span><span class="nm">${esc(p.n)}${flag(p)}${p.star?'<span class="star">★</span>':""}</span><p>Contre ${esc(o.n)}${f.title?` · <b class="rt">${esc(f.title)}</b>`:""}${main?" · combat principal":""} · ${t>=f.est?"en cours":`${f.known&&!e.tbc?"":"vers "}${fmtT(f.est)}`}</p></a>`).join("")||`<div class="empty">Aucun francophone programmé pour l'instant.</div>`;
 }
 
 document.getElementById("q").addEventListener("input",e=>{query=norm(e.target.value.trim());render();});
@@ -1345,7 +1355,7 @@ const NOSTAR=new Set([]);;
 fetch("data/events.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=>{
   if(!d||!Array.isArray(d.events)||!d.events.length) return;
   const past=EVENTS.filter(e=>!d.events.some(x=>x.id===e.id)&&e.fights.some(f=>f.res));
-  const fix=p=>{if(p.nat&&!NAT[p.n])NAT[p.n]=p.nat; if(NOSTAR.has(p.n))delete p.star; else if(STARS.has(p.n)||p.champ)p.star=1; return p;};
+  const fix=p=>{if(p.nat&&!NAT[p.n])NAT[p.n]=p.nat; markFranco(p); if(NOSTAR.has(p.n))delete p.star; else if(STARS.has(p.n)||p.champ)p.star=1; return p;};
   const evs=d.events.map(e=>({...e,fights:e.fights.map(f=>{const a=fix(f.a),b=fix(f.b);if(e.sport==="boxe"){a.bx=1;b.bx=1;}return {...f,a,b};})}));
   EVENTS.length=0; EVENTS.push(...past,...evs);
   for(let i=AGENDA.length-1;i>=0;i--) if(/^(UFC|PFL)/.test(AGENDA[i].org)||(d.presse&&(AGENDA[i].sport==="boxe"||/^(Hexagone|ARES)/.test(AGENDA[i].org)))) AGENDA.splice(i,1);

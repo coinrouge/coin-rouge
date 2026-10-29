@@ -1336,13 +1336,15 @@ document.getElementById("simreset").addEventListener("click",()=>{simr.value=0;s
 const STARS=new Set(EVENTS.flatMap(e=>e.fights.flatMap(f=>[f.a,f.b])).filter(p=>p.star).map(p=>p.n));
 ["Alexander Volkanovski","Petr Yan","Merab Dvalishvili","Movsar Evloev","Islam Makhachev","Ilia Topuria","Tom Aspinall","Jon Jones","Khamzat Chimaev","Sean Strickland","Max Holloway","Justin Gaethje","Paddy Pimblett","Sean O'Malley","Conor McGregor","Valentina Shevchenko","Zhang Weili",
  /* MMA : champions et anciens champions, grosses têtes d'affiche */
- "Alex Pereira","Jiří Procházka","Magomed Ankalaev","Dricus du Plessis","Charles Oliveira","Dustin Poirier","Israel Adesanya","Kamaru Usman","Leon Edwards","Belal Muhammad","Jack Della Maddalena","Alexandre Pantoja","Joshua Van","Brandon Moreno","Diego Lopes","Arman Tsarukyan","Ciryl Gane","Benoît Saint Denis","Benoît Saint-Denis","Manon Fiorot","Nassourdine Imavov","Amanda Nunes","Kayla Harrison","Julianna Peña","Robert Whittaker","Michael Chandler","Colby Covington","Shavkat Rakhmonov","Bo Nickal","Derrick Lewis","Umar Nurmagomedov","Aljamain Sterling","Francis Ngannou","Cris Cyborg","Usman Nurmagomedov","Vadim Nemkov","A. J. McKee","Johnny Eblen","Cédric Doumbè",
+ "Alex Pereira","Jiří Procházka","Magomed Ankalaev","Dricus du Plessis","Charles Oliveira","Dustin Poirier","Israel Adesanya","Kamaru Usman","Leon Edwards","Belal Muhammad","Jack Della Maddalena","Alexandre Pantoja","Joshua Van","Brandon Moreno","Diego Lopes","Arman Tsarukyan","Ciryl Gane","Benoît Saint Denis","Benoît Saint-Denis","Manon Fiorot","Nassourdine Imavov","Amanda Nunes","Kayla Harrison","Julianna Peña","Robert Whittaker","Michael Chandler","Colby Covington","Shavkat Rakhmonov","Bo Nickal","Derrick Lewis","Umar Nurmagomedov","Aljamain Sterling","Francis Ngannou","Cris Cyborg","Usman Nurmagomedov","Patrick Habirora","A. J. McKee","Johnny Eblen","Cédric Doumbè",
  /* Boxe */
  "Canelo Álvarez","Tyson Fury","Anthony Joshua","Oleksandr Usyk","Naoya Inoue","Terence Crawford","Dmitry Bivol","Artur Beterbiev","Gervonta Davis","Shakur Stevenson","Devin Haney","Ryan Garcia","Jake Paul","Deontay Wilder","David Benavidez","Jaime Munguía","Agit Kabayel","Daniel Dubois","Jai Opetaia","Junto Nakatani","Teofimo Lopez","Errol Spence Jr.","Vasiliy Lomachenko","Christian M'billi","Tony Yoka"].forEach(n=>STARS.add(n));
+/* Jamais vedette, même champion (choix de Manuel) */
+const NOSTAR=new Set(["Vadim Nemkov"]);;
 fetch("data/events.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=>{
   if(!d||!Array.isArray(d.events)||!d.events.length) return;
   const past=EVENTS.filter(e=>!d.events.some(x=>x.id===e.id)&&e.fights.some(f=>f.res));
-  const fix=p=>{if(p.nat&&!NAT[p.n])NAT[p.n]=p.nat; if(STARS.has(p.n)||p.champ)p.star=1; return p;};
+  const fix=p=>{if(p.nat&&!NAT[p.n])NAT[p.n]=p.nat; if(NOSTAR.has(p.n))delete p.star; else if(STARS.has(p.n)||p.champ)p.star=1; return p;};
   const evs=d.events.map(e=>({...e,fights:e.fights.map(f=>{const a=fix(f.a),b=fix(f.b);if(e.sport==="boxe"){a.bx=1;b.bx=1;}return {...f,a,b};})}));
   EVENTS.length=0; EVENTS.push(...past,...evs);
   for(let i=AGENDA.length-1;i>=0;i--) if(/^(UFC|PFL)/.test(AGENDA[i].org)||(d.presse&&(AGENDA[i].sport==="boxe"||/^(Hexagone|ARES)/.test(AGENDA[i].org)))) AGENDA.splice(i,1);

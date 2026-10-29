@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-29T13:44:45.033Z",
+ "updated": "2026-10-29T13:46:43.528Z",
  "source": "Wikipédia (en), licence CC BY-SA",
  "events": [
   {
@@ -37,7 +37,7 @@
      "b": {
       "n": "Wang Cong",
       "rec": "10-1-0",
-      "nat": "China"
+      "nat": "CHN"
      },
      "res": {
       "w": "a",
@@ -93,7 +93,7 @@
      "a": {
       "n": "Roberto Soldić",
       "rec": "21-4-0",
-      "nat": "Croatia"
+      "nat": "CRO"
      },
      "b": {
       "n": "Khaos Williams",
@@ -119,7 +119,7 @@
      "b": {
       "n": "Ateba Gautier",
       "rec": "11-1-0",
-      "nat": "Cameroon"
+      "nat": "CMR"
      },
      "res": {
       "w": "a",
@@ -156,7 +156,7 @@
      "a": {
       "n": "Damian Pinas",
       "rec": "10-1-0",
-      "nat": "Aruba"
+      "nat": "ARU"
      },
      "b": {
       "n": "Andrey Pulyaev",
@@ -282,12 +282,12 @@
      "a": {
       "n": "Ismail Naurdiev",
       "rec": "25-8-0",
-      "nat": "Austria"
+      "nat": "AUT"
      },
      "b": {
       "n": "Marvin Vettori",
       "rec": "19-10-1",
-      "nat": "Italy"
+      "nat": "ITA"
      },
      "res": {
       "w": "a",
@@ -324,7 +324,7 @@
    "a": "Allen",
    "b": "Duncan",
    "venue": "Meta Apex",
-   "city": "Enterprise",
+   "city": "Las Vegas",
    "tz": "America/Los_Angeles",
    "segs": [
     {
@@ -426,7 +426,7 @@
      "a": {
       "n": "Otari Tanzilovi",
       "rec": "10-2-0",
-      "nat": "Georgia (country)"
+      "nat": "GEO"
      },
      "b": {
       "n": "Malcolm Wellmaker",
@@ -604,7 +604,7 @@
      "a": {
       "n": "Mike Malott",
       "rec": "14-2-1",
-      "nat": "Canada"
+      "nat": "CAN"
      },
      "b": {
       "n": "Joaquin Buckley",
@@ -625,7 +625,7 @@
      "a": {
       "n": "Jasmine Jasudavicius",
       "rec": "15-4-0",
-      "nat": "Canada"
+      "nat": "CAN"
      },
      "b": {
       "n": "Erin Blanchfield",
@@ -651,7 +651,7 @@
      "b": {
       "n": "Kyle Nelson",
       "rec": "17-7-1",
-      "nat": "Canada"
+      "nat": "CAN"
      },
      "res": {
       "w": "a",
@@ -667,7 +667,7 @@
      "a": {
       "n": "Marc-André Barriault",
       "rec": "17-10-0",
-      "nat": "Canada"
+      "nat": "CAN"
      },
      "b": {
       "n": "Kyle Daukaus",
@@ -693,7 +693,7 @@
      "b": {
       "n": "Louis Jourdain",
       "rec": "9-3-0",
-      "nat": "Canada"
+      "nat": "CAN"
      },
      "res": {
       "w": "a",
@@ -709,7 +709,7 @@
      "a": {
       "n": "Mandel Nallo",
       "rec": "14-4-0",
-      "nat": "Canada"
+      "nat": "CAN"
      },
      "b": {
       "n": "Nate Landwehr",
@@ -730,7 +730,7 @@
      "a": {
       "n": "Tanner Boser",
       "rec": "22-11-1",
-      "nat": "Canada"
+      "nat": "CAN"
      },
      "b": {
       "n": "Jhonata Diniz",
@@ -756,7 +756,7 @@
      "b": {
       "n": "Julien Leblanc",
       "rec": "10-3-0",
-      "nat": "Canada"
+      "nat": "CAN"
      },
      "res": {
       "w": "a",
@@ -777,7 +777,7 @@
      "b": {
       "n": "Javad Mahjoub",
       "rec": "5-0-0",
-      "nat": "Iran"
+      "nat": "IRI"
      },
      "res": {
       "w": "a",
@@ -819,7 +819,7 @@
      "b": {
       "n": "Chad Anheliger",
       "rec": "13-8-0",
-      "nat": "Canada"
+      "nat": "CAN"
      },
      "res": {
       "w": "a",
@@ -840,7 +840,7 @@
      "b": {
       "n": "Melissa Croden",
       "rec": "8-3-0",
-      "nat": "Canada"
+      "nat": "CAN"
      },
      "res": {
       "w": "a",
@@ -861,7 +861,7 @@
      "b": {
       "n": "Cody Chovancek",
       "rec": "9-0-0",
-      "nat": "Canada"
+      "nat": "CAN"
      },
      "res": {
       "w": "a",
@@ -933,7 +933,7 @@
      "b": {
       "n": "Merab Dvalishvili",
       "rec": "21-5-0",
-      "nat": "Georgia (country)"
+      "nat": "GEO"
      },
      "title": "Titre Bantamweight",
      "res": {
@@ -955,7 +955,7 @@
      "b": {
       "n": "Ramazan Temirov",
       "rec": "18-2-0",
-      "nat": "Uzbekistan"
+      "nat": "UZB"
      },
      "res": {
       "w": "a",
@@ -997,7 +997,7 @@
      "b": {
       "n": "Losene Keita",
       "rec": "17-2-0",
-      "nat": "Belgium"
+      "nat": "BEL"
      },
      "res": {
       "w": "a",
@@ -1034,7 +1034,7 @@
      "a": {
       "n": "Abdul-Rakhman Yakhyaev",
       "rec": "10-0-0",
-      "nat": "Turkey"
+      "nat": "TUR"
      },
      "b": {
       "n": "Nikita Krylov",
@@ -1055,7 +1055,7 @@
      "a": {
       "n": "Abusupiyan Magomedov",
       "rec": "29-7-1",
-      "nat": "Germany"
+      "nat": "GER"
      },
      "b": {
       "n": "Cameron Rowston",
@@ -1081,7 +1081,7 @@
      "b": {
       "n": "Nurullo Aliev",
       "rec": "11-0-0",
-      "nat": "Tajikistan"
+      "nat": "TJK"
      },
      "res": {
       "w": "a",
@@ -1144,7 +1144,7 @@
      "b": {
       "n": "Bolaji Oki",
       "rec": "10-4-0",
-      "nat": "Belgium"
+      "nat": "BEL"
      },
      "res": {
       "w": "a",
@@ -1205,7 +1205,7 @@
    "a": "Moicano",
    "b": "Nolan",
    "venue": "Meta Apex",
-   "city": "Enterprise",
+   "city": "Las Vegas",
    "tz": "America/Los_Angeles",
    "segs": [
     {
@@ -1403,7 +1403,7 @@
    "a": "Bonfim",
    "b": "Brady",
    "venue": "Meta Apex",
-   "city": "Enterprise",
+   "city": "Las Vegas",
    "tz": "America/Los_Angeles",
    "segs": [
     {
@@ -1546,7 +1546,7 @@
      "b": {
       "n": "Murtazali Magomedov",
       "rec": "11-0-0",
-      "nat": "Kyrgyzstan"
+      "nat": "KGZ"
      }
     },
     {
@@ -1561,7 +1561,7 @@
      "b": {
       "n": "Ollie Schmid",
       "rec": "4-3-0",
-      "nat": "Hungary"
+      "nat": "HUN"
      }
     },
     {
@@ -1905,7 +1905,7 @@
      "a": {
       "n": "Aleksandre Topuria",
       "rec": "7-1-0",
-      "nat": "Georgia (country)"
+      "nat": "GEO"
      },
      "b": {
       "n": "Santiago Luna",
@@ -1952,7 +1952,7 @@
    "a": "Oliveira",
    "b": "Lopes",
    "venue": "T-Mobile Arena",
-   "city": "Paradise",
+   "city": "Las Vegas",
    "tz": "America/Los_Angeles",
    "tbc": 1,
    "segs": [
@@ -2070,13 +2070,13 @@
      "a": {
       "n": "Joshua Van",
       "rec": "18-2-0",
-      "nat": "Myanmar",
+      "nat": "MYA",
       "champ": 1
      },
      "b": {
       "n": "Manel Kape",
       "rec": "23-7-0",
-      "nat": "Angola"
+      "nat": "ANG"
      },
      "title": "Titre Flyweight"
     },
@@ -2092,7 +2092,7 @@
      "b": {
       "n": "Michael Morales",
       "rec": "19-0-0",
-      "nat": "Ecuador"
+      "nat": "ECU"
      }
     }
    ],

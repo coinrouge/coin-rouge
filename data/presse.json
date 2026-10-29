@@ -1,0 +1,303 @@
+{
+ "_lisezmoi": "Boxe et MMA français, tenus à jour par la veille presse quotidienne (tâche programmée). Format : voir scripts/check-presse.mjs. Heures en UTC (suffixe Z). f.t = heure annoncée par la presse pour un combat (entrée sur le ring).",
+ "events": [
+  {
+   "id": "bx-canelo-mbilli",
+   "sport": "boxe",
+   "org": "Boxe",
+   "name": "Riyadh Season",
+   "a": "Canelo",
+   "b": "M'billi",
+   "venue": "The Venue",
+   "city": "Riyad",
+   "tz": "Asia/Riyadh",
+   "tv": "DAZN (PPV)",
+   "segs": [
+    {
+     "k": "main",
+     "t": "2026-10-31T17:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "Super-moyens",
+     "r": 12,
+     "title": "Titre WBC super-moyens",
+     "t": "2026-10-31T20:30:00Z",
+     "a": {
+      "n": "Canelo Álvarez",
+      "nat": "MEX",
+      "rec": "63-3-2",
+      "star": 1
+     },
+     "b": {
+      "n": "Christian M'billi",
+      "nat": "FRA",
+      "champ": 1
+     }
+    },
+    {
+     "s": "main",
+     "w": "Super-moyens",
+     "r": 12,
+     "title": "Titre WBA super-moyens",
+     "a": {
+      "n": "Jaime Munguía",
+      "nat": "MEX",
+      "rec": "46-2-0"
+     },
+     "b": {
+      "n": "Nikita Zon",
+      "nat": "RUS",
+      "rec": "12-0-1"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Plumes",
+     "r": 12,
+     "title": "Titre WBO plumes",
+     "a": {
+      "n": "Rafael Espinoza",
+      "nat": "MEX",
+      "rec": "28-0-0",
+      "champ": 1
+     },
+     "b": {
+      "n": "Ricardo Blandón"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Super-plumes",
+     "r": 10,
+     "a": {
+      "n": "Raymundo Rojas García",
+      "nat": "MEX",
+      "rec": "16-2-0"
+     },
+     "b": {
+      "n": "Reito Tsutsumi",
+      "nat": "JPN",
+      "rec": "5-0-0"
+     }
+    }
+   ],
+   "sources": [
+    "https://www.dazn.com/en-US/news/boxing/canelo-alvarez-vs-christian-mbilli-how-to-watch-fight-time-ringwalks-prediction-undercard-news-odds/19uijwuynxykz1wt8mworc2iqq",
+    "https://www.arabnews.com/sport/four-world-titles-on-the-line-as-riyadh-unveils-mexico-vs-the-world-lineup-3005411",
+    "https://lasueur.com/canelo-alvarez-vs-christian-mbilli-quelle-heure-quelle-chaine-28-10-2026"
+   ]
+  },
+  {
+   "id": "bx-buatsi-hutchinson",
+   "sport": "boxe",
+   "org": "Boxe",
+   "name": "Queensberry",
+   "a": "Buatsi",
+   "b": "Hutchinson",
+   "venue": "AO Arena",
+   "city": "Manchester",
+   "tz": "Europe/London",
+   "tv": "DAZN",
+   "tbc": 1,
+   "segs": [
+    {
+     "k": "main",
+     "t": "2026-11-07T19:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "Mi-lourds",
+     "r": 12,
+     "title": "Titre WBC intérim mi-lourds",
+     "a": {
+      "n": "Joshua Buatsi",
+      "nat": "GBR"
+     },
+     "b": {
+      "n": "Willy Hutchinson",
+      "nat": "GBR"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Mi-lourds",
+     "r": 10,
+     "a": {
+      "n": "Brad Rea",
+      "nat": "GBR"
+     },
+     "b": {
+      "n": "Ezra Taylor",
+      "nat": "GBR"
+     }
+    }
+   ],
+   "sources": [
+    "https://queensberry.co.uk/pages/joshua-buatsi-vs-willy-hutchinson-2-point-to-prove",
+    "https://www.ringmagazine.com/news/buatsi-all-business-ahead-of-hutchinson-rematch-1cPyKJNqIRRSbvRBnNrN5w"
+   ]
+  },
+  {
+   "id": "bx-billamsmith-clarke",
+   "sport": "boxe",
+   "org": "Boxe",
+   "name": "Zuffa Boxing",
+   "a": "Billam-Smith",
+   "b": "Clarke",
+   "venue": "Salle à confirmer",
+   "city": "Londres",
+   "tz": "Europe/London",
+   "tbc": 1,
+   "segs": [
+    {
+     "k": "main",
+     "t": "2026-11-07T19:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "Lourds-légers",
+     "r": 10,
+     "a": {
+      "n": "Chris Billam-Smith",
+      "nat": "GBR"
+     },
+     "b": {
+      "n": "Cheavon Clarke",
+      "nat": "GBR"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Moyens",
+     "r": 10,
+     "a": {
+      "n": "Denzel Bentley",
+      "nat": "GBR"
+     },
+     "b": {
+      "n": "Shane Mosley Jr.",
+      "nat": "USA"
+     }
+    }
+   ],
+   "sources": [
+    "https://en.wikipedia.org/wiki/2026_in_Zuffa_Boxing",
+    "https://www.cbssports.com/boxing/news/boxing-schedule-for-2026-dates-location-fights-canelo-alvarez-sebastian-fundora/"
+   ]
+  },
+  {
+   "id": "bx-kabayel-hysa",
+   "sport": "boxe",
+   "org": "Boxe",
+   "name": "Bad Blood",
+   "a": "Kabayel",
+   "b": "Hysa",
+   "venue": "Merkur Spiel-Arena",
+   "city": "Düsseldorf",
+   "tz": "Europe/Berlin",
+   "tv": "DAZN",
+   "tbc": 1,
+   "segs": [
+    {
+     "k": "main",
+     "t": "2026-11-28T19:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "Lourds",
+     "r": 12,
+     "title": "Titre WBC lourds",
+     "a": {
+      "n": "Agit Kabayel",
+      "nat": "GER",
+      "champ": 1
+     },
+     "b": {
+      "n": "Nelson Hysa",
+      "nat": "ALB"
+     }
+    }
+   ],
+   "sources": [
+    "https://www.thestar.com.my/sport/boxing/2026/10/02/boxing-wbc-heavyweight-champion-kabayel039s-first-defence-confirmed-for-duesseldorf-on-november-28",
+    "https://www.fightmag.com/agit-kabayel-to-face-nelson-hysa-in-germany-in-november/"
+   ]
+  },
+  {
+   "id": "bx-fury-joshua",
+   "sport": "boxe",
+   "org": "Boxe",
+   "name": "Boxe",
+   "a": "Fury",
+   "b": "Joshua",
+   "venue": "Principality Stadium",
+   "city": "Cardiff",
+   "tz": "Europe/London",
+   "tv": "Netflix",
+   "tbc": 1,
+   "segs": [
+    {
+     "k": "main",
+     "t": "2026-12-11T17:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "Lourds",
+     "r": 12,
+     "t": "2026-12-12T01:00:00Z",
+     "a": {
+      "n": "Tyson Fury",
+      "nat": "GBR",
+      "star": 1
+     },
+     "b": {
+      "n": "Anthony Joshua",
+      "nat": "GBR",
+      "star": 1
+     }
+    }
+   ],
+   "sources": [
+    "https://www.seatunique.com/blog/fury-vs-joshua-fight-night-start-time-ring-walks-undercard/",
+    "https://www.thestar.com.my/sport/boxing/2026/10/09/boxing-cardiff-stadium-application-seeks-1-am-slot-for-fury-v-joshua-ring-walks"
+   ]
+  }
+ ],
+ "agenda": [
+  {
+   "sport": "mma",
+   "date": "2026-11-27",
+   "name": "Hexagone MMA 49",
+   "org": "Hexagone MMA · Glaz Arena, Rennes",
+   "note": "Affiche à annoncer",
+   "fr": 1
+  },
+  {
+   "sport": "mma",
+   "date": "2027-01-08",
+   "name": "Hexagone MMA Paris",
+   "org": "Hexagone MMA · Zénith Paris La Villette",
+   "note": "Affiche à annoncer",
+   "fr": 1
+  },
+  {
+   "sport": "mma",
+   "date": "2027-01-15",
+   "name": "Hexagone MMA Montpellier",
+   "org": "Hexagone MMA · Zénith Sud, Montpellier",
+   "note": "Affiche à annoncer",
+   "fr": 1
+  }
+ ]
+}

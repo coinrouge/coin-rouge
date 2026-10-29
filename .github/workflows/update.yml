@@ -6,7 +6,7 @@ on:
     - cron: "*/20 18-23 * * 6"    # samedi soir (UTC) : toutes les 20 min
     - cron: "*/20 0-7 * * 0"      # nuit de samedi à dimanche (UTC)
   push:
-    paths: ["scripts/update.mjs", "data/overrides.json", ".github/workflows/update.yml"]
+    paths: ["scripts/update.mjs", "data/overrides.json", "data/presse.json", ".github/workflows/update.yml"]
 permissions:
   contents: write
 concurrency: { group: update, cancel-in-progress: false }

@@ -273,8 +273,21 @@ for (const e of list) {
   console.log(`  ${id} : ${fights.length} combats, ${fights.filter((f) => f.res).length} résultats`);
 }
 
+/* ---------- Boxe et MMA français : data/presse.json, tenu à jour par la tâche programmée (veille presse) ---------- */
+const presse = JSON.parse(await readFile(new URL("../data/presse.json", import.meta.url), "utf8").catch(() => "{}"));
+for (const e of presse.events || []) {
+  const t = Date.parse(e.segs?.[0]?.t || "");
+  if (!(t > now - 30 * DAY && t < now + 120 * DAY)) continue;
+  for (const f of e.fights) for (const x of [f.a, f.b]) if (x.nat === "FRA") x.fr = 1;
+  const { sources, ...ev } = e;
+  events.push(ev);
+}
+for (const a of presse.agenda || []) if (Date.parse(a.date) > now - DAY && Date.parse(a.date) < now + 180 * DAY) agenda.push(a);
+events.sort((a, b) => Date.parse(a.segs[0].t) - Date.parse(b.segs[0].t));
+console.log(`Presse : ${(presse.events || []).length} soirées, ${(presse.agenda || []).length} à l'agenda`);
+
 await writeFile(cacheFile, JSON.stringify(cache, null, 1));
-const data = { updated: new Date().toISOString(), source: "Wikipédia (en), licence CC BY-SA", events, agenda };
+const data = { updated: new Date().toISOString(), source: "Wikipédia (en), licence CC BY-SA, et veille presse", presse: !!presse.events, events, agenda };
 await mkdir(new URL("../data/", import.meta.url), { recursive: true });
 const file = new URL("../data/events.json", import.meta.url);
 const old = await readFile(file, "utf8").catch(() => "");

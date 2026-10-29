@@ -48,6 +48,13 @@ button,input,select{font:inherit;color:inherit}
 .mast{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;border-bottom:3px solid var(--ink);padding-bottom:10px}
 .brand{font-family:var(--f-display);font-weight:900;font-size:clamp(34px,7vw,52px);line-height:.9;letter-spacing:.01em;text-transform:uppercase;margin:0}
 .brand span{color:var(--red)}
+.homelink{color:inherit;text-decoration:none}
+.homelink:hover span{text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:4px}
+.dbrand{font-family:var(--f-display);font-weight:900;font-size:22px;line-height:1;text-transform:uppercase;color:var(--ink);text-decoration:none;letter-spacing:.01em}
+.dbrand span{color:#C8102E}
+:root[data-theme="dark"] .dbrand span{color:#FF5468}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .dbrand span{color:#FF5468}}
+.dbar .dleft{display:flex;align-items:center;gap:16px}
 /* Affiche : coin rouge à gauche, coin bleu à droite */
 .poster{display:flex;flex-direction:column;gap:16px;position:relative;padding-top:24px;
   background:var(--surface)}
@@ -617,7 +624,7 @@ details.ev summary:hover .chev{color:var(--ink)}
 <div class="wrap">
   <header class="mast">
     <div class="brandcol">
-      <h1 class="brand">Coin<span>Rouge</span></h1>
+      <h1 class="brand"><a class="homelink" href="#" title="Retour à l'accueil">Coin<span>Rouge</span></a></h1>
       <div class="clock">Heure française <b id="clock">--:--</b></div>
     </div>
     <div class="mtools">
@@ -1162,7 +1169,7 @@ function calHTML(t){
       <div class="cals">${x.id?`<a class="calgo" href="#ev-${x.id}">Fight card →</a>`:""}</div>
     </li>`;
   };
-  return `<div class="dbar"><a class="back" href="#">← Retour</a></div>
+  return `<div class="dbar"><div class="dleft"><a class="dbrand homelink" href="#" title="Retour à l'accueil">Coin<span>Rouge</span></a><a class="back" href="#">← Retour</a></div></div>
   <div class="dwrap">
     <div class="dtitle"><h1>Calendrier</h1><span>${items.length} événements à venir · ${SPORTLBL[sport]} · heure française</span></div>
     ${groups.map(g=>`<section class="calm"><h2>${esc(g.k)}</h2><ol class="call">${g.list.map(row).join("")}</ol></section>`).join("")||`<p class="empty">Aucun événement à venir.</p>`}
@@ -1196,7 +1203,7 @@ function detailHTML(ev,t){
   const frN=ev.fights.filter(f=>f.a.fr||f.b.fr).length;
   const titles=ev.fights.filter(f=>f.title).map(f=>f.title);
   const live=t>=ev.start&&t<ev.end;
-  return `<div class="dbar"><a class="back" href="#">← Retour</a><button type="button" class="spoilbtn" id="spoil" aria-pressed="${SPOIL}" title="Afficher ou masquer les résultats"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="eye" d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle class="eye" cx="12" cy="12" r="3"/><path class="slash" d="M3 3l18 18"/></svg><span>${SPOIL?"Spoil":"No spoil"}</span></button></div>
+  return `<div class="dbar"><div class="dleft"><a class="dbrand homelink" href="#" title="Retour à l'accueil">Coin<span>Rouge</span></a><a class="back" href="#">← Retour</a></div><button type="button" class="spoilbtn" id="spoil" aria-pressed="${SPOIL}" title="Afficher ou masquer les résultats"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="eye" d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle class="eye" cx="12" cy="12" r="3"/><path class="slash" d="M3 3l18 18"/></svg><span>${SPOIL?"Spoil":"No spoil"}</span></button></div>
   <div class="dwrap">
     <div class="dtitle ${evCls(ev)}">${evBadge(ev,1)}<h1>${esc(ev.a)} vs ${esc(ev.b)}</h1><span>Carte complète</span></div>
     <div class="dhead ${evCls(ev)}">
@@ -1249,6 +1256,8 @@ function renderDetail(t){
   }
 }
 window.addEventListener("hashchange",()=>renderDetail(now()));
+/* Logo Coin Rouge : retour à l'accueil, en haut de page */
+document.addEventListener("click",e=>{if(e.target.closest(".homelink")){e.preventDefault();if(location.hash)history.pushState(null,"",location.pathname+location.search);renderDetail(now());window.scrollTo({top:0,behavior:"smooth"});}});
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!document.getElementById("detail").hidden){location.hash="";}});
 function radar(){
   document.getElementById("radarsec").hidden=filter!=="all";

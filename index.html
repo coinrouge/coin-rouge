@@ -24,6 +24,10 @@
 :root[data-theme="dark"]{
   --bg:#0F1115; --surface:#181B21; --ink:#ECEEF1; --muted:#9AA1AE; --line:#2A2F38;
   --red:#FF5468; --blue:#7FA2FF; --gold:#E3B85A; --live:#FF5468; --soft:#1E222A; --av-ink:#0F1115; --fn-bg:#3B1B22; --fn-ink:#FF95A3; --num-bg:#EBC03C; --num-ink:#1F1803; --num-t:#262010; --num-line:#9C7C1B; --fn-t:#1F181A; --fn-line:#43292F; --fn-inner:#2A1D21; --fr-t:#18223C; --me-t:#252932; --star-t:#1F232A; --wash:rgba(15,17,21,.40); --fav:#FF7AA8; --fav-t:#2E1D26; --lost:#F0524A; --fn-me:#3A242A; --num-me:#40361A; --fn-star:#322026; --num-star:#383018; --fn-hero:#2C181D; --num-hero:#2D2611; --fn-hero-me:#3D2128; --num-hero-me:#3F3417; --num-inner:#302915; --num-line2:#4D4120; --win:#4FCB86; --loss:#FF9160; color-scheme:dark}
+/* PFL : même mise en page que les Fight Nights, en violet */
+.pfl{--red:#7B3FE4;--fn-bg:#E7DDFB;--fn-ink:#5A24B8;--fn-t:#F6F2FD;--fn-line:#DED3F5;--fn-inner:#FCFAFF;--fn-me:#EEE6FB;--fn-star:#F3EEFD;--fn-hero:#EDE5FB;--fn-hero-me:#DFD2F8}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .pfl{--red:#B69CFF;--fn-bg:#2B1F45;--fn-ink:#C4AEFF;--fn-t:#1A1722;--fn-line:#352B4D;--fn-inner:#211C2E;--fn-me:#2B2340;--fn-star:#251F36;--fn-hero:#1F1A2E;--fn-hero-me:#2A2244}}
+:root[data-theme="dark"] .pfl{--red:#B69CFF;--fn-bg:#2B1F45;--fn-ink:#C4AEFF;--fn-t:#1A1722;--fn-line:#352B4D;--fn-inner:#211C2E;--fn-me:#2B2340;--fn-star:#251F36;--fn-hero:#1F1A2E;--fn-hero-me:#2A2244}
 /* Boxe : même mise en page que les Fight Nights, en bleu */
 .bx{--red:var(--blue);--fn-bg:#DCE5FB;--fn-ink:#183FA8;--fn-t:#F3F6FD;--fn-line:#D3DDF5;--fn-inner:#FAFBFF;--fn-me:#E6ECFB;--fn-star:#EFF3FD;--fn-hero:#E4EAFB;--fn-hero-me:#D3DEF8}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .bx{--fn-bg:#1B2440;--fn-ink:#95B0FF;--fn-t:#171A21;--fn-line:#29324A;--fn-inner:#1D2230;--fn-me:#242C42;--fn-star:#202739;--fn-hero:#1A2033;--fn-hero-me:#222B45}}
@@ -918,7 +922,7 @@ function fighterHTML(p,side,state){
   return `<div class="f ${side}${fav?" isfav":""}${state?" "+state:""}"><div class="fx">${avatarHTML(p)}<div class="txt"><span class="nmrow">${side==="b"&&fav?`<span class="fm-pre">${favMark(p)}</span>`:""}${splitName(p).first?`<span class="fn">${esc(splitName(p).first)}</span> `:""}<span class="lnline">${side==="b"&&fav?`<span class="fm-ln">${favMark(p)}</span>`:""}${nm}${side==="a"&&fav?favMark(p):""}</span></span>${meta||!p.tbd?`<span class="rec">${side==="b"?favBtn(p):""}${meta}${side==="a"?favBtn(p):""}</span>`:""}</div></div></div>`;
 }
 const isNum=e=>/^UFC \d+/.test(e.name);
-const evCls=e=>isNum(e)?"num":e.sport==="boxe"?"fn bx":"fn";
+const evCls=e=>isNum(e)?"num":e.sport==="boxe"?"fn bx":e.org==="PFL"?"fn pfl":"fn";
 function evBadge(e,short){return isNum(e)?`<span class="evb num">${esc(e.name)}</span>`:`<span class="evb ${evCls(e)}">${esc(e.name)}${short?"":` : ${esc(e.a)} vs ${esc(e.b)}`}</span>`;}
 function posterSide(p,c){
   const w=p.n.split(/\s+/); const last=w.pop(); const first=w.join(" ");
@@ -1076,7 +1080,7 @@ function render(){
     document.getElementById("pastsec").hidden=true;
     findBox(t); favs(t); radar(); renderDetail(t); return;
   }
-  heroEl.classList.toggle("num",isNum(ev)); heroEl.classList.toggle("fn",!isNum(ev)); heroEl.classList.toggle("bx",ev.sport==="boxe");
+  heroEl.classList.toggle("num",isNum(ev)); heroEl.classList.toggle("fn",!isNum(ev)); heroEl.classList.toggle("bx",ev.sport==="boxe"); heroEl.classList.toggle("pfl",ev.org==="PFL");
   const live=t>=ev.start&&t<ev.end;
   const c=cd(ev.start-t);
   const mainF=ev.fights[0];

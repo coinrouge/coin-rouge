@@ -1,0 +1,2128 @@
+{
+ "updated": "2026-10-29T13:44:45.033Z",
+ "source": "Wikipédia (en), licence CC BY-SA",
+ "events": [
+  {
+   "id": "ufc332",
+   "name": "UFC 332",
+   "a": "Silva",
+   "b": "Wang",
+   "venue": "Delta Center",
+   "city": "Salt Lake",
+   "tz": "America/Denver",
+   "segs": [
+    {
+     "k": "early",
+     "t": "2026-10-03T21:00:00Z"
+    },
+    {
+     "k": "prelims",
+     "t": "2026-10-03T23:00:00Z"
+    },
+    {
+     "k": "main",
+     "t": "2026-10-04T01:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "WFLW",
+     "r": 5,
+     "a": {
+      "n": "Natália Silva",
+      "rec": "20-5-1",
+      "nat": "BRA"
+     },
+     "b": {
+      "n": "Wang Cong",
+      "rec": "10-1-0",
+      "nat": "China"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 5,
+      "time": "5:00"
+     }
+    },
+    {
+     "s": "main",
+     "w": "BW",
+     "r": 3,
+     "a": {
+      "n": "Payton Talbott",
+      "rec": "11-1-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Deiveson Figueiredo",
+      "rec": "25-7-1",
+      "nat": "BRA"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (coups de poing)",
+      "round": 1,
+      "time": "2:09"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Catchweight (156.5 lb)",
+     "r": 3,
+     "a": {
+      "n": "Esteban Ribovics",
+      "rec": "16-3-0",
+      "nat": "ARG"
+     },
+     "b": {
+      "n": "King Green"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (coups de poing)",
+      "round": 1,
+      "time": "4:08"
+     }
+    },
+    {
+     "s": "main",
+     "w": "WW",
+     "r": 3,
+     "a": {
+      "n": "Roberto Soldić",
+      "rec": "21-4-0",
+      "nat": "Croatia"
+     },
+     "b": {
+      "n": "Khaos Williams",
+      "rec": "16-5-0",
+      "nat": "USA"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
+     }
+    },
+    {
+     "s": "main",
+     "w": "MW",
+     "r": 3,
+     "a": {
+      "n": "Roman Kopylov",
+      "rec": "15-5-0",
+      "nat": "RUS"
+     },
+     "b": {
+      "n": "Ateba Gautier",
+      "rec": "11-1-0",
+      "nat": "Cameroon"
+     },
+     "res": {
+      "w": "a",
+      "method": "KO (coups de poing)",
+      "round": 1,
+      "time": "3:12"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "FLW",
+     "r": 3,
+     "a": {
+      "n": "Imanol Rodríguez",
+      "rec": "7-0-0",
+      "nat": "MEX"
+     },
+     "b": {
+      "n": "Alden Coria",
+      "rec": "13-3-0",
+      "nat": "USA"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (front kick to the body and punches)",
+      "round": 1,
+      "time": "3:11"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "MW",
+     "r": 3,
+     "a": {
+      "n": "Damian Pinas",
+      "rec": "10-1-0",
+      "nat": "Aruba"
+     },
+     "b": {
+      "n": "Andrey Pulyaev",
+      "rec": "10-5-0",
+      "nat": "RUS"
+     },
+     "res": {
+      "w": "a",
+      "method": "KO (coup de poing)",
+      "round": 1,
+      "time": "1:15"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "FW",
+     "r": 3,
+     "a": {
+      "n": "Marcus McGhee",
+      "rec": "11-2-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Anthony Romero",
+      "rec": "7-2-0",
+      "nat": "USA"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (coups de poing)",
+      "round": 1,
+      "time": "4:58"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "HW",
+     "r": 3,
+     "a": {
+      "n": "Anthony Wint",
+      "rec": "8-0-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Lucas Armand",
+      "rec": "6-0-0",
+      "nat": "USA"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (coups de poing)",
+      "round": 1,
+      "time": "0:23"
+     }
+    },
+    {
+     "s": "early",
+     "w": "HW",
+     "r": 3,
+     "a": {
+      "n": "Johnny Walker",
+      "rec": "22-10-0",
+      "nat": "BRA"
+     },
+     "b": {
+      "n": "Mick Parkin",
+      "rec": "10-1-0",
+      "nat": "GBR"
+     },
+     "res": {
+      "w": "a",
+      "method": "KO (genou)",
+      "round": 1,
+      "time": "3:35"
+     }
+    },
+    {
+     "s": "early",
+     "w": "WW",
+     "r": 3,
+     "a": {
+      "n": "Jacobe Smith",
+      "rec": "12-0-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Bruce Whitehead",
+      "rec": "8-2-0",
+      "nat": "USA"
+     },
+     "res": {
+      "w": "a",
+      "method": "KO (coups de poing)",
+      "round": 1,
+      "time": "1:32"
+     }
+    },
+    {
+     "s": "early",
+     "w": "LW",
+     "r": 3,
+     "a": {
+      "n": "Alexander Hernandez",
+      "rec": "18-9-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Rafael dos Anjos",
+      "rec": "32-17-0",
+      "nat": "BRA"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (coups de poing)",
+      "round": 2,
+      "time": "3:12"
+     }
+    },
+    {
+     "s": "early",
+     "w": "MW",
+     "r": 3,
+     "a": {
+      "n": "Ismail Naurdiev",
+      "rec": "25-8-0",
+      "nat": "Austria"
+     },
+     "b": {
+      "n": "Marvin Vettori",
+      "rec": "19-10-1",
+      "nat": "Italy"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
+     }
+    },
+    {
+     "s": "early",
+     "w": "WW",
+     "r": 3,
+     "a": {
+      "n": "Eric Nolan",
+      "rec": "8-5-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Court McGee"
+     },
+     "res": {
+      "w": "a",
+      "method": "KO (coup de poing)",
+      "round": 3,
+      "time": "3:26"
+     }
+    }
+   ],
+   "wiki": "UFC 332"
+  },
+  {
+   "id": "fn-allen-duncan",
+   "name": "UFC Fight Night",
+   "a": "Allen",
+   "b": "Duncan",
+   "venue": "Meta Apex",
+   "city": "Enterprise",
+   "tz": "America/Los_Angeles",
+   "segs": [
+    {
+     "k": "prelims",
+     "t": "2026-10-10T21:00:00Z"
+    },
+    {
+     "k": "main",
+     "t": "2026-10-11T00:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "MW",
+     "r": 5,
+     "a": {
+      "n": "Brendan Allen",
+      "rec": "27-7-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Christian Leroy Duncan",
+      "rec": "15-2-0",
+      "nat": "GBR"
+     },
+     "res": {
+      "w": "a",
+      "method": "Soumission (étranglement arrière)",
+      "round": 5,
+      "time": "2:46"
+     }
+    },
+    {
+     "s": "main",
+     "w": "LW",
+     "r": 3,
+     "a": {
+      "n": "Jai Herbert",
+      "rec": "14-6-1",
+      "nat": "GBR"
+     },
+     "b": {
+      "n": "Matheus Camilo",
+      "rec": "10-3-0",
+      "nat": "BRA"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Catchweight (117 lb)",
+     "r": 3,
+     "a": {
+      "n": "Loopy Godínez"
+     },
+     "b": {
+      "n": "Ketlen Souza",
+      "rec": "17-6-0",
+      "nat": "BRA"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
+     }
+    },
+    {
+     "s": "main",
+     "w": "FW",
+     "r": 3,
+     "a": {
+      "n": "Andre Fili",
+      "rec": "25-14-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Kai Kamaka III",
+      "rec": "18-8-1",
+      "nat": "USA"
+     },
+     "res": {
+      "w": "a",
+      "method": "KO (high kick)",
+      "round": 2,
+      "time": "0:22"
+     }
+    },
+    {
+     "s": "main",
+     "w": "BW",
+     "r": 3,
+     "a": {
+      "n": "Otari Tanzilovi",
+      "rec": "10-2-0",
+      "nat": "Georgia (country)"
+     },
+     "b": {
+      "n": "Malcolm Wellmaker",
+      "rec": "10-2-0",
+      "nat": "USA"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (high kick et coups)",
+      "round": 2,
+      "time": "2:39"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "LHW",
+     "r": 3,
+     "a": {
+      "n": "Julius Walker",
+      "rec": "7-3-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Gerald Meerschaert"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (coups de poing)",
+      "round": 2,
+      "time": "3:35"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "Catchweight (163.5 lb)",
+     "r": 3,
+     "a": {
+      "n": "Francisco Prado",
+      "rec": "12-5-0",
+      "nat": "ARG"
+     },
+     "b": {
+      "n": "Ismael Bonfim"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (elbow and punches)",
+      "round": 1,
+      "time": "4:23"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "WW",
+     "r": 3,
+     "a": {
+      "n": "Niko Price"
+     },
+     "b": {
+      "n": "Leon Shahbazyan",
+      "rec": "12-5-0",
+      "nat": "USA"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (coups de poing)",
+      "round": 1,
+      "time": "1:58"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "Catchweight (208.5 lb)",
+     "r": 3,
+     "a": {
+      "n": "Brendson Ribeiro",
+      "rec": "17-11-0",
+      "nat": "BRA"
+     },
+     "b": {
+      "n": "Felipe Franco",
+      "rec": "11-2-0",
+      "nat": "BRA"
+     },
+     "res": {
+      "w": "a",
+      "method": "Soumission (guillotine)",
+      "round": 1,
+      "time": "1:49"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "HW",
+     "r": 3,
+     "a": {
+      "n": "Allen Frye Jr.",
+      "rec": "6-1-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "RJ Harris",
+      "rec": "6-0-0",
+      "nat": "USA"
+     },
+     "res": {
+      "w": "a",
+      "method": "KO (coups de poing)",
+      "round": 1,
+      "time": "2:59"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "WBW",
+     "r": 3,
+     "a": {
+      "n": "Alice Pereira",
+      "rec": "7-1-0",
+      "nat": "BRA"
+     },
+     "b": {
+      "n": "Darya Zheleznyakova",
+      "rec": "10-3-0",
+      "nat": "RUS"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (retirement)",
+      "round": 1,
+      "time": "5:00"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "WFLW",
+     "r": 3,
+     "a": {
+      "n": "Melissa Gatto",
+      "rec": "9-3-3",
+      "nat": "BRA"
+     },
+     "b": {
+      "n": "Ernesta Kareckaitė",
+      "rec": "6-2-2",
+      "nat": "LTU"
+     }
+    }
+   ],
+   "wiki": "UFC Fight Night: Allen vs. Duncan"
+  },
+  {
+   "id": "fn-buckley-malott",
+   "name": "UFC Fight Night",
+   "a": "Buckley",
+   "b": "Malott",
+   "venue": "Rogers Place",
+   "city": "Edmonton",
+   "tz": "America/Toronto",
+   "segs": [
+    {
+     "k": "prelims",
+     "t": "2026-10-17T21:00:00Z"
+    },
+    {
+     "k": "main",
+     "t": "2026-10-18T00:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "WW",
+     "r": 5,
+     "a": {
+      "n": "Mike Malott",
+      "rec": "14-2-1",
+      "nat": "Canada"
+     },
+     "b": {
+      "n": "Joaquin Buckley",
+      "rec": "21-8-0",
+      "nat": "USA"
+     },
+     "res": {
+      "w": "a",
+      "method": "KO (knee and punch)",
+      "round": 2,
+      "time": "2:32"
+     }
+    },
+    {
+     "s": "main",
+     "w": "WFLW",
+     "r": 3,
+     "a": {
+      "n": "Jasmine Jasudavicius",
+      "rec": "15-4-0",
+      "nat": "Canada"
+     },
+     "b": {
+      "n": "Erin Blanchfield",
+      "rec": "14-2-0",
+      "nat": "USA"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
+     }
+    },
+    {
+     "s": "main",
+     "w": "LW",
+     "r": 3,
+     "a": {
+      "n": "Cristian Pérez",
+      "rec": "15-2-0",
+      "nat": "MEX"
+     },
+     "b": {
+      "n": "Kyle Nelson",
+      "rec": "17-7-1",
+      "nat": "Canada"
+     },
+     "res": {
+      "w": "a",
+      "method": "KO (coups de poing)",
+      "round": 1,
+      "time": "0:27"
+     }
+    },
+    {
+     "s": "main",
+     "w": "MW",
+     "r": 3,
+     "a": {
+      "n": "Marc-André Barriault",
+      "rec": "17-10-0",
+      "nat": "Canada"
+     },
+     "b": {
+      "n": "Kyle Daukaus",
+      "rec": "17-5-0",
+      "nat": "USA"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (punches and elbows)",
+      "round": 1,
+      "time": "4:28"
+     }
+    },
+    {
+     "s": "main",
+     "w": "BW",
+     "r": 3,
+     "a": {
+      "n": "Timothy Cuamba",
+      "rec": "10-4-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Louis Jourdain",
+      "rec": "9-3-0",
+      "nat": "Canada"
+     },
+     "res": {
+      "w": "a",
+      "method": "Soumission (neck crank)",
+      "round": 2,
+      "time": "2:48"
+     }
+    },
+    {
+     "s": "main",
+     "w": "LW",
+     "r": 3,
+     "a": {
+      "n": "Mandel Nallo",
+      "rec": "14-4-0",
+      "nat": "Canada"
+     },
+     "b": {
+      "n": "Nate Landwehr",
+      "rec": "18-8-0",
+      "nat": "USA"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (leg kick and punches)",
+      "round": 2,
+      "time": "0:47"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "HW",
+     "r": 3,
+     "a": {
+      "n": "Tanner Boser",
+      "rec": "22-11-1",
+      "nat": "Canada"
+     },
+     "b": {
+      "n": "Jhonata Diniz",
+      "rec": "9-2-0",
+      "nat": "BRA"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (coups de poing)",
+      "round": 3,
+      "time": "4:26"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "MW",
+     "r": 3,
+     "a": {
+      "n": "Nick Galanti",
+      "rec": "9-1-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Julien Leblanc",
+      "rec": "10-3-0",
+      "nat": "Canada"
+     },
+     "res": {
+      "w": "a",
+      "method": "Soumission (neck crank)",
+      "round": 1,
+      "time": "1:26"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "HW",
+     "r": 3,
+     "a": {
+      "n": "Joel Faglier",
+      "rec": "6-0-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Javad Mahjoub",
+      "rec": "5-0-0",
+      "nat": "Iran"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (coups de poing)",
+      "round": 2,
+      "time": "2:11"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "WFLW",
+     "r": 3,
+     "a": {
+      "n": "Katlyn Cerminara",
+      "rec": "18-6-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Mackenzie Stiller",
+      "rec": "6-1-0",
+      "nat": "USA"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (high kick et coups)",
+      "round": 1,
+      "time": "4:46"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "BW",
+     "r": 3,
+     "a": {
+      "n": "Steven Koslow",
+      "rec": "6-1-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Chad Anheliger",
+      "rec": "13-8-0",
+      "nat": "Canada"
+     },
+     "res": {
+      "w": "a",
+      "method": "Soumission (étranglement arrière)",
+      "round": 3,
+      "time": "4:31"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "WBW",
+     "r": 3,
+     "a": {
+      "n": "Chelsea Chandler",
+      "rec": "7-4-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Melissa Croden",
+      "rec": "8-3-0",
+      "nat": "Canada"
+     },
+     "res": {
+      "w": "a",
+      "method": "Soumission (kimura)",
+      "round": 1,
+      "time": "4:52"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "BW",
+     "r": 3,
+     "a": {
+      "n": "You Su-young",
+      "rec": "16-4-0",
+      "nat": "KOR"
+     },
+     "b": {
+      "n": "Cody Chovancek",
+      "rec": "9-0-0",
+      "nat": "Canada"
+     },
+     "res": {
+      "w": "a",
+      "method": "Soumission (kimura)",
+      "round": 3,
+      "time": "4:19"
+     }
+    }
+   ],
+   "wiki": "UFC Fight Night: Buckley vs. Malott"
+  },
+  {
+   "id": "ufc333",
+   "name": "UFC 333",
+   "a": "Volkanovski",
+   "b": "Evloev",
+   "venue": "Etihad Arena",
+   "city": "Abu Dhabi",
+   "tz": "Asia/Dubai",
+   "tbc": 1,
+   "segs": [
+    {
+     "k": "early",
+     "t": "2026-10-24T13:00:00Z"
+    },
+    {
+     "k": "prelims",
+     "t": "2026-10-24T15:00:00Z"
+    },
+    {
+     "k": "main",
+     "t": "2026-10-24T17:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "FW",
+     "r": 5,
+     "a": {
+      "n": "Alexander Volkanovski",
+      "rec": "28-4-0",
+      "nat": "AUS",
+      "champ": 1
+     },
+     "b": {
+      "n": "Movsar Evloev",
+      "rec": "20-0-0",
+      "nat": "RUS"
+     },
+     "title": "Titre Featherweight",
+     "res": {
+      "w": "a",
+      "method": "TKO (coups de poing)",
+      "round": 2,
+      "time": "4:54"
+     }
+    },
+    {
+     "s": "main",
+     "w": "BW",
+     "r": 5,
+     "a": {
+      "n": "Petr Yan",
+      "rec": "20-5-0",
+      "nat": "RUS",
+      "champ": 1
+     },
+     "b": {
+      "n": "Merab Dvalishvili",
+      "rec": "21-5-0",
+      "nat": "Georgia (country)"
+     },
+     "title": "Titre Bantamweight",
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 5,
+      "time": "5:00"
+     }
+    },
+    {
+     "s": "main",
+     "w": "FLW",
+     "r": 3,
+     "a": {
+      "n": "Lone'er Kavanagh",
+      "rec": "10-2-0",
+      "nat": "GBR"
+     },
+     "b": {
+      "n": "Ramazan Temirov",
+      "rec": "18-2-0",
+      "nat": "Uzbekistan"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (coups de poing)",
+      "round": 1,
+      "time": "4:28"
+     }
+    },
+    {
+     "s": "main",
+     "w": "HW",
+     "r": 3,
+     "a": {
+      "n": "Alexander Volkov",
+      "rec": "40-11-0",
+      "nat": "RUS"
+     },
+     "b": {
+      "n": "Rizvan Kuniev",
+      "rec": "14-3-1",
+      "nat": "RUS"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
+     }
+    },
+    {
+     "s": "main",
+     "w": "FW",
+     "r": 3,
+     "a": {
+      "n": "Aaron Pico",
+      "rec": "14-5-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Losene Keita",
+      "rec": "17-2-0",
+      "nat": "Belgium"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (coups de poing)",
+      "round": 1,
+      "time": "1:14"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "LHW",
+     "r": 3,
+     "a": {
+      "n": "Dominick Reyes",
+      "rec": "16-5-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Azamat Murzakanov",
+      "rec": "16-1-0",
+      "nat": "RUS"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (high kick et coups)",
+      "round": 1,
+      "time": "2:40"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "LHW",
+     "r": 3,
+     "a": {
+      "n": "Abdul-Rakhman Yakhyaev",
+      "rec": "10-0-0",
+      "nat": "Turkey"
+     },
+     "b": {
+      "n": "Nikita Krylov",
+      "rec": "31-12-0",
+      "nat": "RUS"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (genou et coups)",
+      "round": 1,
+      "time": "2:38"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "MW",
+     "r": 3,
+     "a": {
+      "n": "Abusupiyan Magomedov",
+      "rec": "29-7-1",
+      "nat": "Germany"
+     },
+     "b": {
+      "n": "Cameron Rowston",
+      "rec": "15-3-0",
+      "nat": "AUS"
+     },
+     "res": {
+      "w": "a",
+      "method": "Soumission technique (guillotine)",
+      "round": 1,
+      "time": "1:44"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "LW",
+     "r": 3,
+     "a": {
+      "n": "Grant Dawson",
+      "rec": "24-3-1",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Nurullo Aliev",
+      "rec": "11-0-0",
+      "nat": "Tajikistan"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
+     }
+    },
+    {
+     "s": "early",
+     "w": "BW",
+     "r": 3,
+     "a": {
+      "n": "Colby Thicknesse",
+      "rec": "9-1-0",
+      "nat": "AUS"
+     },
+     "b": {
+      "n": "Asaf Chopurov",
+      "rec": "11-0-0",
+      "nat": "RUS"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision partagée",
+      "round": 3,
+      "time": "5:00"
+     }
+    },
+    {
+     "s": "early",
+     "w": "MW",
+     "r": 3,
+     "a": {
+      "n": "Abubakar Vagaev",
+      "rec": "25-4-0",
+      "nat": "RUS"
+     },
+     "b": {
+      "n": "Jacob Malkoun",
+      "rec": "10-3-0",
+      "nat": "AUS"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
+     }
+    },
+    {
+     "s": "early",
+     "w": "FW",
+     "r": 3,
+     "a": {
+      "n": "Daniel Santos",
+      "rec": "13-3-0",
+      "nat": "BRA"
+     },
+     "b": {
+      "n": "Bolaji Oki",
+      "rec": "10-4-0",
+      "nat": "Belgium"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
+     }
+    },
+    {
+     "s": "early",
+     "w": "LW",
+     "r": 3,
+     "a": {
+      "n": "Kody Steele",
+      "rec": "8-1-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Noah Gugnon",
+      "rec": "10-2-0",
+      "nat": "FRA",
+      "fr": 1
+     },
+     "res": {
+      "w": "a",
+      "method": "KO (coups de poing)",
+      "round": 1,
+      "time": "3:54"
+     }
+    },
+    {
+     "s": "early",
+     "w": "Catchweight (120.5 lb)",
+     "r": 3,
+     "a": {
+      "n": "Iasmin Lucindo",
+      "rec": "18-6-0",
+      "nat": "BRA"
+     },
+     "b": {
+      "n": "Nicolle Caliari",
+      "rec": "9-4-0",
+      "nat": "BRA"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
+     }
+    }
+   ],
+   "wiki": "UFC 333"
+  },
+  {
+   "id": "fn-moicano-nolan",
+   "name": "UFC Fight Night",
+   "a": "Moicano",
+   "b": "Nolan",
+   "venue": "Meta Apex",
+   "city": "Enterprise",
+   "tz": "America/Los_Angeles",
+   "segs": [
+    {
+     "k": "prelims",
+     "t": "2026-10-31T21:00:00Z"
+    },
+    {
+     "k": "main",
+     "t": "2026-11-01T00:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "LW",
+     "r": 5,
+     "a": {
+      "n": "Renato Moicano",
+      "rec": "21-7-1",
+      "nat": "BRA"
+     },
+     "b": {
+      "n": "Tom Nolan",
+      "rec": "11-1-0",
+      "nat": "AUS"
+     }
+    },
+    {
+     "s": "main",
+     "w": "WW",
+     "r": 3,
+     "a": {
+      "n": "Randy Brown",
+      "rec": "20-8-0",
+      "nat": "JAM"
+     },
+     "b": {
+      "n": "Jacobe Smith",
+      "rec": "13-0-0",
+      "nat": "USA"
+     }
+    },
+    {
+     "s": "main",
+     "w": "FLW",
+     "r": 3,
+     "a": {
+      "n": "Ode' Osbourne",
+      "rec": "13-9-0",
+      "nat": "JAM"
+     },
+     "b": {
+      "n": "Cody Durden",
+      "rec": "18-11-1",
+      "nat": "USA"
+     }
+    },
+    {
+     "s": "main",
+     "w": "WBW",
+     "r": 3,
+     "a": {
+      "n": "Yana Santos",
+      "rec": "17-8-0",
+      "nat": "RUS"
+     },
+     "b": {
+      "n": "Luana Santos",
+      "rec": "11-2-0",
+      "nat": "BRA"
+     }
+    },
+    {
+     "s": "main",
+     "w": "WW",
+     "r": 3,
+     "a": {
+      "n": "Jean-Paul Lebosnoyani",
+      "rec": "11-2-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Farman Hasanov",
+      "rec": "5-0-0",
+      "nat": "AZE"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "FW",
+     "r": 3,
+     "a": {
+      "n": "Francis Marshall",
+      "rec": "10-3-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Dakota Hope",
+      "rec": "11-2-0",
+      "nat": "USA"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "WW",
+     "r": 3,
+     "a": {
+      "n": "Rodrigo Sezinando",
+      "rec": "8-2-0",
+      "nat": "BRA"
+     },
+     "b": {
+      "n": "Theodor Berggren",
+      "rec": "8-4-0",
+      "nat": "SWE"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "FW",
+     "r": 3,
+     "a": {
+      "n": "Julian Erosa",
+      "rec": "31-13-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Lee Jeong-yeong",
+      "rec": "11-2-0",
+      "nat": "KOR"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "MW",
+     "r": 3,
+     "a": {
+      "n": "Zachary Reese",
+      "rec": "10-4-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Mickey Gall",
+      "rec": "7-7-0",
+      "nat": "USA"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "MW",
+     "r": 3,
+     "a": {
+      "n": "Nick Klein",
+      "rec": "6-3-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Joseph Kropschot"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "WSW",
+     "r": 3,
+     "a": {
+      "n": "Talita Alencar",
+      "rec": "8-1-1",
+      "nat": "BRA"
+     },
+     "b": {
+      "n": "Piera Rodriguez",
+      "rec": "12-2-0",
+      "nat": "VEN"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "WBW",
+     "r": 3,
+     "a": {
+      "n": "Lucia Szabová"
+     },
+     "b": {
+      "n": "Tainara Lisboa",
+      "rec": "7-4-0",
+      "nat": "BRA"
+     }
+    }
+   ],
+   "wiki": "UFC Fight Night: Moicano vs. Nolan"
+  },
+  {
+   "id": "fn-bonfim-brady",
+   "name": "UFC Fight Night",
+   "a": "Bonfim",
+   "b": "Brady",
+   "venue": "Meta Apex",
+   "city": "Enterprise",
+   "tz": "America/Los_Angeles",
+   "segs": [
+    {
+     "k": "prelims",
+     "t": "2026-11-07T22:00:00Z"
+    },
+    {
+     "k": "main",
+     "t": "2026-11-08T01:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "WW",
+     "r": 5,
+     "a": {
+      "n": "Gabriel Bonfim",
+      "rec": "19-1-0",
+      "nat": "BRA"
+     },
+     "b": {
+      "n": "Sean Brady",
+      "rec": "19-2-0",
+      "nat": "USA"
+     }
+    },
+    {
+     "s": "main",
+     "w": "WSW",
+     "r": 3,
+     "a": {
+      "n": "Tatiana Suarez",
+      "rec": "12-1-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Virna Jandiroba",
+      "rec": "23-4-0",
+      "nat": "BRA"
+     }
+    },
+    {
+     "s": "main",
+     "w": "BW",
+     "r": 3,
+     "a": {
+      "n": "Davey Grant",
+      "rec": "18-8-0",
+      "nat": "GBR"
+     },
+     "b": {
+      "n": "Elijah Smith",
+      "rec": "10-1-0",
+      "nat": "USA"
+     }
+    },
+    {
+     "s": "main",
+     "w": "WW",
+     "r": 3,
+     "a": {
+      "n": "Ko Seok-hyeon",
+      "rec": "13-3-0",
+      "nat": "KOR"
+     },
+     "b": {
+      "n": "Wellington Turman",
+      "rec": "18-8-0",
+      "nat": "BRA"
+     }
+    },
+    {
+     "s": "main",
+     "w": "MW",
+     "r": 3,
+     "a": {
+      "n": "Mantas Kondratavičius",
+      "rec": "9-1-0",
+      "nat": "LTU"
+     },
+     "b": {
+      "n": "Andre Petroski",
+      "rec": "13-6-0",
+      "nat": "USA"
+     }
+    },
+    {
+     "s": "main",
+     "w": "LHW",
+     "r": 3,
+     "a": {
+      "n": "Billy Elekana",
+      "rec": "10-2-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Lucas Fernando",
+      "rec": "14-3-0",
+      "nat": "BRA"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "WFLW",
+     "r": 3,
+     "a": {
+      "n": "Karine Silva",
+      "rec": "19-7-0",
+      "nat": "BRA"
+     },
+     "b": {
+      "n": "Gabriella Fernandes",
+      "rec": "11-4-0",
+      "nat": "BRA"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "FLW",
+     "r": 3,
+     "a": {
+      "n": "Mitch Raposo",
+      "rec": "11-2-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Marcos Degli"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "FW",
+     "r": 3,
+     "a": {
+      "n": "José Mauro Delano",
+      "rec": "16-3-0",
+      "nat": "BRA"
+     },
+     "b": {
+      "n": "Murtazali Magomedov",
+      "rec": "11-0-0",
+      "nat": "Kyrgyzstan"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "FW",
+     "r": 3,
+     "a": {
+      "n": "Keiichiro Nakamura",
+      "rec": "8-1-0",
+      "nat": "JPN"
+     },
+     "b": {
+      "n": "Ollie Schmid",
+      "rec": "4-3-0",
+      "nat": "Hungary"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "FW",
+     "r": 3,
+     "a": {
+      "n": "Austin Bashi",
+      "rec": "14-2-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Lucas Brennan",
+      "rec": "11-3-0",
+      "nat": "USA"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "WBW",
+     "r": 3,
+     "a": {
+      "n": "Priscila Cachoeira",
+      "rec": "13-9-0",
+      "nat": "BRA"
+     },
+     "b": {
+      "n": "Nina Nikolija Milošević",
+      "rec": "9-1-0",
+      "nat": "SRB"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "WW",
+     "r": 3,
+     "a": {
+      "n": "Jonny Parsons"
+     },
+     "b": {
+      "n": "José Henrique Souza",
+      "rec": "9-1-0",
+      "nat": "BRA"
+     }
+    }
+   ],
+   "wiki": "UFC Fight Night: Bonfim vs. Brady"
+  },
+  {
+   "id": "ufc334",
+   "name": "UFC 334",
+   "a": "Gane",
+   "b": "Hokit",
+   "venue": "Madison Square Garden",
+   "city": "New York",
+   "tz": "America/New_York",
+   "segs": [
+    {
+     "k": "early",
+     "t": "2026-11-14T22:00:00Z"
+    },
+    {
+     "k": "prelims",
+     "t": "2026-11-15T00:00:00Z"
+    },
+    {
+     "k": "main",
+     "t": "2026-11-15T02:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "HW",
+     "r": 5,
+     "a": {
+      "n": "Ciryl Gane",
+      "rec": "13-2-0",
+      "nat": "FRA",
+      "fr": 1,
+      "champ": 1
+     },
+     "b": {
+      "n": "Josh Hokit",
+      "rec": "10-0-0",
+      "nat": "USA"
+     },
+     "title": "Titre Heavyweight"
+    },
+    {
+     "s": "main",
+     "w": "WBW",
+     "r": 5,
+     "a": {
+      "n": "Kayla Harrison",
+      "rec": "19-1-0",
+      "nat": "USA",
+      "champ": 1
+     },
+     "b": {
+      "n": "Amanda Nunes"
+     },
+     "title": "Titre Women's Bantamweight"
+    },
+    {
+     "s": "main",
+     "w": "MW",
+     "r": 3,
+     "a": {
+      "n": "Caio Borralho",
+      "rec": "18-2-0",
+      "nat": "BRA"
+     },
+     "b": {
+      "n": "Yousri Belgaroui",
+      "rec": "11-3-0",
+      "nat": "NED"
+     }
+    },
+    {
+     "s": "main",
+     "w": "WW",
+     "r": 3,
+     "a": {
+      "n": "Uroš Medić",
+      "rec": "14-3-0",
+      "nat": "SRB"
+     },
+     "b": {
+      "n": "Kevin Holland",
+      "rec": "29-15-0",
+      "nat": "USA"
+     }
+    },
+    {
+     "s": "main",
+     "w": "FLW",
+     "r": 3,
+     "a": {
+      "n": "Bilal Hasan",
+      "rec": "10-0-0",
+      "nat": "IDN"
+     },
+     "b": {
+      "n": "Luis Gurule",
+      "rec": "11-4-0",
+      "nat": "USA"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "WW",
+     "r": 3,
+     "a": {
+      "n": "Stephen Thompson",
+      "rec": "17-9-1",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Charles Radtke",
+      "rec": "12-5-0",
+      "nat": "USA"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "LW",
+     "r": 3,
+     "a": {
+      "n": "Drew Dober",
+      "rec": "29-15-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Chris Duncan",
+      "rec": "15-2-0",
+      "nat": "GBR"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "LW",
+     "r": 3,
+     "a": {
+      "n": "Jim Miller",
+      "rec": "39-19-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Terrance McKinney",
+      "rec": "18-9-0",
+      "nat": "USA"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "MW",
+     "r": 3,
+     "a": {
+      "n": "Donte Johnson",
+      "rec": "9-0-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "César Almeida",
+      "rec": "7-3-0",
+      "nat": "BRA"
+     }
+    },
+    {
+     "s": "early",
+     "w": "WBW",
+     "r": 3,
+     "a": {
+      "n": "Macy Chiasson",
+      "rec": "10-6-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Beatriz Mesquita",
+      "rec": "8-0-0",
+      "nat": "BRA"
+     }
+    }
+   ],
+   "wiki": "UFC 334"
+  },
+  {
+   "id": "fn-prochazka-stirling",
+   "name": "UFC Fight Night",
+   "a": "Procházka",
+   "b": "Stirling",
+   "venue": "Ali Bin Hamad al-Attiyah Arena",
+   "city": "Al Rayyan",
+   "tz": "Asia/Qatar",
+   "segs": [
+    {
+     "k": "prelims",
+     "t": "2026-11-21T15:00:00Z"
+    },
+    {
+     "k": "main",
+     "t": "2026-11-21T18:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "LHW",
+     "r": 5,
+     "a": {
+      "n": "Jiří Procházka",
+      "rec": "32-6-1",
+      "nat": "CZE"
+     },
+     "b": {
+      "n": "Navajo Stirling",
+      "rec": "11-0-0",
+      "nat": "NZL"
+     }
+    },
+    {
+     "s": "main",
+     "w": "FW",
+     "r": 3,
+     "a": {
+      "n": "Aljamain Sterling",
+      "rec": "26-5-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Kevin Vallejos",
+      "rec": "18-1-0",
+      "nat": "ARG"
+     }
+    },
+    {
+     "s": "main",
+     "w": "LW",
+     "r": 3,
+     "a": {
+      "n": "Dan Hooker",
+      "rec": "24-15-0",
+      "nat": "NZL"
+     },
+     "b": {
+      "n": "Brian Ortega",
+      "rec": "16-5-0",
+      "nat": "USA"
+     }
+    },
+    {
+     "s": "main",
+     "w": "MW",
+     "r": 3,
+     "a": {
+      "n": "Jared Cannonier",
+      "rec": "18-10-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Ikram Aliskerov",
+      "rec": "18-2-0",
+      "nat": "RUS"
+     }
+    },
+    {
+     "s": "main",
+     "w": "HW",
+     "r": 3,
+     "a": {
+      "n": "Shamil Gaziev",
+      "rec": "15-3-0",
+      "nat": "BHR"
+     },
+     "b": {
+      "n": "Tallison Teixeira",
+      "rec": "9-2-0",
+      "nat": "BRA"
+     }
+    },
+    {
+     "s": "main",
+     "w": "WW",
+     "r": 3,
+     "a": {
+      "n": "Jake Matthews",
+      "rec": "23-8-0",
+      "nat": "AUS"
+     },
+     "b": {
+      "n": "Tahir Abdullayev",
+      "rec": "20-3-0",
+      "nat": "AZE"
+     }
+    },
+    {
+     "s": "main",
+     "w": "BW",
+     "r": 3,
+     "a": {
+      "n": "Aleksandre Topuria",
+      "rec": "7-1-0",
+      "nat": "Georgia (country)"
+     },
+     "b": {
+      "n": "Santiago Luna",
+      "rec": "8-1-0",
+      "nat": "MEX"
+     }
+    },
+    {
+     "s": "main",
+     "w": "FLW",
+     "r": 3,
+     "a": {
+      "n": "Asu Almabayev",
+      "rec": "24-3-0",
+      "nat": "KAZ"
+     },
+     "b": {
+      "n": "Kyoji Horiguchi",
+      "rec": "36-6-0",
+      "nat": "JPN"
+     }
+    },
+    {
+     "s": "main",
+     "w": "FLW",
+     "r": 3,
+     "a": {
+      "n": "Amir Albazi",
+      "rec": "17-3-0",
+      "nat": "IRQ"
+     },
+     "b": {
+      "n": "Alessandro Costa",
+      "rec": "17-5-0",
+      "nat": "BRA"
+     }
+    }
+   ],
+   "wiki": "UFC Fight Night: Procházka vs. Stirling"
+  },
+  {
+   "id": "ufc335",
+   "name": "UFC 335",
+   "a": "Oliveira",
+   "b": "Lopes",
+   "venue": "T-Mobile Arena",
+   "city": "Paradise",
+   "tz": "America/Los_Angeles",
+   "tbc": 1,
+   "segs": [
+    {
+     "k": "prelims",
+     "t": "2026-12-13T00:00:00Z"
+    },
+    {
+     "k": "main",
+     "t": "2026-12-13T02:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "LW",
+     "r": 5,
+     "a": {
+      "n": "Charles Oliveira",
+      "rec": "37-11-0",
+      "nat": "BRA",
+      "champ": 1
+     },
+     "b": {
+      "n": "Diego Lopes",
+      "rec": "28-8-0",
+      "nat": "BRA"
+     },
+     "title": "Ceinture BMF"
+    },
+    {
+     "s": "main",
+     "w": "HW",
+     "r": 3,
+     "a": {
+      "n": "Sergei Pavlovich",
+      "rec": "21-3-0",
+      "nat": "RUS"
+     },
+     "b": {
+      "n": "Alex Pereira",
+      "rec": "13-4-0",
+      "nat": "BRA"
+     }
+    },
+    {
+     "s": "main",
+     "w": "FLW",
+     "r": 3,
+     "a": {
+      "n": "Brandon Moreno",
+      "rec": "24-10-2",
+      "nat": "MEX"
+     },
+     "b": {
+      "n": "Charles Johnson",
+      "rec": "20-9-0",
+      "nat": "USA"
+     }
+    },
+    {
+     "s": "main",
+     "w": "WFLW",
+     "r": 3,
+     "a": {
+      "n": "Maycee Barber",
+      "rec": "15-3-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Carli Judice",
+      "rec": "7-2-0",
+      "nat": "USA"
+     }
+    },
+    {
+     "s": "main",
+     "w": "LHW",
+     "r": 3,
+     "a": {
+      "n": "Quentin Pasley"
+     },
+     "b": {
+      "n": "Junior Tafa",
+      "rec": "7-6-0",
+      "nat": "AUS"
+     }
+    }
+   ],
+   "wiki": "UFC 335"
+  },
+  {
+   "id": "ufc336",
+   "name": "UFC 336",
+   "a": "Van",
+   "b": "Kape",
+   "venue": "Scotiabank Arena",
+   "city": "Toronto",
+   "tz": "America/Toronto",
+   "segs": [
+    {
+     "k": "prelims",
+     "t": "2027-01-31T00:00:00Z"
+    },
+    {
+     "k": "main",
+     "t": "2027-01-31T02:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "FLW",
+     "r": 5,
+     "a": {
+      "n": "Joshua Van",
+      "rec": "18-2-0",
+      "nat": "Myanmar",
+      "champ": 1
+     },
+     "b": {
+      "n": "Manel Kape",
+      "rec": "23-7-0",
+      "nat": "Angola"
+     },
+     "title": "Titre Flyweight"
+    },
+    {
+     "s": "main",
+     "w": "WW",
+     "r": 3,
+     "a": {
+      "n": "Carlos Prates",
+      "rec": "24-7-0",
+      "nat": "BRA"
+     },
+     "b": {
+      "n": "Michael Morales",
+      "rec": "19-0-0",
+      "nat": "Ecuador"
+     }
+    }
+   ],
+   "wiki": "UFC 336"
+  }
+ ],
+ "agenda": [
+  {
+   "sport": "mma",
+   "date": "2026-12-05",
+   "name": "Affiche à annoncer",
+   "org": "UFC Fight Night · Riyadh"
+  },
+  {
+   "sport": "mma",
+   "date": "2027-01-16",
+   "name": "Affiche à annoncer",
+   "org": "UFC Fight Night · Dallas"
+  },
+  {
+   "sport": "mma",
+   "date": "2027-01-23",
+   "name": "Affiche à annoncer",
+   "org": "UFC Fight Night"
+  },
+  {
+   "sport": "mma",
+   "date": "2027-02-07",
+   "name": "Affiche à annoncer",
+   "org": "UFC Fight Night · Sydney"
+  }
+ ]
+}

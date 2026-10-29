@@ -265,6 +265,12 @@ details.ev .sched{border:1px solid var(--line);border-radius:4px}
 .rcard .st{font-family:var(--f-data);font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:700}
 .st.ok{color:var(--blue)} .st.ru{color:var(--gold)}
 .rcard p{margin:0;font-size:14px;color:var(--muted)}
+a.rcard{color:inherit;text-decoration:none;transition:border-color .15s}
+a.rcard:hover{border-color:var(--red)}
+a.rcard .st{color:var(--red)}
+a.rcard.num .st{color:var(--gold)}
+.rcard .rt{color:var(--gold);font-weight:600}
+.rcard .star{color:var(--gold);margin-left:4px;font-size:.8em}
 
 /* Simulateur */
 .sim{background:var(--surface);border:1px dashed var(--line);border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
@@ -974,12 +980,15 @@ FLAGS.IDN='<rect width="30" height="10" fill="#CE1126"/><rect y="10" width="30" 
 Object.assign(NAT,{"Alexander Volkanovski":"AUS","Movsar Evloev":"RUS","Merab Dvalishvili":"GEO","Petr Yan":"RUS","Lone'er Kavanagh":"GBR","Alexander Volkov":"RUS","Aaron Pico":"USA","Dominick Reyes":"USA","Azamat Murzakanov":"RUS","Cam Rowston":"AUS","Grant Dawson":"USA","Colby Thicknesse":"AUS","Jacob Malkoun":"AUS","Daniel Santos":"BRA","Kody Steele":"USA","Iasmin Lucindo":"BRA","Nicolle Caliari":"BRA"});
 Object.assign(NAT,{"Ode Osbourne":"JAM","Cody Durden":"USA","Zach Reese":"USA","Mickey Gall":"USA","Gabriel Lourenço":"BRA","José Delano":"BRA","Murtazali Magomedov":"RUS","César Almeida":"BRA","Evan Elder":"USA","Samuel Sanches":"BRA","Tahir Abdullayev":"AZE","Seokhyeon Ko":"KOR","José Souza":"BRA","Lucas Fernando":"BRA","Bilal Hasan":"IDN","Andre Petroski":"USA"});
 Object.assign(NAT,{"Salahdine Parnasse": "FRA", "Benoît Saint-Denis": "FRA", "Nassourdine Imavov": "FRA", "Manon Fiorot": "FRA", "Morgan Charrière": "FRA", "Farès Ziam": "FRA", "Axel Sola": "FRA", "William Gomis": "FRA", "Yanis Ghemmouri": "FRA", "Kevin Jousset": "FRA", "Nora Cornolle": "FRA", "Oumar Sy": "FRA", "Ange Loosa": "FRA", "Taylor Lapilus": "FRA", "Cédric Doumbè": "FRA", "Bafodé Gassama": "FRA", "Islam Makhachev": "RUS", "Tom Aspinall": "GBR", "Jon Jones": "USA", "Sean Strickland": "USA", "Merab Dvalishvili": "GEO", "Petr Yan": "RUS", "Alexander Volkanovski": "AUS", "Movsar Evloev": "RUS", "Max Holloway": "USA", "Justin Gaethje": "USA", "Paddy Pimblett": "GBR", "Sean O'Malley": "USA", "Alexandre Pantoja": "BRA", "Jack Della Maddalena": "AUS", "Belal Muhammad": "USA", "Leon Edwards": "GBR", "Kamaru Usman": "USA", "Magomed Ankalaev": "RUS", "Carlos Ulberg": "NZL", "Israel Adesanya": "NZL", "Robert Whittaker": "AUS", "Michael Chandler": "USA", "Shavkat Rakhmonov": "KAZ", "Umar Nurmagomedov": "RUS", "Natalia Silva": "BRA", "Julianna Peña": "USA", "Raquel Pennington": "USA", "Rose Namajunas": "USA", "Mackenzie Dern": "USA", "Jean Silva": "BRA", "Carlos Prates": "BRA", "Reinier de Ridder": "NED", "Brendan Allen": "USA", "Anthony Hernandez": "USA", "Jailton Almeida": "BRA", "Curtis Blaydes": "USA", "Derrick Lewis": "USA", "Rafael Fiziev": "AZE", "Mauricio Ruffy": "BRA", "Lerone Murphy": "GBR", "Brandon Royval": "USA", "Kai Kara-France": "NZL", "Tatsuro Taira": "JPN", "Payton Talbott": "USA", "Cory Sandhagen": "USA", "Deiveson Figueiredo": "BRA"});
+/* Annuaire complet (UFC, PFL, champions de boxe) chargé avec les données : nom → {nat, rec, sp} */
+const DIR=new Map();
 /* Tous les combattants connus (cartes + radar + annuaire) pour les suggestions d'ajout */
 function allFighters(){
   const m=new Map();
   EVENTS.forEach(e=>e.fights.forEach(f=>[f.a,f.b].forEach(p=>{if(!p.tbd&&!m.has(p.n))m.set(p.n,e);})));
   RADAR.forEach(r=>{if(!m.has(r.n))m.set(r.n,null);});
   ROSTER.forEach(n=>{if(!m.has(n))m.set(n,null);});
+  DIR.forEach((v,n)=>{if(!m.has(n))m.set(n,null);});
   return m;
 }
 function favSuggest(){
@@ -1198,7 +1207,11 @@ function findBox(t){
       const vs=who===f.a.n?f.b.n:f.a.n;
       const st=t>=f.est&&t<f.end?"combat probablement en cours":t>=f.end?"combat probablement terminé":`${fmtD(f.est)}, vers <b>${fmtT(f.est)}</b>`;
       return `<div class="hit">${favBtn({n:who})}<span><b>${esc(who)}</b> contre ${esc(vs)} (<a href="#ev-${e.id}">${esc(e.name)} ${esc(e.a)} vs ${esc(e.b)}</a>) : ${st}${isFav(who)?' <em class="favok">· dans tes favoris</em>':""}</span></div>`;
-    }).join(""):"Aucun combat trouvé pour ce nom dans les soirées à venir.";
+    }).join(""):"";
+    const withFight=new Set(res.flatMap(({f})=>[f.a.n,f.b.n]));
+    const more=[...allFighters().keys()].filter(n=>!withFight.has(n)&&norm(n).includes(query)).slice(0,8);
+    fd.innerHTML+=more.map(n=>{const d=DIR.get(n)||{};const nat=NAT[n]||d.nat;return `<div class="hit">${favBtn({n})}<span><b>${esc(n)}</b>${nat==="FRA"?flag({fr:1}):""}${d.rec?` · ${esc(d.rec)}`:""}${d.sp==="boxe"?" · boxe":""} · pas de combat annoncé${isFav(n)?' <em class="favok">· dans tes favoris</em>':""}</span></div>`;}).join("");
+    if(!fd.innerHTML) fd.innerHTML="Aucun combattant trouvé pour ce nom.";
   }
 }
 function detailHTML(ev,t){
@@ -1262,8 +1275,15 @@ window.addEventListener("hashchange",()=>renderDetail(now()));
 document.addEventListener("click",e=>{if(e.target.closest(".homelink")){e.preventDefault();if(location.hash)history.pushState(null,"",location.pathname+location.search);renderDetail(now());window.scrollTo({top:0,behavior:"smooth"});}});
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!document.getElementById("detail").hidden){location.hash="";}});
 function radar(){
+  /* Radar tricolore automatique : tous les Français programmés dans les soirées à venir */
+  const t=now();
   document.getElementById("radarsec").hidden=filter!=="all";
-  document.getElementById("radar").innerHTML=RADAR.map(r=>`<div class="rcard"><span class="st ${r.st}">${esc(r.s)}</span><span class="nm">${esc(r.n)}${flag({fr:1})}</span><p>${esc(r.p)}</p></div>`).join("");
+  const seen=new Set(), out=[];
+  EVENTS.filter(e=>t<e.end&&(sport==="all"||(e.sport||"mma")===sport)).forEach(e=>e.fights.forEach(f=>[[f.a,f.b],[f.b,f.a]].forEach(([p,o])=>{
+    if(!(p.fr||NAT[p.n]==="FRA")||seen.has(p.n)) return;
+    seen.add(p.n); out.push({p,o,e,f,main:f===e.fights[0]});
+  })));
+  document.getElementById("radar").innerHTML=out.map(({p,o,e,f,main})=>`<a class="rcard ${evCls(e)}" href="#ev-${e.id}"><span class="st">${esc(e.name)} · ${fmtDS(e.start)}</span><span class="nm">${esc(p.n)}${flag({fr:1})}${p.star?'<span class="star">★</span>':""}</span><p>Contre ${esc(o.n)}${f.title?` · <b class="rt">${esc(f.title)}</b>`:""}${main?" · combat principal":""} · ${t>=f.est?"en cours":`${f.known&&!e.tbc?"":"vers "}${fmtT(f.est)}`}</p></a>`).join("")||`<div class="empty">Aucun Français programmé pour l'instant.</div>`;
 }
 
 document.getElementById("q").addEventListener("input",e=>{query=norm(e.target.value.trim());render();});
@@ -1309,6 +1329,7 @@ fetch("data/events.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=
   EVENTS.length=0; EVENTS.push(...past,...evs);
   for(let i=AGENDA.length-1;i>=0;i--) if(/^(UFC|PFL)/.test(AGENDA[i].org)||(d.presse&&(AGENDA[i].sport==="boxe"||/^(Hexagone|ARES)/.test(AGENDA[i].org)))) AGENDA.splice(i,1);
   (d.agenda||[]).forEach(a=>AGENDA.push(a));
+  (d.roster||[]).forEach(([n,nat,rec,sp])=>{DIR.set(n,{nat,rec,sp});if(nat&&!NAT[n])NAT[n]=nat;});
   prepEvents(); EVENTS.sort((a,b)=>a.start-b.start);
   const u=new Date(d.updated);
   document.getElementById("srcline").textContent=`Cartes mises à jour automatiquement le ${fmtD(u)} à ${fmtT(u)} depuis Wikipédia (CC BY-SA)${d.presse?" et la presse spécialisée (boxe, MMA français)":""}. Elles peuvent encore changer d'ici le jour J.`;

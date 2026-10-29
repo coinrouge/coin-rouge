@@ -96,7 +96,7 @@ async function fighters() {
     let country = f.find("a").attr("title") || f.find("img").attr("alt") || "";
     if (!country) { const src = f.find("img").attr("src") || ""; const m = src.match(/Flag_of_(?:the_)?([^./]+)/); if (m) country = decodeURIComponent(m[1]).replace(/_/g, " "); }
     const recm = cell($, td[td.length - 1]).match(/^(\d+)\s*[–-]\s*(\d+)(?:\s*[–-]\s*(\d+))?/);
-    if (!map[name]) map[name] = { nat: COUNTRY[country] || country || "", rec: recm ? [+recm[1], +recm[2], +(recm[3] || 0)] : null };
+    if (!map[name]) map[name] = { nat: COUNTRY[country] || country || "", rec: recm ? [+recm[1], +recm[2], +(recm[3] || 0)] : null, org: /PFL/.test(list) ? "PFL" : "UFC" };
   });
   }
   console.log(`Combattants : ${Object.keys(map).length}`);
@@ -286,8 +286,76 @@ for (const a of presse.agenda || []) if (Date.parse(a.date) > now - DAY && Date.
 events.sort((a, b) => Date.parse(a.segs[0].t) - Date.parse(b.segs[0].t));
 console.log(`Presse : ${(presse.events || []).length} soirées, ${(presse.agenda || []).length} à l'agenda`);
 
+/* ---------- Zuffa Boxing (Wikipédia : une section par soirée) ---------- */
+const BXM = [[/^UD/, "Décision unanime"], [/^SD/, "Décision partagée"], [/^MD/, "Décision majoritaire"], [/^TKO/, "TKO"], [/^KO/, "KO"], [/^RTD/, "Abandon"], [/^PTS/, "Aux points"], [/^DQ/, "Disqualification"], [/^NC/, "No contest"], [/^(Draw|D$|SD?raw|MD?raw)/i, "Match nul"]];
+const BXW = { heavyweight: "Lourds", cruiserweight: "Lourds-légers", "light heavyweight": "Mi-lourds", "super middleweight": "Super-moyens", middleweight: "Moyens",
+  "super welterweight": "Super-welters", "light middleweight": "Super-welters", welterweight: "Welters", "super lightweight": "Super-légers", "light welterweight": "Super-légers",
+  lightweight: "Légers", "super featherweight": "Super-plumes", featherweight: "Plumes", "super bantamweight": "Super-coqs", bantamweight: "Coqs", "super flyweight": "Super-mouches", flyweight: "Mouches", catchweight: "Poids négocié" };
+const taken = new Set(events.flatMap((e) => e.fights.flatMap((f) => [f.a.n, f.b.n])));
+for (const year of [2026, 2027]) {
+  const $ = await page(`${year} in Zuffa Boxing`);
+  if (!$) continue;
+  for (const h of $("h2").toArray()) {
+    const title = cell($, h), num = title.match(/^Zuffa Boxing (\d+)/);
+    if (!num) continue;
+    const sec = $(h).closest("section");
+    const intro = clean(sec.find("p").first().text());
+    const m = intro.match(/(?:took place|take place|will be held|was held) on ([A-Z][a-z]+ \d{1,2}, \d{4})(?: at (?:the )?(.+?))?\./);
+    if (!m) continue;
+    const date = parseDate(m[1]); if (!date) continue;
+    const t0 = Date.parse(date);
+    if (!(t0 > now - 30 * DAY && t0 < now + 120 * DAY)) continue;
+    const place = (m[2] || "").split(/,| in /).map((x) => x.trim()).filter(Boolean);
+    const fights = []; let seg = "main";
+    sec.find("table").each((_, t) => {
+      if (!/Weight class/.test(cell($, $(t).find("tr").slice(0, 3)))) return;
+      $(t).find("tr").each((_, tr) => {
+        const c = $(tr).find("td,th").map((_, x) => cell($, x)).get();
+        if (c.length === 1) { seg = /Preliminary/i.test(c[0]) ? "prelims" : "main"; return; }
+        if (c.length < 4 || !/^(vs\.?|def\.)$/.test(c[2] || "")) return;
+        const rr = (c[5] || "").match(/(\d+)\)?\s*$/);
+        const f = { s: seg, w: BXW[c[0].toLowerCase()] || c[0], r: rr ? Math.min(12, +rr[1]) : 10,
+          a: { n: c[1].replace(/\s*\(c\)/, "") }, b: { n: c[3].replace(/\s*\(c\)/, "") } };
+        if (/\(c\)/.test(c[1])) f.a.champ = 1;
+        if (/\(c\)/.test(c[3])) f.b.champ = 1;
+        if (/^def\./.test(c[2]) && c[4]) { const me = (BXM.find(([re]) => re.test(c[4])) || [0, c[4]])[1]; f.res = { w: me === "Match nul" ? "draw" : me === "No contest" ? "nc" : "a", method: me, round: +((c[5] || "").match(/^(\d+)/) || [0, 0])[1], time: c[6] || "" }; }
+        if (f.a.n === "TBA" || f.b.n === "TBA") return;
+        fights.push(f);
+      });
+    });
+    if (!fights.length || fights.some((f) => taken.has(f.a.n) || taken.has(f.b.n))) continue; // déjà suivi par la veille presse
+    if (!fights.some((f) => f.s === "prelims")) fights.forEach((f) => (f.s = "main"));
+    const venue = place[0] || "", cityFull = place.slice(1).join(", ");
+    const city = (place[1] || "").replace(/^(Enterprise|Paradise|Winchester)$/, "Las Vegas");
+    const tz = tzFor(cityFull, cityFull);
+    const us = tz.startsWith("America/");
+    const segs = [...(fights.some((f) => f.s === "prelims") ? [{ k: "prelims", t: localToUtc(date, us ? "18:00" : "18:00", us ? "America/New_York" : tz) }] : []),
+      { k: "main", t: localToUtc(date, us ? "20:00" : "20:00", us ? "America/New_York" : tz) }];
+    const last = (n) => n.split(" ").slice(-1)[0];
+    events.push({ id: `bx-zuffa-${num[1]}`, sport: "boxe", org: "Boxe", name: `Zuffa Boxing ${num[1]}`, a: last(fights[0].a.n), b: last(fights[0].b.n),
+      venue, city, tz, tbc: 1, segs, fights, wiki: `${year} in Zuffa Boxing` });
+    console.log(`  bx-zuffa-${num[1]} : ${fights.length} combats`);
+  }
+}
+events.sort((a, b) => Date.parse(a.segs[0].t) - Date.parse(b.segs[0].t));
+
+/* ---------- Annuaire pour la recherche : combattants UFC/PFL + champions du monde de boxe ---------- */
+const dir = Object.entries(roster).filter(([n, r]) => r && r.org && !/^_/.test(n)).map(([n, r]) => [n, r.nat || "", r.rec ? r.rec.join("-") : "", "mma"]);
+{
+  const $ = await page("List of current world boxing champions");
+  const seen = new Set();
+  if ($) $("table td").each((_, td) => {
+    const a = $(td).find("a").first(), n = clean(a.text());
+    const rec = clean($(td).text()).match(/(\d+)–(\d+)(?:–(\d+))?/);
+    if (!n || !rec || seen.has(n) || /vacant/i.test(n)) return;
+    seen.add(n);
+    dir.push([n, "", `${rec[1]}-${rec[2]}-${rec[3] || 0}`, "boxe"]);
+  });
+  console.log(`Annuaire : ${dir.length} combattants (dont ${seen.size} champions de boxe)`);
+}
+
 await writeFile(cacheFile, JSON.stringify(cache, null, 1));
-const data = { updated: new Date().toISOString(), source: "Wikipédia (en), licence CC BY-SA, et veille presse", presse: !!presse.events, events, agenda };
+const data = { updated: new Date().toISOString(), source: "Wikipédia (en), licence CC BY-SA, et veille presse", presse: !!presse.events, events, agenda, roster: dir };
 await mkdir(new URL("../data/", import.meta.url), { recursive: true });
 const file = new URL("../data/events.json", import.meta.url);
 const old = await readFile(file, "utf8").catch(() => "");

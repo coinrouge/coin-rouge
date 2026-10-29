@@ -7,6 +7,7 @@ Soirées retenues : UFC 332: Silva vs. Wang / UFC Fight Night: Allen vs. Duncan 
   pfl-carmouche-bishop : 13 combats, 13 résultats
   ufc333 : 14 combats, 14 résultats
   fn-moicano-nolan : 12 combats, 0 résultats
+  fn-suarez-jandiroba : 11 combats, 0 résultats
   ufc334 : 10 combats, 0 résultats
   pfl-nemkov-bilostenniy : 15 combats, 0 résultats
   fn-prochazka-stirling : 9 combats, 0 résultats
@@ -16,4 +17,4 @@ Soirées retenues : UFC 332: Silva vs. Wang / UFC Fight Night: Allen vs. Duncan 
 Presse : 5 soirées, 3 à l'agenda
   2027 in Zuffa Boxing : HTTP 404
 Annuaire : 1039 combattants (dont 71 champions de boxe)
-data/events.json écrit (17 soirées détaillées, 7 à l'agenda).
+data/events.json écrit (18 soirées détaillées, 6 à l'agenda).

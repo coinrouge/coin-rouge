@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-29T23:35:18.794Z",
+ "updated": "2026-10-29T23:44:35.830Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -1898,6 +1898,191 @@
    ]
   },
   {
+   "id": "fn-suarez-jandiroba",
+   "org": "UFC",
+   "name": "UFC Fight Night",
+   "a": "Suarez",
+   "b": "Jandiroba",
+   "venue": "Meta Apex",
+   "city": "Las Vegas",
+   "ctry": "USA",
+   "tz": "America/Los_Angeles",
+   "segs": [
+    {
+     "k": "prelims",
+     "t": "2026-11-07T22:00:00Z"
+    },
+    {
+     "k": "main",
+     "t": "2026-11-08T01:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "WSW",
+     "r": 5,
+     "a": {
+      "n": "Tatiana Suarez",
+      "rec": "12-1-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Virna Jandiroba",
+      "rec": "23-4-0",
+      "nat": "BRA"
+     }
+    },
+    {
+     "s": "main",
+     "w": "BW",
+     "r": 3,
+     "a": {
+      "n": "Davey Grant",
+      "rec": "18-8-0",
+      "nat": "GBR"
+     },
+     "b": {
+      "n": "Elijah Smith",
+      "rec": "10-1-0",
+      "nat": "USA"
+     }
+    },
+    {
+     "s": "main",
+     "w": "WW",
+     "r": 3,
+     "a": {
+      "n": "Ko Seok-hyeon",
+      "rec": "13-3-0",
+      "nat": "KOR"
+     },
+     "b": {
+      "n": "Wellington Turman",
+      "rec": "18-8-0",
+      "nat": "BRA"
+     }
+    },
+    {
+     "s": "main",
+     "w": "LHW",
+     "r": 3,
+     "a": {
+      "n": "Billy Elekana",
+      "rec": "10-2-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Lucas Fernando",
+      "rec": "14-3-0",
+      "nat": "BRA"
+     }
+    },
+    {
+     "s": "main",
+     "w": "MW",
+     "r": 3,
+     "a": {
+      "n": "Mantas Kondratavičius",
+      "rec": "9-1-0",
+      "nat": "LTU"
+     },
+     "b": {
+      "n": "Andre Petroski",
+      "rec": "13-6-0",
+      "nat": "USA"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "WFLW",
+     "r": 3,
+     "a": {
+      "n": "Karine Silva",
+      "rec": "19-7-0",
+      "nat": "BRA"
+     },
+     "b": {
+      "n": "Gabriella Fernandes",
+      "rec": "11-4-0",
+      "nat": "BRA"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "FLW",
+     "r": 3,
+     "a": {
+      "n": "Mitch Raposo",
+      "rec": "11-2-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Marcos Degli"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "FW",
+     "r": 3,
+     "a": {
+      "n": "José Mauro Delano",
+      "rec": "16-3-0",
+      "nat": "BRA"
+     },
+     "b": {
+      "n": "Murtazali Magomedov",
+      "rec": "11-0-0",
+      "nat": "KGZ"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "FW",
+     "r": 3,
+     "a": {
+      "n": "Keiichiro Nakamura",
+      "rec": "8-1-0",
+      "nat": "JPN"
+     },
+     "b": {
+      "n": "Ollie Schmid",
+      "rec": "4-3-0",
+      "nat": "HUN"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "WBW",
+     "r": 3,
+     "a": {
+      "n": "Priscila Cachoeira",
+      "rec": "13-9-0",
+      "nat": "BRA"
+     },
+     "b": {
+      "n": "Nina Nikolija Milošević",
+      "rec": "9-1-0",
+      "nat": "SRB"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "WW",
+     "r": 3,
+     "a": {
+      "n": "Jonny Parsons"
+     },
+     "b": {
+      "n": "José Henrique Souza",
+      "rec": "9-1-0",
+      "nat": "BRA"
+     }
+    }
+   ],
+   "wiki": "UFC Fight Night 293"
+  },
+  {
    "id": "pfl-nemkov-bilostenniy",
    "org": "PFL",
    "name": "PFL Dubai",
@@ -2857,12 +3042,6 @@
   }
  ],
  "agenda": [
-  {
-   "sport": "mma",
-   "date": "2026-11-07",
-   "name": "Affiche à annoncer",
-   "org": "UFC Fight Night · Las Vegas"
-  },
   {
    "sport": "mma",
    "date": "2026-12-05",

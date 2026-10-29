@@ -995,7 +995,7 @@ function favSuggest(){
   const box=document.getElementById("favsug"), q=norm(document.getElementById("favq").value.trim());
   if(!q){box.innerHTML="";return;}
   const all=allFighters(), raw=document.getElementById("favq").value.trim().replace(/\s+/g," ").replace(/(^|[\s-])(\p{L})/gu,(m,a,b)=>a+b.toUpperCase());
-  const hits=[...all.keys()].filter(n=>norm(n).includes(q)).slice(0,8);
+  const seenF=new Set(), hits=q.length<2?[]:[...all.keys()].filter(n=>{const k=norm(n);if(seenF.has(k)||!nameHit(n,q))return false;seenF.add(k);return true;}).slice(0,8);
   let html=hits.map(n=>{const e=all.get(n);return `<div class="sugrow">${favBtn({n})}<span><b>${esc(n)}</b>${e?` · ${esc(e.name)} ${esc(e.a)} vs ${esc(e.b)}`:" · pas de combat annoncé"}${isFav(n)?' <em class="favok">· dans tes favoris</em>':""}</span></div>`;}).join("");
   if(!hits.some(n=>norm(n)===q)&&raw.length>2) html+=`<div class="sugrow">${favBtn({n:raw})}<span>Suivre <b>${esc(raw)}</b> <em class="sugnote">même sans combat annoncé</em></span></div>`;
   box.innerHTML=html||`<div class="sugrow"><span>Aucun combattant trouvé.</span></div>`;
@@ -1031,7 +1031,9 @@ function match(f){
   return true;
 }
 const norm=s=>s.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase();
-function hits(f){return query && (norm(f.a.n).includes(query)||norm(f.b.n).includes(query));}
+/* Recherche : à partir de 2 lettres, sur le début du prénom ou du nom (ou le nom complet si on tape plusieurs mots) */
+const nameHit=(n,q)=>{const x=norm(n);return q.includes(" ")?x.includes(q):x.split(/[\s'’.-]+/).some(w=>w.startsWith(q));};
+function hits(f){return query.length>=2 && (nameHit(f.a.n,query)||nameHit(f.b.n,query));}
 
 /* Bouton vers la carte complète : seulement s'il reste des combats non affichés ; « Main card » quand la sous-carte n'est pas connue (boxe) */
 function moreBtn(ev,shownAll){
@@ -1197,19 +1199,21 @@ function evItem(e,t,openIds,isPast){
 }
 function findBox(t){
   const fd=document.getElementById("find");
-  fd.hidden=!query;
-  if(!query){fd.innerHTML="";}
+  fd.hidden=query.length<2;
+  if(query.length<2){fd.innerHTML="";}
   else{
     const res=[];
     EVENTS.filter(e=>t<e.end).forEach(e=>e.fights.forEach(f=>{if(hits(f)) res.push({e,f});}));
+    res.splice(8);
     fd.innerHTML=res.length?res.map(({e,f})=>{
-      const who=norm(f.a.n).includes(query)?f.a.n:f.b.n;
+      const who=nameHit(f.a.n,query)?f.a.n:f.b.n;
       const vs=who===f.a.n?f.b.n:f.a.n;
       const st=t>=f.est&&t<f.end?"combat probablement en cours":t>=f.end?"combat probablement terminé":`${fmtD(f.est)}, vers <b>${fmtT(f.est)}</b>`;
       return `<div class="hit">${favBtn({n:who})}<span><b>${esc(who)}</b> contre ${esc(vs)} (<a href="#ev-${e.id}">${esc(e.name)} ${esc(e.a)} vs ${esc(e.b)}</a>) : ${st}${isFav(who)?' <em class="favok">· dans tes favoris</em>':""}</span></div>`;
     }).join(""):"";
     const withFight=new Set(res.flatMap(({f})=>[f.a.n,f.b.n]));
-    const more=[...allFighters().keys()].filter(n=>!withFight.has(n)&&norm(n).includes(query)).slice(0,8);
+    const seenN=new Set([...withFight].map(norm));
+    const more=[...allFighters().keys()].filter(n=>{const k=norm(n);if(seenN.has(k)||!nameHit(n,query))return false;seenN.add(k);return true;}).slice(0,Math.max(0,8-res.length));
     fd.innerHTML+=more.map(n=>{const d=DIR.get(n)||{};const nat=NAT[n]||d.nat;return `<div class="hit">${favBtn({n})}<span><b>${esc(n)}</b>${nat==="FRA"?flag({fr:1}):""}${d.rec?` · ${esc(d.rec)}`:""}${d.sp==="boxe"?" · boxe":""} · pas de combat annoncé${isFav(n)?' <em class="favok">· dans tes favoris</em>':""}</span></div>`;}).join("");
     if(!fd.innerHTML) fd.innerHTML="Aucun combattant trouvé pour ce nom.";
   }

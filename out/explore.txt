@@ -1,16 +1,107 @@
 
-### intitle:"vs." boxing 2026 scheduled fight : The Rumble in the Jungle / Mike Tyson vs. Frank Bruno / Mike Tyson vs. Donovan Ruddock II / Oleksandr Usyk / Wladimir Klitschko / Canelo Álvarez / Kell Brook / Naoya Inoue / Mike Tyson vs. Clifford Etienne / Lennox Lewis vs. Mike Tyson
+===== 2026 in Zuffa Boxing → HTTP 200
+--- table #0
+  2026 in Zuffa Boxing
+  Information
+  Promotion | Zuffa Boxing
+  First date | January 23, 2026
+  Last date | September 26, 2026
+  Last date aired | September 26, 2026
+  Events
+  Total events | 13
+  Fights
+  Total fights | 108
+  ← 2025 in Zuffa Boxing2027 in Zuffa Boxing →
+--- table #1
+  Country/Region | Broadcasters
+  Free | Cable TV | PPV | Stream
+  United States | YouTube (Pre-show) | —.mw-parser-output .sr-only{border:0;clip:rect(0,0,0,0);clip-path:polygon(0px 0px,0px 0px,0px 0px);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolu
+  Brazil
+  Latin America
+  Germany | Bild | —N/a
+  Malaysia | Astro
+  Pakistan | —N/a | Begin
+  Poland | TVP Polonia | —N/a
+  Turkey | S Sport | —N/a | S Sport
+  Vietnam | —N/a | FPT Play
+  Bosnia and Herzegovina | Arena Sport | —N/a
+  Croatia
+  Montenegro
+  North Macedonia
+  Serbia
+  Kosovo
+  Slovenia
+  Estonia | TV3
+  Latvia
+--- table #2
+  
+  Date | January 23, 2026
+  Venue | Meta Apex, Enterprise, Nevada, U.S.
+  Tale of the tape
+  Boxer Callum Walsh Carlos OcampoNickname "King" "War"Hometown Cork, Ireland Ensenada, MexicoPre-fight record 15–0 (11 KOs) 38–3 (26 KOs)Height 6 ft 0 in (183 cm) 5 ft 10+1⁄2 inStyle Orthodox Orthodox 
+  Boxer | Callum Walsh | Carlos Ocampo
+  Nickname | "King" | "War"
+  Hometown | Cork, Ireland | Ensenada, Mexico
+  Pre-fight record | 15–0 (11 KOs) | 38–3 (26 KOs)
+  Height | 6 ft 0 in (183 cm) | 5 ft 10+1⁄2 in
+  Style | Orthodox | Orthodox
+  Result
+  Walsh defeated Ocampo via Unanimous Decision. (98–90 Walsh, 98–90 Walsh, 97–91 Walsh)
+--- table #3
+  Boxer | Callum Walsh | Carlos Ocampo
+  Nickname | "King" | "War"
+  Hometown | Cork, Ireland | Ensenada, Mexico
+  Pre-fight record | 15–0 (11 KOs) | 38–3 (26 KOs)
+  Height | 6 ft 0 in (183 cm) | 5 ft 10+1⁄2 in
+  Style | Orthodox | Orthodox
+H2 Broadcast | p: Starting from 2026, all Zuffa Boxing events will be livestreamed exclusively on Paramount+ in the U.S.
+H2 Zuffa Boxing 01 | p: Zuffa Boxing 01 featured Callum Walsh vs. Carlos Ocampo, a middleweight professional boxing match contested between Irish boxer Callum Walsh and Mexican boxer Carlos Ocampo. The event took place on January 23, 2026 at th
+H2 Zuffa Boxing 02 | p: Zuffa Boxing 02 featured José Valenzuela vs. Diego Torres, a lightweight professional boxing match contested between Mexican boxers José Valenzuela and Diego Torres. The event is scheduled to take place on February 1, 20
+H2 Zuffa Boxing 03 | p: Zuffa Boxing 03 featured Efe Ajagba vs. Charles Martin, a heavyweight professional boxing match contested between Nigerian contender Efe Ajagba and American former IBF heavyweight champion Charles Martin. The event took 
+H2 Zuffa Boxing 04 | p: Zuffa Boxing 04 featured Jai Opetaia vs. Brandon Glanton, a cruiserweight professional boxing match contested between IBF and The Ring cruiserweight champion Jai Opetaia and Brandon Glanton for the inaugural Zuffa Boxing
+H2 Zuffa Boxing 05 | p: Zuffa Boxing 05 featured Andres Cortes vs. Eridson Garcia, a lightweight professional boxing match contested between American boxer Andres Cortes and Dominican boxer Eridson Garcia. The event took place on April 5, 2026 
+H2 Tyson Fury vs. Arslanbek Makhmudov | p: 
+H2 Zuffa Boxing 06 | p: Zuffa Boxing 06 featured Shane Mosley Jr. vs. Serhii Bohachuk, a middleweight professional boxing match contested between American former interim WBC middleweight title challenger Shane Mosley Jr. and Ukrainian former in
+H2 Zuffa Boxing 07 | p: Zuffa Boxing 07 featured Chris Billam-Smith vs. Ryan Rozicki, a cruiserweight professional boxing match contested between English former WBO cruiserweight champion Chris Billam-Smith and Canadian former WBC bridgerweight
+H2 Zuffa Boxing 08 | p: Zuffa Boxing 08 featured Edwin De Los Santos vs. José Valenzuela, a lightweight professional boxing match contested between Dominican former WBC lightweight title challenger Edwin De Los Santos and Mexican-born American 
+H2 Zuffa Boxing 09 | p: Zuffa Boxing 09 featured Edgar Berlanga vs. Steven Butler, a super middleweight professional boxing match contested between American former unified super middleweight titles challenger Edgar Berlanga and Canadian former 
+H2 Zuffa Boxing 10 | p: Zuffa Boxing 10 featured Aaron McKenna vs. Etinosa Oliha, a middleweight professional boxing match contested between Irish boxer Aaron McKenna and Italian boxer Etinosa Oliha for vacant IBF middleweight title. The event 
+H2 Ryan Garcia vs. Conor Benn | p: 
+H2 Zuffa Boxing 11 | p: Zuffa Boxing 11 featured Johnny Fisher vs. Michael Pirotton, a heavyweight professional boxing match contested between English boxer Johnny Fisher and Belgium boxer Michael Pirotton. The event took place on September 26,
+H2 Zuffa Boxing 12 | p: Zuffa Boxing 12 featured Chris Billam-Smith vs. Cheavon Clarke, an upcoming cruiserweight professional boxing match contested between English former WBO cruiserweight champion Chris Billam-Smith and Jamaican-born British
+H2 See also | p: 
+H2 References | p: 
 
-### boxing "is scheduled to take place" 2026 November : 2027 South Asian Games / FIFA Women's Club World Cup / 2027 Pacific Games / 2027 in Kenya / Murodjon Akhmadaliev / Charles Bennett (fighter) / Joseph Parker / James Collins (footballer, born 1983) / José Miguel Agrelot Coliseum / Jonathan González (flyweight)
-
-### boxing "is scheduled to take place" December 2026 : Boxing at the 2022 Commonwealth Games / 2027 South Asian Games / FIFA Women's Club World Cup / 2027 in Kenya / Joseph Parker / Murodjon Akhmadaliev / Charles Bennett (fighter) / James Collins (footballer, born 1983) / 2027 SEA Games / Jonathan González (flyweight)
-
-### Usyk next fight 2026 : Oleksandr Usyk / Daniel Dubois / Murat Gassiev / Derek Chisora / Filip Hrgović / Moses Itauma / Agit Kabayel / Joe Joyce (boxer) / Krzysztof Głowacki / Solomon Dacres
-
-### Inoue 2026 fight : Naoya Inoue / Takuma Inoue / Naoya Inoue vs. Junto Nakatani / Naoki Inoue / Mizuki Inoue / Junto Nakatani / Egan Inoue / Vagabond (manga) / Alexa Grasso / Ramon Cardenas
-
-### Category:2026 in boxing : 2026 Asian Boxing Elite Boxing Championships / Boxing at the 2026 Asian Games / 2026 in Bare Knuckle Fighting Championship / Boxing at the 2026 Commonwealth Games / Boxing at the 2026 Central American and Caribbean Games / 2026 European Boxing Championships / Boxing at the 2026 Mediterranean Games / 2026 in Misfits Boxing and MF Pro / Boxing at the 2026 South American Games / 2026 World Boxing U19 Championships / Boxing at the 2026 Summer Youth Olympics / 2026 in Zuffa Boxing / Category:2026 boxing matches / Category:2026 in crossover boxing / Category:2026 in women's boxing / Category:Boxing at the 2026 Asian Games / Category:Boxing at the 2026 Commonwealth Games / Category:2026 European Boxing Championships / Category:Boxing at the 2026 Mediterranean Games
+===== 2027 in Zuffa Boxing → HTTP 404
 
 ===== List of current world boxing champions → HTTP 200
+--- table #0
+  WBA | WBC | IBF | WBO | The Ring
+  Murat Gassiev34–2 (1) (27 KO)July 1, 2026 | Agit Kabayel27–0 (19 KO)June 27, 2026 | Filip Hrgović21–1 (16 KO)August 29, 2026 | Daniel Dubois24–3 (23 KO)May 9, 2026 | Oleksandr Usyk25–0 (16 KO)August 20, 2022
+--- table #1
+  WBA | WBC | IBF | WBO | The Ring
+   | Ryad Merhy36–3 (29 KO)May 30, 2026 |  |  | 
+--- table #2
+  WBA | WBC | IBF | WBO | The Ring
+  David BenavidezSuper champion32–0 (26 KO)May 2, 2026 | Michał Cieślak28–2 (1) (22 KO)June 28, 2025 | vacant | David Benavidez32–0 (26 KO)May 2, 2026 | Jai Opetaia31–0 (24 KO)July 2, 2022
+  Jai OpetaiaRegular champion31–0 (24 KO)September 12, 2026
+--- table #3
+  WBA | WBC | IBF | WBO | The Ring
+  Dmitry BivolSuper champion25–1 (12 KO)February 22, 2025 | vacant | Dmitry Bivol25–1 (12 KO)February 22, 2025 | Dmitry Bivol25–1 (12 KO)February 22, 2025 | Dmitry Bivol25–1 (12 KO)February 22, 2025
+  Albert RamírezInterim champion23–0 (19 KO)August 8, 2025 | Callum SmithInterim champion31–2 (22 KO)February 22, 2025
+--- table #4
+  WBA | WBC | IBF | WBO | The Ring
+  Jaime Munguia46–2 (35 KO)May 2, 2026 | Christian M'billi29–0–1 (24 KO)January 27, 2026 | Osleys Iglesias16–0 (15 KO)April 9, 2026 | vacant | vacant
+  Lester MartínezInterim champion21–0–1 (17 KO)March 21, 2026
+--- table #5
+  WBA | WBC | IBF | WBO | The Ring
+  Erislandy Lara32–3–3 (19 KO)May 1, 2021 | Carlos Adames25–1–1 (18 KO)May 7, 2024 | Aaron McKenna21–0 (10 KO)August 8, 2026 | Denzel Bentley22–3–1 (18 KO)July 20, 2026 | vacant
+  Jesus RamosInterim champion24–1 (19 KO)December 6, 2025
 
-===== Canelo Álvarez vs. Christian M'billi → HTTP 404
+===== List of current boxing rankings → HTTP 200
+
+===== The Ring Pound for Pound → HTTP 404
+
+===== List of French boxers → HTTP 404
+
+===== Liste de boxeurs français → HTTP 404

@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-29T17:41:46.823Z",
+ "updated": "2026-10-29T17:56:15.761Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -1524,12 +1524,14 @@
       "n": "Canelo Álvarez",
       "nat": "MEX",
       "rec": "63-3-2",
-      "star": 1
+      "star": 1,
+      "br": 348759
      },
      "b": {
       "n": "Christian M'billi",
       "nat": "FRA",
       "champ": 1,
+      "br": 785657,
       "fr": 1
      }
     },
@@ -1541,7 +1543,8 @@
      "a": {
       "n": "Jaime Munguía",
       "nat": "MEX",
-      "rec": "46-2-0"
+      "rec": "46-2-0",
+      "br": 659924
      },
      "b": {
       "n": "Nikita Zon",
@@ -1808,11 +1811,13 @@
      "title": "Titre WBC intérim mi-lourds",
      "a": {
       "n": "Joshua Buatsi",
-      "nat": "GBR"
+      "nat": "GBR",
+      "br": 801693
      },
      "b": {
       "n": "Willy Hutchinson",
-      "nat": "GBR"
+      "nat": "GBR",
+      "br": 811747
      }
     },
     {
@@ -1854,7 +1859,8 @@
      "r": 10,
      "a": {
       "n": "Chris Billam-Smith",
-      "nat": "GBR"
+      "nat": "GBR",
+      "br": 811275
      },
      "b": {
       "n": "Cheavon Clarke",
@@ -2682,7 +2688,8 @@
      "a": {
       "n": "Agit Kabayel",
       "nat": "GER",
-      "champ": 1
+      "champ": 1,
+      "br": 575332
      },
      "b": {
       "n": "Nelson Hysa",
@@ -2718,12 +2725,14 @@
      "a": {
       "n": "Tyson Fury",
       "nat": "GBR",
-      "star": 1
+      "star": 1,
+      "br": 479205
      },
      "b": {
       "n": "Anthony Joshua",
       "nat": "GBR",
-      "star": 1
+      "star": 1,
+      "br": 659461
      }
     }
    ]

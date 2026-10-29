@@ -108,7 +108,7 @@ const cacheFile = new URL("../data/fighters-cache.json", import.meta.url);
 const cache = JSON.parse(await readFile(cacheFile, "utf8").catch(() => "{}"));
 async function lookup(name, roster) {
   if (roster[name]) return roster[name];
-  if (name in cache) return cache[name];
+  if (name in cache && (cache[name] === null || cache[name].v === 2)) return cache[name];
   let out = null;
   const $ = await page(name);
   if ($ && /mixed martial art/i.test($("p").slice(0, 3).text())) {
@@ -116,10 +116,13 @@ async function lookup(name, roster) {
     $("table.infobox tr").each((_, tr) => { const k = cell($, $(tr).find("th").first()), v = cell($, $(tr).find("td").first()); if (k && v) info[k] = v; });
     let nat = "";
     const raw = info.Nationality || info.Citizenship || (info.Born || "").split(",").pop() || "";
-    for (const k of Object.keys(COUNTRY)) if (raw.includes(k) || (k === "France" && /French/.test(raw))) { nat = COUNTRY[k]; break; }
+    const DEMONYM = { American: "USA", "U.S.": "USA", US: "USA", Brazilian: "BRA", French: "FRA", British: "GBR", English: "GBR", Scottish: "GBR", Welsh: "GBR",
+      Irish: "IRL", Russian: "RUS", Mexican: "MEX", Canadian: "CAN", Australian: "AUS", Polish: "POL", Belgian: "BEL", Swiss: "SUI", German: "GER",
+      Italian: "ITA", Spanish: "ESP", Dutch: "NED", Japanese: "JPN", Chinese: "CHN", Georgian: "GEO", Ukrainian: "UKR", Moroccan: "MAR", Algerian: "ALG" };
+    for (const k of [...Object.keys(COUNTRY), ...Object.keys(DEMONYM)]) if (new RegExp(`(^|[^A-Za-z])${k.replace(/[.()]/g, "\\$&")}([^A-Za-z]|$)`).test(raw)) { nat = COUNTRY[k] || DEMONYM[k]; break; }
     const n = (k) => +((info[k] || "").match(/^\d+/) || [0])[0];
     const rec = info.Total ? [n("Wins"), n("Losses"), n("Draws")] : null;
-    out = { nat, rec };
+    out = { nat, rec, v: 2 };
   }
   cache[name] = out;
   return out;
@@ -238,6 +241,7 @@ for (const e of list) {
     tbc = true;
   }
   if (ov.tbc !== undefined) tbc = ov.tbc;
+  for (const [n, nat] of Object.entries(overrides._nat || {})) roster[n] = { ...(roster[n] || {}), nat };
   for (const f of p.fights) for (const x of [f.a, f.b]) if (!roster[x.n] && x.n !== "TBA") { const r = await lookup(x.n, roster); if (r) roster[x.n] = r; }
   const person = (x, res, mine) => {
     const r = roster[x.n];

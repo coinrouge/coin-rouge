@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-29T17:16:03.289Z",
+ "updated": "2026-10-29T17:17:08.378Z",
  "source": "Wikipédia (en), licence CC BY-SA",
  "events": [
   {
@@ -76,7 +76,8 @@
       "nat": "ARG"
      },
      "b": {
-      "n": "King Green"
+      "n": "King Green",
+      "rec": "36-17-1"
      },
      "res": {
       "w": "a",
@@ -305,7 +306,8 @@
       "nat": "USA"
      },
      "b": {
-      "n": "Court McGee"
+      "n": "Court McGee",
+      "rec": "22-14-0"
      },
      "res": {
       "w": "a",
@@ -384,7 +386,9 @@
      "w": "Catchweight (117 lb)",
      "r": 3,
      "a": {
-      "n": "Loopy Godínez"
+      "n": "Loopy Godínez",
+      "rec": "14-6-0",
+      "nat": "MEX"
      },
      "b": {
       "n": "Ketlen Souza",
@@ -450,7 +454,8 @@
       "nat": "USA"
      },
      "b": {
-      "n": "Gerald Meerschaert"
+      "n": "Gerald Meerschaert",
+      "rec": "37-22-0"
      },
      "res": {
       "w": "a",
@@ -483,7 +488,8 @@
      "w": "WW",
      "r": 3,
      "a": {
-      "n": "Niko Price"
+      "n": "Niko Price",
+      "rec": "16-11-0"
      },
      "b": {
       "n": "Leon Shahbazyan",
@@ -909,7 +915,7 @@
       "rec": "26-8-0",
       "nat": "USA"
      },
-     "title": "Titre WFLW",
+     "title": "Titre Women's Flyweight",
      "res": {
       "w": "a",
       "method": "Décision unanime",
@@ -1673,7 +1679,9 @@
      "w": "WBW",
      "r": 3,
      "a": {
-      "n": "Lucia Szabová"
+      "n": "Lucia Szabová",
+      "rec": "12-0-0",
+      "nat": "SVK"
      },
      "b": {
       "n": "Tainara Lisboa",
@@ -1934,7 +1942,9 @@
       "champ": 1
      },
      "b": {
-      "n": "Amanda Nunes"
+      "n": "Amanda Nunes",
+      "rec": "23-5-0",
+      "nat": "BRA"
      },
      "title": "Titre Women's Bantamweight"
     },
@@ -2134,7 +2144,9 @@
      "w": "WW",
      "r": 3,
      "a": {
-      "n": "Abubakar Nurmagomedov"
+      "n": "Abubakar Nurmagomedov",
+      "rec": "17-4-1",
+      "nat": "RUS"
      },
      "b": {
       "n": "David Martinez",
@@ -2592,7 +2604,7 @@
       "rec": "11-0-0",
       "nat": "USA"
      },
-     "title": "Titre BW"
+     "title": "Titre Bantamweight"
     },
     {
      "s": "main",
@@ -2676,7 +2688,7 @@
      "b": {
       "n": "Shelda Chipito",
       "rec": "2-0-0",
-      "nat": "Zambia"
+      "nat": "ZAM"
      }
     },
     {
@@ -2684,7 +2696,9 @@
      "w": "BW",
      "r": 3,
      "a": {
-      "n": "Jan Ciepłowski"
+      "n": "Jan Ciepłowski",
+      "rec": "11-1-0",
+      "nat": "POL"
      },
      "b": {
       "n": "Mauricio Partida"

@@ -108,22 +108,22 @@ const cacheFile = new URL("../data/fighters-cache.json", import.meta.url);
 const cache = JSON.parse(await readFile(cacheFile, "utf8").catch(() => "{}"));
 async function lookup(name, roster) {
   if (roster[name]?.nat) return roster[name];
-  if (name in cache && (cache[name] === null || cache[name].v === 3)) return cache[name];
+  if (name in cache && (cache[name] === null || cache[name].v === 4)) return cache[name];
   let out = null;
   const $ = await page(name);
   if ($ && /mixed martial art/i.test($("p").slice(0, 3).text())) {
     const info = {};
     $("table.infobox tr").each((_, tr) => { const k = cell($, $(tr).find("th").first()), v = cell($, $(tr).find("td").first()); if (k && v) info[k] = v; });
     let nat = "";
-    const raw = info.Nationality || info.Citizenship || (info.Born || "").split(",").pop() || "";
+    const raw = [(info.Born || "").split(",").pop(), info.Nationality, info.Citizenship].filter(Boolean).join(" / ");
     const DEMONYM = { American: "USA", "U.S.": "USA", US: "USA", Brazilian: "BRA", French: "FRA", British: "GBR", English: "GBR", Scottish: "GBR", Welsh: "GBR",
       Irish: "IRL", Russian: "RUS", Mexican: "MEX", Canadian: "CAN", Australian: "AUS", Polish: "POL", Belgian: "BEL", Swiss: "SUI", German: "GER",
       Italian: "ITA", Spanish: "ESP", Dutch: "NED", Japanese: "JPN", Chinese: "CHN", Georgian: "GEO", Ukrainian: "UKR", Moroccan: "MAR", Algerian: "ALG" };
-    for (const k of [...Object.keys(COUNTRY), ...Object.keys(DEMONYM)]) if (new RegExp(`(^|[^A-Za-z])${k.replace(/[.()]/g, "\\$&")}([^A-Za-z]|$)`).test(raw)) { nat = COUNTRY[k] || DEMONYM[k]; break; }
+    for (const k of [...Object.keys(COUNTRY), ...Object.keys(DEMONYM)]) if (new RegExp(`(^|[^A-Za-z])${k.replace(/[.()]/g, "\\$&")}(?![a-z])`).test(raw)) { nat = COUNTRY[k] || DEMONYM[k]; break; }
     const n = (k) => +((info[k] || "").match(/^\d+/) || [0])[0];
     const rec = info.Total ? [n("Wins"), n("Losses"), n("Draws")] : null;
     if (!nat) console.log(`  nationalité inconnue : ${name} ← ${JSON.stringify({ N: info.Nationality, C: info.Citizenship, B: info.Born })}`);
-    out = { nat, rec, v: 3 };
+    out = { nat, rec, v: 4 };
   }
   cache[name] = out;
   return out;

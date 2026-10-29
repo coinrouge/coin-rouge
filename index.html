@@ -49,6 +49,10 @@ button,input,select{font:inherit;color:inherit}
 .brand{font-family:var(--f-display);font-weight:900;font-size:clamp(34px,7vw,52px);line-height:.9;letter-spacing:.01em;text-transform:uppercase;margin:0}
 .brand span{color:var(--red)}
 .homelink{color:inherit;text-decoration:none}
+/* Combattant de droite : drapeau et étoile côté intérieur ; en préliminaires (prénom sur la même ligne), avant le prénom */
+.fl-pre{display:none}
+.seg-prelims .f.b .fl-pre,.seg-early .f.b .fl-pre{display:inline}
+.seg-prelims .f.b .fl-in,.seg-early .f.b .fl-in{display:none}
 .vstar{color:var(--gold);margin-left:6px;font-size:.85em;vertical-align:.08em;text-decoration:none;display:inline-block}
 .sumlink{color:inherit;text-decoration:none}
 .sumlink:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
@@ -892,7 +896,7 @@ function markFranco(p){const n=p.nat||NAT[p.n];if(n==="FRA")p.fr=1;else if(n==="
 function nameHTML(p,side){
   const s=p.star?'<span class="star" aria-label="star">★</span>':'';
   /* Côté droit : drapeau et étoile du côté intérieur, à gauche du nom */
-  return side==="b"?`${s}${flag(p)}${esc(splitName(p).last)}`:`${esc(splitName(p).last)}${flag(p)}${s}`;
+  return side==="b"?`<span class="fl-in">${s}${flag(p)}</span>${esc(splitName(p).last)}`:`${esc(splitName(p).last)}${flag(p)}${s}`;
 }
 /* Prénom à part, pour que le nom de famille, l'étoile et le cœur restent sur la même ligne */
 function splitName(p){
@@ -948,7 +952,7 @@ function fighterHTML(p,side,state){
   const nm=url?`<a class="nm" href="${url}" target="_blank" rel="noopener" title="Fiche de ${esc(p.n)} sur ${srcName(p)}">${nameHTML(p,side)}</a>`:`<span class="nm">${nameHTML(p,side)}</span>`;
   const meta=[p.rec?recHTML(p.rec):"",url?`<a class="fiche" href="${url}" target="_blank" rel="noopener">${srcName(p)} ↗</a>`:""].filter(Boolean).join(" · ");
   const fav=isFav(p.n);
-  return `<div class="f ${side}${fav?" isfav":""}${state?" "+state:""}"><div class="fx">${avatarHTML(p)}<div class="txt"><span class="nmrow">${side==="b"&&fav?`<span class="fm-pre">${favMark(p)}</span>`:""}${splitName(p).first?`<span class="fn">${esc(splitName(p).first)}</span> `:""}<span class="lnline">${side==="b"&&fav?`<span class="fm-ln">${favMark(p)}</span>`:""}${nm}${side==="a"&&fav?favMark(p):""}</span></span>${meta||!p.tbd?`<span class="rec">${side==="b"?favBtn(p):""}${meta}${side==="a"?favBtn(p):""}</span>`:""}</div></div></div>`;
+  return `<div class="f ${side}${fav?" isfav":""}${state?" "+state:""}"><div class="fx">${avatarHTML(p)}<div class="txt"><span class="nmrow">${side==="b"&&fav?`<span class="fm-pre">${favMark(p)}</span>`:""}${splitName(p).first?`${side==="b"?`<span class="fl-pre">${p.star?'<span class="star" aria-label="star">★</span>':""}${flag(p)}</span>`:""}<span class="fn">${esc(splitName(p).first)}</span> `:""}<span class="lnline">${side==="b"&&fav?`<span class="fm-ln">${favMark(p)}</span>`:""}${nm}${side==="a"&&fav?favMark(p):""}</span></span>${meta||!p.tbd?`<span class="rec">${side==="b"?favBtn(p):""}${meta}${side==="a"?favBtn(p):""}</span>`:""}</div></div></div>`;
 }
 const isNum=e=>/^UFC \d+/.test(e.name);
 const evCls=e=>isNum(e)?"num":e.sport==="boxe"?"fn bx":e.org==="PFL"?"fn pfl":"fn";
@@ -1165,14 +1169,14 @@ function render(){
 const SPORTLBL={all:"MMA + Boxe",mma:"MMA",boxe:"Boxe"};
 function agendaItems(t){
   return [
-    ...EVENTS.filter(e=>t<e.end).map(e=>({sport:e.sport||"mma",ts:e.start,name:`${e.a} vs ${e.b}`,org:`${e.name} · ${e.city}`,id:e.id,frA:e.fights[0].a.fr&&(e.fights[0].a.be?2:1),frB:e.fights[0].b.fr&&(e.fights[0].b.be?2:1),stA:e.fights[0].a.star,stB:e.fights[0].b.star,fr:!e.fights[0].a.fr&&!e.fights[0].b.fr&&e.fights.some(f=>f.a.fr||f.b.fr)&&(e.fights.some(f=>f.a.fr&&!f.a.be||f.b.fr&&!f.b.be)?1:2)})),
+    ...EVENTS.filter(e=>t<e.end).map(e=>({sport:e.sport||"mma",ts:e.start,name:`${e.a} vs ${e.b}`,org:`${e.name} · ${e.city}`,id:e.id,frA:e.fights[0].a.fr&&(e.fights[0].a.be?2:1),frB:e.fights[0].b.fr&&(e.fights[0].b.be?2:1),stA:e.fights[0].a.star,stB:e.fights[0].b.star,fr:!e.fights[0].a.fr&&!e.fights[0].b.fr&&e.fights.some(f=>f.a.fr||f.b.fr)&&((e.fights.some(f=>f.a.fr&&!f.a.be||f.b.fr&&!f.b.be)?1:0)|(e.fights.some(f=>f.a.be||f.b.be)?2:0))})),
     ...AGENDA.map(a=>({...a,ts:Date.parse(a.date+"T20:00:00Z")})).filter(a=>a.ts>t-864e5)
   ].filter(x=>sport==="all"||x.sport===sport).sort((a,b)=>a.ts-b.ts);
 }
 /* Titre « A vs B » avec le drapeau juste après le nom du Français */
 function vsHTML(x){
   const [a,b]=x.name.split(" vs ");
-  const fl=v=>v?flag({fr:1,be:v===2}):"";
+  const fl=v=>v===3?flag({fr:1})+flag({fr:1,be:1}):v?flag({fr:1,be:v===2}):"";
   if(b===undefined) return esc(x.name)+fl(x.fr);
   const st=on=>on?'<span class="vstar" title="Star" aria-label="star">★</span>':"";
   /* Une seule étoile, en fin de ligne, s'il y a au moins une vedette */
@@ -1214,7 +1218,7 @@ function evItem(e,t,openIds,isPast){
   const fr=e.fights.some(f=>f.a.fr||f.b.fr);
   return `<details class="ev ${evCls(e)}${isPast?" past":""}" data-id="${e.id}" ${openIds.includes(e.id)||anyHit?"open":""}>
       <summary><div class="dt"><b>${dayN(e.start)}</b><small>${monS(e.start)}</small></div>
-      <div><div class="sum-t"><a class="sumlink" href="#ev-${e.id}" title="Ouvrir la carte complète">${vsHTML({name:`${e.a} vs ${e.b}`,frA:e.fights[0].a.fr&&(e.fights[0].a.be?2:1),frB:e.fights[0].b.fr&&(e.fights[0].b.be?2:1),stA:e.fights[0].a.star,stB:e.fights[0].b.star,fr:fr&&!e.fights[0].a.fr&&!e.fights[0].b.fr&&(e.fights.some(f=>f.a.fr&&!f.a.be||f.b.fr&&!f.b.be)?1:2)})}</a></div><div class="sum-m">${evBadge(e,1)} ${esc(e.venue)}, ${esc(e.city)} · ${isPast?"terminé":`début ${fmtT(e.start)}${e.tbc?" (à confirmer)":""}`}</div></div>
+      <div><div class="sum-t"><a class="sumlink" href="#ev-${e.id}" title="Ouvrir la carte complète">${vsHTML({name:`${e.a} vs ${e.b}`,frA:e.fights[0].a.fr&&(e.fights[0].a.be?2:1),frB:e.fights[0].b.fr&&(e.fights[0].b.be?2:1),stA:e.fights[0].a.star,stB:e.fights[0].b.star,fr:fr&&!e.fights[0].a.fr&&!e.fights[0].b.fr&&((e.fights.some(f=>f.a.fr&&!f.a.be||f.b.fr&&!f.b.be)?1:0)|(e.fights.some(f=>f.a.be||f.b.be)?2:0))})}</a></div><div class="sum-m">${evBadge(e,1)} ${esc(e.venue)}, ${esc(e.city)} · ${isPast?"terminé":`début ${fmtT(e.start)}${e.tbc?" (à confirmer)":""}`}</div></div>
       <span class="chev" aria-hidden="true">▼</span></summary>
       <div class="inner">${schedHTML(e)}${cardHTML(e,t,{only:filter==="all"?"main":null})}${moreBtn(e,false)}</div></details>`;
 }

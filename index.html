@@ -311,6 +311,9 @@ h2.h::after{content:"";flex:1;height:1px;background:var(--line)}
   -webkit-background-clip:text;background-clip:text;color:transparent;
   -webkit-text-stroke:1.5px var(--ink);paint-order:stroke fill}
 .pside b.natc{background-image:linear-gradient(var(--wash),var(--wash)),var(--natbg)}
+/* Le drapeau épouse la largeur du nom (sinon un nom court ne montre qu'une bande du drapeau) */
+.pside b.natc{width:fit-content;max-width:100%}
+.pside.blue b.natc{margin-left:auto}
 .pside.red small{color:var(--red)} .pside.blue small{color:var(--blue)}
 /* Vue détaillée : même affiche que l'accueil */
 .dduel{margin:14px 0 16px}

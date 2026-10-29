@@ -1014,7 +1014,10 @@ function favs(t){
   favSuggest();
   const el=document.getElementById("favs");
   if(!FAVS.length){el.innerHTML=`<div class="favempty">${filter==="fav"?"Tape un nom ci-dessus pour suivre un combattant.":"Touche le cœur à côté d'un combattant pour le suivre ici."} Tu verras sa prochaine soirée et l'heure estimée de son combat.</div>`;return;}
-  const rows=FAVS.map(n=>({n,x:nextFightOf(n,t)})).sort((a,b)=>(a.x?a.x.f.est:Infinity)-(b.x?b.x.f.est:Infinity));
+  /* Sport du favori : celui de son prochain combat, sinon celui de l'annuaire ; inconnu → seulement en « MMA + Boxe » */
+  const favSport=(n,x)=>x?(x.e.sport||"mma"):(DIR.get(n)||{}).sp||null;
+  const rows=FAVS.map(n=>({n,x:nextFightOf(n,t)})).filter(({n,x})=>sport==="all"||favSport(n,x)===sport).sort((a,b)=>(a.x?a.x.f.est:Infinity)-(b.x?b.x.f.est:Infinity));
+  if(!rows.length){el.innerHTML=`<div class="favempty">Aucun favori en ${sport==="boxe"?"boxe":"MMA"} pour l'instant.</div>`;return;}
   el.innerHTML=rows.map(({n,x})=>{
     const p=x?x.me:{n};
     const when=x?(t>=x.f.est&&t<x.f.end?`<b class="nowtag">Probablement en cours</b>`:`${fmtD(x.f.est)} · vers <b>${fmtT(x.f.est)}</b>`):"Aucun combat annoncé pour l'instant";

@@ -212,11 +212,13 @@ const events = [], agenda = [];
 for (const e of list) {
   const p = await eventPage(e.name);
   const num = e.name.match(/^UFC (\d+)\b/);
-  const vs = e.name.match(/:\s*(.+?)\s+vs\.?\s+(.+)$/);
+  let vs = e.name.match(/:\s*(.+?)\s+vs\.?\s+(.+)$/);
   const cityFull = p?.info.City || "", venue = p?.info.Venue || "";
   const parts = cityFull.split(",").map((s) => s.trim());
   const city = (parts[0] || "").replace(/ City$/, "").replace(/^(Enterprise|Paradise|Winchester)$/, "Las Vegas").replace(/^Décines-Charpieu$/, "Lyon").replace(/^Moon Township$/, "Pittsburgh").replace(/^Elmont$/, "New York"), country = parts[parts.length - 1] || "";
   const date = (p?.info.Date || "").match(/\((\d{4}-\d{2}-\d{2})\)/)?.[1] || e.date;
+  // Soirée renommée « UFC Fight Night 293 » sur Wikipédia : on reprend les noms du combat principal
+  if (!vs && p?.fights.length) { const m0 = p.fights.find((f) => f.s === "main") || p.fights[0]; const ln = (n) => n.split(" ").slice(-1)[0]; vs = [null, ln(m0.a.n), ln(m0.b.n)]; }
   const pfl = e.org === "PFL";
   const label = pfl ? e.name.split(":")[0] : num ? `UFC ${num[1]}` : "UFC Fight Night";
   if (!p || !p.fights.length || !vs) {

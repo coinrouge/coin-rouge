@@ -49,6 +49,8 @@ button,input,select{font:inherit;color:inherit}
 .brand{font-family:var(--f-display);font-weight:900;font-size:clamp(34px,7vw,52px);line-height:.9;letter-spacing:.01em;text-transform:uppercase;margin:0}
 .brand span{color:var(--red)}
 .homelink{color:inherit;text-decoration:none}
+.allbtn{display:block;width:100%;margin-top:4px;padding:11px;border:1px dashed var(--line);border-radius:8px;background:transparent;color:var(--muted);font-family:var(--f-data);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.allbtn:hover{color:var(--ink);border-color:var(--ink)}
 /* Combats pour un titre (title shots) : petites étincelles dorées qui scintillent autour du titre */
 .belt,.mltitle,.htitle,.rcard .rt{position:relative;display:inline-block}
 .belt::before,.mltitle::before,.htitle::before,.rcard .rt::before,.belt::after,.mltitle::after,.htitle::after,.rcard .rt::after{content:"";position:absolute;width:max(1.1em,13px);height:max(1.1em,13px);background:var(--gold);
@@ -1139,6 +1141,8 @@ function cd(ms){
   return {n:`${h} h ${String(mi).padStart(2,"0")}`,l:"avant le début"};
 }
 
+let showAllOthers=false;
+document.addEventListener("click",e=>{if(e.target.closest("#allothers")){showAllOthers=!showAllOthers;render();}});
 function render(){
   const t=now();
   document.getElementById("clock").textContent=fmtT(t)+(simOffset!=null?" (test)":"");
@@ -1186,9 +1190,15 @@ function render(){
 
   const others=pool.filter(e=>e!==ev);
   const openIds=[...document.querySelectorAll("details.ev[open]")].map(d=>d.dataset.id);
-  document.getElementById("others").innerHTML=others.map(e=>evItem(e,t,openIds)).join("") || `<div class="empty">Aucune autre soirée ${filter==="fr"?"avec un francophone":filter==="star"?"avec des stars":filter==="fav"?"avec un favori":""} annoncée pour l'instant.</div>`;
+  /* Soirées suivantes : jusqu'à un mois, plus la prochaine grosse soirée (vedette ou titre) au-delà ; le reste derrière un bouton */
+  const lim=(()=>{const d=new Date(t);d.setMonth(d.getMonth()+1);return +d;})();
+  const isBig=e=>{const m=e.fights[0];return !!(m&&(m.title||m.a.star||m.b.star));};
+  const near=others.filter(e=>e.start<lim), far=others.filter(e=>e.start>=lim);
+  const bigNext=far.find(isBig), hiddenN=far.filter(e=>e!==bigNext).length;
+  const list=showAllOthers?others:[...near,...(bigNext?[bigNext]:[])];
+  document.getElementById("others").innerHTML=(list.map(e=>evItem(e,t,openIds)).join("")+(hiddenN?`<button type="button" class="allbtn" id="allothers" aria-expanded="${showAllOthers}">${showAllOthers?"Masquer les soirées plus lointaines ▴":`Voir toutes les soirées · ${hiddenN} de plus ▾`}</button>`:"")) || `<div class="empty">Aucune autre soirée ${filter==="fr"?"avec un francophone":filter==="star"?"avec des stars":filter==="fav"?"avec un favori":""} annoncée pour l'instant.</div>`;
   /* Soirées passées (30 derniers jours) : résultats visibles seulement en mode Spoil */
-  const past=EVENTS.filter(e=>sport!=="boxe"&&t>=e.end&&t-e.end<30*864e5&&(filter==="all"||e.fights.some(match))).sort((a,b)=>b.start-a.start);
+  const past=EVENTS.filter(e=>(sport==="all"||(e.sport||"mma")===sport)&&t>=e.end&&t-e.end<30*864e5&&(filter==="all"||e.fights.some(match))).sort((a,b)=>b.start-a.start);
   document.getElementById("pastsec").hidden=!past.length;
   document.getElementById("past").innerHTML=past.map(e=>evItem(e,t,openIds,1)).join("");
   findBox(t);

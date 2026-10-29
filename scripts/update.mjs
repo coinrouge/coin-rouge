@@ -35,7 +35,7 @@ const COUNTRY = {
   Norway: "NOR", Denmark: "DEN", Finland: "FIN", Switzerland: "SUI", Philippines: "PHI", Thailand: "THA", "Dagestan": "RUS", "United Arab Emirates": "UAE", Morocco: "MAR", Algeria: "ALG", Tunisia: "TUN", Senegal: "SEN", "DR Congo": "COD",
   "Democratic Republic of the Congo": "COD", Nigeria: "NGR", "South Africa": "RSA", Rwanda: "RWA", Egypt: "EGY", Jordan: "JOR", Lebanon: "LBN",
   Chechnya: "RUS", Belarus: "BLR", Romania: "ROU", Bulgaria: "BUL", Greece: "GRE", Latvia: "LAT", Estonia: "EST", Mongolia: "MGL", Afghanistan: "AFG",
-  Guyana: "GUY", "Cuba": "CUB", "Dominican Republic": "DOM", "Puerto Rico": "PUR", Haiti: "HAI", Suriname: "SUR", "Ivory Coast": "CIV", Ghana: "GHA",
+  Guyana: "GUY", "Cuba": "CUB", "Dominican Republic": "DOM", "Puerto Rico": "PUR", Haiti: "HAI", Suriname: "SUR", "Ivory Coast": "CIV", Ghana: "GHA", Zambia: "ZAM", Kenya: "KEN", Uganda: "UGA",
 };
 function tzFor(city, country) {
   const c = `${city} ${country}`;
@@ -103,6 +103,28 @@ async function fighters() {
   return map;
 }
 
+/* Combattant absent des listes : on lit sa propre page Wikipédia (résultat gardé en cache) */
+const cacheFile = new URL("../data/fighters-cache.json", import.meta.url);
+const cache = JSON.parse(await readFile(cacheFile, "utf8").catch(() => "{}"));
+async function lookup(name, roster) {
+  if (roster[name]) return roster[name];
+  if (name in cache) return cache[name];
+  let out = null;
+  const $ = await page(name);
+  if ($ && /mixed martial art/i.test($("p").slice(0, 3).text())) {
+    const info = {};
+    $("table.infobox tr").each((_, tr) => { const k = cell($, $(tr).find("th").first()), v = cell($, $(tr).find("td").first()); if (k && v) info[k] = v; });
+    let nat = "";
+    const raw = info.Nationality || info.Citizenship || (info.Born || "").split(",").pop() || "";
+    for (const k of Object.keys(COUNTRY)) if (raw.includes(k) || (k === "France" && /French/.test(raw))) { nat = COUNTRY[k]; break; }
+    const n = (k) => +((info[k] || "").match(/^\d+/) || [0])[0];
+    const rec = info.Total ? [n("Wins"), n("Losses"), n("Draws")] : null;
+    out = { nat, rec };
+  }
+  cache[name] = out;
+  return out;
+}
+
 /* ---------- Liste des soirées ---------- */
 function parseDate(s) { const t = Date.parse(s + " 12:00 UTC"); return isNaN(t) ? null : new Date(t).toISOString().slice(0, 10); }
 const PFL_TITLES = new Set();
@@ -155,6 +177,7 @@ async function eventPage(name) {
       const a = side(c[1]), b = side(c[3]);
       const wRaw = c[0].replace(/\s*\(.*\)/, "").trim();
       const f = { s: seg, w: WEIGHT[wRaw] || c[0], a, b };
+      f.wn = wRaw;
       if (a.champ || b.champ) f.title = `Titre ${wRaw}`;
       if (/^def\./.test(c[2]) && c[4]) {
         const m = method(c[4]);
@@ -166,7 +189,7 @@ async function eventPage(name) {
   if (!fights.length) return { title, info, fights };
   const main = fights.filter((f) => f.s === "main");
   fights.forEach((f) => {
-    if (!f.title && PFL_TITLES.has(pairKey(f.a.n, f.b.n))) f.title = `Titre ${f.w}`;
+    if (!f.title && PFL_TITLES.has(pairKey(f.a.n, f.b.n))) f.title = `Titre ${f.wn}`;
     f.r = f.title || (f === main[0] && !/^PFL/.test(name)) ? 5 : 3;
   });
   return { title, info, fights };
@@ -215,6 +238,7 @@ for (const e of list) {
     tbc = true;
   }
   if (ov.tbc !== undefined) tbc = ov.tbc;
+  for (const f of p.fights) for (const x of [f.a, f.b]) if (!roster[x.n] && x.n !== "TBA") { const r = await lookup(x.n, roster); if (r) roster[x.n] = r; }
   const person = (x, res, mine) => {
     const r = roster[x.n];
     let rec = r?.rec ? [...r.rec] : null;
@@ -244,6 +268,7 @@ for (const e of list) {
   console.log(`  ${id} : ${fights.length} combats, ${fights.filter((f) => f.res).length} résultats`);
 }
 
+await writeFile(cacheFile, JSON.stringify(cache, null, 1));
 const data = { updated: new Date().toISOString(), source: "Wikipédia (en), licence CC BY-SA", events, agenda };
 await mkdir(new URL("../data/", import.meta.url), { recursive: true });
 const file = new URL("../data/events.json", import.meta.url);

@@ -355,7 +355,7 @@ const dir = Object.entries(roster).filter(([n, r]) => r && r.org && !/^_/.test(n
 }
 
 await writeFile(cacheFile, JSON.stringify(cache, null, 1));
-const data = { updated: new Date().toISOString(), source: "Wikipédia (en), licence CC BY-SA, et veille presse", presse: !!presse.events, events, agenda, roster: dir };
+const data = { updated: new Date().toISOString(), source: "Wikipédia (en), licence CC BY-SA, et veille presse", presse: !!presse.events, events, agenda, roster: dir, tapology: JSON.parse(await readFile(new URL("../data/tapology.json", import.meta.url), "utf8").catch(() => "{}")) };
 await mkdir(new URL("../data/", import.meta.url), { recursive: true });
 const file = new URL("../data/events.json", import.meta.url);
 const old = await readFile(file, "utf8").catch(() => "");

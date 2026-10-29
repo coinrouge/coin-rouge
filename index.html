@@ -49,6 +49,7 @@ button,input,select{font:inherit;color:inherit}
 .brand{font-family:var(--f-display);font-weight:900;font-size:clamp(34px,7vw,52px);line-height:.9;letter-spacing:.01em;text-transform:uppercase;margin:0}
 .brand span{color:var(--red)}
 .homelink{color:inherit;text-decoration:none}
+.vstar{color:var(--gold);margin-left:3px;font-size:.85em;vertical-align:.08em;text-decoration:none;display:inline-block}
 .sumlink{color:inherit;text-decoration:none}
 .sumlink:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
 .homelink:hover span{text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:4px}
@@ -1153,7 +1154,7 @@ function render(){
 const SPORTLBL={all:"MMA + Boxe",mma:"MMA",boxe:"Boxe"};
 function agendaItems(t){
   return [
-    ...EVENTS.filter(e=>t<e.end).map(e=>({sport:e.sport||"mma",ts:e.start,name:`${e.a} vs ${e.b}`,org:`${e.name} · ${e.city}`,id:e.id,frA:e.fights[0].a.fr,frB:e.fights[0].b.fr,fr:!e.fights[0].a.fr&&!e.fights[0].b.fr&&e.fights.some(f=>f.a.fr||f.b.fr)})),
+    ...EVENTS.filter(e=>t<e.end).map(e=>({sport:e.sport||"mma",ts:e.start,name:`${e.a} vs ${e.b}`,org:`${e.name} · ${e.city}`,id:e.id,frA:e.fights[0].a.fr,frB:e.fights[0].b.fr,stA:e.fights[0].a.star,stB:e.fights[0].b.star,fr:!e.fights[0].a.fr&&!e.fights[0].b.fr&&e.fights.some(f=>f.a.fr||f.b.fr)})),
     ...AGENDA.map(a=>({...a,ts:Date.parse(a.date+"T20:00:00Z")})).filter(a=>a.ts>t-864e5)
   ].filter(x=>sport==="all"||x.sport===sport).sort((a,b)=>a.ts-b.ts);
 }
@@ -1161,7 +1162,8 @@ function agendaItems(t){
 function vsHTML(x){
   const [a,b]=x.name.split(" vs ");
   if(b===undefined) return esc(x.name)+(x.fr?flag({fr:1}):"");
-  return `${esc(a)}${x.frA?flag({fr:1}):""} vs ${esc(b)}${x.frB?flag({fr:1}):""}${x.fr?flag({fr:1}):""}`;
+  const st=on=>on?'<span class="vstar" title="Star" aria-label="star">★</span>':"";
+  return `${esc(a)}${x.frA?flag({fr:1}):""}${st(x.stA)} vs ${esc(b)}${x.frB?flag({fr:1}):""}${st(x.stB)}${x.fr?flag({fr:1}):""}`;
 }
 function agenda(t){
   const items=agendaItems(t);
@@ -1199,7 +1201,7 @@ function evItem(e,t,openIds,isPast){
   const fr=e.fights.some(f=>f.a.fr||f.b.fr);
   return `<details class="ev ${evCls(e)}${isPast?" past":""}" data-id="${e.id}" ${openIds.includes(e.id)||anyHit?"open":""}>
       <summary><div class="dt"><b>${dayN(e.start)}</b><small>${monS(e.start)}</small></div>
-      <div><div class="sum-t"><a class="sumlink" href="#ev-${e.id}" title="Ouvrir la carte complète">${vsHTML({name:`${e.a} vs ${e.b}`,frA:e.fights[0].a.fr,frB:e.fights[0].b.fr,fr:fr&&!e.fights[0].a.fr&&!e.fights[0].b.fr})}</a></div><div class="sum-m">${evBadge(e,1)} ${esc(e.venue)}, ${esc(e.city)} · ${isPast?"terminé":`début ${fmtT(e.start)}${e.tbc?" (à confirmer)":""}`}</div></div>
+      <div><div class="sum-t"><a class="sumlink" href="#ev-${e.id}" title="Ouvrir la carte complète">${vsHTML({name:`${e.a} vs ${e.b}`,frA:e.fights[0].a.fr,frB:e.fights[0].b.fr,stA:e.fights[0].a.star,stB:e.fights[0].b.star,fr:fr&&!e.fights[0].a.fr&&!e.fights[0].b.fr})}</a></div><div class="sum-m">${evBadge(e,1)} ${esc(e.venue)}, ${esc(e.city)} · ${isPast?"terminé":`début ${fmtT(e.start)}${e.tbc?" (à confirmer)":""}`}</div></div>
       <span class="chev" aria-hidden="true">▼</span></summary>
       <div class="inner">${schedHTML(e)}${cardHTML(e,t,{only:filter==="all"?"main":null})}${moreBtn(e,false)}</div></details>`;
 }
@@ -1330,11 +1332,15 @@ document.getElementById("simreset").addEventListener("click",()=>{simr.value=0;s
 
 /* Données automatiques (Wikipédia) : remplacent les cartes saisies à la main quand elles sont disponibles */
 const STARS=new Set(EVENTS.flatMap(e=>e.fights.flatMap(f=>[f.a,f.b])).filter(p=>p.star).map(p=>p.n));
-["Alexander Volkanovski","Petr Yan","Merab Dvalishvili","Movsar Evloev","Islam Makhachev","Ilia Topuria","Tom Aspinall","Jon Jones","Khamzat Chimaev","Sean Strickland","Max Holloway","Justin Gaethje","Paddy Pimblett","Sean O'Malley","Conor McGregor","Valentina Shevchenko","Zhang Weili"].forEach(n=>STARS.add(n));
+["Alexander Volkanovski","Petr Yan","Merab Dvalishvili","Movsar Evloev","Islam Makhachev","Ilia Topuria","Tom Aspinall","Jon Jones","Khamzat Chimaev","Sean Strickland","Max Holloway","Justin Gaethje","Paddy Pimblett","Sean O'Malley","Conor McGregor","Valentina Shevchenko","Zhang Weili",
+ /* MMA : champions et anciens champions, grosses têtes d'affiche */
+ "Alex Pereira","Jiří Procházka","Magomed Ankalaev","Dricus du Plessis","Charles Oliveira","Dustin Poirier","Israel Adesanya","Kamaru Usman","Leon Edwards","Belal Muhammad","Jack Della Maddalena","Alexandre Pantoja","Joshua Van","Brandon Moreno","Diego Lopes","Arman Tsarukyan","Ciryl Gane","Benoît Saint Denis","Benoît Saint-Denis","Manon Fiorot","Nassourdine Imavov","Amanda Nunes","Kayla Harrison","Julianna Peña","Robert Whittaker","Michael Chandler","Colby Covington","Shavkat Rakhmonov","Bo Nickal","Derrick Lewis","Umar Nurmagomedov","Aljamain Sterling","Francis Ngannou","Cris Cyborg","Usman Nurmagomedov","Vadim Nemkov","A. J. McKee","Johnny Eblen","Cédric Doumbè",
+ /* Boxe */
+ "Canelo Álvarez","Tyson Fury","Anthony Joshua","Oleksandr Usyk","Naoya Inoue","Terence Crawford","Dmitry Bivol","Artur Beterbiev","Gervonta Davis","Shakur Stevenson","Devin Haney","Ryan Garcia","Jake Paul","Deontay Wilder","David Benavidez","Jaime Munguía","Agit Kabayel","Daniel Dubois","Jai Opetaia","Junto Nakatani","Teofimo Lopez","Errol Spence Jr.","Vasiliy Lomachenko","Christian M'billi","Tony Yoka"].forEach(n=>STARS.add(n));
 fetch("data/events.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=>{
   if(!d||!Array.isArray(d.events)||!d.events.length) return;
   const past=EVENTS.filter(e=>!d.events.some(x=>x.id===e.id)&&e.fights.some(f=>f.res));
-  const fix=p=>{if(p.nat&&!NAT[p.n])NAT[p.n]=p.nat; if(STARS.has(p.n))p.star=1; return p;};
+  const fix=p=>{if(p.nat&&!NAT[p.n])NAT[p.n]=p.nat; if(STARS.has(p.n)||p.champ)p.star=1; return p;};
   const evs=d.events.map(e=>({...e,fights:e.fights.map(f=>{const a=fix(f.a),b=fix(f.b);if(e.sport==="boxe"){a.bx=1;b.bx=1;}return {...f,a,b};})}));
   EVENTS.length=0; EVENTS.push(...past,...evs);
   for(let i=AGENDA.length-1;i>=0;i--) if(/^(UFC|PFL)/.test(AGENDA[i].org)||(d.presse&&(AGENDA[i].sport==="boxe"||/^(Hexagone|ARES)/.test(AGENDA[i].org)))) AGENDA.splice(i,1);

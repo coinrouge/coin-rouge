@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-29T17:17:08.378Z",
+ "updated": "2026-10-29T17:18:12.305Z",
  "source": "Wikipédia (en), licence CC BY-SA",
  "events": [
   {
@@ -77,7 +77,8 @@
      },
      "b": {
       "n": "King Green",
-      "rec": "36-17-1"
+      "rec": "36-17-1",
+      "nat": "USA"
      },
      "res": {
       "w": "a",
@@ -307,7 +308,8 @@
      },
      "b": {
       "n": "Court McGee",
-      "rec": "22-14-0"
+      "rec": "22-14-0",
+      "nat": "USA"
      },
      "res": {
       "w": "a",
@@ -387,8 +389,7 @@
      "r": 3,
      "a": {
       "n": "Loopy Godínez",
-      "rec": "14-6-0",
-      "nat": "MEX"
+      "rec": "14-6-0"
      },
      "b": {
       "n": "Ketlen Souza",
@@ -455,7 +456,8 @@
      },
      "b": {
       "n": "Gerald Meerschaert",
-      "rec": "37-22-0"
+      "rec": "37-22-0",
+      "nat": "USA"
      },
      "res": {
       "w": "a",
@@ -489,7 +491,8 @@
      "r": 3,
      "a": {
       "n": "Niko Price",
-      "rec": "16-11-0"
+      "rec": "16-11-0",
+      "nat": "USA"
      },
      "b": {
       "n": "Leon Shahbazyan",
@@ -1943,8 +1946,7 @@
      },
      "b": {
       "n": "Amanda Nunes",
-      "rec": "23-5-0",
-      "nat": "BRA"
+      "rec": "23-5-0"
      },
      "title": "Titre Women's Bantamweight"
     },

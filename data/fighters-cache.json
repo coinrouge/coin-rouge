@@ -1,44 +1,49 @@
 {
  "King Green": {
-  "nat": "",
+  "nat": "USA",
   "rec": [
    36,
    18,
    1
-  ]
+  ],
+  "v": 2
  },
  "Court McGee": {
-  "nat": "",
+  "nat": "USA",
   "rec": [
    22,
    15,
    0
-  ]
+  ],
+  "v": 2
  },
  "Loopy Godínez": {
-  "nat": "MEX",
+  "nat": "",
   "rec": [
    15,
    6,
    0
-  ]
+  ],
+  "v": 2
  },
  "Gerald Meerschaert": {
-  "nat": "",
+  "nat": "USA",
   "rec": [
    37,
    23,
    0
-  ]
+  ],
+  "v": 2
  },
  "Ismael Bonfim": null,
  "Niko Price": {
-  "nat": "",
+  "nat": "USA",
   "rec": [
    17,
    11,
    0
-  ]
+  ],
+  "v": 2
  },
  "Gabriel Braga": null,
  "Oualy Tandia": null,
@@ -54,17 +59,19 @@
    12,
    0,
    0
-  ]
+  ],
+  "v": 2
  },
  "Marcos Degli": null,
  "Jonny Parsons": null,
  "Amanda Nunes": {
-  "nat": "BRA",
+  "nat": "",
   "rec": [
    23,
    5,
    0
-  ]
+  ],
+  "v": 2
  },
  "Abubakar Nurmagomedov": {
   "nat": "RUS",
@@ -72,7 +79,8 @@
    17,
    4,
    1
-  ]
+  ],
+  "v": 2
  },
  "Joji Goto": null,
  "Shaqueme Rock": null,
@@ -91,7 +99,8 @@
    11,
    1,
    0
-  ]
+  ],
+  "v": 2
  },
  "Mauricio Partida": null
 }

@@ -1,0 +1,1262 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Coin Rouge</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Barlow:wght@400;500;600;700&family=Barlow+Semi+Condensed:wght@500;600;700&display=swap">
+<style>
+/* Layout : affiche de soirée en tête (événement le plus proche), puis la fight card en duel coin rouge / coin bleu, puis les soirées suivantes repliées. */
+:root{
+  --bg:#ECEEF1; --surface:#FFFFFF; --ink:#121418; --muted:#5B6270; --line:#D5D9E0;
+  --red:#C8102E; --blue:#1F4FD1; --gold:#A87A1F; --live:#D11F3A; --soft:#F5F6F8;
+  --fra-b:#1F4FD1; --fra-r:#C8102E; --av-ink:#FFFFFF; --fn-bg:#FADADF; --fn-ink:#9B1027; --num-bg:#F5C530; --num-ink:#2A2104; --num-t:#FFF7DB; --num-line:#E2B21C; --fn-t:#FCF3F4; --fn-line:#EFD3D8; --fn-inner:#FFFAFA; --fr-t:#E8EEFC; --me-t:#F1F2F5; --star-t:#F5F6F8; --wash:rgba(255,255,255,.32); --fav:#D6336C; --fav-t:#FCEAF1; --lost:#C62F2B; --fn-me:#F8E6E9; --num-me:#FBEFC4; --fn-star:#FBEFF1; --num-star:#FDF5D9; --fn-hero:#FBE4E8; --num-hero:#FFF2C7; --fn-hero-me:#F6D3D9; --num-hero-me:#FBE6A3; --num-inner:#FFFCEF; --num-line2:#EEDC9E; --win:#18804A; --loss:#D4561A;
+  --f-display:"Big Shoulders Display","Impact","Arial Narrow",sans-serif;
+  --f-body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-data:"Barlow Semi Condensed","Arial Narrow",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F1115; --surface:#181B21; --ink:#ECEEF1; --muted:#9AA1AE; --line:#2A2F38;
+  --red:#FF5468; --blue:#7FA2FF; --gold:#E3B85A; --live:#FF5468; --soft:#1E222A; --av-ink:#0F1115; --fn-bg:#3B1B22; --fn-ink:#FF95A3; --num-bg:#EBC03C; --num-ink:#1F1803; --num-t:#262010; --num-line:#9C7C1B; --fn-t:#1F181A; --fn-line:#43292F; --fn-inner:#2A1D21; --fr-t:#18223C; --me-t:#252932; --star-t:#1F232A; --wash:rgba(15,17,21,.40); --fav:#FF7AA8; --fav-t:#2E1D26; --lost:#F0524A; --fn-me:#3A242A; --num-me:#40361A; --fn-star:#322026; --num-star:#383018; --fn-hero:#2C181D; --num-hero:#2D2611; --fn-hero-me:#3D2128; --num-hero-me:#3F3417; --num-inner:#302915; --num-line2:#4D4120; --win:#4FCB86; --loss:#FF9160; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1115; --surface:#181B21; --ink:#ECEEF1; --muted:#9AA1AE; --line:#2A2F38;
+  --red:#FF5468; --blue:#7FA2FF; --gold:#E3B85A; --live:#FF5468; --soft:#1E222A; --av-ink:#0F1115; --fn-bg:#3B1B22; --fn-ink:#FF95A3; --num-bg:#EBC03C; --num-ink:#1F1803; --num-t:#262010; --num-line:#9C7C1B; --fn-t:#1F181A; --fn-line:#43292F; --fn-inner:#2A1D21; --fr-t:#18223C; --me-t:#252932; --star-t:#1F232A; --wash:rgba(15,17,21,.40); --fav:#FF7AA8; --fav-t:#2E1D26; --lost:#F0524A; --fn-me:#3A242A; --num-me:#40361A; --fn-star:#322026; --num-star:#383018; --fn-hero:#2C181D; --num-hero:#2D2611; --fn-hero-me:#3D2128; --num-hero-me:#3F3417; --num-inner:#302915; --num-line2:#4D4120; --win:#4FCB86; --loss:#FF9160; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.45;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px}
+.wrap{max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+.layout{display:grid;grid-template-columns:230px minmax(0,1fr);gap:28px;align-items:start}
+.mainc{display:flex;flex-direction:column;gap:28px;min-width:0}
+@media (max-width:860px){.layout{grid-template-columns:1fr}}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+
+/* Masthead */
+.mast{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;border-bottom:3px solid var(--ink);padding-bottom:10px}
+.brand{font-family:var(--f-display);font-weight:900;font-size:clamp(34px,7vw,52px);line-height:.9;letter-spacing:.01em;text-transform:uppercase;margin:0}
+.brand span{color:var(--red)}
+/* Affiche : coin rouge à gauche, coin bleu à droite */
+.poster{display:flex;flex-direction:column;gap:16px;position:relative;padding-top:24px;
+  background:var(--surface)}
+a.poster:hover{background:var(--soft)}
+.poster::before{content:"";position:absolute;inset:0 0 auto;height:5px;background:linear-gradient(90deg,var(--red) 0 50%,var(--blue) 50% 100%)}
+.ptop{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
+.ptop .countdown{text-align:right}
+.pduel{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:14px;margin:4px 0}
+.pside{display:flex;flex-direction:column;gap:2px;min-width:0}
+.pside.blue{text-align:right;align-items:flex-end}
+.pside small{font-family:var(--f-data);font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--ink)}
+.pside b{font-family:var(--f-display);font-weight:900;text-transform:uppercase;font-size:clamp(30px,7.6vw,68px);line-height:.9;overflow-wrap:anywhere}
+.pside.red b{color:var(--red)} .pside.blue b{color:var(--blue)}
+.pside em{font-style:normal;font-family:var(--f-data);font-size:13px;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums}
+.pvs{flex:none;font-family:var(--f-display);font-weight:900;font-size:17px;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:var(--surface);letter-spacing:.04em}
+.pbot{display:flex;justify-content:space-between;align-items:center;gap:8px 16px;flex-wrap:wrap}
+@media (max-width:560px){.pduel{gap:8px}.pvs{width:34px;height:34px;font-size:13px}.pside small{font-size:11px}}
+.brandcol{display:flex;flex-direction:column;gap:4px}
+.clock{font-family:var(--f-data);font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:600}
+.clock b{color:var(--ink);font-variant-numeric:tabular-nums;font-size:15px;letter-spacing:0;margin-left:4px}
+.mtools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:flex-end;flex:1 1 380px;min-width:0}
+.mtools .search{flex:1 1 200px;max-width:300px}
+.findbox{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:10px 14px;margin-top:-14px}
+.hero-card{border-top:1px solid var(--line);padding:18px 20px 20px}
+.hero .seg-main{border:0;border-radius:0;background:transparent;padding:0}
+.hero .morebtn{margin-top:14px}
+@media (max-width:560px){.mtools{justify-content:flex-start}.mtools .search{max-width:none}.hero-card{padding:14px 14px 16px}}
+
+/* Hero */
+.hero{background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.hero-top{display:grid;grid-template-columns:1fr auto;gap:16px;padding:20px 20px 16px;align-items:start;color:inherit;text-decoration:none;transition:background .15s}
+a.hero-top:hover{background:var(--soft)}
+a.hero-top:hover .cta{color:var(--red)}
+.cta{grid-column:1/-1;font-family:var(--f-data);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:13px;color:var(--ink);display:inline-flex;gap:6px;align-items:center}
+.cta::after{content:"→";font-size:16px;transition:transform .15s}
+a.hero-top:hover .cta::after{transform:translateX(4px)}
+@media (prefers-reduced-motion:reduce){.cta::after,.hero-top{transition:none}}
+.morebtn{display:block;text-align:center;margin-top:10px;padding:12px;border:1px solid var(--ink);border-radius:6px;font-family:var(--f-data);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:13px;color:var(--ink);text-decoration:none}
+.morebtn:hover{background:var(--ink);color:var(--surface)}
+
+/* Vue détaillée d'une soirée */
+.detail{position:fixed;inset:0;z-index:50;background:var(--bg);overflow-y:auto;overscroll-behavior:contain;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-bottom:calc(40px + env(safe-area-inset-bottom,0px))}
+.dbar{position:sticky;top:0;z-index:2;background:var(--bg);padding-top:calc(12px + env(safe-area-inset-top,0px));padding-bottom:12px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:12px;max-width:920px;margin:0 auto}
+.back{font-family:var(--f-data);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:13px;color:var(--ink);text-decoration:none;border:1px solid var(--line);border-radius:4px;padding:7px 12px;background:var(--surface)}
+.back:hover{border-color:var(--ink)}
+.dbar .t{font-family:var(--f-display);font-weight:800;text-transform:uppercase;font-size:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.dwrap{max-width:920px;margin:0 auto;display:flex;flex-direction:column;gap:22px;padding-top:20px}
+.dfacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.dfacts div{background:var(--surface);padding:12px 16px;font-family:var(--f-data)}
+.dfacts small{display:block;text-transform:uppercase;letter-spacing:.1em;font-size:11px;color:var(--muted);font-weight:700}
+.dfacts b{font-size:17px}
+.ord{display:block;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:600;margin-top:2px}
+.mid .lim{display:block;font-variant-numeric:tabular-nums}
+.eyebrow{font-family:var(--f-data);text-transform:uppercase;letter-spacing:.12em;font-size:12px;font-weight:700;color:var(--muted);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:2px 8px;border-radius:99px;font-size:11px;letter-spacing:.1em;font-weight:700}
+.pill.live{background:var(--live);color:#fff}
+.pill.live::before{content:"";width:7px;height:7px;border-radius:50%;background:#fff;animation:pulse 1.2s infinite}
+.pill.next{border:1px solid var(--ink);color:var(--ink)}
+@keyframes pulse{50%{opacity:.25}}
+@media (prefers-reduced-motion:reduce){.pill.live::before{animation:none}}
+.ev-title{font-family:var(--f-display);font-weight:900;text-transform:uppercase;font-size:clamp(30px,6.4vw,54px);line-height:.95;margin:8px 0 6px;text-wrap:balance}
+.ev-title .vs{color:var(--muted);font-weight:600;font-size:.6em;vertical-align:.15em;margin:0 .15em}
+.ev-meta{color:var(--muted);font-size:14px}
+.countdown{text-align:right;font-family:var(--f-data)}
+.countdown .n{font-family:var(--f-display);font-weight:800;font-size:40px;line-height:1;font-variant-numeric:tabular-nums}
+.countdown .l{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+
+.sched{display:flex;flex-wrap:wrap;border-top:1px solid var(--line)}
+.sched div{flex:1 1 140px;padding:10px 20px;border-right:1px solid var(--line);font-family:var(--f-data)}
+.sched div:last-child{border-right:0}
+.sched small{display:block;text-transform:uppercase;letter-spacing:.1em;font-size:11px;color:var(--muted);font-weight:700}
+.sched b{font-size:20px;font-variant-numeric:tabular-nums}
+.sched em{font-style:normal;color:var(--muted);font-size:13px;margin-left:4px}
+
+.nowbar{display:none;padding:14px 20px;background:var(--soft);border-top:1px solid var(--line);gap:12px;align-items:center;flex-wrap:wrap}
+.nowbar.on{display:flex}
+.nowbar .tag{font-family:var(--f-data);text-transform:uppercase;letter-spacing:.1em;font-size:11px;font-weight:700;color:var(--live)}
+.nowbar .who{font-family:var(--f-display);font-weight:800;font-size:22px;text-transform:uppercase}
+.nowbar .after{color:var(--muted);font-size:14px}
+
+/* Tools */
+.tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.search{flex:1 1 220px;display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:0 12px}
+.search input{border:0;background:transparent;padding:10px 0;width:100%;outline:none}
+.seg{display:flex;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--surface)}
+.seg button{border:0;background:transparent;padding:9px 14px;cursor:pointer;font-family:var(--f-data);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:13px;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--surface)}
+.find{font-size:14px;color:var(--muted);min-height:1.2em}
+.find b{color:var(--ink)}
+
+/* Card */
+.section-h{font-family:var(--f-data);text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:700;color:var(--muted);display:flex;justify-content:space-between;gap:8px;padding:0 4px 6px;border-bottom:1px solid var(--line);margin-top:4px}
+.bouts{display:flex;flex-direction:column}
+.bout{display:grid;grid-template-columns:72px 1fr;gap:12px;padding:12px 4px;border-bottom:1px solid var(--line);align-items:center;position:relative}
+.bout.hl{background:var(--soft)}
+.bout.now{box-shadow:inset 4px 0 0 var(--live)}
+.time{font-family:var(--f-data);font-variant-numeric:tabular-nums;text-align:left}
+.time b{display:block;font-size:19px;line-height:1.1}
+.time small{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.time.now b{color:var(--live)}
+.time.done b{color:var(--muted);text-decoration:line-through;text-decoration-thickness:1px}
+.duel{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center;min-width:0}
+.f{min-width:0;display:flex;flex-direction:column;gap:1px}
+.f.b{text-align:right;align-items:flex-end}
+.fx{display:flex;align-items:center;gap:10px;min-width:0}
+.f.b .fx{flex-direction:row-reverse}
+.txt{display:flex;flex-direction:column;min-width:0}
+.f.b .txt{align-items:flex-end;text-align:right}
+.av{flex:none;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-family:var(--f-display);font-weight:800;font-size:17px;letter-spacing:.02em;color:var(--av-ink)}
+.f.a .av{background:var(--red)} .f.b .av{background:var(--blue)}
+.av.tbd{background:var(--soft);color:var(--muted);border:1px dashed var(--line)}
+.f .nm{font-family:var(--f-display);font-weight:800;font-size:clamp(17px,3.4vw,22px);text-transform:uppercase;line-height:1.05;overflow-wrap:anywhere;color:inherit;text-decoration:none}
+a.nm:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
+.f .rec{font-family:var(--f-data);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.fiche{color:var(--muted);text-decoration:none;font-weight:600}
+.fiche:hover{color:var(--ink);text-decoration:underline}
+.mid{text-align:center;font-family:var(--f-data);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);max-width:110px}
+.mid .belt{display:block;color:var(--gold);font-weight:700}
+.mid .rd{display:block}
+.fra{display:inline-flex;height:11px;width:17px;border:1px solid var(--line);vertical-align:2px;margin:0 4px;flex:none}
+.fra i{flex:1}.fra i:nth-child(1){background:var(--fra-b)}.fra i:nth-child(2){background:#fff}.fra i:nth-child(3){background:var(--fra-r)}
+.star{color:var(--gold);font-size:.8em;margin:0 3px}
+.note{grid-column:2;font-size:12px;color:var(--muted);margin-top:-4px}
+
+/* Hiérarchie : main event > main card > préliminaires */
+.section-h.main-h{font-family:var(--f-display);font-size:24px;font-weight:900;letter-spacing:.04em;color:var(--ink);border-bottom:0;padding:0 2px 8px;align-items:baseline}
+.section-h.main-h span:last-child{font-family:var(--f-data);font-size:13px;font-weight:700;color:var(--muted);letter-spacing:.1em}
+.section-h.sub-h{margin-top:30px;border-bottom:1px solid var(--line)}
+.seg-main{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:0 14px}
+.seg-main .bout:last-child{border-bottom:0}
+.seg-main .bout{padding:14px 0}
+.seg-main .bout:first-child{padding:20px 0}
+.seg-main .bout:first-child .nm{font-size:clamp(22px,4.6vw,32px)}
+.seg-main .bout:first-child .av{width:52px;height:52px;font-size:20px}
+.seg-main .bout:first-child .time b{font-size:22px}
+
+.seg-prelims .bout,.seg-early .bout{padding:8px 4px;gap:12px}
+.seg-prelims .f .nm,.seg-early .f .nm{font-family:var(--f-body);font-weight:600;text-transform:none;font-size:15px;line-height:1.25;letter-spacing:0}
+.seg-prelims .av,.seg-early .av{width:26px;height:26px;font-size:11px;background:transparent!important;border:1.5px solid currentColor}
+.seg-prelims .f.a .av,.seg-early .f.a .av{color:var(--red)}
+.seg-prelims .f.b .av,.seg-early .f.b .av{color:var(--blue)}
+.seg-prelims .av.tbd,.seg-early .av.tbd{color:var(--muted);border-style:dashed}
+.seg-prelims .fx,.seg-early .fx{gap:8px}
+.seg-prelims .time b,.seg-early .time b{font-size:15px;font-weight:600}
+.seg-prelims .time small,.seg-early .time small{font-size:10px}
+.seg-prelims .rec,.seg-early .rec{font-size:11px}
+.seg-prelims .mid,.seg-early .mid{font-size:10px}
+.seg-prelims .belt,.seg-early .belt{font-size:10px}
+.seg-early .f .nm{color:var(--muted)}
+.empty{padding:16px 4px;color:var(--muted)}
+.none{padding:28px 20px;display:flex;flex-direction:column;gap:6px}
+.none b{font-family:var(--f-display);font-weight:900;text-transform:uppercase;font-size:28px;line-height:1}
+.none span{color:var(--muted);max-width:60ch}
+
+/* Other events */
+.others{display:flex;flex-direction:column;gap:10px}
+details.ev{background:var(--surface);border:1px solid var(--line);border-radius:6px}
+details.ev summary{list-style:none;cursor:pointer;padding:14px 16px;display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center}
+details.ev summary::-webkit-details-marker{display:none}
+.dt{font-family:var(--f-data);text-align:center;line-height:1;min-width:48px}
+.dt b{display:block;font-family:var(--f-display);font-size:28px;font-weight:800}
+.dt small{text-transform:uppercase;font-size:11px;letter-spacing:.1em;color:var(--muted);font-weight:700}
+.srcsel{display:flex;align-items:center;gap:6px;font-family:var(--f-data);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:12px;color:var(--muted)}
+.srcsel select{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:8px;font-family:var(--f-data);font-weight:600;text-transform:none;letter-spacing:0;font-size:14px;color:var(--ink)}
+.rec-w{color:var(--win);font-weight:700}.rec-l{color:var(--loss);font-weight:700}.rec-d{color:var(--muted)}
+.cdown{font-family:var(--f-data);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-left:auto}
+.cdown b{color:var(--ink);font-size:14px;letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.sched .s-main{flex:2 1 200px}
+.sched .s-main small{color:var(--ink)}
+.sched .s-main b{font-family:var(--f-display);font-weight:900;font-size:32px;line-height:1}
+.sched div:not(.s-main){flex:1 1 110px}
+.sched div:not(.s-main) b{font-size:15px;font-weight:600}
+.pwhen{display:flex;flex-direction:column;gap:2px;min-width:0}
+.pdate{font-family:var(--f-display);font-weight:800;text-transform:uppercase;font-size:clamp(20px,3.6vw,28px);line-height:1.05;letter-spacing:.01em}
+.ptime{font-family:var(--f-data);font-weight:600;font-size:.6em;letter-spacing:.06em;color:var(--muted);margin-left:4px;white-space:nowrap}
+.pbot{align-items:flex-end}
+.av.flagged{padding:0;overflow:hidden;background:var(--surface)!important;border:2.5px solid}
+.f.a .av.flagged{border-color:var(--red)} .f.b .av.flagged{border-color:var(--blue)}
+.av.flagged svg{width:100%;height:100%;display:block}
+.seg-prelims .av.flagged,.seg-early .av.flagged{border-width:1.5px}
+.evb{display:inline-flex;align-items:center;padding:3px 9px;border-radius:3px;font-family:var(--f-data);font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;line-height:1.2}
+.evb.fn{background:var(--fn-bg);color:var(--fn-ink)}
+.evb.num{background:var(--num-bg);color:var(--num-ink);font-family:var(--f-display);font-weight:900;font-size:14px;letter-spacing:.06em}
+.sum-m .evb{margin-right:4px;font-size:11px;padding:2px 7px}
+.sum-m .evb.num{font-size:13px}
+details.ev.num{background:var(--num-t);border:2px solid var(--num-line)}
+details.ev.fn{background:var(--fn-t);border:1px solid var(--fn-line)}
+/* Les blocs intérieurs prennent la teinte de leur soirée au lieu du gris neutre */
+details.ev.fn{--surface:var(--fn-inner);--line:var(--fn-line);--soft:var(--fn-t);--me-t:var(--fn-me);--star-t:var(--fn-star)}
+details.ev.num{--surface:var(--num-inner);--line:var(--num-line2);--soft:var(--num-t);--me-t:var(--num-me);--star-t:var(--num-star)}
+details.ev.num summary{padding:18px 16px}
+details.ev.num .sum-t{font-size:26px}
+details.ev.num .dt b{font-size:34px}
+.sum-t{font-family:var(--f-display);font-weight:800;font-size:20px;text-transform:uppercase;line-height:1.05}
+.sum-m{font-size:13px;color:var(--muted)}
+.chev{font-family:var(--f-data);color:var(--muted);font-size:13px}
+details[open] .chev{transform:rotate(180deg)}
+details.ev .inner{padding:0 16px 14px;display:flex;flex-direction:column;gap:12px}
+details.ev .sched{border:1px solid var(--line);border-radius:4px}
+
+/* Radar FR */
+.radar{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.rcard{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.rcard .nm{font-family:var(--f-display);font-weight:800;font-size:20px;text-transform:uppercase}
+.rcard .st{font-family:var(--f-data);font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:700}
+.st.ok{color:var(--blue)} .st.ru{color:var(--gold)}
+.rcard p{margin:0;font-size:14px;color:var(--muted)}
+
+/* Simulateur */
+.sim{background:var(--surface);border:1px dashed var(--line);border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.sim label{font-family:var(--f-data);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:12px;color:var(--muted)}
+.sim .row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.sim input[type=range]{flex:1 1 200px;accent-color:var(--red)}
+.sim output{font-family:var(--f-data);font-weight:700;font-variant-numeric:tabular-nums;font-size:16px}
+.btn{border:1px solid var(--ink);background:transparent;border-radius:4px;padding:6px 12px;cursor:pointer;font-family:var(--f-data);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:12px}
+.foot{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
+.foot p{margin:0 0 6px;max-width:70ch}
+h2.h{display:flex;align-items:center;gap:12px;font-family:var(--f-data);font-weight:700;text-transform:uppercase;font-size:19px;letter-spacing:.14em;color:var(--ink);margin:0 0 12px}
+h2.h span{color:var(--red);margin-left:-3px}
+h2.h::after{content:"";flex:1;height:1px;background:var(--line)}
+
+@media (max-width:560px){
+  .hero-top{grid-template-columns:1fr}
+  .countdown{text-align:left}
+  .bout{grid-template-columns:56px 1fr;gap:8px}
+  .duel{grid-template-columns:1fr;gap:4px}
+  .f.b{text-align:left;align-items:flex-start}
+  .f.b .fx{flex-direction:row}
+  .f.b .txt{align-items:flex-start;text-align:left}
+  .av{width:34px;height:34px;font-size:14px}
+  .mid{text-align:left;max-width:none;padding-left:44px;display:flex;gap:8px;flex-wrap:wrap}
+  .seg-prelims .mid,.seg-early .mid{padding-left:34px}
+  .seg-main{padding:0 10px}
+  .mid .belt,.mid .rd{display:inline}
+  .time b{font-size:16px}
+}
+/* Combat avec un Français : bande tricolore et fond bleuté, visible même en préliminaires */
+.bouts .bout.fr{background:linear-gradient(90deg,#0055A4 0 4px,#FFFFFF 4px 8px,#EF4135 8px 12px,var(--fr-t) 12px);
+  padding-left:24px;padding-right:12px;border-radius:4px;border-bottom-color:transparent;margin-block:4px}
+/* Correctif : l'affiche s'empile en colonne (la grille de .hero-top ne s'applique pas) */
+.hero-top.poster{display:flex;align-items:stretch}
+/* Test : nom de famille aux couleurs du drapeau du combattant */
+/* Nom rempli du drapeau, proportions respectées (cover), adouci par un voile et cerné pour rester lisible */
+.pside b.natc{background-size:cover;background-position:center;background-repeat:no-repeat;
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  -webkit-text-stroke:1.5px var(--ink);paint-order:stroke fill}
+.pside b.natc{background-image:linear-gradient(var(--wash),var(--wash)),var(--natbg)}
+.pside.red small{color:var(--red)} .pside.blue small{color:var(--blue)}
+/* Vue détaillée : même affiche que l'accueil */
+.dduel{margin:14px 0 16px}
+/* Main event mis en avant dans la carte */
+.melabel{grid-column:1/-1;display:flex;align-items:center;gap:10px;font-family:var(--f-data);text-transform:uppercase;letter-spacing:.14em;font-size:11px;font-weight:700;margin-bottom:-2px}
+.melabel span{background:var(--num-bg);color:var(--num-ink);padding:3px 9px;border-radius:3px;font-weight:800}
+.melabel em{font-style:normal;color:var(--muted)}
+.seg-main .bout.me{padding:16px 14px 22px;margin-block:10px 6px;border-radius:5px;border-bottom-color:transparent}
+.bouts .bout.me:not(.fr){background:var(--me-t)}
+.seg-main .bout.me .nm{font-size:clamp(24px,5vw,36px)}
+.seg-main .bout.me .av{width:56px;height:56px;font-size:20px}
+.seg-main .bout.me .mid{font-size:12px}
+.seg-main .bout.me .time b{font-size:24px}
+.bouts .bout.me.fr{padding-left:24px;padding-right:12px}
+/* Prénom en casse normale, plus petit que le nom de famille */
+.f .fn{display:block;text-transform:none;font-family:var(--f-body);font-weight:500;font-size:14px;line-height:1.2;letter-spacing:0;color:var(--muted);margin-bottom:1px}
+.seg-main .bout.me .f .fn{font-size:16px}
+.seg-prelims .f .fn,.seg-early .f .fn{display:inline;font-family:var(--f-body);font-weight:500;font-size:15px;margin:0}
+.lnline{display:inline}
+@media (min-width:561px){.lnline{white-space:nowrap}}
+/* Survoler le nom met en surbrillance le lien de fiche (et inversement) */
+.fiche{padding:1px 6px;border-radius:3px;transition:background .12s,color .12s}
+.txt:has(a.nm:hover) .fiche,.txt .fiche:hover,.txt .fiche:focus-visible{background:var(--ink);color:var(--surface);text-decoration:none}
+.txt:has(.fiche:hover) a.nm{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
+@media (prefers-reduced-motion:reduce){.fiche{transition:none}}
+/* Main event : heure sur une ligne, catégorie sans retour à la ligne */
+.bout.me .time b{white-space:nowrap}
+.seg-main .bout.me .mid{max-width:170px}
+/* Combats vedettes (au moins une star) : même encart que le main event, en plus discret */
+.bouts .bout.starf{padding:12px 14px;margin-block:6px;border-radius:5px;border-bottom-color:transparent}
+.bouts .bout.starf:not(.fr){background:var(--star-t)}
+.melabel.sl span{background:transparent;color:var(--gold);border:1px solid var(--gold);padding:2px 8px}
+.seg-prelims .melabel,.seg-early .melabel{font-size:10px}
+/* Affiche de tête teintée selon le type de soirée */
+/* En-tête de la vue détaillée : même panneau teinté que l'affiche d'accueil */
+.dhead{position:relative;border:1px solid var(--line);border-radius:6px;overflow:hidden;padding:24px 20px 18px}
+.dhead::before{content:"";position:absolute;inset:0 0 auto;height:5px;background:linear-gradient(90deg,var(--red) 0 50%,var(--blue) 50% 100%)}
+.dhead{background:var(--surface)}
+
+.dhead .dduel{margin:14px 0 16px}
+/* Cadre de l'affiche (duel + horaires, entièrement cliquable) : rouge pour une Fight Night, doré pour un UFC numéroté */
+.hero .poster{padding-bottom:0;gap:16px}
+.hero .poster .sched{margin:4px -20px 0;border-top:1px solid var(--line)}
+.hero.fn .poster::before,.dhead.fn::before{background:var(--red);height:6px}
+.hero.num .poster::before,.dhead.num::before{background:var(--num-bg);height:6px}
+.hero .poster .sched div{border-right-color:var(--line)}
+.sched div.s-tz{flex:0 0 auto;align-self:center;border-right:0;font-family:var(--f-data);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);padding:6px 20px}
+/* Vue détaillée : affiche, chiffres clés et horaires réunis dans un seul bloc */
+.dhead{padding-bottom:0;display:flex;flex-direction:column;gap:6px}
+.dhead .dfacts{margin:16px -20px 0;border:0;border-top:1px solid var(--line);border-radius:0}
+.dhead .sched{margin:0 -20px;border-top:1px solid var(--line)}
+.dhead .dfacts div{padding:8px 16px}
+.dhead .dfacts small{font-size:10px}
+.dhead .dfacts b{font-size:13px;font-weight:600}
+/* Favoris */
+.favbtn{display:inline-grid;place-items:center;width:24px;height:24px;margin-left:6px;padding:0;border:0;background:transparent;cursor:pointer;color:var(--muted);vertical-align:middle;border-radius:50%}
+.favbtn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2}
+.favbtn:hover{color:var(--fav)}
+.favbtn.on{color:var(--fav)} .favbtn.on svg{fill:currentColor}
+/* Favori : grand cœur plein juste après le nom, à la taille de l'étoile ; un clic le retire */
+.nmrow{display:block;min-width:0}
+.f.b .nmrow{text-align:right}
+.favbtn.big{display:inline-block;width:auto;height:auto;margin:0 0 0 4px;padding:0;border-radius:4px;vertical-align:-.05em;line-height:0}
+.favbtn.big svg{width:20px;height:20px}
+.seg-main .bout.me .favbtn.big svg{width:26px;height:26px}
+.seg-prelims .favbtn.big svg,.seg-early .favbtn.big svg{width:14px;height:14px}
+.seg-prelims .favbtn.big,.seg-early .favbtn.big{margin-bottom:.15em}
+.favs{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.favempty{padding:16px;color:var(--muted)}
+.favrow{display:grid;grid-template-columns:auto auto 1fr auto;gap:12px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line)}
+.favrow:last-child{border-bottom:0}
+.favrow .favbtn{margin:0}
+.favrow .av{width:34px;height:34px;font-size:13px}
+.favrow .av.flagged{border:2px solid var(--line)}
+.favtxt{display:flex;flex-direction:column;min-width:0}
+.favn{font-family:var(--f-display);font-weight:800;text-transform:uppercase;font-size:18px;line-height:1.1}
+.favw{font-size:13px;color:var(--muted)}
+.favw a{color:inherit}
+.favwhen{font-family:var(--f-data);font-size:13px;color:var(--muted);text-align:right}
+.favwhen b{color:var(--ink);font-size:16px}
+.favwhen .nowtag{color:var(--live);font-size:13px;text-transform:uppercase;letter-spacing:.06em}
+@media (max-width:560px){.favrow{grid-template-columns:auto auto 1fr}.favwhen{grid-column:3;text-align:left}}
+.findbox .hit{display:flex;align-items:center;gap:8px;padding:2px 0}
+.findbox .hit .favbtn{margin:0;width:30px;height:30px;flex:none;border:1px solid var(--line)}
+.findbox .hit .favbtn svg{width:15px;height:15px}
+.findbox .hit a{color:inherit}
+.favok{font-style:normal;color:var(--fav);font-weight:600}
+.f.b .favbtn.big{margin:0 4px 0 0}
+/* Marque favori (non cliquable) et bouton de retrait */
+.favmark{display:inline-block;margin:0 0 0 4px;color:var(--fav);vertical-align:-.05em;line-height:0}
+.f.b .favmark{margin:0 4px 0 0}
+.favmark svg{width:20px;height:20px;fill:currentColor}
+.seg-main .bout.me .favmark svg{width:26px;height:26px}
+.seg-prelims .favmark svg,.seg-early .favmark svg{width:14px;height:14px}
+.favbtn.rm{color:var(--muted)}
+.favbtn.rm svg{fill:none}
+.favbtn.rm:hover{color:var(--loss)}
+.f.b .rec .favbtn{margin:0 6px 0 0}
+.favrow .favmark{margin:0}
+.favrow .favmark svg{width:18px;height:18px}
+/* Heure de la main card colorée selon le type de soirée */
+.hero.fn .sched .s-main b,.dhead.fn .sched .s-main b,details.ev.fn .sched .s-main b{color:var(--red)}
+.hero.num .sched .s-main b,.dhead.num .sched .s-main b,details.ev.num .sched .s-main b{color:var(--gold)}
+.mid .cnum{display:block;margin-bottom:4px;color:var(--muted);opacity:.55;font-size:9px;font-weight:500;letter-spacing:.14em}
+.tzfr{display:block;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:1px 0 3px;white-space:nowrap}
+.ord.loc{margin-top:6px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.ord.loc i{display:block;font-style:normal;font-size:10px;opacity:.85}
+/* Ordre de passage tout en haut du combat, centré */
+@media (min-width:561px){
+
+}
+/* Test : heure (française) en tête de la colonne centrale, ordre de passage en bas */
+.mid .mtime{display:block;margin-bottom:6px;text-transform:none;letter-spacing:0}
+.mid .mtime b{display:block;font-family:var(--f-data);font-weight:700;font-size:22px;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+.seg-main .bout.me .mid .mtime b{font-size:26px}
+.seg-prelims .mid .mtime b,.seg-early .mid .mtime b{font-size:16px}
+.mid .mtime .tzfr{margin:3px 0 0}
+.mid .mtime.now b{color:var(--live)}
+.mid .mtime.done b{color:var(--muted);text-decoration:line-through;text-decoration-thickness:1px}
+.mid .cnum{margin:6px 0 0}
+/* Respiration entre les groupes : heure / catégorie et poids / ordre de passage */
+.mid .mtime{margin-bottom:12px}
+.mid .lim{margin-top:2px}
+.mid .cnum{margin-top:12px}
+.seg-prelims .mid .mtime,.seg-early .mid .mtime{margin-bottom:8px}
+.seg-prelims .mid .cnum,.seg-early .mid .cnum{margin-top:8px}
+.time .ord.loc{margin-top:12px}
+/* Ordre de passage collé en bas de la ligne, heure + catégorie restent centrées */
+.mid:has(.cnum){align-self:stretch;display:flex;flex-direction:column;align-items:center}
+.mid:has(.cnum) .mtime{margin-top:auto}
+.mid:has(.cnum) .cnum{margin-top:auto;padding-top:14px}
+.mid:has(.cnum) .rd,.mid:has(.cnum) .lim,.mid:has(.cnum) .belt{display:block}
+/* Catégorie, rounds et limite de poids en italique */
+.mid .rd,.mid .lim{font-style:italic}
+@media (max-width:560px){.mid:has(.cnum){align-items:flex-start}}
+@media (min-width:561px){
+  .bouts .bout:has(.cnum){position:relative;padding-bottom:30px}
+  .mid:has(.cnum) .cnum{position:absolute;bottom:8px;left:calc(50% + 42px);transform:translateX(-50%);margin:0;padding:0;white-space:nowrap}
+}
+.mid .rds{display:block;font-style:italic;margin-top:2px}
+.mid .rd{white-space:nowrap}
+.sched .tzfr{margin:3px 0 0}
+/* Petite case : horaires à l'heure du pays hôte */
+.sched div.s-loc{flex:0 0 auto;display:flex;flex-direction:column;gap:2px;justify-content:center;padding:10px 18px;border-right:0;border-left:1px solid var(--line);font-family:var(--f-data)}
+.sched .s-loc small{margin-bottom:2px}
+.sched .s-loc span{font-size:12px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.sched .s-loc span b{font-size:12px;font-weight:700;color:var(--ink)}
+.sched div:not(.s-main):not(.s-loc) + .s-loc{margin-left:auto}
+/* Titre de la vue détaillée */
+.dtitle{display:flex;flex-direction:column;gap:4px}
+.dtitle h1{margin:0;font-family:var(--f-display);font-weight:900;text-transform:uppercase;font-size:clamp(32px,6vw,48px);line-height:.95;letter-spacing:.01em}
+.dtitle span{font-family:var(--f-data);font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:13px;color:var(--muted)}
+.dtitle .evb{align-self:flex-start;margin-bottom:6px}
+.dhead .dduel{margin-top:4px}
+.dtitle.fn h1{color:var(--fn-ink)}
+.dtitle.num h1{color:var(--gold)}
+.ptime b{color:var(--ink);font-weight:700}
+.pstart{font-family:var(--f-data);font-size:12px;color:var(--muted);letter-spacing:.02em}
+.pstart.pme b{color:var(--ink);font-weight:700}
+.pvenue{font-style:italic;color:var(--muted);font-size:15px;text-align:center;margin-bottom:-6px}
+.dhead .pvenue{margin:6px 0 -6px}
+.ptop .pvenue{margin:0;text-align:right;align-self:center}
+.dhead .ptop .pvenue{margin:0}
+/* Test : lieu centré sous le VS */
+.pmid{position:relative;display:flex;justify-content:center}
+.pvenue2{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);width:max-content;font-size:13px;font-weight:400;font-family:var(--f-body);color:var(--muted);text-align:center;line-height:1.3;max-width:170px}
+@media (max-width:560px){.pvenue2{font-size:11px;max-width:90px}}
+.pvenue2 .vcity{display:block;font-family:var(--f-display);font-weight:800;text-transform:uppercase;font-size:17px;letter-spacing:.04em;color:var(--ink);line-height:1.1}
+.pvenue2 .vsalle{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+/* Combat avec un favori : encart rose, mis à jour dès qu'on ajoute ou retire un favori */
+.bouts .bout.favf{padding:12px 14px;margin-block:6px;border-radius:5px;border-bottom-color:transparent}
+.bouts .bout.favf:not(.fr){background:var(--fav-t)}
+.melabel .fvl{background:transparent!important;color:var(--fav)!important;border:1px solid var(--fav);padding:2px 8px;border-radius:3px}
+.melabel .slc{background:transparent!important;color:var(--gold)!important;border:1px solid var(--gold);padding:2px 8px;border-radius:3px}
+.melabel span.fvl,.melabel span.slc{margin-left:0}
+/* Place réservée en bas de chaque combat pour « Combat x/N », quel que soit l'encart */
+@media (min-width:561px){.bouts .bout:has(.cnum){padding-bottom:30px!important}}
+/* Transition de page : la carte complète glisse depuis la droite */
+.detail{transform:translateX(0);transition:transform .34s cubic-bezier(.22,.8,.24,1),opacity .34s ease;box-shadow:-24px 0 48px rgba(0,0,0,.25)}
+.detail.off{transform:translateX(100%);opacity:.6}
+@media (prefers-reduced-motion:reduce){.detail{transition:none}}
+/* Roue de réglages */
+.gearwrap{position:relative}
+.gear{display:grid;place-items:center;width:38px;height:38px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--muted);cursor:pointer;padding:0}
+.gear svg{width:18px;height:18px;transition:transform .3s}
+.gear:hover,.gear[aria-expanded="true"]{color:var(--ink);border-color:var(--ink)}
+.gear[aria-expanded="true"] svg{transform:rotate(60deg)}
+.gearmenu{position:absolute;right:0;top:calc(100% + 6px);z-index:30;min-width:210px;background:var(--surface);border:1px solid var(--line);border-radius:8px;box-shadow:0 12px 32px rgba(0,0,0,.25);padding:6px;display:flex;flex-direction:column}
+.gm-h{font-family:var(--f-data);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);padding:6px 10px 4px}
+.gearmenu button{display:flex;align-items:center;gap:10px;text-align:left;border:0;background:transparent;padding:8px 10px;border-radius:5px;cursor:pointer;font-size:14px;color:var(--ink)}
+.gearmenu button:hover{background:var(--soft)}
+.gearmenu button::before{content:"";width:14px;height:14px;border-radius:50%;border:2px solid var(--line);flex:none}
+.gearmenu button[aria-checked="true"]::before{border-color:var(--red);background:radial-gradient(var(--red) 0 3px,transparent 4px)}
+@media (prefers-reduced-motion:reduce){.gear svg{transition:none}}
+/* Ajout de favoris */
+.favadd{display:flex;flex-direction:column;gap:6px;margin-bottom:10px}
+.favadd .search{max-width:none}
+.favsug{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.favsug:empty{display:none}
+.sugrow{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line);font-size:14px;color:var(--muted)}
+.sugrow:last-child{border-bottom:0}
+.sugrow b{color:var(--ink)}
+.sugrow .favbtn{margin:0;width:30px;height:30px;border:1px solid var(--line);flex:none}
+.sugnote{font-style:normal;font-size:12px;color:var(--muted)}
+[hidden]{display:none!important}
+.favadd .search{flex:0 0 auto}
+/* Côté bleu : en préliminaires (prénom et nom sur une ligne) le cœur passe avant le prénom */
+.fm-pre{display:none}
+.seg-prelims .fm-pre,.seg-early .fm-pre{display:inline}
+.seg-prelims .fm-ln,.seg-early .fm-ln{display:none}
+/* Bouton Spoil / No spoil */
+.spoilbtn{display:inline-flex;align-items:center;gap:7px;height:38px;padding:0 12px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--muted);cursor:pointer;font-family:var(--f-data);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:13px}
+.spoilbtn svg{width:17px;height:17px}
+.spoilbtn[aria-pressed="false"] .slash{display:inline}
+.spoilbtn[aria-pressed="true"] .slash{display:none}
+.spoilbtn[aria-pressed="true"]{color:var(--surface);background:var(--win);border-color:var(--win)}
+.spoilbtn:hover{border-color:var(--ink);color:var(--ink)}
+.spoilbtn[aria-pressed="true"]:hover{color:var(--surface)}
+/* Résultats (mode Spoil) : vainqueur en vert, perdant en rouge */
+.f.win .nm,.f.win .fn{color:var(--win)!important}
+.f.lose .nm,.f.lose .fn{color:var(--lost)!important}
+.f.lose .av{opacity:.55}
+.f.draw .nm{color:var(--muted)!important}
+.mid .resl{display:block;margin:0 0 10px;font-family:var(--f-data);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:12px;color:var(--win)}
+.mid .resl em{display:block;font-style:normal;font-weight:600;color:var(--muted);letter-spacing:.02em;text-transform:none;font-size:12px;margin-top:2px}
+.mid .resl.rdraw{color:var(--muted)}
+.mid .resl.rwait{color:var(--muted);font-weight:600;text-transform:none}
+.past .sum-t{opacity:.85}
+.seg-main .bout.me .f .nm{font-size:clamp(22px,3.4vw,32px)}
+.duel{gap:14px}
+.duel .f{overflow:hidden}
+.dbar .spoilbtn{margin-left:auto}
+.pside b{overflow-wrap:normal;word-break:keep-all}
+.pside b.plong{font-size:clamp(26px,6vw,54px)}
+/* Colonne de gauche : sport et agenda */
+.side{display:flex;flex-direction:column;gap:20px;position:sticky;top:16px}
+.side-h{font-family:var(--f-data);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-bottom:8px}
+.sportnav{display:flex;flex-direction:column;gap:4px}
+.sportnav button{text-align:left;border:1px solid transparent;background:transparent;border-radius:6px;padding:9px 12px;cursor:pointer;font-family:var(--f-display);font-weight:800;text-transform:uppercase;font-size:17px;letter-spacing:.03em;color:var(--muted)}
+.sportnav button:hover{color:var(--ink);background:var(--surface)}
+.sportnav button[aria-pressed="true"]{color:var(--ink);background:var(--surface);border-color:var(--line);box-shadow:inset 3px 0 0 var(--red)}
+.agenda{border-top:1px solid var(--line);padding-top:16px}
+.agl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.agl li{display:grid;grid-template-columns:44px 1fr auto;gap:8px;align-items:baseline;padding:8px 0;border-bottom:1px solid var(--line);font-size:13px}
+.agl li:last-child{border-bottom:0}
+.agd{font-family:var(--f-data);font-weight:700;font-size:12px;color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap}
+.agt{min-width:0;color:var(--ink);font-weight:600;line-height:1.25}
+.agt a{color:inherit;text-decoration:none}
+.agt a:hover{text-decoration:underline}
+.agt small{display:block;font-weight:400;color:var(--muted);font-size:12px}
+.ags{font-family:var(--f-data);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.agl li.boxe .ags{color:var(--gold)}
+.agnone{color:var(--muted)}
+.agmore{margin-top:8px;width:100%;border:1px solid var(--line);background:transparent;border-radius:6px;padding:8px;cursor:pointer;font-family:var(--f-data);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:12px;color:var(--ink)}
+.agmore:hover{border-color:var(--ink)}
+@media (max-width:860px){.side{position:static}.sportnav{flex-direction:row;flex-wrap:wrap}.sportnav button{font-size:15px}}
+/* Sport : menu déroulant */
+.sportdd{position:relative}
+.sportbtn{width:100%;display:grid;grid-template-columns:1fr auto;align-items:center;gap:2px 8px;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:6px;padding:9px 12px;cursor:pointer;color:var(--ink)}
+.sportbtn .side-h{grid-column:1;margin:0}
+.sportbtn b{grid-column:1;font-family:var(--f-display);font-weight:800;text-transform:uppercase;font-size:17px;letter-spacing:.03em}
+.sportbtn i{grid-column:2;grid-row:1/3;font-style:normal;color:var(--muted);transition:transform .2s}
+.sportbtn[aria-expanded="true"] i{transform:rotate(180deg)}
+.sportbtn:hover{border-color:var(--ink)}
+.sportdd .sportnav{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:20;background:var(--surface);border:1px solid var(--line);border-radius:8px;box-shadow:0 12px 32px rgba(0,0,0,.25);padding:6px;flex-direction:column}
+.sportdd .sportnav button{font-size:15px;padding:8px 10px}
+@media (max-width:860px){.sportdd .sportnav{flex-direction:column}}
+.agmore{display:block;text-align:center;text-decoration:none}
+/* Page Calendrier */
+.calm h2{font-family:var(--f-display);font-weight:900;text-transform:uppercase;font-size:22px;margin:0 0 8px;letter-spacing:.02em}
+.call{list-style:none;margin:0;padding:0;background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.calrow{display:grid;grid-template-columns:54px minmax(0,1fr) auto auto;gap:16px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line)}
+.calrow:last-child{border-bottom:0}
+.cald{text-align:center;font-family:var(--f-data);line-height:1}
+.cald b{display:block;font-family:var(--f-display);font-size:26px;font-weight:800}
+.cald small{text-transform:uppercase;font-size:11px;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.calt{display:flex;flex-direction:column;min-width:0}
+.calname{font-family:var(--f-display);font-weight:800;text-transform:uppercase;font-size:19px;line-height:1.1}
+.calorg{font-size:13px;color:var(--muted)}
+.calh{font-family:var(--f-data);font-size:13px;color:var(--muted);white-space:nowrap}
+.calh b{color:var(--ink);font-size:15px}
+.calh em{font-style:normal;font-size:11px}
+.cals{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.calrow.boxe .ags{color:var(--gold)}
+.calgo{font-family:var(--f-data);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink);text-decoration:none;border:1px solid var(--line);border-radius:4px;padding:4px 8px;white-space:nowrap}
+.calgo:hover{border-color:var(--ink)}
+@media (max-width:620px){.calrow{grid-template-columns:44px minmax(0,1fr);}.calh,.cals{grid-column:2}.cals{flex-direction:row;align-items:center;justify-content:space-between}}
+.calrow{grid-template-columns:54px minmax(0,1fr) auto}
+.calsp{display:inline-block;vertical-align:.25em;margin-left:10px;padding:2px 6px;border:1px solid var(--line);border-radius:3px;font-size:10px}
+.calrow.boxe .calsp{border-color:var(--gold)}
+.calt .calh{margin-top:4px}
+@media (max-width:620px){.calrow{grid-template-columns:44px minmax(0,1fr)}.cals{grid-column:2;justify-content:flex-start}}
+/* Discipline : texte seul, MMA en rouge, Boxe en bleu */
+.calsp{border:0!important;padding:0;margin-left:10px}
+.agl li.mma .ags,.calrow.mma .ags{color:var(--red)}
+.agl li.boxe .ags,.calrow.boxe .ags{color:var(--blue)}
+/* Titre de section « MAIN CARD » centré, en blanc, heure de début dessous */
+.section-h.main-h{flex-direction:column;align-items:center;gap:2px;text-align:center}
+.section-h.main-h span:first-child{color:var(--ink)}
+.section-h.main-h span:last-child{display:none}
+/* Carte complète : le titre MAIN CARD forme le haut du bloc des combats */
+.section-h.sub-h span:first-child{font-size:15px;font-weight:800;color:var(--ink)}
+.section-h.sub-h{justify-content:flex-start;align-items:baseline;gap:12px}
+/* Survol des soirées dans les listes */
+details.ev summary{transition:background .15s;border-radius:5px}
+details.ev .sum-t{transition:color .15s}
+details.ev.fn summary:hover{background:var(--fn-me)}
+details.ev.num summary:hover{background:var(--num-me)}
+details.ev.fn summary:hover .sum-t{color:var(--fn-ink)}
+details.ev.num summary:hover .sum-t{color:var(--gold)}
+details.ev summary:hover .chev{color:var(--ink)}
+@media (prefers-reduced-motion:reduce){details.ev summary,details.ev .sum-t{transition:none}}
+#detail .section-h.main-h{background:var(--surface);border:1px solid var(--line);border-bottom:0;border-radius:6px 6px 0 0;padding:16px 0 4px;margin:0}
+#detail .section-h.main-h span:last-child{display:block;font-family:var(--f-body);font-size:11px;font-weight:500;text-transform:none;letter-spacing:.02em;color:var(--muted)}
+#detail .section-h.main-h + .seg-main{border-top:0;border-radius:0 0 6px 6px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="mast">
+    <div class="brandcol">
+      <h1 class="brand">Coin<span>Rouge</span></h1>
+      <div class="clock">Heure française <b id="clock">--:--</b></div>
+    </div>
+    <div class="mtools">
+      <label class="search" for="q">
+        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+        <input id="q" type="search" placeholder="Chercher un combattant (ex. Gane)" autocomplete="off">
+      </label>
+      <div class="seg" role="group" aria-label="Filtrer">
+        <button type="button" data-f="all" aria-pressed="true">Tout</button>
+        <button type="button" data-f="fr" aria-pressed="false">Français</button>
+        <button type="button" data-f="fav" aria-pressed="false">Favoris</button>
+      </div>
+      <div class="gearwrap">
+        <button type="button" class="gear" id="gear" aria-haspopup="true" aria-expanded="false" aria-controls="gearmenu" title="Réglages"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
+        <div class="gearmenu" id="gearmenu" role="menu" hidden>
+          <div class="gm-h">Fiches des combattants</div>
+          <button type="button" role="menuitemradio" data-src="tapology">Tapology</button>
+          <button type="button" role="menuitemradio" data-src="ufc">UFC.com</button>
+          <button type="button" role="menuitemradio" data-src="sherdog">Sherdog</button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="layout">
+  <aside class="side" aria-label="Sports et calendrier">
+    <div class="sportdd">
+      <button type="button" class="sportbtn" id="sportbtn" aria-haspopup="true" aria-expanded="false" aria-controls="sportmenu"><span class="side-h">Sport</span><b id="sportlbl">MMA + Boxe</b><i aria-hidden="true">▾</i></button>
+      <nav class="sportnav" id="sportmenu" aria-label="Sport" hidden>
+        <button type="button" data-sport="all" aria-pressed="true">MMA + Boxe</button>
+        <button type="button" data-sport="mma" aria-pressed="false">MMA</button>
+        <button type="button" data-sport="boxe" aria-pressed="false">Boxe</button>
+      </nav>
+    </div>
+    <div class="agenda">
+      <div class="side-h">À venir</div>
+      <ol class="agl" id="agenda"></ol>
+      <a class="agmore" id="agmore" href="#agenda">Voir le calendrier complet</a>
+    </div>
+  </aside>
+  <div class="mainc">
+  <div class="find findbox" id="find" hidden></div>
+
+  <section class="hero" id="hero" aria-live="polite"></section>
+
+  <section id="favsec">
+    <h2 class="h">Mes <span>favoris</span></h2>
+    <div class="favadd" id="favadd" hidden>
+      <label class="search" for="favq">
+        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        <input id="favq" type="search" placeholder="Ajouter un combattant à mes favoris" autocomplete="off">
+      </label>
+      <div class="favsug" id="favsug"></div>
+    </div>
+    <div class="favs" id="favs"></div>
+  </section>
+
+  <section>
+    <h2 class="h">Soirées <span>suivantes</span></h2>
+    <div class="others" id="others"></div>
+  </section>
+
+  <section id="pastsec" hidden>
+    <h2 class="h">Derniers <span>résultats</span></h2>
+    <div class="others" id="past"></div>
+  </section>
+
+  <section id="radarsec">
+    <h2 class="h">Radar <span>tricolore</span></h2>
+    <div class="radar" id="radar"></div>
+  </section>
+
+  <section class="sim">
+    <label for="simr">Mode test du direct</label>
+    <div class="row">
+      <input type="range" id="simr" min="0" max="100" value="0">
+      <output id="simo">Heure réelle</output>
+      <button class="btn" type="button" id="simreset">Revenir à l'heure réelle</button>
+    </div>
+    <div class="find">Fais glisser pour voir comment le site affiche la soirée en tête pendant qu'elle se déroule.</div>
+  </section>
+
+  </div>
+  </div>
+
+  <div class="detail" id="detail" role="dialog" aria-modal="true" aria-label="Fight card complète" hidden></div>
+
+  <footer class="foot">
+    <p>Horaires affichés à l'heure de Paris. L'heure de chaque combat est une estimation : seules les heures de début de chaque partie de soirée sont fixées, la suite dépend de la durée des combats précédents.</p>
+    <p>Cartes relevées le 27 octobre 2026. Elles peuvent encore changer d'ici le jour J (blessures, remplacements).</p>
+  </footer>
+</div>
+
+<script>
+const W={"":"Catégorie à préciser",LW:"Lightweight",WW:"Welterweight",MW:"Middleweight",HW:"Heavyweight",LHW:"Light Heavyweight",FW:"Featherweight",BW:"Bantamweight",FLW:"Flyweight",WBW:"Women's Bantamweight",WFLW:"Women's Flyweight",WSW:"Women's Strawweight"};
+const SEG={early:"Early prelims",prelims:"Préliminaires",main:"Main card"};
+/* Limite de poids officielle de chaque catégorie */
+const LIM={"":"",HW:"120,2 kg · 265 lb",LHW:"93 kg · 205 lb",MW:"83,9 kg · 185 lb",WW:"77,1 kg · 170 lb",LW:"70,3 kg · 155 lb",FW:"65,8 kg · 145 lb",BW:"61,2 kg · 135 lb",FLW:"56,7 kg · 125 lb",WBW:"61,2 kg · 135 lb",WFLW:"56,7 kg · 125 lb",WSW:"52,2 kg · 115 lb"};
+const P=(n,o={})=>({n,...o});
+
+/* Autres événements à venir (liste seule, sans fight card détaillée) */
+const AGENDA=[
+ {sport:"boxe",date:"2026-10-31",name:"Canelo vs Mbilli",org:"Boxe · Riyad",note:"Titre WBC super-moyens"},
+ {sport:"boxe",date:"2026-11-07",name:"Buatsi vs Hutchinson",org:"Boxe",note:"Titre WBC mi-lourds vacant"},
+ {sport:"mma",date:"2026-11-14",name:"Nemkov vs Bilostenniy",org:"PFL · Dubaï"},
+ {sport:"mma",date:"2026-12-05",name:"Affiche à annoncer",org:"UFC Fight Night · Riyad"},
+ {sport:"boxe",date:"2026-12-11",name:"Fury vs Joshua",org:"Boxe",note:"Lieu à confirmer"},
+ {sport:"mma",date:"2026-12-19",name:"Lapilus vs McKee",org:"PFL · Lyon",frA:1},
+ {sport:"mma",date:"2026-11-27",name:"Hexagone MMA 49",org:"Hexagone MMA · Glaz Arena, Rennes",note:"Affiche à annoncer",fr:1},
+ {sport:"mma",date:"2027-01-08",name:"Hexagone MMA Paris",org:"Hexagone MMA · Zénith Paris La Villette",note:"Affiche à annoncer",fr:1},
+ {sport:"mma",date:"2027-01-15",name:"Hexagone MMA Montpellier",org:"Hexagone MMA · Zénith Sud, Montpellier",note:"Affiche à annoncer",fr:1}
+];
+const EVENTS=[
+ {id:"ufc333",name:"UFC 333",a:"Volkanovski",b:"Evloev",venue:"Etihad Arena",city:"Abu Dhabi",tz:"Asia/Dubai",tbc:1,
+  segs:[{k:"early",t:"2026-10-24T13:00:00Z"},{k:"prelims",t:"2026-10-24T15:00:00Z"},{k:"main",t:"2026-10-24T17:00:00Z"}],
+  fights:[
+   {s:"main",w:"FW",r:5,title:"Titre Featherweight",a:P("Alexander Volkanovski",{rec:"28-4-0",star:1,champ:1}),b:P("Movsar Evloev",{rec:"20-0-0",star:1}),res:{w:"a",method:"KO/TKO (coups de poing)",round:2,time:"4:54"}},
+   {s:"main",w:"BW",r:5,title:"Titre Bantamweight",a:P("Merab Dvalishvili",{rec:"21-5-0",star:1,champ:1}),b:P("Petr Yan",{rec:"20-5-0",star:1}),res:{w:"b",method:"Décision unanime",round:5,time:"5:00"}},
+   {s:"main",w:"FLW",r:3,a:P("Lone'er Kavanagh",{rec:"10-2-0"}),b:P("Ramazan Temirov",{rec:"20-3-0"}),res:{w:"a",method:"KO (coups de poing)",round:1,time:"4:28"}},
+   {s:"main",w:"HW",r:3,a:P("Alexander Volkov",{rec:"40-11-0",star:1}),b:P("Rizvan Kuniev",{rec:"14-3-1"}),res:{w:"a",method:"Décision unanime",round:3,time:"5:00"}},
+   {s:"main",w:"FW",r:3,a:P("Aaron Pico",{rec:"14-5-0"}),b:P("Losene Keita",{rec:"17-2-0"}),res:{w:"a",method:"KO/TKO (coups de poing)",round:1,time:"1:14"}},
+   {s:"prelims",w:"LHW",r:3,a:P("Dominick Reyes",{rec:"16-5-0"}),b:P("Azamat Murzakanov",{rec:"16-1-0"}),res:{w:"a",method:"KO/TKO (high kick et coups)",round:1,time:"2:40"}},
+   {s:"prelims",w:"LHW",r:3,a:P("Abdul-Rakhman Yakhyaev",{rec:"10-0-0"}),b:P("Nikita Krylov",{rec:"31-12-0"}),res:{w:"a",method:"KO/TKO (genou et coups)",round:1,time:"2:38"}},
+   {s:"prelims",w:"MW",r:3,a:P("Abus Magomedov",{rec:"29-7-1"}),b:P("Cam Rowston",{rec:"15-3-0"}),res:{w:"a",method:"Soumission (guillotine)",round:1,time:"1:44"}},
+   {s:"prelims",w:"LW",r:3,a:P("Grant Dawson",{rec:"24-3-1"}),b:P("Nurullo Aliev",{rec:"12-0-0"}),res:{w:"a",method:"Décision unanime",round:3,time:"5:00"}},
+   {s:"early",w:"BW",r:3,a:P("Colby Thicknesse",{rec:"9-1-0"}),b:P("Asaf Chopurov",{rec:"11-0-0"}),res:{w:"a",method:"Décision partagée",round:3,time:"5:00"}},
+   {s:"early",w:"MW",r:3,a:P("Abubakar Vagaev",{rec:"25-4-0"}),b:P("Jacob Malkoun",{rec:"10-3-0"}),res:{w:"a",method:"Décision unanime",round:3,time:"5:00"}},
+   {s:"early",w:"FW",r:3,a:P("Daniel Santos",{rec:"14-3-0"}),b:P("Bolaji Oki",{rec:"10-4-0"}),res:{w:"a",method:"Décision unanime",round:3,time:"5:00"}},
+   {s:"early",w:"LW",r:3,a:P("Kody Steele",{rec:"8-1-0"}),b:P("Noah Gugnon",{rec:"10-2-0"}),res:{w:"a",method:"KO/TKO (coups de poing)",round:1,time:"3:54"}},
+   {s:"early",w:"WSW",r:3,a:P("Iasmin Lucindo",{rec:"18-6-0"}),b:P("Nicolle Caliari",{rec:"9-4-0"}),res:{w:"a",method:"Décision unanime",round:3,time:"5:00"}}
+  ]},
+ {id:"fn292",name:"UFC Fight Night",a:"Moicano",b:"Nolan",venue:"Meta APEX",city:"Las Vegas",tz:"America/Los_Angeles",
+  segs:[{k:"prelims",t:"2026-10-31T21:00:00Z"},{k:"main",t:"2026-11-01T00:00:00Z"}],
+  fights:[
+   {s:"main",w:"LW",r:5,a:P("Renato Moicano",{rec:"21-7-1",star:1}),b:P("Tom Nolan",{rec:"11-1-0"})},
+   {s:"main",w:"WW",r:3,a:P("Randy Brown",{rec:"20-8-0"}),b:P("Jacobe Smith",{rec:"13-0-0"})},
+   {s:"main",w:"FLW",r:3,a:P("Ode Osbourne",{rec:"13-9-0"}),b:P("Cody Durden",{rec:"18-11-1"})},
+   {s:"main",w:"WBW",r:3,a:P("Yana Santos",{rec:"17-8-0"}),b:P("Luana Santos",{rec:"11-2-0"})},
+   {s:"main",w:"WW",r:3,a:P("Jean-Paul Lebosnoyani",{rec:"11-2-0"}),b:P("Farman Hasanov",{rec:"5-0-0"})},
+   {s:"prelims",w:"FW",r:3,a:P("Francis Marshall",{rec:"10-3-0"}),b:P("Dakota Hope",{rec:"11-2-0"})},
+   {s:"prelims",w:"WW",r:3,a:P("Rodrigo Sezinando",{rec:"8-2-0"}),b:P("Theodor Berggren",{rec:"8-4-0"})},
+   {s:"prelims",w:"FW",r:3,a:P("Julian Erosa",{rec:"31-13-0"}),b:P("Jeong Yeong Lee",{rec:"11-3-0"})},
+   {s:"prelims",w:"MW",r:3,a:P("Zach Reese",{rec:"10-4-0"}),b:P("Mickey Gall",{rec:"7-7-0"})},
+   {s:"prelims",w:"MW",r:3,a:P("Nick Klein",{rec:"6-3-0"}),b:P("Joe Kropschot",{rec:"9-3-0"})},
+   {s:"prelims",w:"WSW",r:3,a:P("Talita Alencar",{rec:"8-1-1"}),b:P("Piera Rodriguez",{rec:"12-2-0"})},
+   {s:"prelims",w:"WFLW",r:3,a:P("Lucia Szabová",{rec:"12-0-0"}),b:P("Tainara Lisboa",{rec:"7-4-0"})}
+  ]},
+ {id:"fn293",name:"UFC Fight Night",a:"Bonfim",b:"Brady",venue:"Meta APEX",city:"Las Vegas",tz:"America/Los_Angeles",
+  segs:[{k:"prelims",t:"2026-11-07T22:00:00Z"},{k:"main",t:"2026-11-08T01:00:00Z"}],
+  fights:[
+   {s:"main",w:"WW",r:5,a:P("Gabriel Bonfim",{rec:"20-1-0"}),b:P("Sean Brady",{rec:"19-2-0"})},
+   {s:"main",w:"WSW",r:3,a:P("Tatiana Suarez",{rec:"12-1-0"}),b:P("Virna Jandiroba",{rec:"23-4-0"})},
+   {s:"main",w:"BW",r:3,a:P("Davey Grant",{rec:"18-8-0"}),b:P("Elijah Smith",{rec:"10-1-0"})},
+   {s:"main",w:"WW",r:3,a:P("Seokhyeon Ko",{rec:"13-3-0"}),b:P("Wellington Turman",{rec:"18-8-0"})},
+   {s:"main",w:"LHW",r:3,a:P("Billy Elekana",{rec:"10-2-0"}),b:P("Lucas Fernando",{rec:"14-3-0"})},
+   {s:"main",w:"MW",r:3,a:P("Mantas Kondratavičius",{rec:"9-1-0"}),b:P("Andre Petroski",{rec:"13-6-0"})},
+   {s:"prelims",w:"HW",r:3,a:P("Gabriel Lourenço",{rec:"8-1-0"}),b:P("Alvin Hines",{rec:"7-2-0"})},
+   {s:"prelims",w:"WFLW",r:3,a:P("Karine Silva",{rec:"19-7-0"}),b:P("Gabriella Fernandes",{rec:"11-4-0"})},
+   {s:"prelims",w:"FW",r:3,a:P("José Delano",{rec:"17-3-0"}),b:P("Murtazali Magomedov",{rec:"11-0-0"})},
+   {s:"prelims",w:"FW",r:3,a:P("Keiichiro Nakamura",{rec:"8-1-0"}),b:P("Ollie Schmid",{rec:"4-3-0"})},
+   {s:"prelims",w:"FW",r:3,a:P("Austin Bashi",{rec:"14-2-0"}),b:P("Lucas Brennan",{rec:"11-3-0"})},
+   {s:"prelims",w:"WBW",r:3,a:P("Priscila Cachoeira",{rec:"13-9-0"}),b:P("Nina Milošević",{rec:"9-1-0"})},
+   {s:"prelims",w:"WW",r:3,a:P("Jonny Parsons",{rec:"9-3-0"}),b:P("José Souza",{rec:"9-1-0"})}
+  ]},
+ {id:"ufc334",name:"UFC 334",a:"Gane",b:"Hokit",venue:"Madison Square Garden",city:"New York",tz:"America/New_York",
+  segs:[{k:"early",t:"2026-11-14T22:00:00Z"},{k:"prelims",t:"2026-11-15T00:00:00Z"},{k:"main",t:"2026-11-15T02:00:00Z"}],
+  fights:[
+   {s:"main",w:"HW",r:5,title:"Titre Heavyweight",a:P("Ciryl Gane",{rec:"14-2-0",fr:1,star:1,champ:1}),b:P("Josh Hokit",{rec:"10-0-0"})},
+   {s:"main",w:"WBW",r:5,title:"Titre Women's Bantamweight",a:P("Kayla Harrison",{rec:"19-1-0",star:1,champ:1}),b:P("Amanda Nunes",{rec:"23-5-0",star:1})},
+   {s:"main",w:"MW",r:3,a:P("Caio Borralho",{rec:"18-2-0"}),b:P("Yousri Belgaroui",{rec:"11-3-0"})},
+   {s:"main",w:"WW",r:3,a:P("Uroš Medić",{rec:"14-3-0"}),b:P("Kevin Holland",{rec:"29-15-0",star:1})},
+   {s:"main",w:"FLW",r:3,a:P("Bilal Hasan",{rec:"10-0-0"}),b:P("Luis Gurule",{rec:"11-4-0"})},
+   {s:"prelims",w:"WW",r:3,a:P("Stephen Thompson",{rec:"17-9-1",star:1}),b:P("Charles Radtke",{rec:"12-5-0"}),note:"Annoncé comme le dernier combat de « Wonderboy »"},
+   {s:"prelims",w:"LW",r:3,a:P("Drew Dober",{rec:"29-15-0"}),b:P("Chris Duncan",{rec:"15-3-0"})},
+   {s:"prelims",w:"LW",r:3,a:P("Jim Miller",{rec:"39-19-0"}),b:P("Terrance McKinney",{rec:"18-9-0"})},
+   {s:"prelims",w:"MW",r:3,a:P("Donte Johnson",{rec:"9-0-0"}),b:P("César Almeida",{rec:"7-3-0"}),note:"Almeida remplace Baisangur Susurkaev (combat à confirmer)"},
+   {s:"early",w:"WBW",r:3,a:P("Macy Chiasson",{rec:"10-6-0"}),b:P("Bia Mesquita",{rec:"8-0-0"})},
+   {s:"early",w:"LW",r:3,a:P("Evan Elder",{rec:"10-2-0"}),b:P("Samuel Sanches",{rec:"11-1-0"})}
+  ]},
+ {id:"fn294",name:"UFC Fight Night",a:"Procházka",b:"Stirling",venue:"ABHA Arena",city:"Doha",tz:"Asia/Qatar",
+  segs:[{k:"prelims",t:"2026-11-21T15:00:00Z"},{k:"main",t:"2026-11-21T18:00:00Z"}],
+  fights:[
+   {s:"main",w:"LHW",r:5,a:P("Jiří Procházka",{rec:"32-6-1",star:1}),b:P("Navajo Stirling",{rec:"11-0-0"})},
+   {s:"main",w:"FW",r:3,a:P("Aljamain Sterling",{rec:"26-5-0",star:1}),b:P("Kevin Vallejos",{rec:"18-1-0"})},
+   {s:"main",w:"LW",r:3,a:P("Dan Hooker",{rec:"24-15-0",star:1}),b:P("Brian Ortega",{rec:"16-5-0",star:1})},
+   {s:"main",w:"MW",r:3,a:P("Jared Cannonier",{rec:"18-10-0"}),b:P("Ikram Aliskerov",{rec:"18-2-0"})},
+   {s:"main",w:"HW",r:3,a:P("Shamil Gaziev",{rec:"15-3-0"}),b:P("Tallison Teixeira",{rec:"9-2-0"})},
+   {s:"prelims",w:"WW",r:3,a:P("Jake Matthews",{rec:"23-8-0"}),b:P("Tahir Abdullayev",{rec:"20-3-0"})},
+   {s:"prelims",w:"BW",r:3,a:P("Aleksandre Topuria",{rec:"7-1-0"}),b:P("Santiago Luna",{rec:"8-1-0"})},
+   {s:"prelims",w:"FLW",r:3,a:P("Asu Almabayev",{rec:"24-3-0"}),b:P("Kyoji Horiguchi",{rec:"36-6-0"})},
+   {s:"prelims",w:"FLW",r:3,a:P("Amir Albazi",{rec:"17-3-0"}),b:P("Alessandro Costa",{rec:"17-5-0"})}
+  ]},
+ {id:"ufc335",name:"UFC 335",a:"Oliveira",b:"Lopes",venue:"T-Mobile Arena",city:"Las Vegas",tz:"America/Los_Angeles",tbc:1,
+  segs:[{k:"early",t:"2026-12-12T22:00:00Z"},{k:"prelims",t:"2026-12-13T00:00:00Z"},{k:"main",t:"2026-12-13T02:00:00Z"}],
+  fights:[
+   {s:"main",w:"LW",r:5,title:"Ceinture BMF",a:P("Charles Oliveira",{rec:"37-11-0",star:1,champ:1}),b:P("Diego Lopes",{rec:"28-8-0",star:1})},
+   {s:"main",w:"HW",r:3,a:P("Sergei Pavlovich",{rec:"21-3-0"}),b:P("Alex Pereira",{rec:"13-4-0",star:1})},
+   {s:"main",w:"MW",r:3,a:P("Joe Pyfer",{rec:"16-3-0"}),b:P("Bo Nickal",{rec:"9-1-0",star:1})},
+   {s:"prelims",w:"FLW",r:3,a:P("Brandon Moreno",{rec:"24-10-2",star:1}),b:P("Charles Johnson",{rec:"20-9-0"})},
+   {s:"early",w:"WFLW",r:3,a:P("Maycee Barber",{rec:"15-3-0"}),b:P("Carli Judice",{rec:"7-2-0"})},
+   {s:"early",w:"LHW",r:3,a:P("Junior Tafa",{rec:"7-6-0"}),b:P("Quentin Pasley",{rec:"4-0-0"})}
+  ]}
+];
+
+const RADAR=[
+ {n:"Ciryl Gane",st:"ok",s:"Officiel",p:"Défend sa ceinture des lourds contre Josh Hokit en tête d'affiche de l'UFC 334, nuit du 14 au 15 novembre (main card vers 3 h)."},
+ {n:"Nassourdine Imavov",st:"ru",s:"Pas encore officiel",p:"Annonce un combat pour le titre des moyens face à Sean Strickland en fin d'année. La presse évoque l'UFC 335 du 12 décembre."},
+ {n:"Taylor Lapilus",st:"ok",s:"PFL · hors UFC",p:"Tête d'affiche du PFL Lyon contre McKee le 19 décembre. Horaires à confirmer."},
+ {n:"Bafodé Gassama",st:"ok",s:"PFL · hors UFC",p:"Champion français invaincu, débute au PFL lors de la soirée de Lyon le 19 décembre."}
+];
+
+/* Durées estimées par combat, entrées des combattants et pauses comprises (en minutes) */
+const DUR={3:27,5:42};
+EVENTS.forEach(ev=>{
+  const order=["early","prelims","main"];
+  let cur=0, n=0;
+  order.forEach(k=>{
+    const sg=ev.segs.find(x=>x.k===k); if(!sg) return;
+    const st=Date.parse(sg.t); cur=Math.max(cur,st);
+    const list=ev.fights.filter(f=>f.s===k).slice().reverse();
+    list.forEach(f=>{f.est=cur; f.end=cur+DUR[f.r]*60000; cur=f.end; f.ord=++n;});
+  });
+  ev.start=Date.parse(ev.segs[0].t); ev.end=cur+15*60000;
+});
+
+const tz="Europe/Paris";
+const fmtLocal=(d,z)=>new Intl.DateTimeFormat("fr-FR",{timeZone:z,hour:"2-digit",minute:"2-digit"}).format(d);
+const fmtT=d=>new Intl.DateTimeFormat("fr-FR",{timeZone:tz,hour:"2-digit",minute:"2-digit"}).format(d);
+const fmtD=d=>new Intl.DateTimeFormat("fr-FR",{timeZone:tz,weekday:"long",day:"numeric",month:"long"}).format(d);
+const fmtDS=d=>new Intl.DateTimeFormat("fr-FR",{timeZone:tz,weekday:"short",day:"numeric",month:"short"}).format(d);
+const dayN=d=>new Intl.DateTimeFormat("fr-FR",{timeZone:tz,day:"numeric"}).format(d);
+const monS=d=>new Intl.DateTimeFormat("fr-FR",{timeZone:tz,month:"short"}).format(d).replace(".","");
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+let simOffset=null, filter="all", query="", sport="all";
+const now=()=> simOffset!=null ? simOffset : Date.now();
+
+function heroEvent(t,pool=EVENTS){return pool.find(e=>t<e.end) || null;}
+
+function flag(p){return p.fr?'<span class="fra" title="Français" aria-label="Français"><i></i><i></i><i></i></span>':'';}
+function nameHTML(p,side){
+  const s=p.star?'<span class="star" aria-label="star">★</span>':'';
+  return `${esc(splitName(p).last)}${flag(p)}${s}`;
+}
+/* Prénom à part, pour que le nom de famille, l'étoile et le cœur restent sur la même ligne */
+function splitName(p){
+  if(p.tbd) return {first:"",last:p.n};
+  const w=p.n.split(/\s+/); if(w.length<2) return {first:"",last:p.n};
+  const last=w.pop(); return {first:w.join(" "),last};
+}
+function initials(n){const w=n.split(/\s+/).filter(Boolean);return ((w[0]||"")[0]+(w.length>1?w[w.length-1][0]:"")).toUpperCase();}
+function slug(n){return norm(n).replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");}
+let src="tapology";
+try{const v=localStorage.getItem("coinrouge-src");if(["ufc","sherdog","tapology"].includes(v))src=v;}catch(e){}
+const SRC={ufc:"UFC",sherdog:"Sherdog",tapology:"Tapology"};
+/* Profils Tapology vérifiés (identifiant de fiche) ; les autres combattants passent par la recherche Tapology */
+const TAPO={"Alexander Volkanovski": "41705-alex-volkanski", "Movsar Evloev": "85897-movsar-evloev", "Petr Yan": "90075-petr-yan", "Merab Dvalishvili": "47934-merab-dvalishvili", "Lone'er Kavanagh": "112229-loneer-kavanagh", "Alexander Volkov": "alexander-volkov", "Rizvan Kuniev": "71638-rizvan-kuniev", "Aaron Pico": "86018-aaron-pico", "Losene Keita": "158525-losene-keita", "Dominick Reyes": "61438-dominick-reyes", "Azamat Murzakanov": "93373-azamat-murzakanov", "Abdul-Rakhman Yakhyaev": "243673-abdulrakhman-yakhyaev", "Grant Dawson": "32750-grant-dawson", "Nurullo Aliev": "178801-nurullo-aliev", "Colby Thicknesse": "166902-colby-thicknesse", "Asaf Chopurov": "198455-asef-chopurov", "Jacob Malkoun": "111323-jacob-malkoun", "Daniel Santos": "65061-daniel-willycat", "Kody Steele": "228289-kody-steele","Renato Moicano": "16950-renato-carneiro-moicano", "Tom Nolan": "145210-tom-nolan", "Randy Brown": "21348-randall-brown-rude-boy", "Jacobe Smith": "310566-jacobe-smith", "Yana Santos": "19820-yana-kunitskaya-foxy", "Luana Santos": "223129-luana-santos", "Jean-Paul Lebosnoyani": "151988-jean-paul-lebosnoyani-the-lifeguard", "Gabriel Bonfim": "88338-gabriel-marrentinha", "Sean Brady": "32242-sean-brady", "Tatiana Suarez": "63005-tatiana-suarez", "Virna Jandiroba": "56622-virna-jandiroba", "Mantas Kondratavičius": "101215-mantas-kandratavicius", "Wes Schultz": "222807-wesley-schultz", "Billy Elekana": "152109-billy-elekana", "Lucas Fernando": "135406-lucas-fernando", "Austin Bashi": "251547-austin-bashi", "Lucas Brennan": "162427-lucas-brennan", "Karine Silva": "69225-karine-silva-killer", "Gabriella Fernandes": "193148-gabriela-fernandes-gaby", "Ciryl Gane": "187819-cyril-gane-real-c", "Josh Hokit": "403293-josh-hokit", "Kayla Harrison": "34265-kayla-harrison", "Amanda Nunes": "amanda-nunes-lioness-of-the-ring", "Caio Borralho": "107316-caio-borralho-cara-de-kombi", "Yousri Belgaroui": "237485-yousri-belgaroui-baby-face-assassin", "Uroš Medić": "175629-uros-medic", "Kevin Holland": "35757-kevin-holland", "Bilal Hasan": "326683-bilal-hasan", "Luis Gurule": "301015-luis-gurule", "Stephen Thompson": "16753-stephen-thompson-wonderboy", "Drew Dober": "drew-dober", "Chris Duncan": "68484-chris-duncan", "Jim Miller": "jim-miller", "Terrance McKinney": "126382-terrance-mckinney", "Macy Chiasson": "77737-macy-chiasson", "Jiří Procházka": "34779-jiri-prochazka", "Navajo Stirling": "259609-navajo-sterling", "Aljamain Sterling": "aljamain-sterling", "Kevin Vallejos": "227542-kevin-vallejos", "Dan Hooker": "18854-daniel-hooker", "Brian Ortega": "40994-brian-ortega", "Asu Almabayev": "127726-khamzat-sakalov", "Kyoji Horiguchi": "19983-kyoji-horiguchi", "Jared Cannonier": "63163-jared-cannonier", "Ikram Aliskerov": "108253-ikram-aliskerov", "Aleksandre Topuria": "100890-alex-topuria", "Shamil Gaziev": "201352-shamil-gaziev", "Charles Oliveira": "charles-oliveira-do-bronx", "Diego Lopes": "85643-diego-lopes", "Sergei Pavlovich": "89112-sergey-pavlovich", "Alex Pereira": "117305-alex-pereira", "Joe Pyfer": "144942-joseph-pyfer", "Bo Nickal": "244627-bo-nickal", "Brandon Moreno": "27833-brandon-moreno-the-assassin", "Charles Johnson": "117993-charles-johnson", "Junior Tafa": "242095-junior-tafa"};
+function ficheURL(p){
+  const q=encodeURIComponent(p.n);
+  if(src==="sherdog") return "https://www.sherdog.com/stats/fightfinder?SearchTxt="+q;
+  if(src==="tapology") return TAPO[p.n]?"https://www.tapology.com/fightcenter/fighters/"+TAPO[p.n]:"https://www.tapology.com/search?term="+q+"&mainSearchFilter=fighters";
+  return "https://www.ufc.com/athlete/"+slug(p.n);
+}
+function recHTML(r){
+  const [w,l,d]=r.split("-");
+  return `<span class="rec-n" title="${w} victoires, ${l} défaites${d!==undefined?", "+d+" nul"+(+d>1?"s":""):""}"><span class="rec-w">${w}</span>-<span class="rec-l">${l}</span>${d!==undefined?`-<span class="rec-d">${d}</span>`:""}</span>`;
+}
+/* Nationalités (pays sportif) et drapeaux simplifiés pour les médaillons */
+const NAT={"Renato Moicano": "BRA", "Tom Nolan": "AUS", "Randy Brown": "JAM", "Jacobe Smith": "USA", "Yana Santos": "RUS", "Luana Santos": "BRA", "Jean-Paul Lebosnoyani": "USA", "Farman Hasanov": "AZE", "Francis Marshall": "USA", "Gaston Bolaños": "PER", "Azamat Bekoev": "RUS", "Andre Petroski": "USA", "Rodrigo Sezinando": "BRA", "Theodor Berggren": "SWE", "Julian Erosa": "USA", "Jeong Yeong Lee": "KOR", "Nick Klein": "USA", "Joe Kropschot": "USA", "Talita Alencar": "BRA", "Piera Rodriguez": "VEN", "Lucia Szabová": "SVK", "Tainara Lisboa": "BRA", "Gabriel Bonfim": "BRA", "Sean Brady": "USA", "Tatiana Suarez": "USA", "Virna Jandiroba": "BRA", "Mantas Kondratavičius": "LTU", "Wes Schultz": "USA", "Austin Bashi": "USA", "Lucas Brennan": "USA", "Karine Silva": "BRA", "Gabriella Fernandes": "BRA", "Priscila Cachoeira": "BRA", "Keiichiro Nakamura": "JPN", "Ollie Schmid": "AUS", "Ko Seok Hyun": "KOR", "Wellington Turman": "BRA", "Jonny Parsons": "GBR", "Jose Henrique Souza": "BRA", "Davey Grant": "GBR", "Elijah Smith": "USA", "Ciryl Gane": "FRA", "Josh Hokit": "USA", "Kayla Harrison": "USA", "Amanda Nunes": "BRA", "Caio Borralho": "BRA", "Yousri Belgaroui": "NED", "Uroš Medić": "SRB", "Kevin Holland": "USA", "Luis Gurule": "USA", "Stephen Thompson": "USA", "Charles Radtke": "USA", "Drew Dober": "USA", "Chris Duncan": "GBR", "Jim Miller": "USA", "Terrance McKinney": "USA", "Donte Johnson": "USA", "Bia Mesquita": "BRA", "Macy Chiasson": "USA", "Jiří Procházka": "CZE", "Navajo Stirling": "NZL", "Aljamain Sterling": "USA", "Kevin Vallejos": "ARG", "Dan Hooker": "NZL", "Brian Ortega": "USA", "Asu Almabayev": "KAZ", "Kyoji Horiguchi": "JPN", "Jared Cannonier": "USA", "Ikram Aliskerov": "RUS", "Aleksandre Topuria": "GEO", "Santiago Luna": "MEX", "Shamil Gaziev": "BHR", "Tallison Teixeira": "BRA", "Amir Albazi": "IRQ", "Alessandro Costa": "BRA", "Jake Matthews": "AUS", "Charles Oliveira": "BRA", "Diego Lopes": "BRA", "Sergei Pavlovich": "RUS", "Alex Pereira": "BRA", "Joe Pyfer": "USA", "Bo Nickal": "USA", "Brandon Moreno": "MEX", "Charles Johnson": "USA", "Maycee Barber": "USA", "Carli Judice": "USA", "Junior Tafa": "AUS", "Quentin Pasley": "USA"};
+const CTRY={"FRA": "France", "BRA": "Brésil", "AUS": "Australie", "NZL": "Nouvelle-Zélande", "GBR": "Royaume-Uni", "USA": "États-Unis", "RUS": "Russie", "NED": "Pays-Bas", "SRB": "Serbie", "SVK": "Slovaquie", "LTU": "Lituanie", "AZE": "Azerbaïdjan", "VEN": "Venezuela", "IRQ": "Irak", "PER": "Pérou", "MEX": "Mexique", "SWE": "Suède", "JPN": "Japon", "KOR": "Corée du Sud", "CZE": "Tchéquie", "ARG": "Argentine", "KAZ": "Kazakhstan", "GEO": "Géorgie", "BHR": "Bahreïn", "JAM": "Jamaïque"};
+const FLAGS={"FRA": "<rect width=\"10\" height=\"20\" fill=\"#0055A4\"/><rect x=\"10\" width=\"10\" height=\"20\" fill=\"#fff\"/><rect x=\"20\" width=\"10\" height=\"20\" fill=\"#EF4135\"/>", "BRA": "<rect width=\"30\" height=\"20\" fill=\"#009C3B\"/><path d=\"M15,2L28,10L15,18L2,10Z\" fill=\"#FFDF00\"/><circle cx=\"15\" cy=\"10\" r=\"4.6\" fill=\"#002776\"/><path d=\"M10.6,9.2Q15,8 19.4,10.6\" stroke=\"#fff\" stroke-width=\".7\" fill=\"none\"/>", "AUS": "<rect width=\"30\" height=\"20\" fill=\"#012169\"/><g transform=\"scale(1)\"><rect width=\"15\" height=\"10\" fill=\"#012169\"/><path d=\"M0,0L15,10M15,0L0,10\" stroke=\"#fff\" stroke-width=\"2\"/><path d=\"M0,0L15,10M15,0L0,10\" stroke=\"#C8102E\" stroke-width=\".7\"/><path d=\"M7.5,0V10M0,5H15\" stroke=\"#fff\" stroke-width=\"3\"/><path d=\"M7.5,0V10M0,5H15\" stroke=\"#C8102E\" stroke-width=\"1.6\"/></g><g fill=\"#fff\"><circle cx=\"7.5\" cy=\"15\" r=\"1.6\"/><circle cx=\"23\" cy=\"4\" r=\".9\"/><circle cx=\"20\" cy=\"9\" r=\".9\"/><circle cx=\"26\" cy=\"8\" r=\".9\"/><circle cx=\"23\" cy=\"16\" r=\"1\"/></g>", "NZL": "<rect width=\"30\" height=\"20\" fill=\"#012169\"/><g transform=\"scale(1)\"><rect width=\"15\" height=\"10\" fill=\"#012169\"/><path d=\"M0,0L15,10M15,0L0,10\" stroke=\"#fff\" stroke-width=\"2\"/><path d=\"M0,0L15,10M15,0L0,10\" stroke=\"#C8102E\" stroke-width=\".7\"/><path d=\"M7.5,0V10M0,5H15\" stroke=\"#fff\" stroke-width=\"3\"/><path d=\"M7.5,0V10M0,5H15\" stroke=\"#C8102E\" stroke-width=\"1.6\"/></g><g fill=\"#C8102E\" stroke=\"#fff\" stroke-width=\".4\"><circle cx=\"23\" cy=\"4\" r=\"1\"/><circle cx=\"20\" cy=\"9\" r=\"1\"/><circle cx=\"26\" cy=\"8\" r=\".9\"/><circle cx=\"23\" cy=\"16\" r=\"1.1\"/></g>", "GBR": "<rect width=\"30\" height=\"20\" fill=\"#012169\"/><path d=\"M0,0L30,20M30,0L0,20\" stroke=\"#fff\" stroke-width=\"4\"/><path d=\"M0,0L30,20M30,0L0,20\" stroke=\"#C8102E\" stroke-width=\"1.4\"/><path d=\"M15,0V20M0,10H30\" stroke=\"#fff\" stroke-width=\"6\"/><path d=\"M15,0V20M0,10H30\" stroke=\"#C8102E\" stroke-width=\"3.4\"/>", "USA": "<rect width=\"30\" height=\"20\" fill=\"#fff\"/><g fill=\"#B22234\"><rect width=\"30\" height=\"1.54\"/><rect y=\"3.08\" width=\"30\" height=\"1.54\"/><rect y=\"6.15\" width=\"30\" height=\"1.54\"/><rect y=\"9.23\" width=\"30\" height=\"1.54\"/><rect y=\"12.3\" width=\"30\" height=\"1.54\"/><rect y=\"15.4\" width=\"30\" height=\"1.54\"/><rect y=\"18.46\" width=\"30\" height=\"1.54\"/></g><rect width=\"14\" height=\"10.77\" fill=\"#3C3B6E\"/><g fill=\"#fff\"><circle cx=\"3\" cy=\"2.5\" r=\".6\"/><circle cx=\"7\" cy=\"2.5\" r=\".6\"/><circle cx=\"11\" cy=\"2.5\" r=\".6\"/><circle cx=\"5\" cy=\"5.4\" r=\".6\"/><circle cx=\"9\" cy=\"5.4\" r=\".6\"/><circle cx=\"3\" cy=\"8.3\" r=\".6\"/><circle cx=\"7\" cy=\"8.3\" r=\".6\"/><circle cx=\"11\" cy=\"8.3\" r=\".6\"/></g>", "RUS": "<rect width=\"30\" height=\"6.7\" fill=\"#fff\"/><rect y=\"6.6\" width=\"30\" height=\"6.8\" fill=\"#0039A6\"/><rect y=\"13.3\" width=\"30\" height=\"6.7\" fill=\"#D52B1E\"/>", "NED": "<rect width=\"30\" height=\"6.7\" fill=\"#AE1C28\"/><rect y=\"6.6\" width=\"30\" height=\"6.8\" fill=\"#fff\"/><rect y=\"13.3\" width=\"30\" height=\"6.7\" fill=\"#21468B\"/>", "SRB": "<rect width=\"30\" height=\"6.7\" fill=\"#C6363C\"/><rect y=\"6.6\" width=\"30\" height=\"6.8\" fill=\"#0C4076\"/><rect y=\"13.3\" width=\"30\" height=\"6.7\" fill=\"#fff\"/><rect x=\"8\" y=\"5\" width=\"5\" height=\"7\" rx=\"1.5\" fill=\"#C6363C\" stroke=\"#EDB92E\" stroke-width=\".6\"/>", "SVK": "<rect width=\"30\" height=\"6.7\" fill=\"#fff\"/><rect y=\"6.6\" width=\"30\" height=\"6.8\" fill=\"#0B4EA2\"/><rect y=\"13.3\" width=\"30\" height=\"6.7\" fill=\"#EE1C25\"/><path d=\"M8,4H15V11Q15,15 11.5,16.5Q8,15 8,11Z\" fill=\"#EE1C25\" stroke=\"#fff\" stroke-width=\".7\"/><path d=\"M11.5,6V14M9.6,8.5H13.4M10,10.8H13\" stroke=\"#fff\" stroke-width=\".9\"/>", "LTU": "<rect width=\"30\" height=\"6.7\" fill=\"#FDB913\"/><rect y=\"6.6\" width=\"30\" height=\"6.8\" fill=\"#006A44\"/><rect y=\"13.3\" width=\"30\" height=\"6.7\" fill=\"#C1272D\"/>", "AZE": "<rect width=\"30\" height=\"6.7\" fill=\"#00B5E2\"/><rect y=\"6.6\" width=\"30\" height=\"6.8\" fill=\"#EF3340\"/><rect y=\"13.3\" width=\"30\" height=\"6.7\" fill=\"#509E2F\"/><circle cx=\"14\" cy=\"10\" r=\"2.6\" fill=\"#fff\"/><circle cx=\"14.8\" cy=\"10\" r=\"2.1\" fill=\"#EF3340\"/><circle cx=\"17.6\" cy=\"10\" r=\".9\" fill=\"#fff\"/>", "VEN": "<rect width=\"30\" height=\"6.7\" fill=\"#FCE300\"/><rect y=\"6.6\" width=\"30\" height=\"6.8\" fill=\"#00247D\"/><rect y=\"13.3\" width=\"30\" height=\"6.7\" fill=\"#CF142B\"/><g fill=\"#fff\"><circle cx=\"9.5\" cy=\"11.4\" r=\".55\"/><circle cx=\"11\" cy=\"9.4\" r=\".55\"/><circle cx=\"13\" cy=\"8.2\" r=\".55\"/><circle cx=\"15\" cy=\"7.9\" r=\".55\"/><circle cx=\"17\" cy=\"8.2\" r=\".55\"/><circle cx=\"19\" cy=\"9.4\" r=\".55\"/><circle cx=\"20.5\" cy=\"11.4\" r=\".55\"/></g>", "IRQ": "<rect width=\"30\" height=\"6.7\" fill=\"#CE1126\"/><rect y=\"6.6\" width=\"30\" height=\"6.8\" fill=\"#fff\"/><rect y=\"13.3\" width=\"30\" height=\"6.7\" fill=\"#000\"/><path d=\"M10.5,11.5H19.5M12,8.6V11.5M15,8.6V11.5M18,8.6V11.5\" stroke=\"#007A3D\" stroke-width=\".9\" fill=\"none\"/>", "PER": "<rect width=\"10\" height=\"20\" fill=\"#D91023\"/><rect x=\"10\" width=\"10\" height=\"20\" fill=\"#fff\"/><rect x=\"20\" width=\"10\" height=\"20\" fill=\"#D91023\"/>", "MEX": "<rect width=\"10\" height=\"20\" fill=\"#006847\"/><rect x=\"10\" width=\"10\" height=\"20\" fill=\"#fff\"/><rect x=\"20\" width=\"10\" height=\"20\" fill=\"#CE1126\"/><circle cx=\"15\" cy=\"10\" r=\"2.6\" fill=\"#8C5A2B\"/><path d=\"M12.6,11.6Q15,13.6 17.4,11.6\" stroke=\"#006847\" stroke-width=\".7\" fill=\"none\"/>", "SWE": "<rect width=\"30\" height=\"20\" fill=\"#006AA7\"/><path d=\"M11,0V20M0,10H30\" stroke=\"#FECC00\" stroke-width=\"3.2\"/>", "JPN": "<rect width=\"30\" height=\"20\" fill=\"#fff\"/><circle cx=\"15\" cy=\"10\" r=\"5.6\" fill=\"#BC002D\"/>", "KOR": "<rect width=\"30\" height=\"20\" fill=\"#fff\"/><path d=\"M10.5,10A4.5,4.5 0 0 1 19.5,10A2.25,2.25 0 0 1 15,10A2.25,2.25 0 0 0 10.5,10Z\" fill=\"#CD2E3A\"/><path d=\"M10.5,10A4.5,4.5 0 0 0 19.5,10A2.25,2.25 0 0 0 15,10A2.25,2.25 0 0 1 10.5,10Z\" fill=\"#0047A0\"/><g stroke=\"#000\" stroke-width=\".8\"><path d=\"M4,4.5L7,2.5M4.6,5.4L7.6,3.4M5.2,6.3L8.2,4.3\"/><path d=\"M22,2.5L25,4.5M21.4,3.4L24.4,5.4M20.8,4.3L23.8,6.3\"/><path d=\"M4,15.5L7,17.5M4.6,14.6L7.6,16.6M5.2,13.7L8.2,15.7\"/><path d=\"M22,17.5L25,15.5M21.4,16.6L24.4,14.6M20.8,15.7L23.8,13.7\"/></g>", "CZE": "<rect width=\"30\" height=\"10\" fill=\"#fff\"/><rect y=\"10\" width=\"30\" height=\"10\" fill=\"#D7141A\"/><path d=\"M0,0L15,10L0,20Z\" fill=\"#11457E\"/>", "ARG": "<rect width=\"30\" height=\"6.7\" fill=\"#74ACDF\"/><rect y=\"6.6\" width=\"30\" height=\"6.8\" fill=\"#fff\"/><rect y=\"13.3\" width=\"30\" height=\"6.7\" fill=\"#74ACDF\"/><circle cx=\"15\" cy=\"10\" r=\"2\" fill=\"#F6B40E\"/>", "KAZ": "<rect width=\"30\" height=\"20\" fill=\"#00AFCA\"/><circle cx=\"15\" cy=\"8.5\" r=\"3\" fill=\"#FEC50C\"/><path d=\"M9.5,13.5Q15,11 20.5,13.5Q15,12.6 9.5,13.5Z\" fill=\"#FEC50C\" stroke=\"#FEC50C\" stroke-width=\".8\"/><rect x=\"2\" y=\"1\" width=\"1.4\" height=\"18\" fill=\"#FEC50C\" opacity=\".85\"/>", "GEO": "<rect width=\"30\" height=\"20\" fill=\"#fff\"/><path d=\"M15,0V20M0,10H30\" stroke=\"#FF0000\" stroke-width=\"3\"/><g stroke=\"#FF0000\" stroke-width=\"1\"><path d=\"M7.5,3V7M5.5,5H9.5M22.5,3V7M20.5,5H24.5M7.5,13V17M5.5,15H9.5M22.5,13V17M20.5,15H24.5\"/></g>", "BHR": "<rect width=\"30\" height=\"20\" fill=\"#CE1126\"/><path d=\"M0,0H9L12,1L9,3L12,5L9,7L12,9L9,11L12,13L9,15L12,17L9,19L12,20H0Z\" fill=\"#fff\"/>", "JAM": "<rect width=\"30\" height=\"20\" fill=\"#009B3A\"/><path d=\"M0,0L13,10L0,20ZM30,0L17,10L30,20Z\" fill=\"#000\"/><path d=\"M0,0L30,20M30,0L0,20\" stroke=\"#FED100\" stroke-width=\"3\"/>"};
+function avatarHTML(p){
+  if(p.tbd) return `<span class="av tbd" aria-hidden="true">?</span>`;
+  const c=NAT[p.n];
+  if(c&&FLAGS[c]) return `<span class="av flagged" title="${CTRY[c]}" role="img" aria-label="${CTRY[c]}"><svg viewBox="0 0 30 20" preserveAspectRatio="xMidYMid slice" aria-hidden="true">${FLAGS[c]}</svg></span>`;
+  return `<span class="av" aria-hidden="true">${esc(initials(p.n))}</span>`;
+}
+/* Spoil / No spoil : par défaut les résultats sont masqués, à chaque visite */
+let SPOIL=false;
+const METHODS=["KO/TKO","Soumission","Décision unanime","Décision partagée","KO/TKO","Soumission"];
+function resultOf(f,t){
+  if(f.res) return f.res;
+  /* En mode test du direct uniquement : résultat fictif pour voir l'affichage */
+  if(simOffset!=null&&t>=f.end){
+    let h=0; for(const c of f.a.n+f.b.n) h=(h*31+c.charCodeAt(0))>>>0;
+    const m=METHODS[h%METHODS.length], dec=m.startsWith("Décision");
+    return {w:h%2?"a":"b",method:m,round:dec?f.r:1+(h>>>3)%f.r,time:dec?"5:00":`${1+(h>>>5)%4}:${String((h>>>7)%60).padStart(2,"0")}`,demo:1};
+  }
+  return null;
+}
+function fighterHTML(p,side,state){
+  const url=(p.tbd||(p.nolink&&src==="ufc"))?null:ficheURL(p);
+  const nm=url?`<a class="nm" href="${url}" target="_blank" rel="noopener" title="Fiche de ${esc(p.n)} sur ${SRC[src]}">${nameHTML(p,side)}</a>`:`<span class="nm">${nameHTML(p,side)}</span>`;
+  const meta=[p.rec?recHTML(p.rec):"",url?`<a class="fiche" href="${url}" target="_blank" rel="noopener">${SRC[src]} ↗</a>`:""].filter(Boolean).join(" · ");
+  const fav=isFav(p.n);
+  return `<div class="f ${side}${fav?" isfav":""}${state?" "+state:""}"><div class="fx">${avatarHTML(p)}<div class="txt"><span class="nmrow">${side==="b"&&fav?`<span class="fm-pre">${favMark(p)}</span>`:""}${splitName(p).first?`<span class="fn">${esc(splitName(p).first)}</span> `:""}<span class="lnline">${side==="b"&&fav?`<span class="fm-ln">${favMark(p)}</span>`:""}${nm}${side==="a"&&fav?favMark(p):""}</span></span>${meta||!p.tbd?`<span class="rec">${side==="b"?favBtn(p):""}${meta}${side==="a"?favBtn(p):""}</span>`:""}</div></div></div>`;
+}
+const isNum=e=>/^UFC \d+/.test(e.name);
+function evBadge(e,short){return isNum(e)?`<span class="evb num">${esc(e.name)}</span>`:`<span class="evb fn">${esc(e.name)}${short?"":` : ${esc(e.a)} vs ${esc(e.b)}`}</span>`;}
+function posterSide(p,c){
+  const w=p.n.split(/\s+/); const last=w.pop(); const first=w.join(" ");
+  const nat=NAT[p.n], fl=nat&&FLAGS[nat];
+  const bg=fl?` style="--natbg:url('data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20">${fl}</svg>`)}')"`:"";
+  return `<span class="pside ${c}"><small>${esc(first)}${flag(p)}</small><b class="${fl?"natc":""}${last.length>9?" plong":""}"${bg}${fl?` title="${CTRY[nat]}"`:""}>${esc(last)}</b>${p.rec?`<em>${recHTML(p.rec)}</em>`:""}</span>`;
+}
+/* Favoris : propres à chaque visiteur, gardés dans son navigateur */
+let FAVS=[];
+try{const v=JSON.parse(localStorage.getItem("coinrouge-favs")||"[]");if(Array.isArray(v))FAVS=v.filter(x=>typeof x==="string");}catch(e){}
+const isFav=n=>FAVS.includes(n);
+function saveFavs(){try{localStorage.setItem("coinrouge-favs",JSON.stringify(FAVS));}catch(e){}}
+function toggleFav(n){FAVS=isFav(n)?FAVS.filter(x=>x!==n):[...FAVS,n];saveFavs();render();}
+const HEART='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.5 8.2 3.6 4.5 7.3 4.5c2 0 3.6 1.1 4.7 2.7 1.1-1.6 2.7-2.7 4.7-2.7 3.7 0 5.8 3.7 4.6 6.8-1.8 4.6-9.3 9.2-9.3 9.2z"/></svg>';
+const HEART_OFF='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.5 8.2 3.6 4.5 7.3 4.5c2 0 3.6 1.1 4.7 2.7 1.1-1.6 2.7-2.7 4.7-2.7 3.7 0 5.8 3.7 4.6 6.8-1.8 4.6-9.3 9.2-9.3 9.2z"/><path d="M3 3L21 21"/></svg>';
+/* Bouton d'ajout (cœur vide) ou de retrait (cœur barré) */
+function favBtn(p){
+  if(p.tbd) return "";
+  const on=isFav(p.n);
+  return `<button type="button" class="favbtn${on?" rm":""}" data-fav="${esc(p.n)}" title="${on?"Retirer des favoris":"Ajouter aux favoris"}" aria-label="${on?"Retirer":"Ajouter"} ${esc(p.n)} ${on?"des":"aux"} favoris">${on?HEART_OFF:HEART}</button>`;
+}
+/* Marque « favori » à côté du nom : simple indicateur, non cliquable */
+const favMark=p=>`<span class="favmark" title="Dans tes favoris" aria-label="Favori">${HEART}</span>`;
+function nextFightOf(n,t){
+  for(const e of EVENTS){ if(t>=e.end) continue;
+    for(const f of e.fights){ if(f.a.n===n||f.b.n===n) return {e,f,opp:f.a.n===n?f.b:f.a,me:f.a.n===n?f.a:f.b}; } }
+  return null;
+}
+/* Annuaire de combattants connus (Français, stars, têtes d'affiche) pour pouvoir les suivre même sans combat annoncé */
+const ROSTER=["Salahdine Parnasse", "Benoît Saint-Denis", "Nassourdine Imavov", "Manon Fiorot", "Morgan Charrière", "Farès Ziam", "Axel Sola", "William Gomis", "Yanis Ghemmouri", "Kevin Jousset", "Nora Cornolle", "Oumar Sy", "Ange Loosa", "Taylor Lapilus", "Cédric Doumbè", "Bafodé Gassama", "Islam Makhachev", "Ilia Topuria", "Tom Aspinall", "Jon Jones", "Khamzat Chimaev", "Sean Strickland", "Dricus du Plessis", "Merab Dvalishvili", "Petr Yan", "Alexander Volkanovski", "Movsar Evloev", "Max Holloway", "Conor McGregor", "Justin Gaethje", "Arman Tsarukyan", "Paddy Pimblett", "Sean O'Malley", "Alexandre Pantoja", "Joshua Van", "Valentina Shevchenko", "Zhang Weili", "Jack Della Maddalena", "Belal Muhammad", "Leon Edwards", "Kamaru Usman", "Magomed Ankalaev", "Carlos Ulberg", "Israel Adesanya", "Robert Whittaker", "Michael Chandler", "Shavkat Rakhmonov", "Ian Machado Garry", "Umar Nurmagomedov", "Song Yadong", "Natalia Silva", "Julianna Peña", "Raquel Pennington", "Rose Namajunas", "Mackenzie Dern", "Jean Silva", "Michael Morales", "Carlos Prates", "Reinier de Ridder", "Brendan Allen", "Anthony Hernandez", "Jailton Almeida", "Curtis Blaydes", "Waldo Cortes-Acosta", "Derrick Lewis", "Mateusz Gamrot", "Rafael Fiziev", "Mauricio Ruffy", "Lerone Murphy", "Brandon Royval", "Kai Kara-France", "Tatsuro Taira", "Manel Kape", "Payton Talbott", "Cory Sandhagen", "Deiveson Figueiredo"];
+FLAGS.IDN='<rect width="30" height="10" fill="#CE1126"/><rect y="10" width="30" height="10" fill="#fff"/>';CTRY.IDN="Indonésie";
+Object.assign(NAT,{"Alexander Volkanovski":"AUS","Movsar Evloev":"RUS","Merab Dvalishvili":"GEO","Petr Yan":"RUS","Lone'er Kavanagh":"GBR","Alexander Volkov":"RUS","Aaron Pico":"USA","Dominick Reyes":"USA","Azamat Murzakanov":"RUS","Cam Rowston":"AUS","Grant Dawson":"USA","Colby Thicknesse":"AUS","Jacob Malkoun":"AUS","Daniel Santos":"BRA","Kody Steele":"USA","Iasmin Lucindo":"BRA","Nicolle Caliari":"BRA"});
+Object.assign(NAT,{"Ode Osbourne":"JAM","Cody Durden":"USA","Zach Reese":"USA","Mickey Gall":"USA","Gabriel Lourenço":"BRA","José Delano":"BRA","Murtazali Magomedov":"RUS","César Almeida":"BRA","Evan Elder":"USA","Samuel Sanches":"BRA","Tahir Abdullayev":"AZE","Seokhyeon Ko":"KOR","José Souza":"BRA","Lucas Fernando":"BRA","Bilal Hasan":"IDN","Andre Petroski":"USA"});
+Object.assign(NAT,{"Salahdine Parnasse": "FRA", "Benoît Saint-Denis": "FRA", "Nassourdine Imavov": "FRA", "Manon Fiorot": "FRA", "Morgan Charrière": "FRA", "Farès Ziam": "FRA", "Axel Sola": "FRA", "William Gomis": "FRA", "Yanis Ghemmouri": "FRA", "Kevin Jousset": "FRA", "Nora Cornolle": "FRA", "Oumar Sy": "FRA", "Ange Loosa": "FRA", "Taylor Lapilus": "FRA", "Cédric Doumbè": "FRA", "Bafodé Gassama": "FRA", "Islam Makhachev": "RUS", "Tom Aspinall": "GBR", "Jon Jones": "USA", "Sean Strickland": "USA", "Merab Dvalishvili": "GEO", "Petr Yan": "RUS", "Alexander Volkanovski": "AUS", "Movsar Evloev": "RUS", "Max Holloway": "USA", "Justin Gaethje": "USA", "Paddy Pimblett": "GBR", "Sean O'Malley": "USA", "Alexandre Pantoja": "BRA", "Jack Della Maddalena": "AUS", "Belal Muhammad": "USA", "Leon Edwards": "GBR", "Kamaru Usman": "USA", "Magomed Ankalaev": "RUS", "Carlos Ulberg": "NZL", "Israel Adesanya": "NZL", "Robert Whittaker": "AUS", "Michael Chandler": "USA", "Shavkat Rakhmonov": "KAZ", "Umar Nurmagomedov": "RUS", "Natalia Silva": "BRA", "Julianna Peña": "USA", "Raquel Pennington": "USA", "Rose Namajunas": "USA", "Mackenzie Dern": "USA", "Jean Silva": "BRA", "Carlos Prates": "BRA", "Reinier de Ridder": "NED", "Brendan Allen": "USA", "Anthony Hernandez": "USA", "Jailton Almeida": "BRA", "Curtis Blaydes": "USA", "Derrick Lewis": "USA", "Rafael Fiziev": "AZE", "Mauricio Ruffy": "BRA", "Lerone Murphy": "GBR", "Brandon Royval": "USA", "Kai Kara-France": "NZL", "Tatsuro Taira": "JPN", "Payton Talbott": "USA", "Cory Sandhagen": "USA", "Deiveson Figueiredo": "BRA"});
+/* Tous les combattants connus (cartes + radar + annuaire) pour les suggestions d'ajout */
+function allFighters(){
+  const m=new Map();
+  EVENTS.forEach(e=>e.fights.forEach(f=>[f.a,f.b].forEach(p=>{if(!p.tbd&&!m.has(p.n))m.set(p.n,e);})));
+  RADAR.forEach(r=>{if(!m.has(r.n))m.set(r.n,null);});
+  ROSTER.forEach(n=>{if(!m.has(n))m.set(n,null);});
+  return m;
+}
+function favSuggest(){
+  const box=document.getElementById("favsug"), q=norm(document.getElementById("favq").value.trim());
+  if(!q){box.innerHTML="";return;}
+  const all=allFighters(), raw=document.getElementById("favq").value.trim().replace(/\s+/g," ").replace(/(^|[\s-])(\p{L})/gu,(m,a,b)=>a+b.toUpperCase());
+  const hits=[...all.keys()].filter(n=>norm(n).includes(q)).slice(0,8);
+  let html=hits.map(n=>{const e=all.get(n);return `<div class="sugrow">${favBtn({n})}<span><b>${esc(n)}</b>${e?` · ${esc(e.name)} ${esc(e.a)} vs ${esc(e.b)}`:" · pas de combat annoncé"}${isFav(n)?' <em class="favok">· dans tes favoris</em>':""}</span></div>`;}).join("");
+  if(!hits.some(n=>norm(n)===q)&&raw.length>2) html+=`<div class="sugrow">${favBtn({n:raw})}<span>Suivre <b>${esc(raw)}</b> <em class="sugnote">même sans combat annoncé</em></span></div>`;
+  box.innerHTML=html||`<div class="sugrow"><span>Aucun combattant trouvé.</span></div>`;
+}
+document.getElementById("favq").addEventListener("input",favSuggest);
+function favs(t){
+  const sec=document.getElementById("favsec"), hero=document.getElementById("hero");
+  sec.hidden=!(filter==="all"||filter==="fav");
+  document.getElementById("favadd").hidden=filter!=="fav";
+  /* Dans l'onglet Favoris, la gestion des favoris passe en premier */
+  if(filter==="fav"&&sec.nextElementSibling!==hero) hero.parentNode.insertBefore(sec,hero);
+  if(filter!=="fav"&&hero.nextElementSibling!==sec) hero.parentNode.insertBefore(sec,hero.nextElementSibling);
+  favSuggest();
+  const el=document.getElementById("favs");
+  if(!FAVS.length){el.innerHTML=`<div class="favempty">${filter==="fav"?"Tape un nom ci-dessus pour suivre un combattant.":"Touche le cœur à côté d'un combattant pour le suivre ici."} Tu verras sa prochaine soirée et l'heure estimée de son combat.</div>`;return;}
+  const rows=FAVS.map(n=>({n,x:nextFightOf(n,t)})).sort((a,b)=>(a.x?a.x.f.est:Infinity)-(b.x?b.x.f.est:Infinity));
+  el.innerHTML=rows.map(({n,x})=>{
+    const p=x?x.me:{n};
+    const when=x?(t>=x.f.est&&t<x.f.end?`<b class="nowtag">Probablement en cours</b>`:`${fmtD(x.f.est)} · vers <b>${fmtT(x.f.est)}</b>`):"Aucun combat annoncé pour l'instant";
+    return `<div class="favrow">
+      ${filter==="fav"?favBtn(p):favMark(p)}
+      ${NAT[n]?avatarHTML({n}):`<span class="av tbd" aria-hidden="true">${esc(initials(n))}</span>`}
+      <div class="favtxt"><span class="favn">${esc(n)}</span><span class="favw">${x?`contre ${esc(x.opp.n)} · <a href="#ev-${x.e.id}">${esc(x.e.name)} ${esc(x.e.a)} vs ${esc(x.e.b)}</a>`:""}</span></div>
+      <div class="favwhen">${when}</div>
+    </div>`;
+  }).join("");
+}
+document.addEventListener("click",e=>{const b=e.target.closest(".favbtn");if(!b)return;e.preventDefault();e.stopPropagation();toggleFav(b.dataset.fav);});
+function match(f){
+  if(filter==="fav"&&!(isFav(f.a.n)||isFav(f.b.n))) return false;
+  if(filter==="fr"&&!(f.a.fr||f.b.fr)) return false;
+  if(filter==="star"&&!(f.a.star||f.b.star||f.a.fr||f.b.fr)) return false;
+  return true;
+}
+const norm=s=>s.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase();
+function hits(f){return query && (norm(f.a.n).includes(query)||norm(f.b.n).includes(query));}
+
+function boutHTML(f,t,detail,total,me,ev,spoilOK){
+  let cls="", tb="", lab="";
+  if(t>=f.est&&t<f.end){cls="now";tb=fmtT(f.est);lab="En cours ?";}
+  else if(t>=f.end){cls="done";tb=fmtT(f.est);lab=f.res?"Terminé":"Terminé ?";}
+  else {tb="≈ "+fmtT(f.est);lab=fmtDS(f.est);}
+  const res=SPOIL&&spoilOK&&t>=f.end?resultOf(f,t):null;
+  const resHTML=res?`<span class="resl${res.w==="draw"?" rdraw":""}">${res.w==="draw"?"Match nul":res.w==="nc"?"No contest":`Victoire ${esc(splitName(f.a).last===splitName(f.b).last?(res.w==="a"?f.a:f.b).n:splitName(res.w==="a"?f.a:f.b).last)}`}<em>${esc(res.method)} · R${res.round} ${esc(res.time)}${res.demo?" · test":""}</em></span>`:(SPOIL&&spoilOK&&t>=f.end?`<span class="resl rwait">Résultat non disponible</span>`:"");
+  const mid=`${detail?`<span class="mtime ${cls}"><b>${tb}</b><span class="tzfr">Heure française</span></span>`:""}${resHTML}${f.title?`<span class="belt">${esc(f.title)}</span>`:""}${detail?`<span class="rd">${W[f.w]}</span><span class="rds">${f.r} rounds</span>`:`<span class="rd">${W[f.w]} · ${f.r} rds</span>`}${detail?`<span class="lim">${LIM[f.w]}</span><span class="cnum">Combat ${f.ord}/${total}</span>`:""}`;
+  const fv=isFav(f.a.n)||isFav(f.b.n);
+  const sf=!me&&!fv&&(f.a.star||f.b.star);
+  const favLabel=`<span class="fvl">♥ Favori</span>`;
+  return `<div class="bout ${me?"me":""} ${sf?"starf":""} ${fv&&!me?"favf":""} ${fv?"hasfav":""} ${cls==="now"?"now":""} ${hits(f)?"hl":""} ${f.a.fr||f.b.fr?"fr":""}">
+    ${me?`<div class="melabel"><span>Main event</span>${fv?favLabel:""}${f.r===5?"<em>5 rounds</em>":""}</div>`:""}
+    ${fv&&!me?`<div class="melabel fl">${favLabel}${f.a.star||f.b.star?'<span class="slc">★ Combat vedette</span>':""}</div>`:""}
+    ${sf?`<div class="melabel sl"><span>★ Combat vedette</span>${f.title?`<em>${esc(f.title)}</em>`:""}</div>`:""}
+    <div class="time ${cls}">${detail?"":`<b>${tb}</b>`}<small>${lab}</small>${detail&&ev&&ev.tz?`<span class="ord loc" title="Heure locale à ${esc(ev.city)}"><i>${esc(ev.city)}</i>${fmtLocal(f.est,ev.tz)}</span>`:""}</div>
+    <div class="duel">
+      ${fighterHTML(f.a,"a",res?(res.w==="a"?"win":res.w==="b"?"lose":"draw"):"")}
+      <div class="mid">${mid}</div>
+      ${fighterHTML(f.b,"b",res?(res.w==="b"?"win":res.w==="a"?"lose":"draw"):"")}
+    </div>
+    ${f.note?`<div class="note">${esc(f.note)}</div>`:""}
+  </div>`;
+}
+
+function cardHTML(ev,t,opt={}){
+  const parts=["main","prelims","early"].filter(k=>ev.segs.some(s=>s.k===k)&&(!opt.only||opt.only===k));
+  let out="";
+  parts.forEach(k=>{
+    const sg=ev.segs.find(s=>s.k===k);
+    const fs=ev.fights.filter(f=>f.s===k&&(opt.detail||match(f)));
+    if(!fs.length) return;
+    out+=`<div class="section-h ${k==="main"?"main-h":"sub-h"}"><span>${SEG[k]}</span><span>début ${fmtT(Date.parse(sg.t))}</span></div><div class="bouts seg-${k}">${fs.map(f=>boutHTML(f,t,true,ev.fights.length,f===ev.fights[0],ev,!!opt.detail)).join("")}</div>`;
+  });
+  return out||`<div class="empty">Aucun combat ne correspond à ce filtre sur cette soirée.</div>`;
+}
+function schedHTML(ev){
+  return `<div class="sched">${ev.segs.map(s=>{const d=Date.parse(s.t);return `<div class="s-${s.k}"><small>${SEG[s.k]}</small><b>${fmtT(d)}</b><em>${fmtDS(d)}</em><span class="tzfr">Heure française</span></div>`}).join("")}${ev.tz?`<div class="s-loc"><small>Heure à ${esc(ev.city)}</small>${ev.segs.map(s=>`<span>${{early:"Early",prelims:"Prelims",main:"Main"}[s.k]} <b>${fmtLocal(Date.parse(s.t),ev.tz)}</b></span>`).join("")}</div>`:""}</div>`;
+}
+function cd(ms){
+  const m=Math.max(0,Math.floor(ms/60000)), d=Math.floor(m/1440), h=Math.floor(m%1440/60), mi=m%60;
+  if(d>0) return {n:`${d} j ${h} h`,l:"avant le début"};
+  return {n:`${h} h ${String(mi).padStart(2,"0")}`,l:"avant le début"};
+}
+
+function render(){
+  const t=now();
+  document.getElementById("clock").textContent=fmtT(t)+(simOffset!=null?" (test)":"");
+  const pool=sport==="boxe"?[]:EVENTS.filter(e=>t<e.end&&(filter==="all"||e.fights.some(match)));
+  agenda(t);
+  const ev=heroEvent(t,pool);
+  const heroEl=document.getElementById("hero");
+  const othersEl=document.getElementById("others");
+  if(!ev){
+    heroEl.innerHTML=sport==="boxe"?`<div class="none"><b>Pas encore de fight card de boxe détaillée</b><span>Les prochains galas de boxe sont listés dans « À venir ». Leurs cartes complètes arriveront avec la source de données automatique.</span></div>`:`<div class="none"><b>${filter==="fr"?"Aucun Français programmé":filter==="fav"?(FAVS.length?"Aucun favori programmé":"Pas encore de favoris"):"Aucune star programmée"}</b><span>${filter==="fr"?"Aucune des soirées UFC annoncées n'a de combattant français pour l'instant. Repasse sur « Tout » pour voir le radar tricolore, qui suit ceux qui pourraient être programmés.":filter==="fav"?(FAVS.length?"Aucun de tes combattants favoris n'est annoncé sur une soirée à venir.":"Repasse sur « Tout » et touche le cœur à côté d'un combattant pour l'ajouter."):"Aucune soirée annoncée ne correspond à ce filtre."}</span></div>`;
+    othersEl.innerHTML=`<div class="empty">Rien à afficher avec ce filtre.</div>`;
+    document.getElementById("pastsec").hidden=true;
+    findBox(t); favs(t); radar(); renderDetail(t); return;
+  }
+  heroEl.classList.toggle("num",isNum(ev)); heroEl.classList.toggle("fn",!isNum(ev));
+  const live=t>=ev.start&&t<ev.end;
+  const c=cd(ev.start-t);
+  const mainF=ev.fights[0];
+  const cur=ev.fights.find(f=>t>=f.est&&t<f.end);
+  const nxt=ev.fights.filter(f=>f.est>t).sort((a,b)=>a.est-b.est)[0];
+  document.getElementById("hero").innerHTML=`
+    <a class="hero-top poster" href="#ev-${ev.id}" aria-label="Voir la fight card complète : ${esc(ev.a)} contre ${esc(ev.b)}">
+      <div class="ptop">
+        <div class="eyebrow">${live?'<span class="pill live">En direct</span>':`<span class="pill next">${filter==="fr"?"Prochaine soirée avec un Français":filter==="star"?"Prochaine soirée avec des stars":filter==="fav"?"Prochaine soirée avec un favori":"Prochaine soirée"}</span>`}${evBadge(ev)}${mainF.title?`<span style="color:var(--gold)">${esc(mainF.title)}</span>`:""}</div>
+      </div>
+      <h2 class="pduel">
+        ${posterSide(mainF.a,"red")}
+        <span class="pmid"><span class="pvs" aria-label="contre">VS</span><span class="pvenue2"><span class="vcity">${esc(ev.city)}</span><span class="vsalle">${esc(ev.venue)}</span></span></span>
+        ${posterSide(mainF.b,"blue")}
+      </h2>
+      <div class="pbot">
+        <div class="pwhen"><span class="pdate">${fmtD(ev.start)} </span><span class="pstart">Début de soirée ${fmtT(ev.start)}${ev.tbc?" · horaires à confirmer":""}</span><span class="pstart pme">Main event ≈ <b>${fmtT(ev.fights[0].est)}</b></span></div>
+        ${live?"":`<span class="cdown">Début dans <b>${c.n}</b></span>`}
+      </div>
+      ${schedHTML(ev)}
+    </a>
+    <div class="nowbar ${live?"on":""}">
+      <span class="tag">Probablement dans la cage</span>
+      <span class="who">${cur?esc(cur.a.n)+" – "+esc(cur.b.n):"Entre deux combats"}</span>
+      <span class="after">${nxt?"Ensuite : "+esc(nxt.a.n)+" – "+esc(nxt.b.n)+" vers "+fmtT(nxt.est):""}</span>
+    </div>`;
+  const restN=ev.fights.length-ev.fights.filter(f=>f.s==="main").length;
+  document.getElementById("hero").insertAdjacentHTML("beforeend",`<div class="hero-card">${cardHTML(ev,t,{only:filter==="all"?"main":null})}
+    <a class="morebtn" href="#ev-${ev.id}">Fight card complète · ${ev.fights.length} combats</a></div>`);
+
+  const others=pool.filter(e=>e!==ev);
+  const openIds=[...document.querySelectorAll("details.ev[open]")].map(d=>d.dataset.id);
+  document.getElementById("others").innerHTML=others.map(e=>evItem(e,t,openIds)).join("") || `<div class="empty">Aucune autre soirée ${filter==="fr"?"avec un Français":filter==="star"?"avec des stars":filter==="fav"?"avec un favori":""} annoncée pour l'instant.</div>`;
+  /* Soirées passées (30 derniers jours) : résultats visibles seulement en mode Spoil */
+  const past=EVENTS.filter(e=>sport!=="boxe"&&t>=e.end&&t-e.end<30*864e5&&(filter==="all"||e.fights.some(match))).sort((a,b)=>b.start-a.start);
+  document.getElementById("pastsec").hidden=!past.length;
+  document.getElementById("past").innerHTML=past.map(e=>evItem(e,t,openIds,1)).join("");
+  findBox(t);
+  favs(t);
+  radar();
+  renderDetail(t);
+}
+/* Liste textuelle des prochains événements (8 puis liste complète) */
+const SPORTLBL={all:"MMA + Boxe",mma:"MMA",boxe:"Boxe"};
+function agendaItems(t){
+  return [
+    ...EVENTS.filter(e=>t<e.end).map(e=>({sport:"mma",ts:e.start,name:`${e.a} vs ${e.b}`,org:`${e.name} · ${e.city}`,id:e.id,frA:e.fights[0].a.fr,frB:e.fights[0].b.fr,fr:!e.fights[0].a.fr&&!e.fights[0].b.fr&&e.fights.some(f=>f.a.fr||f.b.fr)})),
+    ...AGENDA.map(a=>({...a,ts:Date.parse(a.date+"T20:00:00Z")})).filter(a=>a.ts>t-864e5)
+  ].filter(x=>sport==="all"||x.sport===sport).sort((a,b)=>a.ts-b.ts);
+}
+/* Titre « A vs B » avec le drapeau juste après le nom du Français */
+function vsHTML(x){
+  const [a,b]=x.name.split(" vs ");
+  if(b===undefined) return esc(x.name)+(x.fr?flag({fr:1}):"");
+  return `${esc(a)}${x.frA?flag({fr:1}):""} vs ${esc(b)}${x.frB?flag({fr:1}):""}${x.fr?flag({fr:1}):""}`;
+}
+function agenda(t){
+  const items=agendaItems(t);
+  const shown=items.slice(0,8);
+  document.getElementById("agenda").innerHTML=shown.map(x=>`<li class="${x.sport}">
+    <span class="agd">${new Intl.DateTimeFormat("fr-FR",{timeZone:tz,day:"numeric",month:"short"}).format(x.ts).replace(".","")}</span>
+    <span class="agt">${x.id?`<a href="#ev-${x.id}">${vsHTML(x)}</a>`:vsHTML(x)}<small>${esc(x.org)}${x.note?" · "+esc(x.note):""}</small></span>
+    <span class="ags">${x.sport==="boxe"?"Boxe":"MMA"}</span></li>`).join("")||`<li class="agnone">Aucun événement à venir.</li>`;
+  document.getElementById("agmore").textContent=`Calendrier complet · ${items.length} événements`;
+}
+/* Page « Calendrier » : liste complète, regroupée par mois */
+function calHTML(t){
+  const items=agendaItems(t);
+  const mon=new Intl.DateTimeFormat("fr-FR",{timeZone:tz,month:"long",year:"numeric"});
+  const groups=[];
+  items.forEach(x=>{const k=mon.format(x.ts);let g=groups.find(g=>g.k===k);if(!g)groups.push(g={k,list:[]});g.list.push(x);});
+  const row=x=>{
+    const ev=x.id&&EVENTS.find(e=>e.id===x.id);
+    const main=ev&&ev.segs.find(s=>s.k==="main");
+    const wd=new Intl.DateTimeFormat("fr-FR",{timeZone:tz,weekday:"short"}).format(x.ts).replace(".","");
+    return `<li class="calrow ${x.sport}">
+      <div class="cald"><b>${dayN(x.ts)}</b><small>${wd}</small></div>
+      <div class="calt"><span class="calname">${vsHTML(x)}<span class="ags calsp">${x.sport==="boxe"?"Boxe":"MMA"}</span></span><span class="calorg">${esc(x.org)}${x.note?" · "+esc(x.note):""}</span><span class="calh">${main?`Main card <b>${fmtT(Date.parse(main.t))}</b>${ev.tbc?" <em>à confirmer</em>":""}`:"Horaire à confirmer"}</span></div>
+      <div class="cals">${x.id?`<a class="calgo" href="#ev-${x.id}">Fight card →</a>`:""}</div>
+    </li>`;
+  };
+  return `<div class="dbar"><a class="back" href="#">← Retour</a></div>
+  <div class="dwrap">
+    <div class="dtitle"><h1>Calendrier</h1><span>${items.length} événements à venir · ${SPORTLBL[sport]} · heure française</span></div>
+    ${groups.map(g=>`<section class="calm"><h2>${esc(g.k)}</h2><ol class="call">${g.list.map(row).join("")}</ol></section>`).join("")||`<p class="empty">Aucun événement à venir.</p>`}
+  </div>`;
+}
+function evItem(e,t,openIds,isPast){
+  const anyHit=query&&e.fights.some(hits);
+  const fr=e.fights.some(f=>f.a.fr||f.b.fr);
+  return `<details class="ev ${isNum(e)?"num":"fn"}${isPast?" past":""}" data-id="${e.id}" ${openIds.includes(e.id)||anyHit?"open":""}>
+      <summary><div class="dt"><b>${dayN(e.start)}</b><small>${monS(e.start)}</small></div>
+      <div><div class="sum-t">${vsHTML({name:`${e.a} vs ${e.b}`,frA:e.fights[0].a.fr,frB:e.fights[0].b.fr,fr:fr&&!e.fights[0].a.fr&&!e.fights[0].b.fr})}</div><div class="sum-m">${evBadge(e,1)} ${esc(e.venue)}, ${esc(e.city)} · ${isPast?"terminé":`début ${fmtT(e.start)}${e.tbc?" (à confirmer)":""}`}</div></div>
+      <span class="chev" aria-hidden="true">▼</span></summary>
+      <div class="inner">${schedHTML(e)}${cardHTML(e,t,{only:filter==="all"?"main":null})}<a class="morebtn" href="#ev-${e.id}">Fight card complète · ${e.fights.length} combats</a></div></details>`;
+}
+function findBox(t){
+  const fd=document.getElementById("find");
+  fd.hidden=!query;
+  if(!query){fd.innerHTML="";}
+  else{
+    const res=[];
+    EVENTS.filter(e=>t<e.end).forEach(e=>e.fights.forEach(f=>{if(hits(f)) res.push({e,f});}));
+    fd.innerHTML=res.length?res.map(({e,f})=>{
+      const who=norm(f.a.n).includes(query)?f.a.n:f.b.n;
+      const vs=who===f.a.n?f.b.n:f.a.n;
+      const st=t>=f.est&&t<f.end?"combat probablement en cours":t>=f.end?"combat probablement terminé":`${fmtD(f.est)}, vers <b>${fmtT(f.est)}</b>`;
+      return `<div class="hit">${favBtn({n:who})}<span><b>${esc(who)}</b> contre ${esc(vs)} (<a href="#ev-${e.id}">${esc(e.name)} ${esc(e.a)} vs ${esc(e.b)}</a>) : ${st}${isFav(who)?' <em class="favok">· dans tes favoris</em>':""}</span></div>`;
+    }).join(""):"Aucun combat trouvé pour ce nom dans les soirées à venir.";
+  }
+}
+function detailHTML(ev,t){
+  const frN=ev.fights.filter(f=>f.a.fr||f.b.fr).length;
+  const titles=ev.fights.filter(f=>f.title).map(f=>f.title);
+  const live=t>=ev.start&&t<ev.end;
+  return `<div class="dbar"><a class="back" href="#">← Retour</a><button type="button" class="spoilbtn" id="spoil" aria-pressed="${SPOIL}" title="Afficher ou masquer les résultats"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="eye" d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle class="eye" cx="12" cy="12" r="3"/><path class="slash" d="M3 3l18 18"/></svg><span>${SPOIL?"Spoil":"No spoil"}</span></button></div>
+  <div class="dwrap">
+    <div class="dtitle ${isNum(ev)?"num":"fn"}">${evBadge(ev,1)}<h1>${esc(ev.a)} vs ${esc(ev.b)}</h1><span>Carte complète</span></div>
+    <div class="dhead ${isNum(ev)?"num":"fn"}">
+      ${live?'<div class="eyebrow"><span class="pill live">En direct</span></div>':""}
+      <h2 class="pduel dduel">
+        ${posterSide(ev.fights[0].a,"red")}
+        <span class="pmid"><span class="pvs" aria-label="contre">VS</span><span class="pvenue2"><span class="vcity">${esc(ev.city)}</span><span class="vsalle">${esc(ev.venue)}</span></span></span>
+        ${posterSide(ev.fights[0].b,"blue")}
+      </h2>
+      <div class="pwhen"><span class="pdate">${fmtD(ev.start)} </span><span class="pstart">Début de soirée ${fmtT(ev.start)}${ev.tbc?" · horaires à confirmer":""}</span><span class="pstart pme">Main event ≈ <b>${fmtT(ev.fights[0].est)}</b></span></div>
+      <div class="dfacts">
+        <div><small>Combats</small><b>${ev.fights.length}</b></div>
+        ${titles.length?`<div><small>Ceintures en jeu</small><b>${esc(titles.join(" · "))}</b></div>`:""}
+        ${frN?`<div><small>Français</small><b>${frN} combat${frN>1?"s":""}</b></div>`:""}
+        <div><small>Diffusion en France</small><b>RMC Sport</b></div>
+      </div>
+      ${schedHTML(ev)}
+    </div>
+    <section>${cardHTML(ev,t,{detail:1})}</section>
+    <p class="find">Les combats sont listés du plus important au premier de la soirée. L'heure de chaque combat est estimée ; l'ordre de passage peut changer le soir même. Les early prelims passent en général sur UFC Fight Pass.</p>
+  </div>`;
+}
+function renderDetail(t){
+  const d=document.getElementById("detail");
+  const m=location.hash.match(/^#ev-([a-z0-9]+)$/);
+  const ev=m&&EVENTS.find(e=>e.id===m[1]);
+  const isCal=location.hash==="#agenda";
+  const reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(!ev&&!isCal){
+    if(!d.hidden&&!d.classList.contains("off")){
+      /* Glissement vers la droite, puis on masque */
+      d.classList.add("off");
+      const done=()=>{if(!d.classList.contains("off"))return;d.hidden=true;d.innerHTML="";d.classList.remove("off");document.documentElement.style.overflow="";};
+      reduce?done():setTimeout(done,340);
+    }
+    return;
+  }
+  const opening=d.hidden||d.classList.contains("off");
+  if(ev&&(opening||d.dataset.view!==ev.id)) SPOIL=false;
+  d.dataset.view=ev?ev.id:"agenda";
+  d.innerHTML=ev?detailHTML(ev,t):calHTML(t);
+  if(!opening&&ev&&d.dataset.prev!==ev.id) d.scrollTop=0;
+  d.dataset.prev=d.dataset.view;
+  if(opening){
+    /* Arrivée depuis la droite */
+    if(d.hidden){d.classList.add("off");d.hidden=false;void d.offsetWidth;}
+    d.classList.remove("off");
+    document.documentElement.style.overflow="hidden";
+    d.scrollTop=0; d.querySelector(".back").focus({preventScroll:true});
+  }
+}
+window.addEventListener("hashchange",()=>renderDetail(now()));
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!document.getElementById("detail").hidden){location.hash="";}});
+function radar(){
+  document.getElementById("radarsec").hidden=filter!=="all";
+  document.getElementById("radar").innerHTML=RADAR.map(r=>`<div class="rcard"><span class="st ${r.st}">${esc(r.s)}</span><span class="nm">${esc(r.n)}${flag({fr:1})}</span><p>${esc(r.p)}</p></div>`).join("");
+}
+
+document.getElementById("q").addEventListener("input",e=>{query=norm(e.target.value.trim());render();});
+/* Menu réglages (roue) : choix du site des fiches */
+const gear=document.getElementById("gear"), gmenu=document.getElementById("gearmenu");
+function syncSrc(){gmenu.querySelectorAll("[data-src]").forEach(b=>b.setAttribute("aria-checked",b.dataset.src===src));}
+function closeGear(){gmenu.hidden=true;gear.setAttribute("aria-expanded","false");}
+gear.addEventListener("click",e=>{e.stopPropagation();const open=gmenu.hidden;gmenu.hidden=!open;gear.setAttribute("aria-expanded",open);syncSrc();});
+gmenu.addEventListener("click",e=>{const b=e.target.closest("[data-src]");if(!b)return;src=b.dataset.src;try{localStorage.setItem("coinrouge-src",src);}catch(_){}syncSrc();closeGear();render();});
+document.addEventListener("click",e=>{if(!gmenu.hidden&&!e.target.closest(".gearwrap"))closeGear();});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!gmenu.hidden){closeGear();gear.focus();}});
+syncSrc();
+/* Le bouton vit dans la carte complète (recréé à chaque rendu) */
+document.addEventListener("click",e=>{if(!e.target.closest("#spoil"))return;SPOIL=!SPOIL;renderDetail(now());});
+document.querySelectorAll(".sportnav button").forEach(b=>b.addEventListener("click",()=>{
+  sport=b.dataset.sport;document.querySelectorAll(".sportnav button").forEach(x=>x.setAttribute("aria-pressed",x===b));render();
+}));
+const sportBtn=document.getElementById("sportbtn"), sportMenu=document.getElementById("sportmenu");
+sportBtn.addEventListener("click",e=>{e.stopPropagation();const o=sportMenu.hidden;sportMenu.hidden=!o;sportBtn.setAttribute("aria-expanded",o);});
+sportMenu.addEventListener("click",e=>{if(e.target.closest("[data-sport]")){document.getElementById("sportlbl").textContent=SPORTLBL[sport];sportMenu.hidden=true;sportBtn.setAttribute("aria-expanded","false");}});
+document.addEventListener("click",e=>{if(!sportMenu.hidden&&!e.target.closest(".sportdd")){sportMenu.hidden=true;sportBtn.setAttribute("aria-expanded","false");}});
+document.querySelectorAll(".seg button").forEach(b=>b.addEventListener("click",()=>{
+  filter=b.dataset.f;document.querySelectorAll(".seg button").forEach(x=>x.setAttribute("aria-pressed",x===b));render();
+}));
+const simr=document.getElementById("simr"), simo=document.getElementById("simo");
+function simTarget(){return heroEvent(Date.now());}
+simr.addEventListener("input",()=>{
+  const ev=simTarget(); const v=+simr.value;
+  if(v===0){simOffset=null;simo.textContent="Heure réelle";}
+  else{simOffset=ev.start+(ev.end-ev.start)*v/100;simo.textContent=fmtDS(simOffset)+" "+fmtT(simOffset);}
+  render();
+});
+document.getElementById("simreset").addEventListener("click",()=>{simr.value=0;simOffset=null;simo.textContent="Heure réelle";render();});
+
+render();
+setInterval(render,30000);
+</script>
+</body>
+</html>

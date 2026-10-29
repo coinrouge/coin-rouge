@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-29T17:56:15.761Z",
+ "updated": "2026-10-29T17:58:58.020Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -1525,13 +1525,13 @@
       "nat": "MEX",
       "rec": "63-3-2",
       "star": 1,
-      "br": 348759
+      "tp": "156751-canelo-lvarez"
      },
      "b": {
       "n": "Christian M'billi",
       "nat": "FRA",
       "champ": 1,
-      "br": 785657,
+      "tp": "212890-christian-mbilli-solide",
       "fr": 1
      }
     },
@@ -1544,12 +1544,13 @@
       "n": "Jaime Munguía",
       "nat": "MEX",
       "rec": "46-2-0",
-      "br": 659924
+      "tp": "208923-jaime-munguia"
      },
      "b": {
       "n": "Nikita Zon",
       "nat": "RUS",
-      "rec": "12-0-1"
+      "rec": "12-0-1",
+      "tp": "315209-nikita-zon"
      }
     },
     {
@@ -1561,7 +1562,8 @@
       "n": "Rafael Espinoza",
       "nat": "MEX",
       "rec": "28-0-0",
-      "champ": 1
+      "champ": 1,
+      "tp": "263664-rafael-espinoza-el-divino"
      },
      "b": {
       "n": "Ricardo Blandón"
@@ -1574,12 +1576,14 @@
      "a": {
       "n": "Raymundo Rojas García",
       "nat": "MEX",
-      "rec": "16-2-0"
+      "rec": "16-2-0",
+      "tp": "320203-raymundo-rojas-garcia"
      },
      "b": {
       "n": "Reito Tsutsumi",
       "nat": "JPN",
-      "rec": "5-0-0"
+      "rec": "5-0-0",
+      "tp": "493346-reito-tsutsumi"
      }
     }
    ]
@@ -1812,12 +1816,12 @@
      "a": {
       "n": "Joshua Buatsi",
       "nat": "GBR",
-      "br": 801693
+      "tp": "205234-joshua-buatsi"
      },
      "b": {
       "n": "Willy Hutchinson",
       "nat": "GBR",
-      "br": 811747
+      "tp": "204583-willy-hutchinson-braveheart"
      }
     },
     {
@@ -1826,11 +1830,13 @@
      "r": 10,
      "a": {
       "n": "Brad Rea",
-      "nat": "GBR"
+      "nat": "GBR",
+      "tp": "215466-bradley-rea"
      },
      "b": {
       "n": "Ezra Taylor",
-      "nat": "GBR"
+      "nat": "GBR",
+      "tp": "256874-ezra-taylor"
      }
     }
    ]
@@ -1860,11 +1866,12 @@
      "a": {
       "n": "Chris Billam-Smith",
       "nat": "GBR",
-      "br": 811275
+      "tp": "223576-chris-billam-smith-the-gentleman"
      },
      "b": {
       "n": "Cheavon Clarke",
-      "nat": "GBR"
+      "nat": "GBR",
+      "tp": "324167-cheavon-clarke"
      }
     },
     {
@@ -1873,11 +1880,13 @@
      "r": 10,
      "a": {
       "n": "Denzel Bentley",
-      "nat": "GBR"
+      "nat": "GBR",
+      "tp": "215049-denzel-bentley"
      },
      "b": {
       "n": "Shane Mosley Jr.",
-      "nat": "USA"
+      "nat": "USA",
+      "tp": "226321-shane-mosley-jr"
      }
     }
    ]
@@ -2689,11 +2698,12 @@
       "n": "Agit Kabayel",
       "nat": "GER",
       "champ": 1,
-      "br": 575332
+      "tp": "210664-agit-kabayel"
      },
      "b": {
       "n": "Nelson Hysa",
-      "nat": "ALB"
+      "nat": "ALB",
+      "tp": "351425-nelson-hysa"
      }
     }
    ]
@@ -2726,13 +2736,13 @@
       "n": "Tyson Fury",
       "nat": "GBR",
       "star": 1,
-      "br": 479205
+      "tp": "202714-tyson-fury"
      },
      "b": {
       "n": "Anthony Joshua",
       "nat": "GBR",
       "star": 1,
-      "br": 659461
+      "tp": "212010-anthony-joshua-aj"
      }
     }
    ]

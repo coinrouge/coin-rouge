@@ -1,13 +1,17 @@
-Combattants : 661
-Soirées retenues : UFC 332: Silva vs. Wang / UFC Fight Night: Allen vs. Duncan / UFC Fight Night: Buckley vs. Malott / UFC 333: Volkanovski vs. Evloev / UFC Fight Night: Moicano vs. Nolan / UFC Fight Night: Bonfim vs. Brady / UFC 334: Gane vs. Hokit / UFC Fight Night: Procházka vs. Stirling / UFC Fight Night 295 / UFC 335: Oliveira vs. Lopes / UFC Fight Night 296 / UFC Fight Night 297 / UFC 336: Van vs. Kape / UFC Fight Night 298
+Combattants : 968
+  2027 in Professional Fighters League : HTTP 404
+Soirées retenues : UFC 332: Silva vs. Wang / UFC Fight Night: Allen vs. Duncan / UFC Fight Night: Buckley vs. Malott / PFL Chicago: Carmouche vs. Bishop 2 / UFC 333: Volkanovski vs. Evloev / UFC Fight Night: Moicano vs. Nolan / UFC Fight Night: Bonfim vs. Brady / UFC 334: Gane vs. Hokit / PFL Dubai: Nemkov vs. Bilostenniy / UFC Fight Night: Procházka vs. Stirling / UFC Fight Night 295 / UFC 335: Oliveira vs. Lopes / PFL Lyon: Lapilus vs. McKee / UFC Fight Night 296 / UFC Fight Night 297 / UFC 336: Van vs. Kape / UFC Fight Night 298
   ufc332 : 14 combats, 14 résultats
   fn-allen-duncan : 12 combats, 11 résultats
   fn-buckley-malott : 13 combats, 13 résultats
+  pfl-carmouche-bishop : 13 combats, 13 résultats
   ufc333 : 14 combats, 14 résultats
   fn-moicano-nolan : 12 combats, 0 résultats
-  fn-bonfim-brady : 13 combats, 0 résultats
+  fn-bonfim-brady : 12 combats, 0 résultats
   ufc334 : 10 combats, 0 résultats
+  pfl-nemkov-bilostenniy : 15 combats, 0 résultats
   fn-prochazka-stirling : 9 combats, 0 résultats
   ufc335 : 5 combats, 0 résultats
+  pfl-lapilus-mckee : 8 combats, 0 résultats
   ufc336 : 2 combats, 0 résultats
-data/events.json écrit (10 soirées détaillées, 4 à l'agenda).
+data/events.json écrit (13 soirées détaillées, 4 à l'agenda).

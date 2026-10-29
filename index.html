@@ -50,6 +50,9 @@ button,input,select{font:inherit;color:inherit}
 .brand span{color:var(--red)}
 .homelink{color:inherit;text-decoration:none}
 .melabel em.mltitle{color:var(--gold)}
+.melabel span.rdl{display:inline-flex;align-items:center;gap:6px;background:transparent!important;color:var(--blue)!important;border:1px solid var(--blue);padding:2px 8px;border-radius:3px}
+.rdl svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.3}
+.rdl svg .rdot{fill:currentColor;stroke:none}
 /* Combattant de droite : drapeau et étoile côté intérieur ; en préliminaires (prénom sur la même ligne), avant le prénom */
 .fl-pre{display:none}
 .seg-prelims .f.b .fl-pre,.seg-early .f.b .fl-pre{display:inline}
@@ -1075,10 +1078,14 @@ function boutHTML(f,t,detail,total,me,ev,spoilOK){
   const fv=isFav(f.a.n)||isFav(f.b.n);
   const sf=!me&&!fv&&(f.a.star||f.b.star);
   const favLabel=`<span class="fvl">♥ Favori</span>`;
+  /* Étiquette « Radar francophone » (pictogramme radar : cercles et balayage) */
+  const frf=f.a.fr||f.b.fr;
+  const rdl=frf?`<span class="rdl"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><circle cx="8" cy="8" r="3.5"/><path d="M8 8 13.2 4.2"/><circle class="rdot" cx="11" cy="5.6" r="1.1"/></svg>Radar francophone</span>`:"";
   return `<div class="bout ${me?"me":""} ${sf?"starf":""} ${fv&&!me?"favf":""} ${fv?"hasfav":""} ${cls==="now"?"now":""} ${hits(f)?"hl":""} ${f.a.fr||f.b.fr?(f.a.be&&!f.b.fr||f.b.be&&!f.a.fr||f.a.be&&f.b.be?"fr be":"fr"):""}">
-    ${me?`<div class="melabel"><span>Main event</span>${fv?favLabel:""}${f.r===5?"<em>5 rounds</em>":""}${f.title?`<em class="mltitle">${esc(f.title)}</em>`:""}</div>`:""}
-    ${fv&&!me?`<div class="melabel fl">${favLabel}${f.a.star||f.b.star?'<span class="slc">★ Combat vedette</span>':""}</div>`:""}
-    ${sf?`<div class="melabel sl"><span>★ Combat vedette</span>${f.title?`<em class="mltitle">${esc(f.title)}</em>`:""}</div>`:""}
+    ${me?`<div class="melabel"><span>Main event</span>${fv?favLabel:""}${rdl}${f.r===5?"<em>5 rounds</em>":""}${f.title?`<em class="mltitle">${esc(f.title)}</em>`:""}</div>`:""}
+    ${fv&&!me?`<div class="melabel fl">${favLabel}${f.a.star||f.b.star?'<span class="slc">★ Combat vedette</span>':""}${rdl}</div>`:""}
+    ${sf?`<div class="melabel sl"><span>★ Combat vedette</span>${rdl}${f.title?`<em class="mltitle">${esc(f.title)}</em>`:""}</div>`:""}
+    ${frf&&!me&&!fv&&!sf?`<div class="melabel">${rdl}${f.title?`<em class="mltitle">${esc(f.title)}</em>`:""}</div>`:""}
     <div class="time ${cls}">${detail?"":`<b>${tb}</b>`}<small>${lab}</small>${detail&&ev&&ev.tz?`<span class="ord loc" title="Heure locale à ${esc(ev.city)}"><i>${esc(ev.city)}</i>${fmtLocal(f.est,ev.tz)}</span>`:""}</div>
     <div class="duel">
       ${fighterHTML(f.a,"a",res?(res.w==="a"?"win":res.w==="b"?"lose":"draw"):"")}

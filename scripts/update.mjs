@@ -27,6 +27,11 @@ const COUNTRY = {
   Slovakia: "SVK", Lithuania: "LTU", Azerbaijan: "AZE", Venezuela: "VEN", Iraq: "IRQ", Peru: "PER", Mexico: "MEX",
   Sweden: "SWE", Japan: "JPN", "South Korea": "KOR", "Czech Republic": "CZE", Czechia: "CZE", Argentina: "ARG",
   Kazakhstan: "KAZ", Georgia: "GEO", Bahrain: "BHR", Jamaica: "JAM", Indonesia: "IDN",
+  "Georgia (country)": "GEO", Germany: "GER", Italy: "ITA", Belgium: "BEL", Austria: "AUT", Hungary: "HUN", Cameroon: "CMR",
+  Canada: "CAN", China: "CHN", Turkey: "TUR", Uzbekistan: "UZB", Iran: "IRI", Croatia: "CRO", Ecuador: "ECU", Kyrgyzstan: "KGZ",
+  Tajikistan: "TJK", Myanmar: "MYA", Angola: "ANG", Aruba: "ARU", Poland: "POL", Spain: "ESP", Portugal: "POR", Ireland: "IRL",
+  "Republic of Ireland": "IRL", Ukraine: "UKR", Moldova: "MDA", Armenia: "ARM", Chile: "CHI", Colombia: "COL", Ecuador_: "ECU",
+  Norway: "NOR", Denmark: "DEN", Finland: "FIN", Switzerland: "SUI", Philippines: "PHI", Thailand: "THA", "Dagestan": "RUS",
 };
 function tzFor(city, country) {
   const c = `${city} ${country}`;
@@ -166,7 +171,7 @@ for (const e of list) {
   const vs = e.name.match(/:\s*(.+?)\s+vs\.?\s+(.+)$/);
   const cityFull = p?.info.City || "", venue = p?.info.Venue || "";
   const parts = cityFull.split(",").map((s) => s.trim());
-  const city = (parts[0] || "").replace(/ City$/, ""), country = parts[parts.length - 1] || "";
+  const city = (parts[0] || "").replace(/ City$/, "").replace(/^(Enterprise|Paradise|Winchester)$/, "Las Vegas"), country = parts[parts.length - 1] || "";
   const date = (p?.info.Date || "").match(/\((\d{4}-\d{2}-\d{2})\)/)?.[1] || e.date;
   if (!p || !p.fights.length || !vs) {
     agenda.push({ sport: "mma", date, name: vs ? `${vs[1]} vs ${vs[2]}` : "Affiche à annoncer", org: `${num ? `UFC ${num[1]}` : "UFC Fight Night"}${city ? " · " + city : ""}` });

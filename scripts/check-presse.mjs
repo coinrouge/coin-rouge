@@ -21,6 +21,7 @@ for (const e of d.events || []) {
     if (!Number.isInteger(f.r) || f.r < 1 || f.r > 12) err.push(`${fw} : r (rounds) doit être un entier 1-12`);
     if (f.t && !iso(f.t)) err.push(`${fw} : t doit être une date ISO UTC en Z`);
     for (const x of [f.a, f.b]) if (x?.nat && !/^[A-Z]{3}$/.test(x.nat)) err.push(`${fw} : nat doit être un code à 3 lettres`);
+    for (const x of [f.a, f.b]) if (x?.br && !/^\d+$/.test(String(x.br))) err.push(`${fw} : br (identifiant BoxRec) doit être un nombre`);
     if (f.res && !["a", "draw", "nc"].includes(f.res.w)) err.push(`${fw} : res.w doit être "a" (a gagne), "draw" ou "nc"`);
   }
   if (e.fights?.[0] && e.fights[0].s !== "main") err.push(`${w} le premier combat doit être le combat principal (s: "main")`);

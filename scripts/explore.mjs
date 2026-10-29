@@ -1,22 +1,17 @@
 import * as cheerio from "cheerio";
 const UA = "CoinRouge/0.2 (https://github.com/coinrouge/coin-rouge)";
 const txt = (s) => s.replace(/\[[^\]]*\]/g, "").replace(/\s+/g, " ").trim();
-const search = async (q, n = 10) => (await (await fetch(`https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&srlimit=${n}&srsearch=${encodeURIComponent(q)}`, { headers: { "User-Agent": UA } })).json()).query.search.map((x) => x.title);
-async function dump(title, filter = /./, max = 30) {
+async function get(title) {
   const r = await fetch(`https://en.wikipedia.org/api/rest_v1/page/html/${encodeURIComponent(title.replace(/ /g, "_"))}`, { headers: { "User-Agent": UA } });
   console.log(`\n===== ${title} → HTTP ${r.status}`);
-  if (!r.ok) return;
-  const $ = cheerio.load(await r.text());
-  $("table").each((i, t) => {
-    if ($(t).closest(".navbox").length) return;
-    const rows = $(t).find("tr").map((_, tr) => $(tr).find("th,td").map((_, c) => txt($(c).text())).get().join(" | ")).get();
-    if (!rows.some((x) => filter.test(x))) return;
-    console.log(`--- table #${i} (${rows.length} lignes)`);
-    rows.slice(0, max).forEach((x) => console.log("  " + x.slice(0, 200)));
-  });
+  return r.ok ? cheerio.load(await r.text()) : null;
 }
-for (const q of ['intitle:"vs." boxing 2026 scheduled fight', 'boxing "is scheduled to take place" 2026 November', 'boxing "is scheduled to take place" December 2026', 'Usyk next fight 2026', 'Inoue 2026 fight']) console.log(`\n### ${q} : ${(await search(q)).join(" / ")}`);
-const cat = await (await fetch(`https://en.wikipedia.org/w/api.php?action=query&list=categorymembers&cmlimit=100&format=json&cmtitle=Category:2026_in_boxing`, { headers: { "User-Agent": UA } })).json();
-console.log("\n### Category:2026 in boxing :", (cat.query?.categorymembers || []).map((x) => x.title).join(" / "));
-await dump("List of current world boxing champions", /(vs|Next|Scheduled)/i, 12);
-await dump("Canelo Álvarez vs. Christian M'billi", /(Weight|vs)/);
+let $ = await get("2026 in Zuffa Boxing");
+if ($) {
+  $("table").slice(0, 4).each((i, t) => { console.log(`--- table #${i}`); $(t).find("tr").slice(0, 20).each((_, tr) => console.log("  " + $(tr).find("th,td").map((_, c) => txt($(c).text())).get().join(" | ").slice(0, 200))); });
+  $("h2").each((_, h) => { const sec = $(h).closest("section"); console.log("H2", txt($(h).text()), "| p:", txt(sec.find("p").first().text()).slice(0, 220)); });
+}
+$ = await get("2027 in Zuffa Boxing");
+$ = await get("List of current world boxing champions");
+if ($) $("table").slice(0, 6).each((i, t) => { console.log(`--- table #${i}`); $(t).find("tr").slice(0, 5).each((_, tr) => console.log("  " + $(tr).find("th,td").map((_, c) => { const img = $(c).find("img").attr("alt") || $(c).find(".flagicon a").attr("title") || ""; return (img ? `[${img}] ` : "") + txt($(c).text()); }).get().join(" | ").slice(0, 260))); });
+for (const t of ["List of current boxing rankings", "The Ring Pound for Pound", "List of French boxers", "Liste de boxeurs français"]) await get(t);

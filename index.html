@@ -334,6 +334,7 @@ h2.h::after{content:"";flex:1;height:1px;background:var(--line)}
 .pside b.natc{background-image:linear-gradient(var(--wash),var(--wash)),var(--natbg)}
 /* Le drapeau épouse la largeur du nom (sinon un nom court ne montre qu'une bande du drapeau) */
 .pside b.natc{width:fit-content;max-width:100%}
+.pside b.natc.natch{background-size:100% 100%,100% 100%}
 .pside.blue b.natc{margin-left:auto}
 .pside.red small{color:var(--red)} .pside.blue small{color:var(--blue)}
 /* Vue détaillée : même affiche que l'accueil */
@@ -972,9 +973,11 @@ function evBadge(e,short){return isNum(e)?`<span class="evb num">${esc(e.name)}<
 function posterSide(p,c){
   const w=p.n.split(/\s+/); const last=w.pop(); const first=w.join(" ");
   const nat=NAT[p.n], fl=nat&&FLAGS[nat];
-  const bg=fl?` style="--natbg:url('data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20">${fl}</svg>`)}')"`:"";
-  return `<span class="pside ${c}"><small>${esc(first)}${flag(p)}</small><b class="${fl?"natc":""}${last.length>9?" plong":""}"${bg}${fl?` title="${CTRY[nat]}"`:""}>${esc(last)}</b>${p.rec?`<em>${recHTML(p.rec)}</em>`:""}</span>`;
+  const bg=fl?` style="--natbg:url('data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20"${HSTRIPE.has(nat)?' preserveAspectRatio="none"':""}>${fl}</svg>`)}')"`:"";
+  return `<span class="pside ${c}"><small>${esc(first)}${flag(p)}</small><b class="${fl?"natc":""}${fl&&HSTRIPE.has(nat)?" natch":""}${last.length>9?" plong":""}"${bg}${fl?` title="${CTRY[nat]}"`:""}>${esc(last)}</b>${p.rec?`<em>${recHTML(p.rec)}</em>`:""}</span>`;
 }
+/* Drapeaux à bandes horizontales : étirés sur toute la hauteur du nom (sinon on ne voit que la bande du milieu) */
+const HSTRIPE=new Set(["RUS","GER","NED","HUN","AUT","UKR","POL","IDN","EST","BUL","LTU","ARM","SRB","CRO","SVK","SLO","LAT","YEM","GAB","SLE","BOL","COL","LUX","MON","GHA","EGY","IRQ","IRI","TJK","KGZ","AZE","UZB","CUB","PUR","THA","MGL"]);
 /* Favoris : propres à chaque visiteur, gardés dans son navigateur */
 let FAVS=[];
 try{const v=JSON.parse(localStorage.getItem("coinrouge-favs")||"[]");if(Array.isArray(v))FAVS=v.filter(x=>typeof x==="string");}catch(e){}

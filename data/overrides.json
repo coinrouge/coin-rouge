@@ -1,0 +1,7 @@
+{
+ "_note": "Corrections manuelles : horaires (segs, en UTC), fuseau (tz), horaires à confirmer (tbc), titres non visibles sur Wikipédia (titles).",
+ "fn-prochazka-stirling": { "tz": "Asia/Qatar", "tbc": false,
+   "segs": [{ "k": "prelims", "t": "2026-11-21T15:00:00Z" }, { "k": "main", "t": "2026-11-21T18:00:00Z" }] },
+ "ufc333": { "tbc": true },
+ "ufc335": { "tbc": true, "titles": { "Charles Oliveira": "Ceinture BMF", "Diego Lopes": "Ceinture BMF" } }
+}

@@ -696,15 +696,16 @@ details.ev summary:hover .chev{color:var(--ink)}
 
   <footer class="foot">
     <p>Horaires affichés à l'heure de Paris. L'heure de chaque combat est une estimation : seules les heures de début de chaque partie de soirée sont fixées, la suite dépend de la durée des combats précédents.</p>
-    <p>Cartes relevées le 27 octobre 2026. Elles peuvent encore changer d'ici le jour J (blessures, remplacements).</p>
+    <p id="srcline">Cartes relevées le 27 octobre 2026. Elles peuvent encore changer d'ici le jour J (blessures, remplacements).</p>
+    <p>Site indépendant, non affilié à l'UFC ni aux organisations citées.</p>
   </footer>
 </div>
 
 <script>
-const W={"":"Catégorie à préciser",LW:"Lightweight",WW:"Welterweight",MW:"Middleweight",HW:"Heavyweight",LHW:"Light Heavyweight",FW:"Featherweight",BW:"Bantamweight",FLW:"Flyweight",WBW:"Women's Bantamweight",WFLW:"Women's Flyweight",WSW:"Women's Strawweight"};
+const W={"":"Catégorie à préciser",WFW:"Women's Featherweight",LW:"Lightweight",WW:"Welterweight",MW:"Middleweight",HW:"Heavyweight",LHW:"Light Heavyweight",FW:"Featherweight",BW:"Bantamweight",FLW:"Flyweight",WBW:"Women's Bantamweight",WFLW:"Women's Flyweight",WSW:"Women's Strawweight"};
 const SEG={early:"Early prelims",prelims:"Préliminaires",main:"Main card"};
 /* Limite de poids officielle de chaque catégorie */
-const LIM={"":"",HW:"120,2 kg · 265 lb",LHW:"93 kg · 205 lb",MW:"83,9 kg · 185 lb",WW:"77,1 kg · 170 lb",LW:"70,3 kg · 155 lb",FW:"65,8 kg · 145 lb",BW:"61,2 kg · 135 lb",FLW:"56,7 kg · 125 lb",WBW:"61,2 kg · 135 lb",WFLW:"56,7 kg · 125 lb",WSW:"52,2 kg · 115 lb"};
+const LIM={"":"",WFW:"65,8 kg · 145 lb",HW:"120,2 kg · 265 lb",LHW:"93 kg · 205 lb",MW:"83,9 kg · 185 lb",WW:"77,1 kg · 170 lb",LW:"70,3 kg · 155 lb",FW:"65,8 kg · 145 lb",BW:"61,2 kg · 135 lb",FLW:"56,7 kg · 125 lb",WBW:"61,2 kg · 135 lb",WFLW:"56,7 kg · 125 lb",WSW:"52,2 kg · 115 lb"};
 const P=(n,o={})=>({n,...o});
 
 /* Autres événements à venir (liste seule, sans fight card détaillée) */
@@ -820,7 +821,7 @@ const RADAR=[
 
 /* Durées estimées par combat, entrées des combattants et pauses comprises (en minutes) */
 const DUR={3:27,5:42};
-EVENTS.forEach(ev=>{
+function prepEvents(){EVENTS.forEach(ev=>{
   const order=["early","prelims","main"];
   let cur=0, n=0;
   order.forEach(k=>{
@@ -830,7 +831,8 @@ EVENTS.forEach(ev=>{
     list.forEach(f=>{f.est=cur; f.end=cur+DUR[f.r]*60000; cur=f.end; f.ord=++n;});
   });
   ev.start=Date.parse(ev.segs[0].t); ev.end=cur+15*60000;
-});
+});}
+prepEvents();
 
 const tz="Europe/Paris";
 const fmtLocal=(d,z)=>new Intl.DateTimeFormat("fr-FR",{timeZone:z,hour:"2-digit",minute:"2-digit"}).format(d);
@@ -996,7 +998,7 @@ function boutHTML(f,t,detail,total,me,ev,spoilOK){
   else {tb="≈ "+fmtT(f.est);lab=fmtDS(f.est);}
   const res=SPOIL&&spoilOK&&t>=f.end?resultOf(f,t):null;
   const resHTML=res?`<span class="resl${res.w==="draw"?" rdraw":""}">${res.w==="draw"?"Match nul":res.w==="nc"?"No contest":`Victoire ${esc(splitName(f.a).last===splitName(f.b).last?(res.w==="a"?f.a:f.b).n:splitName(res.w==="a"?f.a:f.b).last)}`}<em>${esc(res.method)} · R${res.round} ${esc(res.time)}${res.demo?" · test":""}</em></span>`:(SPOIL&&spoilOK&&t>=f.end?`<span class="resl rwait">Résultat non disponible</span>`:"");
-  const mid=`${detail?`<span class="mtime ${cls}"><b>${tb}</b><span class="tzfr">Heure française</span></span>`:""}${resHTML}${f.title?`<span class="belt">${esc(f.title)}</span>`:""}${detail?`<span class="rd">${W[f.w]}</span><span class="rds">${f.r} rounds</span>`:`<span class="rd">${W[f.w]} · ${f.r} rds</span>`}${detail?`<span class="lim">${LIM[f.w]}</span><span class="cnum">Combat ${f.ord}/${total}</span>`:""}`;
+  const mid=`${detail?`<span class="mtime ${cls}"><b>${tb}</b><span class="tzfr">Heure française</span></span>`:""}${resHTML}${f.title?`<span class="belt">${esc(f.title)}</span>`:""}${detail?`<span class="rd">${W[f.w]||f.w}</span><span class="rds">${f.r} rounds</span>`:`<span class="rd">${W[f.w]||f.w} · ${f.r} rds</span>`}${detail?`<span class="lim">${LIM[f.w]||""}</span><span class="cnum">Combat ${f.ord}/${total}</span>`:""}`;
   const fv=isFav(f.a.n)||isFav(f.b.n);
   const sf=!me&&!fv&&(f.a.star||f.b.star);
   const favLabel=`<span class="fvl">♥ Favori</span>`;
@@ -1255,6 +1257,22 @@ simr.addEventListener("input",()=>{
 });
 document.getElementById("simreset").addEventListener("click",()=>{simr.value=0;simOffset=null;simo.textContent="Heure réelle";render();});
 
+/* Données automatiques (Wikipédia) : remplacent les cartes saisies à la main quand elles sont disponibles */
+const STARS=new Set(EVENTS.flatMap(e=>e.fights.flatMap(f=>[f.a,f.b])).filter(p=>p.star).map(p=>p.n));
+["Alexander Volkanovski","Petr Yan","Merab Dvalishvili","Movsar Evloev","Islam Makhachev","Ilia Topuria","Tom Aspinall","Jon Jones","Khamzat Chimaev","Sean Strickland","Max Holloway","Justin Gaethje","Paddy Pimblett","Sean O'Malley","Conor McGregor","Valentina Shevchenko","Zhang Weili"].forEach(n=>STARS.add(n));
+fetch("data/events.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=>{
+  if(!d||!Array.isArray(d.events)||!d.events.length) return;
+  const past=EVENTS.filter(e=>!d.events.some(x=>x.id===e.id)&&e.fights.some(f=>f.res));
+  const fix=p=>{if(p.nat&&!NAT[p.n])NAT[p.n]=p.nat; if(STARS.has(p.n))p.star=1; return p;};
+  const evs=d.events.map(e=>({...e,fights:e.fights.map(f=>({...f,a:fix(f.a),b:fix(f.b)}))}));
+  EVENTS.length=0; EVENTS.push(...past,...evs);
+  for(let i=AGENDA.length-1;i>=0;i--) if(/^UFC/.test(AGENDA[i].org)) AGENDA.splice(i,1);
+  (d.agenda||[]).forEach(a=>AGENDA.push(a));
+  prepEvents();
+  const u=new Date(d.updated);
+  document.getElementById("srcline").textContent=`Cartes mises à jour automatiquement le ${fmtD(u)} à ${fmtT(u)} depuis Wikipédia (CC BY-SA). Elles peuvent encore changer d'ici le jour J.`;
+  render();
+}).catch(()=>{});
 render();
 setInterval(render,30000);
 </script>

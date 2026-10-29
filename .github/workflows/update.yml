@@ -1,0 +1,27 @@
+name: Mise à jour des fight cards
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 */6 * * *"        # toutes les 6 heures
+    - cron: "*/20 18-23 * * 6"    # samedi soir (UTC) : toutes les 20 min
+    - cron: "*/20 0-7 * * 0"      # nuit de samedi à dimanche (UTC)
+  push:
+    paths: ["scripts/update.mjs", "data/overrides.json", ".github/workflows/update.yml"]
+permissions:
+  contents: write
+concurrency: { group: update, cancel-in-progress: false }
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm install --no-save cheerio@1.0.0
+      - run: mkdir -p out && node scripts/update.mjs 2>&1 | tee out/update.log
+      - run: |
+          git config user.name "coin-rouge-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/events.json out/update.log
+          git commit -m "Mise à jour automatique des fight cards" || exit 0
+          git pull --rebase -q && git push

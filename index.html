@@ -1011,11 +1011,17 @@ function match(f){
 const norm=s=>s.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase();
 function hits(f){return query && (norm(f.a.n).includes(query)||norm(f.b.n).includes(query));}
 
+/* Bouton vers la carte complète : seulement s'il reste des combats non affichés ; « Main card » quand la sous-carte n'est pas connue (boxe) */
+function moreBtn(ev,shownAll){
+  const restN=ev.fights.length-ev.fights.filter(f=>f.s==="main").length;
+  if(shownAll||!restN) return "";
+  return `<a class="morebtn" href="#ev-${ev.id}">${ev.sport==="boxe"||ev.partial?"Main card complète":"Fight card complète"} · ${ev.fights.length} combats</a>`;
+}
 function boutHTML(f,t,detail,total,me,ev,spoilOK){
   let cls="", tb="", lab="";
   if(t>=f.est&&t<f.end){cls="now";tb=fmtT(f.est);lab="En cours ?";}
   else if(t>=f.end){cls="done";tb=fmtT(f.est);lab=f.res?"Terminé":"Terminé ?";}
-  else {tb="≈ "+fmtT(f.est);lab=fmtDS(f.est);}
+  else {tb=(f.known&&!(ev&&ev.tbc)?"":"≈ ")+fmtT(f.est);lab=fmtDS(f.est);}
   const res=SPOIL&&spoilOK&&t>=f.end?resultOf(f,t):null;
   const resHTML=res?`<span class="resl${res.w==="draw"?" rdraw":""}">${res.w==="draw"?"Match nul":res.w==="nc"?"No contest":`Victoire ${esc(splitName(f.a).last===splitName(f.b).last?(res.w==="a"?f.a:f.b).n:splitName(res.w==="a"?f.a:f.b).last)}`}<em>${esc(res.method)} · R${res.round} ${esc(res.time)}${res.demo?" · test":""}</em></span>`:(SPOIL&&spoilOK&&t>=f.end?`<span class="resl rwait">Résultat non disponible</span>`:"");
   const mid=`${detail?`<span class="mtime ${cls}"><b>${tb}</b><span class="tzfr">Heure française</span></span>`:""}${resHTML}${f.title?`<span class="belt">${esc(f.title)}</span>`:""}${detail?`<span class="rd">${W[f.w]||f.w}</span><span class="rds">${f.r} rounds</span>`:`<span class="rd">${W[f.w]||f.w} · ${f.r} rds</span>`}${detail?`<span class="lim">${LIM[f.w]||""}</span><span class="cnum">Combat ${f.ord}/${total}</span>`:""}`;
@@ -1087,7 +1093,7 @@ function render(){
         ${posterSide(mainF.b,"blue")}
       </h2>
       <div class="pbot">
-        <div class="pwhen"><span class="pdate">${fmtD(ev.start)} </span><span class="pstart">Début de soirée ${fmtT(ev.start)}${ev.tbc?" · horaires à confirmer":""}</span><span class="pstart pme">Main event ≈ <b>${fmtT(ev.fights[0].est)}</b></span></div>
+        <div class="pwhen"><span class="pdate">${fmtD(ev.start)} </span><span class="pstart">Début de soirée ${fmtT(ev.start)}${ev.tbc?" · horaires à confirmer":""}</span><span class="pstart pme">Main event ${ev.fights[0].known&&!ev.tbc?"":"≈ "}<b>${fmtT(ev.fights[0].est)}</b></span></div>
         ${live?"":`<span class="cdown">Début dans <b>${c.n}</b></span>`}
       </div>
       ${schedHTML(ev)}
@@ -1099,7 +1105,7 @@ function render(){
     </div>`;
   const restN=ev.fights.length-ev.fights.filter(f=>f.s==="main").length;
   document.getElementById("hero").insertAdjacentHTML("beforeend",`<div class="hero-card">${cardHTML(ev,t,{only:filter==="all"?"main":null})}
-    <a class="morebtn" href="#ev-${ev.id}">Fight card complète · ${ev.fights.length} combats</a></div>`);
+    ${moreBtn(ev,false)}</div>`);
 
   const others=pool.filter(e=>e!==ev);
   const openIds=[...document.querySelectorAll("details.ev[open]")].map(d=>d.dataset.id);
@@ -1165,7 +1171,7 @@ function evItem(e,t,openIds,isPast){
       <summary><div class="dt"><b>${dayN(e.start)}</b><small>${monS(e.start)}</small></div>
       <div><div class="sum-t">${vsHTML({name:`${e.a} vs ${e.b}`,frA:e.fights[0].a.fr,frB:e.fights[0].b.fr,fr:fr&&!e.fights[0].a.fr&&!e.fights[0].b.fr})}</div><div class="sum-m">${evBadge(e,1)} ${esc(e.venue)}, ${esc(e.city)} · ${isPast?"terminé":`début ${fmtT(e.start)}${e.tbc?" (à confirmer)":""}`}</div></div>
       <span class="chev" aria-hidden="true">▼</span></summary>
-      <div class="inner">${schedHTML(e)}${cardHTML(e,t,{only:filter==="all"?"main":null})}<a class="morebtn" href="#ev-${e.id}">Fight card complète · ${e.fights.length} combats</a></div></details>`;
+      <div class="inner">${schedHTML(e)}${cardHTML(e,t,{only:filter==="all"?"main":null})}${moreBtn(e,false)}</div></details>`;
 }
 function findBox(t){
   const fd=document.getElementById("find");
@@ -1196,7 +1202,7 @@ function detailHTML(ev,t){
         <span class="pmid"><span class="pvs" aria-label="contre">VS</span><span class="pvenue2"><span class="vcity">${esc(ev.city)}</span><span class="vsalle">${esc(ev.venue)}</span>${hostFlag(ev)}</span></span>
         ${posterSide(ev.fights[0].b,"blue")}
       </h2>
-      <div class="pwhen"><span class="pdate">${fmtD(ev.start)} </span><span class="pstart">Début de soirée ${fmtT(ev.start)}${ev.tbc?" · horaires à confirmer":""}</span><span class="pstart pme">Main event ≈ <b>${fmtT(ev.fights[0].est)}</b></span></div>
+      <div class="pwhen"><span class="pdate">${fmtD(ev.start)} </span><span class="pstart">Début de soirée ${fmtT(ev.start)}${ev.tbc?" · horaires à confirmer":""}</span><span class="pstart pme">Main event ${ev.fights[0].known&&!ev.tbc?"":"≈ "}<b>${fmtT(ev.fights[0].est)}</b></span></div>
       <div class="dfacts">
         <div><small>Combats</small><b>${ev.fights.length}</b></div>
         ${titles.length?`<div><small>Ceintures en jeu</small><b>${esc(titles.join(" · "))}</b></div>`:""}

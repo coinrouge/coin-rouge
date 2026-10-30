@@ -28,6 +28,12 @@
 .pfl{--red:#5B21B6;--fn-bg:#E3D6FA;--fn-ink:#4C1D95;--fn-t:#F6F2FD;--fn-line:#DED3F5;--fn-inner:#FCFAFF;--fn-me:#EEE6FB;--fn-star:#F3EEFD;--fn-hero:#EDE5FB;--fn-hero-me:#DFD2F8}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .pfl{--red:#8B5CF6;--fn-bg:#2B1A4F;--fn-ink:#A78BFA;--fn-t:#1A1722;--fn-line:#352B4D;--fn-inner:#211C2E;--fn-me:#2B2340;--fn-star:#251F36;--fn-hero:#1F1A2E;--fn-hero-me:#2A2244}}
 :root[data-theme="dark"] .pfl{--red:#8B5CF6;--fn-bg:#2B1A4F;--fn-ink:#A78BFA;--fn-t:#1A1722;--fn-line:#352B4D;--fn-inner:#211C2E;--fn-me:#2B2340;--fn-star:#251F36;--fn-hero:#1F1A2E;--fn-hero-me:#2A2244}
+/* ARES en vert, Hexagone MMA en orange */
+.ares{--red:#00A862;--fn-bg:#D2F7E6;--fn-ink:#00754A;--fn-t:#F1FCF7;--fn-line:#CDEFDF;--fn-inner:#FAFFFC;--fn-me:#E2F8EE;--fn-star:#ECFBF4;--fn-hero:#E4F9EF;--fn-hero-me:#D2F3E3}
+.hex{--red:#C25B00;--fn-bg:#FCE4CF;--fn-ink:#9A4800;--fn-t:#FDF5EE;--fn-line:#F3D9C2;--fn-inner:#FFFBF7;--fn-me:#FBEBDD;--fn-star:#FCF2E8;--fn-hero:#FCEEE1;--fn-hero-me:#F8E0CB}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .ares{--red:#00E988;--fn-bg:#0F3326;--fn-ink:#00E988;--fn-t:#141C19;--fn-line:#1F3A2F;--fn-inner:#17201C;--fn-me:#1C2E26;--fn-star:#19261F;--fn-hero:#152019;--fn-hero-me:#1B3227}:root:not([data-theme="light"]) .hex{--red:#E96E00;--fn-bg:#3A2210;--fn-ink:#E96E00;--fn-t:#1E1913;--fn-line:#3D2B1B;--fn-inner:#241C15;--fn-me:#33251A;--fn-star:#2B2118;--fn-hero:#211A13;--fn-hero-me:#36261A}}
+:root[data-theme="dark"] .ares{--red:#00E988;--fn-bg:#0F3326;--fn-ink:#00E988;--fn-t:#141C19;--fn-line:#1F3A2F;--fn-inner:#17201C;--fn-me:#1C2E26;--fn-star:#19261F;--fn-hero:#152019;--fn-hero-me:#1B3227}
+:root[data-theme="dark"] .hex{--red:#E96E00;--fn-bg:#3A2210;--fn-ink:#E96E00;--fn-t:#1E1913;--fn-line:#3D2B1B;--fn-inner:#241C15;--fn-me:#33251A;--fn-star:#2B2118;--fn-hero:#211A13;--fn-hero-me:#36261A}
 /* Boxe : même mise en page que les Fight Nights, en bleu */
 .bx{--red:var(--blue);--fn-bg:#DCE5FB;--fn-ink:#183FA8;--fn-t:#F3F6FD;--fn-line:#D3DDF5;--fn-inner:#FAFBFF;--fn-me:#E6ECFB;--fn-star:#EFF3FD;--fn-hero:#E4EAFB;--fn-hero-me:#D3DEF8}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .bx{--fn-bg:#1B2440;--fn-ink:#95B0FF;--fn-t:#171A21;--fn-line:#29324A;--fn-inner:#1D2230;--fn-me:#242C42;--fn-star:#202739;--fn-hero:#1A2033;--fn-hero-me:#222B45}}
@@ -1031,7 +1037,7 @@ function fighterHTML(p,side,state){
   return `<div class="f ${side}${fav?" isfav":""}${state?" "+state:""}"><div class="fx">${avatarHTML(p)}<div class="txt"><span class="nmrow">${side==="b"&&fav?`<span class="fm-pre">${favMark(p)}</span>`:""}${splitName(p).first?`${side==="b"?`<span class="fl-pre">${p.star?'<span class="star" aria-label="star">★</span>':""}${flag(p)}</span>`:""}<span class="fn">${esc(splitName(p).first)}</span> `:""}<span class="lnline">${side==="b"&&fav?`<span class="fm-ln">${favMark(p)}</span>`:""}${nm}${side==="a"&&fav?favMark(p):""}</span></span>${meta||!p.tbd?`<span class="rec">${side==="b"?favBtn(p):""}${meta}${side==="a"?favBtn(p):""}</span>`:""}</div></div></div>`;
 }
 const isNum=e=>/^UFC \d+/.test(e.name);
-const evCls=e=>isNum(e)?"num":e.sport==="boxe"?"fn bx":e.org==="PFL"?"fn pfl":"fn";
+const evCls=e=>isNum(e)?"num":e.sport==="boxe"?"fn bx":e.org==="PFL"?"fn pfl":e.org==="ARES"?"fn ares":/^Hexagone/.test(e.org||"")?"fn hex":"fn";
 function evBadge(e,short){return isNum(e)?`<span class="evb num">${esc(e.name)}</span>`:`<span class="evb ${evCls(e)}">${esc(e.name)}${short?"":` : ${esc(e.a)} vs ${esc(e.b)}`}</span>`;}
 function posterSide(p,c){
   const w=p.n.split(/\s+/); const last=w.pop(); const first=w.join(" ");
@@ -1210,7 +1216,7 @@ function render(){
     document.getElementById("pastsec").hidden=true;
     findBox(t); favs(t); radar(); renderDetail(t); return;
   }
-  heroEl.classList.toggle("num",isNum(ev)); heroEl.classList.toggle("fn",!isNum(ev)); heroEl.classList.toggle("bx",ev.sport==="boxe"); heroEl.classList.toggle("pfl",ev.org==="PFL");
+  heroEl.classList.toggle("num",isNum(ev)); heroEl.classList.toggle("fn",!isNum(ev)); heroEl.classList.toggle("bx",ev.sport==="boxe"); heroEl.classList.toggle("pfl",ev.org==="PFL"); heroEl.classList.toggle("ares",ev.org==="ARES"); heroEl.classList.toggle("hex",/^Hexagone/.test(ev.org||""));
   const live=t>=ev.start&&t<ev.end;
   const c=cd(ev.start-t);
   const mainF=ev.fights[0];

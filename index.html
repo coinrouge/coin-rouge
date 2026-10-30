@@ -69,6 +69,15 @@ button,input,select{font:inherit;color:inherit}
 .brand{font-family:var(--f-display);font-weight:900;font-size:clamp(34px,7vw,52px);line-height:.9;letter-spacing:.01em;text-transform:uppercase;margin:0}
 .brand span{color:var(--red)}
 .homelink{color:inherit;text-decoration:none}
+.favsort{display:flex;align-items:center;gap:10px;margin:-4px 0 10px;font-size:13px;color:var(--muted)}
+.favsort select{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:6px 10px;color:var(--ink)}
+.favmore{display:block;width:100%;padding:10px;border:0;border-top:1px solid var(--line);background:transparent;color:var(--ink);font-family:var(--f-data);font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.favmore:hover{background:var(--soft)}
+.favrow:has(.favmove){grid-template-columns:auto auto 1fr auto auto}
+.favmove{display:flex;flex-direction:column;gap:2px}
+.favmove button{width:26px;height:20px;border:1px solid var(--line);border-radius:4px;background:var(--surface);color:var(--muted);cursor:pointer;font-size:10px;line-height:1;padding:0}
+.favmove button:hover:not(:disabled){color:var(--ink);border-color:var(--ink)}
+.favmove button:disabled{opacity:.3;cursor:default}
 .sumplus{margin-left:10px;color:var(--gold);opacity:.85}
 .sumtitle{margin-left:12px;font-family:var(--f-data);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);vertical-align:.2em;white-space:nowrap}
 /* Agenda et calendrier : nom de l'organisation à ses couleurs */
@@ -780,6 +789,8 @@ details.ev summary:hover .chev{color:var(--ink)}
 
   <section id="favsec">
     <h2 class="h">Mes <span>favoris</span></h2>
+    <div class="favsort" id="favsortbox" hidden><label for="favsort">Trier</label>
+      <select id="favsort"><option value="date">Par prochain combat</option><option value="perso">Mon ordre (flèches ▲▼)</option><option value="name">Par nom (A → Z)</option><option value="fr">Francophones d'abord</option></select></div>
     <div class="favadd" id="favadd" hidden>
       <label class="search" for="favq">
         <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
@@ -1139,9 +1150,16 @@ function favs(t){
   const favSport=(n,x)=>x?(x.e.sport||"mma"):(DIR.get(n)||{}).sp||null;
   /* Onglet Francophones : seulement les favoris français ou belges */
   const isFranco=(n,x)=>{const nat=(x&&x.me.nat)||NAT[n]||(DIR.get(n)||{}).nat;return !!(x&&x.me.fr)||nat==="FRA"||(nat==="BEL"&&!NOT_FRANCO.has(n));};
-  const rows=FAVS.map(n=>({n,x:nextFightOf(n,t)})).filter(({n,x})=>(sport==="all"||favSport(n,x)===sport)&&(filter!=="fr"||isFranco(n,x))).sort((a,b)=>(a.x?a.x.f.est:Infinity)-(b.x?b.x.f.est:Infinity));
+  document.getElementById("favsortbox").hidden=filter!=="fav";
+  document.getElementById("favsort").value=FAVSORT;
+  const byDate=(a,b)=>(a.x?a.x.f.est:Infinity)-(b.x?b.x.f.est:Infinity);
+  const favCmp=FAVSORT==="perso"?(a,b)=>FAVS.indexOf(a.n)-FAVS.indexOf(b.n):FAVSORT==="name"?(a,b)=>splitName({n:a.n}).last.localeCompare(splitName({n:b.n}).last,"fr"):FAVSORT==="fr"?(a,b)=>(isFranco(b.n,b.x)-isFranco(a.n,a.x))||byDate(a,b):byDate;
+  let rows=FAVS.map(n=>({n,x:nextFightOf(n,t)})).filter(({n,x})=>(sport==="all"||favSport(n,x)===sport)&&(filter!=="fr"||isFranco(n,x))).sort(favCmp);
   if(!rows.length){el.innerHTML=`<div class="favempty">${filter==="fr"?"Aucun favori francophone pour l'instant.":`Aucun favori en ${sport==="boxe"?"boxe":"MMA"} pour l'instant.`}</div>`;return;}
-  el.innerHTML=rows.map(({n,x})=>{
+  /* Colonne de droite : 6 favoris maximum, puis un bouton vers l'onglet Favoris */
+  const total=rows.length, side=filter!=="fav";
+  if(side) rows=rows.slice(0,6);
+  el.innerHTML=rows.map(({n,x},i)=>{
     const p=x?x.me:{n};
     const when=x?(t>=x.f.est&&t<x.f.end?`<b class="nowtag">Probablement en cours</b>`:`${fmtD(x.f.est)} · vers <b>${fmtT(x.f.est)}</b>`):"Aucun combat annoncé pour l'instant";
     return `<div class="favrow">
@@ -1149,9 +1167,20 @@ function favs(t){
       ${NAT[n]?avatarHTML({n}):`<span class="av tbd" aria-hidden="true">${esc(initials(n))}</span>`}
       <div class="favtxt"><span class="favn">${esc(n)}</span><span class="favw">${x?`contre ${esc(x.opp.n)} · <a href="#ev-${x.e.id}">${esc(x.e.name)} ${esc(x.e.a)} vs ${esc(x.e.b)}</a>`:""}</span></div>
       <div class="favwhen">${when}</div>
+      ${!side&&FAVSORT==="perso"?`<div class="favmove"><button type="button" data-mv="-1" data-n="${esc(n)}" ${i===0?"disabled":""} aria-label="Monter">▲</button><button type="button" data-mv="1" data-n="${esc(n)}" ${i===rows.length-1?"disabled":""} aria-label="Descendre">▼</button></div>`:""}
     </div>`;
-  }).join("");
+  }).join("")+(side&&total>rows.length?`<button type="button" class="favmore" id="favmore">Voir tous mes favoris · ${total}</button>`:"");
 }
+let FAVSORT="date";try{FAVSORT=localStorage.getItem("coinrouge-favsort")||"date";}catch(e){}
+document.addEventListener("change",e=>{if(e.target.id!=="favsort")return;FAVSORT=e.target.value;try{localStorage.setItem("coinrouge-favsort",FAVSORT);}catch(_){}render();});
+document.addEventListener("click",e=>{
+  if(e.target.closest("#favmore")){document.querySelector('.seg button[data-f="fav"]').click();window.scrollTo({top:0,behavior:"smooth"});return;}
+  const b=e.target.closest(".favmove button");if(!b)return;
+  /* Mon ordre : on échange avec le voisin visible */
+  const vis=[...document.querySelectorAll("#favs .favmove button[data-mv='1']")].map(x=>x.dataset.n);
+  const n=b.dataset.n,k=vis.indexOf(n),o=vis[k+ +b.dataset.mv];if(o===undefined)return;
+  const i=FAVS.indexOf(n),j=FAVS.indexOf(o);[FAVS[i],FAVS[j]]=[FAVS[j],FAVS[i]];saveFavs();render();
+});
 document.addEventListener("click",e=>{const b=e.target.closest(".favbtn");if(!b)return;e.preventDefault();e.stopPropagation();toggleFav(b.dataset.fav);});
 function match(f){
   if(filter==="fav"&&!(isFav(f.a.n)||isFav(f.b.n))) return false;

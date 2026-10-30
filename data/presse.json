@@ -168,6 +168,152 @@
    ]
   },
   {
+   "id": "ares-44",
+   "sport": "mma",
+   "org": "ARES",
+   "name": "ARES 44",
+   "a": "Younousov",
+   "b": "Nam",
+   "venue": "Zénith de Strasbourg",
+   "city": "Strasbourg",
+   "ctry": "FRA",
+   "tz": "Europe/Paris",
+   "tbc": 1,
+   "partial": 1,
+   "segs": [
+    {
+     "k": "main",
+     "t": "2026-10-31T18:30:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "BW",
+     "r": 5,
+     "a": {
+      "n": "Aboubakar Younousov",
+      "nat": "FRA",
+      "rec": "8-0-0"
+     },
+     "b": {
+      "n": "Tyson Nam",
+      "nat": "USA",
+      "rec": "23-16-1"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Poids négocié (72,5 kg)",
+     "r": 3,
+     "a": {
+      "n": "Youssef Boughanem",
+      "nat": "BEL",
+      "rec": "5-0-0"
+     },
+     "b": {
+      "n": "Mohamed Soumah",
+      "rec": "4-3-0"
+     }
+    },
+    {
+     "s": "main",
+     "w": "LW",
+     "r": 3,
+     "a": {
+      "n": "Andrii Misiuk",
+      "rec": "6-0-0"
+     },
+     "b": {
+      "n": "Phruethukorn Chaichongcharden",
+      "rec": "4-4-1"
+     }
+    },
+    {
+     "s": "main",
+     "w": "LW",
+     "r": 3,
+     "a": {
+      "n": "Sofiane El Fatni",
+      "rec": "4-1-0"
+     },
+     "b": {
+      "n": "Mario Gagliardi",
+      "rec": "4-0-0"
+     }
+    },
+    {
+     "s": "main",
+     "w": "LW",
+     "r": 3,
+     "a": {
+      "n": "Maher Belkhadir",
+      "rec": "3-2-0"
+     },
+     "b": {
+      "n": "Marc-Philippe Ngatchou",
+      "rec": "2-1-1"
+     }
+    },
+    {
+     "s": "main",
+     "w": "BW",
+     "r": 3,
+     "a": {
+      "n": "Lasha Gogishvili",
+      "rec": "3-1-0"
+     },
+     "b": {
+      "n": "Alexandre Carole",
+      "rec": "4-3-0"
+     }
+    },
+    {
+     "s": "main",
+     "w": "WSW",
+     "r": 3,
+     "a": {
+      "n": "Melissa Hurtado",
+      "rec": "3-0-0"
+     },
+     "b": {
+      "n": "Weronika Cisło",
+      "rec": "1-1-0"
+     }
+    },
+    {
+     "s": "main",
+     "w": "FW",
+     "r": 3,
+     "a": {
+      "n": "Benoit Prigent",
+      "rec": "3-0-0"
+     },
+     "b": {
+      "n": "Jafar Yousifi",
+      "rec": "2-0-0"
+     }
+    },
+    {
+     "s": "main",
+     "w": "MW",
+     "r": 3,
+     "a": {
+      "n": "Mohadi Nazirov",
+      "rec": "1-0-0"
+     },
+     "b": {
+      "n": "Ibrahima Dosso",
+      "rec": "2-2-0"
+     }
+    }
+   ],
+   "sources": [
+    "https://gidstats.com/events/ares_fc_44-2026-10-31/",
+    "https://next-fight.com/fr/event/ares-strasbourg"
+   ]
+  },
+  {
    "id": "bx-buatsi-hutchinson",
    "sport": "boxe",
    "org": "Boxe",
@@ -280,6 +426,79 @@
    "partial": 1
   },
   {
+   "id": "ares-45",
+   "sport": "mma",
+   "org": "ARES",
+   "name": "ARES 45",
+   "a": "Zébo",
+   "b": "Chamsoudinov",
+   "venue": "Adidas Arena",
+   "city": "Paris",
+   "ctry": "FRA",
+   "tz": "Europe/Paris",
+   "tbc": 1,
+   "partial": 1,
+   "segs": [
+    {
+     "k": "main",
+     "t": "2026-11-20T18:30:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "WW",
+     "r": 5,
+     "a": {
+      "n": "Jordan Zébo",
+      "nat": "FRA",
+      "rec": "11-1-0",
+      "champ": 1
+     },
+     "b": {
+      "n": "Baysangur Chamsoudinov",
+      "nat": "FRA",
+      "rec": "9-1-0"
+     },
+     "title": "Titre welterweight ARES"
+    },
+    {
+     "s": "main",
+     "w": "BW",
+     "r": 3,
+     "a": {
+      "n": "Amir Aliev",
+      "nat": "RUS",
+      "rec": "8-1-0"
+     },
+     "b": {
+      "n": "Adionai Maciel",
+      "rec": "12-2-0"
+     }
+    },
+    {
+     "s": "main",
+     "w": "FW",
+     "r": 3,
+     "a": {
+      "n": "Ghassen Jbalia",
+      "nat": "FRA",
+      "rec": "6-1-0"
+     },
+     "b": {
+      "n": "Modibo Diakité",
+      "nat": "FRA",
+      "rec": "4-0-0"
+     }
+    }
+   ],
+   "sources": [
+    "https://www.ufc-fr.com/event-738.html",
+    "https://uk.tourisme93.com/ares-paris-mma.html",
+    "https://www.cnews.fr/sport/2026-07-29/mma-voici-la-date-officielle-du-combat-revanche-entre-jordan-zebo-et-baki-1897890"
+   ]
+  },
+  {
    "id": "bx-kabayel-hysa",
    "sport": "boxe",
    "org": "Boxe",
@@ -390,6 +609,14 @@
    "name": "Hexagone MMA Montpellier",
    "org": "Hexagone MMA · Zénith Sud, Montpellier",
    "note": "Affiche à annoncer",
+   "fr": 1
+  },
+  {
+   "sport": "mma",
+   "date": "2026-12-11",
+   "name": "ARES 46",
+   "org": "ARES · Adidas Arena, Paris",
+   "note": "Jade Jorand pour la ceinture · carte à venir",
    "fr": 1
   }
  ]

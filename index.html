@@ -1450,7 +1450,7 @@ function detailHTML(ev,t){
   const live=t>=ev.start&&t<ev.end;
   return `<div class="dbar"><div class="dleft"><a class="dbrand homelink" href="#" title="Retour à l'accueil">Coin<span>Rouge</span></a><a class="back" href="#">← Retour</a></div><button type="button" class="spoilbtn" id="spoil" aria-pressed="${SPOIL}" title="Afficher ou masquer les résultats"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="eye" d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle class="eye" cx="12" cy="12" r="3"/><path class="slash" d="M3 3l18 18"/></svg><span>${SPOIL?"Spoil":"No spoil"}</span></button></div>
   <div class="dwrap">
-    <div class="dtitle ${evCls(ev)}">${evBadge(ev,1)}<h1>${esc(ev.a)} vs ${esc(ev.b)}</h1><span>Carte complète</span></div>
+    <div class="dtitle ${evCls(ev)}">${evBadge(ev,1)}<h1>${esc(ev.a)} vs ${esc(ev.b)}</h1><span>${ev.partial?"Carte partielle":"Carte complète"}</span></div>
     <div class="dhead ${evCls(ev)}">
       ${live?'<div class="eyebrow"><span class="pill live">Live</span></div>':""}
       <h2 class="pduel dduel">
@@ -1519,7 +1519,18 @@ function renderDetail(t){
     document.documentElement.style.overflow="hidden";
     d.scrollTop=0; d.querySelector(".back").focus({preventScroll:true});
   }
+  fitNames();
 }
+/* Grands noms du haut de fiche : on réduit la taille si le nom déborde (ex. WARBURTON) */
+function fitNames(){
+  document.querySelectorAll(".pside b").forEach(b=>{
+    b.style.fontSize="";
+    const box=b.parentElement.clientWidth; if(!box) return;
+    const r=document.createRange(); r.selectNodeContents(b); const w=r.getBoundingClientRect().width;
+    if(w>box) b.style.fontSize=(parseFloat(getComputedStyle(b).fontSize)*box/w*.97)+"px";
+  });
+}
+addEventListener("resize",()=>fitNames());
 /* Retour à l'accueil : toujours en No spoil */
 function leaveSpoil(){if(!/^#ev-/.test(location.hash)&&SPOIL){SPOIL=false;return true;}return false;}
 window.addEventListener("hashchange",()=>{const was=SPOIL;renderDetail(now());leaveSpoil();if(was!==SPOIL)render();});

@@ -69,6 +69,17 @@ button,input,select{font:inherit;color:inherit}
 .brand{font-family:var(--f-display);font-weight:900;font-size:clamp(34px,7vw,52px);line-height:.9;letter-spacing:.01em;text-transform:uppercase;margin:0}
 .brand span{color:var(--red)}
 .homelink{color:inherit;text-decoration:none}
+/* Agenda et calendrier : nom de l'organisation à ses couleurs */
+.orgn{color:var(--fn-ink);font-weight:600}
+.onum .orgn{color:var(--gold)}
+.bx .orgn{color:var(--fn-ink)}
+/* MMA toujours rouge, Boxe toujours bleu (indépendamment de l'organisation) */
+.agl li .ags,.calrow .ags{color:#C8102E!important}
+.agl li.boxe .ags,.calrow.boxe .ags{color:#1F4FD1!important}
+:root[data-theme="dark"] .agl li .ags,:root[data-theme="dark"] .calrow .ags{color:#FF5468!important}
+:root[data-theme="dark"] .agl li.boxe .ags,:root[data-theme="dark"] .calrow.boxe .ags{color:#7FA2FF!important}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .agl li .ags,:root:not([data-theme="light"]) .calrow .ags{color:#FF5468!important}
+:root:not([data-theme="light"]) .agl li.boxe .ags,:root:not([data-theme="light"]) .calrow.boxe .ags{color:#7FA2FF!important}}
 .sumsp{font-family:var(--f-data);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-right:7px;opacity:.75}
 /* Libellé MMA / BOXE aux couleurs de l'organisation */
 .sumsp{color:var(--fn-ink)}
@@ -1274,6 +1285,8 @@ function render(){
 const SPORTLBL={all:"MMA + Boxe",mma:"MMA",boxe:"Boxe"};
 /* Couleur de l'organisation pour une ligne d'agenda (soirée avec ou sans carte) */
 function orgCls(x){const o=x.org||"";return x.sport==="boxe"?"bx":/^UFC \d/.test(o)?"onum":/^UFC/.test(o)?"":/^PFL/.test(o)?"pfl":/^ARES/.test(o)?"ares":/^Hexagone/.test(o)?"hex":"";}
+/* Nom de l'organisation coloré (avant le « · » du lieu) */
+function orgHTML(o){const i=(o||"").indexOf(" · ");return i<0?`<span class="orgn">${esc(o)}</span>`:`<span class="orgn">${esc(o.slice(0,i))}</span>${esc(o.slice(i))}`;}
 function agendaItems(t){
   return [
     ...EVENTS.filter(e=>t<e.end).map(e=>({sport:e.sport||"mma",ts:e.start,name:`${e.a} vs ${e.b}`,org:`${e.name} · ${e.city}`,id:e.id,frA:e.fights[0].a.fr&&(e.fights[0].a.be?2:1),frB:e.fights[0].b.fr&&(e.fights[0].b.be?2:1),stA:e.fights[0].a.star,stB:e.fights[0].b.star,fr:!e.fights[0].a.fr&&!e.fights[0].b.fr&&e.fights.some(f=>f.a.fr||f.b.fr)&&((e.fights.some(f=>f.a.fr&&!f.a.be||f.b.fr&&!f.b.be)?1:0)|(e.fights.some(f=>f.a.be||f.b.be)?2:0))})),
@@ -1297,7 +1310,7 @@ function agenda(t){
   const shown=items.slice(0,8);
   document.getElementById("agenda").innerHTML=shown.map(x=>`<li class="${x.sport} ${orgCls(x)}">
     <span class="agd">${new Intl.DateTimeFormat("fr-FR",{timeZone:tz,day:"numeric",month:"short"}).format(x.ts).replace(".","")}</span>
-    <span class="agt"><a href="#${x.id?"ev-"+x.id:agKey(x)}">${vsHTML({...x,noRd:1})}</a><small>${esc(x.org)}${x.note?" · "+esc(x.note):""}</small></span>
+    <span class="agt"><a href="#${x.id?"ev-"+x.id:agKey(x)}">${vsHTML({...x,noRd:1})}</a><small>${orgHTML(x.org)}${x.note?" · "+esc(x.note):""}</small></span>
     <span class="ags">${x.sport==="boxe"?"Boxe":"MMA"}</span></li>`).join("")||`<li class="agnone">Aucun événement à venir.</li>`;
   document.getElementById("agmore").textContent=`Calendrier complet · ${items.length} événements`;
 }
@@ -1313,7 +1326,7 @@ function calHTML(t){
     const wd=new Intl.DateTimeFormat("fr-FR",{timeZone:tz,weekday:"short"}).format(x.ts).replace(".","");
     return `<li class="calrow ${x.sport} ${orgCls(x)}">
       <div class="cald"><b>${dayN(x.ts)}</b><small>${wd}</small></div>
-      <div class="calt"><span class="calname">${vsHTML({...x,noRd:1,noSt:1})}<span class="ags calsp">${x.sport==="boxe"?"Boxe":"MMA"}</span>${x.frA||x.frB||x.fr?`<span class="rdl rdpill">${RADAR_SVG}Radar francophone</span>`:""}${x.stA||x.stB?'<span class="vstar" title="Star">★</span>':""}</span><span class="calorg">${esc(x.org)}${x.note?" · "+esc(x.note):""}</span><span class="calh">${main?`Main card <b>${fmtT(Date.parse(main.t))}</b>${ev.tbc?" <em>à confirmer</em>":""}`:"Horaire à confirmer"}</span></div>
+      <div class="calt"><span class="calname">${vsHTML({...x,noRd:1,noSt:1})}<span class="ags calsp">${x.sport==="boxe"?"Boxe":"MMA"}</span>${x.frA||x.frB||x.fr?`<span class="rdl rdpill">${RADAR_SVG}Radar francophone</span>`:""}${x.stA||x.stB?'<span class="vstar" title="Star">★</span>':""}</span><span class="calorg">${orgHTML(x.org)}${x.note?" · "+esc(x.note):""}</span><span class="calh">${main?`Main card <b>${fmtT(Date.parse(main.t))}</b>${ev.tbc?" <em>à confirmer</em>":""}`:"Horaire à confirmer"}</span></div>
       <div class="cals">${x.id?`<a class="calgo" href="#ev-${x.id}">Fight card →</a>`:`<a class="calgo soongo" href="#${agKey(x)}">Carte à venir →</a>`}</div>
     </li>`;
   };

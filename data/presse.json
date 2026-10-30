@@ -14,6 +14,10 @@
    "tv": "DAZN (PPV)",
    "segs": [
     {
+     "k": "prelims",
+     "t": "2026-10-31T14:15:00Z"
+    },
+    {
      "k": "main",
      "t": "2026-10-31T17:00:00Z"
     }
@@ -75,6 +79,19 @@
     },
     {
      "s": "main",
+     "w": "Super-coqs",
+     "r": 10,
+     "a": {
+      "n": "David Picasso",
+      "nat": "MEX"
+     },
+     "b": {
+      "n": "Carl Jammes Martin",
+      "nat": "PHI"
+     }
+    },
+    {
+     "s": "main",
      "w": "Super-plumes",
      "r": 10,
      "a": {
@@ -89,12 +106,65 @@
       "rec": "5-0-0",
       "tp": "493346-reito-tsutsumi"
      }
+    },
+    {
+     "s": "prelims",
+     "w": "Super-moyens",
+     "r": 10,
+     "a": {
+      "n": "Bek Nurmaganbet",
+      "nat": "KAZ"
+     },
+     "b": {
+      "n": "Marcos Vázquez Rodríguez",
+      "nat": "MEX"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "Moyens",
+     "r": 10,
+     "a": {
+      "n": "Carlos Emiliano Rojo Vázquez",
+      "nat": "MEX"
+     },
+     "b": {
+      "n": "Flavius Biea",
+      "nat": "ROU"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "Super-moyens",
+     "r": 10,
+     "a": {
+      "n": "Brayan León Salgado",
+      "nat": "CUB"
+     },
+     "b": {
+      "n": "Héctor Octavio Aguirre",
+      "nat": "MEX"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "Super-plumes",
+     "r": 10,
+     "a": {
+      "n": "Sultan Almohammed",
+      "nat": "KSA"
+     },
+     "b": {
+      "n": "Erick Jahir Villegas",
+      "nat": "MEX"
+     }
     }
    ],
    "sources": [
     "https://www.dazn.com/en-US/news/boxing/canelo-alvarez-vs-christian-mbilli-how-to-watch-fight-time-ringwalks-prediction-undercard-news-odds/19uijwuynxykz1wt8mworc2iqq",
     "https://www.arabnews.com/sport/four-world-titles-on-the-line-as-riyadh-unveils-mexico-vs-the-world-lineup-3005411",
-    "https://lasueur.com/canelo-alvarez-vs-christian-mbilli-quelle-heure-quelle-chaine-28-10-2026"
+    "https://lasueur.com/canelo-alvarez-vs-christian-mbilli-quelle-heure-quelle-chaine-28-10-2026",
+    "https://britishboxingnews.co.uk/blogs/canelo-vs-mbilli-full-card-start-time-ring-walks-and-how-to-watch/"
    ]
   },
   {
@@ -151,7 +221,8 @@
    "sources": [
     "https://queensberry.co.uk/pages/joshua-buatsi-vs-willy-hutchinson-2-point-to-prove",
     "https://www.ringmagazine.com/news/buatsi-all-business-ahead-of-hutchinson-rematch-1cPyKJNqIRRSbvRBnNrN5w"
-   ]
+   ],
+   "partial": 1
   },
   {
    "id": "bx-billamsmith-clarke",
@@ -205,7 +276,8 @@
    "sources": [
     "https://en.wikipedia.org/wiki/2026_in_Zuffa_Boxing",
     "https://www.cbssports.com/boxing/news/boxing-schedule-for-2026-dates-location-fights-canelo-alvarez-sebastian-fundora/"
-   ]
+   ],
+   "partial": 1
   },
   {
    "id": "bx-kabayel-hysa",
@@ -247,7 +319,8 @@
    "sources": [
     "https://www.thestar.com.my/sport/boxing/2026/10/02/boxing-wbc-heavyweight-champion-kabayel039s-first-defence-confirmed-for-duesseldorf-on-november-28",
     "https://www.fightmag.com/agit-kabayel-to-face-nelson-hysa-in-germany-in-november/"
-   ]
+   ],
+   "partial": 1
   },
   {
    "id": "bx-fury-joshua",
@@ -290,7 +363,8 @@
    "sources": [
     "https://www.seatunique.com/blog/fury-vs-joshua-fight-night-start-time-ring-walks-undercard/",
     "https://www.thestar.com.my/sport/boxing/2026/10/09/boxing-cardiff-stadium-application-seeks-1-am-slot-for-fury-v-joshua-ring-walks"
-   ]
+   ],
+   "partial": 1
   }
  ],
  "agenda": [

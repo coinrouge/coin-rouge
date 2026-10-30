@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-30T02:06:03.340Z",
+ "updated": "2026-10-30T02:12:27.017Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -1690,12 +1690,14 @@
       "n": "Aboubakar Younousov",
       "nat": "FRA",
       "rec": "8-0-0",
+      "tp": "328023-aboubakar-younousov",
       "fr": 1
      },
      "b": {
       "n": "Tyson Nam",
       "nat": "USA",
-      "rec": "23-16-1"
+      "rec": "23-16-1",
+      "tp": "tyson-nam"
      }
     },
     {
@@ -1705,11 +1707,13 @@
      "a": {
       "n": "Youssef Boughanem",
       "nat": "BEL",
-      "rec": "5-0-0"
+      "rec": "5-0-0",
+      "tp": "166327-youssef-boughanem"
      },
      "b": {
       "n": "Mohamed Soumah",
-      "rec": "4-3-0"
+      "rec": "4-3-0",
+      "tp": "247875-mohamed-soumah"
      }
     },
     {
@@ -1718,11 +1722,13 @@
      "r": 3,
      "a": {
       "n": "Andrii Misiuk",
-      "rec": "6-0-0"
+      "rec": "6-0-0",
+      "tp": "342716-andriy-misiuk"
      },
      "b": {
       "n": "Phruethukorn Chaichongcharden",
-      "rec": "4-4-1"
+      "rec": "4-4-1",
+      "tp": "228957-chai-title"
      }
     },
     {
@@ -1761,7 +1767,8 @@
      },
      "b": {
       "n": "Alexandre Carole",
-      "rec": "4-3-0"
+      "rec": "4-3-0",
+      "tp": "338228-alexandre-carole"
      }
     },
     {
@@ -2749,12 +2756,14 @@
       "nat": "FRA",
       "rec": "11-1-0",
       "champ": 1,
+      "tp": "242335-jordan-zebo",
       "fr": 1
      },
      "b": {
       "n": "Baysangur Chamsoudinov",
       "nat": "FRA",
       "rec": "9-1-0",
+      "tp": "245988-chamsoudinov-baysangur",
       "fr": 1
      },
      "title": "Titre welterweight ARES"
@@ -2766,11 +2775,13 @@
      "a": {
       "n": "Amir Aliev",
       "nat": "RUS",
-      "rec": "8-1-0"
+      "rec": "8-1-0",
+      "tp": "196749-amir-aliev"
      },
      "b": {
       "n": "Adionai Maciel",
-      "rec": "12-2-0"
+      "rec": "12-2-0",
+      "tp": "236658-adionai-maciel-feijao"
      }
     },
     {
@@ -2781,12 +2792,14 @@
       "n": "Ghassen Jbalia",
       "nat": "FRA",
       "rec": "6-1-0",
+      "tp": "328549-ghassen-jbalia",
       "fr": 1
      },
      "b": {
       "n": "Modibo Diakité",
       "nat": "FRA",
       "rec": "4-0-0",
+      "tp": "367052-modibo-diakite",
       "fr": 1
      }
     }

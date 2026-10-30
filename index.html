@@ -1290,6 +1290,9 @@ const SPORTLBL={all:"MMA + Boxe",mma:"MMA",boxe:"Boxe"};
 function orgCls(x){const o=x.org||"";return x.sport==="boxe"?"bx":/^UFC \d/.test(o)?"onum":/^UFC/.test(o)?"":/^PFL/.test(o)?"pfl":/^ARES/.test(o)?"ares":/^Hexagone/.test(o)?"hex":"";}
 /* Nom de l'organisation coloré (avant le « · » du lieu) */
 function orgHTML(o){const i=(o||"").indexOf(" · ");return i<0?`<span class="orgn">${esc(o)}</span>`:`<span class="orgn">${esc(o.slice(0,i))}</span>${esc(o.slice(i))}`;}
+/* Titre en jeu du combat principal (+N s'il y en a d'autres), avec étincelles */
+function titleTag(e){if(!e||!e.fights[0]||!e.fights[0].title)return "";const n=e.fights.filter(f=>f.title).length;
+  return `<span class="sumtitle"><span class="mltitle">${esc(e.fights[0].title)}</span>${n>1?`<span class="sumplus" title="${n} combats pour un titre ce soir">+${n-1}</span>`:""}</span>`;}
 function agendaItems(t){
   return [
     ...EVENTS.filter(e=>t<e.end).map(e=>({sport:e.sport||"mma",ts:e.start,name:`${e.a} vs ${e.b}`,org:`${e.name} · ${e.city}`,id:e.id,frA:e.fights[0].a.fr&&(e.fights[0].a.be?2:1),frB:e.fights[0].b.fr&&(e.fights[0].b.be?2:1),stA:e.fights[0].a.star,stB:e.fights[0].b.star,fr:!e.fights[0].a.fr&&!e.fights[0].b.fr&&e.fights.some(f=>f.a.fr||f.b.fr)&&((e.fights.some(f=>f.a.fr&&!f.a.be||f.b.fr&&!f.b.be)?1:0)|(e.fights.some(f=>f.a.be||f.b.be)?2:0))})),
@@ -1329,7 +1332,7 @@ function calHTML(t){
     const wd=new Intl.DateTimeFormat("fr-FR",{timeZone:tz,weekday:"short"}).format(x.ts).replace(".","");
     return `<li class="calrow ${x.sport} ${orgCls(x)}">
       <div class="cald"><b>${dayN(x.ts)}</b><small>${wd}</small></div>
-      <div class="calt"><span class="calname">${vsHTML({...x,noRd:1,noSt:1})}<span class="ags calsp">${x.sport==="boxe"?"Boxe":"MMA"}</span>${x.frA||x.frB||x.fr?`<span class="rdl rdpill">${RADAR_SVG}Radar francophone</span>`:""}${x.stA||x.stB?'<span class="vstar" title="Star">★</span>':""}</span><span class="calorg">${orgHTML(x.org)}${x.note?" · "+esc(x.note):""}</span><span class="calh">${main?`Main card <b>${fmtT(Date.parse(main.t))}</b>${ev.tbc?" <em>à confirmer</em>":""}`:"Horaire à confirmer"}</span></div>
+      <div class="calt"><span class="calname">${vsHTML({...x,noRd:1,noSt:1})}<span class="ags calsp">${x.sport==="boxe"?"Boxe":"MMA"}</span>${x.frA||x.frB||x.fr?`<span class="rdl rdpill">${RADAR_SVG}Radar francophone</span>`:""}${x.stA||x.stB?'<span class="vstar" title="Star">★</span>':""}${titleTag(ev)}</span><span class="calorg">${orgHTML(x.org)}${x.note?" · "+esc(x.note):""}</span><span class="calh">${main?`Main card <b>${fmtT(Date.parse(main.t))}</b>${ev.tbc?" <em>à confirmer</em>":""}`:"Horaire à confirmer"}</span></div>
       <div class="cals">${x.id?`<a class="calgo" href="#ev-${x.id}">Fight card →</a>`:`<a class="calgo soongo" href="#${agKey(x)}">Carte à venir →</a>`}</div>
     </li>`;
   };

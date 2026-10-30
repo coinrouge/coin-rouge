@@ -1307,7 +1307,7 @@ function render(){
         ${posterSide(mainF.b,"blue")}
       </h2>
       <div class="pbot">
-        <div class="pwhen"><span class="pdate">${fmtD(ev.start)} </span><span class="pstart">Début de soirée ${fmtT(ev.start)}${ev.tbc?" · horaires à confirmer":""}</span><span class="pstart pme">Main event ${ev.fights[0].known&&!ev.tbc?"":"≈ "}<b>${fmtT(ev.fights[0].est)}</b></span></div>
+        <div class="pwhen"><span class="pdate">${fmtD(ev.start)} </span><span class="pstart">Début de soirée ${fmtT(ev.start)}${ev.tbc?" · horaires à confirmer":""}</span><span class="pstart pme">Main event ${ev.fights[0].known&&!ev.tbc?"":"≈ "}<b>${fmtT(ev.fights[0].est)}</b></span>${tvLine(ev)}</div>
         ${live?"":`<span class="cdown">Début dans <b>${c.n}</b></span>`}
       </div>
       ${schedHTML(ev)}
@@ -1348,6 +1348,9 @@ function orgHTML(o){const i=(o||"").indexOf(" · ");return i<0?`<span class="org
 /* Titre en jeu du combat principal (+N s'il y en a d'autres), avec étincelles */
 function titleTag(e){if(!e||!e.fights[0]||!e.fights[0].title)return "";const n=e.fights.filter(f=>f.title).length;
   return `<span class="sumtitle"><span class="mltitle">${esc(e.fights[0].title)}</span>${n>1?`<span class="sumplus" title="${n} combats pour un titre ce soir">+${n-1}</span>`:""}</span>`;}
+/* Diffusion : chaîne française (UFC → RMC Sport par défaut), sinon chaîne et pays étrangers */
+function tvInfo(ev){const fr=ev.tv||(ev.org==="PFL"||ev.sport==="boxe"||ev.org==="ARES"||/^Hexagone/.test(ev.org||"")?"":"RMC Sport");return {fr,x:(ev.tvx||[]).join(" · ")};}
+function tvLine(ev){const {fr,x}=tvInfo(ev);if(fr)return `<span class="pstart ptv">Diffusion en France : <b>${esc(fr)}</b></span>`;if(x)return `<span class="pstart ptv">Pas de diffuseur annoncé en France · <b>${esc(x)}</b></span>`;return "";}
 function agendaItems(t){
   return [
     ...EVENTS.filter(e=>t<e.end).map(e=>({sport:e.sport||"mma",ts:e.start,name:`${e.a} vs ${e.b}`,org:`${e.name} · ${e.city}`,id:e.id,frA:e.fights[0].a.fr&&(e.fights[0].a.be?2:1),frB:e.fights[0].b.fr&&(e.fights[0].b.be?2:1),stA:e.fights[0].a.star,stB:e.fights[0].b.star,fr:!e.fights[0].a.fr&&!e.fights[0].b.fr&&e.fights.some(f=>f.a.fr||f.b.fr)&&((e.fights.some(f=>f.a.fr&&!f.a.be||f.b.fr&&!f.b.be)?1:0)|(e.fights.some(f=>f.a.be||f.b.be)?2:0))})),
@@ -1441,7 +1444,7 @@ function detailHTML(ev,t){
         <span class="pmid"><span class="pvs" aria-label="contre">VS</span><span class="pvenue2"><span class="vcity">${esc(ev.city)}</span><span class="vsalle">${esc(ev.venue)}</span>${hostFlag(ev)}</span></span>
         ${posterSide(ev.fights[0].b,"blue")}
       </h2>
-      <div class="pwhen"><span class="pdate">${fmtD(ev.start)} </span><span class="pstart">Début de soirée ${fmtT(ev.start)}${ev.tbc?" · horaires à confirmer":""}</span><span class="pstart pme">Main event ${ev.fights[0].known&&!ev.tbc?"":"≈ "}<b>${fmtT(ev.fights[0].est)}</b></span></div>
+      <div class="pwhen"><span class="pdate">${fmtD(ev.start)} </span><span class="pstart">Début de soirée ${fmtT(ev.start)}${ev.tbc?" · horaires à confirmer":""}</span><span class="pstart pme">Main event ${ev.fights[0].known&&!ev.tbc?"":"≈ "}<b>${fmtT(ev.fights[0].est)}</b></span>${tvLine(ev)}</div>
       <div class="dfacts">
         <div><small>Combats</small><b>${ev.fights.length}</b></div>
         ${titles.length?`<div><small>Ceintures en jeu</small><b>${esc(titles.join(" · "))}</b></div>`:""}

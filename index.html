@@ -1217,7 +1217,7 @@ function hits(f){return query.length>=2 && (nameHit(f.a.n,query)||nameHit(f.b.n,
 function moreBtn(ev,shownAll){
   const restN=ev.fights.length-ev.fights.filter(f=>f.s==="main").length;
   /* Toujours un bouton vers la carte complète (page dédiée) ; sans le nombre de combats quand tout est déjà visible */
-  if(!restN) return `<a class="morebtn" href="#ev-${ev.id}">Voir la carte complète</a>`;
+  if(!restN) return `<a class="morebtn" href="#ev-${ev.id}">Voir la carte</a>`;
   return `<a class="morebtn" href="#ev-${ev.id}">${ev.sport==="boxe"||ev.partial?"Main card complète":"Fight card complète"} · ${ev.fights.length} combats</a>`;
 }
 function boutHTML(f,t,detail,total,me,ev,spoilOK){

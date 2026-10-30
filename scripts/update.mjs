@@ -166,12 +166,13 @@ async function eventPage(name) {
   if (!$) return null;
   const info = {};
   $("table.infobox tr").each((_, tr) => { const k = cell($, $(tr).find("th").first()), v = cell($, $(tr).find("td").first()); if (k && v) info[k] = v; });
-  const fights = [];
+  const fights = []; let tvh = "";
   $("table").each((_, t) => {
     if (!/Weight class/.test(cell($, $(t).find("tr").slice(0, 3)))) return;
     let seg = "main";
     $(t).find("tr").each((_, tr) => {
       const c = $(tr).find("td,th").map((_, x) => cell($, x)).get();
+      if (c.length === 1 && !tvh) { const m = c[0].match(/\(([^)]+)\)/); if (m) tvh = m[1]; }
       if (c.length === 1) {
         if (/Early preliminary/i.test(c[0])) seg = "early"; else if (/Preliminary/i.test(c[0])) seg = "prelims"; else if (/Main card/i.test(c[0])) seg = "main";
         return;
@@ -190,13 +191,13 @@ async function eventPage(name) {
       fights.push(f);
     });
   });
-  if (!fights.length) return { title, info, fights };
+  if (!fights.length) return { title, info, fights, tvh };
   const main = fights.filter((f) => f.s === "main");
   fights.forEach((f) => {
     if (!f.title && PFL_TITLES.has(pairKey(f.a.n, f.b.n))) f.title = `Titre ${f.wn}`;
     f.r = f.title || (f === main[0] && !/^PFL/.test(name)) ? 5 : 3;
   });
-  return { title, info, fights };
+  return { title, info, fights, tvh };
 }
 
 /* ---------- Programme principal ---------- */
@@ -269,6 +270,7 @@ for (const e of list) {
     return o;
   });
   events.push({
+    ...(pfl ? (p.tvh ? { tvx: [`${p.tvh} (États-Unis)`] } : {}) : { tvx: ["Paramount+ (États-Unis)"] }),
     id, org: pfl ? "PFL" : "UFC", name: label, a: vs[1].trim().replace(/ \d+$/, ""), b: vs[2].trim().replace(/ \d+$/, ""),
     venue, city, ...(COUNTRY[country] ? { ctry: COUNTRY[country] } : {}), tz, ...(tbc ? { tbc: 1 } : {}), segs, fights, wiki: p.title,
   });
@@ -335,7 +337,7 @@ for (const year of [2026, 2027]) {
       { k: "main", t: localToUtc(date, us ? "20:00" : "20:00", us ? "America/New_York" : tz) }];
     const last = (n) => n.split(" ").slice(-1)[0];
     events.push({ id: `bx-zuffa-${num[1]}`, sport: "boxe", org: "Boxe", name: `Zuffa Boxing ${num[1]}`, a: last(fights[0].a.n), b: last(fights[0].b.n),
-      venue, city, tz, tbc: 1, segs, fights, wiki: `${year} in Zuffa Boxing` });
+      venue, city, tz, tbc: 1, tv: "RMC Sport", tvx: ["Paramount+ (États-Unis)"], segs, fights, wiki: `${year} in Zuffa Boxing` });
     console.log(`  bx-zuffa-${num[1]} : ${fights.length} combats`);
   }
 }

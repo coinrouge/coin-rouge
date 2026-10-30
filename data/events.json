@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-30T02:33:36.230Z",
+ "updated": "2026-10-30T02:35:27.971Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -1731,7 +1731,9 @@
      "b": {
       "n": "Phruethukorn Chaichongcharden",
       "rec": "4-4-1",
-      "tp": "228957-chai-title"
+      "tp": "228957-chai-title",
+      "nat": "FRA",
+      "fr": 1
      }
     },
     {
@@ -11710,6 +11712,12 @@
    "Mohamed Soumah",
    "FRA",
    "4-3-0",
+   "mma"
+  ],
+  [
+   "Phruethukorn Chaichongcharden",
+   "FRA",
+   "4-4-1",
    "mma"
   ]
  ],

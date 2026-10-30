@@ -217,7 +217,8 @@
      "b": {
       "n": "Mohamed Soumah",
       "rec": "4-3-0",
-      "tp": "247875-mohamed-soumah"
+      "tp": "247875-mohamed-soumah",
+      "nat": "FRA"
      }
     },
     {
@@ -227,7 +228,8 @@
      "a": {
       "n": "Andrii Misiuk",
       "rec": "6-0-0",
-      "tp": "342716-andriy-misiuk"
+      "tp": "342716-andriy-misiuk",
+      "nat": "UKR"
      },
      "b": {
       "n": "Phruethukorn Chaichongcharden",
@@ -241,11 +243,13 @@
      "r": 3,
      "a": {
       "n": "Sofiane El Fatni",
-      "rec": "4-1-0"
+      "rec": "4-1-0",
+      "nat": "MAR"
      },
      "b": {
       "n": "Mario Gagliardi",
-      "rec": "4-0-0"
+      "rec": "4-0-0",
+      "nat": "ITA"
      }
     },
     {
@@ -254,11 +258,13 @@
      "r": 3,
      "a": {
       "n": "Maher Belkhadir",
-      "rec": "3-2-0"
+      "rec": "3-2-0",
+      "nat": "FRA"
      },
      "b": {
       "n": "Marc-Philippe Ngatchou",
-      "rec": "2-1-1"
+      "rec": "2-1-1",
+      "nat": "GER"
      }
     },
     {
@@ -267,12 +273,14 @@
      "r": 3,
      "a": {
       "n": "Lasha Gogishvili",
-      "rec": "3-1-0"
+      "rec": "3-1-0",
+      "nat": "BEL"
      },
      "b": {
       "n": "Alexandre Carole",
       "rec": "4-3-0",
-      "tp": "338228-alexandre-carole"
+      "tp": "338228-alexandre-carole",
+      "nat": "FRA"
      }
     },
     {
@@ -281,11 +289,13 @@
      "r": 3,
      "a": {
       "n": "Melissa Hurtado",
-      "rec": "3-0-0"
+      "rec": "3-0-0",
+      "nat": "CUB"
      },
      "b": {
       "n": "Weronika Cisło",
-      "rec": "1-1-0"
+      "rec": "1-1-0",
+      "nat": "POL"
      }
     },
     {
@@ -294,11 +304,13 @@
      "r": 3,
      "a": {
       "n": "Benoit Prigent",
-      "rec": "3-0-0"
+      "rec": "3-0-0",
+      "nat": "FRA"
      },
      "b": {
       "n": "Jafar Yousifi",
-      "rec": "2-0-0"
+      "rec": "2-0-0",
+      "nat": "SWE"
      }
     },
     {
@@ -307,11 +319,13 @@
      "r": 3,
      "a": {
       "n": "Mohadi Nazirov",
-      "rec": "1-0-0"
+      "rec": "1-0-0",
+      "nat": "AUT"
      },
      "b": {
       "n": "Ibrahima Dosso",
-      "rec": "2-2-0"
+      "rec": "2-2-0",
+      "nat": "CIV"
      }
     }
    ],
@@ -484,7 +498,8 @@
      "b": {
       "n": "Adionai Maciel",
       "rec": "12-2-0",
-      "tp": "236658-adionai-maciel-feijao"
+      "tp": "236658-adionai-maciel-feijao",
+      "nat": "BRA"
      }
     },
     {

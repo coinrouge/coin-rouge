@@ -69,6 +69,8 @@ button,input,select{font:inherit;color:inherit}
 .brand{font-family:var(--f-display);font-weight:900;font-size:clamp(34px,7vw,52px);line-height:.9;letter-spacing:.01em;text-transform:uppercase;margin:0}
 .brand span{color:var(--red)}
 .homelink{color:inherit;text-decoration:none}
+.sumsp{font-family:var(--f-data);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-right:7px;opacity:.75}
+.sumsp.mms{color:#E0475B}.sumsp.bxs{color:#6E8FF0}
 .soon{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-top:18px}
 .soon>div{background:var(--surface);padding:14px 16px;display:flex;flex-direction:column;gap:4px}
 .soon small{font-family:var(--f-data);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
@@ -1322,7 +1324,7 @@ function evItem(e,t,openIds,isPast){
   const fr=e.fights.some(f=>f.a.fr||f.b.fr);
   return `<details class="ev ${evCls(e)}${isPast?" past":""}" data-id="${e.id}" ${openIds.includes(e.id)||anyHit?"open":""}>
       <summary><div class="dt"><b>${dayN(e.start)}</b><small>${monS(e.start)}</small></div>
-      <div><div class="sum-t"><a class="sumlink" href="#ev-${e.id}" title="Ouvrir la carte complète">${vsHTML({noRd:1,name:`${e.a} vs ${e.b}`,frA:e.fights[0].a.fr&&(e.fights[0].a.be?2:1),frB:e.fights[0].b.fr&&(e.fights[0].b.be?2:1),stA:e.fights[0].a.star,stB:e.fights[0].b.star,fr:fr&&!e.fights[0].a.fr&&!e.fights[0].b.fr&&((e.fights.some(f=>f.a.fr&&!f.a.be||f.b.fr&&!f.b.be)?1:0)|(e.fights.some(f=>f.a.be||f.b.be)?2:0))})}</a></div><div class="sum-m">${evBadge(e,1)} ${esc(e.venue)}, ${esc(e.city)} · ${isPast?"terminé":`début ${fmtT(e.start)}${e.tbc?" (à confirmer)":""}`}${fr?` <span class="rdl rdpill rdend">${RADAR_SVG}Radar francophone</span>`:""}</div></div>
+      <div><div class="sum-t"><a class="sumlink" href="#ev-${e.id}" title="Ouvrir la carte complète">${vsHTML({noRd:1,name:`${e.a} vs ${e.b}`,frA:e.fights[0].a.fr&&(e.fights[0].a.be?2:1),frB:e.fights[0].b.fr&&(e.fights[0].b.be?2:1),stA:e.fights[0].a.star,stB:e.fights[0].b.star,fr:fr&&!e.fights[0].a.fr&&!e.fights[0].b.fr&&((e.fights.some(f=>f.a.fr&&!f.a.be||f.b.fr&&!f.b.be)?1:0)|(e.fights.some(f=>f.a.be||f.b.be)?2:0))})}</a></div><div class="sum-m"><span class="sumsp ${e.sport==="boxe"?"bxs":"mms"}">${e.sport==="boxe"?"Boxe":"MMA"}</span>${/^(Boxe|MMA)$/i.test(e.name)?"":evBadge(e,1)+" "}${esc(e.venue)}, ${esc(e.city)} · ${isPast?"terminé":`début ${fmtT(e.start)}${e.tbc?" (à confirmer)":""}`}${fr?` <span class="rdl rdpill rdend">${RADAR_SVG}Radar francophone</span>`:""}</div></div>
       <span class="chev" aria-hidden="true">▼</span></summary>
       <div class="inner">${schedHTML(e)}${cardHTML(e,t,{only:filter==="all"?"main":null})}${moreBtn(e,false)}</div></details>`;
 }

@@ -1486,7 +1486,20 @@ function renderDetail(t){
 function leaveSpoil(){if(!/^#ev-/.test(location.hash)&&SPOIL){SPOIL=false;return true;}return false;}
 window.addEventListener("hashchange",()=>{const was=SPOIL;renderDetail(now());leaveSpoil();if(was!==SPOIL)render();});
 /* Logo Coin Rouge : retour à l'accueil, en haut de page */
-document.addEventListener("click",e=>{if(e.target.closest(".homelink")){e.preventDefault();if(location.hash)history.pushState(null,"",location.pathname+location.search);renderDetail(now());if(leaveSpoil())render();window.scrollTo({top:0,behavior:"smooth"});}});
+/* Logo Coin Rouge : remet la page à zéro (accueil, Tout, MMA + Boxe, recherche vidée, menus fermés, No spoil) */
+document.addEventListener("click",e=>{if(!e.target.closest(".homelink"))return;e.preventDefault();
+  if(location.hash)history.pushState(null,"",location.pathname+location.search);
+  SPOIL=false; filter="all"; sport="all"; query=""; showAllOthers=false;
+  const q=document.getElementById("q"); if(q){q.value="";q.blur();}
+  const fq=document.getElementById("favq"); if(fq) fq.value="";
+  document.querySelectorAll(".seg button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.f==="all"));
+  document.querySelectorAll(".sportnav button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.sport==="all"));
+  const sl=document.getElementById("sportlbl"); if(sl) sl.textContent=SPORTLBL.all;
+  document.getElementById("sportmenu").hidden=true; document.getElementById("sportbtn").setAttribute("aria-expanded","false");
+  const gm=document.getElementById("gearmenu"); if(gm){gm.hidden=true;document.getElementById("gear").setAttribute("aria-expanded","false");}
+  document.querySelectorAll("details.ev[open]").forEach(d=>d.open=false);
+  renderDetail(now()); render(); window.scrollTo({top:0,behavior:"smooth"});
+});
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!document.getElementById("detail").hidden){location.hash="";}});
 function radar(){
   /* Radar tricolore automatique : tous les francophones (Français, Belges) programmés dans les soirées à venir */

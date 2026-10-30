@@ -915,7 +915,15 @@ const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",
 let simOffset=null, filter="all", query="", sport="all";
 const now=()=> simOffset!=null ? simOffset : Date.now();
 
-function heroEvent(t,pool=EVENTS){const nxt=pool.filter(e=>t<e.end);return nxt.find(e=>t>=e.start) || nxt.find(e=>e.org!=="PFL"&&e.sport!=="boxe") || nxt[0] || null;}
+/* Soirée en tête : celle en direct ; sinon l'UFC la plus proche, sauf si une soirée plus grosse a lieu le même jour
+   (combat principal pour un titre, vedettes) : la plus grosse passe devant */
+function heroEvent(t,pool=EVENTS){
+  const nxt=pool.filter(e=>t<e.end);
+  const live=nxt.find(e=>t>=e.start); if(live) return live;
+  const base=nxt.find(e=>e.org!=="PFL"&&e.sport!=="boxe")||nxt[0]; if(!base) return null;
+  const score=e=>{const m=e.fights[0]||{a:{},b:{}};return (m.title?3:0)+(m.a.star?1:0)+(m.b.star?1:0)+(e===base?.5:0);};
+  return nxt.filter(e=>Math.abs(e.start-base.start)<24*36e5).sort((x,y)=>score(y)-score(x)||x.start-y.start)[0];
+}
 
 /* Francophones : Français et Belges (drapeau de leur pays) */
 function flag(p){return p.fr?(p.be?'<span class="fra bel" title="Belge" aria-label="Belge"><i></i><i></i><i></i></span>':'<span class="fra" title="Français" aria-label="Français"><i></i><i></i><i></i></span>'):'';}

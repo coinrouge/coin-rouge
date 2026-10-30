@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-30T13:00:04.366Z",
+ "updated": "2026-10-30T13:03:45.745Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -1525,7 +1525,7 @@
      "s": "main",
      "w": "Super-moyens",
      "r": 12,
-     "title": "Titre WBC super-moyens",
+     "title": "Titre WBC super middleweight",
      "t": "2026-10-31T20:30:00Z",
      "a": {
       "n": "Canelo Álvarez",
@@ -1546,7 +1546,7 @@
      "s": "main",
      "w": "Super-moyens",
      "r": 12,
-     "title": "Titre WBA super-moyens",
+     "title": "Titre WBA super middleweight",
      "a": {
       "n": "Jaime Munguía",
       "nat": "MEX",
@@ -1564,7 +1564,7 @@
      "s": "main",
      "w": "Plumes",
      "r": 12,
-     "title": "Titre WBO plumes",
+     "title": "Titre WBO featherweight",
      "a": {
       "n": "Rafael Espinoza",
       "nat": "MEX",
@@ -2054,7 +2054,7 @@
      "s": "main",
      "w": "Mi-lourds",
      "r": 12,
-     "title": "Titre WBC intérim mi-lourds",
+     "title": "Titre WBC intérim light heavyweight",
      "a": {
       "n": "Joshua Buatsi",
       "nat": "GBR",
@@ -3058,7 +3058,7 @@
      "s": "main",
      "w": "Lourds",
      "r": 12,
-     "title": "Titre WBC lourds",
+     "title": "Titre WBC heavyweight",
      "a": {
       "n": "Agit Kabayel",
       "nat": "GER",

@@ -399,7 +399,7 @@
    "name": "Zuffa Boxing",
    "a": "Billam-Smith",
    "b": "Clarke",
-   "venue": "Salle à confirmer",
+   "venue": "Copper Box Arena",
    "city": "Londres",
    "tz": "Europe/London",
    "tbc": 1,
@@ -439,13 +439,66 @@
       "nat": "USA",
       "tp": "226321-shane-mosley-jr"
      }
+    },
+    {
+     "s": "main",
+     "w": "Mi-lourds",
+     "r": 10,
+     "a": {
+      "n": "Zach Parker",
+      "nat": "GBR"
+     },
+     "b": {
+      "n": "Umar Dzambekov",
+      "nat": "AUT"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Lourds-légers",
+     "r": 8,
+     "a": {
+      "n": "Lucas Roehrig",
+      "nat": "GBR"
+     },
+     "b": {
+      "n": "Connal McDonald",
+      "nat": "GBR"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Moyens",
+     "r": 8,
+     "a": {
+      "n": "Sam Hickey",
+      "nat": "GBR"
+     },
+     "b": {
+      "n": "Troy Coleman",
+      "nat": "GBR"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Lourds",
+     "r": 8,
+     "a": {
+      "n": "Da'Mazion Vanhouter",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Ivan Baláž",
+      "nat": "SVK"
+     }
     }
    ],
    "sources": [
-    "https://en.wikipedia.org/wiki/2026_in_Zuffa_Boxing",
-    "https://www.cbssports.com/boxing/news/boxing-schedule-for-2026-dates-location-fights-canelo-alvarez-sebastian-fundora/"
+    "https://combat-edge.com/event/zuffa-boxing-12-billam-smith-vs-clarke-3423/",
+    "https://boxingnews.com/event/zuffa-boxing-12-2026-11-07"
    ],
-   "partial": 1
+   "partial": 1,
+   "tv": "Paramount+"
   },
   {
    "id": "ares-45",

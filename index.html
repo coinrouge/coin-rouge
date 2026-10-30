@@ -984,7 +984,9 @@ function prepEvents(){EVENTS.forEach(ev=>{
     const sg=ev.segs.find(x=>x.k===k); if(!sg) return;
     const st=Date.parse(sg.t); cur=Math.max(cur,st);
     const list=ev.fights.filter(f=>f.s===k).slice().reverse();
-    list.forEach(f=>{if(f.t){cur=Date.parse(f.t);f.known=1;} f.est=cur; f.end=cur+dur(f)*60000; cur=f.end; f.ord=++n;});
+    list.forEach(f=>{if(f.t){cur=Date.parse(f.t);f.known=1;} f.est=cur; f.end=cur+dur(f)*60000; cur=f.end; f.ord=++n;
+      /* Heure estimée arrondie aux 5 minutes (plus lisible : 16:00 plutôt que 16:02) */
+      if(!f.known) f.est=Math.round(f.est/3e5)*3e5;});
   });
   ev.start=Date.parse(ev.segs[0].t); ev.end=cur+15*60000;
 });}

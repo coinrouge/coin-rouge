@@ -404,6 +404,7 @@ a.rcard.num:hover{border-color:var(--gold)}
 .btn{border:1px solid var(--ink);background:transparent;border-radius:4px;padding:6px 12px;cursor:pointer;font-family:var(--f-data);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:12px}
 .foot{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
 .foot p{margin:0 0 6px;max-width:70ch}
+.foot a{color:inherit;text-decoration:underline;text-underline-offset:2px;margin-left:6px}.foot a:hover{color:var(--ink)}
 h2.h{display:flex;align-items:center;gap:12px;font-family:var(--f-data);font-weight:700;text-transform:uppercase;font-size:19px;letter-spacing:.14em;color:var(--ink);margin:0 0 12px}
 h2.h span{color:var(--red);margin-left:-3px}
 h2.h::after{content:"";flex:1;height:1px;background:var(--line)}
@@ -835,7 +836,8 @@ details.ev summary:hover .chev{color:var(--ink)}
     <div class="radar" id="radar"></div>
   </section>
 
-  <section class="sim">
+  <!-- Mode test du direct : caché aux visiteurs, visible seulement avec ?test à la fin de l'adresse -->
+  <section class="sim" id="simsec" hidden>
     <label for="simr">Mode test du direct</label>
     <div class="row">
       <input type="range" id="simr" min="0" max="100" value="0">
@@ -854,7 +856,7 @@ details.ev summary:hover .chev{color:var(--ink)}
   <footer class="foot">
     <p>Horaires affichés à l'heure de Paris. L'heure de chaque combat est une estimation : seules les heures de début de chaque partie de soirée sont fixées, la suite dépend de la durée des combats précédents.</p>
     <p id="srcline">Cartes relevées le 27 octobre 2026. Elles peuvent encore changer d'ici le jour J (blessures, remplacements).</p>
-    <p>Site indépendant, non affilié à l'UFC ni aux organisations citées.</p>
+    <p>Site indépendant, non affilié à l'UFC ni aux organisations citées. <a href="mentions.html">Mentions légales</a></p>
   </footer>
 </div>
 
@@ -1584,6 +1586,7 @@ document.addEventListener("click",e=>{if(!sportMenu.hidden&&!e.target.closest(".
 document.querySelectorAll(".seg button").forEach(b=>b.addEventListener("click",()=>{
   filter=b.dataset.f;favOpen=false;document.querySelectorAll(".seg button").forEach(x=>x.setAttribute("aria-pressed",x===b));render();
 }));
+if(/[?&]test\b/.test(location.search)) document.getElementById("simsec").hidden=false;
 const simr=document.getElementById("simr"), simo=document.getElementById("simo");
 function simTarget(){return heroEvent(Date.now());}
 simr.addEventListener("input",()=>{

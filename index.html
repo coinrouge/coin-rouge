@@ -48,16 +48,16 @@ body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:1
 .mainc{display:flex;flex-direction:column;gap:28px;min-width:0}
 @media (max-width:860px){.layout{grid-template-columns:1fr}}
 /* Grand écran : 3 colonnes, favoris à droite */
-@media (min-width:1180px){.wrap{max-width:1480px}.layout{grid-template-columns:220px minmax(0,1fr) 270px}}
+@media (min-width:1180px){.wrap{max-width:1480px}.layout{grid-template-columns:220px minmax(0,1fr) 290px}}
 @media (min-width:861px) and (max-width:1179px){.rside{grid-column:1}}
 .rside{position:sticky;top:16px;display:flex;flex-direction:column;gap:12px;max-height:calc(100vh - 32px);overflow:auto;min-width:0}
 .rside:empty{display:none}
 .rside #favsec .h{font-size:15px}
-.rside .favrow{grid-template-columns:auto 1fr;gap:8px;padding:9px 10px}
-.rside .favrow>.av,.rside .favrow>.avatar{display:none}
+.rside .favrow{grid-template-columns:auto auto 1fr;gap:8px;padding:9px 10px}
+.rside .favrow>.av{width:24px;height:24px;font-size:9px;border-width:1.5px;align-self:start;margin-top:2px}
 .rside .favn{font-size:15px}
 .rside .favw{font-size:12px;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.rside .favwhen{grid-column:2;text-align:left;font-size:12px}
+.rside .favwhen{grid-column:3;text-align:left;font-size:11.5px;white-space:nowrap}
 .rside .favwhen b{font-size:13px}
 /* Bouton Spoil sous le calendrier, dans la colonne de gauche (qui reste visible au défilement) */
 .spoilside{width:100%;justify-content:center;height:42px}

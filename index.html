@@ -49,10 +49,8 @@ button,input,select{font:inherit;color:inherit}
 .brand{font-family:var(--f-display);font-weight:900;font-size:clamp(34px,7vw,52px);line-height:.9;letter-spacing:.01em;text-transform:uppercase;margin:0}
 .brand span{color:var(--red)}
 .homelink{color:inherit;text-decoration:none}
-/* Le « ≈ » ne décale pas l'heure : il est posé à gauche, hors du centrage */
-.mtime b{position:relative}
-.mtime b .approx{position:absolute;right:100%;margin-right:.25em;font-style:normal}
-.time b .approx{font-style:normal;margin-right:.2em}
+/* Heure de chaque combat alignée sur le titre « MAIN CARD » : on compense la colonne de gauche (date) */
+@media (min-width:561px){.bout>.duel{margin-right:84px}.bouts .bout.fr>.duel,.bouts .bout.me.fr>.duel{margin-right:96px}}
 .pside b.acc{padding-top:.16em}
 .partial{margin:0;padding:0 16px 14px;background:var(--surface);text-align:center;font-size:13px;font-style:italic;color:var(--muted)}
 .allbtn{display:block;width:100%;margin-top:4px;padding:11px;border:1px dashed var(--line);border-radius:8px;background:transparent;color:var(--muted);font-family:var(--f-data);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
@@ -1114,7 +1112,7 @@ function boutHTML(f,t,detail,total,me,ev,spoilOK){
   let cls="", tb="", lab="";
   if(t>=f.est&&t<f.end){cls="now";tb=fmtT(f.est);lab="En cours ?";}
   else if(t>=f.end){cls="done";tb=fmtT(f.est);lab=f.res?"Terminé":"Terminé ?";}
-  else {tb=(f.known&&!(ev&&ev.tbc)?"":'<i class="approx" aria-label="environ">≈</i>')+fmtT(f.est);lab=fmtDS(f.est);}
+  else {tb=(f.known&&!(ev&&ev.tbc)?"":"≈ ")+fmtT(f.est);lab=fmtDS(f.est);}
   const res=SPOIL&&spoilOK&&t>=f.end?resultOf(f,t):null;
   const resHTML=res?`<span class="resl${res.w==="draw"?" rdraw":""}">${res.w==="draw"?"Match nul":res.w==="nc"?"No contest":`Victoire ${esc(splitName(f.a).last===splitName(f.b).last?(res.w==="a"?f.a:f.b).n:splitName(res.w==="a"?f.a:f.b).last)}`}<em>${esc(res.method)} · R${res.round} ${esc(res.time)}${res.demo?" · test":""}</em></span>`:(SPOIL&&spoilOK&&t>=f.end?`<span class="resl rwait">Résultat non disponible</span>`:"");
   const mid=`${detail?`<span class="mtime ${cls}"><b>${tb}</b><span class="tzfr">Heure française</span></span>`:""}${resHTML}${f.title?`<span class="belt">${esc(f.title)}</span>`:""}${detail?`<span class="rd">${W[f.w]||f.w}</span><span class="rds">${f.r} rounds</span>`:`<span class="rd">${W[f.w]||f.w} · ${f.r} rds</span>`}${detail?`<span class="lim">${LIM[f.w]||""}</span><span class="cnum">Combat ${f.ord}/${total}</span>`:""}`;

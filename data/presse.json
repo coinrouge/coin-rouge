@@ -165,6 +165,9 @@
     "https://www.arabnews.com/sport/four-world-titles-on-the-line-as-riyadh-unveils-mexico-vs-the-world-lineup-3005411",
     "https://lasueur.com/canelo-alvarez-vs-christian-mbilli-quelle-heure-quelle-chaine-28-10-2026",
     "https://britishboxingnews.co.uk/blogs/canelo-vs-mbilli-full-card-start-time-ring-walks-and-how-to-watch/"
+   ],
+   "tvx": [
+    "DAZN (monde entier)"
    ]
   },
   {
@@ -390,7 +393,10 @@
     "https://queensberry.co.uk/pages/joshua-buatsi-vs-willy-hutchinson-2-point-to-prove",
     "https://www.ringmagazine.com/news/buatsi-all-business-ahead-of-hutchinson-rematch-1cPyKJNqIRRSbvRBnNrN5w"
    ],
-   "partial": 1
+   "partial": 1,
+   "tvx": [
+    "DAZN (monde entier)"
+   ]
   },
   {
    "id": "bx-billamsmith-clarke",
@@ -499,8 +505,9 @@
    ],
    "partial": 1,
    "tvx": [
-    "Paramount+ (Royaume-Uni)"
-   ]
+    "Paramount+ (États-Unis, Royaume-Uni)"
+   ],
+   "tv": "RMC Sport"
   },
   {
    "id": "ares-45",
@@ -623,7 +630,10 @@
     "https://www.thestar.com.my/sport/boxing/2026/10/02/boxing-wbc-heavyweight-champion-kabayel039s-first-defence-confirmed-for-duesseldorf-on-november-28",
     "https://www.fightmag.com/agit-kabayel-to-face-nelson-hysa-in-germany-in-november/"
    ],
-   "partial": 1
+   "partial": 1,
+   "tvx": [
+    "DAZN (monde entier)"
+   ]
   },
   {
    "id": "bx-fury-joshua",
@@ -667,7 +677,10 @@
     "https://www.seatunique.com/blog/fury-vs-joshua-fight-night-start-time-ring-walks-undercard/",
     "https://www.thestar.com.my/sport/boxing/2026/10/09/boxing-cardiff-stadium-application-seeks-1-am-slot-for-fury-v-joshua-ring-walks"
    ],
-   "partial": 1
+   "partial": 1,
+   "tvx": [
+    "Netflix (monde entier)"
+   ]
   }
  ],
  "agenda": [

@@ -1141,7 +1141,7 @@ function match(f){
 }
 const norm=s=>s.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase();
 /* Recherche : à partir de 2 lettres, sur le début du prénom ou du nom (ou le nom complet si on tape plusieurs mots) */
-const nameHit=(n,q)=>{const x=norm(n);return q.includes(" ")?x.includes(q):x.split(/[\s'’.-]+/).some(w=>w.startsWith(q));};
+const nameHit=(n,q)=>{const x=norm(n).replace(/['’.-]+/g," ");q=q.replace(/['’.-]+/g," ").trim();return q.includes(" ")?x.includes(q):x.split(/\s+/).some(w=>w.startsWith(q));};
 function hits(f){return query.length>=2 && (nameHit(f.a.n,query)||nameHit(f.b.n,query));}
 
 /* Bouton vers la carte complète : seulement s'il reste des combats non affichés ; « Main card » quand la sous-carte n'est pas connue (boxe) */

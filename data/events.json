@@ -1,9 +1,12 @@
 {
- "updated": "2026-10-30T13:21:05.512Z",
+ "updated": "2026-10-30T13:26:05.586Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
   {
+   "tvx": [
+    "Paramount+ (États-Unis)"
+   ],
    "id": "ufc332",
    "org": "UFC",
    "name": "UFC 332",
@@ -324,6 +327,9 @@
    "wiki": "UFC 332"
   },
   {
+   "tvx": [
+    "Paramount+ (États-Unis)"
+   ],
    "id": "fn-allen-duncan",
    "org": "UFC",
    "name": "UFC Fight Night",
@@ -592,6 +598,9 @@
    "wiki": "UFC Fight Night: Allen vs. Duncan"
   },
   {
+   "tvx": [
+    "ESPN2 (États-Unis)"
+   ],
    "id": "pfl-carmouche-bishop",
    "org": "PFL",
    "name": "PFL Chicago",
@@ -877,6 +886,9 @@
    "wiki": "PFL Chicago: Carmouche vs. Bishop 2"
   },
   {
+   "tvx": [
+    "Paramount+ (États-Unis)"
+   ],
    "id": "fn-buckley-malott",
    "org": "UFC",
    "name": "UFC Fight Night",
@@ -1174,6 +1186,9 @@
    "wiki": "UFC Fight Night: Buckley vs. Malott"
   },
   {
+   "tvx": [
+    "Paramount+ (États-Unis)"
+   ],
    "id": "ufc333",
    "org": "UFC",
    "name": "UFC 333",
@@ -1658,6 +1673,9 @@
       "nat": "MEX"
      }
     }
+   ],
+   "tvx": [
+    "DAZN (monde entier)"
    ]
   },
   {
@@ -1831,6 +1849,9 @@
    ]
   },
   {
+   "tvx": [
+    "Paramount+ (États-Unis)"
+   ],
    "id": "fn-moicano-nolan",
    "org": "UFC",
    "name": "UFC Fight Night",
@@ -2082,7 +2103,10 @@
      }
     }
    ],
-   "partial": 1
+   "partial": 1,
+   "tvx": [
+    "DAZN (monde entier)"
+   ]
   },
   {
    "id": "bx-billamsmith-clarke",
@@ -2187,10 +2211,14 @@
    ],
    "partial": 1,
    "tvx": [
-    "Paramount+ (Royaume-Uni)"
-   ]
+    "Paramount+ (États-Unis, Royaume-Uni)"
+   ],
+   "tv": "RMC Sport"
   },
   {
+   "tvx": [
+    "Paramount+ (États-Unis)"
+   ],
    "id": "fn-suarez-jandiroba",
    "org": "UFC",
    "name": "UFC Fight Night",
@@ -2376,6 +2404,9 @@
    "wiki": "UFC Fight Night 293"
   },
   {
+   "tvx": [
+    "ESPN+ (États-Unis)"
+   ],
    "id": "pfl-nemkov-bilostenniy",
    "org": "PFL",
    "name": "PFL Dubai",
@@ -2617,6 +2648,9 @@
    "wiki": "PFL Dubai: Nemkov vs. Bilostenniy"
   },
   {
+   "tvx": [
+    "Paramount+ (États-Unis)"
+   ],
    "id": "ufc334",
    "org": "UFC",
    "name": "UFC 334",
@@ -2879,6 +2913,9 @@
    ]
   },
   {
+   "tvx": [
+    "Paramount+ (États-Unis)"
+   ],
    "id": "fn-prochazka-stirling",
    "org": "UFC",
    "name": "UFC Fight Night",
@@ -3074,7 +3111,10 @@
      }
     }
    ],
-   "partial": 1
+   "partial": 1,
+   "tvx": [
+    "DAZN (monde entier)"
+   ]
   },
   {
    "id": "bx-fury-joshua",
@@ -3114,9 +3154,15 @@
      }
     }
    ],
-   "partial": 1
+   "partial": 1,
+   "tvx": [
+    "Netflix (monde entier)"
+   ]
   },
   {
+   "tvx": [
+    "Paramount+ (États-Unis)"
+   ],
    "id": "ufc335",
    "org": "UFC",
    "name": "UFC 335",
@@ -3217,6 +3263,9 @@
    "wiki": "UFC 335"
   },
   {
+   "tvx": [
+    "ESPN+ (États-Unis)"
+   ],
    "id": "pfl-lapilus-mckee",
    "org": "PFL",
    "name": "PFL Lyon",
@@ -3359,6 +3408,9 @@
    "wiki": "PFL Lyon: Lapilus vs. McKee"
   },
   {
+   "tvx": [
+    "Paramount+ (États-Unis)"
+   ],
    "id": "ufc336",
    "org": "UFC",
    "name": "UFC 336",

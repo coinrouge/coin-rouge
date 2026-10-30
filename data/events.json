@@ -1,10 +1,12 @@
 {
- "updated": "2026-10-30T13:26:05.586Z",
+ "updated": "2026-10-30T13:32:30.781Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
   {
    "tvx": [
+    "TNT Sports (Royaume-Uni)",
+    "VOOsport World (Belgique)",
     "Paramount+ (États-Unis)"
    ],
    "id": "ufc332",
@@ -328,6 +330,8 @@
   },
   {
    "tvx": [
+    "TNT Sports (Royaume-Uni)",
+    "VOOsport World (Belgique)",
     "Paramount+ (États-Unis)"
    ],
    "id": "fn-allen-duncan",
@@ -599,6 +603,7 @@
   },
   {
    "tvx": [
+    "DAZN (Europe)",
     "ESPN2 (États-Unis)"
    ],
    "id": "pfl-carmouche-bishop",
@@ -887,6 +892,8 @@
   },
   {
    "tvx": [
+    "TNT Sports (Royaume-Uni)",
+    "VOOsport World (Belgique)",
     "Paramount+ (États-Unis)"
    ],
    "id": "fn-buckley-malott",
@@ -1187,6 +1194,8 @@
   },
   {
    "tvx": [
+    "TNT Sports (Royaume-Uni)",
+    "VOOsport World (Belgique)",
     "Paramount+ (États-Unis)"
    ],
    "id": "ufc333",
@@ -1850,6 +1859,8 @@
   },
   {
    "tvx": [
+    "TNT Sports (Royaume-Uni)",
+    "VOOsport World (Belgique)",
     "Paramount+ (États-Unis)"
    ],
    "id": "fn-moicano-nolan",
@@ -2211,12 +2222,15 @@
    ],
    "partial": 1,
    "tvx": [
-    "Paramount+ (États-Unis, Royaume-Uni)"
+    "Paramount+ (Royaume-Uni)",
+    "Paramount+ (États-Unis)"
    ],
    "tv": "RMC Sport"
   },
   {
    "tvx": [
+    "TNT Sports (Royaume-Uni)",
+    "VOOsport World (Belgique)",
     "Paramount+ (États-Unis)"
    ],
    "id": "fn-suarez-jandiroba",
@@ -2405,6 +2419,7 @@
   },
   {
    "tvx": [
+    "DAZN (Europe)",
     "ESPN+ (États-Unis)"
    ],
    "id": "pfl-nemkov-bilostenniy",
@@ -2649,6 +2664,8 @@
   },
   {
    "tvx": [
+    "TNT Sports (Royaume-Uni)",
+    "VOOsport World (Belgique)",
     "Paramount+ (États-Unis)"
    ],
    "id": "ufc334",
@@ -2914,6 +2931,8 @@
   },
   {
    "tvx": [
+    "TNT Sports (Royaume-Uni)",
+    "VOOsport World (Belgique)",
     "Paramount+ (États-Unis)"
    ],
    "id": "fn-prochazka-stirling",
@@ -3161,6 +3180,8 @@
   },
   {
    "tvx": [
+    "TNT Sports (Royaume-Uni)",
+    "VOOsport World (Belgique)",
     "Paramount+ (États-Unis)"
    ],
    "id": "ufc335",
@@ -3264,6 +3285,7 @@
   },
   {
    "tvx": [
+    "DAZN (Europe)",
     "ESPN+ (États-Unis)"
    ],
    "id": "pfl-lapilus-mckee",
@@ -3409,6 +3431,8 @@
   },
   {
    "tvx": [
+    "TNT Sports (Royaume-Uni)",
+    "VOOsport World (Belgique)",
     "Paramount+ (États-Unis)"
    ],
    "id": "ufc336",

@@ -1191,7 +1191,7 @@ document.addEventListener("click",e=>{if(e.target.closest("#favtoggle")){favOpen
 let FAVSORT="date";try{FAVSORT=localStorage.getItem("coinrouge-favsort")||"date";}catch(e){}
 document.addEventListener("change",e=>{if(e.target.id!=="favsort")return;FAVSORT=e.target.value;try{localStorage.setItem("coinrouge-favsort",FAVSORT);}catch(_){}render();});
 document.addEventListener("click",e=>{
-  if(e.target.closest("#favmore")){document.querySelector('.seg button[data-f="fav"]').click();window.scrollTo({top:0,behavior:"smooth"});return;}
+  if(e.target.closest("#favmore")){document.querySelector('.seg button[data-f="fav"]').click();favOpen=true;render();window.scrollTo({top:0,behavior:"smooth"});return;}
   const b=e.target.closest(".favmove button");if(!b)return;
   /* Mon ordre : on échange avec le voisin visible */
   const vis=[...document.querySelectorAll("#favs .favmove button[data-mv='1']")].map(x=>x.dataset.n);

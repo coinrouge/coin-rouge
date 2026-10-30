@@ -1351,7 +1351,9 @@ function orgHTML(o){const i=(o||"").indexOf(" · ");return i<0?`<span class="org
 function titleTag(e){if(!e||!e.fights[0]||!e.fights[0].title)return "";const n=e.fights.filter(f=>f.title).length;
   return `<span class="sumtitle"><span class="mltitle">${esc(e.fights[0].title)}</span>${n>1?`<span class="sumplus" title="${n} combats pour un titre ce soir">+${n-1}</span>`:""}</span>`;}
 /* Diffusion : chaîne française (UFC → RMC Sport par défaut), sinon chaîne et pays étrangers */
-function tvInfo(ev){const fr=ev.tv||(ev.org==="PFL"||ev.sport==="boxe"||ev.org==="ARES"||/^Hexagone/.test(ev.org||"")?"":"RMC Sport");return {fr,x:(ev.tvx||[]).join(" · ")};}
+function tvInfo(ev){const fr=ev.tv||(ev.org==="PFL"||ev.sport==="boxe"||ev.org==="ARES"||/^Hexagone/.test(ev.org||"")?"":"RMC Sport");/* Diffuseurs européens d'abord ; les États-Unis en dernier, et seulement s'il y a moins de 2 diffuseurs européens */
+  const all=ev.tvx||[], us=all.filter(t=>/États-Unis/.test(t)&&!/Royaume|Europe|monde/.test(t)), eu=all.filter(t=>!us.includes(t));
+  return {fr,x:[...eu,...(eu.length>=2?[]:us)].join(" · ")};}
 function tvLine(ev){const {fr,x}=tvInfo(ev);if(fr)return `<span class="pstart ptv">Diffusion en France : <b>${esc(fr)}</b></span>`;if(x)return `<span class="pstart ptv">Pas de diffuseur annoncé en France · <b>${esc(x)}</b></span>`;return "";}
 function agendaItems(t){
   return [
@@ -1451,7 +1453,7 @@ function detailHTML(ev,t){
         <div><small>Combats</small><b>${ev.fights.length}</b></div>
         ${titles.length?`<div><small>Ceintures en jeu</small><b>${esc(titles.join(" · "))}</b></div>`:""}
         ${frN?`<div><small>Francophones</small><b>${frN} combat${frN>1?"s":""}</b></div>`:""}
-        ${(()=>{const fr=ev.tv||(ev.org==="PFL"||ev.sport==="boxe"||ev.org==="ARES"||/^Hexagone/.test(ev.org||"")?"":"RMC Sport"), x=(ev.tvx||[]).join(" · ");
+        ${(()=>{const {fr,x}=tvInfo(ev);
   /* Diffuseur français en priorité ; sinon, où et sur quelle chaîne la soirée est diffusée ailleurs */
   if(fr) return `<div><small>Diffusion en France</small><b>${esc(fr)}</b>${x?`<span class="tvx">${esc(x)}</span>`:""}</div>`;
   if(x) return `<div><small>Diffusion</small><b>${esc(x)}</b><span class="tvx">Pas de diffuseur annoncé en France</span></div>`;

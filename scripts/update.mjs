@@ -270,7 +270,7 @@ for (const e of list) {
     return o;
   });
   events.push({
-    ...(pfl ? (p.tvh ? { tvx: [`${p.tvh} (États-Unis)`] } : {}) : { tvx: ["Paramount+ (États-Unis)"] }),
+    ...(pfl ? { tvx: ["DAZN (Europe)", ...(p.tvh ? [`${p.tvh} (États-Unis)`] : [])] } : { tvx: ["TNT Sports (Royaume-Uni)", "VOOsport World (Belgique)", "Paramount+ (États-Unis)"] }),
     id, org: pfl ? "PFL" : "UFC", name: label, a: vs[1].trim().replace(/ \d+$/, ""), b: vs[2].trim().replace(/ \d+$/, ""),
     venue, city, ...(COUNTRY[country] ? { ctry: COUNTRY[country] } : {}), tz, ...(tbc ? { tbc: 1 } : {}), segs, fights, wiki: p.title,
   });
@@ -337,7 +337,7 @@ for (const year of [2026, 2027]) {
       { k: "main", t: localToUtc(date, us ? "20:00" : "20:00", us ? "America/New_York" : tz) }];
     const last = (n) => n.split(" ").slice(-1)[0];
     events.push({ id: `bx-zuffa-${num[1]}`, sport: "boxe", org: "Boxe", name: `Zuffa Boxing ${num[1]}`, a: last(fights[0].a.n), b: last(fights[0].b.n),
-      venue, city, tz, tbc: 1, tv: "RMC Sport", tvx: ["Paramount+ (États-Unis)"], segs, fights, wiki: `${year} in Zuffa Boxing` });
+      venue, city, tz, tbc: 1, tv: "RMC Sport", tvx: ["Paramount+ (Royaume-Uni)", "Paramount+ (États-Unis)"], segs, fights, wiki: `${year} in Zuffa Boxing` });
     console.log(`  bx-zuffa-${num[1]} : ${fights.length} combats`);
   }
 }

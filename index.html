@@ -50,7 +50,17 @@ button,input,select{font:inherit;color:inherit}
 .brand span{color:var(--red)}
 .homelink{color:inherit;text-decoration:none}
 /* Heure de chaque combat alignée sur le titre « MAIN CARD » : on compense la colonne de gauche (date) */
-@media (min-width:561px){.bout>.duel{margin-right:84px}.bouts .bout.fr>.duel,.bouts .bout.me.fr>.duel{margin-right:96px}}
+/* Date et heure locale en haut à droite du combat ; le duel prend toute la largeur, donc l'heure est centrée sous « MAIN CARD » */
+@media (min-width:561px){
+  .bout:has(>.time.tc){grid-template-columns:1fr auto;row-gap:6px}
+  .bout:has(>.time.tc)>.melabel{grid-column:1;grid-row:1}
+  .bout>.time.tc{grid-column:2;grid-row:1;justify-self:end;display:flex;align-items:baseline;gap:8px;text-align:right;white-space:nowrap}
+  .bout>.time.tc .ord.loc{margin:0;display:inline-flex;gap:5px;align-items:baseline}
+  .bout>.time.tc .ord.loc i{display:inline;font-size:11px}
+  .bout>.time.tc .ord.loc::before{content:"·";margin-right:3px;opacity:.6}
+  .bout:has(>.time.tc)>.duel{grid-column:1/-1}
+  .bouts .bout.fr>.duel{margin-right:12px}
+}
 .pside b.acc{padding-top:.16em}
 .partial{margin:0;padding:0 16px 14px;background:var(--surface);text-align:center;font-size:13px;font-style:italic;color:var(--muted)}
 .allbtn{display:block;width:100%;margin-top:4px;padding:11px;border:1px dashed var(--line);border-radius:8px;background:transparent;color:var(--muted);font-family:var(--f-data);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
@@ -495,7 +505,7 @@ h2.h::after{content:"";flex:1;height:1px;background:var(--line)}
 @media (max-width:560px){.mid:has(.cnum){align-items:flex-start}}
 @media (min-width:561px){
   .bouts .bout:has(.cnum){position:relative;padding-bottom:30px}
-  .mid:has(.cnum) .cnum{position:absolute;bottom:8px;left:calc(50% + 42px);transform:translateX(-50%);margin:0;padding:0;white-space:nowrap}
+  .mid:has(.cnum) .cnum{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);margin:0;padding:0;white-space:nowrap}
 }
 .mid .rds{display:block;font-style:italic;margin-top:2px}
 .mid .rd{white-space:nowrap}
@@ -1127,7 +1137,7 @@ function boutHTML(f,t,detail,total,me,ev,spoilOK){
     ${fv&&!me?`<div class="melabel fl">${favLabel}${f.a.star||f.b.star?'<span class="slc">★ Combat vedette</span>':""}${rdl}</div>`:""}
     ${sf?`<div class="melabel sl"><span>★ Combat vedette</span>${rdl}${f.title?`<em class="mltitle">${esc(f.title)}</em>`:""}</div>`:""}
     ${frf&&!me&&!fv&&!sf?`<div class="melabel">${rdl}${f.title?`<em class="mltitle">${esc(f.title)}</em>`:""}</div>`:""}
-    <div class="time ${cls}">${detail?"":`<b>${tb}</b>`}<small>${lab}</small>${detail&&ev&&ev.tz?`<span class="ord loc" title="Heure locale à ${esc(ev.city)}"><i>${esc(ev.city)}</i>${fmtLocal(f.est,ev.tz)}</span>`:""}</div>
+    <div class="time ${cls}${detail?" tc":""}">${detail?"":`<b>${tb}</b>`}<small>${lab}</small>${detail&&ev&&ev.tz?`<span class="ord loc" title="Heure locale à ${esc(ev.city)}"><i>${esc(ev.city)}</i>${fmtLocal(f.est,ev.tz)}</span>`:""}</div>
     <div class="duel">
       ${fighterHTML(f.a,"a",res?(res.w==="a"?"win":res.w==="b"?"lose":"draw"):"")}
       <div class="mid">${mid}</div>

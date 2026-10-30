@@ -145,11 +145,15 @@ a.hero-top:hover .cta::after{transform:translateX(4px)}
 .mid .lim{display:block;font-variant-numeric:tabular-nums}
 .eyebrow{font-family:var(--f-data);text-transform:uppercase;letter-spacing:.12em;font-size:12px;font-weight:700;color:var(--muted);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .pill{display:inline-flex;align-items:center;gap:6px;padding:2px 8px;border-radius:99px;font-size:11px;letter-spacing:.1em;font-weight:700}
-.pill.live{background:var(--live);color:#fff}
+.pill.live{background:#E01E37;color:#fff;text-transform:uppercase;letter-spacing:.16em;padding:3px 11px;animation:liveglow 1.4s ease-in-out infinite}
+@keyframes liveglow{0%,100%{box-shadow:0 0 0 0 rgba(224,30,55,.55);background:#E01E37}50%{box-shadow:0 0 0 6px rgba(224,30,55,0);background:#FF3B52}}
+.pill.today{border:1px solid #E01E37;color:#E01E37;text-transform:uppercase}
+:root[data-theme="dark"] .pill.today{color:#FF5468;border-color:#FF5468}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .pill.today{color:#FF5468;border-color:#FF5468}}
 .pill.live::before{content:"";width:7px;height:7px;border-radius:50%;background:#fff;animation:pulse 1.2s infinite}
 .pill.next{border:1px solid var(--ink);color:var(--ink)}
 @keyframes pulse{50%{opacity:.25}}
-@media (prefers-reduced-motion:reduce){.pill.live::before{animation:none}}
+@media (prefers-reduced-motion:reduce){.pill.live::before,.pill.live{animation:none}}
 .ev-title{font-family:var(--f-display);font-weight:900;text-transform:uppercase;font-size:clamp(30px,6.4vw,54px);line-height:.95;margin:8px 0 6px;text-wrap:balance}
 .ev-title .vs{color:var(--muted);font-weight:600;font-size:.6em;vertical-align:.15em;margin:0 .15em}
 .ev-meta{color:var(--muted);font-size:14px}
@@ -1166,7 +1170,7 @@ function render(){
   document.getElementById("hero").innerHTML=`
     <a class="hero-top poster" href="#ev-${ev.id}" aria-label="Voir la fight card complète : ${esc(ev.a)} contre ${esc(ev.b)}">
       <div class="ptop">
-        <div class="eyebrow">${live?'<span class="pill live">En direct</span>':`<span class="pill next">${filter==="fr"?"Prochaine soirée avec un francophone":filter==="star"?"Prochaine soirée avec des stars":filter==="fav"?"Prochaine soirée avec un favori":"Prochaine soirée"}</span>`}${evBadge(ev)}${mainF.title?`<span class="htitle" style="color:var(--gold)">${esc(mainF.title)}</span>`:""}</div>
+        <div class="eyebrow">${live?'<span class="pill live">Live</span>':ev.start-t<18*36e5?`<span class="pill today">Ce soir · début ${fmtT(ev.start)}</span>`:`<span class="pill next">${filter==="fr"?"Prochaine soirée avec un francophone":filter==="star"?"Prochaine soirée avec des stars":filter==="fav"?"Prochaine soirée avec un favori":"Prochaine soirée"}</span>`}${evBadge(ev)}${mainF.title?`<span class="htitle" style="color:var(--gold)">${esc(mainF.title)}</span>`:""}</div>
       </div>
       <h2 class="pduel">
         ${posterSide(mainF.a,"red")}
@@ -1295,7 +1299,7 @@ function detailHTML(ev,t){
   <div class="dwrap">
     <div class="dtitle ${evCls(ev)}">${evBadge(ev,1)}<h1>${esc(ev.a)} vs ${esc(ev.b)}</h1><span>Carte complète</span></div>
     <div class="dhead ${evCls(ev)}">
-      ${live?'<div class="eyebrow"><span class="pill live">En direct</span></div>':""}
+      ${live?'<div class="eyebrow"><span class="pill live">Live</span></div>':""}
       <h2 class="pduel dduel">
         ${posterSide(ev.fights[0].a,"red")}
         <span class="pmid"><span class="pvs" aria-label="contre">VS</span><span class="pvenue2"><span class="vcity">${esc(ev.city)}</span><span class="vsalle">${esc(ev.venue)}</span>${hostFlag(ev)}</span></span>

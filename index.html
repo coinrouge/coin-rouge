@@ -345,7 +345,8 @@ details.ev summary::-webkit-details-marker{display:none}
 .srcsel select{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:8px;font-family:var(--f-data);font-weight:600;text-transform:none;letter-spacing:0;font-size:14px;color:var(--ink)}
 .rec-w{color:var(--win);font-weight:700}.rec-l{color:var(--loss);font-weight:700}.rec-d{color:var(--muted)}
 .cdown{font-family:var(--f-data);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-left:auto}
-.cdown b{color:var(--ink);font-size:14px;letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.cdown b{color:var(--ink);font-size:15px;letter-spacing:.02em;font-variant-numeric:tabular-nums;margin-left:4px}
+.cdown b i{font-style:normal;text-transform:none;font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.02em;margin:0 2px 0 3px}
 .sched .s-main{flex:2 1 200px}
 .sched .s-main small{color:var(--ink)}
 .sched .s-main b{font-family:var(--f-display);font-weight:900;font-size:32px;line-height:1}
@@ -1276,8 +1277,11 @@ function schedHTML(ev){
 }
 function cd(ms){
   const m=Math.max(0,Math.floor(ms/60000)), d=Math.floor(m/1440), h=Math.floor(m%1440/60), mi=m%60;
-  if(d>0) return {n:`${d} j ${h} h`,l:"avant le début"};
-  return {n:`${h} h ${String(mi).padStart(2,"0")}`,l:"avant le début"};
+  /* Chiffres en gros, unités en petit minuscule : « 1 jour 4 h », « 3 h 05 » */
+  const u=x=>`<i>${x}</i>`;
+  if(d>0) return {n:`${d}${u(d>1?"jours":"jour")}${h?` ${h}${u("h")}`:""}`,l:"avant le début"};
+  if(h>0) return {n:`${h}${u("h")} ${String(mi).padStart(2,"0")}`,l:"avant le début"};
+  return {n:`${mi}${u("min")}`,l:"avant le début"};
 }
 
 let showAllOthers=false;

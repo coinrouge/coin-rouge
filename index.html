@@ -1224,7 +1224,9 @@ function boutHTML(f,t,detail,total,me,ev,spoilOK){
   else {tb=(f.known&&!(ev&&ev.tbc)?"":"≈ ")+fmtT(f.est);lab=fmtDS(f.est);}
   const res=SPOIL&&spoilOK&&t>=f.end?resultOf(f,t):null;
   const resHTML=res?`<span class="resl${res.w==="draw"?" rdraw":""}">${res.w==="draw"?"Match nul":res.w==="nc"?"No contest":`Victoire ${esc(splitName(f.a).last===splitName(f.b).last?(res.w==="a"?f.a:f.b).n:splitName(res.w==="a"?f.a:f.b).last)}`}<em>${esc(res.method)} · R${res.round} ${esc(res.time)}${res.demo?" · test":""}</em></span>`:(SPOIL&&spoilOK&&t>=f.end?`<span class="resl rwait">Résultat non disponible</span>`:"");
-  const mid=`${detail?`<span class="mtime ${cls}"><b>${tb}</b><span class="tzfr">Heure française</span></span>`:""}${resHTML}${f.title?`<span class="belt">${esc(f.title)}</span>`:""}${detail?`${f.title&&norm(f.title).includes(norm(String(W[f.w]||f.w)))?"":`<span class="rd">${W[f.w]||f.w}</span>`}<span class="rds">${f.r} rounds</span>`:`<span class="rd">${W[f.w]||f.w} · ${f.r} rds</span>`}${detail?`<span class="lim">${LIM[f.w]||""}</span><span class="cnum">Combat ${f.ord}/${total}</span>`:""}`;
+  /* Le titre est déjà affiché en haut (étiquettes) : pas de doublon au centre */
+  const _fv=isFav(f.a.n)||isFav(f.b.n), labTitle=me||(!_fv&&(f.a.star||f.b.star||f.a.fr||f.b.fr));
+  const mid=`${detail?`<span class="mtime ${cls}"><b>${tb}</b><span class="tzfr">Heure française</span></span>`:""}${resHTML}${f.title&&!labTitle?`<span class="belt">${esc(f.title)}</span>`:""}${detail?`${f.title&&norm(f.title).includes(norm(String(W[f.w]||f.w)))?"":`<span class="rd">${W[f.w]||f.w}</span>`}<span class="rds">${f.r} rounds</span>`:`<span class="rd">${W[f.w]||f.w} · ${f.r} rds</span>`}${detail?`<span class="lim">${LIM[f.w]||""}</span><span class="cnum">Combat ${f.ord}/${total}</span>`:""}`;
   const fv=isFav(f.a.n)||isFav(f.b.n);
   const sf=!me&&!fv&&(f.a.star||f.b.star);
   const favLabel=`<span class="fvl">♥ Favori</span>`;

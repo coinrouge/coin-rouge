@@ -1446,9 +1446,11 @@ function renderDetail(t){
     d.scrollTop=0; d.querySelector(".back").focus({preventScroll:true});
   }
 }
-window.addEventListener("hashchange",()=>{const was=SPOIL;renderDetail(now());if(was!==SPOIL)render();});
+/* Retour à l'accueil : toujours en No spoil */
+function leaveSpoil(){if(!/^#ev-/.test(location.hash)&&SPOIL){SPOIL=false;return true;}return false;}
+window.addEventListener("hashchange",()=>{const was=SPOIL;renderDetail(now());leaveSpoil();if(was!==SPOIL)render();});
 /* Logo Coin Rouge : retour à l'accueil, en haut de page */
-document.addEventListener("click",e=>{if(e.target.closest(".homelink")){e.preventDefault();if(location.hash)history.pushState(null,"",location.pathname+location.search);renderDetail(now());window.scrollTo({top:0,behavior:"smooth"});}});
+document.addEventListener("click",e=>{if(e.target.closest(".homelink")){e.preventDefault();if(location.hash)history.pushState(null,"",location.pathname+location.search);renderDetail(now());if(leaveSpoil())render();window.scrollTo({top:0,behavior:"smooth"});}});
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!document.getElementById("detail").hidden){location.hash="";}});
 function radar(){
   /* Radar tricolore automatique : tous les francophones (Français, Belges) programmés dans les soirées à venir */

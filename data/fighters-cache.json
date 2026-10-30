@@ -140,5 +140,24 @@
    1
   ],
   "v": 4
+ },
+ "Piera Rodriguez": null,
+ "Tatiana Suarez": {
+  "nat": "USA",
+  "rec": [
+   12,
+   1,
+   0
+  ],
+  "v": 4
+ },
+ "Virna Jandiroba": {
+  "nat": "BRA",
+  "rec": [
+   23,
+   4,
+   0
+  ],
+  "v": 4
  }
 }

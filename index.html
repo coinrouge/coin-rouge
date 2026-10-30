@@ -855,6 +855,8 @@ const W={"":"Catégorie à préciser",WFW:"Women's Featherweight",LW:"Lightweigh
 const SEG={early:"Early prelims",prelims:"Préliminaires",main:"Main card"};
 /* Limite de poids officielle de chaque catégorie */
 const LIM={"":"",WFW:"65,8 kg · 145 lb",HW:"120,2 kg · 265 lb",LHW:"93 kg · 205 lb",MW:"83,9 kg · 185 lb",WW:"77,1 kg · 170 lb",LW:"70,3 kg · 155 lb",FW:"65,8 kg · 145 lb",BW:"61,2 kg · 135 lb",FLW:"56,7 kg · 125 lb",WBW:"61,2 kg · 135 lb",WFLW:"56,7 kg · 125 lb",WSW:"52,2 kg · 115 lb"};
+/* Boxe : catégories affichées en anglais */
+Object.assign(W,{"Lourds":"Heavyweight","Lourds-légers":"Cruiserweight","Mi-lourds":"Light heavyweight","Super-moyens":"Super middleweight","Moyens":"Middleweight","Super-welters":"Super welterweight","Welters":"Welterweight","Super-légers":"Super lightweight","Légers":"Lightweight","Super-plumes":"Super featherweight","Plumes":"Featherweight","Super-coqs":"Super bantamweight","Coqs":"Bantamweight","Super-mouches":"Super flyweight","Mouches":"Flyweight","Poids négocié":"Catchweight"});
 /* Boxe : limites de poids des catégories (en français) */
 Object.assign(LIM,{"Lourds":"+90,7 kg · +200 lb","Lourds-légers":"90,7 kg · 200 lb","Mi-lourds":"79,4 kg · 175 lb","Super-moyens":"76,2 kg · 168 lb","Moyens":"72,6 kg · 160 lb","Super-welters":"69,9 kg · 154 lb","Welters":"66,7 kg · 147 lb","Super-légers":"63,5 kg · 140 lb","Légers":"61,2 kg · 135 lb","Super-plumes":"59 kg · 130 lb","Plumes":"57,2 kg · 126 lb","Super-coqs":"55,3 kg · 122 lb","Coqs":"53,5 kg · 118 lb","Super-mouches":"52,2 kg · 115 lb","Mouches":"50,8 kg · 112 lb"});
 const P=(n,o={})=>({n,...o});
@@ -1226,7 +1228,7 @@ function boutHTML(f,t,detail,total,me,ev,spoilOK){
   const resHTML=res?`<span class="resl${res.w==="draw"?" rdraw":""}">${res.w==="draw"?"Match nul":res.w==="nc"?"No contest":`Victoire ${esc(splitName(f.a).last===splitName(f.b).last?(res.w==="a"?f.a:f.b).n:splitName(res.w==="a"?f.a:f.b).last)}`}<em>${esc(res.method)} · R${res.round} ${esc(res.time)}${res.demo?" · test":""}</em></span>`:(SPOIL&&spoilOK&&t>=f.end?`<span class="resl rwait">Résultat non disponible</span>`:"");
   /* Le titre est déjà affiché en haut (étiquettes) : pas de doublon au centre */
   const _fv=isFav(f.a.n)||isFav(f.b.n), labTitle=me||(!_fv&&(f.a.star||f.b.star||f.a.fr||f.b.fr));
-  const mid=`${detail?`<span class="mtime ${cls}"><b>${tb}</b><span class="tzfr">Heure française</span></span>`:""}${resHTML}${f.title&&!labTitle?`<span class="belt">${esc(f.title)}</span>`:""}${detail?`${f.title&&norm(f.title).includes(norm(String(W[f.w]||f.w)))?"":`<span class="rd">${W[f.w]||f.w}</span>`}<span class="rds">${f.r} rounds</span>`:`<span class="rd">${W[f.w]||f.w} · ${f.r} rds</span>`}${detail?`<span class="lim">${LIM[f.w]||""}</span><span class="cnum">Combat ${f.ord}/${total}</span>`:""}`;
+  const mid=`${detail?`<span class="mtime ${cls}"><b>${tb}</b><span class="tzfr">Heure française</span></span>`:""}${resHTML}${f.title&&!labTitle?`<span class="belt">${esc(f.title)}</span>`:""}${detail?`<span class="rd">${W[f.w]||f.w}</span><span class="rds">${f.r} rounds</span>`:`<span class="rd">${W[f.w]||f.w} · ${f.r} rds</span>`}${detail?`<span class="lim">${LIM[f.w]||""}</span><span class="cnum">Combat ${f.ord}/${total}</span>`:""}`;
   const fv=isFav(f.a.n)||isFav(f.b.n);
   const sf=!me&&!fv&&(f.a.star||f.b.star);
   const favLabel=`<span class="fvl">♥ Favori</span>`;

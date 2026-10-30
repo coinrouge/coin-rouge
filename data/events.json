@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-29T23:44:35.830Z",
+ "updated": "2026-10-30T01:48:51.262Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -1514,6 +1514,10 @@
    "tv": "DAZN (PPV)",
    "segs": [
     {
+     "k": "prelims",
+     "t": "2026-10-31T14:15:00Z"
+    },
+    {
      "k": "main",
      "t": "2026-10-31T17:00:00Z"
     }
@@ -1576,6 +1580,19 @@
     },
     {
      "s": "main",
+     "w": "Super-coqs",
+     "r": 10,
+     "a": {
+      "n": "David Picasso",
+      "nat": "MEX"
+     },
+     "b": {
+      "n": "Carl Jammes Martin",
+      "nat": "PHI"
+     }
+    },
+    {
+     "s": "main",
      "w": "Super-plumes",
      "r": 10,
      "a": {
@@ -1589,6 +1606,58 @@
       "nat": "JPN",
       "rec": "5-0-0",
       "tp": "493346-reito-tsutsumi"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "Super-moyens",
+     "r": 10,
+     "a": {
+      "n": "Bek Nurmaganbet",
+      "nat": "KAZ"
+     },
+     "b": {
+      "n": "Marcos Vázquez Rodríguez",
+      "nat": "MEX"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "Moyens",
+     "r": 10,
+     "a": {
+      "n": "Carlos Emiliano Rojo Vázquez",
+      "nat": "MEX"
+     },
+     "b": {
+      "n": "Flavius Biea",
+      "nat": "ROU"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "Super-moyens",
+     "r": 10,
+     "a": {
+      "n": "Brayan León Salgado",
+      "nat": "CUB"
+     },
+     "b": {
+      "n": "Héctor Octavio Aguirre",
+      "nat": "MEX"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "Super-plumes",
+     "r": 10,
+     "a": {
+      "n": "Sultan Almohammed",
+      "nat": "KSA"
+     },
+     "b": {
+      "n": "Erick Jahir Villegas",
+      "nat": "MEX"
      }
     }
    ]
@@ -1845,7 +1914,8 @@
       "tp": "256874-ezra-taylor"
      }
     }
-   ]
+   ],
+   "partial": 1
   },
   {
    "id": "bx-billamsmith-clarke",
@@ -1895,7 +1965,8 @@
       "tp": "226321-shane-mosley-jr"
      }
     }
-   ]
+   ],
+   "partial": 1
   },
   {
    "id": "fn-suarez-jandiroba",
@@ -2701,7 +2772,8 @@
       "tp": "351425-nelson-hysa"
      }
     }
-   ]
+   ],
+   "partial": 1
   },
   {
    "id": "bx-fury-joshua",
@@ -2740,7 +2812,8 @@
       "tp": "212010-anthony-joshua-aj"
      }
     }
-   ]
+   ],
+   "partial": 1
   },
   {
    "id": "ufc335",

@@ -355,6 +355,28 @@ const dir = Object.entries(roster).filter(([n, r]) => r && r.org && !/^_/.test(n
   });
   console.log(`Annuaire : ${dir.length} combattants (dont ${seen.size} champions de boxe)`);
 }
+/* Combattants francophones hors UFC/PFL : catégories de Wikipédia en français */
+{
+  const have = new Set(dir.map((r) => r[0]));
+  let added = 0;
+  for (const [cat, nat, sp] of [["Pratiquant français d'arts martiaux mixtes", "FRA", "mma"], ["Pratiquant belge d'arts martiaux mixtes", "BEL", "mma"],
+    ["Boxeur français", "FRA", "boxe"], ["Boxeur belge", "BEL", "boxe"]]) {
+    let cont = "";
+    for (let i = 0; i < 6; i++) {
+      const r = await fetch(`https://fr.wikipedia.org/w/api.php?action=query&list=categorymembers&cmtype=page&cmlimit=500&format=json&cmtitle=${encodeURIComponent("Catégorie:" + cat)}${cont}`, { headers: { "User-Agent": UA } }).catch(() => null);
+      const j = r && r.ok ? await r.json() : null;
+      if (!j) break;
+      for (const m of j.query?.categorymembers || []) {
+        const n = m.title.replace(/\s*\(.*\)$/, "");
+        if (!/^\S+ \S/.test(n) || have.has(n)) continue;
+        have.add(n); dir.push([n, nat, "", sp]); added++;
+      }
+      if (!j.continue) break;
+      cont = `&cmcontinue=${encodeURIComponent(j.continue.cmcontinue)}`;
+    }
+  }
+  console.log(`Annuaire francophone (fr.wikipedia) : ${added} ajoutés`);
+}
 
 await writeFile(cacheFile, JSON.stringify(cache, null, 1));
 const data = { updated: new Date().toISOString(), source: "Wikipédia (en), licence CC BY-SA, et veille presse", presse: !!presse.events, events, agenda, roster: dir, tapology: JSON.parse(await readFile(new URL("../data/tapology.json", import.meta.url), "utf8").catch(() => "{}")) };

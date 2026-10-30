@@ -1170,7 +1170,7 @@ function render(){
   document.getElementById("hero").innerHTML=`
     <a class="hero-top poster" href="#ev-${ev.id}" aria-label="Voir la fight card complète : ${esc(ev.a)} contre ${esc(ev.b)}">
       <div class="ptop">
-        <div class="eyebrow">${live?'<span class="pill live">Live</span>':ev.start-t<18*36e5?`<span class="pill today">Ce soir · début ${fmtT(ev.start)}</span>`:`<span class="pill next">${filter==="fr"?"Prochaine soirée avec un francophone":filter==="star"?"Prochaine soirée avec des stars":filter==="fav"?"Prochaine soirée avec un favori":"Prochaine soirée"}</span>`}${evBadge(ev)}${mainF.title?`<span class="htitle" style="color:var(--gold)">${esc(mainF.title)}</span>`:""}</div>
+        <div class="eyebrow">${live?'<span class="pill live">Live</span>':(fmtD(ev.start)===fmtD(t)||ev.start-t<12*36e5)?`<span class="pill live">Live aujourd'hui · début ${fmtT(ev.start)}</span>`:`<span class="pill next">${filter==="fr"?"Prochaine soirée avec un francophone":filter==="star"?"Prochaine soirée avec des stars":filter==="fav"?"Prochaine soirée avec un favori":"Prochaine soirée"}</span>`}${evBadge(ev)}${mainF.title?`<span class="htitle" style="color:var(--gold)">${esc(mainF.title)}</span>`:""}</div>
       </div>
       <h2 class="pduel">
         ${posterSide(mainF.a,"red")}

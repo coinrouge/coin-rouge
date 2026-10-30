@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-30T13:03:45.745Z",
+ "updated": "2026-10-30T13:21:05.512Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -2186,7 +2186,9 @@
     }
    ],
    "partial": 1,
-   "tv": "Paramount+"
+   "tvx": [
+    "Paramount+ (Royaume-Uni)"
+   ]
   },
   {
    "id": "fn-suarez-jandiroba",

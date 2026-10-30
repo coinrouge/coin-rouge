@@ -1108,7 +1108,7 @@ function favSuggest(){
 document.getElementById("favq").addEventListener("input",favSuggest);
 function favs(t){
   const sec=document.getElementById("favsec"), hero=document.getElementById("hero");
-  sec.hidden=!(filter==="all"||filter==="fav");
+  sec.hidden=false;
   document.getElementById("favadd").hidden=filter!=="fav";
   /* Dans l'onglet Favoris, la gestion des favoris passe en premier */
   /* Onglet Favoris : en grand avant la soirée en tête ; sinon dans la colonne de droite */
@@ -1120,8 +1120,10 @@ function favs(t){
   if(!FAVS.length){el.innerHTML=`<div class="favempty">${filter==="fav"?"Tape un nom ci-dessus pour suivre un combattant.":"Touche le cœur à côté d'un combattant pour le suivre ici."} Tu verras sa prochaine soirée et l'heure estimée de son combat.</div>`;return;}
   /* Sport du favori : celui de son prochain combat, sinon celui de l'annuaire ; inconnu → seulement en « MMA + Boxe » */
   const favSport=(n,x)=>x?(x.e.sport||"mma"):(DIR.get(n)||{}).sp||null;
-  const rows=FAVS.map(n=>({n,x:nextFightOf(n,t)})).filter(({n,x})=>sport==="all"||favSport(n,x)===sport).sort((a,b)=>(a.x?a.x.f.est:Infinity)-(b.x?b.x.f.est:Infinity));
-  if(!rows.length){el.innerHTML=`<div class="favempty">Aucun favori en ${sport==="boxe"?"boxe":"MMA"} pour l'instant.</div>`;return;}
+  /* Onglet Francophones : seulement les favoris français ou belges */
+  const isFranco=(n,x)=>{const nat=(x&&x.me.nat)||NAT[n]||(DIR.get(n)||{}).nat;return !!(x&&x.me.fr)||nat==="FRA"||(nat==="BEL"&&!NOT_FRANCO.has(n));};
+  const rows=FAVS.map(n=>({n,x:nextFightOf(n,t)})).filter(({n,x})=>(sport==="all"||favSport(n,x)===sport)&&(filter!=="fr"||isFranco(n,x))).sort((a,b)=>(a.x?a.x.f.est:Infinity)-(b.x?b.x.f.est:Infinity));
+  if(!rows.length){el.innerHTML=`<div class="favempty">${filter==="fr"?"Aucun favori francophone pour l'instant.":`Aucun favori en ${sport==="boxe"?"boxe":"MMA"} pour l'instant.`}</div>`;return;}
   el.innerHTML=rows.map(({n,x})=>{
     const p=x?x.me:{n};
     const when=x?(t>=x.f.est&&t<x.f.end?`<b class="nowtag">Probablement en cours</b>`:`${fmtD(x.f.est)} · vers <b>${fmtT(x.f.est)}</b>`):"Aucun combat annoncé pour l'instant";

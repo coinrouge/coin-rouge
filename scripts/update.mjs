@@ -377,6 +377,21 @@ const dir = Object.entries(roster).filter(([n, r]) => r && r.org && !/^_/.test(n
   }
   console.log(`Annuaire francophone (fr.wikipedia) : ${added} ajoutés`);
 }
+/* Annuaire permanent : tout francophone vu une fois dans une carte reste trouvable dans la recherche */
+{
+  const file = new URL("../data/annuaire.json", import.meta.url);
+  const ann = JSON.parse(await readFile(file, "utf8").catch(() => "{}"));
+  for (const e of events) for (const f of e.fights) for (const x of [f.a, f.b]) {
+    const nat = x.nat || roster[x.n]?.nat || "";
+    if ((nat === "FRA" || nat === "BEL") && x.n && x.n !== "TBA") ann[x.n] = [nat, x.rec || ann[x.n]?.[1] || "", e.sport || "mma"];
+  }
+  const sorted = Object.fromEntries(Object.entries(ann).sort(([a], [b]) => a.localeCompare(b)));
+  await writeFile(file, JSON.stringify(sorted, null, 1));
+  const have = new Set(dir.map((r) => r[0]));
+  let n = 0;
+  for (const [name, [nat, rec, sp]] of Object.entries(sorted)) if (!have.has(name)) { dir.push([name, nat, rec, sp]); n++; }
+  console.log(`Annuaire permanent : ${Object.keys(sorted).length} francophones (${n} hors autres listes)`);
+}
 
 await writeFile(cacheFile, JSON.stringify(cache, null, 1));
 const data = { updated: new Date().toISOString(), source: "Wikipédia (en), licence CC BY-SA, et veille presse", presse: !!presse.events, events, agenda, roster: dir, tapology: JSON.parse(await readFile(new URL("../data/tapology.json", import.meta.url), "utf8").catch(() => "{}")) };

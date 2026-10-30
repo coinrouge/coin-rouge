@@ -20,10 +20,10 @@
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#0F1115; --surface:#181B21; --ink:#ECEEF1; --muted:#9AA1AE; --line:#2A2F38;
-  --red:#FF5468; --blue:#7FA2FF; --gold:#E3B85A; --live:#FF5468; --soft:#1E222A; --av-ink:#0F1115; --fn-bg:#3B1B22; --fn-ink:#FF95A3; --num-bg:#EBC03C; --num-ink:#1F1803; --num-t:#262010; --num-line:#9C7C1B; --fn-t:#1F181A; --fn-line:#43292F; --fn-inner:#2A1D21; --fr-t:#4A222B; --me-t:#252932; --star-t:#272C35; --wash:rgba(15,17,21,.40); --fav:#FF7AA8; --fav-t:#41192A; --lost:#F0524A; --fn-me:#3A242A; --num-me:#40361A; --fn-star:#3B262D; --num-star:#443A21; --fn-hero:#2C181D; --num-hero:#2D2611; --fn-hero-me:#3D2128; --num-hero-me:#3F3417; --num-inner:#302915; --num-line2:#4D4120; --win:#4FCB86; --loss:#FF9160; color-scheme:dark}}
+  --red:#FF5468; --blue:#7FA2FF; --gold:#E3B85A; --shine:#FFF7DC; --live:#FF5468; --soft:#1E222A; --av-ink:#0F1115; --fn-bg:#3B1B22; --fn-ink:#FF95A3; --num-bg:#EBC03C; --num-ink:#1F1803; --num-t:#262010; --num-line:#9C7C1B; --fn-t:#1F181A; --fn-line:#43292F; --fn-inner:#2A1D21; --fr-t:#4A222B; --me-t:#252932; --star-t:#272C35; --wash:rgba(15,17,21,.40); --fav:#FF7AA8; --fav-t:#41192A; --lost:#F0524A; --fn-me:#3A242A; --num-me:#40361A; --fn-star:#3B262D; --num-star:#443A21; --fn-hero:#2C181D; --num-hero:#2D2611; --fn-hero-me:#3D2128; --num-hero-me:#3F3417; --num-inner:#302915; --num-line2:#4D4120; --win:#4FCB86; --loss:#FF9160; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#0F1115; --surface:#181B21; --ink:#ECEEF1; --muted:#9AA1AE; --line:#2A2F38;
-  --red:#FF5468; --blue:#7FA2FF; --gold:#E3B85A; --live:#FF5468; --soft:#1E222A; --av-ink:#0F1115; --fn-bg:#3B1B22; --fn-ink:#FF95A3; --num-bg:#EBC03C; --num-ink:#1F1803; --num-t:#262010; --num-line:#9C7C1B; --fn-t:#1F181A; --fn-line:#43292F; --fn-inner:#2A1D21; --fr-t:#4A222B; --me-t:#252932; --star-t:#272C35; --wash:rgba(15,17,21,.40); --fav:#FF7AA8; --fav-t:#41192A; --lost:#F0524A; --fn-me:#3A242A; --num-me:#40361A; --fn-star:#3B262D; --num-star:#443A21; --fn-hero:#2C181D; --num-hero:#2D2611; --fn-hero-me:#3D2128; --num-hero-me:#3F3417; --num-inner:#302915; --num-line2:#4D4120; --win:#4FCB86; --loss:#FF9160; color-scheme:dark}
+  --red:#FF5468; --blue:#7FA2FF; --gold:#E3B85A; --shine:#FFF7DC; --live:#FF5468; --soft:#1E222A; --av-ink:#0F1115; --fn-bg:#3B1B22; --fn-ink:#FF95A3; --num-bg:#EBC03C; --num-ink:#1F1803; --num-t:#262010; --num-line:#9C7C1B; --fn-t:#1F181A; --fn-line:#43292F; --fn-inner:#2A1D21; --fr-t:#4A222B; --me-t:#252932; --star-t:#272C35; --wash:rgba(15,17,21,.40); --fav:#FF7AA8; --fav-t:#41192A; --lost:#F0524A; --fn-me:#3A242A; --num-me:#40361A; --fn-star:#3B262D; --num-star:#443A21; --fn-hero:#2C181D; --num-hero:#2D2611; --fn-hero-me:#3D2128; --num-hero-me:#3F3417; --num-inner:#302915; --num-line2:#4D4120; --win:#4FCB86; --loss:#FF9160; color-scheme:dark}
 /* PFL : même mise en page que les Fight Nights, en violet */
 .pfl{--red:#5B21B6;--fn-bg:#E3D6FA;--fn-ink:#4C1D95;--fn-t:#F6F2FD;--fn-line:#DED3F5;--fn-inner:#FCFAFF;--fn-me:#EEE6FB;--fn-star:#F3EEFD;--fn-hero:#EDE5FB;--fn-hero-me:#DFD2F8}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .pfl{--red:#8B5CF6;--fn-bg:#2B1A4F;--fn-ink:#A78BFA;--fn-t:#1A1722;--fn-line:#352B4D;--fn-inner:#211C2E;--fn-me:#2B2340;--fn-star:#2D2641;--fn-hero:#1F1A2E;--fn-hero-me:#2A2244}}
@@ -138,6 +138,12 @@ details.ev.num .sumsp{color:var(--gold)}
 @keyframes spark{0%,55%,100%{opacity:0;transform:scale(0) rotate(0deg)}68%{opacity:1;transform:scale(1) rotate(45deg)}82%{opacity:0;transform:scale(.3) rotate(90deg)}}
 .belt,.mltitle,.htitle,.rcard .rt{animation:starglow 2.6s ease-in-out infinite}
 @keyframes starglow{0%,100%{text-shadow:none}68%{text-shadow:0 0 8px rgba(227,184,90,.75)}}
+/* Reflet métallique : une bande claire en diagonale balaie le titre */
+.belt,.mltitle,.htitle,.rcard .rt{background-image:linear-gradient(115deg,var(--gold) 0 42%,var(--shine,#E9C46A) 50%,var(--gold) 58% 100%);background-size:260% 100%;background-position:130% 0;
+  -webkit-background-clip:text;background-clip:text;color:transparent!important;-webkit-text-fill-color:transparent}
+@keyframes shine{0%,40%{background-position:130% 0}75%,100%{background-position:-30% 0}}
+.belt,.mltitle,.htitle,.rcard .rt{animation:starglow 2.6s ease-in-out infinite,shine 2.6s ease-in-out infinite}
+@media (prefers-reduced-motion: reduce){.belt,.mltitle,.htitle,.rcard .rt{animation:none}}
 @media (prefers-reduced-motion: reduce){.belt,.mltitle,.htitle,.rcard .rt,.belt::before,.mltitle::before,.htitle::before,.rcard .rt::before,.belt::after,.mltitle::after,.htitle::after,.rcard .rt::after{animation:none}}
 .melabel em.mltitle{color:var(--gold)}
 .melabel span.rdl{display:inline-flex;align-items:center;gap:6px;background:transparent!important;color:#C8102E!important;border:1px solid #C8102E;padding:2px 8px;border-radius:3px}

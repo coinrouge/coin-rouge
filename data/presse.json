@@ -682,6 +682,64 @@
    "tvx": [
     "Netflix (monde entier)"
    ]
+  },
+  {
+   "id": "bx-adames-warburton",
+   "sport": "boxe",
+   "org": "Boxe",
+   "name": "Zuffa Boxing 13",
+   "a": "Adames",
+   "b": "Warburton",
+   "venue": "The Venue",
+   "city": "Riyad",
+   "tz": "Asia/Riyadh",
+   "tbc": 1,
+   "partial": 1,
+   "segs": [
+    {
+     "k": "main",
+     "t": "2026-11-14T17:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "Moyens",
+     "r": 10,
+     "a": {
+      "n": "Carlos Adames",
+      "nat": "DOM"
+     },
+     "b": {
+      "n": "Gerome Warburton",
+      "nat": "GBR"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Super-moyens",
+     "r": 10,
+     "a": {
+      "n": "Bruno Surace",
+      "nat": "FRA"
+     },
+     "b": {
+      "n": "Kamil Bednarek",
+      "nat": "POL",
+      "tp": "174234-kamil-bednarek"
+     }
+    }
+   ],
+   "tv": "RMC Sport",
+   "tvx": [
+    "Paramount+ (Royaume-Uni)",
+    "Paramount+ (États-Unis)"
+   ],
+   "sources": [
+    "https://www.instagram.com/rmc_sportcombat/ (annonce officielle Surace vs Bednarek, 30/10)",
+    "https://www.ufc.com/news/november-14-carlos-adames-battles-gerome-warburton-riyadh-season-zuffa-boxing-13-main-event",
+    "https://www.boxingscene.com/articles/carlos-adames-set-for-zuffa-debut-against-gerome-warburton-in-saudi-arabia"
+   ]
   }
  ],
  "agenda": [

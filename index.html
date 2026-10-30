@@ -59,11 +59,8 @@ body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:1
 .rside .favw{font-size:12px;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .rside .favwhen{grid-column:2;text-align:left;font-size:12px}
 .rside .favwhen b{font-size:13px}
-/* Bouton Spoil à côté de la roue ; quand on descend, il reste en haut de l'écran, au même endroit */
-.spoilslot{min-width:126px;height:38px;display:flex;justify-content:flex-end}
-.spoiltop{white-space:nowrap}
-.spoiltop.stuck{position:fixed;top:12px;z-index:40;box-shadow:0 6px 20px rgba(0,0,0,.35)}
-body:has(#detail:not([hidden])) .spoiltop{visibility:hidden}
+/* Bouton Spoil sous le calendrier, dans la colonne de gauche (qui reste visible au défilement) */
+.spoilside{width:100%;justify-content:center;height:42px}
 button,input,select{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 
@@ -739,7 +736,6 @@ details.ev summary:hover .chev{color:var(--ink)}
           <button type="button" role="menuitemradio" data-src="ufc">UFC.com</button>
         </div>
       </div>
-      <div class="spoilslot" id="spoilslot"><button type="button" class="spoilbtn spoiltop" id="spoilh" aria-pressed="false" title="Afficher ou masquer les résultats"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="eye" d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle class="eye" cx="12" cy="12" r="3"/><path class="slash" d="M3 3l18 18"/></svg><span>No spoil</span></button></div>
     </div>
   </header>
   <div class="layout">
@@ -757,6 +753,7 @@ details.ev summary:hover .chev{color:var(--ink)}
       <ol class="agl" id="agenda"></ol>
       <a class="agmore" id="agmore" href="#agenda">Voir le calendrier complet</a>
     </div>
+    <button type="button" class="spoilbtn spoilside" id="spoilh" aria-pressed="false" title="Afficher ou masquer les résultats"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="eye" d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle class="eye" cx="12" cy="12" r="3"/><path class="slash" d="M3 3l18 18"/></svg><span>No spoil</span></button>
   </aside>
   <div class="mainc">
   <div class="find findbox" id="find" hidden></div>
@@ -1204,11 +1201,6 @@ function cd(ms){
 
 let showAllOthers=false;
 document.addEventListener("click",e=>{if(e.target.closest("#allothers")){showAllOthers=!showAllOthers;render();}});
-/* Le bouton Spoil se fixe en haut de l'écran quand l'en-tête défile, en gardant sa position horizontale */
-function placeSpoil(){const slot=document.getElementById("spoilslot"),b=document.getElementById("spoilh");if(!slot||!b)return;
-  const r=slot.getBoundingClientRect();const stick=r.top<12;b.classList.toggle("stuck",stick);
-  if(stick){b.style.right=(document.documentElement.clientWidth-r.right)+"px";}else b.style.right="";}
-addEventListener("scroll",placeSpoil,{passive:true});addEventListener("resize",placeSpoil);
 function syncSpoilBtn(){const b=document.getElementById("spoilh");if(!b)return;b.setAttribute("aria-pressed",SPOIL);b.querySelector("span").textContent=SPOIL?"Spoil":"No spoil";}
 function render(){
   syncSpoilBtn();

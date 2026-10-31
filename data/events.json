@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-31T18:56:31.088Z",
+ "updated": "2026-10-31T19:05:33.000Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -1728,11 +1728,14 @@
    "ctry": "FRA",
    "tz": "Europe/Paris",
    "tbc": 1,
-   "partial": 1,
    "segs": [
     {
-     "k": "main",
+     "k": "prelims",
      "t": "2026-10-31T18:30:00Z"
+    },
+    {
+     "k": "main",
+     "t": "2026-10-31T20:30:00Z"
     }
    ],
    "fights": [
@@ -1752,7 +1755,8 @@
       "nat": "USA",
       "rec": "23-16-1",
       "tp": "tyson-nam"
-     }
+     },
+     "title": "Titre bantamweight ARES"
     },
     {
      "s": "main",
@@ -1777,24 +1781,6 @@
      "w": "LW",
      "r": 3,
      "a": {
-      "n": "Andrii Misiuk",
-      "rec": "6-0-0",
-      "tp": "342716-andriy-misiuk",
-      "nat": "UKR"
-     },
-     "b": {
-      "n": "Phruethukorn Chaichongcharden",
-      "rec": "4-4-1",
-      "tp": "228957-chai-title",
-      "nat": "FRA",
-      "fr": 1
-     }
-    },
-    {
-     "s": "main",
-     "w": "LW",
-     "r": 3,
-     "a": {
       "n": "Sofiane El Fatni",
       "rec": "4-1-0",
       "nat": "MAR"
@@ -1807,51 +1793,18 @@
     },
     {
      "s": "main",
-     "w": "LW",
+     "w": "Poids négocié (79,8 kg)",
      "r": 3,
      "a": {
-      "n": "Maher Belkhadir",
-      "rec": "3-2-0",
-      "nat": "FRA",
-      "fr": 1
-     },
-     "b": {
-      "n": "Marc-Philippe Ngatchou",
-      "rec": "2-1-1",
-      "nat": "GER"
-     }
-    },
-    {
-     "s": "main",
-     "w": "BW",
-     "r": 3,
-     "a": {
-      "n": "Lasha Gogishvili",
-      "rec": "3-1-0",
-      "nat": "BEL"
-     },
-     "b": {
-      "n": "Alexandre Carole",
-      "rec": "4-3-0",
-      "tp": "338228-alexandre-carole",
-      "nat": "FRA",
-      "fr": 1
-     },
-     "t": "2026-10-31T18:55:00Z"
-    },
-    {
-     "s": "main",
-     "w": "WSW",
-     "r": 3,
-     "a": {
-      "n": "Melissa Hurtado",
+      "n": "B. Bakhouche-Chareuf",
       "rec": "3-0-0",
-      "nat": "CUB"
+      "nat": "FRA",
+      "fr": 1
      },
      "b": {
-      "n": "Weronika Cisło",
-      "rec": "1-1-0",
-      "nat": "POL"
+      "n": "Daniel Rodrigues",
+      "rec": "2-1-0",
+      "nat": "POR"
      }
     },
     {
@@ -1871,19 +1824,53 @@
      }
     },
     {
-     "s": "main",
-     "w": "MW",
+     "s": "prelims",
+     "w": "WSW",
      "r": 3,
      "a": {
-      "n": "Mohadi Nazirov",
-      "rec": "1-0-0",
-      "nat": "AUT"
+      "n": "Melissa Hurtado",
+      "rec": "3-0-0",
+      "nat": "CUB"
      },
      "b": {
-      "n": "Ibrahima Dosso",
-      "rec": "2-2-0",
-      "nat": "CIV"
+      "n": "Weronika Cisło",
+      "rec": "1-1-0",
+      "nat": "POL"
      }
+    },
+    {
+     "s": "prelims",
+     "w": "LW",
+     "r": 3,
+     "a": {
+      "n": "Maher Belkhadir",
+      "rec": "3-2-0",
+      "nat": "FRA",
+      "fr": 1
+     },
+     "b": {
+      "n": "Marc-Philippe Ngatchou",
+      "rec": "2-1-1",
+      "nat": "GER"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "BW",
+     "r": 3,
+     "a": {
+      "n": "Lasha Gogishvili",
+      "rec": "3-1-0",
+      "nat": "BEL"
+     },
+     "b": {
+      "n": "Alexandre Carole",
+      "rec": "4-3-0",
+      "tp": "338228-alexandre-carole",
+      "nat": "FRA",
+      "fr": 1
+     },
+     "t": "2026-10-31T18:55:00Z"
     }
    ],
    "tv": "Canal+ Sport 360"
@@ -11916,6 +11903,12 @@
    "Alexandre Carole",
    "FRA",
    "4-3-0",
+   "mma"
+  ],
+  [
+   "B. Bakhouche-Chareuf",
+   "FRA",
+   "3-0-0",
    "mma"
   ],
   [

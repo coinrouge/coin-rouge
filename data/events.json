@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-31T23:07:35.377Z",
+ "updated": "2026-10-31T23:09:41.035Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -1567,6 +1567,11 @@
       "champ": 1,
       "tp": "212890-christian-mbilli-solide",
       "fr": 1
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 12
      }
     },
     {

@@ -1040,7 +1040,8 @@ function prepEvents(){EVENTS.forEach(ev=>{
     /* Combats déjà terminés (résultat connu) d'abord : l'ordre réel peut différer de l'ordre annoncé */
     const l0=ev.fights.filter(f=>f.s===k).slice().reverse(), list=[...l0.filter(f=>f.res&&!f.t),...l0.filter(f=>f.res&&f.t).sort((x,y)=>Date.parse(x.t)-Date.parse(y.t)),...l0.filter(f=>!f.res)];
     /* sure : heure de début fiable (annoncée, ou premier combat d'une partie de soirée). Sinon l'ordre n'est qu'une estimation */
-    list.forEach((f,i)=>{if(f.t){cur=Date.parse(f.t);f.known=1;} f.sure=!!f.known||i===0; f.est=cur; f.end=cur+dur(f)*60000; cur=f.end; f.ord=++n;
+    /* Un combat dont l'heure de début est connue clôt tous ceux d'avant dans cette partie : jamais deux combats « en cours » à la fois */
+    list.forEach((f,i)=>{if(f.t){cur=Date.parse(f.t);f.known=1;list.slice(0,i).forEach(p=>{if(p.end>cur)p.end=cur;if(p.est>cur)p.est=cur;});} f.sure=!!f.known||i===0; f.est=cur; f.end=cur+dur(f)*60000; cur=f.end; f.ord=++n;
       /* Heure estimée arrondie aux 5 minutes (plus lisible : 16:00 plutôt que 16:02) */
       if(!f.known) f.est=Math.round(f.est/3e5)*3e5;});
   });

@@ -383,6 +383,9 @@ details.ev summary::-webkit-details-marker{display:none}
 .pwhen{display:flex;flex-direction:column;gap:2px;min-width:0}
 /* ESSAI : date et horaires au centre, sous le lieu et le drapeau du pays */
 .hero .pmid{flex-direction:column;align-items:center}
+/* VS aligné sur les noms (et non au milieu de toute la colonne centrale) */
+.hero .pduel{align-items:start}
+.hero .pside{padding-top:6px}
 .hero .pvenue2{position:static;transform:none;margin-top:8px;max-width:300px}
 .pwhen.pwc .pdate{font-size:20px;color:var(--ink)}.pwhen.pwc .pstart{color:var(--muted)}
 .pwhen.pwc{align-items:center;text-align:center;margin-top:12px}
@@ -1443,7 +1446,14 @@ function render(){
   favs(t);
   radar();
   renderDetail(t);
-  fitNames();
+  fitNames(); alignVS();
+}
+/* Affiche du haut : le rond VS est calé à la hauteur des noms */
+function alignVS(){
+  const v=document.querySelector(".hero .pvs"), b=document.querySelector(".hero .pside b"); if(!v||!b) return;
+  v.style.marginTop="0px";
+  const V=v.getBoundingClientRect(), B=b.getBoundingClientRect();
+  const d=(B.top+B.height/2)-(V.top+V.height/2); if(d>0) v.style.marginTop=d+"px";
 }
 /* Liste textuelle des prochains événements (8 puis liste complète) */
 const SPORTLBL={all:"MMA + Boxe",mma:"MMA",boxe:"Boxe"};
@@ -1639,7 +1649,7 @@ function fitNames(){
     if(w>box) b.style.fontSize=(parseFloat(getComputedStyle(b).fontSize)*box/w*.97)+"px";
   });
 }
-addEventListener("resize",()=>fitNames());
+addEventListener("resize",()=>{fitNames();alignVS();});
 /* Retour à l'accueil : toujours en No spoil */
 function leaveSpoil(){if(!/^#ev-/.test(location.hash)&&SPOIL){SPOIL=false;return true;}return false;}
 window.addEventListener("hashchange",()=>{const was=SPOIL;renderDetail(now());leaveSpoil();if(was!==SPOIL)render();});

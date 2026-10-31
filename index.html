@@ -268,6 +268,7 @@ a.hero-top:hover .cta::after{transform:translateX(4px)}
 .mflag{width:24px;height:16px;border-radius:2px;vertical-align:-1px;margin:0 8px;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
 .nowbar .who .cr .mflag{margin-left:0}.nowbar .who .cb .mflag{margin-right:0}
 .nowbar .after{color:var(--muted);font-size:14px}
+.nowbar .unsure,.alive .unsure{color:var(--muted);font-size:14px;font-style:italic}
 .alsolive:empty{display:none}
 .alsolive{display:flex;flex-direction:column;gap:8px;padding:12px 20px;background:var(--soft);border-top:1px solid var(--line)}
 .alive{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 18px;background:var(--surface);border:1px solid var(--line);border-radius:6px;color:inherit;text-decoration:none}
@@ -1038,7 +1039,8 @@ function prepEvents(){EVENTS.forEach(ev=>{
     const st=Date.parse(sg.t); cur=Math.max(cur,st);
     /* Combats déjà terminés (résultat connu) d'abord : l'ordre réel peut différer de l'ordre annoncé */
     const l0=ev.fights.filter(f=>f.s===k).slice().reverse(), list=[...l0.filter(f=>f.res&&!f.t),...l0.filter(f=>f.res&&f.t).sort((x,y)=>Date.parse(x.t)-Date.parse(y.t)),...l0.filter(f=>!f.res)];
-    list.forEach(f=>{if(f.t){cur=Date.parse(f.t);f.known=1;} f.est=cur; f.end=cur+dur(f)*60000; cur=f.end; f.ord=++n;
+    /* sure : heure de début fiable (annoncée, ou premier combat d'une partie de soirée). Sinon l'ordre n'est qu'une estimation */
+    list.forEach((f,i)=>{if(f.t){cur=Date.parse(f.t);f.known=1;} f.sure=!!f.known||i===0; f.est=cur; f.end=cur+dur(f)*60000; cur=f.end; f.ord=++n;
       /* Heure estimée arrondie aux 5 minutes (plus lisible : 16:00 plutôt que 16:02) */
       if(!f.known) f.est=Math.round(f.est/3e5)*3e5;});
   });
@@ -1281,7 +1283,7 @@ function moreBtn(ev,shownAll){
 }
 function boutHTML(f,t,detail,total,me,ev,spoilOK){
   let cls="", tb="", lab="";
-  if(t>=f.est&&t<f.end&&!f.res){cls="now";tb=fmtT(f.est);lab="En cours ?";}
+  if(t>=f.est&&t<f.end&&!f.res&&f.sure){cls="now";tb=fmtT(f.est);lab="En cours ?";}
   else if(t>=f.end||f.res){cls="done";tb=fmtT(f.est);lab=f.res?"Terminé":"Terminé ?";}
   else {tb=(f.known&&!(ev&&ev.tbc)?"":"≈ ")+fmtT(f.est);lab=fmtDS(f.est);}
   const res=SPOIL&&spoilOK&&(t>=f.end||f.res)?resultOf(f,t):null;
@@ -1378,15 +1380,12 @@ function render(){
       ${schedHTML(ev)}
     </a>
     <div class="nowbar ${live?"on":""}">
-      <span class="tag${ev.sport==="boxe"?" bxt":""}">Probablement ${ev.sport==="boxe"?"sur le ring":"dans la cage"}</span>
-      <span class="who">${cur?`<span class="cr">${miniFlag(cur.a)}${esc(splitName(cur.a).last)}</span> <span class="vs">–</span> <span class="cb">${esc(splitName(cur.b).last)}${miniFlag(cur.b)}</span>`:"Entre deux combats"}</span>
-      <span class="after">${nxt?"Ensuite : "+esc(splitName(nxt.a).last)+" – "+esc(splitName(nxt.b).last)+" vers "+fmtT(nxt.est):""}</span>
+      ${liveLine(ev,t)}
     </div>`;
   /* Autres soirées en direct au même moment (ex. ARES pendant une soirée de boxe) : bandeau compact sous la soirée en tête */
   const also=pool.filter(e=>e!==ev&&t>=e.start&&t<e.end);
   document.getElementById("hero").insertAdjacentHTML("beforeend",`<div class="alsolive">${also.map(e=>{
-    const cu=e.fights.find(f=>!f.res&&t>=f.est&&t<f.end), nx=e.fights.filter(f=>!f.res&&f.est>t).sort((a,b)=>a.est-b.est)[0];
-    return `<a class="alive ${evCls(e)}" href="#ev-${e.id}"><span class="pill live" title="Soirée en direct en même temps">Aussi en live</span>${evBadge(e,1)}<span class="tag${e.sport==="boxe"?" bxt":""}">Probablement ${e.sport==="boxe"?"sur le ring":"dans la cage"}</span><span class="who">${cu?`<span class="cr">${miniFlag(cu.a)}${esc(splitName(cu.a).last)}</span> <span class="vs">–</span> <span class="cb">${esc(splitName(cu.b).last)}${miniFlag(cu.b)}</span>`:"Entre deux combats"}</span><span class="after">${nx?"Ensuite : "+esc(splitName(nx.a).last)+" – "+esc(splitName(nx.b).last)+" vers "+fmtT(nx.est):""}</span></a>`;}).join("")}</div>`);
+    return `<a class="alive ${evCls(e)}" href="#ev-${e.id}"><span class="pill live" title="Soirée en direct en même temps">Aussi en live</span>${evBadge(e,1)}${liveLine(e,t)}</a>`;}).join("")}</div>`);
   const restN=ev.fights.length-ev.fights.filter(f=>f.s==="main").length;
   document.getElementById("hero").insertAdjacentHTML("beforeend",`<div class="hero-card">${cardHTML(ev,t,{only:filter==="all"?"main":null})}
     ${moreBtn(ev,false)}</div>`);
@@ -1425,6 +1424,15 @@ function tvInfo(ev){const fr=ev.tv||(ev.org==="PFL"||ev.sport==="boxe"||ev.org==
 /* Diffusion gratuite et officielle d'une partie de soirée (ex. prelims sur YouTube) : seg.free = "YouTube" */
 function freeTag(s){return s.free?`<span class="free">Gratuit · ${esc(s.free)}</span>`:"";}
 function freeLine(ev){const s=ev.segs.filter(x=>x.free);return s.length?` · <span class="freel">${s.map(x=>`${SEG[x.k]} gratuits sur ${esc(x.free)}`).join(" · ")}</span>`:"";}
+/* Bandeau du direct : on n'affiche le combat en cours que si son heure est fiable ; sinon « ordre de passage non confirmé » */
+function liveLine(e,t){
+  const cu=e.fights.find(f=>!f.res&&t>=f.est&&t<f.end), nx=e.fights.filter(f=>!f.res&&f.est>t).sort((a,b)=>a.est-b.est)[0];
+  const place=e.sport==="boxe"?"sur le ring":"dans la cage", bx=e.sport==="boxe"?" bxt":"";
+  const duo=f=>`<span class="cr">${miniFlag(f.a)}${esc(splitName(f.a).last)}</span> <span class="vs">–</span> <span class="cb">${esc(splitName(f.b).last)}${miniFlag(f.b)}</span>`;
+  if(cu&&cu.sure) return `<span class="tag${bx}">Probablement ${place}</span><span class="who">${duo(cu)}</span><span class="after">${nx&&nx.sure?"Ensuite : "+esc(splitName(nx.a).last)+" – "+esc(splitName(nx.b).last)+" vers "+fmtT(nx.est):""}</span>`;
+  if(cu) return `<span class="tag${bx}">En direct</span><span class="unsure">Ordre de passage non confirmé</span>`;
+  return `<span class="tag${bx}">En direct</span><span class="unsure">Entre deux combats</span>${nx&&nx.sure?`<span class="after">Ensuite : ${esc(splitName(nx.a).last)} – ${esc(splitName(nx.b).last)} vers ${fmtT(nx.est)}</span>`:""}`;
+}
 function tvLine(ev){const {fr,x}=tvInfo(ev);if(fr)return `<span class="pstart ptv">Diffusion en France : <b>${esc(fr)}</b>${freeLine(ev)}</span>`;if(x)return `<span class="pstart ptv">Pas de diffuseur annoncé en France · <b>${esc(x)}</b>${freeLine(ev)}</span>`;return ev.segs.some(x=>x.free)?`<span class="pstart ptv">${freeLine(ev).slice(3)}</span>`:"";}
 function agendaItems(t){
   return [

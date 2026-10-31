@@ -1,13 +1,14 @@
-Combattants : 943
+Combattants : 970
   2027 in Professional Fighters League : HTTP 404
-Soirées retenues : UFC 332: Silva vs. Wang / UFC Fight Night: Allen vs. Duncan / UFC Fight Night: Buckley vs. Malott / PFL Chicago: Carmouche vs. Bishop 2 / UFC 333: Volkanovski vs. Evloev / UFC Fight Night: Moicano vs. Nolan / UFC Fight Night 293 / UFC 334: Gane vs. Hokit / PFL Dubai: Nemkov vs. Bilostenniy / UFC Fight Night: Procházka vs. Stirling / UFC Fight Night 295 / UFC 335: Oliveira vs. Lopes / PFL Lyon: Lapilus vs. McKee / UFC Fight Night 296 / UFC 336: Van vs. Kape / UFC Fight Night 297
+Soirées retenues : UFC 332: Silva vs. Wang / UFC Fight Night: Allen vs. Duncan / UFC Fight Night: Buckley vs. Malott / PFL Chicago: Carmouche vs. Bishop 2 / UFC 333: Volkanovski vs. Evloev / UFC Fight Night: Moicano vs. Nolan / UFC Fight Night: Cortes-Acosta vs. Walker / UFC 334: Gane vs. Hokit / PFL Dubai: Nemkov vs. Bilostenniy / UFC Fight Night: Procházka vs. Stirling / UFC Fight Night 295 / UFC 335: Oliveira vs. Lopes / PFL Lyon: Lapilus vs. McKee / UFC Fight Night 296 / UFC 336: Van vs. Kape / UFC Fight Night 297
   ufc332 : 14 combats, 14 résultats
   fn-allen-duncan : 12 combats, 11 résultats
   fn-buckley-malott : 13 combats, 13 résultats
   pfl-carmouche-bishop : 13 combats, 13 résultats
   ufc333 : 14 combats, 14 résultats
   fn-moicano-nolan : 12 combats, 0 résultats
-  fn-suarez-jandiroba : 11 combats, 0 résultats
+  Gabriel Lorenço : HTTP 404
+  fn-cortesacosta-walker : 13 combats, 0 résultats
   ufc334 : 10 combats, 0 résultats
   pfl-nemkov-bilostenniy : 15 combats, 0 résultats
   fn-prochazka-stirling : 9 combats, 0 résultats
@@ -16,7 +17,7 @@ Soirées retenues : UFC 332: Silva vs. Wang / UFC Fight Night: Allen vs. Duncan 
   ufc336 : 2 combats, 0 résultats
 Presse : 8 soirées, 4 à l'agenda
   2027 in Zuffa Boxing : HTTP 404
-Annuaire : 1014 combattants (dont 71 champions de boxe)
+Annuaire : 1041 combattants (dont 71 champions de boxe)
 Annuaire francophone (fr.wikipedia) : 334 ajoutés
 Annuaire permanent : 27 francophones (11 hors autres listes)
-Aucun changement.
+data/events.json écrit (21 soirées détaillées, 7 à l'agenda).

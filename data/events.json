@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-30T17:03:13.465Z",
+ "updated": "2026-10-31T01:03:28.805Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -1511,7 +1511,9 @@
       "nat": "BRA"
      },
      "b": {
-      "n": "Nicolle Caliari"
+      "n": "Nicolle Caliari",
+      "rec": "9-4-0",
+      "nat": "BRA"
      },
      "res": {
       "w": "a",
@@ -1960,7 +1962,7 @@
     },
     {
      "s": "prelims",
-     "w": "FW",
+     "w": "Catchweight (148 lb)",
      "r": 3,
      "a": {
       "n": "Francis Marshall",
@@ -2043,7 +2045,9 @@
       "nat": "BRA"
      },
      "b": {
-      "n": "Piera Rodriguez"
+      "n": "Piera Rodriguez",
+      "rec": "12-2-0",
+      "nat": "VEN"
      }
     },
     {
@@ -2052,6 +2056,7 @@
      "r": 3,
      "a": {
       "n": "Lucia Szabová",
+      "rec": "10-0-0",
       "nat": "SVK"
      },
      "b": {
@@ -2233,11 +2238,11 @@
     "VOOsport World (Belgique)",
     "Paramount+ (États-Unis)"
    ],
-   "id": "fn-suarez-jandiroba",
+   "id": "fn-cortesacosta-walker",
    "org": "UFC",
    "name": "UFC Fight Night",
-   "a": "Suarez",
-   "b": "Jandiroba",
+   "a": "Cortes-Acosta",
+   "b": "Walker",
    "venue": "Meta Apex",
    "city": "Las Vegas",
    "ctry": "USA",
@@ -2255,8 +2260,23 @@
    "fights": [
     {
      "s": "main",
-     "w": "WSW",
+     "w": "HW",
      "r": 5,
+     "a": {
+      "n": "Waldo Cortes-Acosta",
+      "rec": "17-4-0",
+      "nat": "DOM"
+     },
+     "b": {
+      "n": "Johnny Walker",
+      "rec": "23-10-0",
+      "nat": "BRA"
+     }
+    },
+    {
+     "s": "main",
+     "w": "WSW",
+     "r": 3,
      "a": {
       "n": "Tatiana Suarez",
       "rec": "12-1-0",
@@ -2325,6 +2345,19 @@
      "b": {
       "n": "Andre Petroski",
       "rec": "13-6-0",
+      "nat": "USA"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "HW",
+     "r": 3,
+     "a": {
+      "n": "Gabriel Lorenço"
+     },
+     "b": {
+      "n": "Thomas Petersen",
+      "rec": "11-5-0",
       "nat": "USA"
      }
     },
@@ -2415,7 +2448,7 @@
      }
     }
    ],
-   "wiki": "UFC Fight Night 293"
+   "wiki": "UFC Fight Night: Cortes-Acosta vs. Walker"
   },
   {
    "tvx": [
@@ -7303,115 +7336,277 @@
   [
    "Lucia Szabová",
    "SVK",
-   "",
+   "10-0-0",
    "mma"
   ],
   [
-   "The time allocated for running scripts has expired.",
-   "",
-   "",
+   "Jéssica Andrade",
+   "BRA",
+   "26-15-0",
+   "mma"
+  ],
+  [
+   "Angela Hill",
+   "USA",
+   "19-16-0",
+   "mma"
+  ],
+  [
+   "Karolina Kowalkiewicz",
+   "POL",
+   "17-9-0",
+   "mma"
+  ],
+  [
+   "Tatiana Suarez",
+   "USA",
+   "12-1-0",
+   "mma"
+  ],
+  [
+   "Amanda Lemos",
+   "BRA",
+   "15-7-1",
+   "mma"
+  ],
+  [
+   "Yan Xiaonan",
+   "CHN",
+   "18-6-0",
+   "mma"
+  ],
+  [
+   "Gillian Robertson",
+   "CAN",
+   "17-9-0",
+   "mma"
+  ],
+  [
+   "Polyana Viana",
+   "BRA",
+   "13-9-0",
+   "mma"
+  ],
+  [
+   "Mackenzie Dern",
+   "BRA",
+   "17-5-0",
+   "mma"
+  ],
+  [
+   "Virna Jandiroba",
+   "BRA",
+   "23-4-0",
+   "mma"
+  ],
+  [
+   "Amanda Ribas",
+   "BRA",
+   "12-7-0",
+   "mma"
+  ],
+  [
+   "Mizuki Inoue",
+   "JPN",
+   "16-6-0",
+   "mma"
+  ],
+  [
+   "Loma Lookboonmee",
+   "THA",
+   "10-5-0",
+   "mma"
+  ],
+  [
+   "Sam Hughes",
+   "USA",
+   "11-7-0",
+   "mma"
+  ],
+  [
+   "Montserrat Ruiz",
+   "MEX",
+   "10-5-0",
+   "mma"
+  ],
+  [
+   "Loopy Godinez",
+   "MEX",
+   "15-6-0",
+   "mma"
+  ],
+  [
+   "Luana Pinheiro",
+   "BRA",
+   "11-5-0",
+   "mma"
+  ],
+  [
+   "Tabatha Ricci",
+   "BRA",
+   "12-5-0",
+   "mma"
+  ],
+  [
+   "Elise Reed",
+   "USA",
+   "8-6-0",
+   "mma"
+  ],
+  [
+   "Vanessa Demopoulos",
+   "USA",
+   "11-9-0",
    "mma"
   ],
   [
    "Piera Rodriguez",
-   "",
-   "",
+   "VEN",
+   "12-2-0",
+   "mma"
+  ],
+  [
+   "Yazmin Jauregui",
+   "MEX",
+   "12-2-0",
+   "mma"
+  ],
+  [
+   "Iasmin Lucindo",
+   "BRA",
+   "19-6-0",
+   "mma"
+  ],
+  [
+   "Denise Gomes",
+   "BRA",
+   "13-3-0",
+   "mma"
+  ],
+  [
+   "Ketlen Souza",
+   "BRA",
+   "17-7-0",
    "mma"
   ],
   [
    "Shauna Bannon",
-   "",
-   "",
+   "IRL",
+   "7-3-0",
+   "mma"
+  ],
+  [
+   "Talita Alencar",
+   "BRA",
+   "8-1-1",
+   "mma"
+  ],
+  [
+   "Rayanne dos Santos",
+   "BRA",
+   "14-8-0",
    "mma"
   ],
   [
    "Puja Tomar",
-   "",
-   "",
+   "India",
+   "9-6-0",
    "mma"
   ],
   [
    "Julia Polastri",
-   "",
-   "",
+   "BRA",
+   "15-5-0",
    "mma"
   ],
   [
    "Fatima Kline",
-   "",
-   "",
+   "USA",
+   "10-1-0",
    "mma"
   ],
   [
    "Nicolle Caliari",
-   "",
-   "",
+   "BRA",
+   "9-5-0",
    "mma"
   ],
   [
    "Alice Ardelean",
-   "",
-   "",
+   "ROU",
+   "12-7-0",
    "mma"
   ],
   [
    "Stephanie Luciano",
-   "",
-   "",
+   "BRA",
+   "8-2-1",
    "mma"
   ],
   [
    "Shi Ming",
-   "",
-   "",
+   "CHN",
+   "18-6-0",
    "mma"
   ],
   [
    "Alexia Thainara",
-   "",
-   "",
+   "BRA",
+   "15-1-0",
    "mma"
   ],
   [
    "Shanelle Dyer",
-   "",
-   "",
+   "GBR",
+   "8-1-0",
+   "mma"
+  ],
+  [
+   "Xiong Jingnan",
+   "CHN",
+   "19-4-0",
    "mma"
   ],
   [
    "Marina Spasić",
-   "",
-   "",
+   "SRB",
+   "7-2-0",
    "mma"
   ],
   [
    "Giovanna Canuto",
-   "",
-   "",
+   "BRA",
+   "7-2-0",
    "mma"
   ],
   [
    "Carol Foro",
-   "",
-   "",
+   "BRA",
+   "10-1-0",
    "mma"
   ],
   [
    "Delphine Benouaich",
-   "",
-   "",
+   "FRA",
+   "8-2-0",
    "mma"
   ],
   [
    "Sofia Montenegro",
-   "",
-   "",
+   "ARG",
+   "6-3-0",
    "mma"
   ],
   [
    "Melissa Amaya",
-   "",
-   "",
+   "USA",
+   "8-1-0",
+   "mma"
+  ],
+  [
+   "Valesca Machado",
+   "BRA",
+   "16-4-0",
    "mma"
   ],
   [

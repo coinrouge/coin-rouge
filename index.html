@@ -761,6 +761,12 @@ h2.h::after{content:"";flex:1;height:1px;background:var(--line)}
 .pside b.plong{font-size:clamp(26px,6vw,54px)}
 /* Colonne de gauche : sport et agenda */
 .side{display:flex;flex-direction:column;gap:20px;position:sticky;top:16px}
+.jumpnav{display:flex;flex-direction:column;gap:4px;margin:14px 0 4px}
+.jumpnav button{display:flex;justify-content:space-between;align-items:center;width:100%;padding:8px 12px;background:var(--surface);border:1px solid var(--line);border-radius:5px;color:var(--ink);font-family:var(--f-data);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;text-align:left;transition:border-color .15s,background-color .15s}
+.jumpnav button:hover{border-color:var(--red);background:var(--soft)}
+.jumpnav button i{font-style:normal;color:var(--muted)}
+.jumpnav button[hidden]{display:none}
+#nextsec,#pastsec,#radarsec{scroll-margin-top:16px}
 .side-h{font-family:var(--f-data);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-bottom:8px}
 .sportnav{display:flex;flex-direction:column;gap:4px}
 .sportnav button{text-align:left;border:1px solid transparent;background:transparent;border-radius:6px;padding:9px 12px;cursor:pointer;font-family:var(--f-display);font-weight:800;text-transform:uppercase;font-size:17px;letter-spacing:.03em;color:var(--muted)}
@@ -879,6 +885,11 @@ details.ev summary:hover .chev{color:var(--ink)}
         <button type="button" data-sport="boxe" aria-pressed="false">Boxe</button>
       </nav>
     </div>
+    <nav class="jumpnav" aria-label="Aller à une section">
+      <button type="button" data-jump="nextsec">Soirées suivantes<i aria-hidden="true">↓</i></button>
+      <button type="button" data-jump="pastsec" id="jumppast">Derniers résultats<i aria-hidden="true">↓</i></button>
+      <button type="button" data-jump="radarsec">Radar francophone<i aria-hidden="true">↓</i></button>
+    </nav>
     <div class="agenda">
       <div class="side-h">À venir</div>
       <ol class="agl" id="agenda"></ol>
@@ -906,7 +917,7 @@ details.ev summary:hover .chev{color:var(--ink)}
     <div class="favs" id="favs"></div>
   </section>
 
-  <section>
+  <section id="nextsec">
     <h2 class="h">Soirées <span>suivantes</span></h2>
     <div class="others" id="others"></div>
   </section>
@@ -1396,6 +1407,8 @@ function cd(ms){
 }
 
 let showAllOthers=false;
+/* Raccourcis de la colonne de gauche : défilement vers une section */
+document.addEventListener("click",e=>{const b=e.target.closest(".jumpnav [data-jump]");if(!b)return;const el=document.getElementById(b.dataset.jump);if(el&&!el.hidden)el.scrollIntoView({behavior:"smooth",block:"start"});});
 document.addEventListener("click",e=>{if(e.target.closest("#allothers")){showAllOthers=!showAllOthers;render();}});
 function syncSpoilBtn(){const b=document.getElementById("spoilh");if(!b)return;b.setAttribute("aria-pressed",SPOIL);b.querySelector("span").textContent=SPOIL?"Spoil":"No spoil";}
 function render(){
@@ -1462,6 +1475,7 @@ function render(){
   radar();
   renderDetail(t);
   fitNames(); alignVS();
+  const jp=document.getElementById("jumppast"),ps=document.getElementById("pastsec"); if(jp&&ps) jp.hidden=ps.hidden;
 }
 /* Affiche du haut : le rond VS est calé à la hauteur des noms */
 function alignVS(){

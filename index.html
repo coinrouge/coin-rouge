@@ -1400,9 +1400,7 @@ function render(){
       </div>
       ${schedHTML(ev)}
     </a>
-    <div class="nowbar ${live?"on":""}">
-      ${liveLine(ev,t)}
-    </div>`;
+    ${(()=>{const ll=live?liveLine(ev,t):"";return `<div class="nowbar ${ll?"on":""}">${ll}</div>`;})()}`;
   /* Autres soirées en direct au même moment (ex. ARES pendant une soirée de boxe) : bandeau compact sous la soirée en tête */
   const also=pool.filter(e=>e!==ev&&t>=e.start&&t<e.end);
   document.getElementById("hero").insertAdjacentHTML("beforeend",`<div class="alsolive">${also.map(e=>{
@@ -1453,7 +1451,9 @@ function liveLine(e,t){
   if(cu&&cu.sure) return `<span class="tag${bx}">Probablement ${place}</span><span class="who">${duo(cu)}</span><span class="after">${nx&&nx.sure?"Ensuite : "+esc(splitName(nx.a).last)+" – "+esc(splitName(nx.b).last)+" vers "+fmtT(nx.est):""}</span>`;
   /* Pas d'info sûre : on ne nomme personne, on rappelle seulement l'heure estimée du main event */
   const me=e.fights[0];
-  return `<span class="unsure">Les heures sont estimées</span>${me&&!me.res&&me.est>t?`<span class="after">Main event ${me.known?"":"≈ "}${fmtT(me.est)}</span>`:""}`;
+  /* Rien d'utile à dire (main event déjà passé) : bandeau vide, il sera masqué */
+  if(!(me&&!me.res&&me.est>t)) return "";
+  return `<span class="unsure">Les heures sont estimées</span><span class="after">Main event ${me.known?"":"≈ "}${fmtT(me.est)}</span>`;
 }
 function tvLine(ev){const {fr,x}=tvInfo(ev);if(fr)return `<span class="pstart ptv">Diffusion en France : <b>${esc(fr)}</b>${freeLine(ev)}</span>`;if(x)return `<span class="pstart ptv">Pas de diffuseur annoncé en France · <b>${esc(x)}</b>${freeLine(ev)}</span>`;return ev.segs.some(x=>x.free)?`<span class="pstart ptv">${freeLine(ev).slice(3)}</span>`:"";}
 function agendaItems(t){

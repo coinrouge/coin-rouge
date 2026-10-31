@@ -692,6 +692,9 @@ h2.h::after{content:"";flex:1;height:1px;background:var(--line)}
 .bouts .bout.now.fr,.bouts .bout.now.favf,.bouts .bout.now.starf{box-shadow:inset 0 0 0 2px var(--live),0 0 10px color-mix(in srgb,var(--live) 28%,transparent);border-bottom:0;margin-bottom:11px}
 /* Combat probablement terminé : plus de fond teinté (francophone, favori, vedette), la bande tricolore reste */
 .bouts .bout.isdone{--fr-t:transparent;--fav-t:transparent;--star-t:transparent;--fn-star:transparent;--num-star:transparent}
+/* Sans fond, ces blocs retrouvent le trait de séparation des autres combats */
+.bouts .bout.isdone:is(.fr,.favf,.starf){border-bottom:1px solid var(--line);border-radius:0;margin-block:0}
+.bouts .bout.isdone:is(.fr,.favf,.starf):last-child{border-bottom-color:transparent}
 /* Dernier encadré d'une carte : même écart en bas que sur les côtés */
 .bouts .bout:is(.fr,.favf,.starf,.now):last-child,.bouts .bout.now:not(.fr):not(.favf):not(.starf):last-child{margin-bottom:14px}
 .melabel .fvl{background:transparent!important;color:var(--fav)!important;border:1px solid var(--fav);padding:2px 8px;border-radius:3px}

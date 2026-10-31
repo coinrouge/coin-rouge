@@ -118,6 +118,11 @@
      "b": {
       "n": "Marcos Vázquez Rodríguez",
       "nat": "MEX"
+     },
+     "res": {
+      "w": "a",
+      "method": "KO",
+      "round": 1
      }
     },
     {
@@ -131,12 +136,17 @@
      "b": {
       "n": "Flavius Biea",
       "nat": "ROU"
+     },
+     "res": {
+      "w": "a",
+      "method": "KO",
+      "round": 4
      }
     },
     {
      "s": "prelims",
      "w": "Super-moyens",
-     "r": 10,
+     "r": 8,
      "a": {
       "n": "Brayan León Salgado",
       "nat": "CUB"
@@ -144,6 +154,11 @@
      "b": {
       "n": "Héctor Octavio Aguirre",
       "nat": "MEX"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 8
      }
     },
     {
@@ -164,7 +179,8 @@
     "https://www.dazn.com/en-US/news/boxing/canelo-alvarez-vs-christian-mbilli-how-to-watch-fight-time-ringwalks-prediction-undercard-news-odds/19uijwuynxykz1wt8mworc2iqq",
     "https://www.arabnews.com/sport/four-world-titles-on-the-line-as-riyadh-unveils-mexico-vs-the-world-lineup-3005411",
     "https://lasueur.com/canelo-alvarez-vs-christian-mbilli-quelle-heure-quelle-chaine-28-10-2026",
-    "https://britishboxingnews.co.uk/blogs/canelo-vs-mbilli-full-card-start-time-ring-walks-and-how-to-watch/"
+    "https://britishboxingnews.co.uk/blogs/canelo-vs-mbilli-full-card-start-time-ring-walks-and-how-to-watch/",
+    "https://clarosports.com/boxeo/canelo-alvarez-vs-christian-mbilli-en-vivo-resultado-de-la-pelea-de-box-por-el-campeonato-mundial-supermediano"
    ],
    "tvx": [
     "DAZN (monde entier)"

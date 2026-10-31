@@ -259,7 +259,8 @@ a.hero-top:hover .cta::after{transform:translateX(4px)}
 
 .nowbar{display:none;padding:14px 20px;background:var(--soft);border-top:1px solid var(--line);gap:12px;align-items:center;flex-wrap:wrap}
 .nowbar.on{display:flex}
-.nowbar .tag{font-family:var(--f-data);text-transform:uppercase;letter-spacing:.1em;font-size:11px;font-weight:700;color:var(--red);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.nowbar .tag.bxt,.alive .tag.bxt{color:var(--blue)}
+.nowbar .tag{font-family:var(--f-data);text-transform:uppercase;letter-spacing:.1em;font-size:11px;font-weight:700;color:var(--live)}
 .nowbar .who{font-family:var(--f-display);font-weight:800;font-size:22px;text-transform:uppercase}
 .nowbar .who .cr{color:var(--cr)}.nowbar .who .cb{color:var(--cb)}.nowbar .who .vs{color:var(--muted);margin:0 4px}
 .mflag{width:24px;height:16px;border-radius:2px;vertical-align:-1px;margin:0 8px;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
@@ -269,7 +270,7 @@ a.hero-top:hover .cta::after{transform:translateX(4px)}
 .alsolive{display:flex;flex-direction:column;gap:8px;padding:12px 20px;background:var(--soft);border-top:1px solid var(--line)}
 .alive{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 18px;background:var(--surface);border:1px solid var(--line);border-radius:6px;color:inherit;text-decoration:none}
 .alive:hover{border-color:var(--red)}
-.alive .tag{font-family:var(--f-data);text-transform:uppercase;letter-spacing:.1em;font-size:11px;font-weight:700;color:var(--red);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.alive .tag{font-family:var(--f-data);text-transform:uppercase;letter-spacing:.1em;font-size:11px;font-weight:700;color:var(--live)}
 .alive .who{font-family:var(--f-display);font-weight:800;font-size:18px;text-transform:uppercase}
 .alive .who .cr{color:var(--cr)}.alive .who .cb{color:var(--cb)}.alive .who .vs{color:var(--muted);margin:0 4px}
 .alive .who .cr .mflag{margin-left:0}.alive .who .cb .mflag{margin-right:0}
@@ -1375,7 +1376,7 @@ function render(){
       ${schedHTML(ev)}
     </a>
     <div class="nowbar ${live?"on":""}">
-      <span class="tag">Probablement ${ev.sport==="boxe"?"sur le ring":"dans la cage"}</span>
+      <span class="tag${ev.sport==="boxe"?" bxt":""}">Probablement ${ev.sport==="boxe"?"sur le ring":"dans la cage"}</span>
       <span class="who">${cur?`<span class="cr">${miniFlag(cur.a)}${esc(splitName(cur.a).last)}</span> <span class="vs">–</span> <span class="cb">${esc(splitName(cur.b).last)}${miniFlag(cur.b)}</span>`:"Entre deux combats"}</span>
       <span class="after">${nxt?"Ensuite : "+esc(splitName(nxt.a).last)+" – "+esc(splitName(nxt.b).last)+" vers "+fmtT(nxt.est):""}</span>
     </div>`;
@@ -1383,7 +1384,7 @@ function render(){
   const also=pool.filter(e=>e!==ev&&t>=e.start&&t<e.end);
   document.getElementById("hero").insertAdjacentHTML("beforeend",`<div class="alsolive">${also.map(e=>{
     const cu=e.fights.find(f=>!f.res&&t>=f.est&&t<f.end), nx=e.fights.filter(f=>!f.res&&f.est>t).sort((a,b)=>a.est-b.est)[0];
-    return `<a class="alive ${evCls(e)}" href="#ev-${e.id}"><span class="pill live">Live</span>${evBadge(e,1)}<span class="tag">Probablement ${e.sport==="boxe"?"sur le ring":"dans la cage"}</span><span class="who">${cu?`<span class="cr">${miniFlag(cu.a)}${esc(splitName(cu.a).last)}</span> <span class="vs">–</span> <span class="cb">${esc(splitName(cu.b).last)}${miniFlag(cu.b)}</span>`:"Entre deux combats"}</span><span class="after">${nx?"Ensuite : "+esc(splitName(nx.a).last)+" – "+esc(splitName(nx.b).last)+" vers "+fmtT(nx.est):""}</span></a>`;}).join("")}</div>`);
+    return `<a class="alive ${evCls(e)}" href="#ev-${e.id}"><span class="pill live">Live</span>${evBadge(e,1)}<span class="tag${e.sport==="boxe"?" bxt":""}">Probablement ${e.sport==="boxe"?"sur le ring":"dans la cage"}</span><span class="who">${cu?`<span class="cr">${miniFlag(cu.a)}${esc(splitName(cu.a).last)}</span> <span class="vs">–</span> <span class="cb">${esc(splitName(cu.b).last)}${miniFlag(cu.b)}</span>`:"Entre deux combats"}</span><span class="after">${nx?"Ensuite : "+esc(splitName(nx.a).last)+" – "+esc(splitName(nx.b).last)+" vers "+fmtT(nx.est):""}</span></a>`;}).join("")}</div>`);
   const restN=ev.fights.length-ev.fights.filter(f=>f.s==="main").length;
   document.getElementById("hero").insertAdjacentHTML("beforeend",`<div class="hero-card">${cardHTML(ev,t,{only:filter==="all"?"main":null})}
     ${moreBtn(ev,false)}</div>`);

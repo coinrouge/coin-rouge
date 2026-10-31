@@ -479,7 +479,9 @@ h2.h::after{content:"";flex:1;height:1px;background:var(--line)}
 .melabel span{background:var(--num-bg);color:var(--num-ink);padding:3px 9px;border-radius:3px;font-weight:800}
 .melabel em{font-style:normal;color:var(--muted)}
 /* Co-main : même style plein que le main event, doré plus sombre (important, mais un cran sous le main event) */
-.melabel span.coml{background:#B8902A!important;color:#1F1803!important;border:0!important;padding:3px 9px}
+.melabel span.coml{background:linear-gradient(180deg,#D9B355,#A47C1F)!important;color:#1F1803!important;border:0!important;padding:3px 9px}
+/* Main event : léger dégradé métallique doré */
+.melabel span.mainl{background:linear-gradient(180deg,#FFE48A,var(--num-bg))}
 .melabel em.subt{border:1px solid var(--line);border-radius:3px;padding:2px 7px;font-weight:600;letter-spacing:.1em}
 .seg-main .bout.me{padding:16px 14px 22px;margin-block:10px 6px;border-radius:5px;border-bottom-color:transparent}
 .bouts .bout.me:not(.fr){background:var(--me-t)}
@@ -1309,7 +1311,7 @@ function boutHTML(f,t,detail,total,me,ev,spoilOK){
   const co=ev&&f!==ev.fights[0]&&f===ev.fights[1]&&f.s==="main";
   const coml=co?`<span class="coml">Co-main event</span>`:"";
   return `<div class="bout ${me?"me":""} ${sf?"starf":""} ${fv&&!me?"favf":""} ${fv?"hasfav":""} ${cls==="now"?"now":""} ${hits(f)?"hl":""} ${f.a.fr||f.b.fr?(f.a.be&&!f.b.fr||f.b.be&&!f.a.fr||f.a.be&&f.b.be?"fr be":"fr"):""}">
-    ${me?`<div class="melabel"><span>Main event</span>${fv?favLabel:""}${rdl}${f.r===5?"<em>5 rounds</em>":""}${f.title?`<em class="mltitle">${esc(f.title)}</em>`:""}${subl}</div>`:""}
+    ${me?`<div class="melabel"><span class="mainl">Main event</span>${fv?favLabel:""}${rdl}${f.r===5?"<em>5 rounds</em>":""}${f.title?`<em class="mltitle">${esc(f.title)}</em>`:""}${subl}</div>`:""}
     ${fv&&!me?`<div class="melabel fl">${coml}${favLabel}${f.a.star||f.b.star?'<span class="slc">★ Combat vedette</span>':""}${rdl}${subl}</div>`:""}
     ${sf?`<div class="melabel sl">${coml}<span>★ Combat vedette</span>${rdl}${f.title?`<em class="mltitle">${esc(f.title)}</em>`:""}${subl}</div>`:""}
     ${frf&&!me&&!fv&&!sf?`<div class="melabel">${coml}${rdl}${f.title?`<em class="mltitle">${esc(f.title)}</em>`:""}${subl}</div>`:""}

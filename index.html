@@ -271,14 +271,15 @@ a.hero-top:hover .cta::after{transform:translateX(4px)}
 .nowbar .after{color:var(--muted);font-size:14px}
 .nowbar .unsure,.alive .unsure{color:var(--muted);font-size:14px;font-style:italic}
 .alsolive:empty{display:none}
-.alsolive{display:flex;flex-direction:column;gap:8px;padding:12px 20px;background:var(--surface);border-top:1px solid var(--line)}
-.alive{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 18px;background:var(--soft);border:1px solid var(--line);border-radius:6px;color:inherit;text-decoration:none}
-.alive:hover{border-color:var(--red)}
+.alsolive{display:flex;flex-direction:column;gap:6px;padding:8px 20px;background:var(--surface);border-top:1px solid var(--line)}
+.alive{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:2px 0;background:transparent;border:0;color:inherit;text-decoration:none}
+.alive:hover .who{text-decoration:underline;text-underline-offset:3px}
 .alive .tag{font-family:var(--f-data);text-transform:uppercase;letter-spacing:.1em;font-size:11px;font-weight:700;color:var(--live)}
-.alive .who{font-family:var(--f-display);font-weight:800;font-size:18px;text-transform:uppercase}
+.alive .who{font-family:var(--f-display);font-weight:800;font-size:15px;text-transform:uppercase}
 .alive .who .cr{color:var(--cr)}.alive .who .cb{color:var(--cb)}.alive .who .vs{color:var(--muted);margin:0 4px}
 .alive .who .cr .mflag{margin-left:0}.alive .who .cb .mflag{margin-right:0}
-.alive .after{color:var(--muted);font-size:13px}
+.alive .after{color:var(--muted);font-size:12px}
+.alive .pill.live{font-size:9px;padding:2px 9px}
 .rds{white-space:nowrap}
 
 /* Tools */

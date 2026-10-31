@@ -41,6 +41,8 @@
 *{box-sizing:border-box}
 .hostfl{display:block;width:22px;height:15px;margin:6px auto 0;border-radius:2px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
 .hostfl svg{display:block;width:100%;height:100%}
+/* Tout le site affiché à 95 % */
+html{zoom:.95}
 body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.45;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px}
 .wrap{max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
@@ -286,7 +288,7 @@ a.hero-top:hover .cta::after{transform:translateX(4px)}
 .bouts{display:flex;flex-direction:column}
 .bout{display:grid;grid-template-columns:72px 1fr;gap:12px;padding:12px 4px;border-bottom:1px solid var(--line);align-items:center;position:relative}
 .bout.hl{background:var(--soft)}
-.bout.now{box-shadow:inset 4px 0 0 var(--live)}
+.bout.now{box-shadow:inset 4px 0 0 var(--live);padding-left:16px!important}
 .time{font-family:var(--f-data);font-variant-numeric:tabular-nums;text-align:left}
 .time b{display:block;font-size:19px;line-height:1.1}
 .time small{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}

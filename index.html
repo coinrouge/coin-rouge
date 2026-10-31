@@ -448,6 +448,10 @@ a.rcard.num:hover{border-color:var(--gold)}
 .champl .beltic{margin:0 5px 0 0}
 .pchamp{display:inline-flex;align-items:center;margin:0 10px;font-size:11px;color:var(--gold);letter-spacing:.1em}
 .pchamp .beltic{margin:0 5px 0 0}
+.andl{display:block;margin:2px 0 4px;font-family:var(--f-display);font-weight:900;font-size:17px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold)}
+.andl.new{animation:andglow 1.8s ease-in-out infinite}
+@keyframes andglow{0%,100%{text-shadow:0 0 4px color-mix(in srgb,var(--gold) 50%,transparent)}50%{text-shadow:0 0 14px var(--gold),0 0 26px color-mix(in srgb,var(--gold) 60%,transparent)}}
+@media (prefers-reduced-motion:reduce){.andl.new{animation:none;text-shadow:0 0 10px var(--gold)}}
 .rcard .star{color:var(--gold);margin-left:4px;font-size:.8em}
 .rcard .rfh{display:inline-block;margin-left:5px;width:.72em;height:.72em;vertical-align:.02em}.rcard .rfh svg{width:100%;height:100%;display:block;fill:var(--fav)}
 
@@ -1328,9 +1332,14 @@ function boutHTML(f,t,detail,total,me,ev,spoilOK){
   else {tb=(f.known&&!(ev&&ev.tbc)?"":"≈ ")+fmtT(f.est);lab=fmtDS(f.est);}
   const res=SPOIL&&spoilOK&&(t>=f.end||f.res)?resultOf(f,t):null;
   const resHTML=res?`<span class="resl${res.w==="draw"?" rdraw":""}">${res.w==="draw"?"Match nul":res.w==="nc"?"No contest":`Victoire ${esc(splitName(f.a).last===splitName(f.b).last?(res.w==="a"?f.a:f.b).n:splitName(res.w==="a"?f.a:f.b).last)}`}${(()=>{const d=[res.method,res.round?`R${res.round}${res.time?" "+res.time:""}`:"",res.demo?"test":""].filter(Boolean);return d.length?`<em>${esc(d.join(" · "))}</em>`:"";})()}</span>`:(SPOIL&&spoilOK&&t>=f.end?`<span class="resl rwait">Résultat non disponible</span>`:"");
+  /* Mode spoil : combat pour un titre gagné par le champion → AND STILL ! ; par le challenger → AND NEW ! (qui brille) */
+  const andHTML=(()=>{if(!res||!f.title||(res.w!=="a"&&res.w!=="b"))return "";const W=res.w==="a"?f.a:f.b,L=res.w==="a"?f.b:f.a;
+    if(W.champ) return `<span class="andl still">And still !</span>`;
+    if(L.champ) return `<span class="andl new">And new !</span>`;
+    return "";})();
   /* Le titre est déjà affiché en haut (étiquettes) : pas de doublon au centre */
   const _fv=isFav(f.a.n)||isFav(f.b.n), labTitle=me||(!_fv&&(f.a.star||f.b.star||f.a.fr||f.b.fr));
-  const mid=`${detail?`<span class="mtime ${cls}"><b>${tb}</b>${cls==="skip"?"":`<span class="tzfr">Heure française</span>`}</span>`:""}${resHTML}${f.title&&!labTitle?`<span class="belt">${esc(f.title)}</span>`:""}${detail?`<span class="rd">${W[f.w]||f.w}</span><span class="rds">${f.ru?"Rounds à confirmer":f.r+" rounds"}</span>`:`<span class="rd">${W[f.w]||f.w} · ${f.r} rds</span>`}${detail?`<span class="lim">${LIM[f.w]||""}</span><span class="cnum">Combat ${f.ord}/${total}</span>`:""}`;
+  const mid=`${detail?`<span class="mtime ${cls}"><b>${tb}</b>${cls==="skip"?"":`<span class="tzfr">Heure française</span>`}</span>`:""}${resHTML}${andHTML}${f.title&&!labTitle?`<span class="belt">${esc(f.title)}</span>`:""}${detail?`<span class="rd">${W[f.w]||f.w}</span><span class="rds">${f.ru?"Rounds à confirmer":f.r+" rounds"}</span>`:`<span class="rd">${W[f.w]||f.w} · ${f.r} rds</span>`}${detail?`<span class="lim">${LIM[f.w]||""}</span><span class="cnum">Combat ${f.ord}/${total}</span>`:""}`;
   const fv=isFav(f.a.n)||isFav(f.b.n);
   const sf=!me&&!fv&&(f.a.star||f.b.star);
   const favLabel=`<span class="fvl">♥ Favori</span>`;

@@ -1338,8 +1338,8 @@ function render(){
     </a>
     <div class="nowbar ${live?"on":""}">
       <span class="tag">Probablement ${ev.sport==="boxe"?"sur le ring":"dans la cage"}</span>
-      <span class="who">${cur?`<span class="cr">${miniFlag(cur.a)}${esc(cur.a.n)}</span> <span class="vs">–</span> <span class="cb">${esc(cur.b.n)}${miniFlag(cur.b)}</span>`:"Entre deux combats"}</span>
-      <span class="after">${nxt?"Ensuite : "+esc(nxt.a.n)+" – "+esc(nxt.b.n)+" vers "+fmtT(nxt.est):""}</span>
+      <span class="who">${cur?`<span class="cr">${miniFlag(cur.a)}${esc(splitName(cur.a).last)}</span> <span class="vs">–</span> <span class="cb">${esc(splitName(cur.b).last)}${miniFlag(cur.b)}</span>`:"Entre deux combats"}</span>
+      <span class="after">${nxt?"Ensuite : "+esc(splitName(nxt.a).last)+" – "+esc(splitName(nxt.b).last)+" vers "+fmtT(nxt.est):""}</span>
     </div>`;
   const restN=ev.fights.length-ev.fights.filter(f=>f.s==="main").length;
   document.getElementById("hero").insertAdjacentHTML("beforeend",`<div class="hero-card">${cardHTML(ev,t,{only:filter==="all"?"main":null})}

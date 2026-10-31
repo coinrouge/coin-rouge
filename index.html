@@ -407,11 +407,10 @@ details.ev .sched{border:1px solid var(--line);border-radius:4px}
 a.rcard{color:inherit;text-decoration:none;transition:border-color .15s}
 a.rcard{transition:box-shadow .15s,border-color .15s}
 a.rcard:hover{border-color:var(--red);box-shadow:0 0 14px color-mix(in srgb,var(--red) 45%,transparent)}
-/* Vedette (et UFC numéroté, dont la couleur prime) : bordure et halo dorés ; favori : bordure et halo roses */
-a.rcard.rstar:hover{border-color:var(--gold);box-shadow:0 0 14px color-mix(in srgb,var(--gold) 45%,transparent)}
+/* Au repos : bordure jaune (vedette, UFC numéroté) ou rose (favori). Au survol : halo à la couleur de l'événement (bleu boxe, vert ARES, doré UFC numéroté…), rose pour un favori */
+a.rcard.num:hover{border-color:var(--gold);box-shadow:0 0 14px color-mix(in srgb,var(--gold) 45%,transparent)}
 .rcard.rfav{border-color:color-mix(in srgb,var(--fav) 55%,var(--line))}
 a.rcard.rfav:hover{border-color:var(--fav);box-shadow:0 0 14px color-mix(in srgb,var(--fav) 45%,transparent)}
-a.rcard.rstar:hover{border-color:var(--gold);box-shadow:0 0 16px color-mix(in srgb,var(--gold) 60%,transparent)}
 a.rcard .st{color:var(--red)}
 a.rcard.num .st{color:var(--gold)}
 a.rcard.num:hover{border-color:var(--gold)}

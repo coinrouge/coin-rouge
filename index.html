@@ -1040,7 +1040,8 @@ const RADAR=[
 ];
 
 /* Durées estimées par combat, entrées des combattants et pauses comprises (en minutes) */
-const DUR={3:27,5:42};
+/* Durée moyenne d'un combat MMA, entrées comprises : beaucoup de finish, donc nettement moins que la durée maximale (3 rounds : 17 min de combat + repos, 5 rounds : 29) */
+const DUR={3:20,5:32};
 /* Boxe : environ 4 min par round + présentations ; heure annoncée par la presse (f.t) prioritaire */
 const dur=f=>DUR[f.r]||(f.r*4+6);
 function prepEvents(){EVENTS.forEach(ev=>{

@@ -291,7 +291,8 @@ a.hero-top:hover .cta::after{transform:translateX(4px)}
 .bouts{display:flex;flex-direction:column}
 .bout{display:grid;grid-template-columns:72px 1fr;gap:12px;padding:12px 4px;border-bottom:1px solid var(--line);align-items:center;position:relative}
 .bout.hl{background:var(--soft)}
-.bout.now{box-shadow:inset 4px 0 0 var(--live);padding-left:16px!important}
+.bout.now{box-shadow:inset 4px 0 0 var(--live)}
+.bout.now:not(.fr){padding-left:16px!important}
 .time{font-family:var(--f-data);font-variant-numeric:tabular-nums;text-align:left}
 .time b{display:block;font-size:19px;line-height:1.1}
 .time small{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
@@ -642,9 +643,16 @@ h2.h::after{content:"";flex:1;height:1px;background:var(--line)}
 /* Combat avec un favori : encart rose, mis à jour dès qu'on ajoute ou retire un favori */
 .bouts .bout.favf{padding:12px 14px;margin-block:6px;border-radius:5px;border-bottom-color:transparent}
 .bouts .bout.favf:not(.fr){background:var(--fav-t)}
-.bouts .bout.favf:last-child{margin-bottom:14px}
 /* Favori francophone : garde l'écart après la bande tricolore */
 .bouts .bout.favf.fr{padding-left:24px;padding-right:12px}
+/* Combat en cours : bloc détaché comme les autres encadrés, avec un écart avant la bande rouge */
+.bouts .bout.now{border-radius:5px;margin-block:6px;border-bottom-color:transparent}
+.bouts .bout.now:not(.fr){padding-left:20px!important}
+/* Francophone ou favori en cours : la bande tricolore reste, le direct devient un cadre rouge */
+.bouts .bout.now.fr,.bouts .bout.now.favf,.bouts .bout.now.starf{box-shadow:inset 0 0 0 2px var(--live)}
+.bouts .bout.now.favf:not(.fr),.bouts .bout.now.starf:not(.fr){padding-left:14px!important}
+/* Dernier encadré d'une carte : même écart en bas que sur les côtés */
+.bouts .bout:is(.fr,.favf,.starf,.now):last-child{margin-bottom:14px}
 .melabel .fvl{background:transparent!important;color:var(--fav)!important;border:1px solid var(--fav);padding:2px 8px;border-radius:3px}
 .melabel .slc{background:transparent!important;color:var(--gold)!important;border:1px solid var(--gold);padding:2px 8px;border-radius:3px}
 .melabel span.fvl,.melabel span.slc{margin-left:0}

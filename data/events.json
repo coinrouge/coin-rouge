@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-31T16:46:19.083Z",
+ "updated": "2026-10-31T16:48:29.839Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -1614,7 +1614,8 @@
      "b": {
       "n": "Carl Jammes Martin",
       "nat": "PHI"
-     }
+     },
+     "ru": 1
     },
     {
      "s": "main",
@@ -1631,7 +1632,8 @@
       "nat": "JPN",
       "rec": "5-0-0",
       "tp": "493346-reito-tsutsumi"
-     }
+     },
+     "ru": 1
     },
     {
      "s": "prelims",
@@ -1649,12 +1651,13 @@
       "w": "a",
       "method": "KO",
       "round": 1
-     }
+     },
+     "ru": 1
     },
     {
      "s": "prelims",
      "w": "Moyens",
-     "r": 10,
+     "r": 8,
      "a": {
       "n": "Carlos Emiliano Rojo Vázquez",
       "nat": "MEX"
@@ -2747,7 +2750,8 @@
      "b": {
       "n": "Gerome Warburton",
       "nat": "GBR"
-     }
+     },
+     "ru": 1
     },
     {
      "s": "main",
@@ -2762,7 +2766,8 @@
       "n": "Kamil Bednarek",
       "nat": "POL",
       "tp": "174234-kamil-bednarek"
-     }
+     },
+     "ru": 1
     }
    ],
    "tv": "RMC Sport",

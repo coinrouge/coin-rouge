@@ -382,13 +382,15 @@ details.ev summary::-webkit-details-marker{display:none}
 .sched div:not(.s-main) b{font-size:15px;font-weight:600}
 .pwhen{display:flex;flex-direction:column;gap:2px;min-width:0}
 /* ESSAI : date et horaires au centre, sous le lieu et le drapeau du pays */
-.hero .pmid{flex-direction:column;align-items:center}
+.hero .pmid,.dhead .pmid{flex-direction:column;align-items:center}
 /* VS aligné sur les noms (et non au milieu de toute la colonne centrale) */
-.hero .pduel{align-items:start}
-.hero .pside{padding-top:6px}
-.hero .pvenue2{position:static;transform:none;margin-top:8px;max-width:300px}
+.hero .pduel,.dhead .pduel{align-items:start}
+.hero .pside,.dhead .pside{padding-top:6px}
+/* Rien sous l'affiche pendant le direct : on supprime l'espace vide */
+.hero .pbot:not(:has(*)){display:none}
+.hero .pvenue2,.dhead .pvenue2{position:static;transform:none;margin-top:8px;max-width:300px}
 .pwhen.pwc .pdate{font-size:20px;color:var(--ink)}.pwhen.pwc .pstart{color:var(--muted)}
-.pwhen.pwc{align-items:center;text-align:center;margin-top:12px}
+.pwhen.pwc{align-items:center;text-align:center;margin-top:20px}
 .pwhen.pwc .pdate{white-space:nowrap}
 .pdate{font-family:var(--f-display);font-weight:800;text-transform:uppercase;font-size:clamp(20px,3.6vw,28px);line-height:1.05;letter-spacing:.01em}
 .ptime{font-family:var(--f-data);font-weight:600;font-size:.6em;letter-spacing:.06em;color:var(--muted);margin-left:4px;white-space:nowrap}
@@ -1450,10 +1452,12 @@ function render(){
 }
 /* Affiche du haut : le rond VS est calé à la hauteur des noms */
 function alignVS(){
-  const v=document.querySelector(".hero .pvs"), b=document.querySelector(".hero .pside b"); if(!v||!b) return;
-  v.style.marginTop="0px";
-  const V=v.getBoundingClientRect(), B=b.getBoundingClientRect();
-  const d=(B.top+B.height/2)-(V.top+V.height/2); if(d>0) v.style.marginTop=d+"px";
+  document.querySelectorAll(".hero .pduel,.dhead .pduel").forEach(du=>{
+    const v=du.querySelector(".pvs"), b=du.querySelector(".pside b"); if(!v||!b||!b.offsetHeight) return;
+    v.style.marginTop="0px";
+    const V=v.getBoundingClientRect(), B=b.getBoundingClientRect();
+    const d=(B.top+B.height/2)-(V.top+V.height/2); if(d>0) v.style.marginTop=d+"px";
+  });
 }
 /* Liste textuelle des prochains événements (8 puis liste complète) */
 const SPORTLBL={all:"MMA + Boxe",mma:"MMA",boxe:"Boxe"};
@@ -1574,10 +1578,9 @@ function detailHTML(ev,t){
       ${live?'<div class="eyebrow"><span class="pill live">Live</span></div>':""}
       <h2 class="pduel dduel">
         ${posterSide(ev.fights[0].a,"red")}
-        <span class="pmid"><span class="pvs" aria-label="contre">VS</span><span class="pvenue2"><span class="vcity">${esc(ev.city)}</span><span class="vsalle">${esc(ev.venue)}</span>${hostFlag(ev)}</span></span>
+        <span class="pmid"><span class="pvs" aria-label="contre">VS</span><span class="pvenue2"><span class="vcity">${esc(ev.city)}</span><span class="vsalle">${esc(ev.venue)}</span>${hostFlag(ev)}<span class="pwhen pwc"><span class="pdate">${fmtD(ev.start)} </span><span class="pstart">Début de soirée ${fmtT(ev.start)}${ev.tbc?" · horaires à confirmer":""}</span><span class="pstart pme">Main event ${ev.fights[0].known&&!ev.tbc?"":"≈ "}<b>${fmtT(ev.fights[0].est)}</b></span>${tvLine(ev)}</span></span></span>
         ${posterSide(ev.fights[0].b,"blue")}
       </h2>
-      <div class="pwhen"><span class="pdate">${fmtD(ev.start)} </span><span class="pstart">Début de soirée ${fmtT(ev.start)}${ev.tbc?" · horaires à confirmer":""}</span><span class="pstart pme">Main event ${ev.fights[0].known&&!ev.tbc?"":"≈ "}<b>${fmtT(ev.fights[0].est)}</b></span>${tvLine(ev)}</div>
       <div class="dfacts">
         <div><small>Combats</small><b>${ev.fights.length}</b></div>
         ${titles.length?`<div><small>Ceintures en jeu</small><b>${esc(titles.join(" · "))}</b></div>`:""}
@@ -1638,7 +1641,7 @@ function renderDetail(t){
     document.documentElement.style.overflow="hidden";
     d.scrollTop=0; d.querySelector(".back").focus({preventScroll:true});
   }
-  fitNames();
+  fitNames(); alignVS();
 }
 /* Grands noms du haut de fiche : on réduit la taille si le nom déborde (ex. WARBURTON) */
 function fitNames(){

@@ -430,6 +430,13 @@ a.rcard.num:hover{border-color:var(--gold)}
 .rcard .rt{color:var(--gold);font-weight:600}
 .beltic{display:inline-block;width:1.05em;height:.6em;margin:0 3px 0 5px;vertical-align:.08em}
 .beltic svg{width:100%;height:100%;display:block;fill:var(--gold)}
+/* Posée sous la ligne Tapology sans pousser le reste (les noms restent alignés d'un coin à l'autre) */
+.f .txt{position:relative}
+.champl{position:absolute;top:100%;white-space:nowrap;font-family:var(--f-data);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-top:3px}
+.f.a .champl{left:0}.f.b .champl{right:0}
+.champl .beltic{margin:0 5px 0 0}
+.pchamp{display:inline-flex;align-items:center;margin:0 10px;font-size:11px;color:var(--gold);letter-spacing:.1em}
+.pchamp .beltic{margin:0 5px 0 0}
 .rcard .star{color:var(--gold);margin-left:4px;font-size:.8em}
 .rcard .rfh{display:inline-block;margin-left:5px;width:.72em;height:.72em;vertical-align:.02em}.rcard .rfh svg{width:100%;height:100%;display:block;fill:var(--fav)}
 
@@ -729,7 +736,7 @@ h2.h::after{content:"";flex:1;height:1px;background:var(--line)}
 .past .sum-t{opacity:.85}
 .seg-main .bout.me .f .nm{font-size:clamp(22px,3.4vw,32px)}
 .duel{gap:14px}
-.duel .f{overflow:hidden}
+.duel .f{overflow-x:clip;overflow-y:visible}
 .dbar .spoilbtn{margin-left:auto}
 .pside b{overflow-wrap:normal;word-break:keep-all}
 .pside b.plong{font-size:clamp(26px,6vw,54px)}
@@ -1097,9 +1104,6 @@ function markFranco(p){const n=p.nat||NAT[p.n];if(n==="FRA")p.fr=1;else if(n==="
 const BELT='<span class="beltic" title="Champion en titre" aria-label="Champion en titre"><svg viewBox="0 0 26 14" aria-hidden="true"><path fill-rule="evenodd" d="M0 6a2 2 0 0 1 2-2h6a3.5 3.5 0 0 1 3.5-3.5h3A3.5 3.5 0 0 1 18 4h6a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-6a3.5 3.5 0 0 1-3.5 3.5h-3A3.5 3.5 0 0 1 8 10H2a2 2 0 0 1-2-2zM13 4.4a2.6 2.6 0 1 0 0 5.2a2.6 2.6 0 1 0 0-5.2z"/></svg></span>';
 function nameHTML(p,side){
   const s=p.star?'<span class="star" aria-label="star">★</span>':'';
-  const c=p.champ?BELT:'';
-  if(side==="b") return `<span class="fl-in">${c}${s}${flag(p)}</span>${esc(splitName(p).last)}`;
-  return `${esc(splitName(p).last)}${flag(p)}${s}${c}`;
   /* Côté droit : drapeau et étoile du côté intérieur, à gauche du nom */
   return side==="b"?`<span class="fl-in">${s}${flag(p)}</span>${esc(splitName(p).last)}`:`${esc(splitName(p).last)}${flag(p)}${s}`;
 }
@@ -1159,7 +1163,7 @@ function fighterHTML(p,side,state){
   const nm=url?`<a class="nm" href="${url}" target="_blank" rel="noopener" title="Fiche de ${esc(p.n)} sur ${srcName(p)}">${nameHTML(p,side)}</a>`:`<span class="nm">${nameHTML(p,side)}</span>`;
   const meta=[p.rec?recHTML(p.rec):"",url?`<a class="fiche" href="${url}" target="_blank" rel="noopener">${srcName(p)} ↗</a>`:""].filter(Boolean).join(" · ");
   const fav=isFav(p.n);
-  return `<div class="f ${side}${fav?" isfav":""}${state?" "+state:""}"><div class="fx">${avatarHTML(p)}<div class="txt"><span class="nmrow">${side==="b"&&fav?`<span class="fm-pre">${favMark(p)}</span>`:""}${splitName(p).first?`${side==="b"?`<span class="fl-pre">${p.star?'<span class="star" aria-label="star">★</span>':""}${flag(p)}</span>`:""}<span class="fn">${esc(splitName(p).first)}</span> `:""}<span class="lnline">${side==="b"&&fav?`<span class="fm-ln">${favMark(p)}</span>`:""}${nm}${side==="a"&&fav?favMark(p):""}</span></span>${meta||!p.tbd?`<span class="rec">${side==="b"?favBtn(p):""}${meta}${side==="a"?favBtn(p):""}</span>`:""}</div></div></div>`;
+  return `<div class="f ${side}${fav?" isfav":""}${state?" "+state:""}"><div class="fx">${avatarHTML(p)}<div class="txt"><span class="nmrow">${side==="b"&&fav?`<span class="fm-pre">${favMark(p)}</span>`:""}${splitName(p).first?`${side==="b"?`<span class="fl-pre">${p.star?'<span class="star" aria-label="star">★</span>':""}${flag(p)}</span>`:""}<span class="fn">${esc(splitName(p).first)}</span> `:""}<span class="lnline">${side==="b"&&fav?`<span class="fm-ln">${favMark(p)}</span>`:""}${nm}${side==="a"&&fav?favMark(p):""}</span></span>${meta||!p.tbd?`<span class="rec">${side==="b"?favBtn(p):""}${meta}${side==="a"?favBtn(p):""}</span>`:""}${p.champ?`<span class="champl">${BELT}Champion en titre</span>`:""}</div></div></div>`;
 }
 const isNum=e=>/^UFC \d+/.test(e.name);
 const evCls=e=>isNum(e)?"num":e.sport==="boxe"?"fn bx":e.org==="PFL"?"fn pfl":e.org==="ARES"?"fn ares":/^Hexagone/.test(e.org||"")?"fn hex":"fn";
@@ -1168,7 +1172,7 @@ function posterSide(p,c){
   const w=p.n.split(/\s+/); const last=w.pop(); const first=w.join(" ");
   const nat=NAT[p.n], fl=nat&&FLAGS[nat];
   const bg=fl?` style="--natbg:url('data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20"${HSTRIPE.has(nat)?' preserveAspectRatio="none"':""}>${fl}</svg>`)}')"`:"";
-  return `<span class="pside ${c}"><small>${esc(first)}${flag(p)}</small><b class="${/[\u0300-\u036f]/.test(last.normalize("NFD"))?"acc ":""}${fl?"natc":""}${fl&&HSTRIPE.has(nat)?" natch":""}${last.length>9?" plong":""}"${bg}${fl?` title="${CTRY[nat]}"`:""}>${esc(last)}</b>${p.rec?`<em>${recHTML(p.rec)}</em>`:""}</span>`;
+  return `<span class="pside ${c}"><small>${c==="blue"&&p.champ?`<span class="pchamp">${BELT}Champion</span>`:""}${esc(first)}${flag(p)}${c!=="blue"&&p.champ?`<span class="pchamp">${BELT}Champion</span>`:""}</small><b class="${/[\u0300-\u036f]/.test(last.normalize("NFD"))?"acc ":""}${fl?"natc":""}${fl&&HSTRIPE.has(nat)?" natch":""}${last.length>9?" plong":""}"${bg}${fl?` title="${CTRY[nat]}"`:""}>${esc(last)}</b>${p.rec?`<em>${recHTML(p.rec)}</em>`:""}</span>`;
 }
 /* Drapeaux à bandes horizontales : étirés sur toute la hauteur du nom (sinon on ne voit que la bande du milieu) */
 const HSTRIPE=new Set(["RUS","GER","NED","HUN","AUT","UKR","POL","IDN","EST","BUL","LTU","ARM","SRB","CRO","SVK","SLO","LAT","YEM","GAB","SLE","BOL","COL","LUX","MON","GHA","EGY","IRQ","IRI","TJK","KGZ","AZE","UZB","CUB","PUR","THA","MGL"]);

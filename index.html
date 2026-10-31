@@ -649,6 +649,7 @@ h2.h::after{content:"";flex:1;height:1px;background:var(--line)}
 /* Combat en cours : bloc détaché comme les autres encadrés, avec un écart avant la bande rouge */
 .bouts .bout.now{border-radius:5px;margin-block:6px;border-bottom-color:transparent}
 .bouts .bout.now:not(.fr){padding-left:20px!important}
+.bouts .bout.now:not(.fr):not(.favf):not(.starf){border-radius:0 5px 5px 0}
 /* Francophone ou favori en cours : la bande tricolore reste, le direct devient un cadre rouge */
 .bouts .bout.now.fr,.bouts .bout.now.favf,.bouts .bout.now.starf{box-shadow:inset 0 0 0 2px var(--live)}
 .bouts .bout.now.favf:not(.fr),.bouts .bout.now.starf:not(.fr){padding-left:14px!important}

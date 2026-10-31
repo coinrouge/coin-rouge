@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-31T12:54:50.203Z",
+ "updated": "2026-10-31T15:57:26.962Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -1643,6 +1643,11 @@
      "b": {
       "n": "Marcos Vázquez Rodríguez",
       "nat": "MEX"
+     },
+     "res": {
+      "w": "a",
+      "method": "KO",
+      "round": 1
      }
     },
     {
@@ -1656,12 +1661,17 @@
      "b": {
       "n": "Flavius Biea",
       "nat": "ROU"
+     },
+     "res": {
+      "w": "a",
+      "method": "KO",
+      "round": 4
      }
     },
     {
      "s": "prelims",
      "w": "Super-moyens",
-     "r": 10,
+     "r": 8,
      "a": {
       "n": "Brayan León Salgado",
       "nat": "CUB"
@@ -1669,6 +1679,11 @@
      "b": {
       "n": "Héctor Octavio Aguirre",
       "nat": "MEX"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 8
      }
     },
     {

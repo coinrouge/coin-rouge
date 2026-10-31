@@ -6,7 +6,7 @@ Soirées retenues : UFC 332: Silva vs. Wang / UFC Fight Night: Allen vs. Duncan 
   fn-buckley-malott : 13 combats, 13 résultats
   pfl-carmouche-bishop : 13 combats, 13 résultats
   ufc333 : 14 combats, 14 résultats
-  fn-moicano-nolan : 12 combats, 0 résultats
+  fn-moicano-nolan : 12 combats, 2 résultats
   fn-cortesacosta-walker : 13 combats, 0 résultats
   ufc334 : 10 combats, 0 résultats
   pfl-nemkov-bilostenniy : 15 combats, 0 résultats
@@ -19,4 +19,4 @@ Presse : 8 soirées, 4 à l'agenda
 Annuaire : 1040 combattants (dont 70 champions de boxe)
 Annuaire francophone (fr.wikipedia) : 334 ajoutés
 Annuaire permanent : 28 francophones (12 hors autres listes)
-Aucun changement.
+data/events.json écrit (21 soirées détaillées, 7 à l'agenda).

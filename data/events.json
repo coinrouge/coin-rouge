@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-31T21:12:10.858Z",
+ "updated": "2026-10-31T22:12:28.889Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -2059,14 +2059,20 @@
      "w": "WSW",
      "r": 3,
      "a": {
-      "n": "Talita Alencar",
-      "rec": "8-1-1",
-      "nat": "BRA"
+      "n": "Piera Rodríguez",
+      "rec": "11-2-0",
+      "nat": "VEN"
      },
      "b": {
-      "n": "Piera Rodríguez",
-      "rec": "12-2-0",
-      "nat": "VEN"
+      "n": "Talita Alencar",
+      "rec": "8-0-1",
+      "nat": "BRA"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
      }
     },
     {
@@ -2075,13 +2081,19 @@
      "r": 3,
      "a": {
       "n": "Lucia Szabová",
-      "rec": "10-0-0",
+      "rec": "9-0-0",
       "nat": "SVK"
      },
      "b": {
       "n": "Tainara Lisboa",
-      "rec": "7-4-0",
+      "rec": "7-3-0",
       "nat": "BRA"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (coups de poing)",
+      "round": 3,
+      "time": "3:20"
      }
     }
    ],
@@ -9547,7 +9559,7 @@
   [
    "Jaime Munguia",
    "",
-   "46-2-0",
+   "47-2-0",
    "boxe"
   ],
   [
@@ -9733,7 +9745,7 @@
   [
    "Rafael Espinoza",
    "",
-   "28-0-0",
+   "29-0-0",
    "boxe"
   ],
   [

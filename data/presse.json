@@ -165,7 +165,7 @@
     {
      "s": "prelims",
      "w": "Super-plumes",
-     "r": 10,
+     "r": 6,
      "a": {
       "n": "Sultan Almohammed",
       "nat": "KSA"
@@ -176,7 +176,9 @@
      },
      "t": "2026-10-31T16:05:00Z",
      "res": {
-      "w": "a"
+      "w": "a",
+      "method": "Décision",
+      "round": 6
      }
     }
    ],

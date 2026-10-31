@@ -269,6 +269,22 @@ a.hero-top:hover .cta::after{transform:translateX(4px)}
 .mflag{width:24px;height:16px;border-radius:2px;vertical-align:-1px;margin:0 8px;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
 .nowbar .who .cr .mflag{margin-left:0}.nowbar .who .cb .mflag{margin-right:0}
 .nowbar .after{color:var(--muted);font-size:14px}
+/* ESSAI direct en tête */
+.nowhead{display:flex;align-items:center;gap:10px;flex-wrap:wrap;width:100%;margin-bottom:2px}
+.nowhead .nowtitle{font-family:var(--f-data);text-transform:uppercase;letter-spacing:.12em;font-size:11px;font-weight:700;color:var(--gold)}
+.hero.islive .nowbar{border-top:0;padding:18px 20px 16px;row-gap:8px}
+.hero.islive .nowbar .who{font-size:clamp(28px,3.4vw,40px)}
+.hero.islive .nowbar .mflag{width:32px;height:21px}
+.hero.islive .alsolive{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.hero.islive .poster .eyebrow{display:none}
+/* Pendant le direct, l'affiche du main event (déjà en tête de la carte juste dessous) disparaît : on garde la ligne d'infos (date, horaires, diffusion) */
+.hero.islive .pduel,.hero.islive .poster .sched{display:none}
+.hero.islive .pdate{font-size:15px}
+.hero.islive .poster{padding-top:12px;padding-bottom:12px}
+/* La bande de couleur de la soirée reste tout en haut du cadre */
+.hero.islive .poster::before{display:none}
+.hero.islive{border-top:6px solid var(--red)}
+.hero.islive.num{border-top-color:var(--num-bg)}
 .nowbar .unsure,.alive .unsure{color:var(--muted);font-size:14px;font-style:italic}
 .alsolive:empty{display:none}
 .alsolive{display:flex;flex-direction:column;gap:6px;padding:8px 20px;background:var(--surface);border-top:1px solid var(--line)}
@@ -1396,12 +1412,17 @@ function render(){
       ${schedHTML(ev)}
     </a>
     <div class="nowbar ${live?"on":""}">
+      ${live?`<div class="nowhead"><span class="pill live">Live</span>${evBadge(ev,1)}${ev.fights[0].title?`<span class="nowtitle">${esc(ev.fights[0].title)}</span>`:""}</div>`:""}
       ${liveLine(ev,t)}
     </div>`;
   /* Autres soirées en direct au même moment (ex. ARES pendant une soirée de boxe) : bandeau compact sous la soirée en tête */
   const also=pool.filter(e=>e!==ev&&t>=e.start&&t<e.end);
   document.getElementById("hero").insertAdjacentHTML("beforeend",`<div class="alsolive">${also.map(e=>{
     return `<a class="alive ${evCls(e)}" href="#ev-${e.id}"><span class="pill live" title="Soirée en direct en même temps">Aussi en live</span>${evBadge(e,1)}${liveLine(e,t)}</a>`;}).join("")}</div>`);
+  /* ESSAI (31/10) : pendant le direct, le combat en cours passe tout en haut et l'affiche du main event se réduit.
+     Version d'avant : branche sauvegarde-avant-essai-live */
+  heroEl.classList.toggle("islive",live);
+  if(live){const nb=heroEl.querySelector(".nowbar"),al=heroEl.querySelector(".alsolive");heroEl.prepend(al);heroEl.prepend(nb);}
   const restN=ev.fights.length-ev.fights.filter(f=>f.s==="main").length;
   document.getElementById("hero").insertAdjacentHTML("beforeend",`<div class="hero-card">${cardHTML(ev,t,{only:filter==="all"?"main":null})}
     ${moreBtn(ev,false)}</div>`);

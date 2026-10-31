@@ -11,6 +11,7 @@ for (const e of d.events || []) {
   if (!["boxe", "mma"].includes(e.sport)) err.push(`${w} sport doit être "boxe" ou "mma"`);
   for (const k of ["org", "name", "a", "b", "city", "tz"]) if (!e[k]) err.push(`${w} champ manquant : ${k}`);
   try { new Intl.DateTimeFormat("fr", { timeZone: e.tz }); } catch { err.push(`${w} fuseau inconnu : ${e.tz}`); }
+  if ((e.segs || []).some((s) => s.free && typeof s.free !== "string")) err.push(`${w} segs[].free doit être le nom de la plateforme gratuite, ex. "YouTube"`);
   if (!Array.isArray(e.segs) || !e.segs.length || e.segs.some((s) => !["early", "prelims", "main"].includes(s.k) || !iso(s.t))) err.push(`${w} segs invalides (k = prelims/main, t = date ISO UTC en Z)`);
   if (e.tvx && !Array.isArray(e.tvx)) err.push(`${w} tvx doit être une liste, ex. ["Paramount+ (Royaume-Uni)"]`);
   if (!Array.isArray(e.sources) || e.sources.length < 1) err.push(`${w} sources manquantes`);

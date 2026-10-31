@@ -1450,7 +1450,7 @@ function liveLine(e,t){
   if(cu&&cu.sure) return `<span class="tag${bx}">Probablement ${place}</span><span class="who">${duo(cu)}</span><span class="after">${nx&&nx.sure?"Ensuite : "+esc(splitName(nx.a).last)+" – "+esc(splitName(nx.b).last)+" vers "+fmtT(nx.est):""}</span>`;
   /* Pas d'info sûre : on ne nomme personne, on rappelle seulement l'heure estimée du main event */
   const me=e.fights[0];
-  return `<span class="tag${bx}">En direct</span><span class="unsure">Combat en cours non confirmé · les heures sont estimées</span>${me&&!me.res&&me.est>t?`<span class="after">Main event ${me.known?"":"≈ "}${fmtT(me.est)}</span>`:""}`;
+  return `<span class="unsure">Les heures sont estimées</span>${me&&!me.res&&me.est>t?`<span class="after">Main event ${me.known?"":"≈ "}${fmtT(me.est)}</span>`:""}`;
 }
 function tvLine(ev){const {fr,x}=tvInfo(ev);if(fr)return `<span class="pstart ptv">Diffusion en France : <b>${esc(fr)}</b>${freeLine(ev)}</span>`;if(x)return `<span class="pstart ptv">Pas de diffuseur annoncé en France · <b>${esc(x)}</b>${freeLine(ev)}</span>`;return ev.segs.some(x=>x.free)?`<span class="pstart ptv">${freeLine(ev).slice(3)}</span>`:"";}
 function agendaItems(t){

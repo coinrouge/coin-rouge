@@ -1,5 +1,5 @@
 {
- "_note": "Corrections manuelles : horaires (segs, en UTC), fuseau (tz), horaires à confirmer (tbc), titres non visibles sur Wikipédia (titles).",
+ "_note": "Corrections manuelles : horaires (segs, en UTC), fuseau (tz), horaires à confirmer (tbc), titres non visibles sur Wikipédia (titles). Diffusion gratuite officielle d'une partie de soirée (free), ex. \"free\": {\"prelims\": \"Twitch (RMC Sport)\"}.",
  "fn-prochazka-stirling": {
   "tz": "Asia/Qatar",
   "tbc": false,

@@ -244,6 +244,8 @@ for (const e of list) {
     segs = (hasEarly ? ["early", "prelims", "main"] : ["prelims", "main"]).map((k) => ({ k, t: localToUtc(date, H[k], tz) }));
     tbc = true;
   }
+  // Diffusion gratuite et officielle d'une partie de soirée (ex. prelims sur Twitch) : overrides[id].free = { prelims: "Twitch (RMC Sport)" }
+  if (ov.free) segs = segs.map((s) => (ov.free[s.k] ? { ...s, free: ov.free[s.k] } : s));
   if (ov.tbc !== undefined) tbc = ov.tbc;
   for (const [n, nat] of Object.entries(overrides._nat || {})) roster[n] = { ...(roster[n] || {}), nat };
   for (const f of p.fights) for (const x of [f.a, f.b]) if (!roster[x.n]?.nat && x.n !== "TBA") { const r = await lookup(x.n, roster); if (r) roster[x.n] = { ...roster[x.n], ...r, nat: r.nat || roster[x.n]?.nat || "", rec: roster[x.n]?.rec || r.rec }; }

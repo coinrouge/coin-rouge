@@ -645,7 +645,7 @@ h2.h::after{content:"";flex:1;height:1px;background:var(--line)}
 .sched .tzfr{margin:3px 0 0}
 .free{display:inline-block;margin-top:5px;padding:1px 7px;border:1px solid var(--win);border-radius:999px;color:var(--win);font-family:var(--f-data);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
 .freeh{font-style:normal;color:var(--win)}
-.freel{color:var(--win);font-weight:600}
+.freel{display:block;color:var(--win);font-weight:600}
 /* Petite case : horaires à l'heure du pays hôte */
 .sched div.s-loc{flex:0 0 auto;display:flex;flex-direction:column;gap:2px;justify-content:center;padding:10px 18px;border-right:0;border-left:1px solid var(--line);font-family:var(--f-data)}
 .sched .s-loc small{margin-bottom:2px}
@@ -1474,7 +1474,7 @@ function tvInfo(ev){const fr=ev.tv||(ev.org==="PFL"||ev.sport==="boxe"||ev.org==
   return {fr,x:[...eu,...(eu.length>=2?[]:us)].join(" · ")};}
 /* Diffusion gratuite et officielle d'une partie de soirée (ex. prelims sur YouTube) : seg.free = "YouTube" */
 function freeTag(s){return s.free?`<span class="free">Gratuit · ${esc(s.free)}</span>`:"";}
-function freeLine(ev){const s=ev.segs.filter(x=>x.free);return s.length?` · <span class="freel">${s.map(x=>`${SEG[x.k]} gratuits sur ${esc(x.free)}`).join(" · ")}</span>`:"";}
+function freeLine(ev){const s=ev.segs.filter(x=>x.free);return s.length?`<span class="freel">${s.map(x=>`${SEG[x.k]} gratuits sur ${esc(x.free)}`).join(" · ")}</span>`:"";}
 /* Bandeau du direct : on n'affiche le combat en cours que si son heure est fiable ; sinon « ordre de passage non confirmé » */
 function liveLine(e,t){
   const cu=e.fights.find(f=>!f.res&&t>=f.est&&t<f.end), nx=e.fights.filter(f=>!f.res&&f.est>t).sort((a,b)=>a.est-b.est)[0];
@@ -1487,7 +1487,7 @@ function liveLine(e,t){
   if(!(me&&!me.res&&me.est>t)) return "";
   return `<span class="unsure">Les heures sont estimées</span><span class="after">Main event ${me.known?"":"≈ "}${fmtT(me.est)}</span>`;
 }
-function tvLine(ev){const {fr,x}=tvInfo(ev);if(fr)return `<span class="pstart ptv">Diffusion en France : <b>${esc(fr)}</b>${freeLine(ev)}</span>`;if(x)return `<span class="pstart ptv">Pas de diffuseur annoncé en France · <b>${esc(x)}</b>${freeLine(ev)}</span>`;return ev.segs.some(x=>x.free)?`<span class="pstart ptv">${freeLine(ev).slice(3)}</span>`:"";}
+function tvLine(ev){const {fr,x}=tvInfo(ev);if(fr)return `<span class="pstart ptv">Diffusion en France : <b>${esc(fr)}</b>${freeLine(ev)}</span>`;if(x)return `<span class="pstart ptv">Pas de diffuseur annoncé en France · <b>${esc(x)}</b>${freeLine(ev)}</span>`;return ev.segs.some(x=>x.free)?`<span class="pstart ptv">${freeLine(ev)}</span>`:"";}
 function agendaItems(t){
   return [
     ...EVENTS.filter(e=>t<e.end).map(e=>({sport:e.sport||"mma",ts:e.start,name:`${e.a} vs ${e.b}`,org:`${e.name} · ${e.city}`,id:e.id,frA:e.fights[0].a.fr&&(e.fights[0].a.be?2:1),frB:e.fights[0].b.fr&&(e.fights[0].b.be?2:1),stA:e.fights[0].a.star,stB:e.fights[0].b.star,fr:!e.fights[0].a.fr&&!e.fights[0].b.fr&&e.fights.some(f=>f.a.fr||f.b.fr)&&((e.fights.some(f=>f.a.fr&&!f.a.be||f.b.fr&&!f.b.be)?1:0)|(e.fights.some(f=>f.a.be||f.b.be)?2:0))})),
@@ -1583,7 +1583,7 @@ function detailHTML(ev,t){
       </h2>
       <div class="dfacts">
         <div><small>Combats</small><b>${ev.fights.length}</b></div>
-        ${titles.length?`<div><small>Ceintures en jeu</small><b>${esc(titles.join(" · "))}</b></div>`:""}
+        ${titles.length?`<div><small>Ceintures en jeu</small><b>${titles.map(esc).join("<br>")}</b></div>`:""}
         ${frN?`<div><small>Francophones</small><b>${frN} combat${frN>1?"s":""}</b></div>`:""}
         ${(()=>{const {fr,x}=tvInfo(ev);
   /* Diffuseur français en priorité ; sinon, où et sur quelle chaîne la soirée est diffusée ailleurs */

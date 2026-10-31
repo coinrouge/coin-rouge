@@ -20,6 +20,7 @@ for (const e of d.events || []) {
     const fw = `${w} ${f.a?.n} vs ${f.b?.n}`;
     if (!e.segs?.some((s) => s.k === f.s)) err.push(`${fw} : segment "${f.s}" absent de segs`);
     if (!f.a?.n || !f.b?.n) err.push(`${fw} : noms manquants`);
+    if (f.ru && f.ru !== 1) err.push(`${fw} : ru doit valoir 1 (rounds inconnus)`);
     if (!Number.isInteger(f.r) || f.r < 1 || f.r > 12) err.push(`${fw} : r (rounds) doit être un entier 1-12`);
     if (f.t && !iso(f.t)) err.push(`${fw} : t doit être une date ISO UTC en Z`);
     for (const x of [f.a, f.b]) if (x?.nat && !/^[A-Z]{3}$/.test(x.nat)) err.push(`${fw} : nat doit être un code à 3 lettres`);

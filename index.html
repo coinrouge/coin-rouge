@@ -1448,7 +1448,7 @@ function render(){
       </div>
       ${schedHTML(ev)}
     </a>
-    ${(()=>{const ll=live?liveLine(ev,t):"";return `<div class="nowbar ${ll?"on":""}">${ll}</div>`;})()}`;
+    ${(()=>{const ll=live?liveLine(ev,t,1):"";return `<div class="nowbar ${ll?"on":""}">${ll}</div>`;})()}`;
   /* Autres soirées en direct au même moment (ex. ARES pendant une soirée de boxe) : bandeau compact sous la soirée en tête */
   const also=pool.filter(e=>e!==ev&&t>=e.start&&t<e.end);
   document.getElementById("hero").insertAdjacentHTML("beforeend",`<div class="alsolive">${also.map(e=>{
@@ -1503,11 +1503,13 @@ function tvInfo(ev){const fr=ev.tv||(ev.org==="PFL"||ev.sport==="boxe"||ev.org==
 function freeTag(s){return s.free?`<span class="free">Gratuit · ${esc(s.free)}</span>`:"";}
 function freeLine(ev){const s=ev.segs.filter(x=>x.free);return s.length?`<span class="freel">${s.map(x=>`${SEG[x.k]} gratuits sur ${esc(x.free)}`).join(" · ")}</span>`:"";}
 /* Bandeau du direct : on n'affiche le combat en cours que si son heure est fiable ; sinon « ordre de passage non confirmé » */
-function liveLine(e,t){
+function liveLine(e,t,main){
   const cu=e.fights.find(f=>!f.res&&t>=f.est&&t<f.end), nx=e.fights.filter(f=>!f.res&&f.est>t).sort((a,b)=>a.est-b.est)[0];
   const place=e.sport==="boxe"?"sur le ring":"dans la cage", bx=e.sport==="boxe"?" bxt":"";
   const duo=f=>`<span class="cr">${miniFlag(f.a)}${esc(splitName(f.a).last)}</span> <span class="vs">–</span> <span class="cb">${esc(splitName(f.b).last)}${miniFlag(f.b)}</span>`;
   if(cu&&cu.sure) return `<span class="tag${bx}">Probablement ${place}</span><span class="who">${duo(cu)}</span><span class="after">${nx&&nx.sure?"Ensuite : "+esc(splitName(nx.a).last)+" – "+esc(splitName(nx.b).last)+" vers "+fmtT(nx.est):""}</span>`;
+  /* Soirée en tête : l'heure du main event est déjà écrite au-dessus, donc rien à afficher sans combat confirmé */
+  if(main) return "";
   /* Pas d'info sûre : on ne nomme personne, on rappelle seulement l'heure estimée du main event */
   const me=e.fights[0];
   /* Rien d'utile à dire (main event déjà passé) : bandeau vide, il sera masqué */

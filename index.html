@@ -428,6 +428,8 @@ a.rcard .st{color:var(--red)}
 a.rcard.num .st{color:var(--gold)}
 a.rcard.num:hover{border-color:var(--gold)}
 .rcard .rt{color:var(--gold);font-weight:600}
+.beltic{display:inline-block;width:1.05em;height:.6em;margin:0 3px 0 5px;vertical-align:.08em}
+.beltic svg{width:100%;height:100%;display:block;fill:var(--gold)}
 .rcard .star{color:var(--gold);margin-left:4px;font-size:.8em}
 .rcard .rfh{display:inline-block;margin-left:5px;width:.72em;height:.72em;vertical-align:.02em}.rcard .rfh svg{width:100%;height:100%;display:block;fill:var(--fav)}
 
@@ -1091,8 +1093,13 @@ const NOT_FRANCO=new Set([]);
 /* Francophones belges cités par Manuel, au cas où ils apparaissent (boxe, kick-boxing) */
 const BE_EXTRA={"Yassine Boughanem":"BEL","Youssef Boughanem":"BEL"};
 function markFranco(p){const n=p.nat||NAT[p.n];if(n==="FRA")p.fr=1;else if(n==="BEL"&&!NOT_FRANCO.has(p.n)){p.fr=1;p.be=1;}return p;}
+/* Pictogramme ceinture : champion en titre (avant le combat) */
+const BELT='<span class="beltic" title="Champion en titre" aria-label="Champion en titre"><svg viewBox="0 0 26 14" aria-hidden="true"><path fill-rule="evenodd" d="M0 6a2 2 0 0 1 2-2h6a3.5 3.5 0 0 1 3.5-3.5h3A3.5 3.5 0 0 1 18 4h6a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-6a3.5 3.5 0 0 1-3.5 3.5h-3A3.5 3.5 0 0 1 8 10H2a2 2 0 0 1-2-2zM13 4.4a2.6 2.6 0 1 0 0 5.2a2.6 2.6 0 1 0 0-5.2z"/></svg></span>';
 function nameHTML(p,side){
   const s=p.star?'<span class="star" aria-label="star">★</span>':'';
+  const c=p.champ?BELT:'';
+  if(side==="b") return `<span class="fl-in">${c}${s}${flag(p)}</span>${esc(splitName(p).last)}`;
+  return `${esc(splitName(p).last)}${flag(p)}${s}${c}`;
   /* Côté droit : drapeau et étoile du côté intérieur, à gauche du nom */
   return side==="b"?`<span class="fl-in">${s}${flag(p)}</span>${esc(splitName(p).last)}`:`${esc(splitName(p).last)}${flag(p)}${s}`;
 }

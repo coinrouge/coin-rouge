@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-31T23:11:00.740Z",
+ "updated": "2026-10-31T23:28:46.515Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -2041,12 +2041,12 @@
      "r": 3,
      "a": {
       "n": "Julian Erosa",
-      "rec": "30-13-0",
+      "rec": "31-13-0",
       "nat": "USA"
      },
      "b": {
       "n": "Lee Jeong-yeong",
-      "rec": "11-1-0",
+      "rec": "11-2-0",
       "nat": "KOR"
      },
      "res": {
@@ -2062,12 +2062,12 @@
      "r": 3,
      "a": {
       "n": "Zachary Reese",
-      "rec": "9-4-0",
+      "rec": "10-4-0",
       "nat": "USA"
      },
      "b": {
       "n": "Mickey Gall",
-      "rec": "7-6-0",
+      "rec": "7-7-0",
       "nat": "USA"
      },
      "res": {
@@ -2083,12 +2083,12 @@
      "r": 3,
      "a": {
       "n": "Joseph Kropschot",
-      "rec": "8-3-0",
+      "rec": "9-3-0",
       "nat": "USA"
      },
      "b": {
       "n": "Nick Klein",
-      "rec": "6-2-0",
+      "rec": "6-3-0",
       "nat": "USA"
      },
      "res": {
@@ -2104,12 +2104,12 @@
      "r": 3,
      "a": {
       "n": "Piera Rodríguez",
-      "rec": "11-2-0",
+      "rec": "12-2-0",
       "nat": "VEN"
      },
      "b": {
       "n": "Talita Alencar",
-      "rec": "8-0-1",
+      "rec": "8-1-1",
       "nat": "BRA"
      },
      "res": {
@@ -4413,7 +4413,7 @@
   [
    "Mickey Gall",
    "USA",
-   "7-7-0",
+   "7-8-0",
    "mma"
   ],
   [
@@ -4611,7 +4611,7 @@
   [
    "Zachary Reese",
    "USA",
-   "10-4-0",
+   "11-4-0",
    "mma"
   ],
   [
@@ -4671,7 +4671,7 @@
   [
    "Nick Klein",
    "USA",
-   "6-3-0",
+   "6-4-0",
    "mma"
   ],
   [
@@ -4821,7 +4821,7 @@
   [
    "Joseph Kropschot",
    "USA",
-   "9-3-0",
+   "10-3-0",
    "mma"
   ],
   [
@@ -5833,12 +5833,6 @@
    "mma"
   ],
   [
-   "Julian Erosa",
-   "USA",
-   "31-13-0",
-   "mma"
-  ],
-  [
    "Josh Emmett",
    "USA",
    "19-7-0",
@@ -5991,7 +5985,7 @@
   [
    "Lee Jeong-yeong",
    "KOR",
-   "11-2-0",
+   "11-3-0",
    "mma"
   ],
   [
@@ -7539,7 +7533,7 @@
   [
    "Piera Rodríguez",
    "VEN",
-   "12-2-0",
+   "13-2-0",
    "mma"
   ],
   [
@@ -7575,7 +7569,7 @@
   [
    "Talita Alencar",
    "BRA",
-   "8-1-1",
+   "8-2-1",
    "mma"
   ],
   [

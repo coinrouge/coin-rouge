@@ -999,7 +999,7 @@ function prepEvents(){EVENTS.forEach(ev=>{
     const sg=ev.segs.find(x=>x.k===k); if(!sg) return;
     const st=Date.parse(sg.t); cur=Math.max(cur,st);
     /* Combats déjà terminés (résultat connu) d'abord : l'ordre réel peut différer de l'ordre annoncé */
-    const l0=ev.fights.filter(f=>f.s===k).slice().reverse(), list=[...l0.filter(f=>f.res),...l0.filter(f=>!f.res)];
+    const l0=ev.fights.filter(f=>f.s===k).slice().reverse(), list=[...l0.filter(f=>f.res&&!f.t),...l0.filter(f=>f.res&&f.t).sort((x,y)=>Date.parse(x.t)-Date.parse(y.t)),...l0.filter(f=>!f.res)];
     list.forEach(f=>{if(f.t){cur=Date.parse(f.t);f.known=1;} f.est=cur; f.end=cur+dur(f)*60000; cur=f.end; f.ord=++n;
       /* Heure estimée arrondie aux 5 minutes (plus lisible : 16:00 plutôt que 16:02) */
       if(!f.known) f.est=Math.round(f.est/3e5)*3e5;});
@@ -1244,9 +1244,9 @@ function moreBtn(ev,shownAll){
 function boutHTML(f,t,detail,total,me,ev,spoilOK){
   let cls="", tb="", lab="";
   if(t>=f.est&&t<f.end&&!f.res){cls="now";tb=fmtT(f.est);lab="En cours ?";}
-  else if(t>=f.end||f.res&&t>=f.est){cls="done";tb=fmtT(f.est);lab=f.res?"Terminé":"Terminé ?";}
+  else if(t>=f.end||f.res){cls="done";tb=fmtT(f.est);lab=f.res?"Terminé":"Terminé ?";}
   else {tb=(f.known&&!(ev&&ev.tbc)?"":"≈ ")+fmtT(f.est);lab=fmtDS(f.est);}
-  const res=SPOIL&&spoilOK&&t>=f.end?resultOf(f,t):null;
+  const res=SPOIL&&spoilOK&&(t>=f.end||f.res)?resultOf(f,t):null;
   const resHTML=res?`<span class="resl${res.w==="draw"?" rdraw":""}">${res.w==="draw"?"Match nul":res.w==="nc"?"No contest":`Victoire ${esc(splitName(f.a).last===splitName(f.b).last?(res.w==="a"?f.a:f.b).n:splitName(res.w==="a"?f.a:f.b).last)}`}${(()=>{const d=[res.method,res.round?`R${res.round}${res.time?" "+res.time:""}`:"",res.demo?"test":""].filter(Boolean);return d.length?`<em>${esc(d.join(" · "))}</em>`:"";})()}</span>`:(SPOIL&&spoilOK&&t>=f.end?`<span class="resl rwait">Résultat non disponible</span>`:"");
   /* Le titre est déjà affiché en haut (étiquettes) : pas de doublon au centre */
   const _fv=isFav(f.a.n)||isFav(f.b.n), labTitle=me||(!_fv&&(f.a.star||f.b.star||f.a.fr||f.b.fr));

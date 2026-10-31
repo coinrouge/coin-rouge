@@ -1327,7 +1327,7 @@ function render(){
       ${schedHTML(ev)}
     </a>
     <div class="nowbar ${live?"on":""}">
-      <span class="tag">Probablement dans la cage</span>
+      <span class="tag">Probablement ${ev.sport==="boxe"?"sur le ring":"dans la cage"}</span>
       <span class="who">${cur?esc(cur.a.n)+" – "+esc(cur.b.n):"Entre deux combats"}</span>
       <span class="after">${nxt?"Ensuite : "+esc(nxt.a.n)+" – "+esc(nxt.b.n)+" vers "+fmtT(nxt.est):""}</span>
     </div>`;

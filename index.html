@@ -1287,7 +1287,7 @@ function boutHTML(f,t,detail,total,me,ev,spoilOK){
   let cls="", tb="", lab="";
   if(t>=f.est&&t<f.end&&!f.res&&f.sure){cls="now";tb=fmtT(f.est);lab="En cours ?";}
   /* Combat sauté : un combat prévu après lui a commencé avant → ordre modifié, on ne donne pas d'heure inventée */
-  else if(f.skip&&!f.res){cls="skip";tb="—";lab="Ordre modifié ?";}
+  else if(f.skip&&!f.res){cls="skip";tb="?";lab="Ordre modifié ?";}
   else if(t>=f.end||f.res){cls="done";tb=fmtT(f.est);lab=f.res?"Terminé":"Terminé ?";}
   else {tb=(f.known&&!(ev&&ev.tbc)?"":"≈ ")+fmtT(f.est);lab=fmtDS(f.est);}
   const res=SPOIL&&spoilOK&&(t>=f.end||f.res)?resultOf(f,t):null;

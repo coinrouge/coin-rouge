@@ -398,6 +398,8 @@ details.ev .sched{border:1px solid var(--line);border-radius:4px}
 /* Radar FR */
 .radar{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
 .rcard{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+/* Radar : combat avec une vedette → bordure jaune légère */
+.rcard.rstar{border-color:color-mix(in srgb,var(--gold) 45%,var(--line))}
 .rcard .nm{font-family:var(--f-display);font-weight:800;font-size:20px;text-transform:uppercase}
 .rcard .st{font-family:var(--f-data);font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:700}
 .st.ok{color:var(--blue)} .st.ru{color:var(--gold)}
@@ -1595,7 +1597,7 @@ function radar(){
     markFranco(p); if(!p.fr||seen.has(p.n)) return;
     seen.add(p.n); out.push({p,o,e,f,main:f===e.fights[0]});
   })));
-  document.getElementById("radar").innerHTML=out.map(({p,o,e,f,main})=>`<a class="rcard ${evCls(e)}" href="#ev-${e.id}"><span class="st">${esc(e.name)} · ${fmtDS(e.start)}</span><span class="nm">${esc(p.n)}${flag(p)}${p.star?'<span class="star">★</span>':""}</span><p>Contre ${esc(o.n)}${f.title?` · <b class="rt">${esc(f.title)}</b>`:""}${main?" · combat principal":""} · ${t>=f.est?"en cours":`${f.known&&!e.tbc?"":"vers "}${fmtT(f.est)}`}</p></a>`).join("")||`<div class="empty">Aucun francophone programmé pour l'instant.</div>`;
+  document.getElementById("radar").innerHTML=out.map(({p,o,e,f,main})=>`<a class="rcard ${evCls(e)}${p.star||o.star?" rstar":""}" href="#ev-${e.id}"><span class="st">${esc(e.name)} · ${fmtDS(e.start)}</span><span class="nm">${esc(p.n)}${flag(p)}${p.star?'<span class="star">★</span>':""}</span><p>Contre ${esc(o.n)}${f.title?` · <b class="rt">${esc(f.title)}</b>`:""}${main?" · combat principal":""} · ${t>=f.est?"en cours":`${f.known&&!e.tbc?"":"vers "}${fmtT(f.est)}`}</p></a>`).join("")||`<div class="empty">Aucun francophone programmé pour l'instant.</div>`;
 }
 
 document.getElementById("q").addEventListener("input",e=>{query=norm(e.target.value.trim());render();});

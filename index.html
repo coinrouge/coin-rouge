@@ -992,7 +992,8 @@ function prepEvents(){EVENTS.forEach(ev=>{
   order.forEach(k=>{
     const sg=ev.segs.find(x=>x.k===k); if(!sg) return;
     const st=Date.parse(sg.t); cur=Math.max(cur,st);
-    const list=ev.fights.filter(f=>f.s===k).slice().reverse();
+    /* Combats déjà terminés (résultat connu) d'abord : l'ordre réel peut différer de l'ordre annoncé */
+    const l0=ev.fights.filter(f=>f.s===k).slice().reverse(), list=[...l0.filter(f=>f.res),...l0.filter(f=>!f.res)];
     list.forEach(f=>{if(f.t){cur=Date.parse(f.t);f.known=1;} f.est=cur; f.end=cur+dur(f)*60000; cur=f.end; f.ord=++n;
       /* Heure estimée arrondie aux 5 minutes (plus lisible : 16:00 plutôt que 16:02) */
       if(!f.known) f.est=Math.round(f.est/3e5)*3e5;});
@@ -1234,8 +1235,8 @@ function moreBtn(ev,shownAll){
 }
 function boutHTML(f,t,detail,total,me,ev,spoilOK){
   let cls="", tb="", lab="";
-  if(t>=f.est&&t<f.end){cls="now";tb=fmtT(f.est);lab="En cours ?";}
-  else if(t>=f.end){cls="done";tb=fmtT(f.est);lab=f.res?"Terminé":"Terminé ?";}
+  if(t>=f.est&&t<f.end&&!f.res){cls="now";tb=fmtT(f.est);lab="En cours ?";}
+  else if(t>=f.end||f.res&&t>=f.est){cls="done";tb=fmtT(f.est);lab=f.res?"Terminé":"Terminé ?";}
   else {tb=(f.known&&!(ev&&ev.tbc)?"":"≈ ")+fmtT(f.est);lab=fmtDS(f.est);}
   const res=SPOIL&&spoilOK&&t>=f.end?resultOf(f,t):null;
   const resHTML=res?`<span class="resl${res.w==="draw"?" rdraw":""}">${res.w==="draw"?"Match nul":res.w==="nc"?"No contest":`Victoire ${esc(splitName(f.a).last===splitName(f.b).last?(res.w==="a"?f.a:f.b).n:splitName(res.w==="a"?f.a:f.b).last)}`}<em>${esc(res.method)} · R${res.round} ${esc(res.time)}${res.demo?" · test":""}</em></span>`:(SPOIL&&spoilOK&&t>=f.end?`<span class="resl rwait">Résultat non disponible</span>`:"");
@@ -1308,8 +1309,8 @@ function render(){
   const live=t>=ev.start&&t<ev.end;
   const c=cd(ev.start-t);
   const mainF=ev.fights[0];
-  const cur=ev.fights.find(f=>t>=f.est&&t<f.end);
-  const nxt=ev.fights.filter(f=>f.est>t).sort((a,b)=>a.est-b.est)[0];
+  const cur=ev.fights.find(f=>!f.res&&t>=f.est&&t<f.end);
+  const nxt=ev.fights.filter(f=>!f.res&&f.est>t).sort((a,b)=>a.est-b.est)[0];
   document.getElementById("hero").innerHTML=`
     <a class="hero-top poster" href="#ev-${ev.id}" aria-label="Voir la fight card complète : ${esc(ev.a)} contre ${esc(ev.b)}">
       <div class="ptop">

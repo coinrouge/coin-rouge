@@ -1041,7 +1041,7 @@ function prepEvents(){EVENTS.forEach(ev=>{
     const l0=ev.fights.filter(f=>f.s===k).slice().reverse(), list=[...l0.filter(f=>f.res&&!f.t),...l0.filter(f=>f.res&&f.t).sort((x,y)=>Date.parse(x.t)-Date.parse(y.t)),...l0.filter(f=>!f.res)];
     /* sure : heure de début fiable (annoncée, ou premier combat d'une partie de soirée). Sinon l'ordre n'est qu'une estimation */
     /* Un combat dont l'heure de début est connue clôt tous ceux d'avant dans cette partie : jamais deux combats « en cours » à la fois */
-    list.forEach((f,i)=>{if(f.t){cur=Date.parse(f.t);f.known=1;list.slice(0,i).forEach(p=>{if(p.end>cur)p.end=cur;if(p.est>cur)p.est=cur;});} f.sure=!!f.known||i===0; f.est=cur; f.end=cur+dur(f)*60000; cur=f.end; f.ord=++n;
+    list.forEach((f,i)=>{if(f.t){cur=Date.parse(f.t);f.known=1;list.slice(0,i).forEach(p=>{if(p.est>=cur&&!p.res)p.skip=1;if(p.end>cur)p.end=cur;if(p.est>cur)p.est=cur;});} f.sure=!!f.known||i===0; f.est=cur; f.end=cur+dur(f)*60000; cur=f.end; f.ord=++n;
       /* Heure estimée arrondie aux 5 minutes (plus lisible : 16:00 plutôt que 16:02) */
       if(!f.known) f.est=Math.round(f.est/3e5)*3e5;});
   });
@@ -1285,13 +1285,15 @@ function moreBtn(ev,shownAll){
 function boutHTML(f,t,detail,total,me,ev,spoilOK){
   let cls="", tb="", lab="";
   if(t>=f.est&&t<f.end&&!f.res&&f.sure){cls="now";tb=fmtT(f.est);lab="En cours ?";}
+  /* Combat sauté : un combat prévu après lui a commencé avant → ordre modifié, on ne donne pas d'heure inventée */
+  else if(f.skip&&!f.res){cls="skip";tb="—";lab="Ordre modifié ?";}
   else if(t>=f.end||f.res){cls="done";tb=fmtT(f.est);lab=f.res?"Terminé":"Terminé ?";}
   else {tb=(f.known&&!(ev&&ev.tbc)?"":"≈ ")+fmtT(f.est);lab=fmtDS(f.est);}
   const res=SPOIL&&spoilOK&&(t>=f.end||f.res)?resultOf(f,t):null;
   const resHTML=res?`<span class="resl${res.w==="draw"?" rdraw":""}">${res.w==="draw"?"Match nul":res.w==="nc"?"No contest":`Victoire ${esc(splitName(f.a).last===splitName(f.b).last?(res.w==="a"?f.a:f.b).n:splitName(res.w==="a"?f.a:f.b).last)}`}${(()=>{const d=[res.method,res.round?`R${res.round}${res.time?" "+res.time:""}`:"",res.demo?"test":""].filter(Boolean);return d.length?`<em>${esc(d.join(" · "))}</em>`:"";})()}</span>`:(SPOIL&&spoilOK&&t>=f.end?`<span class="resl rwait">Résultat non disponible</span>`:"");
   /* Le titre est déjà affiché en haut (étiquettes) : pas de doublon au centre */
   const _fv=isFav(f.a.n)||isFav(f.b.n), labTitle=me||(!_fv&&(f.a.star||f.b.star||f.a.fr||f.b.fr));
-  const mid=`${detail?`<span class="mtime ${cls}"><b>${tb}</b><span class="tzfr">Heure française</span></span>`:""}${resHTML}${f.title&&!labTitle?`<span class="belt">${esc(f.title)}</span>`:""}${detail?`<span class="rd">${W[f.w]||f.w}</span><span class="rds">${f.ru?"Rounds à confirmer":f.r+" rounds"}</span>`:`<span class="rd">${W[f.w]||f.w} · ${f.r} rds</span>`}${detail?`<span class="lim">${LIM[f.w]||""}</span><span class="cnum">Combat ${f.ord}/${total}</span>`:""}`;
+  const mid=`${detail?`<span class="mtime ${cls}"><b>${tb}</b>${cls==="skip"?"":`<span class="tzfr">Heure française</span>`}</span>`:""}${resHTML}${f.title&&!labTitle?`<span class="belt">${esc(f.title)}</span>`:""}${detail?`<span class="rd">${W[f.w]||f.w}</span><span class="rds">${f.ru?"Rounds à confirmer":f.r+" rounds"}</span>`:`<span class="rd">${W[f.w]||f.w} · ${f.r} rds</span>`}${detail?`<span class="lim">${LIM[f.w]||""}</span><span class="cnum">Combat ${f.ord}/${total}</span>`:""}`;
   const fv=isFav(f.a.n)||isFav(f.b.n);
   const sf=!me&&!fv&&(f.a.star||f.b.star);
   const favLabel=`<span class="fvl">♥ Favori</span>`;
@@ -1306,7 +1308,7 @@ function boutHTML(f,t,detail,total,me,ev,spoilOK){
     ${sf?`<div class="melabel sl"><span>★ Combat vedette</span>${rdl}${f.title?`<em class="mltitle">${esc(f.title)}</em>`:""}${subl}</div>`:""}
     ${frf&&!me&&!fv&&!sf?`<div class="melabel">${rdl}${f.title?`<em class="mltitle">${esc(f.title)}</em>`:""}${subl}</div>`:""}
     ${subl&&!frf&&!me&&!fv&&!sf?`<div class="melabel">${subl}</div>`:""}
-    <div class="time ${cls}${detail?" tc":""}">${detail?"":`<b>${tb}</b>`}<small>${lab}</small>${detail&&ev&&ev.tz?`<span class="ord loc" title="Heure locale à ${esc(ev.city)}"><i>${esc(ev.city)}</i>${fmtLocal(f.est,ev.tz)}</span>`:""}</div>
+    <div class="time ${cls}${detail?" tc":""}">${detail?"":`<b>${tb}</b>`}<small>${lab}</small>${detail&&ev&&ev.tz&&!f.skip?`<span class="ord loc" title="Heure locale à ${esc(ev.city)}"><i>${esc(ev.city)}</i>${fmtLocal(f.est,ev.tz)}</span>`:""}</div>
     <div class="duel">
       ${fighterHTML(f.a,"a",res?(res.w==="a"?"win":res.w==="b"?"lose":"draw"):"")}
       <div class="mid">${mid}</div>

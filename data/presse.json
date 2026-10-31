@@ -80,20 +80,6 @@
     },
     {
      "s": "main",
-     "w": "Super-coqs",
-     "r": 10,
-     "a": {
-      "n": "David Picasso",
-      "nat": "MEX"
-     },
-     "b": {
-      "n": "Carl Jammes Martin",
-      "nat": "PHI"
-     },
-     "ru": 1
-    },
-    {
-     "s": "main",
      "w": "Super-plumes",
      "r": 10,
      "a": {
@@ -107,6 +93,20 @@
       "nat": "JPN",
       "rec": "5-0-0",
       "tp": "493346-reito-tsutsumi"
+     },
+     "ru": 1
+    },
+    {
+     "s": "main",
+     "w": "Super-coqs",
+     "r": 10,
+     "a": {
+      "n": "David Picasso",
+      "nat": "MEX"
+     },
+     "b": {
+      "n": "Carl Jammes Martin",
+      "nat": "PHI"
      },
      "ru": 1
     },

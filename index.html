@@ -381,6 +381,12 @@ details.ev summary::-webkit-details-marker{display:none}
 .sched div:not(.s-main){flex:1 1 110px}
 .sched div:not(.s-main) b{font-size:15px;font-weight:600}
 .pwhen{display:flex;flex-direction:column;gap:2px;min-width:0}
+/* ESSAI : date et horaires au centre, sous le lieu et le drapeau du pays */
+.hero .pmid{flex-direction:column;align-items:center}
+.hero .pvenue2{position:static;transform:none;margin-top:8px;max-width:300px}
+.pwhen.pwc .pdate{font-size:20px;color:var(--ink)}.pwhen.pwc .pstart{color:var(--muted)}
+.pwhen.pwc{align-items:center;text-align:center;margin-top:12px}
+.pwhen.pwc .pdate{white-space:nowrap}
 .pdate{font-family:var(--f-display);font-weight:800;text-transform:uppercase;font-size:clamp(20px,3.6vw,28px);line-height:1.05;letter-spacing:.01em}
 .ptime{font-family:var(--f-data);font-weight:600;font-size:.6em;letter-spacing:.06em;color:var(--muted);margin-left:4px;white-space:nowrap}
 .pbot{align-items:flex-end}
@@ -1402,11 +1408,11 @@ function render(){
       </div>
       <h2 class="pduel">
         ${posterSide(mainF.a,"red")}
-        <span class="pmid"><span class="pvs" aria-label="contre">VS</span><span class="pvenue2"><span class="vcity">${esc(ev.city)}</span><span class="vsalle">${esc(ev.venue)}</span>${hostFlag(ev)}</span></span>
+        <span class="pmid"><span class="pvs" aria-label="contre">VS</span><span class="pvenue2"><span class="vcity">${esc(ev.city)}</span><span class="vsalle">${esc(ev.venue)}</span>${hostFlag(ev)}<span class="pwhen pwc"><span class="pdate">${fmtD(ev.start)} </span><span class="pstart">Début de soirée ${fmtT(ev.start)}${ev.tbc?" · horaires à confirmer":""}</span><span class="pstart pme">Main event ${ev.fights[0].known&&!ev.tbc?"":"≈ "}<b>${fmtT(ev.fights[0].est)}</b></span>${tvLine(ev)}</span></span></span>
         ${posterSide(mainF.b,"blue")}
       </h2>
       <div class="pbot">
-        <div class="pwhen"><span class="pdate">${fmtD(ev.start)} </span><span class="pstart">Début de soirée ${fmtT(ev.start)}${ev.tbc?" · horaires à confirmer":""}</span><span class="pstart pme">Main event ${ev.fights[0].known&&!ev.tbc?"":"≈ "}<b>${fmtT(ev.fights[0].est)}</b></span>${tvLine(ev)}</div>
+        
         ${live?"":`<span class="cdown">Début dans <b>${c.n}</b></span>`}
       </div>
       ${schedHTML(ev)}
@@ -1437,6 +1443,7 @@ function render(){
   favs(t);
   radar();
   renderDetail(t);
+  fitNames();
 }
 /* Liste textuelle des prochains événements (8 puis liste complète) */
 const SPORTLBL={all:"MMA + Boxe",mma:"MMA",boxe:"Boxe"};

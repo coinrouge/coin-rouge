@@ -273,7 +273,9 @@ a.hero-top:hover .cta::after{transform:translateX(4px)}
 .alsolive:empty{display:none}
 .alsolive{display:flex;flex-direction:column;gap:6px;padding:8px 20px;background:var(--surface);border-top:1px solid var(--line)}
 .alive{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:2px 0;background:transparent;border:0;color:inherit;text-decoration:none}
-.alive:hover .who{text-decoration:underline;text-underline-offset:3px}
+/* Survol : toute la ligne s'éclaircit (pas de soulignement) */
+.alive{border-radius:5px;margin:0 -10px;padding:4px 10px;transition:background-color .15s}
+.alive:hover{background:var(--soft)}
 .alive .tag{font-family:var(--f-data);text-transform:uppercase;letter-spacing:.1em;font-size:11px;font-weight:700;color:var(--live)}
 .alive .who{font-family:var(--f-display);font-weight:800;font-size:15px;text-transform:uppercase}
 .alive .who .cr{color:var(--cr)}.alive .who .cb{color:var(--cb)}.alive .who .vs{color:var(--muted);margin:0 4px}

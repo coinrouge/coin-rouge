@@ -260,6 +260,16 @@ a.hero-top:hover .cta::after{transform:translateX(4px)}
 .mflag{width:24px;height:16px;border-radius:2px;vertical-align:-1px;margin:0 8px;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
 .nowbar .who .cr .mflag{margin-left:0}.nowbar .who .cb .mflag{margin-right:0}
 .nowbar .after{color:var(--muted);font-size:14px}
+.alsolive:empty{display:none}
+.alsolive{display:flex;flex-direction:column;gap:8px;padding:12px 20px;background:var(--soft);border-top:1px solid var(--line)}
+.alive{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 18px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--red);border-radius:6px;color:inherit;text-decoration:none}
+.alive:hover{border-color:var(--red)}
+.alive .tag{font-family:var(--f-data);text-transform:uppercase;letter-spacing:.1em;font-size:11px;font-weight:700;color:var(--live)}
+.alive .who{font-family:var(--f-display);font-weight:800;font-size:18px;text-transform:uppercase}
+.alive .who .cr{color:var(--cr)}.alive .who .cb{color:var(--cb)}.alive .who .vs{color:var(--muted);margin:0 4px}
+.alive .who .cr .mflag{margin-left:0}.alive .who .cb .mflag{margin-right:0}
+.alive .after{color:var(--muted);font-size:13px}
+.rds{white-space:nowrap}
 
 /* Tools */
 .tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
@@ -1341,6 +1351,11 @@ function render(){
       <span class="who">${cur?`<span class="cr">${miniFlag(cur.a)}${esc(splitName(cur.a).last)}</span> <span class="vs">–</span> <span class="cb">${esc(splitName(cur.b).last)}${miniFlag(cur.b)}</span>`:"Entre deux combats"}</span>
       <span class="after">${nxt?"Ensuite : "+esc(splitName(nxt.a).last)+" – "+esc(splitName(nxt.b).last)+" vers "+fmtT(nxt.est):""}</span>
     </div>`;
+  /* Autres soirées en direct au même moment (ex. ARES pendant une soirée de boxe) : bandeau compact sous la soirée en tête */
+  const also=pool.filter(e=>e!==ev&&t>=e.start&&t<e.end);
+  document.getElementById("hero").insertAdjacentHTML("beforeend",`<div class="alsolive">${also.map(e=>{
+    const cu=e.fights.find(f=>!f.res&&t>=f.est&&t<f.end), nx=e.fights.filter(f=>!f.res&&f.est>t).sort((a,b)=>a.est-b.est)[0];
+    return `<a class="alive ${evCls(e)}" href="#ev-${e.id}"><span class="pill live">Live</span>${evBadge(e,1)}<span class="tag">Probablement ${e.sport==="boxe"?"sur le ring":"dans la cage"}</span><span class="who">${cu?`<span class="cr">${miniFlag(cu.a)}${esc(splitName(cu.a).last)}</span> <span class="vs">–</span> <span class="cb">${esc(splitName(cu.b).last)}${miniFlag(cu.b)}</span>`:"Entre deux combats"}</span><span class="after">${nx?"Ensuite : "+esc(splitName(nx.a).last)+" – "+esc(splitName(nx.b).last)+" vers "+fmtT(nx.est):""}</span></a>`;}).join("")}</div>`);
   const restN=ev.fights.length-ev.fights.filter(f=>f.s==="main").length;
   document.getElementById("hero").insertAdjacentHTML("beforeend",`<div class="hero-card">${cardHTML(ev,t,{only:filter==="all"?"main":null})}
     ${moreBtn(ev,false)}</div>`);

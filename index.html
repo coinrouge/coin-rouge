@@ -293,7 +293,6 @@ a.hero-top:hover .cta::after{transform:translateX(4px)}
 .bout{display:grid;grid-template-columns:72px 1fr;gap:12px;padding:12px 4px;border-bottom:1px solid var(--line);align-items:center;position:relative}
 .bout.hl{background:var(--soft)}
 .bout.now{box-shadow:inset 4px 0 0 var(--live)}
-.bout.now:not(.fr){padding-left:16px!important}
 .time{font-family:var(--f-data);font-variant-numeric:tabular-nums;text-align:left}
 .time b{display:block;font-size:19px;line-height:1.1}
 .time small{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
@@ -648,11 +647,11 @@ h2.h::after{content:"";flex:1;height:1px;background:var(--line)}
 .bouts .bout.favf.fr{padding-left:24px;padding-right:12px}
 /* Combat en cours : bloc détaché comme les autres encadrés, avec un écart avant la bande rouge */
 .bouts .bout.now{border-radius:5px;margin-block:6px;border-bottom-color:transparent}
-.bouts .bout.now:not(.fr){padding-left:20px!important}
-.bouts .bout.now:not(.fr):not(.favf):not(.starf){border-radius:0 5px 5px 0}
+/* Combat en cours simple : la bande rouge est posée dans la marge, le contenu ne bouge pas (heure toujours alignée) */
+.bouts .bout.now:not(.fr):not(.favf):not(.starf){box-shadow:none;border-radius:0}
+.bouts .bout.now:not(.fr):not(.favf):not(.starf)::before{content:"";position:absolute;left:-10px;top:0;bottom:0;width:4px;background:var(--live)}
 /* Francophone ou favori en cours : la bande tricolore reste, le direct devient un cadre rouge */
 .bouts .bout.now.fr,.bouts .bout.now.favf,.bouts .bout.now.starf{box-shadow:inset 0 0 0 2px var(--live)}
-.bouts .bout.now.favf:not(.fr),.bouts .bout.now.starf:not(.fr){padding-left:14px!important}
 /* Dernier encadré d'une carte : même écart en bas que sur les côtés */
 .bouts .bout:is(.fr,.favf,.starf,.now):last-child{margin-bottom:14px}
 .melabel .fvl{background:transparent!important;color:var(--fav)!important;border:1px solid var(--fav);padding:2px 8px;border-radius:3px}

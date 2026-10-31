@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-31T18:50:20.111Z",
+ "updated": "2026-10-31T18:56:31.088Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -1836,7 +1836,8 @@
       "tp": "338228-alexandre-carole",
       "nat": "FRA",
       "fr": 1
-     }
+     },
+     "t": "2026-10-31T18:55:00Z"
     },
     {
      "s": "main",

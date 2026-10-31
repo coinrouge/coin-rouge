@@ -665,6 +665,8 @@ h2.h::after{content:"";flex:1;height:1px;background:var(--line)}
 .bouts .bout.now:not(.fr):not(.favf):not(.starf)::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--live)}
 /* Francophone ou favori en cours : la bande tricolore reste, le direct devient un cadre rouge */
 .bouts .bout.now.fr,.bouts .bout.now.favf,.bouts .bout.now.starf{box-shadow:inset 0 0 0 2px var(--live),0 0 10px color-mix(in srgb,var(--live) 28%,transparent);border-bottom:0;margin-bottom:11px}
+/* Combat probablement terminé : plus de fond teinté (francophone, favori, vedette), la bande tricolore reste */
+.bouts .bout.isdone{--fr-t:transparent;--fav-t:transparent;--star-t:transparent;--fn-star:transparent;--num-star:transparent}
 /* Dernier encadré d'une carte : même écart en bas que sur les côtés */
 .bouts .bout:is(.fr,.favf,.starf,.now):last-child,.bouts .bout.now:not(.fr):not(.favf):not(.starf):last-child{margin-bottom:14px}
 .melabel .fvl{background:transparent!important;color:var(--fav)!important;border:1px solid var(--fav);padding:2px 8px;border-radius:3px}
@@ -1315,7 +1317,7 @@ function boutHTML(f,t,detail,total,me,ev,spoilOK){
   /* Co-main event : 2e combat de la main card (juste avant le main event) */
   const co=ev&&f!==ev.fights[0]&&f===ev.fights[1]&&f.s==="main";
   const coml=co?`<span class="coml">Co-main event</span>`:"";
-  return `<div class="bout ${me?"me":""} ${sf?"starf":""} ${fv&&!me?"favf":""} ${fv?"hasfav":""} ${cls==="now"?"now":""} ${hits(f)?"hl":""} ${f.a.fr||f.b.fr?(f.a.be&&!f.b.fr||f.b.be&&!f.a.fr||f.a.be&&f.b.be?"fr be":"fr"):""}">
+  return `<div class="bout ${me?"me":""} ${sf?"starf":""} ${fv&&!me?"favf":""} ${fv?"hasfav":""} ${cls==="now"?"now":cls==="done"?"isdone":""} ${hits(f)?"hl":""} ${f.a.fr||f.b.fr?(f.a.be&&!f.b.fr||f.b.be&&!f.a.fr||f.a.be&&f.b.be?"fr be":"fr"):""}">
     ${me?`<div class="melabel"><span class="mainl">Main event</span>${fv?favLabel:""}${rdl}${f.r===5?"<em>5 rounds</em>":""}${f.title?`<em class="mltitle">${esc(f.title)}</em>`:""}${subl}</div>`:""}
     ${fv&&!me?`<div class="melabel fl">${coml}${favLabel}${f.a.star||f.b.star?'<span class="slc">★ Combat vedette</span>':""}${rdl}${subl}</div>`:""}
     ${sf?`<div class="melabel sl">${coml}<span>★ Combat vedette</span>${rdl}${f.title?`<em class="mltitle">${esc(f.title)}</em>`:""}${subl}</div>`:""}

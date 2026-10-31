@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-31T22:12:28.889Z",
+ "updated": "2026-10-31T22:47:34.644Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -1750,6 +1750,7 @@
       "nat": "FRA",
       "rec": "8-0-0",
       "tp": "328023-aboubakar-younousov",
+      "champ": 1,
       "fr": 1
      },
      "b": {
@@ -2044,14 +2045,20 @@
      "w": "MW",
      "r": 3,
      "a": {
-      "n": "Nick Klein",
-      "rec": "6-3-0",
+      "n": "Joseph Kropschot",
+      "rec": "8-3-0",
       "nat": "USA"
      },
      "b": {
-      "n": "Joseph Kropschot",
-      "rec": "9-3-0",
+      "n": "Nick Klein",
+      "rec": "6-2-0",
       "nat": "USA"
+     },
+     "res": {
+      "w": "a",
+      "method": "Soumission (clé de bras)",
+      "round": 2,
+      "time": "1:25"
      }
     },
     {
@@ -2081,12 +2088,12 @@
      "r": 3,
      "a": {
       "n": "Lucia Szabová",
-      "rec": "9-0-0",
+      "rec": "10-0-0",
       "nat": "SVK"
      },
      "b": {
       "n": "Tainara Lisboa",
-      "rec": "7-3-0",
+      "rec": "7-4-0",
       "nat": "BRA"
      },
      "res": {
@@ -7303,7 +7310,7 @@
   [
    "Tainara Lisboa",
    "BRA",
-   "7-4-0",
+   "7-5-0",
    "mma"
   ],
   [
@@ -7369,7 +7376,7 @@
   [
    "Lucia Szabová",
    "SVK",
-   "10-0-0",
+   "11-0-0",
    "mma"
   ],
   [

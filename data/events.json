@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-31T16:06:29.352Z",
+ "updated": "2026-10-31T16:13:18.935Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -1539,7 +1539,8 @@
    "segs": [
     {
      "k": "prelims",
-     "t": "2026-10-31T14:15:00Z"
+     "t": "2026-10-31T14:15:00Z",
+     "free": "YouTube"
     },
     {
      "k": "main",

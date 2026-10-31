@@ -1051,9 +1051,9 @@ function prepEvents(){EVENTS.forEach(ev=>{
     const st=Date.parse(sg.t); cur=Math.max(cur,st);
     /* Combats déjà terminés (résultat connu) d'abord : l'ordre réel peut différer de l'ordre annoncé */
     const l0=ev.fights.filter(f=>f.s===k).slice().reverse(), list=[...l0.filter(f=>f.res&&!f.t),...l0.filter(f=>f.res&&f.t).sort((x,y)=>Date.parse(x.t)-Date.parse(y.t)),...l0.filter(f=>!f.res)];
-    /* sure : heure fiable ou très probable = heure annoncée, premier combat d'une partie, ou combat qui suit directement l'un d'eux. Au-delà, l'ordre n'est qu'une estimation */
+    /* sure : on n'affiche un combat « en cours » que si son heure de début est CONFIRMÉE (annoncée ou signalée). Sinon : heures estimées seulement */
     /* Un combat dont l'heure de début est connue clôt tous ceux d'avant dans cette partie : jamais deux combats « en cours » à la fois */
-    list.forEach((f,i)=>{if(f.t){cur=Date.parse(f.t);f.known=1;list.slice(0,i).forEach(p=>{if(p.est>=cur&&!p.res)p.skip=1;if(p.end>cur)p.end=cur;if(p.est>cur)p.est=cur;});} f.anchor=!!f.known||i===0; f.sure=f.anchor||(i>0&&!!list[i-1].anchor&&!list[i-1].res); f.est=cur; f.end=cur+dur(f)*60000; cur=f.end; f.ord=++n;
+    list.forEach((f,i)=>{f.late=0;if(f.t&&i>0&&list[i-1].known&&Date.parse(f.t)<cur){f.late=1;}else if(f.t){cur=Date.parse(f.t);f.known=1;list.slice(0,i).forEach(p=>{if(p.est>=cur&&!p.res)p.skip=1;if(p.end>cur)p.end=cur;if(p.est>cur)p.est=cur;});} /* Heure annoncée mais le combat d'avant a commencé plus tard : en retard, l'heure redevient une estimation */ f.sure=!!f.known; f.est=cur; f.end=cur+dur(f)*60000; cur=f.end; f.ord=++n;
       /* Heure estimée arrondie aux 5 minutes (plus lisible : 16:00 plutôt que 16:02) */
       if(!f.known) f.est=Math.round(f.est/3e5)*3e5;});
   });
@@ -1448,8 +1448,9 @@ function liveLine(e,t){
   const place=e.sport==="boxe"?"sur le ring":"dans la cage", bx=e.sport==="boxe"?" bxt":"";
   const duo=f=>`<span class="cr">${miniFlag(f.a)}${esc(splitName(f.a).last)}</span> <span class="vs">–</span> <span class="cb">${esc(splitName(f.b).last)}${miniFlag(f.b)}</span>`;
   if(cu&&cu.sure) return `<span class="tag${bx}">Probablement ${place}</span><span class="who">${duo(cu)}</span><span class="after">${nx&&nx.sure?"Ensuite : "+esc(splitName(nx.a).last)+" – "+esc(splitName(nx.b).last)+" vers "+fmtT(nx.est):""}</span>`;
-  if(cu) return `<span class="tag${bx}">En direct</span><span class="unsure">Ordre de passage non confirmé</span>`;
-  return `<span class="tag${bx}">En direct</span><span class="unsure">Entre deux combats</span>${nx&&nx.sure?`<span class="after">Ensuite : ${esc(splitName(nx.a).last)} – ${esc(splitName(nx.b).last)} vers ${fmtT(nx.est)}</span>`:""}`;
+  /* Pas d'info sûre : on ne nomme personne, on rappelle seulement l'heure estimée du main event */
+  const me=e.fights[0];
+  return `<span class="tag${bx}">En direct</span><span class="unsure">Combat en cours non confirmé · les heures sont estimées</span>${me&&!me.res&&me.est>t?`<span class="after">Main event ${me.known?"":"≈ "}${fmtT(me.est)}</span>`:""}`;
 }
 function tvLine(ev){const {fr,x}=tvInfo(ev);if(fr)return `<span class="pstart ptv">Diffusion en France : <b>${esc(fr)}</b>${freeLine(ev)}</span>`;if(x)return `<span class="pstart ptv">Pas de diffuseur annoncé en France · <b>${esc(x)}</b>${freeLine(ev)}</span>`;return ev.segs.some(x=>x.free)?`<span class="pstart ptv">${freeLine(ev).slice(3)}</span>`:"";}
 function agendaItems(t){

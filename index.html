@@ -1603,7 +1603,7 @@ function radar(){
     markFranco(p); if(!p.fr||seen.has(p.n)) return;
     seen.add(p.n); out.push({p,o,e,f,main:f===e.fights[0]});
   })));
-  document.getElementById("radar").innerHTML=out.map(({p,o,e,f,main})=>`<a class="rcard ${evCls(e)}${isNum(e)?" rstar":isFav(p.n)||isFav(o.n)?" rfav":p.star||o.star?" rstar":""}" href="#ev-${e.id}"><span class="st">${esc(e.name)} · ${fmtDS(e.start)}</span><span class="nm">${esc(p.n)}${flag(p)}${isFav(p.n)?`<span class="rfh" title="Favori" aria-label="Favori">${HEART}</span>`:""}${p.star?'<span class="star">★</span>':""}</span><p>Contre ${esc(o.n)}${f.title?` · <b class="rt">${esc(f.title)}</b>`:""}${main?" · combat principal":""} · ${t>=f.est?"en cours":`${f.known&&!e.tbc?"":"vers "}${fmtT(f.est)}`}</p></a>`).join("")||`<div class="empty">Aucun francophone programmé pour l'instant.</div>`;
+  document.getElementById("radar").innerHTML=out.map(({p,o,e,f,main})=>`<a class="rcard ${evCls(e)}${isNum(e)?" rstar":isFav(p.n)||isFav(o.n)?" rfav":p.star||o.star?" rstar":""}" href="#ev-${e.id}"><span class="st">${esc(e.name)} · ${fmtDS(e.start)}</span><span class="nm">${esc(p.n)}${flag(p)}${p.star?'<span class="star">★</span>':""}${isFav(p.n)?`<span class="rfh" title="Favori" aria-label="Favori">${HEART}</span>`:""}</span><p>Contre ${esc(o.n)}${f.title?` · <b class="rt">${esc(f.title)}</b>`:""}${main?" · combat principal":""} · ${t>=f.est?"en cours":`${f.known&&!e.tbc?"":"vers "}${fmtT(f.est)}`}</p></a>`).join("")||`<div class="empty">Aucun francophone programmé pour l'instant.</div>`;
 }
 
 document.getElementById("q").addEventListener("input",e=>{query=norm(e.target.value.trim());render();});

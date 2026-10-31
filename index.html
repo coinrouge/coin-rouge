@@ -452,9 +452,9 @@ h2.h::after{content:"";flex:1;height:1px;background:var(--line)}
   .time b{font-size:16px}
 }
 /* Combat avec un Français : bande tricolore et fond bleuté, visible même en préliminaires */
-.bouts .bout.fr.be{padding-left:24px;padding-right:12px;border-radius:4px;border-bottom-color:transparent;margin-block:4px;background:linear-gradient(90deg,#000 0 4px,#FDDA24 4px 8px,#EF3340 8px 12px,var(--fr-t) 12px)}
+.bouts .bout.fr.be{padding-left:24px;padding-right:12px;border-radius:4px;border-bottom-color:transparent;margin-block:10px;background:linear-gradient(90deg,#000 0 4px,#FDDA24 4px 8px,#EF3340 8px 12px,var(--fr-t) 12px)}
 .bouts .bout.fr{background:linear-gradient(90deg,#0055A4 0 4px,#FFFFFF 4px 8px,#EF4135 8px 12px,var(--fr-t) 12px);
-  padding-left:24px;padding-right:12px;border-radius:4px;border-bottom-color:transparent;margin-block:4px}
+  padding-left:24px;padding-right:12px;border-radius:4px;border-bottom-color:transparent;margin-block:10px}
 /* Correctif : l'affiche s'empile en colonne (la grille de .hero-top ne s'applique pas) */
 .hero-top.poster{display:flex;align-items:stretch}
 /* Test : nom de famille aux couleurs du drapeau du combattant */
@@ -497,7 +497,7 @@ h2.h::after{content:"";flex:1;height:1px;background:var(--line)}
 .bout.me .time b{white-space:nowrap}
 .seg-main .bout.me .mid{max-width:170px}
 /* Combats vedettes (au moins une star) : même encart que le main event, en plus discret */
-.bouts .bout.starf{padding:12px 14px;margin-block:6px;border-radius:5px;border-bottom-color:transparent}
+.bouts .bout.starf{padding:12px 14px;margin-block:10px;border-radius:5px;border-bottom-color:transparent}
 .bouts .bout.starf:not(.fr){background:var(--star-t)}
 .melabel.sl span{background:transparent;color:var(--gold);border:1px solid var(--gold);padding:2px 8px}
 .seg-prelims .melabel,.seg-early .melabel{font-size:10px}
@@ -641,7 +641,7 @@ h2.h::after{content:"";flex:1;height:1px;background:var(--line)}
 .pvenue2 .vcity{display:block;font-family:var(--f-display);font-weight:800;text-transform:uppercase;font-size:17px;letter-spacing:.04em;color:var(--ink);line-height:1.1}
 .pvenue2 .vsalle{display:block;font-size:12px;color:var(--muted);margin-top:2px}
 /* Combat avec un favori : encart rose, mis à jour dès qu'on ajoute ou retire un favori */
-.bouts .bout.favf{padding:12px 14px;margin-block:6px;border-radius:5px;border-bottom-color:transparent}
+.bouts .bout.favf{padding:12px 14px;margin-block:10px;border-radius:5px;border-bottom-color:transparent}
 .bouts .bout.favf:not(.fr){background:var(--fav-t)}
 /* Favori francophone : garde l'écart après la bande tricolore */
 .bouts .bout.favf.fr{padding-left:24px;padding-right:12px}
@@ -651,9 +651,9 @@ h2.h::after{content:"";flex:1;height:1px;background:var(--line)}
 .bouts .bout.now:not(.fr):not(.favf):not(.starf){box-shadow:none;border-radius:0;margin-block:0;border-bottom-color:var(--line);padding-left:16px!important;padding-right:16px!important}
 .bouts .bout.now:not(.fr):not(.favf):not(.starf)::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--live)}
 /* Francophone ou favori en cours : la bande tricolore reste, le direct devient un cadre rouge */
-.bouts .bout.now.fr,.bouts .bout.now.favf,.bouts .bout.now.starf{box-shadow:inset 0 0 0 2px var(--live)}
+.bouts .bout.now.fr,.bouts .bout.now.favf,.bouts .bout.now.starf{box-shadow:inset 0 0 0 2px var(--live);border-radius:0}
 /* Dernier encadré d'une carte : même écart en bas que sur les côtés */
-.bouts .bout:is(.fr,.favf,.starf,.now):last-child{margin-bottom:14px}
+.bouts .bout:is(.fr,.favf,.starf,.now):last-child,.bouts .bout.now:not(.fr):not(.favf):not(.starf):last-child{margin-bottom:14px}
 .melabel .fvl{background:transparent!important;color:var(--fav)!important;border:1px solid var(--fav);padding:2px 8px;border-radius:3px}
 .melabel .slc{background:transparent!important;color:var(--gold)!important;border:1px solid var(--gold);padding:2px 8px;border-radius:3px}
 .melabel span.fvl,.melabel span.slc{margin-left:0}

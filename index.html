@@ -1269,7 +1269,8 @@ function cardHTML(ev,t,opt={}){
   let out="";
   parts.forEach(k=>{
     const sg=ev.segs.find(s=>s.k===k);
-    const fs=ev.fights.filter(f=>f.s===k&&(opt.detail||match(f)));
+    /* Du dernier combat de la partie au premier : le combat en cours remonte au-dessus de ceux déjà terminés */
+    const fs=ev.fights.filter(f=>f.s===k&&(opt.detail||match(f))).sort((x,y)=>y.ord-x.ord);
     if(!fs.length) return;
     out+=`<div class="section-h ${k==="main"?"main-h":"sub-h"}"><span>${SEG[k]}</span><span>début ${fmtT(Date.parse(sg.t))}</span></div>${k==="main"&&ev.partial?`<p class="partial">Carte incomplète : on n'affiche que les combats confirmés par la presse. Le reste de la soirée n'est pas encore connu.</p>`:""}<div class="bouts seg-${k}">${fs.map(f=>boutHTML(f,t,true,ev.fights.length,f===ev.fights[0],ev,true)).join("")}</div>`;
   });

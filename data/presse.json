@@ -61,7 +61,12 @@
       "rec": "12-0-1",
       "tp": "315209-nikita-zon"
      },
-     "t": "2026-10-31T20:50:00Z"
+     "t": "2026-10-31T20:50:00Z",
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 12
+     }
     },
     {
      "s": "main",
@@ -78,41 +83,56 @@
      "b": {
       "n": "Ricardo Blandón"
      },
-     "t": "2026-10-31T19:10:00Z"
+     "t": "2026-10-31T19:10:00Z",
+     "res": {
+      "w": "a",
+      "method": "TKO",
+      "round": 3
+     }
     },
     {
      "s": "main",
      "w": "Super-plumes",
      "r": 10,
      "a": {
-      "n": "Raymundo Rojas García",
-      "nat": "MEX",
-      "rec": "16-2-0",
-      "tp": "320203-raymundo-rojas-garcia"
-     },
-     "b": {
       "n": "Reito Tsutsumi",
       "nat": "JPN",
       "rec": "5-0-0",
       "tp": "493346-reito-tsutsumi"
      },
+     "b": {
+      "n": "Raymundo Rojas García",
+      "nat": "MEX",
+      "rec": "16-2-0",
+      "tp": "320203-raymundo-rojas-garcia"
+     },
      "ru": 1,
-     "t": "2026-10-31T18:26:00Z"
+     "t": "2026-10-31T18:26:00Z",
+     "res": {
+      "w": "a",
+      "method": "TKO",
+      "round": 2
+     }
     },
     {
      "s": "main",
      "w": "Super-coqs",
      "r": 10,
      "a": {
-      "n": "David Picasso",
-      "nat": "MEX"
-     },
-     "b": {
       "n": "Carl Jammes Martin",
       "nat": "PHI"
      },
+     "b": {
+      "n": "David Picasso",
+      "nat": "MEX"
+     },
      "ru": 1,
-     "sub": "Titre WBC Silver"
+     "sub": "Titre WBC Silver",
+     "res": {
+      "w": "a",
+      "method": "Décision partagée",
+      "round": 10
+     }
     },
     {
      "s": "prelims",
@@ -184,7 +204,7 @@
      "t": "2026-10-31T16:05:00Z",
      "res": {
       "w": "a",
-      "method": "Décision",
+      "method": "Décision unanime",
       "round": 6
      }
     }
@@ -194,7 +214,8 @@
     "https://www.arabnews.com/sport/four-world-titles-on-the-line-as-riyadh-unveils-mexico-vs-the-world-lineup-3005411",
     "https://lasueur.com/canelo-alvarez-vs-christian-mbilli-quelle-heure-quelle-chaine-28-10-2026",
     "https://britishboxingnews.co.uk/blogs/canelo-vs-mbilli-full-card-start-time-ring-walks-and-how-to-watch/",
-    "https://clarosports.com/boxeo/canelo-alvarez-vs-christian-mbilli-en-vivo-resultado-de-la-pelea-de-box-por-el-campeonato-mundial-supermediano"
+    "https://clarosports.com/boxeo/canelo-alvarez-vs-christian-mbilli-en-vivo-resultado-de-la-pelea-de-box-por-el-campeonato-mundial-supermediano",
+    "https://www.maxboxing.com/news/main-lead/canelo-vs-mbilli-tonight-the-full-card-ring-walk-times-and-results-so-far"
    ],
    "tvx": [
     "DAZN (monde entier)"

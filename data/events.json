@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01T02:43:59.131Z",
+ "updated": "2026-11-01T03:45:41.056Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -1935,14 +1935,20 @@
      "w": "LW",
      "r": 5,
      "a": {
+      "n": "Tom Nolan",
+      "rec": "11-1-0",
+      "nat": "AUS"
+     },
+     "b": {
       "n": "Renato Moicano",
       "rec": "21-7-1",
       "nat": "BRA"
      },
-     "b": {
-      "n": "Tom Nolan",
-      "rec": "11-1-0",
-      "nat": "AUS"
+     "res": {
+      "w": "a",
+      "method": "TKO (punches and elbows)",
+      "round": 3,
+      "time": "1:28"
      }
     },
     {
@@ -5346,7 +5352,7 @@
   [
    "Renato Moicano",
    "BRA",
-   "21-7-1",
+   "21-8-1",
    "mma"
   ],
   [
@@ -5658,7 +5664,7 @@
   [
    "Tom Nolan",
    "AUS",
-   "11-1-0",
+   "12-1-0",
    "mma"
   ],
   [

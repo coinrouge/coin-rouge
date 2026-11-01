@@ -757,11 +757,13 @@
      "r": 10,
      "a": {
       "n": "Carlos Adames",
-      "nat": "DOM"
+      "nat": "DOM",
+      "tp": "207809-carlos-adames"
      },
      "b": {
       "n": "Gerome Warburton",
-      "nat": "GBR"
+      "nat": "GBR",
+      "tp": "245959-gerome-warburton-bread-maker"
      },
      "ru": 1
     },
@@ -771,7 +773,8 @@
      "r": 10,
      "a": {
       "n": "Bruno Surace",
-      "nat": "FRA"
+      "nat": "FRA",
+      "tp": "243150-bruno-surace-brunello"
      },
      "b": {
       "n": "Kamil Bednarek",

@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01T00:51:24.994Z",
+ "updated": "2026-11-01T01:55:51.247Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -1965,14 +1965,20 @@
      "w": "FLW",
      "r": 3,
      "a": {
-      "n": "Ode' Osbourne",
-      "rec": "13-9-0",
-      "nat": "JAM"
+      "n": "Cody Durden",
+      "rec": "17-11-1",
+      "nat": "USA"
      },
      "b": {
-      "n": "Cody Durden",
-      "rec": "18-11-1",
-      "nat": "USA"
+      "n": "Ode' Osbourne",
+      "rec": "13-8-0",
+      "nat": "JAM"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
      }
     },
     {
@@ -1980,14 +1986,20 @@
      "w": "WBW",
      "r": 3,
      "a": {
-      "n": "Yana Santos",
-      "rec": "17-8-0",
-      "nat": "RUS"
+      "n": "Luana Santos",
+      "rec": "10-2-0",
+      "nat": "BRA"
      },
      "b": {
-      "n": "Luana Santos",
-      "rec": "11-2-0",
-      "nat": "BRA"
+      "n": "Yana Santos",
+      "rec": "17-7-0",
+      "nat": "RUS"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
      }
     },
     {

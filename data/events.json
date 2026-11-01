@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-31T23:28:46.515Z",
+ "updated": "2026-11-01T00:06:03.517Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -2026,13 +2026,19 @@
      "r": 3,
      "a": {
       "n": "Rodrigo Sezinando",
-      "rec": "8-2-0",
+      "rec": "7-2-0",
       "nat": "BRA"
      },
      "b": {
       "n": "Theodor Berggren",
-      "rec": "8-4-0",
+      "rec": "8-3-0",
       "nat": "SWE"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (arrêt médical)",
+      "round": 2,
+      "time": "5:00"
      }
     },
     {
@@ -2093,7 +2099,7 @@
      },
      "res": {
       "w": "a",
-      "method": "Soumission (clé de bras)",
+      "method": "Soumission (inverted triangle armbar)",
       "round": 2,
       "time": "1:25"
      }
@@ -2795,11 +2801,13 @@
      "r": 10,
      "a": {
       "n": "Carlos Adames",
-      "nat": "DOM"
+      "nat": "DOM",
+      "tp": "207809-carlos-adames"
      },
      "b": {
       "n": "Gerome Warburton",
-      "nat": "GBR"
+      "nat": "GBR",
+      "tp": "245959-gerome-warburton-bread-maker"
      },
      "ru": 1
     },
@@ -2810,6 +2818,7 @@
      "a": {
       "n": "Bruno Surace",
       "nat": "FRA",
+      "tp": "243150-bruno-surace-brunello",
       "fr": 1
      },
      "b": {

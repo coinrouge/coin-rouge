@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01T01:55:51.247Z",
+ "updated": "2026-11-01T02:43:59.131Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -247,7 +247,7 @@
      "r": 3,
      "a": {
       "n": "Jacobe Smith",
-      "rec": "12-0-0",
+      "rec": "13-0-0",
       "nat": "USA"
      },
      "b": {
@@ -1950,14 +1950,20 @@
      "w": "WW",
      "r": 3,
      "a": {
+      "n": "Jacobe Smith",
+      "rec": "13-0-0",
+      "nat": "USA"
+     },
+     "b": {
       "n": "Randy Brown",
       "rec": "20-8-0",
       "nat": "JAM"
      },
-     "b": {
-      "n": "Jacobe Smith",
-      "rec": "13-0-0",
-      "nat": "USA"
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
      }
     },
     {
@@ -1966,12 +1972,12 @@
      "r": 3,
      "a": {
       "n": "Cody Durden",
-      "rec": "17-11-1",
+      "rec": "18-11-1",
       "nat": "USA"
      },
      "b": {
       "n": "Ode' Osbourne",
-      "rec": "13-8-0",
+      "rec": "13-9-0",
       "nat": "JAM"
      },
      "res": {
@@ -1987,12 +1993,12 @@
      "r": 3,
      "a": {
       "n": "Luana Santos",
-      "rec": "10-2-0",
+      "rec": "11-2-0",
       "nat": "BRA"
      },
      "b": {
       "n": "Yana Santos",
-      "rec": "17-7-0",
+      "rec": "17-8-0",
       "nat": "RUS"
      },
      "res": {
@@ -2008,7 +2014,7 @@
      "r": 3,
      "a": {
       "n": "Jean-Paul Lebosnoyani",
-      "rec": "10-2-0",
+      "rec": "11-2-0",
       "nat": "USA"
      },
      "b": {
@@ -4926,7 +4932,7 @@
   [
    "Randy Brown",
    "JAM",
-   "20-8-0",
+   "20-9-0",
    "mma"
   ],
   [
@@ -5130,7 +5136,7 @@
   [
    "Jacobe Smith",
    "USA",
-   "13-0-0",
+   "14-0-0",
    "mma"
   ],
   [
@@ -5196,7 +5202,7 @@
   [
    "Jean-Paul Lebosnoyani",
    "USA",
-   "11-2-0",
+   "12-2-0",
    "mma"
   ],
   [
@@ -5250,7 +5256,7 @@
   [
    "Farman Hasanov",
    "AZE",
-   "5-0-0",
+   "5-1-0",
    "mma"
   ],
   [
@@ -6912,7 +6918,7 @@
   [
    "Ode' Osbourne",
    "JAM",
-   "13-9-0",
+   "13-10-0",
    "mma"
   ],
   [
@@ -6930,7 +6936,7 @@
   [
    "Cody Durden",
    "USA",
-   "18-11-1",
+   "19-11-1",
    "mma"
   ],
   [
@@ -7140,7 +7146,7 @@
   [
    "Yana Santos",
    "RUS",
-   "17-8-0",
+   "17-9-0",
    "mma"
   ],
   [
@@ -7188,7 +7194,7 @@
   [
    "Luana Santos",
    "BRA",
-   "11-2-0",
+   "12-2-0",
    "mma"
   ],
   [

@@ -389,7 +389,8 @@ details.ev summary::-webkit-details-marker{display:none}
 /* Rien sous l'affiche pendant le direct : on supprime l'espace vide */
 .hero .pbot:not(:has(*)){display:none}
 .hero .pvenue2,.dhead .pvenue2{position:static;transform:none;margin-top:8px;max-width:300px}
-.pwhen.pwc .pdate{font-size:20px;color:var(--ink)}.pwhen.pwc .pstart{color:var(--muted)}
+.pwhen.pwc .pdate{font-size:20px;color:var(--ink)}
+.estnote{display:block;max-width:300px;margin-top:6px;font-size:11px;font-style:italic;line-height:1.35;color:var(--muted)}.pwhen.pwc .pstart{color:var(--muted)}
 .pwhen.pwc{align-items:center;text-align:center;margin-top:20px}
 .pwhen.pwc .pdate{white-space:nowrap}
 .pdate{font-family:var(--f-display);font-weight:800;text-transform:uppercase;font-size:clamp(20px,3.6vw,28px);line-height:1.05;letter-spacing:.01em}
@@ -1439,7 +1440,7 @@ function render(){
       </div>
       <h2 class="pduel">
         ${posterSide(mainF.a,"red")}
-        <span class="pmid"><span class="pvs" aria-label="contre">VS</span><span class="pvenue2"><span class="vcity">${esc(ev.city)}</span><span class="vsalle">${esc(ev.venue)}</span>${hostFlag(ev)}<span class="pwhen pwc"><span class="pdate">${fmtD(ev.start)} </span><span class="pstart">Début de soirée ${fmtT(ev.start)}${ev.tbc?" · horaires à confirmer":""}</span><span class="pstart pme">Main event ${ev.fights[0].known&&!ev.tbc?"":"≈ "}<b>${fmtT(ev.fights[0].est)}</b></span>${tvLine(ev)}</span></span></span>
+        <span class="pmid"><span class="pvs" aria-label="contre">VS</span><span class="pvenue2"><span class="vcity">${esc(ev.city)}</span><span class="vsalle">${esc(ev.venue)}</span>${hostFlag(ev)}<span class="pwhen pwc"><span class="pdate">${fmtD(ev.start)} </span><span class="pstart">Début de soirée ${fmtT(ev.start)}${ev.tbc?" · horaires à confirmer":""}</span><span class="pstart pme">Main event ${ev.fights[0].known&&!ev.tbc?"":"≈ "}<b>${fmtT(ev.fights[0].est)}</b></span>${tvLine(ev)}${ev.fights.some(f=>!f.res&&!f.sure)?`<span class="estnote">Heures ≈ non confirmées : ce sont des estimations qui dépendent des finish et des décisions, elles peuvent être erronées.</span>`:""}</span></span></span>
         ${posterSide(mainF.b,"blue")}
       </h2>
       <div class="pbot">
@@ -1607,7 +1608,7 @@ function detailHTML(ev,t){
       ${live?'<div class="eyebrow"><span class="pill live">Live</span></div>':""}
       <h2 class="pduel dduel">
         ${posterSide(ev.fights[0].a,"red")}
-        <span class="pmid"><span class="pvs" aria-label="contre">VS</span><span class="pvenue2"><span class="vcity">${esc(ev.city)}</span><span class="vsalle">${esc(ev.venue)}</span>${hostFlag(ev)}<span class="pwhen pwc"><span class="pdate">${fmtD(ev.start)} </span><span class="pstart">Début de soirée ${fmtT(ev.start)}${ev.tbc?" · horaires à confirmer":""}</span><span class="pstart pme">Main event ${ev.fights[0].known&&!ev.tbc?"":"≈ "}<b>${fmtT(ev.fights[0].est)}</b></span>${tvLine(ev)}</span></span></span>
+        <span class="pmid"><span class="pvs" aria-label="contre">VS</span><span class="pvenue2"><span class="vcity">${esc(ev.city)}</span><span class="vsalle">${esc(ev.venue)}</span>${hostFlag(ev)}<span class="pwhen pwc"><span class="pdate">${fmtD(ev.start)} </span><span class="pstart">Début de soirée ${fmtT(ev.start)}${ev.tbc?" · horaires à confirmer":""}</span><span class="pstart pme">Main event ${ev.fights[0].known&&!ev.tbc?"":"≈ "}<b>${fmtT(ev.fights[0].est)}</b></span>${tvLine(ev)}${ev.fights.some(f=>!f.res&&!f.sure)?`<span class="estnote">Heures ≈ non confirmées : ce sont des estimations qui dépendent des finish et des décisions, elles peuvent être erronées.</span>`:""}</span></span></span>
         ${posterSide(ev.fights[0].b,"blue")}
       </h2>
       <div class="dfacts">

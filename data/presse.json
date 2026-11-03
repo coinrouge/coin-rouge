@@ -237,7 +237,6 @@
    "city": "Strasbourg",
    "ctry": "FRA",
    "tz": "Europe/Paris",
-   "tbc": 1,
    "segs": [
     {
      "k": "prelims",
@@ -266,7 +265,12 @@
       "rec": "23-16-1",
       "tp": "tyson-nam"
      },
-     "title": "Titre bantamweight ARES"
+     "title": "Titre bantamweight ARES",
+     "res": {
+      "w": "a",
+      "method": "TKO (arrêt médical)",
+      "round": 3
+     }
     },
     {
      "s": "main",
@@ -283,6 +287,11 @@
       "rec": "4-3-0",
       "tp": "247875-mohamed-soumah",
       "nat": "FRA"
+     },
+     "res": {
+      "w": "a",
+      "method": "Soumission (étranglement arrière)",
+      "round": 1
      }
     },
     {
@@ -290,16 +299,21 @@
      "w": "LW",
      "r": 3,
      "a": {
-      "n": "Sofiane El Fatni",
-      "rec": "4-1-0",
-      "nat": "MAR"
-     },
-     "b": {
       "n": "Mario Gagliardi",
       "rec": "4-0-0",
       "nat": "ITA"
      },
-     "t": "2026-10-31T21:04:00Z"
+     "b": {
+      "n": "Sofiane El Fatni",
+      "rec": "4-1-0",
+      "nat": "MAR"
+     },
+     "t": "2026-10-31T21:04:00Z",
+     "res": {
+      "w": "a",
+      "method": "Décision partagée",
+      "round": 3
+     }
     },
     {
      "s": "main",
@@ -314,6 +328,11 @@
       "n": "Daniel Rodrigues",
       "rec": "2-1-0",
       "nat": "POR"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO",
+      "round": 1
      }
     },
     {
@@ -329,6 +348,11 @@
       "n": "Jafar Yousifi",
       "rec": "2-0-0",
       "nat": "SWE"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision majoritaire",
+      "round": 3
      }
     },
     {
@@ -344,6 +368,11 @@
       "n": "Weronika Cisło",
       "rec": "1-1-0",
       "nat": "POL"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO",
+      "round": 1
      }
     },
     {
@@ -351,14 +380,19 @@
      "w": "LW",
      "r": 3,
      "a": {
+      "n": "Marc-Philippe Ngatchou",
+      "rec": "2-1-1",
+      "nat": "GER"
+     },
+     "b": {
       "n": "Maher Belkhadir",
       "rec": "3-2-0",
       "nat": "FRA"
      },
-     "b": {
-      "n": "Marc-Philippe Ngatchou",
-      "rec": "2-1-1",
-      "nat": "GER"
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 3
      }
     },
     {
@@ -376,10 +410,16 @@
       "tp": "338228-alexandre-carole",
       "nat": "FRA"
      },
-     "t": "2026-10-31T18:55:00Z"
+     "t": "2026-10-31T18:55:00Z",
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 3
+     }
     }
    ],
    "sources": [
+    "https://sport-minute.com/en/mma/ares-44-younousov-nam",
     "https://gidstats.com/events/ares_fc_44-2026-10-31/",
     "https://next-fight.com/fr/event/ares-strasbourg",
     "https://mma-official.com/ares-44-a-strasbourg-carte-complete-horaire-et-diffusion-du-31-octobre",
@@ -398,7 +438,6 @@
    "city": "Manchester",
    "tz": "Europe/London",
    "tv": "DAZN",
-   "tbc": 1,
    "segs": [
     {
      "k": "main",
@@ -410,16 +449,55 @@
      "s": "main",
      "w": "Mi-lourds",
      "r": 12,
-     "title": "Titre WBC intérim light heavyweight",
+     "title": "Titre WBC light heavyweight (vacant)",
      "a": {
       "n": "Joshua Buatsi",
       "nat": "GBR",
-      "tp": "205234-joshua-buatsi"
+      "tp": "205234-joshua-buatsi",
+      "rec": "20-1-0"
      },
      "b": {
       "n": "Willy Hutchinson",
       "nat": "GBR",
-      "tp": "204583-willy-hutchinson-braveheart"
+      "tp": "204583-willy-hutchinson-braveheart",
+      "rec": "20-2-0"
+     },
+     "t": "2026-11-07T22:00:00Z"
+    },
+    {
+     "s": "main",
+     "w": "Welters",
+     "r": 12,
+     "sub": "Titre IBO (vacant)",
+     "a": {
+      "n": "Jack Rafferty",
+      "nat": "GBR",
+      "rec": "27-0-1",
+      "tp": "215459-jack-rafferty-demolition-man"
+     },
+     "b": {
+      "n": "Hovhannes Martirosyan",
+      "nat": "BEL",
+      "rec": "20-1-0",
+      "tp": "221414-hovhannes-maritosyan"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Plumes",
+     "r": 12,
+     "ru": 1,
+     "a": {
+      "n": "Zak Miller",
+      "nat": "GBR",
+      "rec": "17-1-0",
+      "tp": "243228-zack-miller"
+     },
+     "b": {
+      "n": "Gully Powar",
+      "nat": "GBR",
+      "rec": "13-1-1",
+      "tp": "359518-gully-powar"
      }
     },
     {
@@ -429,18 +507,21 @@
      "a": {
       "n": "Brad Rea",
       "nat": "GBR",
-      "tp": "215466-bradley-rea"
+      "tp": "215466-bradley-rea",
+      "rec": "22-2-0"
      },
      "b": {
       "n": "Ezra Taylor",
       "nat": "GBR",
-      "tp": "256874-ezra-taylor"
-     }
+      "tp": "256874-ezra-taylor",
+      "rec": "13-1-0"
+     },
+     "sub": "Titre WBA Intercontinental"
     }
    ],
    "sources": [
-    "https://queensberry.co.uk/pages/joshua-buatsi-vs-willy-hutchinson-2-point-to-prove",
-    "https://www.ringmagazine.com/news/buatsi-all-business-ahead-of-hutchinson-rematch-1cPyKJNqIRRSbvRBnNrN5w"
+    "https://www.dazn.com/en-GB/news/boxing/buatsi-vs-hutchinson-rematch-how-to-watch-fight-time-ringwalks-prediction-undercard-news-odds/1m7q7qdlafs1h1v09hn3t54j1o",
+    "https://britishboxingnews.co.uk/blogs/buatsi-vs-hutchinson-ii-full-card-start-time-ring-walks-and-how-to-watch/"
    ],
    "partial": 1,
    "tvx": [
@@ -472,13 +553,16 @@
      "a": {
       "n": "Chris Billam-Smith",
       "nat": "GBR",
-      "tp": "223576-chris-billam-smith-the-gentleman"
+      "tp": "223576-chris-billam-smith-the-gentleman",
+      "rec": "22-2-0"
      },
      "b": {
       "n": "Cheavon Clarke",
       "nat": "GBR",
-      "tp": "324167-cheavon-clarke"
-     }
+      "tp": "324167-cheavon-clarke",
+      "rec": "12-2-0"
+     },
+     "ru": 1
     },
     {
      "s": "main",
@@ -487,13 +571,16 @@
      "a": {
       "n": "Denzel Bentley",
       "nat": "GBR",
-      "tp": "215049-denzel-bentley"
+      "tp": "215049-denzel-bentley",
+      "rec": "22-3-1"
      },
      "b": {
       "n": "Shane Mosley Jr.",
       "nat": "USA",
-      "tp": "226321-shane-mosley-jr"
-     }
+      "tp": "226321-shane-mosley-jr",
+      "rec": "22-4-0"
+     },
+     "ru": 1
     },
     {
      "s": "main",
@@ -501,12 +588,17 @@
      "r": 10,
      "a": {
       "n": "Zach Parker",
-      "nat": "GBR"
+      "nat": "GBR",
+      "rec": "26-2-0",
+      "tp": "223627-zach-parker"
      },
      "b": {
       "n": "Umar Dzambekov",
-      "nat": "AUT"
-     }
+      "nat": "AUT",
+      "rec": "14-0-0",
+      "tp": "303660-umar-dzambekov"
+     },
+     "ru": 1
     },
     {
      "s": "main",
@@ -514,7 +606,8 @@
      "r": 8,
      "a": {
       "n": "Lucas Roehrig",
-      "nat": "GBR"
+      "nat": "GBR",
+      "tp": "474253-lucas-roehrig"
      },
      "b": {
       "n": "Connal McDonald",
@@ -527,11 +620,13 @@
      "r": 8,
      "a": {
       "n": "Sam Hickey",
-      "nat": "GBR"
+      "nat": "GBR",
+      "tp": "463404-sam-hickey"
      },
      "b": {
       "n": "Troy Coleman",
-      "nat": "GBR"
+      "nat": "GBR",
+      "tp": "245291-troy-coleman-the-hawk"
      }
     },
     {
@@ -545,16 +640,17 @@
      "b": {
       "n": "Ivan Baláž",
       "nat": "SVK"
-     }
+     },
+     "ru": 1
     }
    ],
    "sources": [
-    "https://combat-edge.com/event/zuffa-boxing-12-billam-smith-vs-clarke-3423/",
-    "https://boxingnews.com/event/zuffa-boxing-12-2026-11-07"
+    "https://split-decision.co.uk/boxing-news/billam-smith-vs-clarke/",
+    "https://combat-edge.com/event/zuffa-boxing-12-billam-smith-vs-clarke-3423/"
    ],
    "partial": 1,
    "tvx": [
-    "Paramount+ (Royaume-Uni)",
+    "Sky Sports (Royaume-Uni)",
     "Paramount+ (États-Unis)"
    ],
    "tv": "RMC Sport"

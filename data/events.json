@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-03T18:59:23.074Z",
+ "updated": "2026-11-04T19:03:18.478Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -3529,6 +3529,67 @@
     }
    ],
    "wiki": "UFC Fight Night 297"
+  },
+  {
+   "tvx": [
+    "TNT Sports (Royaume-Uni)",
+    "VOOsport World (Belgique)",
+    "Paramount+ (États-Unis)"
+   ],
+   "id": "fn-salkilld-saintdenis",
+   "org": "UFC",
+   "name": "UFC Fight Night",
+   "a": "Salkilld",
+   "b": "Saint Denis",
+   "venue": "Afterpay Arena",
+   "city": "Sydney",
+   "ctry": "AUS",
+   "tz": "Australia/Sydney",
+   "tbc": 1,
+   "segs": [
+    {
+     "k": "prelims",
+     "t": "2027-02-07T07:00:00Z"
+    },
+    {
+     "k": "main",
+     "t": "2027-02-07T10:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "LW",
+     "r": 5,
+     "a": {
+      "n": "Quillan Salkilld",
+      "rec": "13-1-0",
+      "nat": "AUS"
+     },
+     "b": {
+      "n": "Benoît Saint Denis",
+      "rec": "17-4-0",
+      "nat": "FRA",
+      "fr": 1
+     }
+    },
+    {
+     "s": "main",
+     "w": "LHW",
+     "r": 3,
+     "a": {
+      "n": "Bogdan Guskov",
+      "rec": "18-4-1",
+      "nat": "UZB"
+     },
+     "b": {
+      "n": "Robert Whittaker",
+      "rec": "27-9-0",
+      "nat": "AUS"
+     }
+    }
+   ],
+   "wiki": "UFC Fight Night: Salkilld vs. Saint Denis"
   }
  ],
  "agenda": [

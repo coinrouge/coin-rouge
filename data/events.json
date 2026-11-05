@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-04T19:03:18.478Z",
+ "updated": "2026-11-05T01:13:20.040Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -2192,21 +2192,6 @@
     },
     {
      "s": "main",
-     "w": "WW",
-     "r": 3,
-     "a": {
-      "n": "Ko Seok-hyeon",
-      "rec": "13-3-0",
-      "nat": "KOR"
-     },
-     "b": {
-      "n": "Wellington Turman",
-      "rec": "18-8-0",
-      "nat": "BRA"
-     }
-    },
-    {
-     "s": "main",
      "w": "LHW",
      "r": 3,
      "a": {
@@ -2222,17 +2207,45 @@
     },
     {
      "s": "main",
-     "w": "MW",
+     "w": "WBW",
      "r": 3,
      "a": {
-      "n": "Mantas Kondratavičius",
-      "rec": "9-1-0",
-      "nat": "LTU"
+      "n": "Priscila Cachoeira",
+      "rec": "13-9-0",
+      "nat": "BRA"
      },
      "b": {
-      "n": "Andre Petroski",
-      "rec": "13-6-0",
+      "n": "Nina Nikolija Milošević",
+      "rec": "9-1-0",
+      "nat": "SRB"
+     }
+    },
+    {
+     "s": "main",
+     "w": "FLW",
+     "r": 3,
+     "a": {
+      "n": "Mitch Raposo",
+      "rec": "11-2-0",
       "nat": "USA"
+     },
+     "b": {
+      "n": "Marcos Degli"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "FW",
+     "r": 3,
+     "a": {
+      "n": "Keiichiro Nakamura",
+      "rec": "8-1-0",
+      "nat": "JPN"
+     },
+     "b": {
+      "n": "Ollie Schmid",
+      "rec": "4-3-0",
+      "nat": "HUN"
      }
     },
     {
@@ -2265,19 +2278,6 @@
     },
     {
      "s": "prelims",
-     "w": "FLW",
-     "r": 3,
-     "a": {
-      "n": "Mitch Raposo",
-      "rec": "11-2-0",
-      "nat": "USA"
-     },
-     "b": {
-      "n": "Marcos Degli"
-     }
-    },
-    {
-     "s": "prelims",
      "w": "FW",
      "r": 3,
      "a": {
@@ -2296,29 +2296,42 @@
      "w": "FW",
      "r": 3,
      "a": {
-      "n": "Keiichiro Nakamura",
-      "rec": "8-1-0",
-      "nat": "JPN"
+      "n": "Austin Bashi",
+      "rec": "14-2-0",
+      "nat": "USA"
      },
      "b": {
-      "n": "Ollie Schmid",
-      "rec": "4-3-0",
-      "nat": "HUN"
+      "n": "Carlos Calderon"
      }
     },
     {
      "s": "prelims",
-     "w": "WBW",
+     "w": "MW",
      "r": 3,
      "a": {
-      "n": "Priscila Cachoeira",
-      "rec": "13-9-0",
-      "nat": "BRA"
+      "n": "Mantas Kondratavičius",
+      "rec": "9-1-0",
+      "nat": "LTU"
      },
      "b": {
-      "n": "Nina Nikolija Milošević",
-      "rec": "9-1-0",
-      "nat": "SRB"
+      "n": "Andre Petroski",
+      "rec": "13-6-0",
+      "nat": "USA"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "WW",
+     "r": 3,
+     "a": {
+      "n": "Ko Seok-hyeon",
+      "rec": "13-3-0",
+      "nat": "KOR"
+     },
+     "b": {
+      "n": "Wellington Turman",
+      "rec": "18-8-0",
+      "nat": "BRA"
      }
     },
     {

@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-05T01:13:20.040Z",
+ "updated": "2026-11-06T01:17:05.765Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -3246,21 +3246,6 @@
     },
     {
      "s": "main",
-     "w": "WFLW",
-     "r": 3,
-     "a": {
-      "n": "Maycee Barber",
-      "rec": "15-3-0",
-      "nat": "USA"
-     },
-     "b": {
-      "n": "Carli Judice",
-      "rec": "7-2-0",
-      "nat": "USA"
-     }
-    },
-    {
-     "s": "main",
      "w": "LHW",
      "r": 3,
      "a": {
@@ -3488,67 +3473,6 @@
     "VOOsport World (Belgique)",
     "Paramount+ (États-Unis)"
    ],
-   "id": "fn-salkilld-denis",
-   "org": "UFC",
-   "name": "UFC Fight Night",
-   "a": "Salkilld",
-   "b": "Denis",
-   "venue": "Afterpay Arena",
-   "city": "Sydney",
-   "ctry": "AUS",
-   "tz": "Australia/Sydney",
-   "tbc": 1,
-   "segs": [
-    {
-     "k": "prelims",
-     "t": "2027-02-07T07:00:00Z"
-    },
-    {
-     "k": "main",
-     "t": "2027-02-07T10:00:00Z"
-    }
-   ],
-   "fights": [
-    {
-     "s": "main",
-     "w": "LW",
-     "r": 5,
-     "a": {
-      "n": "Quillan Salkilld",
-      "rec": "13-1-0",
-      "nat": "AUS"
-     },
-     "b": {
-      "n": "Benoît Saint Denis",
-      "rec": "17-4-0",
-      "nat": "FRA",
-      "fr": 1
-     }
-    },
-    {
-     "s": "main",
-     "w": "LHW",
-     "r": 3,
-     "a": {
-      "n": "Bogdan Guskov",
-      "rec": "18-4-1",
-      "nat": "UZB"
-     },
-     "b": {
-      "n": "Robert Whittaker",
-      "rec": "27-9-0",
-      "nat": "AUS"
-     }
-    }
-   ],
-   "wiki": "UFC Fight Night 297"
-  },
-  {
-   "tvx": [
-    "TNT Sports (Royaume-Uni)",
-    "VOOsport World (Belgique)",
-    "Paramount+ (États-Unis)"
-   ],
    "id": "fn-salkilld-saintdenis",
    "org": "UFC",
    "name": "UFC Fight Night",
@@ -3617,6 +3541,12 @@
    "date": "2027-01-16",
    "name": "Affiche à annoncer",
    "org": "UFC Fight Night · Dallas"
+  },
+  {
+   "sport": "mma",
+   "date": "2027-01-23",
+   "name": "Affiche à annoncer",
+   "org": "UFC Fight Night · TBA"
   },
   {
    "sport": "mma",

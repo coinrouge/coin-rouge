@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-06T13:12:41.945Z",
+ "updated": "2026-11-06T18:58:50.549Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -2291,7 +2291,9 @@
       "nat": "USA"
      },
      "b": {
-      "n": "Marcos Degli"
+      "n": "Marcos Degli",
+      "rec": "15-3-0",
+      "nat": "BRA"
      }
     },
     {
@@ -2314,7 +2316,9 @@
      "w": "HW",
      "r": 3,
      "a": {
-      "n": "Gabriel Lorenço"
+      "n": "Gabriel Lorenço",
+      "rec": "8-1-0",
+      "nat": "BRA"
      },
      "b": {
       "n": "Thomas Petersen",
@@ -2362,7 +2366,9 @@
       "nat": "USA"
      },
      "b": {
-      "n": "Carlos Calderon"
+      "n": "Carlos Calderon",
+      "rec": "11-4-0",
+      "nat": "USA"
      }
     },
     {
@@ -2400,7 +2406,9 @@
      "w": "WW",
      "r": 3,
      "a": {
-      "n": "Jonny Parsons"
+      "n": "Jonny Parsons",
+      "rec": "9-3-0",
+      "nat": "USA"
      },
      "b": {
       "n": "José Henrique Souza",
@@ -4096,6 +4104,12 @@
    "mma"
   ],
   [
+   "Gabriel Lorenço",
+   "BRA",
+   "8-1-0",
+   "mma"
+  ],
+  [
    "Dustin Jacoby",
    "USA",
    "22-9-1",
@@ -5035,6 +5049,12 @@
    "Sam Patterson",
    "GBR",
    "15-3-1",
+   "mma"
+  ],
+  [
+   "Jonny Parsons",
+   "USA",
+   "9-3-0",
    "mma"
   ],
   [
@@ -6322,6 +6342,12 @@
    "mma"
   ],
   [
+   "Carlos Calderon",
+   "USA",
+   "11-4-0",
+   "mma"
+  ],
+  [
    "Davey Grant",
    "GBR",
    "18-8-0",
@@ -7057,6 +7083,12 @@
    "Fabià Sintes",
    "ESP",
    "12-3-0",
+   "mma"
+  ],
+  [
+   "Marcos Degli",
+   "BRA",
+   "15-3-0",
    "mma"
   ],
   [

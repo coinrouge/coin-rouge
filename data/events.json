@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-06T01:17:05.765Z",
+ "updated": "2026-11-06T03:56:10.889Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -1900,6 +1900,165 @@
    "wiki": "UFC Fight Night: Moicano vs. Nolan"
   },
   {
+   "id": "bx-billamsmith-clarke",
+   "sport": "boxe",
+   "org": "Boxe",
+   "name": "Zuffa Boxing",
+   "a": "Billam-Smith",
+   "b": "Clarke",
+   "venue": "Copper Box Arena",
+   "city": "Londres",
+   "tz": "Europe/London",
+   "tbc": 1,
+   "segs": [
+    {
+     "k": "prelims",
+     "t": "2026-11-07T16:30:00Z"
+    },
+    {
+     "k": "main",
+     "t": "2026-11-07T19:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "Lourds-légers",
+     "r": 10,
+     "a": {
+      "n": "Chris Billam-Smith",
+      "nat": "GBR",
+      "tp": "223576-chris-billam-smith-the-gentleman",
+      "rec": "22-2-0"
+     },
+     "b": {
+      "n": "Cheavon Clarke",
+      "nat": "GBR",
+      "tp": "324167-cheavon-clarke",
+      "rec": "12-2-0"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Moyens",
+     "r": 10,
+     "a": {
+      "n": "Denzel Bentley",
+      "nat": "GBR",
+      "tp": "215049-denzel-bentley",
+      "rec": "22-3-1"
+     },
+     "b": {
+      "n": "Shane Mosley Jr.",
+      "nat": "USA",
+      "tp": "226321-shane-mosley-jr",
+      "rec": "22-4-0"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Mi-lourds",
+     "r": 10,
+     "a": {
+      "n": "Zach Parker",
+      "nat": "GBR",
+      "rec": "26-2-0",
+      "tp": "223627-zach-parker"
+     },
+     "b": {
+      "n": "Umar Dzambekov",
+      "nat": "AUT",
+      "rec": "14-0-0",
+      "tp": "303660-umar-dzambekov"
+     },
+     "ru": 1
+    },
+    {
+     "s": "main",
+     "w": "Lourds-légers",
+     "r": 8,
+     "a": {
+      "n": "Lucas Roehrig",
+      "nat": "GBR",
+      "tp": "474253-lucas-roehrig",
+      "rec": "8-0-0"
+     },
+     "b": {
+      "n": "Connal McDonald",
+      "nat": "GBR",
+      "rec": "5-1-0"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Moyens",
+     "r": 8,
+     "a": {
+      "n": "Sam Hickey",
+      "nat": "GBR",
+      "tp": "463404-sam-hickey",
+      "rec": "6-0-0"
+     },
+     "b": {
+      "n": "Troy Coleman",
+      "nat": "GBR",
+      "tp": "245291-troy-coleman-the-hawk",
+      "rec": "15-4-1"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Lourds",
+     "r": 8,
+     "a": {
+      "n": "Da'Mazion Vanhouter",
+      "nat": "USA",
+      "rec": "13-0-0"
+     },
+     "b": {
+      "n": "Ivan Baláž",
+      "nat": "SVK",
+      "rec": "9-1-0"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Super-légers",
+     "r": 6,
+     "a": {
+      "n": "Kayla Allen",
+      "rec": "1-0-0"
+     },
+     "b": {
+      "n": "Julia Igel",
+      "rec": "5-2-0"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "Plumes",
+     "r": 8,
+     "a": {
+      "n": "Masood Abdullah",
+      "nat": "GBR",
+      "rec": "13-1-0",
+      "tp": "277138-masood-abdullah"
+     },
+     "b": {
+      "n": "Adan Palma",
+      "rec": "14-1-0",
+      "tp": "328156-adan-palma"
+     }
+    }
+   ],
+   "partial": 1,
+   "tvx": [
+    "Sky Sports (Royaume-Uni)",
+    "Paramount+ (États-Unis)"
+   ],
+   "tv": "RMC Sport"
+  },
+  {
    "id": "bx-buatsi-hutchinson",
    "sport": "boxe",
    "org": "Boxe",
@@ -1940,7 +2099,7 @@
      "s": "main",
      "w": "Welters",
      "r": 12,
-     "sub": "Titre IBO (vacant)",
+     "sub": "Titre IBO welterweight (vacant)",
      "a": {
       "n": "Jack Rafferty",
       "nat": "GBR",
@@ -1958,7 +2117,6 @@
      "s": "main",
      "w": "Plumes",
      "r": 12,
-     "ru": 1,
      "a": {
       "n": "Zak Miller",
       "nat": "GBR",
@@ -1970,7 +2128,8 @@
       "nat": "GBR",
       "rec": "13-1-1",
       "tp": "359518-gully-powar"
-     }
+     },
+     "sub": "Titre britannique featherweight (vacant)"
     },
     {
      "s": "main",
@@ -1989,135 +2148,37 @@
       "rec": "13-1-0"
      },
      "sub": "Titre WBA Intercontinental"
+    },
+    {
+     "s": "main",
+     "w": "Moyens",
+     "r": 8,
+     "a": {
+      "n": "Stephen Clarke",
+      "nat": "GBR",
+      "rec": "10-0-0"
+     },
+     "b": {
+      "n": "Harley Collison"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Super-welters",
+     "r": 6,
+     "a": {
+      "n": "John Joe Carrigan",
+      "rec": "4-0-0"
+     },
+     "b": {
+      "n": "Cheikh Diop"
+     }
     }
    ],
    "partial": 1,
    "tvx": [
     "DAZN (monde entier)"
    ]
-  },
-  {
-   "id": "bx-billamsmith-clarke",
-   "sport": "boxe",
-   "org": "Boxe",
-   "name": "Zuffa Boxing",
-   "a": "Billam-Smith",
-   "b": "Clarke",
-   "venue": "Copper Box Arena",
-   "city": "Londres",
-   "tz": "Europe/London",
-   "tbc": 1,
-   "segs": [
-    {
-     "k": "main",
-     "t": "2026-11-07T19:00:00Z"
-    }
-   ],
-   "fights": [
-    {
-     "s": "main",
-     "w": "Lourds-légers",
-     "r": 10,
-     "a": {
-      "n": "Chris Billam-Smith",
-      "nat": "GBR",
-      "tp": "223576-chris-billam-smith-the-gentleman",
-      "rec": "22-2-0"
-     },
-     "b": {
-      "n": "Cheavon Clarke",
-      "nat": "GBR",
-      "tp": "324167-cheavon-clarke",
-      "rec": "12-2-0"
-     },
-     "ru": 1
-    },
-    {
-     "s": "main",
-     "w": "Moyens",
-     "r": 10,
-     "a": {
-      "n": "Denzel Bentley",
-      "nat": "GBR",
-      "tp": "215049-denzel-bentley",
-      "rec": "22-3-1"
-     },
-     "b": {
-      "n": "Shane Mosley Jr.",
-      "nat": "USA",
-      "tp": "226321-shane-mosley-jr",
-      "rec": "22-4-0"
-     },
-     "ru": 1
-    },
-    {
-     "s": "main",
-     "w": "Mi-lourds",
-     "r": 10,
-     "a": {
-      "n": "Zach Parker",
-      "nat": "GBR",
-      "rec": "26-2-0",
-      "tp": "223627-zach-parker"
-     },
-     "b": {
-      "n": "Umar Dzambekov",
-      "nat": "AUT",
-      "rec": "14-0-0",
-      "tp": "303660-umar-dzambekov"
-     },
-     "ru": 1
-    },
-    {
-     "s": "main",
-     "w": "Lourds-légers",
-     "r": 8,
-     "a": {
-      "n": "Lucas Roehrig",
-      "nat": "GBR",
-      "tp": "474253-lucas-roehrig"
-     },
-     "b": {
-      "n": "Connal McDonald",
-      "nat": "GBR"
-     }
-    },
-    {
-     "s": "main",
-     "w": "Moyens",
-     "r": 8,
-     "a": {
-      "n": "Sam Hickey",
-      "nat": "GBR",
-      "tp": "463404-sam-hickey"
-     },
-     "b": {
-      "n": "Troy Coleman",
-      "nat": "GBR",
-      "tp": "245291-troy-coleman-the-hawk"
-     }
-    },
-    {
-     "s": "main",
-     "w": "Lourds",
-     "r": 8,
-     "a": {
-      "n": "Da'Mazion Vanhouter",
-      "nat": "USA"
-     },
-     "b": {
-      "n": "Ivan Baláž",
-      "nat": "SVK"
-     },
-     "ru": 1
-    }
-   ],
-   "partial": 1,
-   "tvx": [
-    "Sky Sports (Royaume-Uni)",
-    "Paramount+ (États-Unis)"
-   ],
-   "tv": "RMC Sport"
   },
   {
    "tvx": [
@@ -2616,19 +2677,37 @@
    "fights": [
     {
      "s": "main",
-     "w": "Moyens",
+     "w": "Poids négocié (74,8 kg)",
      "r": 10,
      "a": {
       "n": "Carlos Adames",
       "nat": "DOM",
-      "tp": "207809-carlos-adames"
+      "tp": "207809-carlos-adames",
+      "rec": "25-1-1"
      },
      "b": {
       "n": "Gerome Warburton",
       "nat": "GBR",
-      "tp": "245959-gerome-warburton-bread-maker"
+      "tp": "245959-gerome-warburton-bread-maker",
+      "rec": "18-2-2"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Coqs",
+     "r": 10,
+     "a": {
+      "n": "Jason Moloney",
+      "nat": "AUS",
+      "rec": "29-4-0",
+      "tp": "215808-jason-moloney"
      },
-     "ru": 1
+     "b": {
+      "n": "Andrés Terán",
+      "nat": "MEX",
+      "rec": "19-2-0",
+      "tp": "268929-jose-andres-teran-loquillo"
+     }
     },
     {
      "s": "main",
@@ -2638,14 +2717,46 @@
       "n": "Bruno Surace",
       "nat": "FRA",
       "tp": "243150-bruno-surace-brunello",
+      "rec": "26-1-2",
       "fr": 1
      },
      "b": {
       "n": "Kamil Bednarek",
       "nat": "POL",
-      "tp": "174234-kamil-bednarek"
+      "tp": "174234-kamil-bednarek",
+      "rec": "17-0-0"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Moyens",
+     "r": 10,
+     "a": {
+      "n": "Radzhab Butaev",
+      "nat": "RUS",
+      "rec": "16-2-0",
+      "tp": "215451-radzhab-butaev-the-python"
      },
-     "ru": 1
+     "b": {
+      "n": "Alexander Castro",
+      "nat": "COL",
+      "rec": "15-2-0",
+      "tp": "274254-alexander-castro"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Légers",
+     "r": 8,
+     "a": {
+      "n": "Iván Ortiz",
+      "nat": "MEX",
+      "rec": "13-0-2"
+     },
+     "b": {
+      "n": "Dariial Kuchmenov",
+      "rec": "10-0-0"
+     }
     }
    ],
    "tv": "RMC Sport",
@@ -12050,6 +12161,8 @@
   "Yousri Belgaroui": "237485-yousri-belgaroui-baby-face-assassin",
   "Waldo Cortes-Acosta": "92314-waldo-cortes-acosta",
   "Gabriel Lorenço": "311998-gabriel-lourenco",
-  "Thomas Petersen": "187808-thomas-peterson"
+  "Thomas Petersen": "187808-thomas-peterson",
+  "Ollie Schmid": "237487-oliver-schmid",
+  "Jonny Parsons": "99713-johnny-parsons"
  }
 }

@@ -468,7 +468,7 @@
      "s": "main",
      "w": "Welters",
      "r": 12,
-     "sub": "Titre IBO (vacant)",
+     "sub": "Titre IBO welterweight (vacant)",
      "a": {
       "n": "Jack Rafferty",
       "nat": "GBR",
@@ -486,7 +486,6 @@
      "s": "main",
      "w": "Plumes",
      "r": 12,
-     "ru": 1,
      "a": {
       "n": "Zak Miller",
       "nat": "GBR",
@@ -498,7 +497,8 @@
       "nat": "GBR",
       "rec": "13-1-1",
       "tp": "359518-gully-powar"
-     }
+     },
+     "sub": "Titre britannique featherweight (vacant)"
     },
     {
      "s": "main",
@@ -517,11 +517,36 @@
       "rec": "13-1-0"
      },
      "sub": "Titre WBA Intercontinental"
+    },
+    {
+     "s": "main",
+     "w": "Moyens",
+     "r": 8,
+     "a": {
+      "n": "Stephen Clarke",
+      "nat": "GBR",
+      "rec": "10-0-0"
+     },
+     "b": {
+      "n": "Harley Collison"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Super-welters",
+     "r": 6,
+     "a": {
+      "n": "John Joe Carrigan",
+      "rec": "4-0-0"
+     },
+     "b": {
+      "n": "Cheikh Diop"
+     }
     }
    ],
    "sources": [
-    "https://www.dazn.com/en-GB/news/boxing/buatsi-vs-hutchinson-rematch-how-to-watch-fight-time-ringwalks-prediction-undercard-news-odds/1m7q7qdlafs1h1v09hn3t54j1o",
-    "https://britishboxingnews.co.uk/blogs/buatsi-vs-hutchinson-ii-full-card-start-time-ring-walks-and-how-to-watch/"
+    "https://www.espn.com/boxing/story/_/id/50376753/joshua-buatsi-willy-hutchinson-boxing-how-watch-uk-ring-walk-date-tv-channel-undercard",
+    "https://queensberry.co.uk/pages/joshua-buatsi-vs-willy-hutchinson-2-point-to-prove"
    ],
    "partial": 1,
    "tvx": [
@@ -540,6 +565,10 @@
    "tz": "Europe/London",
    "tbc": 1,
    "segs": [
+    {
+     "k": "prelims",
+     "t": "2026-11-07T16:30:00Z"
+    },
     {
      "k": "main",
      "t": "2026-11-07T19:00:00Z"
@@ -561,8 +590,7 @@
       "nat": "GBR",
       "tp": "324167-cheavon-clarke",
       "rec": "12-2-0"
-     },
-     "ru": 1
+     }
     },
     {
      "s": "main",
@@ -579,8 +607,7 @@
       "nat": "USA",
       "tp": "226321-shane-mosley-jr",
       "rec": "22-4-0"
-     },
-     "ru": 1
+     }
     },
     {
      "s": "main",
@@ -607,11 +634,13 @@
      "a": {
       "n": "Lucas Roehrig",
       "nat": "GBR",
-      "tp": "474253-lucas-roehrig"
+      "tp": "474253-lucas-roehrig",
+      "rec": "8-0-0"
      },
      "b": {
       "n": "Connal McDonald",
-      "nat": "GBR"
+      "nat": "GBR",
+      "rec": "5-1-0"
      }
     },
     {
@@ -621,12 +650,14 @@
      "a": {
       "n": "Sam Hickey",
       "nat": "GBR",
-      "tp": "463404-sam-hickey"
+      "tp": "463404-sam-hickey",
+      "rec": "6-0-0"
      },
      "b": {
       "n": "Troy Coleman",
       "nat": "GBR",
-      "tp": "245291-troy-coleman-the-hawk"
+      "tp": "245291-troy-coleman-the-hawk",
+      "rec": "15-4-1"
      }
     },
     {
@@ -635,17 +666,47 @@
      "r": 8,
      "a": {
       "n": "Da'Mazion Vanhouter",
-      "nat": "USA"
+      "nat": "USA",
+      "rec": "13-0-0"
      },
      "b": {
       "n": "Ivan Baláž",
-      "nat": "SVK"
+      "nat": "SVK",
+      "rec": "9-1-0"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Super-légers",
+     "r": 6,
+     "a": {
+      "n": "Kayla Allen",
+      "rec": "1-0-0"
      },
-     "ru": 1
+     "b": {
+      "n": "Julia Igel",
+      "rec": "5-2-0"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "Plumes",
+     "r": 8,
+     "a": {
+      "n": "Masood Abdullah",
+      "nat": "GBR",
+      "rec": "13-1-0",
+      "tp": "277138-masood-abdullah"
+     },
+     "b": {
+      "n": "Adan Palma",
+      "rec": "14-1-0",
+      "tp": "328156-adan-palma"
+     }
     }
    ],
    "sources": [
-    "https://split-decision.co.uk/boxing-news/billam-smith-vs-clarke/",
+    "https://khelnow.com/boxing/zuffa-boxing-12-billam-smith-vs-clarke-preview-202611",
     "https://combat-edge.com/event/zuffa-boxing-12-billam-smith-vs-clarke-3423/"
    ],
    "partial": 1,
@@ -849,19 +910,37 @@
    "fights": [
     {
      "s": "main",
-     "w": "Moyens",
+     "w": "Poids négocié (74,8 kg)",
      "r": 10,
      "a": {
       "n": "Carlos Adames",
       "nat": "DOM",
-      "tp": "207809-carlos-adames"
+      "tp": "207809-carlos-adames",
+      "rec": "25-1-1"
      },
      "b": {
       "n": "Gerome Warburton",
       "nat": "GBR",
-      "tp": "245959-gerome-warburton-bread-maker"
+      "tp": "245959-gerome-warburton-bread-maker",
+      "rec": "18-2-2"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Coqs",
+     "r": 10,
+     "a": {
+      "n": "Jason Moloney",
+      "nat": "AUS",
+      "rec": "29-4-0",
+      "tp": "215808-jason-moloney"
      },
-     "ru": 1
+     "b": {
+      "n": "Andrés Terán",
+      "nat": "MEX",
+      "rec": "19-2-0",
+      "tp": "268929-jose-andres-teran-loquillo"
+     }
     },
     {
      "s": "main",
@@ -870,14 +949,46 @@
      "a": {
       "n": "Bruno Surace",
       "nat": "FRA",
-      "tp": "243150-bruno-surace-brunello"
+      "tp": "243150-bruno-surace-brunello",
+      "rec": "26-1-2"
      },
      "b": {
       "n": "Kamil Bednarek",
       "nat": "POL",
-      "tp": "174234-kamil-bednarek"
+      "tp": "174234-kamil-bednarek",
+      "rec": "17-0-0"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Moyens",
+     "r": 10,
+     "a": {
+      "n": "Radzhab Butaev",
+      "nat": "RUS",
+      "rec": "16-2-0",
+      "tp": "215451-radzhab-butaev-the-python"
      },
-     "ru": 1
+     "b": {
+      "n": "Alexander Castro",
+      "nat": "COL",
+      "rec": "15-2-0",
+      "tp": "274254-alexander-castro"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Légers",
+     "r": 8,
+     "a": {
+      "n": "Iván Ortiz",
+      "nat": "MEX",
+      "rec": "13-0-2"
+     },
+     "b": {
+      "n": "Dariial Kuchmenov",
+      "rec": "10-0-0"
+     }
     }
    ],
    "tv": "RMC Sport",
@@ -886,9 +997,8 @@
     "Paramount+ (États-Unis)"
    ],
    "sources": [
-    "https://www.instagram.com/rmc_sportcombat/ (annonce officielle Surace vs Bednarek, 30/10)",
-    "https://www.ufc.com/news/november-14-carlos-adames-battles-gerome-warburton-riyadh-season-zuffa-boxing-13-main-event",
-    "https://www.boxingscene.com/articles/carlos-adames-set-for-zuffa-debut-against-gerome-warburton-in-saudi-arabia"
+    "https://www.fightmag.com/carlos-adames-vs-gerome-warburton-confirmed-for-zuffa-boxing-13/",
+    "https://boxingnews.com/event/zuffa-boxing-saudi-arabia-2026-11-14"
    ]
   }
  ],

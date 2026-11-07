@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-07T18:35:16.961Z",
+ "updated": "2026-11-07T18:55:06.385Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -2071,6 +2071,11 @@
    "tv": "DAZN",
    "segs": [
     {
+     "k": "prelims",
+     "t": "2026-11-07T17:00:00Z",
+     "free": "DAZN"
+    },
+    {
      "k": "main",
      "t": "2026-11-07T19:00:00Z"
     }
@@ -2172,6 +2177,70 @@
      },
      "b": {
       "n": "Cheikh Diop"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "Lourds",
+     "r": 8,
+     "ru": 1,
+     "a": {
+      "n": "Tony Yoka",
+      "nat": "FRA",
+      "rec": "15-3-0",
+      "star": 1,
+      "tp": "228969-tony-yoka-la-conquete",
+      "fr": 1
+     },
+     "b": {
+      "n": "Kostiantyn Dovbyshchenko",
+      "nat": "UKR",
+      "rec": "10-20-1",
+      "tp": "219244-kostiantyn-dovbyshchenko"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "Mi-lourds",
+     "r": 6,
+     "a": {
+      "n": "Ryan Macmillan"
+     },
+     "b": {
+      "n": "Grant Dennis"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "Super-légers",
+     "r": 6,
+     "a": {
+      "n": "Tumi Phillips"
+     },
+     "b": {
+      "n": "Angelo Dragone"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "Mi-lourds",
+     "r": 6,
+     "a": {
+      "n": "Billy Deniz"
+     },
+     "b": {
+      "n": "Joe O'Sullivan"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "Super-moyens",
+     "r": 6,
+     "a": {
+      "n": "Javokhir Ummataliev"
+     },
+     "b": {
+      "n": "Atacayte Santana"
      }
     }
    ],

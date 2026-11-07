@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-07T18:55:06.385Z",
+ "updated": "2026-11-07T22:14:49.138Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -2475,14 +2475,20 @@
      "w": "WW",
      "r": 3,
      "a": {
-      "n": "Jonny Parsons",
-      "rec": "9-3-0",
-      "nat": "USA"
+      "n": "José Henrique Souza",
+      "rec": "8-1-0",
+      "nat": "BRA"
      },
      "b": {
-      "n": "José Henrique Souza",
-      "rec": "9-1-0",
-      "nat": "BRA"
+      "n": "Jonny Parsons",
+      "rec": "9-2-0",
+      "nat": "USA"
+     },
+     "res": {
+      "w": "a",
+      "method": "KO (coup de poing)",
+      "round": 1,
+      "time": "4:16"
      }
     }
    ],

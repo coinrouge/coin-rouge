@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-06T18:58:50.549Z",
+ "updated": "2026-11-07T01:05:35.538Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -2945,6 +2945,21 @@
     },
     {
      "s": "early",
+     "w": "LW",
+     "r": 3,
+     "a": {
+      "n": "Jared Gordon",
+      "rec": "21-9-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Melquizael Costa",
+      "rec": "26-8-0",
+      "nat": "BRA"
+     }
+    },
+    {
+     "s": "early",
      "w": "WBW",
      "r": 3,
      "a": {
@@ -2956,6 +2971,19 @@
       "n": "Beatriz Mesquita",
       "rec": "8-0-0",
       "nat": "BRA"
+     }
+    },
+    {
+     "s": "early",
+     "w": "LW",
+     "r": 3,
+     "a": {
+      "n": "Evan Elder",
+      "rec": "10-2-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Samuel Sanches"
      }
     }
    ],
@@ -3113,6 +3141,21 @@
     },
     {
      "s": "main",
+     "w": "FLW",
+     "r": 3,
+     "a": {
+      "n": "Kyoji Horiguchi",
+      "rec": "36-6-0",
+      "nat": "JPN"
+     },
+     "b": {
+      "n": "Asu Almabayev",
+      "rec": "24-3-0",
+      "nat": "KAZ"
+     }
+    },
+    {
+     "s": "main",
      "w": "MW",
      "r": 3,
      "a": {
@@ -3127,37 +3170,7 @@
      }
     },
     {
-     "s": "main",
-     "w": "HW",
-     "r": 3,
-     "a": {
-      "n": "Shamil Gaziev",
-      "rec": "15-3-0",
-      "nat": "BHR"
-     },
-     "b": {
-      "n": "Tallison Teixeira",
-      "rec": "9-2-0",
-      "nat": "BRA"
-     }
-    },
-    {
-     "s": "main",
-     "w": "WW",
-     "r": 3,
-     "a": {
-      "n": "Jake Matthews",
-      "rec": "23-8-0",
-      "nat": "AUS"
-     },
-     "b": {
-      "n": "Tahir Abdullayev",
-      "rec": "20-3-0",
-      "nat": "AZE"
-     }
-    },
-    {
-     "s": "main",
+     "s": "prelims",
      "w": "BW",
      "r": 3,
      "a": {
@@ -3172,22 +3185,22 @@
      }
     },
     {
-     "s": "main",
-     "w": "FLW",
+     "s": "prelims",
+     "w": "HW",
      "r": 3,
      "a": {
-      "n": "Asu Almabayev",
-      "rec": "24-3-0",
-      "nat": "KAZ"
+      "n": "Shamil Gaziev",
+      "rec": "15-3-0",
+      "nat": "BHR"
      },
      "b": {
-      "n": "Kyoji Horiguchi",
-      "rec": "36-6-0",
-      "nat": "JPN"
+      "n": "Tallison Teixeira",
+      "rec": "9-2-0",
+      "nat": "BRA"
      }
     },
     {
-     "s": "main",
+     "s": "prelims",
      "w": "FLW",
      "r": 3,
      "a": {
@@ -3199,6 +3212,21 @@
       "n": "Alessandro Costa",
       "rec": "17-5-0",
       "nat": "BRA"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "WW",
+     "r": 3,
+     "a": {
+      "n": "Jake Matthews",
+      "rec": "23-8-0",
+      "nat": "AUS"
+     },
+     "b": {
+      "n": "Tahir Abdullayev",
+      "rec": "20-3-0",
+      "nat": "AZE"
      }
     }
    ],
@@ -3642,6 +3670,36 @@
       "n": "Robert Whittaker",
       "rec": "27-9-0",
       "nat": "AUS"
+     }
+    },
+    {
+     "s": "main",
+     "w": "FW",
+     "r": 3,
+     "a": {
+      "n": "Marwan Rahiki",
+      "rec": "9-1-0",
+      "nat": "MAR"
+     },
+     "b": {
+      "n": "Yoo Joo-sang",
+      "rec": "15-5-0",
+      "nat": "KOR"
+     }
+    },
+    {
+     "s": "main",
+     "w": "FW",
+     "r": 3,
+     "a": {
+      "n": "Kaan Ofli",
+      "rec": "14-4-1",
+      "nat": "AUS"
+     },
+     "b": {
+      "n": "Joanderson Brito",
+      "rec": "20-5-1",
+      "nat": "BRA"
      }
     }
    ],

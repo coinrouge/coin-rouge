@@ -440,6 +440,11 @@
    "tv": "DAZN",
    "segs": [
     {
+     "k": "prelims",
+     "t": "2026-11-07T17:00:00Z",
+     "free": "DAZN"
+    },
+    {
      "k": "main",
      "t": "2026-11-07T19:00:00Z"
     }
@@ -542,11 +547,74 @@
      "b": {
       "n": "Cheikh Diop"
      }
+    },
+    {
+     "s": "prelims",
+     "w": "Lourds",
+     "r": 8,
+     "ru": 1,
+     "a": {
+      "n": "Tony Yoka",
+      "nat": "FRA",
+      "rec": "15-3-0",
+      "star": 1,
+      "tp": "228969-tony-yoka-la-conquete"
+     },
+     "b": {
+      "n": "Kostiantyn Dovbyshchenko",
+      "nat": "UKR",
+      "rec": "10-20-1",
+      "tp": "219244-kostiantyn-dovbyshchenko"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "Mi-lourds",
+     "r": 6,
+     "a": {
+      "n": "Ryan Macmillan"
+     },
+     "b": {
+      "n": "Grant Dennis"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "Super-légers",
+     "r": 6,
+     "a": {
+      "n": "Tumi Phillips"
+     },
+     "b": {
+      "n": "Angelo Dragone"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "Mi-lourds",
+     "r": 6,
+     "a": {
+      "n": "Billy Deniz"
+     },
+     "b": {
+      "n": "Joe O'Sullivan"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "Super-moyens",
+     "r": 6,
+     "a": {
+      "n": "Javokhir Ummataliev"
+     },
+     "b": {
+      "n": "Atacayte Santana"
+     }
     }
    ],
    "sources": [
-    "https://www.espn.com/boxing/story/_/id/50376753/joshua-buatsi-willy-hutchinson-boxing-how-watch-uk-ring-walk-date-tv-channel-undercard",
-    "https://queensberry.co.uk/pages/joshua-buatsi-vs-willy-hutchinson-2-point-to-prove"
+    "https://www.dazn.com/fr-FR/news/boxe/tony-yoka-vs-kostiantyn-dovbyshchenko-direct-video-streaming-chaine-tv-a-quelle-heure-et-comment-regarder-gratuitement-le-combat/s2bhqe91i6w61rtni7r2y9z5u",
+    "https://www.espn.com/boxing/story/_/id/50376753/joshua-buatsi-willy-hutchinson-boxing-how-watch-uk-ring-walk-date-tv-channel-undercard"
    ],
    "partial": 1,
    "tvx": [

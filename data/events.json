@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-07T22:14:49.138Z",
+ "updated": "2026-11-07T22:55:04.136Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -2461,13 +2461,19 @@
      "r": 3,
      "a": {
       "n": "Ko Seok-hyeon",
-      "rec": "13-3-0",
+      "rec": "12-3-0",
       "nat": "KOR"
      },
      "b": {
       "n": "Wellington Turman",
-      "rec": "18-8-0",
+      "rec": "18-7-0",
       "nat": "BRA"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
      }
     },
     {
@@ -2476,17 +2482,17 @@
      "r": 3,
      "a": {
       "n": "José Henrique Souza",
-      "rec": "8-1-0",
+      "rec": "9-1-0",
       "nat": "BRA"
      },
      "b": {
       "n": "Jonny Parsons",
-      "rec": "9-2-0",
+      "rec": "9-3-0",
       "nat": "USA"
      },
      "res": {
       "w": "a",
-      "method": "KO (coup de poing)",
+      "method": "KO (coups de poing)",
       "round": 1,
       "time": "4:16"
      }
@@ -5216,7 +5222,7 @@
   [
    "Jonny Parsons",
    "USA",
-   "9-3-0",
+   "9-4-0",
    "mma"
   ],
   [
@@ -5348,7 +5354,7 @@
   [
    "José Henrique Souza",
    "BRA",
-   "9-1-0",
+   "10-1-0",
    "mma"
   ],
   [

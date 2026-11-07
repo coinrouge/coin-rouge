@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-07T01:05:35.538Z",
+ "updated": "2026-11-07T18:35:16.961Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -3535,6 +3535,35 @@
       "n": "Shelda Chipito",
       "rec": "2-0-0",
       "nat": "ZAM"
+     }
+    },
+    {
+     "s": "main",
+     "w": "BW",
+     "r": 3,
+     "a": {
+      "n": "Dean Garnett",
+      "rec": "15-4-1",
+      "nat": "GBR"
+     },
+     "b": {
+      "n": "Bryce Meredith",
+      "rec": "8-1-0",
+      "nat": "USA"
+     }
+    },
+    {
+     "s": "main",
+     "w": "WW",
+     "r": 3,
+     "a": {
+      "n": "Oualy Tandia"
+     },
+     "b": {
+      "n": "Alex Lohoré",
+      "rec": "26-12-0",
+      "nat": "FRA",
+      "fr": 1
      }
     },
     {

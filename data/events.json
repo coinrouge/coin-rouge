@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-07T22:55:04.136Z",
+ "updated": "2026-11-07T23:29:57.791Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -2431,13 +2431,19 @@
      "r": 3,
      "a": {
       "n": "Austin Bashi",
-      "rec": "14-2-0",
+      "rec": "13-2-0",
       "nat": "USA"
      },
      "b": {
       "n": "Carlos Calderon",
-      "rec": "11-4-0",
+      "rec": "11-3-0",
       "nat": "USA"
+     },
+     "res": {
+      "w": "a",
+      "method": "Soumission (étranglement arrière)",
+      "round": 1,
+      "time": "1:07"
      }
     },
     {
@@ -2445,14 +2451,20 @@
      "w": "MW",
      "r": 3,
      "a": {
-      "n": "Mantas Kondratavičius",
-      "rec": "9-1-0",
-      "nat": "LTU"
+      "n": "Andre Petroski",
+      "rec": "12-6-0",
+      "nat": "USA"
      },
      "b": {
-      "n": "Andre Petroski",
-      "rec": "13-6-0",
-      "nat": "USA"
+      "n": "Mantas Kondratavičius",
+      "rec": "9-0-0",
+      "nat": "LTU"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (coups de poing)",
+      "round": 2,
+      "time": "4:39"
      }
     },
     {
@@ -2461,12 +2473,12 @@
      "r": 3,
      "a": {
       "n": "Ko Seok-hyeon",
-      "rec": "12-3-0",
+      "rec": "13-3-0",
       "nat": "KOR"
      },
      "b": {
       "n": "Wellington Turman",
-      "rec": "18-7-0",
+      "rec": "18-8-0",
       "nat": "BRA"
      },
      "res": {
@@ -5108,7 +5120,7 @@
   [
    "Wellington Turman",
    "BRA",
-   "18-8-0",
+   "18-9-0",
    "mma"
   ],
   [
@@ -5288,7 +5300,7 @@
   [
    "Ko Seok-hyeon",
    "KOR",
-   "13-3-0",
+   "14-3-0",
    "mma"
   ],
   [
@@ -9759,6 +9771,12 @@
    "Dmitry Bivol",
    "",
    "25-1-0",
+   "boxe"
+  ],
+  [
+   "Willy Hutchinson",
+   "",
+   "21-2-0",
    "boxe"
   ],
   [

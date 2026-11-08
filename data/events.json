@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-08T01:56:53.267Z",
+ "updated": "2026-11-08T02:49:05.748Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -2325,14 +2325,20 @@
      "w": "LHW",
      "r": 3,
      "a": {
-      "n": "Billy Elekana",
-      "rec": "10-2-0",
-      "nat": "USA"
+      "n": "Lucas Fernando",
+      "rec": "13-3-0",
+      "nat": "BRA"
      },
      "b": {
-      "n": "Lucas Fernando",
-      "rec": "14-3-0",
-      "nat": "BRA"
+      "n": "Billy Elekana",
+      "rec": "10-1-0",
+      "nat": "USA"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
      }
     },
     {
@@ -2340,14 +2346,20 @@
      "w": "WBW",
      "r": 3,
      "a": {
+      "n": "Nina Nikolija Milošević",
+      "rec": "9-1-0",
+      "nat": "SRB"
+     },
+     "b": {
       "n": "Priscila Cachoeira",
       "rec": "13-9-0",
       "nat": "BRA"
      },
-     "b": {
-      "n": "Nina Nikolija Milošević",
-      "rec": "9-1-0",
-      "nat": "SRB"
+     "res": {
+      "w": "a",
+      "method": "TKO (coudes et coups)",
+      "round": 2,
+      "time": "3:40"
      }
     },
     {
@@ -2492,7 +2504,7 @@
      },
      "res": {
       "w": "a",
-      "method": "TKO (coups de poing)",
+      "method": "TKO (coudes et coups)",
       "round": 2,
       "time": "4:39"
      }
@@ -7328,7 +7340,7 @@
   [
    "Priscila Cachoeira",
    "BRA",
-   "13-9-0",
+   "13-10-0",
    "mma"
   ],
   [
@@ -7442,7 +7454,7 @@
   [
    "Nina Nikolija Milošević",
    "SRB",
-   "9-1-0",
+   "10-1-0",
    "mma"
   ],
   [
@@ -10160,7 +10172,7 @@
   [
    "Pedro Taduran",
    "",
-   "20-4-1",
+   "21-4-1",
    "boxe"
   ],
   [

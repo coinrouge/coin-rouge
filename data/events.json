@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-08T02:49:05.748Z",
+ "updated": "2026-11-08T03:47:51.484Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -2296,13 +2296,19 @@
      "r": 3,
      "a": {
       "n": "Tatiana Suarez",
-      "rec": "12-1-0",
+      "rec": "11-1-0",
       "nat": "USA"
      },
      "b": {
       "n": "Virna Jandiroba",
-      "rec": "23-4-0",
+      "rec": "23-3-0",
       "nat": "BRA"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
      }
     },
     {
@@ -2310,14 +2316,20 @@
      "w": "BW",
      "r": 3,
      "a": {
-      "n": "Davey Grant",
-      "rec": "18-8-0",
-      "nat": "GBR"
+      "n": "Elijah Smith",
+      "rec": "9-1-0",
+      "nat": "USA"
      },
      "b": {
-      "n": "Elijah Smith",
-      "rec": "10-1-0",
-      "nat": "USA"
+      "n": "Davey Grant",
+      "rec": "18-7-0",
+      "nat": "GBR"
+     },
+     "res": {
+      "w": "a",
+      "method": "KO (coups de poing)",
+      "round": 1,
+      "time": "1:00"
      }
     },
     {
@@ -2347,12 +2359,12 @@
      "r": 3,
      "a": {
       "n": "Nina Nikolija Milošević",
-      "rec": "9-1-0",
+      "rec": "8-1-0",
       "nat": "SRB"
      },
      "b": {
       "n": "Priscila Cachoeira",
-      "rec": "13-9-0",
+      "rec": "13-8-0",
       "nat": "BRA"
      },
      "res": {
@@ -2368,12 +2380,12 @@
      "r": 3,
      "a": {
       "n": "Mitch Raposo",
-      "rec": "11-2-0",
+      "rec": "10-2-0",
       "nat": "USA"
      },
      "b": {
       "n": "Marcos Degli",
-      "rec": "15-3-0",
+      "rec": "15-2-0",
       "nat": "BRA"
      },
      "res": {
@@ -2389,12 +2401,12 @@
      "r": 3,
      "a": {
       "n": "Ollie Schmid",
-      "rec": "4-3-0",
+      "rec": "3-3-0",
       "nat": "HUN"
      },
      "b": {
       "n": "Keiichiro Nakamura",
-      "rec": "8-1-0",
+      "rec": "8-0-0",
       "nat": "JPN"
      },
      "res": {
@@ -2410,12 +2422,12 @@
      "r": 3,
      "a": {
       "n": "Thomas Petersen",
-      "rec": "11-5-0",
+      "rec": "10-5-0",
       "nat": "USA"
      },
      "b": {
       "n": "Gabriel Lorenço",
-      "rec": "8-1-0",
+      "rec": "8-0-0",
       "nat": "BRA"
      },
      "res": {
@@ -2431,12 +2443,12 @@
      "r": 3,
      "a": {
       "n": "Karine Silva",
-      "rec": "19-7-0",
+      "rec": "18-7-0",
       "nat": "BRA"
      },
      "b": {
       "n": "Gabriella Fernandes",
-      "rec": "11-4-0",
+      "rec": "11-3-0",
       "nat": "BRA"
      },
      "res": {
@@ -2452,12 +2464,12 @@
      "r": 3,
      "a": {
       "n": "Murtazali Magomedov",
-      "rec": "11-0-0",
+      "rec": "10-0-0",
       "nat": "KGZ"
      },
      "b": {
       "n": "José Mauro Delano",
-      "rec": "16-3-0",
+      "rec": "16-2-0",
       "nat": "BRA"
      },
      "res": {
@@ -2473,12 +2485,12 @@
      "r": 3,
      "a": {
       "n": "Austin Bashi",
-      "rec": "14-2-0",
+      "rec": "13-2-0",
       "nat": "USA"
      },
      "b": {
       "n": "Carlos Calderon",
-      "rec": "11-4-0",
+      "rec": "11-3-0",
       "nat": "USA"
      },
      "res": {
@@ -2494,12 +2506,12 @@
      "r": 3,
      "a": {
       "n": "Andre Petroski",
-      "rec": "13-6-0",
+      "rec": "12-6-0",
       "nat": "USA"
      },
      "b": {
       "n": "Mantas Kondratavičius",
-      "rec": "9-1-0",
+      "rec": "9-0-0",
       "nat": "LTU"
      },
      "res": {
@@ -2515,12 +2527,12 @@
      "r": 3,
      "a": {
       "n": "Ko Seok-hyeon",
-      "rec": "13-3-0",
+      "rec": "12-3-0",
       "nat": "KOR"
      },
      "b": {
       "n": "Wellington Turman",
-      "rec": "18-8-0",
+      "rec": "18-7-0",
       "nat": "BRA"
      },
      "res": {
@@ -2536,12 +2548,12 @@
      "r": 3,
      "a": {
       "n": "José Henrique Souza",
-      "rec": "9-1-0",
+      "rec": "8-1-0",
       "nat": "BRA"
      },
      "b": {
       "n": "Jonny Parsons",
-      "rec": "9-3-0",
+      "rec": "9-2-0",
       "nat": "USA"
      },
      "res": {
@@ -3847,7 +3859,7 @@
      },
      "b": {
       "n": "Yoo Joo-sang",
-      "rec": "9-2-0",
+      "rec": "15-5-0",
       "nat": "KOR"
      }
     },
@@ -4136,7 +4148,7 @@
   [
    "Thomas Petersen",
    "USA",
-   "12-5-0",
+   "11-5-0",
    "mma"
   ],
   [
@@ -4328,7 +4340,7 @@
   [
    "Gabriel Lorenço",
    "BRA",
-   "8-2-0",
+   "8-1-0",
    "mma"
   ],
   [
@@ -4766,7 +4778,7 @@
   [
    "Andre Petroski",
    "USA",
-   "14-6-0",
+   "13-6-0",
    "mma"
   ],
   [
@@ -4982,7 +4994,7 @@
   [
    "Mantas Kondratavičius",
    "LTU",
-   "9-2-0",
+   "9-1-0",
    "mma"
   ],
   [
@@ -5162,7 +5174,7 @@
   [
    "Wellington Turman",
    "BRA",
-   "18-9-0",
+   "18-8-0",
    "mma"
   ],
   [
@@ -5276,7 +5288,7 @@
   [
    "Jonny Parsons",
    "USA",
-   "9-4-0",
+   "9-3-0",
    "mma"
   ],
   [
@@ -5342,7 +5354,7 @@
   [
    "Ko Seok-hyeon",
    "KOR",
-   "14-3-0",
+   "13-3-0",
    "mma"
   ],
   [
@@ -5408,7 +5420,7 @@
   [
    "José Henrique Souza",
    "BRA",
-   "10-1-0",
+   "9-1-0",
    "mma"
   ],
   [
@@ -6350,7 +6362,7 @@
   [
    "Austin Bashi",
    "USA",
-   "15-2-0",
+   "14-2-0",
    "mma"
   ],
   [
@@ -6392,12 +6404,6 @@
   [
    "Yoo Joo-sang",
    "KOR",
-   "9-2-0",
-   "mma"
-  ],
-  [
-   "Aaron Pico",
-   "USA",
    "15-5-0",
    "mma"
   ],
@@ -6428,7 +6434,7 @@
   [
    "Keiichiro Nakamura",
    "JPN",
-   "8-2-0",
+   "8-1-0",
    "mma"
   ],
   [
@@ -6476,7 +6482,7 @@
   [
    "José Mauro Delano",
    "BRA",
-   "16-4-0",
+   "16-3-0",
    "mma"
   ],
   [
@@ -6500,7 +6506,7 @@
   [
    "Ollie Schmid",
    "HUN",
-   "5-3-0",
+   "4-3-0",
    "mma"
   ],
   [
@@ -6524,7 +6530,7 @@
   [
    "Murtazali Magomedov",
    "KGZ",
-   "12-0-0",
+   "11-0-0",
    "mma"
   ],
   [
@@ -6572,7 +6578,7 @@
   [
    "Carlos Calderon",
    "USA",
-   "11-5-0",
+   "11-4-0",
    "mma"
   ],
   [
@@ -7220,7 +7226,7 @@
   [
    "Mitch Raposo",
    "USA",
-   "12-2-0",
+   "11-2-0",
    "mma"
   ],
   [
@@ -7316,7 +7322,7 @@
   [
    "Marcos Degli",
    "BRA",
-   "15-4-0",
+   "15-3-0",
    "mma"
   ],
   [
@@ -7340,7 +7346,7 @@
   [
    "Priscila Cachoeira",
    "BRA",
-   "13-10-0",
+   "13-9-0",
    "mma"
   ],
   [
@@ -7454,7 +7460,7 @@
   [
    "Nina Nikolija Milošević",
    "SRB",
-   "10-1-0",
+   "9-1-0",
    "mma"
   ],
   [
@@ -7550,7 +7556,7 @@
   [
    "Karine Silva",
    "BRA",
-   "20-7-0",
+   "19-7-0",
    "mma"
   ],
   [
@@ -7568,7 +7574,7 @@
   [
    "Gabriella Fernandes",
    "BRA",
-   "11-5-0",
+   "11-4-0",
    "mma"
   ],
   [

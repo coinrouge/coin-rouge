@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-08T00:11:32.632Z",
+ "updated": "2026-11-08T00:51:49.476Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -2385,14 +2385,20 @@
      "w": "HW",
      "r": 3,
      "a": {
-      "n": "Gabriel Lorenço",
-      "rec": "8-1-0",
-      "nat": "BRA"
+      "n": "Thomas Petersen",
+      "rec": "10-5-0",
+      "nat": "USA"
      },
      "b": {
-      "n": "Thomas Petersen",
-      "rec": "11-5-0",
-      "nat": "USA"
+      "n": "Gabriel Lorenço",
+      "rec": "8-0-0",
+      "nat": "BRA"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (coups de poing)",
+      "round": 3,
+      "time": "4:47"
      }
     },
     {
@@ -2401,12 +2407,12 @@
      "r": 3,
      "a": {
       "n": "Karine Silva",
-      "rec": "18-7-0",
+      "rec": "19-7-0",
       "nat": "BRA"
      },
      "b": {
       "n": "Gabriella Fernandes",
-      "rec": "11-3-0",
+      "rec": "11-4-0",
       "nat": "BRA"
      },
      "res": {
@@ -2422,12 +2428,12 @@
      "r": 3,
      "a": {
       "n": "Murtazali Magomedov",
-      "rec": "10-0-0",
+      "rec": "11-0-0",
       "nat": "KGZ"
      },
      "b": {
       "n": "José Mauro Delano",
-      "rec": "16-2-0",
+      "rec": "16-3-0",
       "nat": "BRA"
      },
      "res": {
@@ -2443,12 +2449,12 @@
      "r": 3,
      "a": {
       "n": "Austin Bashi",
-      "rec": "13-2-0",
+      "rec": "14-2-0",
       "nat": "USA"
      },
      "b": {
       "n": "Carlos Calderon",
-      "rec": "11-3-0",
+      "rec": "11-4-0",
       "nat": "USA"
      },
      "res": {
@@ -6320,7 +6326,7 @@
   [
    "Austin Bashi",
    "USA",
-   "14-2-0",
+   "15-2-0",
    "mma"
   ],
   [
@@ -6440,7 +6446,7 @@
   [
    "José Mauro Delano",
    "BRA",
-   "16-3-0",
+   "16-4-0",
    "mma"
   ],
   [
@@ -6488,7 +6494,7 @@
   [
    "Murtazali Magomedov",
    "KGZ",
-   "11-0-0",
+   "12-0-0",
    "mma"
   ],
   [
@@ -6536,7 +6542,7 @@
   [
    "Carlos Calderon",
    "USA",
-   "11-4-0",
+   "11-5-0",
    "mma"
   ],
   [
@@ -7514,7 +7520,7 @@
   [
    "Karine Silva",
    "BRA",
-   "19-7-0",
+   "20-7-0",
    "mma"
   ],
   [
@@ -7532,7 +7538,7 @@
   [
    "Gabriella Fernandes",
    "BRA",
-   "11-4-0",
+   "11-5-0",
    "mma"
   ],
   [

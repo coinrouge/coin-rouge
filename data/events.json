@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-07T23:29:57.791Z",
+ "updated": "2026-11-08T00:11:32.632Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -2401,13 +2401,19 @@
      "r": 3,
      "a": {
       "n": "Karine Silva",
-      "rec": "19-7-0",
+      "rec": "18-7-0",
       "nat": "BRA"
      },
      "b": {
       "n": "Gabriella Fernandes",
-      "rec": "11-4-0",
+      "rec": "11-3-0",
       "nat": "BRA"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
      }
     },
     {
@@ -2415,14 +2421,20 @@
      "w": "FW",
      "r": 3,
      "a": {
-      "n": "José Mauro Delano",
-      "rec": "16-3-0",
-      "nat": "BRA"
+      "n": "Murtazali Magomedov",
+      "rec": "10-0-0",
+      "nat": "KGZ"
      },
      "b": {
-      "n": "Murtazali Magomedov",
-      "rec": "11-0-0",
-      "nat": "KGZ"
+      "n": "José Mauro Delano",
+      "rec": "16-2-0",
+      "nat": "BRA"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
      }
     },
     {
@@ -2452,12 +2464,12 @@
      "r": 3,
      "a": {
       "n": "Andre Petroski",
-      "rec": "12-6-0",
+      "rec": "13-6-0",
       "nat": "USA"
      },
      "b": {
       "n": "Mantas Kondratavičius",
-      "rec": "9-0-0",
+      "rec": "9-1-0",
       "nat": "LTU"
      },
      "res": {
@@ -4724,7 +4736,7 @@
   [
    "Andre Petroski",
    "USA",
-   "13-6-0",
+   "14-6-0",
    "mma"
   ],
   [
@@ -4940,7 +4952,7 @@
   [
    "Mantas Kondratavičius",
    "LTU",
-   "9-1-0",
+   "9-2-0",
    "mma"
   ],
   [

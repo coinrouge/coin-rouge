@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-08T00:51:49.476Z",
+ "updated": "2026-11-08T01:12:03.172Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -2370,14 +2370,20 @@
      "w": "FW",
      "r": 3,
      "a": {
-      "n": "Keiichiro Nakamura",
-      "rec": "8-1-0",
-      "nat": "JPN"
+      "n": "Ollie Schmid",
+      "rec": "3-3-0",
+      "nat": "HUN"
      },
      "b": {
-      "n": "Ollie Schmid",
-      "rec": "4-3-0",
-      "nat": "HUN"
+      "n": "Keiichiro Nakamura",
+      "rec": "8-0-0",
+      "nat": "JPN"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
      }
     },
     {

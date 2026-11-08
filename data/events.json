@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-08T01:12:03.172Z",
+ "updated": "2026-11-08T01:56:53.267Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -2363,6 +2363,12 @@
       "n": "Marcos Degli",
       "rec": "15-3-0",
       "nat": "BRA"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
      }
     },
     {
@@ -2371,12 +2377,12 @@
      "r": 3,
      "a": {
       "n": "Ollie Schmid",
-      "rec": "3-3-0",
+      "rec": "4-3-0",
       "nat": "HUN"
      },
      "b": {
       "n": "Keiichiro Nakamura",
-      "rec": "8-0-0",
+      "rec": "8-1-0",
       "nat": "JPN"
      },
      "res": {
@@ -2392,12 +2398,12 @@
      "r": 3,
      "a": {
       "n": "Thomas Petersen",
-      "rec": "10-5-0",
+      "rec": "11-5-0",
       "nat": "USA"
      },
      "b": {
       "n": "Gabriel Lorenço",
-      "rec": "8-0-0",
+      "rec": "8-1-0",
       "nat": "BRA"
      },
      "res": {
@@ -3829,7 +3835,7 @@
      },
      "b": {
       "n": "Yoo Joo-sang",
-      "rec": "15-5-0",
+      "rec": "9-2-0",
       "nat": "KOR"
      }
     },
@@ -4118,7 +4124,7 @@
   [
    "Thomas Petersen",
    "USA",
-   "11-5-0",
+   "12-5-0",
    "mma"
   ],
   [
@@ -4310,7 +4316,7 @@
   [
    "Gabriel Lorenço",
    "BRA",
-   "8-1-0",
+   "8-2-0",
    "mma"
   ],
   [
@@ -6374,6 +6380,12 @@
   [
    "Yoo Joo-sang",
    "KOR",
+   "9-2-0",
+   "mma"
+  ],
+  [
+   "Aaron Pico",
+   "USA",
    "15-5-0",
    "mma"
   ],
@@ -6404,7 +6416,7 @@
   [
    "Keiichiro Nakamura",
    "JPN",
-   "8-1-0",
+   "8-2-0",
    "mma"
   ],
   [
@@ -6476,7 +6488,7 @@
   [
    "Ollie Schmid",
    "HUN",
-   "4-3-0",
+   "5-3-0",
    "mma"
   ],
   [
@@ -7196,7 +7208,7 @@
   [
    "Mitch Raposo",
    "USA",
-   "11-2-0",
+   "12-2-0",
    "mma"
   ],
   [
@@ -7292,7 +7304,7 @@
   [
    "Marcos Degli",
    "BRA",
-   "15-3-0",
+   "15-4-0",
    "mma"
   ],
   [

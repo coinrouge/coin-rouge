@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-09T01:14:50.770Z",
+ "updated": "2026-11-09T02:00:07.236Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -36,12 +36,14 @@
      "a": {
       "n": "Jena Bishop",
       "rec": "11-3-0",
-      "nat": "USA"
+      "nat": "USA",
+      "wk": "Jena Bishop"
      },
      "b": {
       "n": "Liz Carmouche",
       "rec": "26-8-0",
-      "nat": "USA"
+      "nat": "USA",
+      "wk": "Liz Carmouche"
      },
      "title": "Titre Women's Flyweight",
      "res": {
@@ -58,7 +60,8 @@
      "a": {
       "n": "Timur Khizriev",
       "rec": "18-0-0",
-      "nat": "RUS"
+      "nat": "RUS",
+      "wk": "Timur Khizriev"
      },
      "b": {
       "n": "Gabriel Braga"
@@ -136,7 +139,8 @@
      "a": {
       "n": "Emiliano Sordi",
       "rec": "27-14-1",
-      "nat": "ARG"
+      "nat": "ARG",
+      "wk": "Emiliano Sordi"
      },
      "b": {
       "n": "Abraham Bably",
@@ -256,12 +260,14 @@
      "a": {
       "n": "Paulina Wiśniewska",
       "rec": "6-1-0",
-      "nat": "POL"
+      "nat": "POL",
+      "wk": "Paulina Wiśniewska"
      },
      "b": {
       "n": "Chelsea Hackett",
       "rec": "5-3-1",
-      "nat": "AUS"
+      "nat": "AUS",
+      "wk": "Chelsea Hackett"
      },
      "res": {
       "w": "a",
@@ -325,12 +331,14 @@
      "a": {
       "n": "Mike Malott",
       "rec": "14-2-1",
-      "nat": "CAN"
+      "nat": "CAN",
+      "wk": "Mike Malott"
      },
      "b": {
       "n": "Joaquin Buckley",
       "rec": "21-8-0",
-      "nat": "USA"
+      "nat": "USA",
+      "wk": "Joaquin Buckley"
      },
      "res": {
       "w": "a",
@@ -346,12 +354,14 @@
      "a": {
       "n": "Jasmine Jasudavicius",
       "rec": "15-4-0",
-      "nat": "CAN"
+      "nat": "CAN",
+      "wk": "Jasmine Jasudavicius"
      },
      "b": {
       "n": "Erin Blanchfield",
       "rec": "14-2-0",
-      "nat": "USA"
+      "nat": "USA",
+      "wk": "Erin Blanchfield"
      },
      "res": {
       "w": "a",
@@ -372,7 +382,8 @@
      "b": {
       "n": "Kyle Nelson",
       "rec": "17-7-1",
-      "nat": "CAN"
+      "nat": "CAN",
+      "wk": "Kyle Nelson (fighter)"
      },
      "res": {
       "w": "a",
@@ -388,12 +399,14 @@
      "a": {
       "n": "Marc-André Barriault",
       "rec": "17-10-0",
-      "nat": "CAN"
+      "nat": "CAN",
+      "wk": "Marc-André Barriault"
      },
      "b": {
       "n": "Kyle Daukaus",
       "rec": "17-5-0",
-      "nat": "USA"
+      "nat": "USA",
+      "wk": "Kyle Daukaus"
      },
      "res": {
       "w": "a",
@@ -435,7 +448,8 @@
      "b": {
       "n": "Nate Landwehr",
       "rec": "18-8-0",
-      "nat": "USA"
+      "nat": "USA",
+      "wk": "Nate Landwehr"
      },
      "res": {
       "w": "a",
@@ -451,12 +465,14 @@
      "a": {
       "n": "Tanner Boser",
       "rec": "22-11-1",
-      "nat": "CAN"
+      "nat": "CAN",
+      "wk": "Tanner Boser"
      },
      "b": {
       "n": "Jhonata Diniz",
       "rec": "9-2-0",
-      "nat": "BRA"
+      "nat": "BRA",
+      "wk": "Jhonata Diniz"
      },
      "res": {
       "w": "a",
@@ -498,7 +514,8 @@
      "b": {
       "n": "Javad Mahjoub",
       "rec": "5-0-0",
-      "nat": "IRI"
+      "nat": "IRI",
+      "wk": "Javad Mahjoub"
      },
      "res": {
       "w": "a",
@@ -514,7 +531,8 @@
      "a": {
       "n": "Katlyn Cerminara",
       "rec": "18-6-0",
-      "nat": "USA"
+      "nat": "USA",
+      "wk": "Katlyn Cerminara"
      },
      "b": {
       "n": "Mackenzie Stiller",
@@ -556,7 +574,8 @@
      "a": {
       "n": "Chelsea Chandler",
       "rec": "7-4-0",
-      "nat": "USA"
+      "nat": "USA",
+      "wk": "Chelsea Chandler"
      },
      "b": {
       "n": "Melissa Croden",
@@ -633,12 +652,14 @@
       "n": "Alexander Volkanovski",
       "rec": "28-4-0",
       "nat": "AUS",
-      "champ": 1
+      "champ": 1,
+      "wk": "Alexander Volkanovski"
      },
      "b": {
       "n": "Movsar Evloev",
       "rec": "20-0-0",
-      "nat": "RUS"
+      "nat": "RUS",
+      "wk": "Movsar Evloev"
      },
      "title": "Titre Featherweight",
      "res": {
@@ -656,12 +677,14 @@
       "n": "Petr Yan",
       "rec": "20-5-0",
       "nat": "RUS",
-      "champ": 1
+      "champ": 1,
+      "wk": "Petr Yan"
      },
      "b": {
       "n": "Merab Dvalishvili",
       "rec": "21-5-0",
-      "nat": "GEO"
+      "nat": "GEO",
+      "wk": "Merab Dvalishvili"
      },
      "title": "Titre Bantamweight",
      "res": {
@@ -678,12 +701,14 @@
      "a": {
       "n": "Lone'er Kavanagh",
       "rec": "10-2-0",
-      "nat": "GBR"
+      "nat": "GBR",
+      "wk": "Lone'er Kavanagh"
      },
      "b": {
       "n": "Ramazan Temirov",
       "rec": "18-2-0",
-      "nat": "UZB"
+      "nat": "UZB",
+      "wk": "Ramazan Temirov"
      },
      "res": {
       "w": "a",
@@ -699,12 +724,14 @@
      "a": {
       "n": "Alexander Volkov",
       "rec": "40-11-0",
-      "nat": "RUS"
+      "nat": "RUS",
+      "wk": "Alexander Volkov (fighter)"
      },
      "b": {
       "n": "Rizvan Kuniev",
       "rec": "14-3-1",
-      "nat": "RUS"
+      "nat": "RUS",
+      "wk": "Rizvan Kuniev"
      },
      "res": {
       "w": "a",
@@ -720,12 +747,14 @@
      "a": {
       "n": "Aaron Pico",
       "rec": "14-5-0",
-      "nat": "USA"
+      "nat": "USA",
+      "wk": "Aaron Pico"
      },
      "b": {
       "n": "Losene Keita",
       "rec": "17-2-0",
-      "nat": "BEL"
+      "nat": "BEL",
+      "wk": "Losene Keita"
      },
      "res": {
       "w": "a",
@@ -741,12 +770,14 @@
      "a": {
       "n": "Dominick Reyes",
       "rec": "16-5-0",
-      "nat": "USA"
+      "nat": "USA",
+      "wk": "Dominick Reyes"
      },
      "b": {
       "n": "Azamat Murzakanov",
       "rec": "16-1-0",
-      "nat": "RUS"
+      "nat": "RUS",
+      "wk": "Azamat Murzakanov"
      },
      "res": {
       "w": "a",
@@ -762,12 +793,14 @@
      "a": {
       "n": "Abdul-Rakhman Yakhyaev",
       "rec": "10-0-0",
-      "nat": "TUR"
+      "nat": "TUR",
+      "wk": "Abdul-Rakhman Yakhyaev"
      },
      "b": {
       "n": "Nikita Krylov",
       "rec": "31-12-0",
-      "nat": "RUS"
+      "nat": "RUS",
+      "wk": "Nikita Krylov"
      },
      "res": {
       "w": "a",
@@ -783,7 +816,8 @@
      "a": {
       "n": "Abusupiyan Magomedov",
       "rec": "29-7-1",
-      "nat": "GER"
+      "nat": "GER",
+      "wk": "Abusupiyan Magomedov"
      },
      "b": {
       "n": "Cameron Rowston",
@@ -804,12 +838,14 @@
      "a": {
       "n": "Grant Dawson",
       "rec": "24-3-1",
-      "nat": "USA"
+      "nat": "USA",
+      "wk": "Grant Dawson"
      },
      "b": {
       "n": "Nurullo Aliev",
       "rec": "11-0-0",
-      "nat": "TJK"
+      "nat": "TJK",
+      "wk": "Nurullo Aliev"
      },
      "res": {
       "w": "a",
@@ -825,7 +861,8 @@
      "a": {
       "n": "Colby Thicknesse",
       "rec": "9-1-0",
-      "nat": "AUS"
+      "nat": "AUS",
+      "wk": "Colby Thicknesse"
      },
      "b": {
       "n": "Asaf Chopurov",
@@ -851,7 +888,8 @@
      "b": {
       "n": "Jacob Malkoun",
       "rec": "10-3-0",
-      "nat": "AUS"
+      "nat": "AUS",
+      "wk": "Jacob Malkoun"
      },
      "res": {
       "w": "a",
@@ -867,7 +905,8 @@
      "a": {
       "n": "Daniel Santos",
       "rec": "13-3-0",
-      "nat": "BRA"
+      "nat": "BRA",
+      "wk": "Daniel Santos (fighter)"
      },
      "b": {
       "n": "Bolaji Oki",
@@ -910,7 +949,8 @@
      "a": {
       "n": "Iasmin Lucindo",
       "rec": "18-6-0",
-      "nat": "BRA"
+      "nat": "BRA",
+      "wk": "Iasmin Lucindo"
      },
      "b": {
       "n": "Nicolle Caliari",
@@ -1378,12 +1418,14 @@
      "a": {
       "n": "Tom Nolan",
       "rec": "11-1-0",
-      "nat": "AUS"
+      "nat": "AUS",
+      "wk": "Tom Nolan (fighter)"
      },
      "b": {
       "n": "Renato Moicano",
       "rec": "21-7-1",
-      "nat": "BRA"
+      "nat": "BRA",
+      "wk": "Renato Moicano"
      },
      "res": {
       "w": "a",
@@ -1404,7 +1446,8 @@
      "b": {
       "n": "Randy Brown",
       "rec": "20-8-0",
-      "nat": "JAM"
+      "nat": "JAM",
+      "wk": "Randy Brown (fighter)"
      },
      "res": {
       "w": "a",
@@ -1420,12 +1463,14 @@
      "a": {
       "n": "Cody Durden",
       "rec": "18-11-1",
-      "nat": "USA"
+      "nat": "USA",
+      "wk": "Cody Durden"
      },
      "b": {
       "n": "Ode' Osbourne",
       "rec": "13-9-0",
-      "nat": "JAM"
+      "nat": "JAM",
+      "wk": "Ode' Osbourne"
      },
      "res": {
       "w": "a",
@@ -1441,12 +1486,14 @@
      "a": {
       "n": "Luana Santos",
       "rec": "11-2-0",
-      "nat": "BRA"
+      "nat": "BRA",
+      "wk": "Luana Santos"
      },
      "b": {
       "n": "Yana Santos",
       "rec": "17-8-0",
-      "nat": "RUS"
+      "nat": "RUS",
+      "wk": "Yana Santos"
      },
      "res": {
       "w": "a",
@@ -1467,7 +1514,8 @@
      "b": {
       "n": "Farman Hasanov",
       "rec": "5-0-0",
-      "nat": "AZE"
+      "nat": "AZE",
+      "wk": "Farman Hasanov"
      },
      "res": {
       "w": "a",
@@ -1525,7 +1573,8 @@
      "a": {
       "n": "Julian Erosa",
       "rec": "31-13-0",
-      "nat": "USA"
+      "nat": "USA",
+      "wk": "Julian Erosa"
      },
      "b": {
       "n": "Lee Jeong-yeong",
@@ -1546,12 +1595,14 @@
      "a": {
       "n": "Zachary Reese",
       "rec": "10-4-0",
-      "nat": "USA"
+      "nat": "USA",
+      "wk": "Zachary Reese"
      },
      "b": {
       "n": "Mickey Gall",
       "rec": "7-7-0",
-      "nat": "USA"
+      "nat": "USA",
+      "wk": "Mickey Gall"
      },
      "res": {
       "w": "a",
@@ -1588,12 +1639,14 @@
      "a": {
       "n": "Piera Rodríguez",
       "rec": "12-2-0",
-      "nat": "VEN"
+      "nat": "VEN",
+      "wk": "Piera Rodríguez"
      },
      "b": {
       "n": "Talita Alencar",
       "rec": "8-1-1",
-      "nat": "BRA"
+      "nat": "BRA",
+      "wk": "Talita Alencar"
      },
      "res": {
       "w": "a",
@@ -1609,7 +1662,8 @@
      "a": {
       "n": "Lucia Szabová",
       "rec": "10-0-0",
-      "nat": "SVK"
+      "nat": "SVK",
+      "wk": "Lucia Szabová"
      },
      "b": {
       "n": "Tainara Lisboa",
@@ -2009,12 +2063,14 @@
      "a": {
       "n": "Johnny Walker",
       "rec": "23-10-0",
-      "nat": "BRA"
+      "nat": "BRA",
+      "wk": "Johnny Walker (fighter)"
      },
      "b": {
       "n": "Waldo Cortes-Acosta",
       "rec": "17-4-0",
-      "nat": "DOM"
+      "nat": "DOM",
+      "wk": "Waldo Cortes-Acosta"
      },
      "res": {
       "w": "a",
@@ -2030,12 +2086,14 @@
      "a": {
       "n": "Tatiana Suarez",
       "rec": "12-1-0",
-      "nat": "USA"
+      "nat": "USA",
+      "wk": "Tatiana Suarez"
      },
      "b": {
       "n": "Virna Jandiroba",
       "rec": "23-4-0",
-      "nat": "BRA"
+      "nat": "BRA",
+      "wk": "Virna Jandiroba"
      },
      "res": {
       "w": "a",
@@ -2056,7 +2114,8 @@
      "b": {
       "n": "Davey Grant",
       "rec": "18-8-0",
-      "nat": "GBR"
+      "nat": "GBR",
+      "wk": "Davey Grant"
      },
      "res": {
       "w": "a",
@@ -2077,7 +2136,8 @@
      "b": {
       "n": "Billy Elekana",
       "rec": "10-2-0",
-      "nat": "USA"
+      "nat": "USA",
+      "wk": "Billy Elekana"
      },
      "res": {
       "w": "a",
@@ -2098,7 +2158,8 @@
      "b": {
       "n": "Priscila Cachoeira",
       "rec": "13-9-0",
-      "nat": "BRA"
+      "nat": "BRA",
+      "wk": "Priscila Cachoeira"
      },
      "res": {
       "w": "a",
@@ -2177,7 +2238,8 @@
      "a": {
       "n": "Karine Silva",
       "rec": "19-7-0",
-      "nat": "BRA"
+      "nat": "BRA",
+      "wk": "Karine Silva"
      },
      "b": {
       "n": "Gabriella Fernandes",
@@ -2240,7 +2302,8 @@
      "a": {
       "n": "Andre Petroski",
       "rec": "13-6-0",
-      "nat": "USA"
+      "nat": "USA",
+      "wk": "Andre Petroski"
      },
      "b": {
       "n": "Mantas Kondratavičius",
@@ -2266,7 +2329,8 @@
      "b": {
       "n": "Wellington Turman",
       "rec": "18-8-0",
-      "nat": "BRA"
+      "nat": "BRA",
+      "wk": "Wellington Turman"
      },
      "res": {
       "w": "a",
@@ -2333,7 +2397,8 @@
       "n": "Vadim Nemkov",
       "rec": "20-2-0",
       "nat": "RUS",
-      "champ": 1
+      "champ": 1,
+      "wk": "Vadim Nemkov"
      },
      "b": {
       "n": "Sergey Bilostenniy",
@@ -2349,7 +2414,8 @@
      "a": {
       "n": "Patrick Habirora",
       "rec": "9-0-0",
-      "nat": "BEL"
+      "nat": "BEL",
+      "wk": "Patrick Habirora"
      },
      "b": {
       "n": "Omar El Dafrawy",
@@ -2364,7 +2430,8 @@
      "a": {
       "n": "Oleg Popov",
       "rec": "22-2-0",
-      "nat": "RUS"
+      "nat": "RUS",
+      "wk": "Oleg Popov (fighter)"
      },
      "b": {
       "n": "Pouya Rahmani",
@@ -2379,7 +2446,8 @@
      "a": {
       "n": "Abubakar Nurmagomedov",
       "rec": "17-4-1",
-      "nat": "RUS"
+      "nat": "RUS",
+      "wk": "Abubakar Nurmagomedov"
      },
      "b": {
       "n": "David Martinez",
@@ -2394,7 +2462,8 @@
      "a": {
       "n": "Sergio Pettis",
       "rec": "25-8-0",
-      "nat": "USA"
+      "nat": "USA",
+      "wk": "Sergio Pettis"
      },
      "b": {
       "n": "Joji Goto"
@@ -2439,7 +2508,8 @@
      "b": {
       "n": "Movlid Khaybulaev",
       "rec": "24-0-1",
-      "nat": "RUS"
+      "nat": "RUS",
+      "wk": "Movlid Khaybulaev"
      }
     },
     {
@@ -2462,12 +2532,14 @@
      "a": {
       "n": "Khasan Magomedsharipov",
       "rec": "11-0-0",
-      "nat": "RUS"
+      "nat": "RUS",
+      "wk": "Khasan Magomedsharipov"
      },
      "b": {
       "n": "Ádám Borics",
       "rec": "20-4-0",
-      "nat": "HUN"
+      "nat": "HUN",
+      "wk": "Ádám Borics"
      }
     },
     {
@@ -2477,7 +2549,8 @@
      "a": {
       "n": "Denis Goltsov",
       "rec": "37-9-0",
-      "nat": "RUS"
+      "nat": "RUS",
+      "wk": "Denis Goltsov"
      },
      "b": {
       "n": "Maxwell Djantou Nana",
@@ -2492,7 +2565,8 @@
      "a": {
       "n": "Rhys McKee",
       "rec": "15-7-1",
-      "nat": "IRL"
+      "nat": "IRL",
+      "wk": "Rhys McKee"
      },
      "b": {
       "n": "Ernesto Rodriguez",
@@ -2692,12 +2766,14 @@
       "rec": "13-2-0",
       "nat": "FRA",
       "fr": 1,
-      "champ": 1
+      "champ": 1,
+      "wk": "Ciryl Gane"
      },
      "b": {
       "n": "Josh Hokit",
       "rec": "10-0-0",
-      "nat": "USA"
+      "nat": "USA",
+      "wk": "Josh Hokit"
      },
      "title": "Titre Heavyweight"
     },
@@ -2709,12 +2785,14 @@
       "n": "Kayla Harrison",
       "rec": "19-1-0",
       "nat": "USA",
-      "champ": 1
+      "champ": 1,
+      "wk": "Kayla Harrison"
      },
      "b": {
       "n": "Amanda Nunes",
       "rec": "23-5-0",
-      "nat": "BRA"
+      "nat": "BRA",
+      "wk": "Amanda Nunes"
      },
      "title": "Titre Women's Bantamweight"
     },
@@ -2725,12 +2803,14 @@
      "a": {
       "n": "Caio Borralho",
       "rec": "18-2-0",
-      "nat": "BRA"
+      "nat": "BRA",
+      "wk": "Caio Borralho"
      },
      "b": {
       "n": "Yousri Belgaroui",
       "rec": "11-3-0",
-      "nat": "NED"
+      "nat": "NED",
+      "wk": "Yousri Belgaroui"
      }
     },
     {
@@ -2740,12 +2820,14 @@
      "a": {
       "n": "Uroš Medić",
       "rec": "14-3-0",
-      "nat": "SRB"
+      "nat": "SRB",
+      "wk": "Uroš Medić"
      },
      "b": {
       "n": "Kevin Holland",
       "rec": "29-15-0",
-      "nat": "USA"
+      "nat": "USA",
+      "wk": "Kevin Holland"
      }
     },
     {
@@ -2770,7 +2852,8 @@
      "a": {
       "n": "Stephen Thompson",
       "rec": "17-9-1",
-      "nat": "USA"
+      "nat": "USA",
+      "wk": "Stephen Thompson (fighter)"
      },
      "b": {
       "n": "Charles Radtke",
@@ -2785,12 +2868,14 @@
      "a": {
       "n": "Drew Dober",
       "rec": "29-15-0",
-      "nat": "USA"
+      "nat": "USA",
+      "wk": "Drew Dober"
      },
      "b": {
       "n": "Chris Duncan",
       "rec": "15-2-0",
-      "nat": "GBR"
+      "nat": "GBR",
+      "wk": "Chris Duncan (fighter)"
      }
     },
     {
@@ -2800,12 +2885,14 @@
      "a": {
       "n": "Jim Miller",
       "rec": "39-19-0",
-      "nat": "USA"
+      "nat": "USA",
+      "wk": "Jim Miller (fighter)"
      },
      "b": {
       "n": "Terrance McKinney",
       "rec": "18-9-0",
-      "nat": "USA"
+      "nat": "USA",
+      "wk": "Terrance McKinney"
      }
     },
     {
@@ -2820,7 +2907,8 @@
      "b": {
       "n": "César Almeida",
       "rec": "7-3-0",
-      "nat": "BRA"
+      "nat": "BRA",
+      "wk": "César Almeida (fighter)"
      }
     },
     {
@@ -2830,12 +2918,14 @@
      "a": {
       "n": "Jared Gordon",
       "rec": "21-9-0",
-      "nat": "USA"
+      "nat": "USA",
+      "wk": "Jared Gordon"
      },
      "b": {
       "n": "Melquizael Costa",
       "rec": "26-8-0",
-      "nat": "BRA"
+      "nat": "BRA",
+      "wk": "Melquizael Costa"
      }
     },
     {
@@ -2845,12 +2935,14 @@
      "a": {
       "n": "Macy Chiasson",
       "rec": "10-6-0",
-      "nat": "USA"
+      "nat": "USA",
+      "wk": "Macy Chiasson"
      },
      "b": {
       "n": "Beatriz Mesquita",
       "rec": "8-0-0",
-      "nat": "BRA"
+      "nat": "BRA",
+      "wk": "Beatriz Mesquita"
      }
     },
     {
@@ -2981,12 +3073,14 @@
      "a": {
       "n": "Jiří Procházka",
       "rec": "32-6-1",
-      "nat": "CZE"
+      "nat": "CZE",
+      "wk": "Jiří Procházka"
      },
      "b": {
       "n": "Navajo Stirling",
       "rec": "11-0-0",
-      "nat": "NZL"
+      "nat": "NZL",
+      "wk": "Navajo Stirling"
      }
     },
     {
@@ -2996,12 +3090,14 @@
      "a": {
       "n": "Aljamain Sterling",
       "rec": "26-5-0",
-      "nat": "USA"
+      "nat": "USA",
+      "wk": "Aljamain Sterling"
      },
      "b": {
       "n": "Kevin Vallejos",
       "rec": "18-1-0",
-      "nat": "ARG"
+      "nat": "ARG",
+      "wk": "Kevin Vallejos"
      }
     },
     {
@@ -3011,12 +3107,14 @@
      "a": {
       "n": "Dan Hooker",
       "rec": "24-15-0",
-      "nat": "NZL"
+      "nat": "NZL",
+      "wk": "Dan Hooker"
      },
      "b": {
       "n": "Brian Ortega",
       "rec": "16-5-0",
-      "nat": "USA"
+      "nat": "USA",
+      "wk": "Brian Ortega"
      }
     },
     {
@@ -3026,12 +3124,14 @@
      "a": {
       "n": "Kyoji Horiguchi",
       "rec": "36-6-0",
-      "nat": "JPN"
+      "nat": "JPN",
+      "wk": "Kyoji Horiguchi"
      },
      "b": {
       "n": "Asu Almabayev",
       "rec": "24-3-0",
-      "nat": "KAZ"
+      "nat": "KAZ",
+      "wk": "Asu Almabayev"
      }
     },
     {
@@ -3041,12 +3141,14 @@
      "a": {
       "n": "Jared Cannonier",
       "rec": "18-10-0",
-      "nat": "USA"
+      "nat": "USA",
+      "wk": "Jared Cannonier"
      },
      "b": {
       "n": "Ikram Aliskerov",
       "rec": "18-2-0",
-      "nat": "RUS"
+      "nat": "RUS",
+      "wk": "Ikram Aliskerov"
      }
     },
     {
@@ -3056,12 +3158,14 @@
      "a": {
       "n": "Aleksandre Topuria",
       "rec": "7-1-0",
-      "nat": "GEO"
+      "nat": "GEO",
+      "wk": "Aleksandre Topuria"
      },
      "b": {
       "n": "Santiago Luna",
       "rec": "8-1-0",
-      "nat": "MEX"
+      "nat": "MEX",
+      "wk": "Santiago Luna (fighter)"
      }
     },
     {
@@ -3071,12 +3175,14 @@
      "a": {
       "n": "Shamil Gaziev",
       "rec": "15-3-0",
-      "nat": "BHR"
+      "nat": "BHR",
+      "wk": "Shamil Gaziev"
      },
      "b": {
       "n": "Tallison Teixeira",
       "rec": "9-2-0",
-      "nat": "BRA"
+      "nat": "BRA",
+      "wk": "Tallison Teixeira"
      }
     },
     {
@@ -3086,7 +3192,8 @@
      "a": {
       "n": "Amir Albazi",
       "rec": "17-3-0",
-      "nat": "IRQ"
+      "nat": "IRQ",
+      "wk": "Amir Albazi"
      },
      "b": {
       "n": "Alessandro Costa",
@@ -3101,7 +3208,8 @@
      "a": {
       "n": "Jake Matthews",
       "rec": "23-8-0",
-      "nat": "AUS"
+      "nat": "AUS",
+      "wk": "Jake Matthews (fighter)"
      },
      "b": {
       "n": "Tahir Abdullayev",
@@ -3232,12 +3340,14 @@
       "n": "Charles Oliveira",
       "rec": "37-11-0",
       "nat": "BRA",
-      "champ": 1
+      "champ": 1,
+      "wk": "Charles Oliveira"
      },
      "b": {
       "n": "Diego Lopes",
       "rec": "28-8-0",
-      "nat": "BRA"
+      "nat": "BRA",
+      "wk": "Diego Lopes (fighter)"
      },
      "title": "Ceinture BMF"
     },
@@ -3248,12 +3358,14 @@
      "a": {
       "n": "Sergei Pavlovich",
       "rec": "21-3-0",
-      "nat": "RUS"
+      "nat": "RUS",
+      "wk": "Sergei Pavlovich"
      },
      "b": {
       "n": "Alex Pereira",
       "rec": "13-4-0",
-      "nat": "BRA"
+      "nat": "BRA",
+      "wk": "Alex Pereira"
      }
     },
     {
@@ -3263,12 +3375,14 @@
      "a": {
       "n": "Brandon Moreno",
       "rec": "24-10-2",
-      "nat": "MEX"
+      "nat": "MEX",
+      "wk": "Brandon Moreno"
      },
      "b": {
       "n": "Charles Johnson",
       "rec": "20-9-0",
-      "nat": "USA"
+      "nat": "USA",
+      "wk": "Charles Johnson (fighter)"
      }
     },
     {
@@ -3281,7 +3395,8 @@
      "b": {
       "n": "Junior Tafa",
       "rec": "7-6-0",
-      "nat": "AUS"
+      "nat": "AUS",
+      "wk": "Junior Tafa"
      }
     }
    ],
@@ -3321,7 +3436,8 @@
       "n": "Taylor Lapilus",
       "rec": "25-4-0",
       "nat": "FRA",
-      "fr": 1
+      "fr": 1,
+      "wk": "Taylor Lapilus"
      },
      "b": {
       "n": "Mitchell McKee",
@@ -3337,7 +3453,8 @@
      "a": {
       "n": "Bryan Battle",
       "rec": "13-3-0",
-      "nat": "USA"
+      "nat": "USA",
+      "wk": "Bryan Battle"
      },
      "b": {
       "n": "Boris Mbarga Atangana",
@@ -3366,7 +3483,8 @@
      "a": {
       "n": "Fabian Edwards",
       "rec": "16-5-0",
-      "nat": "GBR"
+      "nat": "GBR",
+      "wk": "Fabian Edwards"
      },
      "b": {
       "n": "Ilian Bouafia",
@@ -3429,7 +3547,8 @@
      "b": {
       "n": "Bryce Meredith",
       "rec": "8-1-0",
-      "nat": "USA"
+      "nat": "USA",
+      "wk": "Bryce Meredith"
      }
     },
     {
@@ -3453,7 +3572,8 @@
      "a": {
       "n": "Jan Ciepłowski",
       "rec": "11-1-0",
-      "nat": "POL"
+      "nat": "POL",
+      "wk": "Jan Ciepłowski"
      },
      "b": {
       "n": "Mauricio Partida"
@@ -3496,12 +3616,14 @@
       "n": "Joshua Van",
       "rec": "18-2-0",
       "nat": "MYA",
-      "champ": 1
+      "champ": 1,
+      "wk": "Joshua Van"
      },
      "b": {
       "n": "Manel Kape",
       "rec": "23-7-0",
-      "nat": "ANG"
+      "nat": "ANG",
+      "wk": "Manel Kape"
      },
      "title": "Titre Flyweight"
     },
@@ -3512,12 +3634,14 @@
      "a": {
       "n": "Carlos Prates",
       "rec": "24-7-0",
-      "nat": "BRA"
+      "nat": "BRA",
+      "wk": "Carlos Prates"
      },
      "b": {
       "n": "Michael Morales",
       "rec": "19-0-0",
-      "nat": "ECU"
+      "nat": "ECU",
+      "wk": "Michael Morales (fighter)"
      }
     }
    ],
@@ -3557,13 +3681,15 @@
      "a": {
       "n": "Quillan Salkilld",
       "rec": "13-1-0",
-      "nat": "AUS"
+      "nat": "AUS",
+      "wk": "Quillan Salkilld"
      },
      "b": {
       "n": "Benoît Saint Denis",
       "rec": "17-4-0",
       "nat": "FRA",
-      "fr": 1
+      "fr": 1,
+      "wk": "Benoît Saint Denis"
      }
     },
     {
@@ -3573,12 +3699,14 @@
      "a": {
       "n": "Bogdan Guskov",
       "rec": "18-4-1",
-      "nat": "UZB"
+      "nat": "UZB",
+      "wk": "Bogdan Guskov"
      },
      "b": {
       "n": "Robert Whittaker",
       "rec": "27-9-0",
-      "nat": "AUS"
+      "nat": "AUS",
+      "wk": "Robert Whittaker (fighter)"
      }
     },
     {
@@ -3608,7 +3736,8 @@
      "b": {
       "n": "Joanderson Brito",
       "rec": "20-5-1",
-      "nat": "BRA"
+      "nat": "BRA",
+      "wk": "Joanderson Brito"
      }
     }
    ],

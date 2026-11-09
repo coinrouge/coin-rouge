@@ -267,6 +267,7 @@ for (const e of list) {
     if (r?.nat) o.nat = r.nat;
     if (r?.nat === "FRA") o.fr = 1;
     if (x.champ) o.champ = 1;
+    if (x.wk) o.wk = x.wk;
     return o;
   };
   const fights = p.fights.map((f) => {

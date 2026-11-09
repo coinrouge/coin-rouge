@@ -180,6 +180,10 @@ async function eventPage(name) {
       if (c.length < 4 || c[0] === "Weight class" || !/^(vs\.|def\.)/.test(c[2] || "")) return;
       const side = (s) => { const champ = /\((c|ic)\)/.test(s); return { n: s.replace(/\s*\((c|ic)\)/g, "").trim(), champ }; };
       const a = side(c[1]), b = side(c[3]);
+      /* Page Wikipédia du combattant (lien bleu dans la carte) : sert de lien de secours sans fiche Tapology */
+      const tds = $(tr).find("td,th");
+      const wk = (i) => { const h = $(tds[i]).find('a[href^="/wiki/"]').first().attr("href") || ""; return h && !/redlink|:/.test(h.slice(6)) ? decodeURIComponent(h.slice(6)) : ""; };
+      if (wk(1)) a.wk = wk(1); if (wk(3)) b.wk = wk(3);
       const wRaw = c[0].replace(/\s*\(.*\)/, "").trim();
       const f = { s: seg, w: WEIGHT[wRaw] || c[0], a, b };
       f.wn = wRaw;
@@ -324,6 +328,7 @@ for (const year of [2026, 2027]) {
           a: { n: c[1].replace(/\s*\(c\)/, "") }, b: { n: c[3].replace(/\s*\(c\)/, "") } };
         if (/\(c\)/.test(c[1])) f.a.champ = 1;
         if (/\(c\)/.test(c[3])) f.b.champ = 1;
+        { const tds = $(tr).find("td,th"); for (const [i, x] of [[1, f.a], [3, f.b]]) { const h = $(tds[i]).find('a[href^="/wiki/"]').first().attr("href") || ""; if (h && !/redlink|:/.test(h.slice(6))) x.wk = decodeURIComponent(h.slice(6)); } }
         if (/^def\./.test(c[2]) && c[4]) { const me = (BXM.find(([re]) => re.test(c[4])) || [0, c[4]])[1]; f.res = { w: me === "Match nul" ? "draw" : me === "No contest" ? "nc" : "a", method: me, round: +((c[5] || "").match(/^(\d+)/) || [0, 0])[1], time: c[6] || "" }; }
         if (f.a.n === "TBA" || f.b.n === "TBA") return;
         fights.push(f);

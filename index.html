@@ -1072,7 +1072,10 @@ h2.h::before,h2.h::after{background:rgba(255,255,255,.22)!important}
   .mdr-body{flex:1;overflow-y:auto;padding:14px 16px 30px;display:flex;flex-direction:column;gap:16px;overscroll-behavior:contain}
   .mdr-body .mtools{display:flex!important;flex-direction:column;align-items:stretch;gap:10px}
   .mdr-body .mtools .search{max-width:none;flex:none;height:44px}
-  .mdr-body .mtools .gearwrap{align-self:flex-start}
+  .mdr-body .mtools .gearwrap{display:none!important}
+  .mdr-body .findbox{margin:0}
+  .mdr-body>*{flex:none!important}
+  .mdr-body .mtools>*{flex:none!important}
   .mdr-body .side{display:flex!important;flex-direction:column;gap:14px;position:static!important}
   .mdr-body .agenda{display:block;margin:0!important}
   .mdr-body .jumpnav{display:flex;flex-direction:column}
@@ -1657,7 +1660,9 @@ const MQM=matchMedia("(max-width:640px)"); const isMob=()=>MQM.matches;
 MQM.addEventListener&&MQM.addEventListener("change",()=>render());
 document.addEventListener("click",e=>{if(e.target.closest("#allpast")){showAllPast=!showAllPast;render();} if(e.target.closest("#allradar")){showAllRadar=!showAllRadar;radar();}});
 /* Raccourcis de la colonne de gauche : défilement vers une section */
-document.addEventListener("click",e=>{const b=e.target.closest(".jumpnav [data-jump]");if(!b)return;const el=document.getElementById(b.dataset.jump);if(el&&!el.hidden)el.scrollIntoView({behavior:"smooth",block:"start"});});
+document.addEventListener("click",e=>{const b=e.target.closest(".jumpnav [data-jump]");if(!b)return;const el=document.getElementById(b.dataset.jump);if(!el||el.hidden)return;
+  /* Depuis le menu mobile : on referme d'abord le menu (la page est bloquée tant qu'il est ouvert), puis on descend */
+  const dr=b.closest(".mdrawer");if(dr){dr.classList.remove("open");document.documentElement.style.overflow="";setTimeout(()=>el.scrollIntoView({behavior:"smooth",block:"start"}),300);}else el.scrollIntoView({behavior:"smooth",block:"start"});});
 document.addEventListener("click",e=>{if(e.target.closest("#allothers")){showAllOthers=!showAllOthers;render();}});
 function syncSpoilBtn(){const b=document.getElementById("spoilh");if(!b)return;b.setAttribute("aria-pressed",SPOIL);b.querySelector("span").textContent=SPOIL?"Spoil":"No spoil";}
 function render(){
@@ -2438,11 +2443,11 @@ fetch("data/events.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=
 /* Téléphone : menu latéral à gauche (recherche, filtres, Sport, raccourcis, calendrier), favoris dans un panneau à droite ; No spoil reste dans l'en-tête */
 (function(){
   const mq=matchMedia("(max-width:640px)");
-  const mast=document.querySelector(".mast"), mtools=document.querySelector(".mtools"), side=document.querySelector(".layout>.side"), fav=document.getElementById("rside");
+  const mast=document.querySelector(".mast"), mtools=document.querySelector(".mtools"), side=document.querySelector(".layout>.side"), fav=document.getElementById("rside"), find=document.getElementById("find");
   if(!mast||!mtools||!side) return;
   const spoil=side.querySelector(".spoilbtn");
   const home=el=>el?[el.parentNode,el.nextSibling]:null;
-  const H={mt:home(mtools),side:home(side),sp:home(spoil),fav:home(fav)};
+  const H={fd:home(find),mt:home(mtools),side:home(side),sp:home(spoil),fav:home(fav)};
   const mk=(id,title,right)=>{const d=document.createElement("div");d.className="mdrawer"+(right?" right":"");d.id=id;
     d.innerHTML='<div class="mdr-panel" role="dialog" aria-modal="true" aria-label="'+title+'"><div class="mdr-h"><span>'+title+'</span><button type="button" class="mdr-x" aria-label="Fermer">✕</button></div><div class="mdr-body"></div></div>';document.body.appendChild(d);return d;};
   const L=mk("mdrawer","Menu",0), Rt=mk("mfavdrawer","Mes favoris",1);
@@ -2455,7 +2460,7 @@ fetch("data/events.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=
   burger.addEventListener("click",()=>open(L)); favb.addEventListener("click",()=>open(Rt));
   [L,Rt].forEach(d=>{const p=d.querySelector(".mdr-panel");d.querySelector(".mdr-x").addEventListener("click",closeAll);
     d.addEventListener("click",e=>{if(!p.contains(e.target))closeAll();
-      if(e.target.closest("[data-jump],.agenda a,.agenda li,.allag,.seg button,.sportnav button,.favrow a"))setTimeout(closeAll,120);});});
+      if(e.target.closest(".agenda a,.agenda li,.allag,.seg button,.sportnav button,.favrow a,#find a"))setTimeout(closeAll,120);});});
   document.addEventListener("keydown",e=>{if(e.key==="Escape")closeAll();});
   /* Glisser : bord gauche → menu, bord droit → favoris ; glisser vers l'extérieur pour refermer */
   let sx=null,sy=0,mode=0;
@@ -2467,9 +2472,9 @@ fetch("data/events.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=
   const badge=()=>{try{const n=(JSON.parse(localStorage.getItem("coinrouge-favs")||"[]")||[]).length;const b=favb.querySelector("b");b.hidden=!n;b.textContent=n;}catch(_){}};
   function apply(){
     const lb=L.querySelector(".mdr-body"), rb=Rt.querySelector(".mdr-body");
-    if(mq.matches){ lb.append(mtools,side); if(fav) rb.append(fav); if(spoil) top.append(spoil); top.append(favb); mast.prepend(burger); mast.append(top); badge(); }
+    if(mq.matches){ lb.append(mtools); if(find) lb.append(find); lb.append(side); if(fav) rb.append(fav); if(spoil) top.append(spoil); top.append(favb); mast.prepend(burger); mast.append(top); badge(); }
     else { closeAll(); const put=(el,h)=>{if(el&&h)h[0].insertBefore(el,h[1]&&h[1].parentNode===h[0]?h[1]:null);};
-      put(mtools,H.mt); put(side,H.side); put(spoil,H.sp); put(fav,H.fav); burger.remove(); top.remove(); }
+      put(mtools,H.mt); put(find,H.fd); put(side,H.side); put(spoil,H.sp); put(fav,H.fav); burger.remove(); top.remove(); }
   }
   apply(); mq.addEventListener&&mq.addEventListener("change",apply);
   document.addEventListener("click",e=>{if(e.target.closest(".favbtn"))setTimeout(badge,50);});

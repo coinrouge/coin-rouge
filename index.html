@@ -934,7 +934,9 @@ html:root[data-theme="dark"]{--fr-t:rgba(84,20,28,.9);--fav-t:rgba(200,30,110,.4
 /* Francophones : le fond derrière est désaturé, le rouge reste rouge */
 /* Bandeau des pages de soirée : teinte translucide sans flou (le flou faisait ramer le défilement) */
 .dbar{background:linear-gradient(rgba(14,15,22,.9),rgba(14,15,22,.78))!important}
-.dbar .spoilbtn{box-shadow:none;margin-right:2px}
+.dbar .spoilbtn{box-shadow:none}
+/* Le bandeau dépasse un peu des boutons de chaque côté, pour qu'ils ne touchent pas son bord */
+.dbar{padding-left:14px!important;padding-right:14px!important;margin-left:-14px;margin-right:-14px;border-radius:0 0 10px 10px}
 /* Favori : le fond rose reste même quand le combat est terminé */
 .bouts .bout.isdone.favf{--fav-t:rgba(200,30,110,.42);border-bottom-color:transparent;border-radius:5px;margin-block:10px}
 /* Titres de section : rouge du logo */

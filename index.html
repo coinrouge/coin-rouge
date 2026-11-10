@@ -719,11 +719,13 @@ h2.h::after{content:"";flex:1;height:1px;background:var(--line)}
 /* Place réservée en bas de chaque combat pour « Combat x/N », quel que soit l'encart */
 @media (min-width:561px){.bouts .bout:has(.cnum){padding-bottom:30px!important}}
 /* Transition de page : la carte complète glisse depuis la droite */
-.detail{transform:translateX(0);transition:transform .34s cubic-bezier(.22,.8,.24,1),opacity .34s ease;will-change:transform}
+.detail{transform:translate3d(0,0,0);transition:transform .34s cubic-bezier(.22,.8,.24,1);will-change:transform}
+/* Combats loin dans la page : calculés seulement quand on s'en approche (ouverture plus rapide) */
+.detail .seg~.seg .bout{content-visibility:auto;contain-intrinsic-size:auto 150px}
 /* Pendant le glissement : pas de flou ni d'effets coûteux, pour une animation fluide */
 .detail.sliding .dbar{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
 .detail.sliding .sonar{display:none}
-.detail.off{transform:translateX(100%);opacity:.6}
+.detail.off{transform:translate3d(100%,0,0)}
 @media (prefers-reduced-motion:reduce){.detail{transition:none}}
 /* Roue de réglages */
 .gearwrap{position:relative}
@@ -963,6 +965,8 @@ h2.h::before{content:"";flex:1;height:1px;background:var(--line)}
 h2.h{font-family:"Vincendo",Impact,sans-serif;font-style:italic;font-weight:400;letter-spacing:.02em}
 /* Sections (Soirées suivantes, Radar, Résultats, Favoris) posées sur un panneau sombre */
 h2.h::before,h2.h::after{background:rgba(255,255,255,.22)!important}
+/* Colonne de droite : sans ombre extérieure (elle était coupée par la colonne et laissait un petit triangle dans l'angle) */
+#rside #favsec{box-shadow:inset 0 1px 0 rgba(255,255,255,.08)!important}
 #nextsec,#radarsec,#pastsec,#favsec{background:rgba(14,15,21,.51);border:1px solid rgba(255,255,255,.11);border-radius:16px;padding:14px 18px 18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 10px 30px rgba(0,0,0,.3)}
 
 /* ===================== VERSION MOBILE (écrans de 640 px et moins) ===================== */
@@ -1039,7 +1043,7 @@ h2.h::before,h2.h::after{background:rgba(255,255,255,.22)!important}
   html body .duel .f.b .fx{flex-direction:row-reverse!important;justify-content:flex-start}
   html body .duel .f.b .txt,html body .duel .f.b .nmrow{text-align:right;align-items:flex-end}
   html body .duel .av{width:26px!important;height:26px!important;flex:0 0 26px;border-width:1.5px!important}
-  html body .duel .fn{font-size:11px!important;display:block;line-height:1.2}
+  html body .duel .fn{font-size:11px!important;display:block!important;line-height:1.2}
   html body .duel .nm{font-size:clamp(14px,4.3vw,17px)!important;line-height:1.1;overflow-wrap:normal;word-break:normal}
   html body .duel .nm .fra{transform:scale(.8)}
   html body .duel .rec{font-size:9px;gap:2px;flex-wrap:nowrap;white-space:nowrap}
@@ -1943,6 +1947,8 @@ function renderDetail(t){
       window.__frPause=performance.now()+450; clearTimeout(d._sl); d.classList.add("sliding","off");
       const done=()=>{if(!d.classList.contains("off"))return;d.hidden=true;d.innerHTML="";d.classList.remove("off","sliding");d.parentElement.classList.remove("indet");document.documentElement.style.overflow="";};
       reduce?done():setTimeout(done,340);
+      /* Le lien « Retour » (#) fait remonter la page : on revient là où on était */
+      if(d._sy!=null){const y=d._sy;d._sy=null;window.scrollTo(0,y);}
     }
     return;
   }
@@ -1954,6 +1960,7 @@ function renderDetail(t){
   d.dataset.prev=d.dataset.view;
   if(opening){
     /* Arrivée depuis la droite */
+    d._sy=window.scrollY;
     if(d.hidden){d.classList.add("off");d.hidden=false;}
     fitNames(); alignVS();               /* mise en page faite avant le glissement, pas pendant */
     window.__frPause=performance.now()+450; d.classList.add("sliding"); d.parentElement.classList.add("indet"); void d.offsetWidth;
@@ -1989,6 +1996,7 @@ document.addEventListener("click",e=>{if(!e.target.closest(".homelink"))return;e
   document.getElementById("sportmenu").hidden=true; document.getElementById("sportbtn").setAttribute("aria-expanded","false");
   const gm=document.getElementById("gearmenu"); if(gm){gm.hidden=true;document.getElementById("gear").setAttribute("aria-expanded","false");}
   document.querySelectorAll("details.ev[open]").forEach(d=>d.open=false);
+  const dd=document.getElementById("detail"); if(dd) dd._sy=null;
   renderDetail(now()); render(); window.scrollTo({top:0,behavior:"smooth"});
 });
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!document.getElementById("detail").hidden){location.hash="";}});
@@ -2371,6 +2379,8 @@ fetch("data/events.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=
   function frame(ts) {
     /* Pendant le glissement d'une page de soirée, le logo fait une courte pause (le navigateur se consacre à l'animation) */
     if (window.__frPause && ts < window.__frPause) { if (t0 !== null) t0 += 16.7; requestAnimationFrame(frame); return; }
+    /* Page de soirée ouverte : le grand logo est caché, on ne calcule le petit qu'une image sur deux */
+    if (document.querySelector('.wrap.indet')) { frame._k = (frame._k || 0) + 1; if (frame._k % 2) { requestAnimationFrame(frame); return; } }
     if (t0 === null) t0 = ts;
     const t = (ts - t0) / 1000;
     const angle = START_ANGLE + (t / SWEEP_PERIOD) * TAU;

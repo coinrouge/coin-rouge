@@ -900,6 +900,8 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .rcard.rstar{border-color:color-mix(in srgb,var(--gold) 60%,transparent)}
 .rcard.rfav{border-color:color-mix(in srgb,var(--fav) 65%,transparent)}
 /* Calendrier « À venir » : fond plein, pas d'effet */
+/* Colonne de gauche plus haute que l'écran : elle défile toute seule, pour que la fin du calendrier reste atteignable */
+@media (min-width:861px){.side{max-height:calc(100vh - 32px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.18) transparent;padding-right:4px}}
 .agenda{background:rgba(15,17,21,.65);border-radius:10px;padding:6px 8px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
 
 /* Soirées : couleur de base de chaque organisation, en verre */

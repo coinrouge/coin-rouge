@@ -997,6 +997,12 @@ h2.h::before,h2.h::after{background:rgba(255,255,255,.22)!important}
   html body .pduel .pside.blue{grid-area:b}
   html body .pduel .pmid{grid-area:m}
   html body .pside{padding-top:0}
+  html body .pside b{font-size:clamp(30px,11.5vw,56px)}
+  html body .pside small{font-size:12px!important}
+  html body .pside em{font-size:16px!important}
+  html body .eyebrow{flex-wrap:nowrap!important;gap:6px!important;font-size:10px!important;letter-spacing:.06em!important;white-space:nowrap}
+  html body .eyebrow .pill,html body .eyebrow .evb{padding:3px 7px!important;font-size:10px!important}
+  html body .eyebrow .htitle{font-size:9.5px!important;margin:0!important;min-width:0;overflow:hidden;text-overflow:ellipsis;display:block}
   html body .pside small{font-size:10px;white-space:nowrap;display:flex;align-items:center;gap:5px;flex-wrap:nowrap}
   html body .pside.blue small{justify-content:flex-end}
   html body .pside .pchamp{font-size:9px}
@@ -1073,6 +1079,7 @@ h2.h::before,h2.h::after{background:rgba(255,255,255,.22)!important}
 }
 /* Très petits écrans (iPhone SE…) : affiches sans pastille drapeau, noms un peu plus petits */
 @media (max-width:370px){html body .duel .av{display:none!important}html body .duel .nm{font-size:13px!important}html body .duel .mid{max-width:70px!important}}
+@media (max-width:640px){html body .dbar .spoilbtn,html body .dbar .dback{white-space:nowrap;font-size:11px;padding:0 10px}html body .dbar{gap:8px}}
 /* Menu latéral (téléphone) */
 .mdrawer{display:none}
 @media (max-width:640px){

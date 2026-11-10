@@ -977,6 +977,13 @@ h2.h::before,h2.h::after{background:rgba(255,255,255,.22)!important}
   html body .mast{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:nowrap}
   html body .mast .clock{font-size:11px}
   .mtopbtns{display:flex;align-items:center;gap:8px}
+  html body .mast .brandcol{order:2;flex:1;min-width:0}
+  html body .mast>.mburger{order:1}
+  html body .mast>.mtopbtns{order:3}
+  html body .mast .frlogo.frc{width:150px!important}
+  .mfavbtn{width:42px;height:40px;border-radius:10px;border:1px solid color-mix(in srgb,var(--fav) 55%,transparent);background:rgba(14,15,21,.6);color:var(--fav);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;position:relative}
+  .mfavbtn svg{width:18px;height:18px}
+  .mfavbtn b{position:absolute;top:-6px;right:-6px;min-width:17px;height:17px;border-radius:9px;background:var(--fav);color:#fff;font-size:10px;line-height:17px;text-align:center;padding:0 4px}
   .mtopbtns .spoilbtn{width:auto;margin:0;padding:0 12px;height:40px;font-size:12px}
   .mburger{width:44px;height:40px;border-radius:10px;border:1px solid rgba(255,255,255,.18);background:rgba(14,15,21,.6);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;padding:0}
   .mburger span{display:block;width:18px;height:2px;border-radius:2px;background:var(--ink)}
@@ -994,11 +1001,15 @@ h2.h::before,h2.h::after{background:rgba(255,255,255,.22)!important}
   html body .pside .pchamp{font-size:9px}
   html body .pside em{font-size:14px;line-height:1.2}
   /* Horaires : Early et Prélims côte à côte, Main card centrée en dessous, heure locale sur une ligne */
-  html body .sched{grid-template-columns:1fr 1fr!important}
+  html body .sched{display:flex!important;flex-wrap:wrap!important}
+  html body .sched>div{flex:1 1 40%!important}
+  html body .sched>.s-main,html body .sched>.s-loc{flex:1 1 100%!important;border-top:1px solid var(--line)!important}
   html body .sched>div{border-left:0!important;padding:10px 12px!important;min-width:0}
   html body .sched .s-main{grid-column:1/-1;text-align:center;display:flex;flex-direction:column;align-items:center}
   html body .sched .s-loc{grid-column:1/-1;display:flex!important;flex-wrap:wrap;justify-content:center;gap:4px 12px;text-align:center}
   html body .sched .s-loc small{flex-basis:100%}
+  html body .sched .s-loc{flex-direction:row!important;align-items:baseline!important;justify-content:center!important}
+  html body .sched .s-loc>span{flex:0 0 auto!important;padding:0!important;border:0!important;margin:0!important;text-align:center!important;display:inline!important}
   /* Combats : même affiche horizontale que sur ordinateur, en plus compact */
   html body .bout{grid-template-columns:1fr!important;padding:10px 8px!important;gap:4px!important}
   html body .bout .time.tc{display:flex;justify-content:center;align-items:baseline;gap:8px;text-align:center;width:auto;order:-1}
@@ -1031,24 +1042,26 @@ h2.h::before,h2.h::after{background:rgba(255,255,255,.22)!important}
   html body details.ev summary>div{min-width:0}
   html body .sum-t{flex-wrap:wrap;overflow-wrap:anywhere}
   /* Radar : grille de 3 × 3 petits carrés */
-  html body .radar{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:7px!important}
+  html body .radar{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}
   html body .radar .rcard{aspect-ratio:1/1;padding:8px 7px!important;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;min-width:0}
-  html body .radar .rcard .st{font-size:8px;line-height:1.3;letter-spacing:.04em;display:block}
+  html body .radar .rcard{aspect-ratio:auto!important;min-height:132px}
+  html body .radar .rcard .st{font-size:9px;line-height:1.3;letter-spacing:.04em;display:block}
   html body .radar .rcard .nm{font-size:13px!important;line-height:1.1;overflow-wrap:anywhere;display:block}
-  html body .radar .rcard .nm{font-size:12px!important}
-  html body .radar .rcard p{font-size:8.5px;line-height:1.3;margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  html body .radar .rcard .nm{font-size:15px!important}
+  html body .radar .rcard p{font-size:8.5px;line-height:1.3;margin:0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
   html body .radar .rcard .rt{font-size:9px}
   html body .radar .rall{grid-column:1/-1}
   /* Favoris : défilement horizontal (glisser de droite à gauche) */
-  html body #favs:has(.favrow){display:flex!important;flex-direction:row!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;padding-bottom:8px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
-  html body #favs>.favrow{flex:0 0 80%;scroll-snap-align:start;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:10px 12px;margin:0}
-  html body #favs>:not(.favrow){flex:0 0 80%}
+  .mdr-body .rside{position:static!important;max-height:none!important;overflow:visible!important;display:block!important}
+  .mdr-body #favsec{background:none!important;border:0!important;box-shadow:none!important;padding:0!important}
+  .mdr-body #favsec h2.h{display:none}
 }
 /* Menu latéral (téléphone) */
 .mdrawer{display:none}
 @media (max-width:640px){
   .mdrawer{display:block;position:fixed;inset:0;z-index:60;pointer-events:none}
   .mdrawer::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.55);opacity:0;transition:opacity .25s ease}
+  .mdrawer.right .mdr-panel{left:auto;right:0;border-right:0;border-left:1px solid rgba(255,255,255,.1);transform:translateX(102%)}
   .mdr-panel{position:absolute;top:0;bottom:0;left:0;width:min(86vw,340px);background:#0E0F15;border-right:1px solid rgba(255,255,255,.1);box-shadow:20px 0 40px rgba(0,0,0,.4);transform:translateX(-102%);transition:transform .28s cubic-bezier(.22,.8,.24,1);display:flex;flex-direction:column}
   .mdrawer.open{pointer-events:auto}
   .mdrawer.open::before{opacity:1}
@@ -1953,9 +1966,9 @@ function radar(){
     markFranco(p); if(!p.fr||seen.has(p.n)) return;
     seen.add(p.n); out.push({p,o,e,f,main:f===e.fights[0]});
   })));
-  const outAll=out.length; if(isMob()&&!showAllRadar) out.splice(9);
+  const outAll=out.length; if(isMob()&&!showAllRadar) out.splice(4);
   document.getElementById("radar").innerHTML=out.map(({p,o,e,f,main})=>`<a class="rcard ${evCls(e)}${isNum(e)?" rstar":isFav(p.n)||isFav(o.n)?" rfav":p.star||o.star?" rstar":""}" href="#ev-${e.id}"><span class="st">${esc(e.name)} · ${fmtDS(e.start).replace(/(\S+)$/,'<span class="sd">$1</span>')}</span><span class="nm">${esc(p.n)}${flag(p)}${p.star?'<span class="star">★</span>':""}${isFav(p.n)?`<span class="rfh" title="Favori" aria-label="Favori">${HEART}</span>`:""}</span><p>Contre ${esc(o.n)}${f.title?` · <b class="rt">${esc(f.title)}</b>`:""}${main?" · combat principal":""} · ${t>=f.est?"en cours":`${f.known&&!e.tbc?"":"vers "}${fmtT(f.est)}`}</p></a>`).join("")||`<div class="empty">Aucun francophone programmé pour l'instant.</div>`;
-  if(isMob()&&outAll>9) document.getElementById("radar").insertAdjacentHTML("beforeend",`<button type="button" class="allbtn rall" id="allradar" aria-expanded="${showAllRadar}">${showAllRadar?"Moins de francophones ▴":`Tout le radar · ${outAll-9} de plus ▾`}</button>`);
+  if(isMob()&&outAll>4) document.getElementById("radar").insertAdjacentHTML("beforeend",`<button type="button" class="allbtn rall" id="allradar" aria-expanded="${showAllRadar}">${showAllRadar?"Moins de francophones ▴":`Tout le radar · ${outAll-4} de plus ▾`}</button>`);
 }
 
 document.getElementById("q").addEventListener("input",e=>{query=norm(e.target.value.trim());render();});
@@ -2421,37 +2434,44 @@ fetch("data/events.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=
 })();
 </script>
 <script>
-/* Téléphone : menu latéral (recherche, filtres, Sport, raccourcis, calendrier) ; No spoil reste dans l'en-tête */
+/* Téléphone : menu latéral à gauche (recherche, filtres, Sport, raccourcis, calendrier), favoris dans un panneau à droite ; No spoil reste dans l'en-tête */
 (function(){
   const mq=matchMedia("(max-width:640px)");
-  const mast=document.querySelector(".mast"), mtools=document.querySelector(".mtools"), side=document.querySelector(".layout>.side");
+  const mast=document.querySelector(".mast"), mtools=document.querySelector(".mtools"), side=document.querySelector(".layout>.side"), fav=document.getElementById("rside");
   if(!mast||!mtools||!side) return;
   const spoil=side.querySelector(".spoilbtn");
-  const mtHome=[mtools.parentNode,mtools.nextSibling], sideHome=[side.parentNode,side.nextSibling], spHome=spoil?[spoil.parentNode,spoil.nextSibling]:null;
-  const dr=document.createElement("div"); dr.className="mdrawer"; dr.id="mdrawer";
-  dr.innerHTML='<div class="mdr-panel" role="dialog" aria-modal="true" aria-label="Menu"><div class="mdr-h"><span>Menu</span><button type="button" class="mdr-x" aria-label="Fermer le menu">✕</button></div><div class="mdr-body"></div></div>';
-  document.body.appendChild(dr);
-  const body=dr.querySelector(".mdr-body"), panel=dr.querySelector(".mdr-panel");
+  const home=el=>el?[el.parentNode,el.nextSibling]:null;
+  const H={mt:home(mtools),side:home(side),sp:home(spoil),fav:home(fav)};
+  const mk=(id,title,right)=>{const d=document.createElement("div");d.className="mdrawer"+(right?" right":"");d.id=id;
+    d.innerHTML='<div class="mdr-panel" role="dialog" aria-modal="true" aria-label="'+title+'"><div class="mdr-h"><span>'+title+'</span><button type="button" class="mdr-x" aria-label="Fermer">✕</button></div><div class="mdr-body"></div></div>';document.body.appendChild(d);return d;};
+  const L=mk("mdrawer","Menu",0), Rt=mk("mfavdrawer","Mes favoris",1);
+  const burger=document.createElement("button"); burger.type="button"; burger.className="mburger"; burger.setAttribute("aria-label","Ouvrir le menu"); burger.innerHTML="<span></span><span></span><span></span>";
+  const favb=document.createElement("button"); favb.type="button"; favb.className="mfavbtn"; favb.setAttribute("aria-label","Mes favoris"); favb.innerHTML=(typeof HEART!=="undefined"?HEART:"♥")+"<b hidden></b>";
   const top=document.createElement("div"); top.className="mtopbtns";
-  const burger=document.createElement("button"); burger.type="button"; burger.className="mburger"; burger.setAttribute("aria-label","Ouvrir le menu"); burger.setAttribute("aria-controls","mdrawer"); burger.setAttribute("aria-expanded","false"); burger.innerHTML="<span></span><span></span><span></span>";
-  const open=()=>{dr.classList.add("open");burger.setAttribute("aria-expanded","true");document.documentElement.style.overflow="hidden";};
-  const close=()=>{if(!dr.classList.contains("open"))return;dr.classList.remove("open");burger.setAttribute("aria-expanded","false");if(document.getElementById("detail").hidden)document.documentElement.style.overflow="";};
-  burger.addEventListener("click",open);
-  dr.querySelector(".mdr-x").addEventListener("click",close);
-  dr.addEventListener("click",e=>{ if(!panel.contains(e.target)) close();
-    /* Un choix qui mène ailleurs (raccourci, soirée, calendrier) referme le menu */
-    if(e.target.closest("[data-jump],.agenda a,.agenda li,#agendabtn,.allag,.seg button,.sportnav button")) setTimeout(close,120); });
-  document.addEventListener("keydown",e=>{if(e.key==="Escape")close();});
-  /* Glisser : depuis le bord gauche pour ouvrir, vers la gauche pour fermer */
-  let sx=null,sy=0,from=0;
-  document.addEventListener("touchstart",e=>{if(!mq.matches)return;const t=e.touches[0];sx=t.clientX;sy=t.clientY;from=dr.classList.contains("open")?1:(t.clientX<22?2:0);},{passive:true});
-  document.addEventListener("touchend",e=>{if(sx===null||!from){sx=null;return;}const t=e.changedTouches[0],dx=t.clientX-sx,dy=Math.abs(t.clientY-sy);
-    if(dy<60){ if(from===2&&dx>50) open(); if(from===1&&dx<-50) close(); } sx=null;},{passive:true});
+  const isOpen=()=>L.classList.contains("open")||Rt.classList.contains("open");
+  const open=d=>{closeAll();d.classList.add("open");document.documentElement.style.overflow="hidden";};
+  function closeAll(){[L,Rt].forEach(d=>d.classList.remove("open"));const det=document.getElementById("detail");if(!det||det.hidden)document.documentElement.style.overflow="";}
+  burger.addEventListener("click",()=>open(L)); favb.addEventListener("click",()=>open(Rt));
+  [L,Rt].forEach(d=>{const p=d.querySelector(".mdr-panel");d.querySelector(".mdr-x").addEventListener("click",closeAll);
+    d.addEventListener("click",e=>{if(!p.contains(e.target))closeAll();
+      if(e.target.closest("[data-jump],.agenda a,.agenda li,.allag,.seg button,.sportnav button,.favrow a"))setTimeout(closeAll,120);});});
+  document.addEventListener("keydown",e=>{if(e.key==="Escape")closeAll();});
+  /* Glisser : bord gauche → menu, bord droit → favoris ; glisser vers l'extérieur pour refermer */
+  let sx=null,sy=0,mode=0;
+  document.addEventListener("touchstart",e=>{if(!mq.matches)return;const t=e.touches[0];sx=t.clientX;sy=t.clientY;
+    mode=L.classList.contains("open")?1:Rt.classList.contains("open")?2:t.clientX<22?3:t.clientX>innerWidth-22?4:0;},{passive:true});
+  document.addEventListener("touchend",e=>{if(sx===null||!mode){sx=null;return;}const t=e.changedTouches[0],dx=t.clientX-sx;
+    if(Math.abs(t.clientY-sy)<60){if(mode===3&&dx>50)open(L);if(mode===4&&dx<-50)open(Rt);if(mode===1&&dx<-50)closeAll();if(mode===2&&dx>50)closeAll();}sx=null;},{passive:true});
+  /* Pastille : nombre de favoris */
+  const badge=()=>{try{const n=(JSON.parse(localStorage.getItem("coinrouge-favs")||"[]")||[]).length;const b=favb.querySelector("b");b.hidden=!n;b.textContent=n;}catch(_){}};
   function apply(){
-    if(mq.matches){ body.append(mtools,side); if(spoil) top.append(spoil); top.append(burger); mast.append(top); }
-    else { close(); mtHome[0].insertBefore(mtools,mtHome[1]); sideHome[0].insertBefore(side,sideHome[1]); if(spoil) spHome[0].insertBefore(spoil,spHome[1]); top.remove(); }
+    const lb=L.querySelector(".mdr-body"), rb=Rt.querySelector(".mdr-body");
+    if(mq.matches){ lb.append(mtools,side); if(fav) rb.append(fav); if(spoil) top.append(spoil); top.append(favb); mast.prepend(burger); mast.append(top); badge(); }
+    else { closeAll(); const put=(el,h)=>{if(el&&h)h[0].insertBefore(el,h[1]&&h[1].parentNode===h[0]?h[1]:null);};
+      put(mtools,H.mt); put(side,H.side); put(spoil,H.sp); put(fav,H.fav); burger.remove(); top.remove(); }
   }
   apply(); mq.addEventListener&&mq.addEventListener("change",apply);
+  document.addEventListener("click",e=>{if(e.target.closest(".favbtn"))setTimeout(badge,50);});
 })();
 </script>
 </body>

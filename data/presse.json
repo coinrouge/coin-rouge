@@ -456,18 +456,23 @@
      "r": 12,
      "title": "Titre WBC light heavyweight (vacant)",
      "a": {
-      "n": "Joshua Buatsi",
-      "nat": "GBR",
-      "tp": "205234-joshua-buatsi",
-      "rec": "20-1-0"
-     },
-     "b": {
       "n": "Willy Hutchinson",
       "nat": "GBR",
       "tp": "204583-willy-hutchinson-braveheart",
       "rec": "20-2-0"
      },
-     "t": "2026-11-07T22:00:00Z"
+     "b": {
+      "n": "Joshua Buatsi",
+      "nat": "GBR",
+      "tp": "205234-joshua-buatsi",
+      "rec": "20-1-0"
+     },
+     "t": "2026-11-07T22:00:00Z",
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 12
+     }
     },
     {
      "s": "main",
@@ -485,6 +490,11 @@
       "nat": "BEL",
       "rec": "20-1-0",
       "tp": "221414-hovhannes-maritosyan"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 12
      }
     },
     {
@@ -492,18 +502,23 @@
      "w": "Plumes",
      "r": 12,
      "a": {
-      "n": "Zak Miller",
-      "nat": "GBR",
-      "rec": "17-1-0",
-      "tp": "243228-zack-miller"
-     },
-     "b": {
       "n": "Gully Powar",
       "nat": "GBR",
       "rec": "13-1-1",
       "tp": "359518-gully-powar"
      },
-     "sub": "Titre britannique featherweight (vacant)"
+     "b": {
+      "n": "Zak Miller",
+      "nat": "GBR",
+      "rec": "17-1-0",
+      "tp": "243228-zack-miller"
+     },
+     "sub": "Titre britannique featherweight (vacant)",
+     "res": {
+      "w": "a",
+      "method": "Décision technique unanime",
+      "round": 10
+     }
     },
     {
      "s": "main",
@@ -521,7 +536,13 @@
       "tp": "256874-ezra-taylor",
       "rec": "13-1-0"
      },
-     "sub": "Titre WBA Intercontinental"
+     "sub": "Titre WBA Intercontinental",
+     "res": {
+      "w": "a",
+      "method": "TKO",
+      "round": 2,
+      "time": "0:58"
+     }
     },
     {
      "s": "main",
@@ -534,6 +555,11 @@
      },
      "b": {
       "n": "Harley Collison"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision",
+      "round": 8
      }
     },
     {
@@ -546,13 +572,18 @@
      },
      "b": {
       "n": "Cheikh Diop"
+     },
+     "res": {
+      "w": "a",
+      "method": "KO",
+      "round": 4,
+      "time": "1:50"
      }
     },
     {
      "s": "prelims",
      "w": "Lourds",
-     "r": 8,
-     "ru": 1,
+     "r": 6,
      "a": {
       "n": "Tony Yoka",
       "nat": "FRA",
@@ -565,6 +596,27 @@
       "nat": "UKR",
       "rec": "10-20-1",
       "tp": "219244-kostiantyn-dovbyshchenko"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision",
+      "round": 6
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "Super-moyens",
+     "r": 6,
+     "a": {
+      "n": "Alex Arthur Jr."
+     },
+     "b": {
+      "n": "Jose Aguirre"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision",
+      "round": 6
      }
     },
     {
@@ -575,18 +627,28 @@
       "n": "Ryan Macmillan"
      },
      "b": {
-      "n": "Grant Dennis"
+      "n": "Nazeer Khan"
+     },
+     "res": {
+      "w": "a",
+      "method": "KO",
+      "round": 2
      }
     },
     {
      "s": "prelims",
      "w": "Super-légers",
-     "r": 6,
+     "r": 4,
      "a": {
       "n": "Tumi Phillips"
      },
      "b": {
       "n": "Angelo Dragone"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision",
+      "round": 4
      }
     },
     {
@@ -598,6 +660,11 @@
      },
      "b": {
       "n": "Joe O'Sullivan"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision",
+      "round": 6
      }
     },
     {
@@ -609,14 +676,18 @@
      },
      "b": {
       "n": "Atacayte Santana"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision",
+      "round": 6
      }
     }
    ],
    "sources": [
-    "https://www.dazn.com/fr-FR/news/boxe/tony-yoka-vs-kostiantyn-dovbyshchenko-direct-video-streaming-chaine-tv-a-quelle-heure-et-comment-regarder-gratuitement-le-combat/s2bhqe91i6w61rtni7r2y9z5u",
-    "https://www.espn.com/boxing/story/_/id/50376753/joshua-buatsi-willy-hutchinson-boxing-how-watch-uk-ring-walk-date-tv-channel-undercard"
+    "https://www.fightmag.com/boxing-joshua-buatsi-vs-willy-hutchinson-2-live-results/",
+    "https://www.skysports.com/boxing/news/13609599/willy-hutchinson-crowned-as-new-wbc-light-heavyweight-champion-after-beating-joshua-buatsi-in-rematch"
    ],
-   "partial": 1,
    "tvx": [
     "DAZN (monde entier)"
    ]
@@ -648,16 +719,22 @@
      "w": "Lourds-légers",
      "r": 10,
      "a": {
+      "n": "Cheavon Clarke",
+      "nat": "GBR",
+      "tp": "324167-cheavon-clarke",
+      "rec": "12-2-0"
+     },
+     "b": {
       "n": "Chris Billam-Smith",
       "nat": "GBR",
       "tp": "223576-chris-billam-smith-the-gentleman",
       "rec": "22-2-0"
      },
-     "b": {
-      "n": "Cheavon Clarke",
-      "nat": "GBR",
-      "tp": "324167-cheavon-clarke",
-      "rec": "12-2-0"
+     "res": {
+      "w": "a",
+      "method": "TKO",
+      "round": 7,
+      "time": "1:24"
      }
     },
     {
@@ -675,6 +752,11 @@
       "nat": "USA",
       "tp": "226321-shane-mosley-jr",
       "rec": "22-4-0"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 10
      }
     },
     {
@@ -682,18 +764,24 @@
      "w": "Mi-lourds",
      "r": 10,
      "a": {
-      "n": "Zach Parker",
-      "nat": "GBR",
-      "rec": "26-2-0",
-      "tp": "223627-zach-parker"
-     },
-     "b": {
       "n": "Umar Dzambekov",
       "nat": "AUT",
       "rec": "14-0-0",
       "tp": "303660-umar-dzambekov"
      },
-     "ru": 1
+     "b": {
+      "n": "Zach Parker",
+      "nat": "GBR",
+      "rec": "26-2-0",
+      "tp": "223627-zach-parker"
+     },
+     "ru": 1,
+     "res": {
+      "w": "a",
+      "method": "KO",
+      "round": 4,
+      "time": "1:47"
+     }
     },
     {
      "s": "main",
@@ -709,6 +797,12 @@
       "n": "Connal McDonald",
       "nat": "GBR",
       "rec": "5-1-0"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO",
+      "round": 7,
+      "time": "0:58"
      }
     },
     {
@@ -722,10 +816,13 @@
       "rec": "6-0-0"
      },
      "b": {
-      "n": "Troy Coleman",
-      "nat": "GBR",
-      "tp": "245291-troy-coleman-the-hawk",
-      "rec": "15-4-1"
+      "n": "Amaury Massenaux"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO",
+      "round": 5,
+      "time": "2:31"
      }
     },
     {
@@ -741,6 +838,12 @@
       "n": "Ivan Baláž",
       "nat": "SVK",
       "rec": "9-1-0"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO",
+      "round": 1,
+      "time": "2:04"
      }
     },
     {
@@ -754,6 +857,29 @@
      "b": {
       "n": "Julia Igel",
       "rec": "5-2-0"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision",
+      "round": 6
+     }
+    },
+    {
+     "s": "main",
+     "w": "Moyens",
+     "r": 8,
+     "ru": 1,
+     "a": {
+      "n": "Vinnie Kemp"
+     },
+     "b": {
+      "n": "Liam McElhinney"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO",
+      "round": 1,
+      "time": "2:33"
      }
     },
     {
@@ -770,14 +896,18 @@
       "n": "Adan Palma",
       "rec": "14-1-0",
       "tp": "328156-adan-palma"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 8
      }
     }
    ],
    "sources": [
-    "https://khelnow.com/boxing/zuffa-boxing-12-billam-smith-vs-clarke-preview-202611",
-    "https://combat-edge.com/event/zuffa-boxing-12-billam-smith-vs-clarke-3423/"
+    "https://www.fightmag.com/zuffa-boxing-12-billam-smith-vs-clarke-live-results/",
+    "https://boxingnews.com/results/zuffa-boxing-12-2026-11-06"
    ],
-   "partial": 1,
    "tvx": [
     "Sky Sports (Royaume-Uni)",
     "Paramount+ (États-Unis)"
@@ -945,7 +1075,8 @@
       "nat": "GBR",
       "star": 1,
       "tp": "212010-anthony-joshua-aj"
-     }
+     },
+     "title": "Titre WBA heavyweight (vacant)"
     }
    ],
    "sources": [
@@ -1055,7 +1186,23 @@
      },
      "b": {
       "n": "Dariial Kuchmenov",
-      "rec": "10-0-0"
+      "rec": "10-0-0",
+      "tp": "301416-darial-kuchmenov"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Mi-lourds",
+     "r": 8,
+     "ru": 1,
+     "a": {
+      "n": "Rakhmatullo Boymatov",
+      "rec": "1-0-0",
+      "tp": "465224-rakhmatullo-boymatov"
+     },
+     "b": {
+      "n": "Moro Kanla Inusah",
+      "rec": "10-1-0"
      }
     }
    ],
@@ -1065,20 +1212,159 @@
     "Paramount+ (États-Unis)"
    ],
    "sources": [
-    "https://www.fightmag.com/carlos-adames-vs-gerome-warburton-confirmed-for-zuffa-boxing-13/",
-    "https://boxingnews.com/event/zuffa-boxing-saudi-arabia-2026-11-14"
+    "https://sports.yahoo.com/articles/zuffa-boxing-13-full-fight-220000574.html",
+    "https://boxemag.ouest-france.fr/evenement/zuffa-boxing-13-adames-vs-warburton-surace-vs-bednarek/"
+   ]
+  },
+  {
+   "id": "bx-samake-lima",
+   "sport": "boxe",
+   "org": "Boxe",
+   "name": "Samaké Promotion",
+   "a": "Samaké",
+   "b": "Lima",
+   "venue": "Palais des Sports Marcel-Cerdan",
+   "city": "Levallois-Perret",
+   "ctry": "FRA",
+   "tz": "Europe/Paris",
+   "tbc": 1,
+   "partial": 1,
+   "segs": [
+    {
+     "k": "main",
+     "t": "2026-11-14T17:30:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "Super-welters",
+     "r": 10,
+     "ru": 1,
+     "sub": "Titre WBC International",
+     "a": {
+      "n": "Bakary Samaké",
+      "nat": "FRA",
+      "tp": "296310-bakary-samake"
+     },
+     "b": {
+      "n": "Uisma Lima",
+      "nat": "POR",
+      "rec": "16-2-0",
+      "tp": "309147-uisma-lima"
+     }
+    }
+   ],
+   "sources": [
+    "https://levallois-sporting-club.com/evenement/bakary-samake-vs-uisma-lima-14-novembre/",
+    "https://combatsmma.fr/bakary-samake-et-son-prochain-combat-de-retour-en-novembre-a-paris/"
+   ]
+  },
+  {
+   "id": "hexagone-49",
+   "sport": "mma",
+   "org": "Hexagone MMA",
+   "name": "Hexagone MMA 49",
+   "a": "Ulrich",
+   "b": "Gallon",
+   "venue": "Glaz Arena",
+   "city": "Rennes",
+   "ctry": "FRA",
+   "tz": "Europe/Paris",
+   "tv": "RMC Sport",
+   "tbc": 1,
+   "partial": 1,
+   "segs": [
+    {
+     "k": "main",
+     "t": "2026-11-27T18:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "LW",
+     "r": 5,
+     "ru": 1,
+     "sub": "Finale du tournoi 100K",
+     "a": {
+      "n": "Théo Ulrich",
+      "nat": "FRA",
+      "rec": "8-0-0"
+     },
+     "b": {
+      "n": "Davy Gallon",
+      "nat": "FRA",
+      "rec": "22-10-2",
+      "tp": "50962-davy-gallon"
+     }
+    },
+    {
+     "s": "main",
+     "w": "HW",
+     "r": 5,
+     "ru": 1,
+     "title": "Titre heavyweight Hexagone MMA (vacant)",
+     "a": {
+      "n": "Anthony Morel",
+      "nat": "FRA",
+      "rec": "6-2-0",
+      "tp": "396904-anthony-morel"
+     },
+     "b": {
+      "n": "Tamerlan Albiekov",
+      "rec": "4-1-0",
+      "tp": "255799-tamerlan-albiekov"
+     }
+    },
+    {
+     "s": "main",
+     "w": "BW",
+     "r": 3,
+     "ru": 1,
+     "a": {
+      "n": "Antero dos Santos"
+     },
+     "b": {
+      "n": "Georges N'Goma"
+     }
+    },
+    {
+     "s": "main",
+     "w": "BW",
+     "r": 3,
+     "ru": 1,
+     "a": {
+      "n": "Allan Landouzy",
+      "nat": "FRA"
+     },
+     "b": {
+      "n": "Benjamin Molnar"
+     }
+    },
+    {
+     "s": "main",
+     "r": 3,
+     "ru": 1,
+     "a": {
+      "n": "Louis Bokola",
+      "nat": "FRA"
+     },
+     "b": {
+      "n": "Václav Žemla",
+      "nat": "CZE",
+      "rec": "4-0-0",
+      "tp": "202513-vaclav-zemla"
+     }
+    }
+   ],
+   "sources": [
+    "https://boxemag.ouest-france.fr/evenement/hexagone-mma-49-ulrich-vs-gallon/",
+    "https://www.breizh-info.com/2026/11/06/265192/hexagone-mma-49-une-finale-a-100-000-euros-et-des-combattants-bretons-aux-portes-de-rennes/"
    ]
   }
  ],
  "agenda": [
-  {
-   "sport": "mma",
-   "date": "2026-11-27",
-   "name": "Hexagone MMA 49",
-   "org": "Hexagone MMA · Glaz Arena, Rennes",
-   "note": "Affiche à annoncer",
-   "fr": 1
-  },
   {
    "sport": "mma",
    "date": "2027-01-08",

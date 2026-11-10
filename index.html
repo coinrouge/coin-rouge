@@ -83,7 +83,7 @@ button,input,select{font:inherit;color:inherit}
 .frlogo .fb{stroke:url(#frgB)}
 
 .dbrand .frlogo{height:34px}
-.dbrand .frlogo.frmini{display:block;height:46px;width:94px;margin:-6px -8px -6px -10px}
+.dbrand .frlogo.frmini{display:block;height:44px;width:90px;margin:-4px -6px -4px -8px}
 .dbrand .frlogo path{stroke-width:22}
 .homelink{color:inherit;text-decoration:none}
 .tvx{display:block;font-size:12px;color:var(--muted);font-weight:500;margin-top:2px}
@@ -932,7 +932,9 @@ html:root[data-theme="dark"]{--fr-t:rgba(84,20,28,.9);--fav-t:rgba(200,30,110,.4
 .wrap>:not(#detail){transition:opacity .12s ease,visibility 0s linear 0s}
 .wrap.indet>:not(#detail){visibility:hidden;opacity:0;transition:opacity .12s ease,visibility 0s linear .12s}
 /* Francophones : le fond derrière est désaturé, le rouge reste rouge */
-.dbar{background:rgba(11,12,18,.5)!important;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+/* Bandeau des pages de soirée : teinte translucide sans flou (le flou faisait ramer le défilement) */
+.dbar{background:linear-gradient(rgba(14,15,22,.9),rgba(14,15,22,.78))!important}
+.dbar .spoilbtn{box-shadow:none;margin-right:2px}
 /* Favori : le fond rose reste même quand le combat est terminé */
 .bouts .bout.isdone.favf{--fav-t:rgba(200,30,110,.42);border-bottom-color:transparent;border-radius:5px;margin-block:10px}
 /* Titres de section : rouge du logo */

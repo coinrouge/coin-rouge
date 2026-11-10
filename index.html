@@ -719,7 +719,10 @@ h2.h::after{content:"";flex:1;height:1px;background:var(--line)}
 /* Place réservée en bas de chaque combat pour « Combat x/N », quel que soit l'encart */
 @media (min-width:561px){.bouts .bout:has(.cnum){padding-bottom:30px!important}}
 /* Transition de page : la carte complète glisse depuis la droite */
-.detail{transform:translateX(0);transition:transform .34s cubic-bezier(.22,.8,.24,1),opacity .34s ease;box-shadow:-24px 0 48px rgba(0,0,0,.25)}
+.detail{transform:translateX(0);transition:transform .34s cubic-bezier(.22,.8,.24,1),opacity .34s ease;will-change:transform}
+/* Pendant le glissement : pas de flou ni d'effets coûteux, pour une animation fluide */
+.detail.sliding .dbar{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+.detail.sliding .sonar{display:none}
 .detail.off{transform:translateX(100%);opacity:.6}
 @media (prefers-reduced-motion:reduce){.detail{transition:none}}
 /* Roue de réglages */
@@ -925,7 +928,8 @@ html:root[data-theme="dark"]{--fr-t:rgba(84,20,28,.9);--fav-t:rgba(200,30,110,.4
 /* Vue détaillée d'une soirée : même fond que l'accueil */
 /* Vue détaillée : transparente sur le calque de fond fixe ; la page d'accueil derrière est masquée (plus de fond lourd à repeindre au défilement) */
 .detail{background:transparent!important}
-.wrap:has(>#detail:not([hidden]))>:not(#detail){visibility:hidden}
+.wrap.indet>:not(#detail){visibility:hidden}
+.detail.sliding{background:rgba(11,12,18,.94)!important}
 /* Francophones : le fond derrière est désaturé, le rouge reste rouge */
 .dbar{background:rgba(11,12,18,.5)!important;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
 /* Favori : le fond rose reste même quand le combat est terminé */
@@ -1769,8 +1773,8 @@ function renderDetail(t){
   if(!ev&&!isCal&&!ag){
     if(!d.hidden&&!d.classList.contains("off")){
       /* Glissement vers la droite, puis on masque */
-      d.classList.add("off");
-      const done=()=>{if(!d.classList.contains("off"))return;d.hidden=true;d.innerHTML="";d.classList.remove("off");document.documentElement.style.overflow="";};
+      clearTimeout(d._sl); d.parentElement.classList.remove("indet"); d.classList.add("sliding","off");
+      const done=()=>{if(!d.classList.contains("off"))return;d.hidden=true;d.innerHTML="";d.classList.remove("off","sliding");document.documentElement.style.overflow="";};
       reduce?done():setTimeout(done,340);
     }
     return;
@@ -1783,8 +1787,10 @@ function renderDetail(t){
   d.dataset.prev=d.dataset.view;
   if(opening){
     /* Arrivée depuis la droite */
-    if(d.hidden){d.classList.add("off");d.hidden=false;void d.offsetWidth;}
-    d.classList.remove("off");
+    if(d.hidden){d.classList.add("off");d.hidden=false;}
+    fitNames(); alignVS();               /* mise en page faite avant le glissement, pas pendant */
+    d.classList.add("sliding"); void d.offsetWidth;
+    requestAnimationFrame(()=>{ d.classList.remove("off"); clearTimeout(d._sl); d._sl=setTimeout(()=>{d.classList.remove("sliding");d.parentElement.classList.add("indet");},380); });
     document.documentElement.style.overflow="hidden";
     d.scrollTop=0; d.querySelector(".back").focus({preventScroll:true});
   }

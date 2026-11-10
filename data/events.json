@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-09T02:00:07.236Z",
+ "updated": "2026-11-10T01:09:43.532Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -3263,6 +3263,225 @@
    ]
   },
   {
+   "tvx": [
+    "TNT Sports (Royaume-Uni)",
+    "VOOsport World (Belgique)",
+    "Paramount+ (États-Unis)"
+   ],
+   "id": "fn-adesanya-magomedov",
+   "org": "UFC",
+   "name": "UFC Fight Night",
+   "a": "Adesanya",
+   "b": "Magomedov",
+   "venue": "ANB Arena",
+   "city": "Riyadh",
+   "ctry": "KSA",
+   "tz": "Asia/Riyadh",
+   "tbc": 1,
+   "segs": [
+    {
+     "k": "prelims",
+     "t": "2026-12-05T15:00:00Z"
+    },
+    {
+     "k": "main",
+     "t": "2026-12-05T18:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "MW",
+     "r": 5,
+     "a": {
+      "n": "Israel Adesanya",
+      "rec": "24-6-0",
+      "nat": "NGR",
+      "wk": "Israel Adesanya"
+     },
+     "b": {
+      "n": "Sharabutdin Magomedov",
+      "rec": "17-1-0",
+      "nat": "RUS",
+      "wk": "Sharabutdin Magomedov"
+     }
+    },
+    {
+     "s": "main",
+     "w": "WW",
+     "r": 3,
+     "a": {
+      "n": "Ian Machado Garry",
+      "rec": "17-2-0",
+      "nat": "IRL",
+      "wk": "Ian Machado Garry"
+     },
+     "b": {
+      "n": "Yaroslav Amosov",
+      "rec": "30-1-0",
+      "nat": "UKR",
+      "wk": "Yaroslav Amosov"
+     }
+    },
+    {
+     "s": "main",
+     "w": "HW",
+     "r": 3,
+     "a": {
+      "n": "Serghei Spivac",
+      "rec": "18-7-0",
+      "nat": "MDA",
+      "wk": "Serghei Spivac"
+     },
+     "b": {
+      "n": "Mário Pinto",
+      "rec": "13-0-0",
+      "nat": "POR",
+      "wk": "Mario Pinto"
+     }
+    },
+    {
+     "s": "main",
+     "w": "WW",
+     "r": 3,
+     "a": {
+      "n": "Levan Chokheli",
+      "rec": "15-3-0",
+      "nat": "GEO"
+     },
+     "b": {
+      "n": "Islam Dulatov",
+      "rec": "12-1-0",
+      "nat": "GER",
+      "wk": "Islam Dulatov"
+     }
+    },
+    {
+     "s": "main",
+     "w": "LW",
+     "r": 3,
+     "a": {
+      "n": "Mairon Santos",
+      "rec": "17-1-0",
+      "nat": "BRA"
+     },
+     "b": {
+      "n": "Akbar Abdullaev",
+      "rec": "14-0-0",
+      "nat": "KGZ",
+      "wk": "Akbar Abdullaev"
+     }
+    },
+    {
+     "s": "main",
+     "w": "LHW",
+     "r": 3,
+     "a": {
+      "n": "Magomed Tuchalov",
+      "rec": "6-0-0",
+      "nat": "RUS"
+     },
+     "b": {
+      "n": "Ion Cuțelaba",
+      "rec": "20-12-1",
+      "nat": "MDA",
+      "wk": "Ion Cuțelaba"
+     }
+    },
+    {
+     "s": "main",
+     "w": "FLW",
+     "r": 3,
+     "a": {
+      "n": "Bruno Gustavo da Silva",
+      "rec": "15-9-2",
+      "nat": "BRA",
+      "wk": "Bruno Gustavo da Silva"
+     },
+     "b": {
+      "n": "Jafel Filho",
+      "rec": "17-5-0",
+      "nat": "BRA"
+     }
+    },
+    {
+     "s": "main",
+     "w": "LHW",
+     "r": 3,
+     "a": {
+      "n": "Uran Satybaldiev",
+      "rec": "10-1-0",
+      "nat": "KGZ"
+     },
+     "b": {
+      "n": "Ivan Gnizditskiy"
+     }
+    },
+    {
+     "s": "main",
+     "w": "MW",
+     "r": 3,
+     "a": {
+      "n": "Marco Tulio",
+      "rec": "14-3-0",
+      "nat": "BRA"
+     },
+     "b": {
+      "n": "Park Jun-yong",
+      "rec": "18-8-0",
+      "nat": "KOR",
+      "wk": "Jun Yong Park"
+     }
+    },
+    {
+     "s": "main",
+     "w": "BW",
+     "r": 3,
+     "a": {
+      "n": "Pavel Andrusca",
+      "rec": "9-0-0",
+      "nat": "MDA"
+     },
+     "b": {
+      "n": "Mehemmedeli Osmanli",
+      "rec": "11-2-0",
+      "nat": "AZE"
+     }
+    },
+    {
+     "s": "main",
+     "w": "MW",
+     "r": 3,
+     "a": {
+      "n": "Modestino Rodrigues"
+     },
+     "b": {
+      "n": "Matthieu Letho Duclos",
+      "rec": "11-3-0",
+      "nat": "FRA",
+      "fr": 1
+     }
+    },
+    {
+     "s": "main",
+     "w": "BW",
+     "r": 3,
+     "a": {
+      "n": "Abdul Hussein",
+      "rec": "16-2-0",
+      "nat": "FIN",
+      "wk": "Abdul Hussein (fighter)"
+     },
+     "b": {
+      "n": "Hecher Sosa",
+      "rec": "14-1-0",
+      "nat": "ESP"
+     }
+    }
+   ],
+   "wiki": "UFC Fight Night: Adesanya vs. Magomedov"
+  },
+  {
    "id": "bx-fury-joshua",
    "sport": "boxe",
    "org": "Boxe",
@@ -3745,12 +3964,6 @@
   }
  ],
  "agenda": [
-  {
-   "sport": "mma",
-   "date": "2026-12-05",
-   "name": "Affiche à annoncer",
-   "org": "UFC Fight Night · Riyadh"
-  },
   {
    "sport": "mma",
    "date": "2027-01-16",

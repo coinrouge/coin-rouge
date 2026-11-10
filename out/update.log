@@ -1,6 +1,6 @@
 Combattants : 973
   2027 in Professional Fighters League : HTTP 404
-Soirées retenues : UFC Fight Night: Buckley vs. Malott / PFL Chicago: Carmouche vs. Bishop 2 / UFC 333: Volkanovski vs. Evloev / UFC Fight Night: Moicano vs. Nolan / UFC Fight Night: Cortes-Acosta vs. Walker / UFC 334: Gane vs. Hokit / PFL Dubai: Nemkov vs. Bilostenniy / UFC Fight Night: Procházka vs. Stirling / UFC Fight Night 295 / UFC 335: Oliveira vs. Lopes / PFL Lyon: Lapilus vs. McKee / UFC Fight Night 296 / UFC Fight Night 297 / UFC 336: Van vs. Kape / UFC Fight Night: Salkilld vs. Saint Denis
+Soirées retenues : UFC Fight Night: Buckley vs. Malott / PFL Chicago: Carmouche vs. Bishop 2 / UFC 333: Volkanovski vs. Evloev / UFC Fight Night: Moicano vs. Nolan / UFC Fight Night: Cortes-Acosta vs. Walker / UFC 334: Gane vs. Hokit / PFL Dubai: Nemkov vs. Bilostenniy / UFC Fight Night: Procházka vs. Stirling / UFC Fight Night: Adesanya vs. Magomedov / UFC 335: Oliveira vs. Lopes / PFL Lyon: Lapilus vs. McKee / UFC Fight Night 296 / UFC Fight Night 297 / UFC 336: Van vs. Kape / UFC Fight Night: Salkilld vs. Saint Denis
   fn-buckley-malott : 13 combats, 13 résultats
   pfl-carmouche-bishop : 13 combats, 13 résultats
   ufc333 : 14 combats, 14 résultats
@@ -9,6 +9,9 @@ Soirées retenues : UFC Fight Night: Buckley vs. Malott / PFL Chicago: Carmouche
   ufc334 : 12 combats, 0 résultats
   pfl-nemkov-bilostenniy : 15 combats, 0 résultats
   fn-prochazka-stirling : 9 combats, 0 résultats
+  Ivan Gnizditskiy : HTTP 404
+  Modestino Rodrigues : HTTP 404
+  fn-adesanya-magomedov : 12 combats, 0 résultats
   ufc335 : 4 combats, 0 résultats
   pfl-lapilus-mckee : 10 combats, 0 résultats
   ufc336 : 2 combats, 0 résultats
@@ -17,5 +20,5 @@ Presse : 8 soirées, 4 à l'agenda
   2027 in Zuffa Boxing : HTTP 404
 Annuaire : 1044 combattants (dont 71 champions de boxe)
 Annuaire francophone (fr.wikipedia) : 334 ajoutés
-Annuaire permanent : 32 francophones (14 hors autres listes)
-Aucun changement.
+Annuaire permanent : 33 francophones (14 hors autres listes)
+data/events.json écrit (21 soirées détaillées, 6 à l'agenda).

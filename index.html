@@ -918,21 +918,15 @@ html:root[data-theme="dark"] .pfl{--fn-t:rgba(255,255,255,0.03);--fn-inner:rgba(
 html:root[data-theme="dark"] .ares{--fn-t:rgba(255,255,255,0.02);--fn-inner:rgba(255,255,255,0.03);--fn-me:rgba(33,222,138,0.12);--fn-star:rgba(39,216,122,0.13);--fn-hero:rgba(41,214,104,0.06);--fn-hero-me:rgba(22,233,132,0.13)}
 html:root[data-theme="dark"] .hex{--fn-t:rgba(218,136,37,0.05);--fn-inner:rgba(226,121,29,0.07);--fn-me:rgba(238,114,17,0.13);--fn-star:rgba(229,123,26,0.14);--fn-hero:rgba(227,127,28,0.06);--fn-hero-me:rgba(244,111,11,0.13)}
 html:root[data-theme="dark"] .bx{--fn-t:rgba(255,255,255,0.03);--fn-inner:rgba(33,83,222,0.13);--fn-me:rgba(23,79,232,0.19);--fn-star:rgba(21,77,234,0.22);--fn-hero:rgba(17,70,238,0.13);--fn-hero-me:rgba(14,72,241,0.19)}
-html:root[data-theme="dark"]{--fr-t:rgba(165,14,26,.58);--fav-t:rgba(200,30,110,.42)}
+html:root[data-theme="dark"]{--fr-t:rgba(84,20,28,.9);--fav-t:rgba(200,30,110,.42)}
 
 .hero .hero-card{background:rgba(20,22,30,.4)}
 /* Vue détaillée d'une soirée : même fond que l'accueil */
-.detail{background:
- url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") repeat,
- linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),
- radial-gradient(60% 50% at 8% 85%, rgba(30,80,200,.55), transparent 70%),
- radial-gradient(45% 40% at 55% 10%, rgba(255,220,235,.22), transparent 70%),
- radial-gradient(50% 45% at 40% 55%, rgba(230,40,90,.30), transparent 70%),
- radial-gradient(55% 55% at 98% 60%, rgba(255,30,50,.40), transparent 70%),
- #0B0C12;background-blend-mode:soft-light,normal,normal,normal,normal,normal}
-.detail{background-color:#0B0C12}
+/* Vue détaillée : transparente sur le calque de fond fixe ; la page d'accueil derrière est masquée (plus de fond lourd à repeindre au défilement) */
+.detail{background:transparent!important}
+.wrap:has(>#detail:not([hidden]))>:not(#detail){visibility:hidden}
 /* Francophones : le fond derrière est désaturé, le rouge reste rouge */
-.dbar{background:rgba(11,12,18,.55)!important;-webkit-backdrop-filter:blur(18px) saturate(150%);backdrop-filter:blur(18px) saturate(150%)}
+.dbar{background:rgba(11,12,18,.97)!important}
 /* Favori : le fond rose reste même quand le combat est terminé */
 .bouts .bout.isdone.favf{--fav-t:rgba(200,30,110,.42);border-bottom-color:transparent;border-radius:5px;margin-block:10px}
 /* Titres de section : rouge du logo */

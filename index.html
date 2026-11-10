@@ -1017,8 +1017,10 @@ h2.h::before,h2.h::after{background:rgba(255,255,255,.22)!important}
   html body .bout .melabel{order:-2;flex-wrap:wrap!important;gap:4px 5px;margin:0;white-space:nowrap;align-items:center}
   html body .bout .melabel>*{flex:0 0 auto}
   html body .melabel span,html body .melabel em{font-size:7.5px!important;padding:2px 4px!important;letter-spacing:.04em!important}
-  html body .melabel .rdl{font-size:0!important;padding:2px 3px!important;width:auto!important;min-width:0!important;gap:0!important}
+  html body .melabel .rdl{font-size:0!important;padding:2px 5px!important;width:auto!important;min-width:0!important;gap:4px!important;display:inline-flex!important;align-items:center}
   html body .melabel .rdl svg{width:10px;height:10px;margin:0!important}
+  html body .melabel .rdl::after{content:"Radar FR";font-size:7.5px}
+  html body .melabel>em:not(.mltitle){display:none!important}
   html body .duel .f{overflow:visible!important}
   html body .melabel em{padding:0!important}
   html body .bout .time.tc .ord.loc{display:none!important}

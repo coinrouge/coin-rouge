@@ -1785,7 +1785,7 @@ function renderDetail(t){
   if(!ev&&!isCal&&!ag){
     if(!d.hidden&&!d.classList.contains("off")){
       /* Glissement vers la droite, puis on masque */
-      clearTimeout(d._sl); d.classList.add("sliding","off");
+      window.__frPause=performance.now()+450; clearTimeout(d._sl); d.classList.add("sliding","off");
       const done=()=>{if(!d.classList.contains("off"))return;d.hidden=true;d.innerHTML="";d.classList.remove("off","sliding");d.parentElement.classList.remove("indet");document.documentElement.style.overflow="";};
       reduce?done():setTimeout(done,340);
     }
@@ -1801,8 +1801,8 @@ function renderDetail(t){
     /* Arrivée depuis la droite */
     if(d.hidden){d.classList.add("off");d.hidden=false;}
     fitNames(); alignVS();               /* mise en page faite avant le glissement, pas pendant */
-    d.classList.add("sliding"); d.parentElement.classList.add("indet"); void d.offsetWidth;
-    requestAnimationFrame(()=>{ d.classList.remove("off"); clearTimeout(d._sl); d._sl=setTimeout(()=>d.classList.remove("sliding"),380); });
+    window.__frPause=performance.now()+450; d.classList.add("sliding"); d.parentElement.classList.add("indet"); void d.offsetWidth;
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{ d.classList.remove("off"); clearTimeout(d._sl); d._sl=setTimeout(()=>d.classList.remove("sliding"),380); }));
     document.documentElement.style.overflow="hidden";
     d.scrollTop=0; d.querySelector(".back").focus({preventScroll:true});
   }
@@ -2212,6 +2212,8 @@ fetch("data/events.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=
   /* ---------- Boucle ---------- */
   let t0 = null;
   function frame(ts) {
+    /* Pendant le glissement d'une page de soirée, le logo fait une courte pause (le navigateur se consacre à l'animation) */
+    if (window.__frPause && ts < window.__frPause) { if (t0 !== null) t0 += 16.7; requestAnimationFrame(frame); return; }
     if (t0 === null) t0 = ts;
     const t = (ts - t0) / 1000;
     const angle = START_ANGLE + (t / SWEEP_PERIOD) * TAU;

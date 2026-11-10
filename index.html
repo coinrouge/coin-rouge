@@ -878,17 +878,19 @@ details.ev>summary{border-radius:5px}
 @media (prefers-reduced-motion:reduce){.sonar{display:none}}
 
 html:root[data-theme="dark"]{--win:#B8F03A;--lost:#FF1A2E;--loss:#FF1A2E;--surface:rgba(20,22,30,.40);--line:rgba(255,255,255,.10);--soft:rgba(255,255,255,.05)}
-body{background:
+/* Fond dégradé bruité : calque fixe posé une fois (plus fluide au défilement) */
+body{background:#0B0C12!important}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:
  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") repeat,
  linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),
  radial-gradient(60% 50% at 8% 85%, rgba(30,80,200,.55), transparent 70%),
  radial-gradient(45% 40% at 55% 10%, rgba(255,220,235,.22), transparent 70%),
  radial-gradient(50% 45% at 40% 55%, rgba(230,40,90,.30), transparent 70%),
  radial-gradient(55% 55% at 98% 60%, rgba(255,30,50,.40), transparent 70%),
- #0B0C12 !important;background-attachment:fixed !important;background-blend-mode:soft-light,normal,normal,normal,normal,normal}
+ #0B0C12;background-blend-mode:soft-light,normal,normal,normal,normal,normal}
 /* Verre liquide */
 .hero,.favs,.favsug,.rcard,details.ev,.dhead,.search,.seg,.spoilbtn,.jumpnav button,.sportbtn,.gear,.findbox,.soon>div,.sim{
- -webkit-backdrop-filter:blur(22px) saturate(170%);backdrop-filter:blur(22px) saturate(170%);
+
  box-shadow:inset 0 1px 0 rgba(255,255,255,.22),inset 1px 0 0 rgba(255,255,255,.06),inset 0 -1px 0 rgba(255,255,255,.04),0 10px 30px rgba(0,0,0,.30)}
 .hero{border-radius:16px}.favs,.favsug,.rcard,details.ev,.dhead{border-radius:14px}
 .gearmenu,.sportdd .sportnav{background:rgba(20,22,30,.80)!important;-webkit-backdrop-filter:blur(24px) saturate(170%);backdrop-filter:blur(24px) saturate(170%)}
@@ -898,7 +900,7 @@ body{background:
 .rcard.rstar{border-color:color-mix(in srgb,var(--gold) 60%,transparent)}
 .rcard.rfav{border-color:color-mix(in srgb,var(--fav) 65%,transparent)}
 /* Calendrier « À venir » : fond plein, pas d'effet */
-.agenda{background:rgba(15,17,21,.65);-webkit-backdrop-filter:blur(22px) saturate(150%);backdrop-filter:blur(22px) saturate(150%);border-radius:10px;padding:6px 8px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.agenda{background:rgba(15,17,21,.65);border-radius:10px;padding:6px 8px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
 
 /* Soirées : couleur de base de chaque organisation, en verre */
 details.ev.fn{background:color-mix(in srgb,var(--red) 13%,rgba(14,15,20,.26))}
@@ -916,7 +918,7 @@ html:root[data-theme="dark"] .pfl{--fn-t:rgba(255,255,255,0.03);--fn-inner:rgba(
 html:root[data-theme="dark"] .ares{--fn-t:rgba(255,255,255,0.02);--fn-inner:rgba(255,255,255,0.03);--fn-me:rgba(33,222,138,0.12);--fn-star:rgba(39,216,122,0.13);--fn-hero:rgba(41,214,104,0.06);--fn-hero-me:rgba(22,233,132,0.13)}
 html:root[data-theme="dark"] .hex{--fn-t:rgba(218,136,37,0.05);--fn-inner:rgba(226,121,29,0.07);--fn-me:rgba(238,114,17,0.13);--fn-star:rgba(229,123,26,0.14);--fn-hero:rgba(227,127,28,0.06);--fn-hero-me:rgba(244,111,11,0.13)}
 html:root[data-theme="dark"] .bx{--fn-t:rgba(255,255,255,0.03);--fn-inner:rgba(33,83,222,0.13);--fn-me:rgba(23,79,232,0.19);--fn-star:rgba(21,77,234,0.22);--fn-hero:rgba(17,70,238,0.13);--fn-hero-me:rgba(14,72,241,0.19)}
-html:root[data-theme="dark"]{--fr-t:rgba(205,16,28,.34);--fav-t:rgba(200,30,110,.42)}
+html:root[data-theme="dark"]{--fr-t:rgba(165,14,26,.58);--fav-t:rgba(200,30,110,.42)}
 
 .hero .hero-card{background:rgba(20,22,30,.4)}
 /* Vue détaillée d'une soirée : même fond que l'accueil */
@@ -927,9 +929,9 @@ html:root[data-theme="dark"]{--fr-t:rgba(205,16,28,.34);--fav-t:rgba(200,30,110,
  radial-gradient(45% 40% at 55% 10%, rgba(255,220,235,.22), transparent 70%),
  radial-gradient(50% 45% at 40% 55%, rgba(230,40,90,.30), transparent 70%),
  radial-gradient(55% 55% at 98% 60%, rgba(255,30,50,.40), transparent 70%),
- #0B0C12 !important;background-attachment:fixed !important;background-blend-mode:soft-light,normal,normal,normal,normal,normal}
+ #0B0C12;background-blend-mode:soft-light,normal,normal,normal,normal,normal}
+.detail{background-color:#0B0C12}
 /* Francophones : le fond derrière est désaturé, le rouge reste rouge */
-.bout.fr{-webkit-backdrop-filter:grayscale(1) brightness(.8);backdrop-filter:grayscale(1) brightness(.8)}
 .dbar{background:rgba(11,12,18,.55)!important;-webkit-backdrop-filter:blur(18px) saturate(150%);backdrop-filter:blur(18px) saturate(150%)}
 /* Favori : le fond rose reste même quand le combat est terminé */
 .bouts .bout.isdone.favf{--fav-t:rgba(200,30,110,.42);border-bottom-color:transparent;border-radius:5px;margin-block:10px}
@@ -2004,7 +2006,7 @@ fetch("data/events.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=
   }
 
   let P_TOP, P_BOT, P_ALL;                 // chemins vectoriels, en coordonnées du canvas
-  let shapeTopC, shapeBotC, fillC, innerTopC, innerBotC, tintC;
+  let shapeTopC, shapeBotC, fillC, innerTopC, innerBotC, tintC, glowC, glowHC;
   const [radTopC, radTopX] = layer();      // radar blanc (FIGHT)
   const [radBotC, radBotX] = layer();      // radar rouge (RADAR)
   const [sweepC, sweepX] = layer();      // balayage (calque temporaire)
@@ -2167,15 +2169,10 @@ fetch("data/events.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=
     ctx.lineJoin = 'round';
 
     // 1. Halo extérieur : deux passes par couleur, discrètes
-    ctx.strokeStyle = triGrad(ctx);
-    ctx.lineWidth = RING + 2;
-    ctx.globalAlpha = Math.min(1, fade * (0.55 + 0.45 * hov));
-    ctx.filter = `blur(${(10 + 12 * hov) * pulse * dpr}px)`;
-    ctx.stroke(P_ALL);
-    ctx.globalAlpha = Math.min(1, fade * (0.6 + 0.4 * hov));
-    ctx.filter = `blur(${(4 + 5 * hov) * pulse * dpr}px)`;
-    ctx.stroke(P_ALL);
-    ctx.filter = 'none';
+    /* Halos flous calculés une seule fois (buildLayers) : ici on ne fait que les superposer, c'est beaucoup plus léger */
+    const pa = 0.85 + 0.15 * pulse;
+    if (hov < 0.99) { ctx.globalAlpha = fade * pa * (1 - hov); ctx.drawImage(glowC, 0, 0, W, H); }
+    if (hov > 0.01) { ctx.globalAlpha = fade * pa * hov; ctx.drawImage(glowHC, 0, 0, W, H); }
 
     // 2. Intérieur sombre des lettres
     ctx.globalAlpha = fade;
@@ -2235,6 +2232,11 @@ fetch("data/events.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=
     g.fillStyle = '#050505';
     g.fill(P_ALL, 'evenodd');
     fillC = c;
+    /* Halo extérieur pré-calculé : normal et survol */
+    const glowOf = (b1, a1, b2, a2) => { const [c3, g3] = layer(); g3.strokeStyle = triGrad(g3); g3.lineWidth = RING + 2; g3.lineJoin = 'round';
+      g3.globalAlpha = a1; g3.filter = `blur(${b1 * dpr}px)`; g3.stroke(P_ALL); g3.globalAlpha = a2; g3.filter = `blur(${b2 * dpr}px)`; g3.stroke(P_ALL); g3.filter = 'none'; return c3; };
+    glowC = glowOf(10, 0.55, 4, 0.6);
+    glowHC = glowOf(22, 1, 9, 1);
     { const [c2, g2] = layer(); g2.fillStyle = triGrad(g2); g2.fill(P_ALL, 'evenodd'); tintC = c2; }
 
     innerTopC = innerGlowOf(P_TOP, RGB_WHITE);

@@ -83,6 +83,7 @@ button,input,select{font:inherit;color:inherit}
 .frlogo .fb{stroke:url(#frgB)}
 
 .dbrand .frlogo{height:34px}
+.dbrand .frlogo.frmini{display:block;height:46px;width:94px;margin:-6px -8px -6px -10px}
 .dbrand .frlogo path{stroke-width:22}
 .homelink{color:inherit;text-decoration:none}
 .tvx{display:block;font-size:12px;color:var(--muted);font-weight:500;margin-top:2px}
@@ -926,7 +927,7 @@ html:root[data-theme="dark"]{--fr-t:rgba(84,20,28,.9);--fav-t:rgba(200,30,110,.4
 .detail{background:transparent!important}
 .wrap:has(>#detail:not([hidden]))>:not(#detail){visibility:hidden}
 /* Francophones : le fond derrière est désaturé, le rouge reste rouge */
-.dbar{background:rgba(11,12,18,.97)!important}
+.dbar{background:rgba(11,12,18,.5)!important;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
 /* Favori : le fond rose reste même quand le combat est terminé */
 .bouts .bout.isdone.favf{--fav-t:rgba(200,30,110,.42);border-bottom-color:transparent;border-radius:5px;margin-block:10px}
 /* Titres de section : rouge du logo */
@@ -1675,7 +1676,7 @@ function calHTML(t){
       <div class="cals">${x.id?`<a class="calgo" href="#ev-${x.id}">Fight card →</a>`:`<a class="calgo soongo" href="#${agKey(x)}">Carte à venir →</a>`}</div>
     </li>`;
   };
-  return `<div class="dbar"><div class="dleft"><a class="dbrand homelink" href="#" title="Retour à l'accueil">${LOGO}</a><a class="back" href="#">← Retour</a></div></div>
+  return `<div class="dbar"><div class="dleft"><a class="dbrand homelink" href="#" title="Retour à l'accueil"><canvas class="frlogo frmini" role="img" aria-label="Fight Radar"></canvas></a><a class="back" href="#">← Retour</a></div></div>
   <div class="dwrap">
     <div class="dtitle"><h1>Calendrier</h1><span>${items.length} événements à venir · ${SPORTLBL[sport]} · heure française</span></div>
     ${groups.map(g=>`<section class="calm"><h2>${esc(g.k)}</h2><ol class="call">${g.list.map(row).join("")}</ol></section>`).join("")||`<p class="empty">Aucun événement à venir.</p>`}
@@ -1717,7 +1718,7 @@ function detailHTML(ev,t){
   const frN=ev.fights.filter(f=>f.a.fr||f.b.fr).length;
   const titles=ev.fights.filter(f=>f.title).map(f=>f.title);
   const live=t>=ev.start&&t<ev.end;
-  return `<div class="dbar"><div class="dleft"><a class="dbrand homelink" href="#" title="Retour à l'accueil">${LOGO}</a><a class="back" href="#">← Retour</a></div><button type="button" class="spoilbtn" id="spoil" aria-pressed="${SPOIL}" title="Afficher ou masquer les résultats"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="eye" d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle class="eye" cx="12" cy="12" r="3"/><path class="slash" d="M3 3l18 18"/></svg><span>${SPOIL?"Spoil":"No spoil"}</span></button></div>
+  return `<div class="dbar"><div class="dleft"><a class="dbrand homelink" href="#" title="Retour à l'accueil"><canvas class="frlogo frmini" role="img" aria-label="Fight Radar"></canvas></a><a class="back" href="#">← Retour</a></div><button type="button" class="spoilbtn" id="spoil" aria-pressed="${SPOIL}" title="Afficher ou masquer les résultats"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="eye" d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle class="eye" cx="12" cy="12" r="3"/><path class="slash" d="M3 3l18 18"/></svg><span>${SPOIL?"Spoil":"No spoil"}</span></button></div>
   <div class="dwrap">
     <div class="dtitle ${evCls(ev)}">${evBadge(ev,1)}<h1>${esc(ev.a)} vs ${esc(ev.b)}</h1><span>${ev.partial?"Carte partielle":"Carte complète"}</span></div>
     <div class="dhead ${evCls(ev)}">
@@ -1747,7 +1748,7 @@ function detailHTML(ev,t){
 const agKey=a=>"a-"+a.date+"-"+norm(a.name).replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 function soonHTML(a){
   const ts=Date.parse(a.date+"T12:00:00Z");
-  return `<div class="dbar"><div class="dleft"><a class="dbrand homelink" href="#" title="Retour à l'accueil">${LOGO}</a><a class="back" href="#">← Retour</a></div></div>
+  return `<div class="dbar"><div class="dleft"><a class="dbrand homelink" href="#" title="Retour à l'accueil"><canvas class="frlogo frmini" role="img" aria-label="Fight Radar"></canvas></a><a class="back" href="#">← Retour</a></div></div>
   <div class="dwrap">
     <div class="dtitle"><span class="ags calsp">${a.sport==="boxe"?"Boxe":"MMA"}</span><h1>${vsHTML({...a,noRd:1})}</h1><span>Carte à venir</span></div>
     <div class="soon">
@@ -2199,8 +2200,18 @@ fetch("data/events.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=
     drawRadar(radTopX, PAL_WHITE, shapeTopC, angle);
     drawRadar(radBotX, PAL_RED, shapeBotC, angle);
     render(t);
+    /* Petit logo des pages de soirée : copie de l'animation du grand logo (même balayage, au même instant) */
+    for (const m of document.querySelectorAll('canvas.frmini')) {
+      const w = Math.round(m.clientWidth * (window.devicePixelRatio || 1)), h = Math.round(m.clientHeight * (window.devicePixelRatio || 1));
+      if (!w || !h) continue;
+      if (m.width !== w || m.height !== h) { m.width = w; m.height = h; }
+      const mc = m.getContext('2d'); mc.clearRect(0, 0, w, h); mc.drawImage(canvas, 0, 0, w, h);
+    }
     requestAnimationFrame(frame);
   }
+  /* Survol du petit logo : même effet que sur le grand */
+  document.addEventListener('mouseover', e => { if (e.target.closest && e.target.closest('.dbrand')) hovT = 1; });
+  document.addEventListener('mouseout', e => { if (e.target.closest && e.target.closest('.dbrand') && !(e.relatedTarget && e.relatedTarget.closest && e.relatedTarget.closest('.dbrand'))) hovT = 0; });
 
   /* ---------- Mise en page et calques ---------- */
   function layout() {

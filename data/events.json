@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-10T03:52:01.012Z",
+ "updated": "2026-11-10T13:10:16.657Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -2991,7 +2991,8 @@
      "a": {
       "n": "Bilal Hasan",
       "rec": "10-0-0",
-      "nat": "IDN"
+      "nat": "IDN",
+      "wk": "Bilal Hasan"
      },
      "b": {
       "n": "Luis Gurule",

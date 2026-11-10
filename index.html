@@ -964,6 +964,59 @@ h2.h{font-family:"Vincendo",Impact,sans-serif;font-style:italic;font-weight:400;
 /* Sections (Soirées suivantes, Radar, Résultats, Favoris) posées sur un panneau sombre */
 h2.h::before,h2.h::after{background:rgba(255,255,255,.22)!important}
 #nextsec,#radarsec,#pastsec,#favsec{background:rgba(14,15,21,.51);border:1px solid rgba(255,255,255,.11);border-radius:16px;padding:14px 18px 18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 10px 30px rgba(0,0,0,.3)}
+
+/* ===================== VERSION MOBILE (écrans de 640 px et moins) ===================== */
+@media (max-width:640px){
+  html{zoom:1}
+  /* La grande carte d'abord ; le filtre Sport et No spoil sur une seule ligne au-dessus */
+  html body .layout{display:flex;flex-direction:column;gap:16px;width:100%;min-width:0}
+  html body .layout>*,html body .mainc>*{min-width:0;max-width:100%}
+  html body .sched>div{min-width:0}
+  html body .side{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:stretch;position:static}
+  html body .side .jumpnav,html body .side .agenda{display:none}
+  html body .side .spoilbtn{height:auto;padding:0 16px;margin:0}
+  html body .mainc{gap:18px}
+  /* Panneaux et cartes : moins de marges */
+  html body #nextsec,html body #radarsec,html body #pastsec,html body #favsec{padding:10px 10px 12px;border-radius:14px}
+  html body .hero-card{padding:12px 12px 14px}
+  /* Grande carte : les deux noms côte à côte en haut, le lieu et l'heure en dessous */
+  html body .pduel{grid-template-columns:1fr 1fr;grid-template-areas:"a b" "m m";gap:6px 10px;align-items:start}
+  html body .pduel .pside.red{grid-area:a}
+  html body .pduel .pside.blue{grid-area:b}
+  html body .pduel .pmid{grid-area:m}
+  html body .pside{padding-top:0}
+  html body .pside em{font-size:clamp(22px,7.5vw,34px)!important;line-height:1}
+  /* Horaires de la soirée : 2 colonnes */
+  html body .sched{grid-template-columns:1fr 1fr!important}
+  html body .sched>div{border-left:0!important;padding:10px 12px!important}
+  /* Combats : date en petite ligne au-dessus, combattants l'un sous l'autre, infos du combat sur une ligne */
+  html body .bout{display:block;padding:12px 10px}
+  html body .bout .time.tc{display:flex;justify-content:flex-end;align-items:baseline;gap:8px;margin:0 0 6px;text-align:right;width:auto}
+  html body .bout .time.tc small,html body .bout .time.tc .ord{display:inline;font-size:10px;white-space:nowrap}
+  html body .bout .time.tc .ord i{display:inline}
+  html body .duel{display:grid;grid-template-columns:1fr;gap:8px;margin:0}
+  html body .duel .f.b .fx{justify-content:flex-start;flex-direction:row}
+  html body .duel .f.b{text-align:left}
+  html body .mid{max-width:none;padding:6px 0;text-align:left;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;border-block:1px dashed rgba(255,255,255,.08)}
+  html body .duel .mid{display:block!important;max-width:none!important;width:100%;justify-self:stretch}
+  html body .mid .mtime{display:block;min-height:0!important;height:auto!important;margin-bottom:4px}
+  html body .mid .mtime .tzfr{display:inline;margin-left:8px}
+  html body .mid .rd,html body .mid .rds,html body .mid .lim{display:inline!important;white-space:nowrap}
+  html body .mid .rds::before,html body .mid .lim::before{content:" · "}
+  html body .duel .f.b .nmrow{text-align:left}
+  html body .mid .cnum{display:none}
+  html body .melabel{flex-wrap:wrap;gap:6px}
+  html body .duel{align-items:start}
+  html body .duel .f,html body .duel .mid{min-height:0;height:auto}
+  html body .duel .f.b,html body .duel .f.b .txt,html body .duel .f.b .fx{text-align:left;align-items:flex-start;justify-content:flex-start}
+  html body .duel .f.b .fx{flex-direction:row}
+  html body .champl{position:static;display:block;margin-top:3px}
+  html body .bout .time.tc .ord i{margin-right:5px!important}
+  /* Soirées repliées : texte un peu plus compact */
+  html body details.ev summary{gap:10px}
+  html body details.ev summary>div{min-width:0}
+  html body .sum-t{flex-wrap:wrap;overflow-wrap:anywhere}
+}
 </style>
 </head>
 <body>

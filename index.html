@@ -1011,33 +1011,37 @@ h2.h::before,h2.h::after{background:rgba(255,255,255,.22)!important}
   html body .sched .s-loc small{flex-basis:100%}
   html body .sched .s-loc{flex-direction:row!important;align-items:baseline!important;justify-content:center!important}
   html body .sched .s-loc>span{flex:0 0 auto!important;padding:0!important;border:0!important;margin:0!important;text-align:center!important;display:inline!important}
-  /* Combats : même affiche horizontale que sur ordinateur, en plus compact */
-  html body .bout{grid-template-columns:1fr!important;padding:10px 8px!important;gap:4px!important}
-  html body .bout .time.tc{display:flex;justify-content:center;align-items:baseline;gap:8px;text-align:center;width:auto;order:-1}
-  html body .bout .time.tc small,html body .bout .time.tc .ord{display:inline;font-size:9px;white-space:nowrap}
-  html body .bout .time.tc .ord i{margin-right:4px}
+  /* Combats : réplique de l'affiche du site, à l'échelle du téléphone */
+  html body .bout{grid-template-columns:1fr!important;padding:9px 10px 10px!important;gap:3px!important}
+  html body .bout.fr,html body .bout.me{padding-left:14px!important}
+  html body .bout .melabel{order:-2;flex-wrap:wrap;gap:4px 6px;margin:0}
+  html body .melabel span,html body .melabel em{font-size:8px!important;padding:2px 5px!important;letter-spacing:.06em!important}
+  html body .melabel em{padding:0!important}
+  html body .bout .time.tc{order:-1;display:flex;justify-content:flex-end;align-items:baseline;gap:6px;width:auto;margin:0}
+  html body .bout .time.tc small,html body .bout .time.tc .ord{display:inline;font-size:8px;white-space:nowrap}
+  html body .bout .time.tc .ord i{display:inline!important;margin-right:3px}
   html body .duel{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)!important;gap:6px!important;margin:0!important;align-items:center}
-  html body .duel .fx{flex-direction:column;align-items:flex-start;gap:4px}
-  html body .duel .f.b .fx{align-items:flex-end;flex-direction:column}
-  html body .duel .mid *{white-space:normal!important;overflow-wrap:anywhere}
-  html body .duel .mid{overflow:hidden}
   html body .duel .f,html body .duel .txt{min-width:0}
-  html body .duel .fiche{display:none}
-  html body .bout.fr,html body .bout.me{padding-left:16px!important;padding-right:12px!important}
-  html body .bout .time.tc .ord{white-space:nowrap}
-  html body .bout .time.tc .ord i{display:inline!important}
+  html body .duel .fx{display:flex;flex-direction:row!important;align-items:center!important;gap:6px}
+  html body .duel .f.b .fx{flex-direction:row-reverse!important;justify-content:flex-start}
   html body .duel .f.b .txt,html body .duel .f.b .nmrow{text-align:right;align-items:flex-end}
-  html body .duel .av{width:30px!important;height:30px!important;flex:0 0 30px}
-  html body .duel .nm{font-size:14px!important;overflow-wrap:normal;word-break:normal}
-  html body .duel .fn{font-size:11px}
-  html body .duel .rec{font-size:10px;flex-wrap:wrap;row-gap:2px}
-  html body .duel .rec .favbtn svg{width:13px;height:13px}
-  html body .duel .mid{max-width:84px!important;font-size:9px!important;padding:0!important;text-align:center!important}
-  html body .duel .mid .mtime b{font-size:18px!important}
+  html body .duel .av{width:26px!important;height:26px!important;flex:0 0 26px;border-width:1.5px!important}
+  html body .duel .fn{font-size:9.5px;display:block}
+  html body .duel .nm{font-size:clamp(12px,3.6vw,14px)!important;line-height:1.1;overflow-wrap:normal;word-break:normal}
+  html body .duel .nm .fra{transform:scale(.8)}
+  html body .duel .rec{font-size:9px;gap:2px;flex-wrap:nowrap;white-space:nowrap}
+  html body .duel .rec .favbtn svg{width:11px;height:11px}
+  html body .duel .fiche{display:none}
+  html body .duel .mid{max-width:78px!important;font-size:7.5px!important;padding:0!important;text-align:center!important;overflow:hidden;display:block!important}
+  html body .duel .mid *{white-space:normal!important}
+  html body .duel .mid .mtime{display:block}
+  html body .duel .mid .mtime b{font-size:16px!important;white-space:nowrap!important}
+  html body .duel .mid .mtime .tzfr{font-size:6.5px}
+  html body .duel .mid .rd,html body .duel .mid .rds,html body .duel .mid .lim{display:block;margin-top:2px}
   html body .duel .mid .cnum{display:none}
-  html body .champl{position:static;display:block;margin-top:3px;font-size:8px;white-space:normal}
-  html body .melabel{flex-wrap:wrap;gap:5px}
-  html body .melabel span,html body .melabel em{font-size:9px}
+  html body .champl{position:static;display:block;margin-top:2px;font-size:7.5px;white-space:normal;line-height:1.2}
+  html body .duel .lnline,html body .duel .nm{white-space:nowrap}
+  html body .duel .nm .star{font-size:11px;margin-left:2px}
   /* Soirées repliées */
   html body details.ev summary{gap:10px}
   html body details.ev summary>div{min-width:0}
@@ -1057,6 +1061,8 @@ h2.h::before,h2.h::after{background:rgba(255,255,255,.22)!important}
   .mdr-body #favsec{background:none!important;border:0!important;box-shadow:none!important;padding:0!important}
   .mdr-body #favsec h2.h{display:none}
 }
+/* Très petits écrans (iPhone SE…) : affiches sans pastille drapeau, noms un peu plus petits */
+@media (max-width:370px){html body .duel .av{display:none!important}html body .duel .nm{font-size:13px!important}html body .duel .mid{max-width:70px!important}}
 /* Menu latéral (téléphone) */
 .mdrawer{display:none}
 @media (max-width:640px){

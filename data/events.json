@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-10T01:09:43.532Z",
+ "updated": "2026-11-10T03:52:01.012Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -1707,16 +1707,22 @@
      "w": "Lourds-légers",
      "r": 10,
      "a": {
+      "n": "Cheavon Clarke",
+      "nat": "GBR",
+      "tp": "324167-cheavon-clarke",
+      "rec": "12-2-0"
+     },
+     "b": {
       "n": "Chris Billam-Smith",
       "nat": "GBR",
       "tp": "223576-chris-billam-smith-the-gentleman",
       "rec": "22-2-0"
      },
-     "b": {
-      "n": "Cheavon Clarke",
-      "nat": "GBR",
-      "tp": "324167-cheavon-clarke",
-      "rec": "12-2-0"
+     "res": {
+      "w": "a",
+      "method": "TKO",
+      "round": 7,
+      "time": "1:24"
      }
     },
     {
@@ -1734,6 +1740,11 @@
       "nat": "USA",
       "tp": "226321-shane-mosley-jr",
       "rec": "22-4-0"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 10
      }
     },
     {
@@ -1741,18 +1752,24 @@
      "w": "Mi-lourds",
      "r": 10,
      "a": {
-      "n": "Zach Parker",
-      "nat": "GBR",
-      "rec": "26-2-0",
-      "tp": "223627-zach-parker"
-     },
-     "b": {
       "n": "Umar Dzambekov",
       "nat": "AUT",
       "rec": "14-0-0",
       "tp": "303660-umar-dzambekov"
      },
-     "ru": 1
+     "b": {
+      "n": "Zach Parker",
+      "nat": "GBR",
+      "rec": "26-2-0",
+      "tp": "223627-zach-parker"
+     },
+     "ru": 1,
+     "res": {
+      "w": "a",
+      "method": "KO",
+      "round": 4,
+      "time": "1:47"
+     }
     },
     {
      "s": "main",
@@ -1768,6 +1785,12 @@
       "n": "Connal McDonald",
       "nat": "GBR",
       "rec": "5-1-0"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO",
+      "round": 7,
+      "time": "0:58"
      }
     },
     {
@@ -1781,10 +1804,13 @@
       "rec": "6-0-0"
      },
      "b": {
-      "n": "Troy Coleman",
-      "nat": "GBR",
-      "tp": "245291-troy-coleman-the-hawk",
-      "rec": "15-4-1"
+      "n": "Amaury Massenaux"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO",
+      "round": 5,
+      "time": "2:31"
      }
     },
     {
@@ -1800,6 +1826,12 @@
       "n": "Ivan Baláž",
       "nat": "SVK",
       "rec": "9-1-0"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO",
+      "round": 1,
+      "time": "2:04"
      }
     },
     {
@@ -1813,6 +1845,29 @@
      "b": {
       "n": "Julia Igel",
       "rec": "5-2-0"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision",
+      "round": 6
+     }
+    },
+    {
+     "s": "main",
+     "w": "Moyens",
+     "r": 8,
+     "ru": 1,
+     "a": {
+      "n": "Vinnie Kemp"
+     },
+     "b": {
+      "n": "Liam McElhinney"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO",
+      "round": 1,
+      "time": "2:33"
      }
     },
     {
@@ -1829,10 +1884,14 @@
       "n": "Adan Palma",
       "rec": "14-1-0",
       "tp": "328156-adan-palma"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 8
      }
     }
    ],
-   "partial": 1,
    "tvx": [
     "Sky Sports (Royaume-Uni)",
     "Paramount+ (États-Unis)"
@@ -1868,18 +1927,23 @@
      "r": 12,
      "title": "Titre WBC light heavyweight (vacant)",
      "a": {
-      "n": "Joshua Buatsi",
-      "nat": "GBR",
-      "tp": "205234-joshua-buatsi",
-      "rec": "20-1-0"
-     },
-     "b": {
       "n": "Willy Hutchinson",
       "nat": "GBR",
       "tp": "204583-willy-hutchinson-braveheart",
       "rec": "20-2-0"
      },
-     "t": "2026-11-07T22:00:00Z"
+     "b": {
+      "n": "Joshua Buatsi",
+      "nat": "GBR",
+      "tp": "205234-joshua-buatsi",
+      "rec": "20-1-0"
+     },
+     "t": "2026-11-07T22:00:00Z",
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 12
+     }
     },
     {
      "s": "main",
@@ -1897,6 +1961,11 @@
       "nat": "BEL",
       "rec": "20-1-0",
       "tp": "221414-hovhannes-maritosyan"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 12
      }
     },
     {
@@ -1904,18 +1973,23 @@
      "w": "Plumes",
      "r": 12,
      "a": {
-      "n": "Zak Miller",
-      "nat": "GBR",
-      "rec": "17-1-0",
-      "tp": "243228-zack-miller"
-     },
-     "b": {
       "n": "Gully Powar",
       "nat": "GBR",
       "rec": "13-1-1",
       "tp": "359518-gully-powar"
      },
-     "sub": "Titre britannique featherweight (vacant)"
+     "b": {
+      "n": "Zak Miller",
+      "nat": "GBR",
+      "rec": "17-1-0",
+      "tp": "243228-zack-miller"
+     },
+     "sub": "Titre britannique featherweight (vacant)",
+     "res": {
+      "w": "a",
+      "method": "Décision technique unanime",
+      "round": 10
+     }
     },
     {
      "s": "main",
@@ -1933,7 +2007,13 @@
       "tp": "256874-ezra-taylor",
       "rec": "13-1-0"
      },
-     "sub": "Titre WBA Intercontinental"
+     "sub": "Titre WBA Intercontinental",
+     "res": {
+      "w": "a",
+      "method": "TKO",
+      "round": 2,
+      "time": "0:58"
+     }
     },
     {
      "s": "main",
@@ -1946,6 +2026,11 @@
      },
      "b": {
       "n": "Harley Collison"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision",
+      "round": 8
      }
     },
     {
@@ -1958,13 +2043,18 @@
      },
      "b": {
       "n": "Cheikh Diop"
+     },
+     "res": {
+      "w": "a",
+      "method": "KO",
+      "round": 4,
+      "time": "1:50"
      }
     },
     {
      "s": "prelims",
      "w": "Lourds",
-     "r": 8,
-     "ru": 1,
+     "r": 6,
      "a": {
       "n": "Tony Yoka",
       "nat": "FRA",
@@ -1978,6 +2068,27 @@
       "nat": "UKR",
       "rec": "10-20-1",
       "tp": "219244-kostiantyn-dovbyshchenko"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision",
+      "round": 6
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "Super-moyens",
+     "r": 6,
+     "a": {
+      "n": "Alex Arthur Jr."
+     },
+     "b": {
+      "n": "Jose Aguirre"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision",
+      "round": 6
      }
     },
     {
@@ -1988,18 +2099,28 @@
       "n": "Ryan Macmillan"
      },
      "b": {
-      "n": "Grant Dennis"
+      "n": "Nazeer Khan"
+     },
+     "res": {
+      "w": "a",
+      "method": "KO",
+      "round": 2
      }
     },
     {
      "s": "prelims",
      "w": "Super-légers",
-     "r": 6,
+     "r": 4,
      "a": {
       "n": "Tumi Phillips"
      },
      "b": {
       "n": "Angelo Dragone"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision",
+      "round": 4
      }
     },
     {
@@ -2011,6 +2132,11 @@
      },
      "b": {
       "n": "Joe O'Sullivan"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision",
+      "round": 6
      }
     },
     {
@@ -2022,10 +2148,14 @@
      },
      "b": {
       "n": "Atacayte Santana"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision",
+      "round": 6
      }
     }
    ],
-   "partial": 1,
    "tvx": [
     "DAZN (monde entier)"
    ]
@@ -2441,22 +2571,6 @@
     },
     {
      "s": "main",
-     "w": "WW",
-     "r": 3,
-     "a": {
-      "n": "Abubakar Nurmagomedov",
-      "rec": "17-4-1",
-      "nat": "RUS",
-      "wk": "Abubakar Nurmagomedov"
-     },
-     "b": {
-      "n": "David Martinez",
-      "rec": "17-6-0",
-      "nat": "AUS"
-     }
-    },
-    {
-     "s": "main",
      "w": "BW",
      "r": 3,
      "a": {
@@ -2467,6 +2581,19 @@
      },
      "b": {
       "n": "Joji Goto"
+     }
+    },
+    {
+     "s": "main",
+     "w": "BW",
+     "r": 3,
+     "a": {
+      "n": "Lewis McGrillen"
+     },
+     "b": {
+      "n": "Nawras Abzakh",
+      "rec": "15-6-0",
+      "nat": "JOR"
      }
     },
     {
@@ -2484,32 +2611,15 @@
     },
     {
      "s": "prelims",
-     "w": "BW",
+     "w": "WW",
      "r": 3,
      "a": {
-      "n": "Lewis McGrillen"
+      "n": "Saygid Izagakhmaev"
      },
      "b": {
-      "n": "Nawras Abzakh",
-      "rec": "15-6-0",
-      "nat": "JOR"
-     }
-    },
-    {
-     "s": "prelims",
-     "w": "FW",
-     "r": 3,
-     "a": {
-      "n": "Asaël Adjoudj",
-      "rec": "11-1-0",
-      "nat": "FRA",
-      "fr": 1
-     },
-     "b": {
-      "n": "Movlid Khaybulaev",
-      "rec": "24-0-1",
-      "nat": "RUS",
-      "wk": "Movlid Khaybulaev"
+      "n": "David Martinez",
+      "rec": "17-6-0",
+      "nat": "AUS"
      }
     },
     {
@@ -2585,19 +2695,6 @@
      },
      "b": {
       "n": "Styve Ngono Essono"
-     }
-    },
-    {
-     "s": "prelims",
-     "w": "WW",
-     "r": 3,
-     "a": {
-      "n": "Khamzat Abaev",
-      "rec": "6-1-0",
-      "nat": "BEL"
-     },
-     "b": {
-      "n": "Leon Hill"
      }
     },
     {
@@ -2717,7 +2814,23 @@
      },
      "b": {
       "n": "Dariial Kuchmenov",
-      "rec": "10-0-0"
+      "rec": "10-0-0",
+      "tp": "301416-darial-kuchmenov"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Mi-lourds",
+     "r": 8,
+     "ru": 1,
+     "a": {
+      "n": "Rakhmatullo Boymatov",
+      "rec": "1-0-0",
+      "tp": "465224-rakhmatullo-boymatov"
+     },
+     "b": {
+      "n": "Moro Kanla Inusah",
+      "rec": "10-1-0"
      }
     }
    ],
@@ -2725,6 +2838,47 @@
    "tvx": [
     "Paramount+ (Royaume-Uni)",
     "Paramount+ (États-Unis)"
+   ]
+  },
+  {
+   "id": "bx-samake-lima",
+   "sport": "boxe",
+   "org": "Boxe",
+   "name": "Samaké Promotion",
+   "a": "Samaké",
+   "b": "Lima",
+   "venue": "Palais des Sports Marcel-Cerdan",
+   "city": "Levallois-Perret",
+   "ctry": "FRA",
+   "tz": "Europe/Paris",
+   "tbc": 1,
+   "partial": 1,
+   "segs": [
+    {
+     "k": "main",
+     "t": "2026-11-14T17:30:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "Super-welters",
+     "r": 10,
+     "ru": 1,
+     "sub": "Titre WBC International",
+     "a": {
+      "n": "Bakary Samaké",
+      "nat": "FRA",
+      "tp": "296310-bakary-samake",
+      "fr": 1
+     },
+     "b": {
+      "n": "Uisma Lima",
+      "nat": "POR",
+      "rec": "16-2-0",
+      "tp": "309147-uisma-lima"
+     }
+    }
    ]
   },
   {
@@ -3221,6 +3375,110 @@
    "wiki": "UFC Fight Night: Procházka vs. Stirling"
   },
   {
+   "id": "hexagone-49",
+   "sport": "mma",
+   "org": "Hexagone MMA",
+   "name": "Hexagone MMA 49",
+   "a": "Ulrich",
+   "b": "Gallon",
+   "venue": "Glaz Arena",
+   "city": "Rennes",
+   "ctry": "FRA",
+   "tz": "Europe/Paris",
+   "tv": "RMC Sport",
+   "tbc": 1,
+   "partial": 1,
+   "segs": [
+    {
+     "k": "main",
+     "t": "2026-11-27T18:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "LW",
+     "r": 5,
+     "ru": 1,
+     "sub": "Finale du tournoi 100K",
+     "a": {
+      "n": "Théo Ulrich",
+      "nat": "FRA",
+      "rec": "8-0-0",
+      "fr": 1
+     },
+     "b": {
+      "n": "Davy Gallon",
+      "nat": "FRA",
+      "rec": "22-10-2",
+      "tp": "50962-davy-gallon",
+      "fr": 1
+     }
+    },
+    {
+     "s": "main",
+     "w": "HW",
+     "r": 5,
+     "ru": 1,
+     "title": "Titre heavyweight Hexagone MMA (vacant)",
+     "a": {
+      "n": "Anthony Morel",
+      "nat": "FRA",
+      "rec": "6-2-0",
+      "tp": "396904-anthony-morel",
+      "fr": 1
+     },
+     "b": {
+      "n": "Tamerlan Albiekov",
+      "rec": "4-1-0",
+      "tp": "255799-tamerlan-albiekov"
+     }
+    },
+    {
+     "s": "main",
+     "w": "BW",
+     "r": 3,
+     "ru": 1,
+     "a": {
+      "n": "Antero dos Santos"
+     },
+     "b": {
+      "n": "Georges N'Goma"
+     }
+    },
+    {
+     "s": "main",
+     "w": "BW",
+     "r": 3,
+     "ru": 1,
+     "a": {
+      "n": "Allan Landouzy",
+      "nat": "FRA",
+      "fr": 1
+     },
+     "b": {
+      "n": "Benjamin Molnar"
+     }
+    },
+    {
+     "s": "main",
+     "r": 3,
+     "ru": 1,
+     "a": {
+      "n": "Louis Bokola",
+      "nat": "FRA",
+      "fr": 1
+     },
+     "b": {
+      "n": "Václav Žemla",
+      "nat": "CZE",
+      "rec": "4-0-0",
+      "tp": "202513-vaclav-zemla"
+     }
+    }
+   ]
+  },
+  {
    "id": "bx-kabayel-hysa",
    "sport": "boxe",
    "org": "Boxe",
@@ -3516,7 +3774,8 @@
       "nat": "GBR",
       "star": 1,
       "tp": "212010-anthony-joshua-aj"
-     }
+     },
+     "title": "Titre WBA heavyweight (vacant)"
     }
    ],
    "partial": 1,
@@ -3975,14 +4234,6 @@
    "date": "2027-01-23",
    "name": "Affiche à annoncer",
    "org": "UFC Fight Night · TBA"
-  },
-  {
-   "sport": "mma",
-   "date": "2026-11-27",
-   "name": "Hexagone MMA 49",
-   "org": "Hexagone MMA · Glaz Arena, Rennes",
-   "note": "Affiche à annoncer",
-   "fr": 1
   },
   {
    "sport": "mma",
@@ -12291,10 +12542,28 @@
    "mma"
   ],
   [
+   "Allan Landouzy",
+   "FRA",
+   "",
+   "mma"
+  ],
+  [
+   "Anthony Morel",
+   "FRA",
+   "6-2-0",
+   "mma"
+  ],
+  [
    "B. Bakhouche-Chareuf",
    "FRA",
    "3-0-0",
    "mma"
+  ],
+  [
+   "Bakary Samaké",
+   "FRA",
+   "",
+   "boxe"
   ],
   [
    "Baysangur Chamsoudinov",
@@ -12339,6 +12608,12 @@
    "mma"
   ],
   [
+   "Louis Bokola",
+   "FRA",
+   "",
+   "mma"
+  ],
+  [
    "Maher Belkhadir",
    "FRA",
    "3-2-0",
@@ -12361,6 +12636,12 @@
    "FRA",
    "4-4-1",
    "mma"
+  ],
+  [
+   "Théo Ulrich",
+   "FRA",
+   "8-0-0",
+   "mma"
   ]
  ],
  "tapology": {
@@ -12380,16 +12661,18 @@
   "Amir Albazi": "84737-amir-albazi",
   "Andre Petroski": "123353-andre-petroski",
   "Andreeas Binder": "103058-andreeas-binder",
-  "Asaël Adjoudj": "202606-asael-adjoudj",
   "Asaf Chopurov": "198455-asef-chopurov",
+  "Asaël Adjoudj": "202606-asael-adjoudj",
   "Asu Almabayev": "127726-khamzat-sakalov",
   "Austin Bashi": "251547-austin-bashi",
   "Azamat Murzakanov": "93373-azamat-murzakanov",
   "Baris Adiguzel": "198193-baris-adiguzel",
   "Beatriz Mesquita": "210835-beatriz-mesquita",
+  "Benoît Saint Denis": "212810-benoit-saint-denis",
   "Bilal Hasan": "326683-bilal-hasan",
   "Billy Elekana": "152109-billy-elekana",
   "Bo Nickal": "244627-bo-nickal",
+  "Bogdan Guskov": "136052-bogdan-guskov",
   "Boris Mbarga Atangana": "337528-alan-mbarga",
   "Brandon Brachet": "311055-brachet-brandon",
   "Brandon Moreno": "27833-brandon-moreno-the-assassin",
@@ -12420,25 +12703,30 @@
   "Francis Marshall": "186284-francis-marshall",
   "Frederik Dupras": "82620-frederick-dupras",
   "Gabriel Bonfim": "88338-gabriel-marrentinha",
+  "Gabriel Lorenço": "311998-gabriel-lourenco",
   "Gabriella Fernandes": "193148-gabriela-fernandes-gaby",
   "Grant Dawson": "32750-grant-dawson",
+  "Ian Machado Garry": "171377-ian-garry",
   "Ikram Aliskerov": "108253-ikram-aliskerov",
   "Ilian Bouafia": "298832-ilian-bouafia",
+  "Israel Adesanya": "79163-israel-adesanya",
   "J.P. Saint Louis": "103004-jp-saint-louis",
   "Jacob Malkoun": "111323-jacob-malkoun",
   "Jacobe Smith": "310566-jacobe-smith",
   "Jake Matthews": "45260-jake-matthews",
   "Jared Cannonier": "63163-jared-cannonier",
+  "Jared Gordon": "17754-jared-gordon",
   "Jean-Paul Lebosnoyani": "151988-jean-paul-lebosnoyani-the-lifeguard",
   "Jim Miller": "jim-miller",
   "Jiří Procházka": "34779-jiri-prochazka",
   "Joe Pyfer": "144942-joseph-pyfer",
   "Johnny Eblen": "140953-johnny-eblen-john",
   "Joji Goto": "120270-takechi-goto",
-  "José Mauro Delano": "167070-jose-delano",
+  "Jonny Parsons": "99713-johnny-parsons",
   "Joseph Kropschot": "131395-joseph-kropschot",
   "Josh Hokit": "403293-josh-hokit",
   "Joshua Van": "254261-joshua-thawng",
+  "José Mauro Delano": "167070-jose-delano",
   "Julian Erosa": "18497-julian-erosa",
   "Junior Tafa": "242095-junior-tafa",
   "Karine Silva": "69225-karine-silva-killer",
@@ -12448,6 +12736,7 @@
   "Kevin Jousset": "195097-kevin-jousset",
   "Kevin Vallejos": "227542-kevin-vallejos",
   "Khabib Nabiev": "246422-khabib-nabiev",
+  "Khasan Magomedsharipov": "212534-gasan-magomedsharipov",
   "Ko Seok-hyeon": "175557-seok-hyun-ko",
   "Kody Steele": "228289-kody-steele",
   "Kyoji Horiguchi": "19983-kyoji-horiguchi",
@@ -12468,6 +12757,7 @@
   "Mathilde Aschenbrenner": "311078-mathilde-aschenbrenner",
   "Maxwell Djantou Nana": "343664-maxwell-djantou-nana",
   "Maycee Barber": "143925-maycee-barber",
+  "Melquizael Costa": "101043-melquizael-costa-melkcalty",
   "Merab Dvalishvili": "47934-merab-dvalishvili",
   "Mickey Gall": "63731-mickey-gall",
   "Mitch Raposo": "160416-mitch-raposo",
@@ -12478,22 +12768,26 @@
   "Nurullo Aliev": "178801-nurullo-aliev",
   "Ode' Osbourne": "50154-ode-osbourne",
   "Oleg Popov": "117155-oleg-popov",
+  "Ollie Schmid": "237487-oliver-schmid",
   "Omar El Dafrawy": "143448-omar-el-dafrawy",
   "Patrick Habirora": "209285-patrick-habirora",
   "Petr Yan": "90075-petr-yan",
   "Piera Rodriguez": "140642-pierangela-rodriguez",
   "Pouya Rahmani": "399362-poya-rahmani",
   "Priscila Cachoeira": "128371-priscila-cachoeira",
+  "Quillan Salkilld": "195051-quilland-salkid",
   "Randy Brown": "21348-randall-brown-rude-boy",
   "Renato Moicano": "16950-renato-carneiro-moicano",
   "Rhys McKee": "54321-rhys-mckee",
   "Rizvan Kuniev": "71638-rizvan-kuniev",
+  "Robert Whittaker": "17398-robert-whittaker",
   "Rodrigo Sezinando": "274790-rodrigo-sezinando",
   "Sean Brady": "32242-sean-brady",
   "Sergei Pavlovich": "89112-sergey-pavlovich",
   "Sergey Bilostenniy": "104366-sergey-belostenniy",
   "Sergio Pettis": "17135-sergio-pettis",
   "Shamil Gaziev": "201352-shamil-gaziev",
+  "Sharabutdin Magomedov": "218307-sharaputdin-magomedov-golden-boy",
   "Stephen Thompson": "16753-stephen-thompson-wonderboy",
   "Styve Ngono Essono": "379317-styve-ngono-essono",
   "Tahir Abdullayev": "163438-tahir-abdullaev-tank",
@@ -12504,18 +12798,17 @@
   "Taylor Lapilus": "52612-taylor-lapilus",
   "Terrance McKinney": "126382-terrance-mckinney",
   "Theodor Berggren": "234290-theodor-berggren",
+  "Thomas Petersen": "187808-thomas-peterson",
   "Tom Nolan": "145210-tom-nolan",
   "Uroš Medić": "175629-uros-medic",
   "Vadim Nemkov": "62209-vadim-nemkov",
   "Virna Jandiroba": "56622-virna-jandiroba",
+  "Waldo Cortes-Acosta": "92314-waldo-cortes-acosta",
   "Wellington Turman": "70129-wellington-turman-fofo",
   "Wes Schultz": "222807-wesley-schultz",
   "Yana Santos": "19820-yana-kunitskaya-foxy",
+  "Yaroslav Amosov": "81129-yaroslav-amosov",
   "Yousri Belgaroui": "237485-yousri-belgaroui-baby-face-assassin",
-  "Waldo Cortes-Acosta": "92314-waldo-cortes-acosta",
-  "Gabriel Lorenço": "311998-gabriel-lourenco",
-  "Thomas Petersen": "187808-thomas-peterson",
-  "Ollie Schmid": "237487-oliver-schmid",
-  "Jonny Parsons": "99713-johnny-parsons"
+  "Ádám Borics": "94515-adam-borics"
  }
 }

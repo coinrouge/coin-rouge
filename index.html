@@ -861,6 +861,21 @@ details.ev summary:hover .chev{color:var(--ink)}
 #detail .section-h.main-h{background:var(--surface);border:1px solid var(--line);border-bottom:0;border-radius:6px 6px 0 0;padding:16px 0 4px;margin:0}
 #detail .section-h.main-h span:last-child{display:block;font-family:var(--f-body);font-size:11px;font-weight:500;text-transform:none;letter-spacing:.02em;color:var(--muted)}
 #detail .section-h.main-h + .seg-main{border-top:0;border-radius:0 0 6px 6px}
+/* Effet sonar au survol (cartes Radar francophone + lignes des soirées) : anneaux fins depuis le point d'entrée de la souris, points détectés au hasard */
+a.rcard,details.ev>summary{position:relative;isolation:isolate;overflow:hidden}
+a.rcard{--sonar:var(--red)} a.rcard.num{--sonar:var(--gold)} a.rcard.rfav{--sonar:var(--fav)}
+details.ev{--sonar:var(--red)} details.ev.num{--sonar:var(--gold)}
+details.ev>summary{border-radius:5px}
+.sonar{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.sonar i{position:absolute;left:var(--mx);top:var(--my);width:0;height:0;translate:-50% -50%;border-radius:50%;border:1px solid var(--sonar);opacity:0}
+.sonar b{position:absolute;width:5px;height:5px;margin:-2.5px 0 0 -2.5px;border-radius:50%;background:var(--sonar);box-shadow:0 0 6px var(--sonar);opacity:0}
+.sonar.on i{animation:sonarRing 3s cubic-bezier(.2,.6,.4,1) forwards}
+.sonar.on i:nth-child(2){animation-delay:.9s}
+.sonar.on i:nth-child(3){animation-delay:1.8s}
+.sonar.on b{animation:sonarBlip 2s ease-out forwards}
+@keyframes sonarRing{0%{opacity:.9;width:0;height:0}100%{opacity:0;width:var(--rs);height:var(--rs)}}
+@keyframes sonarBlip{0%{opacity:0;transform:scale(.4)}10%{opacity:1;transform:scale(1.4)}100%{opacity:0;transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.sonar{display:none}}
 </style>
 </head>
 <body>
@@ -2160,6 +2175,34 @@ fetch("data/events.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=
   }
 
   init();
+})();
+
+/* Effet sonar au survol : cartes Radar francophone et lignes des soirées */
+(function(){
+  if(!window.matchMedia||!matchMedia("(hover:hover)").matches||matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+  const SEL="a.rcard, details.ev>summary", RD=3;
+  document.addEventListener("mouseover",ev=>{
+    const el=ev.target.closest&&ev.target.closest(SEL);
+    if(!el||el.contains(ev.relatedTarget))return;
+    let fx=el.querySelector(":scope>.sonar");
+    if(!fx){fx=document.createElement("span");fx.className="sonar";fx.setAttribute("aria-hidden","true");fx.innerHTML="<i></i><i></i><i></i>";el.prepend(fx);}
+    const r=el.getBoundingClientRect(),mx=ev.clientX-r.left,my=ev.clientY-r.top;
+    const R=Math.max(Math.hypot(mx,my),Math.hypot(r.width-mx,my),Math.hypot(mx,r.height-my),Math.hypot(r.width-mx,r.height-my))*1.15;
+    fx.style.setProperty("--mx",mx+"px");fx.style.setProperty("--my",my+"px");fx.style.setProperty("--rs",(2*R)+"px");
+    fx.querySelectorAll("b").forEach(b=>b.remove());
+    const n=2+Math.floor(Math.random()*3);
+    for(let k=0;k<n;k++){
+      const x=r.width*(.06+Math.random()*.88),y=r.height*(.12+Math.random()*.76);
+      const d=Math.min(Math.hypot(x-mx,y-my)/R,.98),t=1-Math.sqrt(1-d);
+      const b=document.createElement("b");b.style.left=x+"px";b.style.top=y+"px";b.style.animationDelay=(t*RD)+"s";fx.appendChild(b);
+    }
+    fx.classList.remove("on");void fx.offsetWidth;fx.classList.add("on");
+  });
+  document.addEventListener("mouseout",ev=>{
+    const el=ev.target.closest&&ev.target.closest(SEL);
+    if(!el||el.contains(ev.relatedTarget))return;
+    const fx=el.querySelector(":scope>.sonar");if(fx)fx.classList.remove("on");
+  });
 })();
 </script>
 </body>

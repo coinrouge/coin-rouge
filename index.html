@@ -903,8 +903,14 @@ details.ev>summary{border-radius:5px}
 html:root[data-theme="dark"]{--win:#B8F03A;--lost:#FF1A2E;--loss:#FF1A2E;--surface:rgba(20,22,30,.40);--line:rgba(255,255,255,.10);--soft:rgba(255,255,255,.05)}
 /* Fond dégradé bruité : calque fixe posé une fois (plus fluide au défilement) */
 body{background:#0B0C12!important}
-body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;/* Fond précalculé une fois pour toutes (dégradés + voile + grain) : le navigateur n'a plus qu'à afficher une image */background:#0B0C12 url("bg-l.jpg") center/cover no-repeat}
-@media (orientation:portrait){body::before{background-image:url("bg-p.jpg")}}
+body::before{content:"";position:fixed;inset:0;will-change:transform;transform:translateZ(0);z-index:-1;pointer-events:none;background:
+ url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") repeat,
+ linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),
+ radial-gradient(circle 44vmax at 8% 85%, rgba(30,80,200,.55), transparent 70%),
+ radial-gradient(circle 34vmax at 55% 10%, rgba(255,220,235,.22), transparent 70%),
+ radial-gradient(circle 38vmax at 40% 55%, rgba(230,40,90,.30), transparent 70%),
+ radial-gradient(circle 44vmax at 98% 60%, rgba(255,30,50,.40), transparent 70%),
+ #0B0C12;background-blend-mode:soft-light,normal,normal,normal,normal,normal}
 /* Verre liquide */
 .hero,.favs,.favsug,.rcard,details.ev,.dhead,.search,.seg,.spoilbtn,.jumpnav button,.sportbtn,.gear,.findbox,.soon>div,.sim{
 
@@ -946,6 +952,16 @@ html:root[data-theme="dark"]{--fr-t:rgba(84,20,28,.9);--fav-t:rgba(200,30,110,.4
 /* Page de soirée ouverte : l'accueil s'efface en fondu (le fond dégradé reste identique dessous) */
 .wrap>:not(#detail){transition:opacity .12s ease,visibility 0s linear 0s}
 .wrap.indet>:not(#detail){visibility:hidden;opacity:0;transition:opacity .12s ease,visibility 0s linear .12s}
+/* Retour : la page de soirée emporte une copie du fond en glissant, l'accueil est déjà affiché dessous */
+.detail.closing{background:
+ url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") repeat,
+ linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),
+ radial-gradient(circle 44vmax at 8% 85%, rgba(30,80,200,.55), transparent 70%),
+ radial-gradient(circle 34vmax at 55% 10%, rgba(255,220,235,.22), transparent 70%),
+ radial-gradient(circle 38vmax at 40% 55%, rgba(230,40,90,.30), transparent 70%),
+ radial-gradient(circle 44vmax at 98% 60%, rgba(255,30,50,.40), transparent 70%),
+ #0B0C12!important;background-blend-mode:soft-light,normal,normal,normal,normal,normal}
+.wrap.snap>:not(#detail){transition:none!important}
 /* Francophones : le fond derrière est désaturé, le rouge reste rouge */
 /* Bandeau des pages de soirée : teinte translucide sans flou (le flou faisait ramer le défilement) */
 .dbar{background:linear-gradient(rgba(14,15,22,.9),rgba(14,15,22,.78))!important}
@@ -1964,10 +1980,13 @@ function renderDetail(t){
     if(!d.hidden&&!d.classList.contains("off")){
       /* Glissement vers la droite, puis on masque */
       window.__frPause=Infinity; clearTimeout(d._sl); d.classList.add("sliding","off");
-      const done=()=>{window.__frPause=0;if(!d.classList.contains("off"))return;d.hidden=true;d.innerHTML="";d.classList.remove("off","sliding");d.parentElement.classList.remove("indet");document.documentElement.style.overflow="";};
-      reduce?done():setTimeout(done,340);
+      /* L'accueil réapparaît tout de suite sous la page qui glisse (elle porte une copie du fond) : pas de frames vides */
+      const w=d.parentElement; d.classList.add("closing"); w.classList.add("snap"); w.classList.remove("indet");
       /* Le lien « Retour » (#) fait remonter la page : on revient là où on était */
       if(d._sy!=null){const y=d._sy;d._sy=null;window.scrollTo(0,y);}
+      requestAnimationFrame(()=>requestAnimationFrame(()=>w.classList.remove("snap")));
+      const done=()=>{window.__frPause=0;d.classList.remove("closing");if(!d.classList.contains("off"))return;d.hidden=true;d.innerHTML="";d.classList.remove("off","sliding");document.documentElement.style.overflow="";};
+      reduce?done():setTimeout(done,340);
     }
     return;
   }
@@ -1982,7 +2001,7 @@ function renderDetail(t){
     d._sy=window.scrollY;
     if(d.hidden){d.classList.add("off");d.hidden=false;}
     fitNames(); alignVS();               /* mise en page faite avant le glissement, pas pendant */
-    window.__frPause=Infinity; d.classList.add("sliding"); d.parentElement.classList.add("indet"); void d.offsetWidth;
+    window.__frPause=Infinity; d.classList.add("sliding"); d.classList.remove("closing"); d.parentElement.classList.add("indet"); void d.offsetWidth;
     requestAnimationFrame(()=>requestAnimationFrame(()=>{ d.classList.remove("off"); clearTimeout(d._sl); d._sl=setTimeout(()=>{d.classList.remove("sliding");window.__frPause=0;},380); }));
     document.documentElement.style.overflow="hidden";
     d.scrollTop=0; d.querySelector(".back").focus({preventScroll:true});

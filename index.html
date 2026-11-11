@@ -1152,6 +1152,7 @@ h2.h::before,h2.h::after{background:rgba(255,255,255,.22)!important}
 <style>
 /* ===== Pronos entre amis ===== */
 .pronobtn{display:flex;align-items:center;gap:9px;margin:12px 0 0;padding:10px 12px;border-radius:8px;text-decoration:none;color:var(--ink);font-family:var(--f-data);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;border:1px solid color-mix(in srgb,var(--blue) 55%,transparent);background:color-mix(in srgb,var(--blue) 14%,rgba(14,15,21,.55))}
+.pronobtn[hidden]{display:none}
 .pronobtn svg{width:18px;height:18px;color:var(--blue);flex:none}
 .pronobtn span{flex:1}.pronobtn i{font-style:normal;color:var(--muted)}
 .pronobtn:hover{border-color:var(--blue);background:color-mix(in srgb,var(--blue) 24%,rgba(14,15,21,.55))}
@@ -1278,7 +1279,7 @@ h2.h::before,h2.h::after{background:rgba(255,255,255,.22)!important}
       </nav>
     </div>
     <button type="button" class="spoilbtn spoilside" id="spoilh" aria-pressed="false" title="Afficher ou masquer les résultats"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="eye" d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle class="eye" cx="12" cy="12" r="3"/><path class="slash" d="M3 3l18 18"/></svg><span>No spoil</span></button>
-    <a class="pronobtn" href="#pronos"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg><span>Pronos entre amis</span><i aria-hidden="true">→</i></a>
+    <a class="pronobtn" href="#pronos" hidden><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg><span>Pronos entre amis</span><i aria-hidden="true">→</i></a>
     <nav class="jumpnav" aria-label="Aller à une section">
       <button type="button" data-jump="nextsec">Soirées suivantes<i aria-hidden="true">↓</i></button>
       <button type="button" data-jump="radarsec">Radar francophone<i aria-hidden="true">↓</i></button>
@@ -2750,6 +2751,9 @@ const lsSet=(k,v)=>{try{v==null?localStorage.removeItem(k):localStorage.setItem(
 const MLBL={ko:"KO/TKO",sub:"Soumission",dec:"Décision"}, MSH={ko:"KO",sub:"Soum.",dec:"Déc."};
 const PRO={code:lsGet("fightradar-code"),me:null,busy:false,err:"",msg:"",newCode:null,boards:{},showBoard:{},showCode:false,confirm:"",counts:{},
   invite:(()=>{try{return sessionStorage.getItem("fightradar-invite");}catch(_){return null;}})(),peek:null,peekErr:""};
+/* Pronos pas encore annoncés : bouton et bandeaux cachés, page #pronos accessible seulement par son adresse */
+const PRONOS_PUBLIC=false;
+if(PRONOS_PUBLIC)document.querySelectorAll(".pronobtn").forEach(a=>a.hidden=false);
 const PK={}; /* cache par soirée : {at, open:Map(clé→verrou), mine:Map(clé→{pick,m}), friends:Map(clé→[...]), counts:Map, loading} */
 const fkey=(a,b)=>a<b?a+" | "+b:b+" | "+a;
 const fmtCode=c=>{const s=String(c||"").toUpperCase().replace(/[^A-Z0-9]/g,"");return s.match(/.{1,4}/g)?.join("-")||"";};
@@ -2835,7 +2839,7 @@ function pkRefresh(id){
 function pkBar(ev,t){
   const live=t<ev.end;
   if(!PRO.code||!PRO.me){
-    if(!live) return "";
+    if(!live||!PRONOS_PUBLIC) return "";
     return `<div class="pkbar pbox"><div><b>Pronos entre amis</b><span>Choisis tes vainqueurs sur cette soirée et compare avec tes potes. Rien à gagner, juste pour le plaisir.</span></div><a class="pkgo" href="#pronos">${PRO.code?"Mes pronos":"Commencer"}</a></div>`;
   }
   const c=PK[ev.id]; if(!c||(!c.open&&!c.err)) loadEvent(ev.id);

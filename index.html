@@ -1138,7 +1138,16 @@ h2.h::before,h2.h::after{background:rgba(255,255,255,.22)!important}
 /* UFC Fight Night avec un francophone en main event ou co-main : rouges inversés (le francophone en rouge vif, les autres combats en rouge sombre) */
 .fn:not(.pfl):not(.bx):not(.ares):not(.hex):has(.bout.fr:is(.me,:has(.coml))){--fr-t:rgba(224,18,27,.34)}
 .fn:not(.pfl):not(.bx):not(.ares):not(.hex):has(.bout.fr:is(.me,:has(.coml))) .bout:not(.fr){background:rgba(84,20,28,.85)!important}
+
+/* Sans accélération matérielle : pas de glissement ni de fondu à l'ouverture d'une fight card */
+html.nogpu .detail,html.nogpu .wrap>:not(#detail){transition:none!important}
 </style>
+<script>
+/* Sans accélération matérielle (rendu logiciel du navigateur), les glissements de page ne peuvent pas être fluides : on les remplace par une ouverture instantanée */
+(function(){try{const c=document.createElement("canvas");const g=c.getContext("webgl")||c.getContext("experimental-webgl");let sw=!g;
+if(g){const x=g.getExtension("WEBGL_debug_renderer_info");const r=String(x?g.getParameter(x.UNMASKED_RENDERER_WEBGL):g.getParameter(g.RENDERER));sw=/swiftshader|llvmpipe|software|basic render|microsoft basic/i.test(r);}
+if(sw)document.documentElement.classList.add("nogpu");}catch(e){}})();
+</script>
 </head>
 <body>
 <div class="wrap">
@@ -1965,7 +1974,7 @@ function renderDetail(t){
   const ev=m&&EVENTS.find(e=>e.id===m[1]);
   const isCal=location.hash==="#agenda";
   const ma=location.hash.match(/^#(a-[a-z0-9-]+)$/), ag=ma&&AGENDA.find(a=>agKey(a)===ma[1]);
-  const reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const reduce=(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)||document.documentElement.classList.contains("nogpu");
   if(!ev&&!isCal&&!ag){
     if(!d.hidden&&!d.classList.contains("off")){
       /* Glissement vers la droite, puis on masque */

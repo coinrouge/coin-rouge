@@ -1585,7 +1585,7 @@ function favs(t){
       <div class="favwhen">${when}</div>
       ${!side&&FAVSORT==="perso"?`<div class="favmove"><button type="button" data-mv="-1" data-n="${esc(n)}" ${i===0?"disabled":""} aria-label="Monter">▲</button><button type="button" data-mv="1" data-n="${esc(n)}" ${i===rows.length-1?"disabled":""} aria-label="Descendre">▼</button></div>`:""}
     </div>`;
-  }).join("")+(side&&total>rows.length?`<button type="button" class="favmore" id="favmore">Voir tous mes favoris · ${total}</button>`:"");
+  }).join("")+(side&&total>0?`<button type="button" class="favmore" id="favmore">Voir tous mes favoris · ${total}</button>`:"");
 }
 let favOpen=false;
 document.addEventListener("click",e=>{if(e.target.closest("#favtoggle")){favOpen=!favOpen;render();}});
@@ -2500,7 +2500,7 @@ fetch("data/events.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=
   burger.addEventListener("click",()=>open(L)); favb.addEventListener("click",()=>open(Rt));
   [L,Rt].forEach(d=>{const p=d.querySelector(".mdr-panel");d.querySelector(".mdr-x").addEventListener("click",closeAll);
     d.addEventListener("click",e=>{if(!p.contains(e.target))closeAll();
-      if(e.target.closest(".agenda a,.agenda li,.allag,.seg button,.sportnav button,.favrow a,#find a"))setTimeout(closeAll,120);});});
+      if(e.target.closest(".agenda a,.agenda li,.allag,.seg button,.sportnav button,.favrow a,#find a,#favmore"))setTimeout(closeAll,120);});});
   document.addEventListener("keydown",e=>{if(e.key==="Escape")closeAll();});
   /* Glisser : bord gauche → menu, bord droit → favoris ; glisser vers l'extérieur pour refermer */
   let sx=null,sy=0,mode=0;

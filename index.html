@@ -1148,11 +1148,19 @@ h2.h::before,h2.h::after{background:rgba(255,255,255,.22)!important}
 </style>
 <style>
 /* ===== Pronos entre amis ===== */
-.pronobtn{display:flex;align-items:center;gap:9px;margin:12px 0 0;padding:10px 12px;border-radius:8px;text-decoration:none;color:var(--ink);font-family:var(--f-data);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;border:1px solid color-mix(in srgb,var(--blue) 55%,transparent);background:color-mix(in srgb,var(--blue) 14%,rgba(14,15,21,.55))}
-.pronobtn[hidden]{display:none}
-.pronobtn svg{width:18px;height:18px;color:var(--blue);flex:none}
-.pronobtn span{flex:1}.pronobtn i{font-style:normal;color:var(--muted)}
-.pronobtn:hover{border-color:var(--blue);background:color-mix(in srgb,var(--blue) 24%,rgba(14,15,21,.55))}
+.pronohd[hidden]{display:none}
+.pronohd{display:inline-flex;align-items:center;gap:7px;height:38px;padding:0 13px;border:1px solid color-mix(in srgb,var(--blue) 55%,transparent);border-radius:6px;background:color-mix(in srgb,var(--blue) 12%,var(--surface));color:var(--ink);text-decoration:none;font-family:var(--f-data);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:13px}
+.pronohd svg{width:16px;height:16px;color:var(--blue)}
+.pronohd:hover{border-color:var(--blue)}
+.ptitle{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.pwho{display:inline-flex;align-items:center;gap:7px;margin-top:6px;padding:6px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.3);color:var(--muted);font-family:var(--f-data);font-size:12px;font-weight:700;letter-spacing:.05em;cursor:pointer;white-space:nowrap;max-width:45%;overflow:hidden;text-overflow:ellipsis}
+.pwho i{width:7px;height:7px;border-radius:50%;background:#B8F03A;flex:none}
+.pwho:hover{color:var(--ink);border-color:rgba(255,255,255,.35)}
+.ptabs{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface);align-self:flex-start}
+.ptabs button{border:0;background:transparent;padding:11px 18px;cursor:pointer;font-family:var(--f-data);font-weight:700;text-transform:uppercase;letter-spacing:.07em;font-size:13px;color:var(--muted)}
+.ptabs button[aria-selected="true"]{background:var(--ink);color:#0B0C10}
+.ptabs button:not([aria-selected="true"]):hover{color:var(--ink)}
+@media (max-width:640px){.ptabs{align-self:stretch}.ptabs button{flex:1}.mdr-body .pronohd{justify-content:center;height:44px}}
 .pbox{background:rgba(22,24,32,.62);border:1px solid rgba(255,255,255,.13);border-radius:14px;padding:16px 18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 10px 30px rgba(0,0,0,.28);display:flex;flex-direction:column;gap:10px}
 .pbox>small,.pinv small{font-family:var(--f-data);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .pbox h3{margin:0;font-family:var(--f-display);font-weight:800;font-style:italic;text-transform:uppercase;font-size:22px;line-height:1;letter-spacing:.01em}
@@ -1255,6 +1263,7 @@ h2.h::before,h2.h::after{background:rgba(255,255,255,.22)!important}
         <button type="button" data-f="fr" aria-pressed="false">Francophones</button>
         <button type="button" data-f="fav" aria-pressed="false">Favoris</button>
       </div>
+      <a class="pronohd" href="#pronos" hidden title="Pronos entre amis"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg>Pronos</a>
       <div class="gearwrap">
         <button type="button" class="gear" id="gear" aria-haspopup="true" aria-expanded="false" aria-controls="gearmenu" title="Réglages"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
         <div class="gearmenu" id="gearmenu" role="menu" hidden>
@@ -1276,7 +1285,6 @@ h2.h::before,h2.h::after{background:rgba(255,255,255,.22)!important}
       </nav>
     </div>
     <button type="button" class="spoilbtn spoilside" id="spoilh" aria-pressed="false" title="Afficher ou masquer les résultats"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="eye" d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle class="eye" cx="12" cy="12" r="3"/><path class="slash" d="M3 3l18 18"/></svg><span>No spoil</span></button>
-    <a class="pronobtn" href="#pronos" hidden><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg><span>Pronos entre amis</span><i aria-hidden="true">→</i></a>
     <nav class="jumpnav" aria-label="Aller à une section">
       <button type="button" data-jump="nextsec">Soirées suivantes<i aria-hidden="true">↓</i></button>
       <button type="button" data-jump="radarsec">Radar francophone<i aria-hidden="true">↓</i></button>
@@ -2631,7 +2639,7 @@ fetch("data/events.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=
   burger.addEventListener("click",()=>open(L)); favb.addEventListener("click",()=>open(Rt));
   [L,Rt].forEach(d=>{const p=d.querySelector(".mdr-panel");d.querySelector(".mdr-x").addEventListener("click",closeAll);
     d.addEventListener("click",e=>{if(!p.contains(e.target))closeAll();
-      if(e.target.closest(".agenda a,.agenda li,.allag,.seg button,.sportnav button,.favrow a,#find a,#favmore,.pronobtn"))setTimeout(closeAll,120);});});
+      if(e.target.closest(".agenda a,.agenda li,.allag,.seg button,.sportnav button,.favrow a,#find a,#favmore,.pronohd"))setTimeout(closeAll,120);});});
   document.addEventListener("keydown",e=>{if(e.key==="Escape")closeAll();});
   /* Glisser : bord gauche → menu, bord droit → favoris ; glisser vers l'extérieur pour refermer */
   let sx=null,sy=0,mode=0;
@@ -2746,11 +2754,11 @@ async function rpc(fn,args){
 const lsGet=k=>{try{return localStorage.getItem(k);}catch(_){return null;}};
 const lsSet=(k,v)=>{try{v==null?localStorage.removeItem(k):localStorage.setItem(k,v);}catch(_){}};
 const MLBL={ko:"KO/TKO",sub:"Soumission",dec:"Décision"}, MSH={ko:"KO",sub:"Soum.",dec:"Déc."};
-const PRO={code:lsGet("fightradar-code"),me:null,busy:false,err:"",msg:"",newCode:null,boards:{},showBoard:{},showCode:false,confirm:"",counts:{},
+const PRO={tab:"groupes",code:lsGet("fightradar-code"),me:null,busy:false,err:"",msg:"",newCode:null,boards:{},showBoard:{},showCode:false,confirm:"",counts:{},
   invite:(()=>{try{return sessionStorage.getItem("fightradar-invite");}catch(_){return null;}})(),peek:null,peekErr:""};
 /* Pronos pas encore annoncés : bouton et bandeaux cachés, page #pronos accessible seulement par son adresse */
 const PRONOS_PUBLIC=false;
-if(PRONOS_PUBLIC)document.querySelectorAll(".pronobtn").forEach(a=>a.hidden=false);
+function proVis(){const on=PRONOS_PUBLIC||!!PRO.code;document.querySelectorAll(".pronohd").forEach(a=>a.hidden=!on);}
 const PK={}; /* cache par soirée : {at, open:Map(clé→verrou), mine:Map(clé→{pick,m}), friends:Map(clé→[...]), counts:Map, loading} */
 const fkey=(a,b)=>a<b?a+" | "+b:b+" | "+a;
 const fmtCode=c=>{const s=String(c||"").toUpperCase().replace(/[^A-Z0-9]/g,"");return s.match(/.{1,4}/g)?.join("-")||"";};
@@ -2785,9 +2793,9 @@ async function loadMe(){
   }
   proRefresh();
 }
-function logoutLocal(){PRO.code=null;PRO.me=null;PRO.boards={};PRO.showBoard={};PRO.counts={};lsSet("fightradar-code",null);lsSet("fightradar-favsync",null);lsSet("fightradar-pseudo",null);for(const k in PK)delete PK[k];}
+function logoutLocal(){PRO.tab="groupes";setTimeout(proVis);PRO.code=null;PRO.me=null;PRO.boards={};PRO.showBoard={};PRO.counts={};lsSet("fightradar-code",null);lsSet("fightradar-favsync",null);lsSet("fightradar-pseudo",null);for(const k in PK)delete PK[k];}
 async function useCode(code,isNew){
-  PRO.code=fmtCode(code); lsSet("fightradar-code",PRO.code); lsSet("fightradar-favsync",null);
+  PRO.code=fmtCode(code); lsSet("fightradar-code",PRO.code); lsSet("fightradar-favsync",null); PRO.tab="groupes"; proVis();
   await loadMe();
   if(PRO.me&&PRO.invite) await joinGroup(PRO.invite);
   for(const k in PK)delete PK[k];
@@ -2809,7 +2817,7 @@ function takeHash(){
     history.replaceState(null,"",location.pathname+location.search+"#pronos");return true;}
   return false;
 }
-takeHash();
+takeHash();proVis();
 window.addEventListener("hashchange",()=>{if(takeHash())renderDetail(now());});
 if(PRO.code) loadMe();
 
@@ -2906,7 +2914,7 @@ function pronosHTML(){
       ${me?`<div class="prow"><button type="button" class="pbtn" data-pa="invyes"${busy}>Rejoindre le groupe</button><button type="button" class="pbtn ghost" data-pa="invno">Non merci</button></div>`:`<p class="pnote">Crée ton compte ci-dessous (ou connecte-toi) : tu rejoindras le groupe automatiquement.</p>`}`}</div>`;
   }
   const head=`<div class="dbar"><div class="dleft"><a class="dbrand homelink" href="#" title="Retour à l'accueil"><canvas class="frlogo frmini" role="img" aria-label="Fight Radar"></canvas></a><a class="back" href="#">← Retour</a></div></div>
-  <div class="dwrap pro"><div class="dtitle"><h1>Pronos entre amis</h1><span>Pour le plaisir, rien à gagner</span></div>
+  <div class="dwrap pro"><div class="ptitle"><div class="dtitle"><h1>Pronos entre amis</h1><span>Pour le plaisir, rien à gagner</span></div>${me?`<button type="button" class="pwho" data-pa="tab:compte" title="Mon compte"><i aria-hidden="true"></i>${esc(me.pseudo)}</button>`:""}</div>
   ${PRO.err?`<div class="perr" role="alert">${esc(PRO.err)}</div>`:""}${inv}`;
   const rules=`<div class="pbox prules"><small>Comment ça marche</small><ul>
     <li>Sur chaque fight card, choisis le vainqueur de chaque combat : <b>1 point</b> s'il gagne.</li>
@@ -2940,8 +2948,21 @@ function pronosHTML(){
     rpc("fr_my_counts",{p_code:PRO.code,p_events:ups.map(e=>e.id)}).then(c=>{PRO.counts=c||{};}).catch(()=>{}).finally(()=>{PRO.countsLoading=0;PRO.countsAt=Date.now();proRefresh();});}
   const evs=ups.map(e=>{const n=PRO.counts[e.id]||0,tot=e.fights.filter(f=>!f.a.tbd&&!f.b.tbd).length,t=Date.now();
     return `<a class="pev" href="#ev-${esc(e.id)}"><span class="pevd">${esc(fmtDS(e.start))}</span>${evBadge(e,1)}<span class="pevn">${esc(e.a)} vs ${esc(e.b)}</span><span class="pevc${n?" on":""}">${t>=e.start?"En cours · ":""}${n}/${tot} pronos</span></a>`;}).join("");
-  return head+nc+`
-    <div class="pbox pme"><small>Connecté</small><h3>${esc(me.pseudo)}</h3><p class="pnote">Tes favoris et tes pronos sont enregistrés sur ton compte.</p></div>
+  const tab=PRO.tab==="compte"?"compte":"groupes";
+  const tabs=`<div class="ptabs" role="tablist">${[["groupes","Mes groupes"],["compte","Mon compte"]].map(([k,l])=>`<button type="button" role="tab" aria-selected="${tab===k}" data-pa="tab:${k}">${l}</button>`).join("")}</div>`;
+  if(tab==="compte") return head+nc+tabs+`
+    <p class="pnote">Tes favoris et tes pronos sont enregistrés sur ton compte <b>${esc(me.pseudo)}</b>.</p>
+    <div class="pbox"><h3>Connecter un autre appareil</h3>
+        ${PRO.showCode?`<div class="pqr">${qrSVG(loginURL(PRO.code))}<div><p>Scanne ce QR code avec l'appareil photo de ton téléphone, ou tape ce code sur la page Pronos de l'autre appareil :</p><b class="pcodev">${esc(fmtCode(PRO.code))}</b>
+          <div class="prow"><button type="button" class="pbtn ghost" data-pa="copycode">Copier le code</button><button type="button" class="pbtn ghost" data-pa="hidecode">Masquer</button></div></div></div>`:
+          `<p class="pnote">Affiche ton code personnel et son QR code pour retrouver ton compte (favoris et pronos) sur ton téléphone ou un autre ordinateur. Ne le montre à personne d'autre.</p><button type="button" class="pbtn" data-pa="showcode">Afficher mon code</button>`}</div>
+    <div class="pgrid">
+        <div class="pbox"><h3>Changer de pseudo</h3><label class="pfield"><span>Nouveau pseudo</span><input id="pr-rename" maxlength="20" placeholder="${esc(me.pseudo)}" data-enter="rename"></label><button type="button" class="pbtn" data-pa="rename"${busy}>Enregistrer</button></div>
+        <div class="pbox"><h3>Déconnexion</h3><p class="pnote">Pense à noter ton code avant : sans lui, impossible de te reconnecter.</p>
+          <div class="prow">${conf("logout","Me déconnecter","Confirmer la déconnexion")}${conf("delete","Supprimer mon compte","Tout supprimer ?")}</div></div>
+    </div>
+  </div>`;
+  return head+nc+tabs+`
     <section class="psec"><h2 class="h">Prochaines <span>soirées</span></h2><div class="pevs">${evs||`<p class="pnote">Aucune soirée annoncée pour l'instant.</p>`}</div></section>
     <section class="psec"><h2 class="h">Mes <span>groupes</span></h2>
       ${groups||`<p class="pnote">Tu n'es dans aucun groupe pour l'instant. Crée le tien et invite tes amis, ou rejoins le groupe d'un ami avec son code.</p>`}
@@ -2950,16 +2971,6 @@ function pronosHTML(){
         <div class="pbox"><h3>Rejoindre un groupe</h3><label class="pfield"><span>Code d'invitation</span><input id="pr-gcode" maxlength="12" autocapitalize="characters" spellcheck="false" placeholder="Ex. K7M2QX9P" data-enter="gjoin"></label><button type="button" class="pbtn" data-pa="gjoin"${busy}>Rejoindre</button></div>
       </div></section>
     ${rules}
-    <section class="psec"><h2 class="h">Mon <span>compte</span></h2>
-      <div class="pbox"><h3>Connecter un autre appareil</h3>
-        ${PRO.showCode?`<div class="pqr">${qrSVG(loginURL(PRO.code))}<div><p>Scanne ce QR code avec l'appareil photo de ton téléphone, ou tape ce code sur la page Pronos de l'autre appareil :</p><b class="pcodev">${esc(fmtCode(PRO.code))}</b>
-          <div class="prow"><button type="button" class="pbtn ghost" data-pa="copycode">Copier le code</button><button type="button" class="pbtn ghost" data-pa="hidecode">Masquer</button></div></div></div>`:
-          `<p class="pnote">Affiche ton code personnel et son QR code pour retrouver ton compte (favoris et pronos) sur ton téléphone ou un autre ordinateur. Ne le montre à personne d'autre.</p><button type="button" class="pbtn" data-pa="showcode">Afficher mon code</button>`}</div>
-      <div class="pgrid">
-        <div class="pbox"><h3>Changer de pseudo</h3><label class="pfield"><span>Nouveau pseudo</span><input id="pr-rename" maxlength="20" placeholder="${esc(me.pseudo)}" data-enter="rename"></label><button type="button" class="pbtn" data-pa="rename"${busy}>Enregistrer</button></div>
-        <div class="pbox"><h3>Déconnexion</h3><p class="pnote">Pense à noter ton code avant : sans lui, impossible de te reconnecter.</p>
-          <div class="prow">${conf("logout","Me déconnecter","Confirmer la déconnexion")}${conf("delete","Supprimer mon compte","Tout supprimer ?")}</div></div>
-      </div></section>
   </div>`;
 }
 async function proAct(a){
@@ -2972,6 +2983,7 @@ async function proAct(a){
     const old=PRO.code; PRO.code=c; try{await rpc("fr_me",{p_code:c});}catch(e){PRO.code=old;throw e;} await useCode(c);});
   if(act==="copycode") return copyTxt(PRO.newCode||fmtCode(PRO.code),"Code copié");
   if(act==="codeok"){PRO.newCode=null;return proRefresh();}
+  if(act==="tab"){PRO.tab=arg;PRO.err="";proRefresh();const d=document.getElementById("detail");if(d)d.scrollTop=0;return;}
   if(act==="showcode"||act==="hidecode"){PRO.showCode=act==="showcode";return proRefresh();}
   if(act==="invyes") return run(()=>joinGroup(PRO.invite));
   if(act==="invno"){PRO.invite=null;PRO.peek=null;PRO.peekErr="";try{sessionStorage.removeItem("fightradar-invite");}catch(_){}return proRefresh();}

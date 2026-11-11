@@ -2117,7 +2117,8 @@ fetch("data/events.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=
   const MAX_H_RATIO = 0.86;                // hauteur max du logo / hauteur du canvas
   const TAU = Math.PI * 2;
   const LT = TRAIL / TAU;
-  const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* Le logo s'anime toujours, même si l'ordinateur demande de réduire les animations (balayage doux, choix éditorial) */
+  const REDUCED = false;
   const START_ANGLE = Math.PI;            // le balayage part du bas, vers la gauche (9 h)
   const STATIC_ANGLE = START_ANGLE + 0.9;
 

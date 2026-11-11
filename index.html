@@ -1118,6 +1118,9 @@ h2.h::before,h2.h::after{background:rgba(255,255,255,.22)!important}
   .mdr-body .agenda{display:block;margin:0!important}
   .mdr-body .jumpnav{display:flex;flex-direction:column}
 }
+/* UFC Fight Night avec un francophone en main event ou co-main : rouges inversés (le francophone en rouge vif, les autres combats en rouge sombre) */
+.fn:not(.pfl):not(.bx):not(.ares):not(.hex):has(.bout.fr:is(.me,:has(.coml))){--fr-t:rgba(224,18,27,.34)}
+.fn:not(.pfl):not(.bx):not(.ares):not(.hex):has(.bout.fr:is(.me,:has(.coml))) .bout:not(.fr){background:rgba(84,20,28,.85)!important}
 </style>
 </head>
 <body>

@@ -2507,7 +2507,8 @@ fetch("data/events.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=
   /* Glisser : bord gauche → menu, bord droit → favoris ; glisser vers l'extérieur pour refermer */
   let sx=null,sy=0,mode=0;
   document.addEventListener("touchstart",e=>{if(!mq.matches)return;const t=e.touches[0];sx=t.clientX;sy=t.clientY;
-    mode=L.classList.contains("open")?1:Rt.classList.contains("open")?2:t.clientX<22?3:t.clientX>innerWidth-22?4:0;},{passive:true});
+    const det=document.getElementById("detail");
+    mode=L.classList.contains("open")?1:Rt.classList.contains("open")?2:(det&&!det.hidden)?0:t.clientX<22?3:t.clientX>innerWidth-22?4:0;},{passive:true});
   document.addEventListener("touchend",e=>{if(sx===null||!mode){sx=null;return;}const t=e.changedTouches[0],dx=t.clientX-sx;
     if(Math.abs(t.clientY-sy)<60){if(mode===3&&dx>50)open(L);if(mode===4&&dx<-50)open(Rt);if(mode===1&&dx<-50)closeAll();if(mode===2&&dx>50)closeAll();}sx=null;},{passive:true});
   /* Pastille : nombre de favoris */
@@ -2520,6 +2521,22 @@ fetch("data/events.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=
   }
   apply(); mq.addEventListener&&mq.addEventListener("change",apply);
   document.addEventListener("click",e=>{if(e.target.closest(".favbtn"))setTimeout(badge,50);});
+})();
+</script>
+<script>
+/* Téléphone : sur une fight card complète, glisser vers la droite pour revenir en arrière (le panneau suit le doigt) */
+(function(){
+  const d=document.getElementById("detail"); if(!d) return;
+  let x0=null,y0=0,dx=0,drag=false,lock=false;
+  d.addEventListener("touchstart",e=>{if(d.hidden||e.touches.length>1)return;const t=e.touches[0];x0=t.clientX;y0=t.clientY;dx=0;drag=false;lock=false;},{passive:true});
+  d.addEventListener("touchmove",e=>{if(x0===null||lock)return;const t=e.touches[0];dx=t.clientX-x0;const dy=t.clientY-y0;
+    if(!drag){ if(Math.abs(dy)>12&&Math.abs(dy)>Math.abs(dx)){lock=true;return;} if(dx>14&&dx>Math.abs(dy)*1.3){drag=true;d.style.transition="none";} else return; }
+    d.style.transform="translate3d("+Math.max(0,dx)+"px,0,0)";},{passive:true});
+  d.addEventListener("touchend",()=>{if(x0===null)return;x0=null;if(!drag)return;drag=false;
+    d.style.transition="";
+    if(dx>Math.min(110,innerWidth*.28)){ d.style.transform=""; location.hash=""; }
+    else { d.style.transform=""; }},{passive:true});
+  d.addEventListener("touchcancel",()=>{x0=null;drag=false;d.style.transition="";d.style.transform="";},{passive:true});
 })();
 </script>
 </body>

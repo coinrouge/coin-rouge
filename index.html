@@ -2946,7 +2946,7 @@ function pronosHTML(){
     <section class="psec"><h2 class="h">Mes <span>groupes</span></h2>
       ${groups||`<p class="pnote">Tu n'es dans aucun groupe pour l'instant. Crée le tien et invite tes amis, ou rejoins le groupe d'un ami avec son code.</p>`}
       <div class="pgrid">
-        <div class="pbox"><h3>Créer un groupe</h3><label class="pfield"><span>Nom du groupe</span><input id="pr-gname" maxlength="30" placeholder="Ex. Les potes du samedi" data-enter="gcreate"></label><button type="button" class="pbtn" data-pa="gcreate"${busy}>Créer</button></div>
+        <div class="pbox"><h3>Créer un groupe</h3><label class="pfield"><span>Nom du groupe</span><input id="pr-gname" maxlength="30" placeholder="Ex. Golmon Fighters" data-enter="gcreate"></label><button type="button" class="pbtn" data-pa="gcreate"${busy}>Créer</button></div>
         <div class="pbox"><h3>Rejoindre un groupe</h3><label class="pfield"><span>Code d'invitation</span><input id="pr-gcode" maxlength="12" autocapitalize="characters" spellcheck="false" placeholder="Ex. K7M2QX9P" data-enter="gjoin"></label><button type="button" class="pbtn" data-pa="gjoin"${busy}>Rejoindre</button></div>
       </div></section>
     ${rules}

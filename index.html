@@ -55,7 +55,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:1
 @media (min-width:861px) and (max-width:1179px){.rside{grid-column:1}}
 .rside{position:sticky;top:16px;display:flex;flex-direction:column;gap:12px;max-height:calc(100vh - 32px);overflow:auto;min-width:0}
 .rside:empty{display:none}
-.rside #favsec .h{font-size:15px}
+.rside #favsec .h{font-size:19px}
 .rside .favrow{grid-template-columns:auto auto 1fr;gap:8px;padding:9px 10px}
 .rside .favrow>.av{width:24px;height:24px;font-size:9px;border-width:1.5px;align-self:start;margin-top:2px}
 .rside .favn{font-size:15px}
@@ -962,7 +962,9 @@ h2.h::before{content:"";flex:1;height:1px;background:var(--line)}
 
 
 /* Titres de section : Barlow Condensed italique ; « suivantes » et « résultats » en bleu du logo */
-h2.h{font-family:"Barlow Condensed",Impact,sans-serif;font-style:italic;font-weight:800;letter-spacing:.03em}
+h2.h{font-family:"Barlow Condensed",Impact,sans-serif;font-style:italic;font-weight:800;letter-spacing:.03em;font-size:23px}
+/* Espace normal entre les deux mots (l'écart des traits ne s'applique pas entre eux) */
+h2.h>span{margin-left:calc(.26em - 12px)}
 #nextsec h2.h span,#pastsec h2.h span{color:#1E90FF}
 /* Sections (Soirées suivantes, Radar, Résultats, Favoris) posées sur un panneau sombre */
 h2.h::before,h2.h::after{background:rgba(255,255,255,.22)!important}

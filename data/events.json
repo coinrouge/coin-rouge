@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-10T13:10:16.657Z",
+ "updated": "2026-11-11T01:11:40.628Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -3102,6 +3102,22 @@
     },
     {
      "s": "early",
+     "w": "BW",
+     "r": 3,
+     "a": {
+      "n": "Alateng Heili",
+      "rec": "18-10-2",
+      "nat": "CHN",
+      "wk": "Alateng Heili"
+     },
+     "b": {
+      "n": "Juan Díaz",
+      "rec": "16-1-1",
+      "nat": "PER"
+     }
+    },
+    {
+     "s": "early",
      "w": "LW",
      "r": 3,
      "a": {
@@ -3532,7 +3548,7 @@
    "name": "UFC Fight Night",
    "a": "Adesanya",
    "b": "Magomedov",
-   "venue": "ANB Arena",
+   "venue": "anb Arena",
    "city": "Riyadh",
    "ctry": "KSA",
    "tz": "Asia/Riyadh",

@@ -6,7 +6,7 @@ Soirées retenues : UFC Fight Night: Buckley vs. Malott / PFL Chicago: Carmouche
   ufc333 : 14 combats, 14 résultats
   fn-moicano-nolan : 12 combats, 12 résultats
   fn-cortesacosta-walker : 14 combats, 14 résultats
-  ufc334 : 12 combats, 0 résultats
+  ufc334 : 13 combats, 0 résultats
   pfl-nemkov-bilostenniy : 13 combats, 0 résultats
   fn-prochazka-stirling : 9 combats, 0 résultats
   fn-adesanya-magomedov : 12 combats, 0 résultats
@@ -19,4 +19,4 @@ Presse : 10 soirées, 3 à l'agenda
 Annuaire : 1044 combattants (dont 71 champions de boxe)
 Annuaire francophone (fr.wikipedia) : 334 ajoutés
 Annuaire permanent : 39 francophones (19 hors autres listes)
-Aucun changement.
+data/events.json écrit (23 soirées détaillées, 5 à l'agenda).

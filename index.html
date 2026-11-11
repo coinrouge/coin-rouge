@@ -1149,6 +1149,96 @@ h2.h::before,h2.h::after{background:rgba(255,255,255,.22)!important}
 .fn:not(.pfl):not(.bx):not(.ares):not(.hex):has(.bout.fr:is(.me,:has(.coml))){--fr-t:rgba(224,18,27,.34)}
 .fn:not(.pfl):not(.bx):not(.ares):not(.hex):has(.bout.fr:is(.me,:has(.coml))) .bout:not(.fr){background:rgba(84,20,28,.85)!important}
 </style>
+<style>
+/* ===== Pronos entre amis ===== */
+.pronobtn{display:flex;align-items:center;gap:9px;margin:12px 0 0;padding:10px 12px;border-radius:8px;text-decoration:none;color:var(--ink);font-family:var(--f-data);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;border:1px solid color-mix(in srgb,var(--blue) 55%,transparent);background:color-mix(in srgb,var(--blue) 14%,rgba(14,15,21,.55))}
+.pronobtn svg{width:18px;height:18px;color:var(--blue);flex:none}
+.pronobtn span{flex:1}.pronobtn i{font-style:normal;color:var(--muted)}
+.pronobtn:hover{border-color:var(--blue);background:color-mix(in srgb,var(--blue) 24%,rgba(14,15,21,.55))}
+.pbox{background:rgba(22,24,32,.62);border:1px solid rgba(255,255,255,.13);border-radius:14px;padding:16px 18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 10px 30px rgba(0,0,0,.28);display:flex;flex-direction:column;gap:10px}
+.pbox>small,.pinv small{font-family:var(--f-data);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.pbox h3{margin:0;font-family:var(--f-display);font-weight:800;font-style:italic;text-transform:uppercase;font-size:22px;line-height:1;letter-spacing:.01em}
+.pbox p{margin:0}
+.pnote{color:var(--muted);font-size:14px;margin:0}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.dwrap.pro{gap:18px}
+.psec{display:flex;flex-direction:column;gap:12px}
+.psec>.h{margin:6px 0 0}
+.pfield{display:flex;flex-direction:column;gap:5px}
+.pfield span{font-family:var(--f-data);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.pfield input{font:inherit;font-size:16px;color:var(--ink);background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:10px 12px;outline:none;min-width:0}
+.pfield input:focus{border-color:var(--blue);box-shadow:0 0 0 3px color-mix(in srgb,var(--blue) 25%,transparent)}
+.pbtn{align-self:flex-start;font-family:var(--f-data);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:10px 16px;border-radius:8px;border:1px solid var(--blue);background:var(--blue);color:#06121F;cursor:pointer}
+.pbtn:hover{filter:brightness(1.1)}
+.pbtn:disabled{opacity:.5;cursor:wait}
+.pbtn.ghost{background:transparent;color:var(--ink);border-color:rgba(255,255,255,.25)}
+.pbtn.ghost:hover{border-color:var(--ink)}
+.pbtn.warn{border-color:#FF1A2E;color:#FF6B78}
+.pbtn.small{padding:6px 12px;font-size:11px}
+.prow{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.perr{border:1px solid #FF1A2E;background:rgba(255,26,46,.12);color:#FFB3BA;border-radius:10px;padding:10px 14px}
+.pinv{border-color:color-mix(in srgb,var(--blue) 60%,transparent)}
+.pcode{border-color:color-mix(in srgb,#FFC20E 60%,transparent)}
+.pcodev{font-family:var(--f-data);font-size:clamp(18px,4.6vw,26px);letter-spacing:.08em;color:#FFC20E;font-variant-numeric:tabular-nums;user-select:all;word-break:break-all}
+.pqr{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.pqr>div{flex:1;min-width:220px;display:flex;flex-direction:column;gap:10px}
+.qr{width:180px;height:180px;border-radius:8px;flex:none}
+.pgh{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.pgh span{font-family:var(--f-data);color:var(--muted);font-size:13px}
+.pgcode{font-family:var(--f-data);color:var(--muted);font-size:13px}.pgcode b{color:var(--ink);letter-spacing:.08em;user-select:all}
+.pgroup .prow .pbtn.ghost:last-child{margin-left:auto}
+.pboard{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+.pboard li{display:grid;grid-template-columns:28px 1fr auto auto;gap:10px;align-items:center;padding:7px 10px;border-radius:8px;background:rgba(255,255,255,.04)}
+.pboard li.me{background:color-mix(in srgb,var(--blue) 18%,transparent)}
+.prk{font-family:var(--f-display);font-weight:800;font-size:18px;color:var(--muted)}
+.pboard li:first-child .prk{color:#FFC20E}
+.pnm{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pst{font-family:var(--f-data);font-size:12px;color:var(--muted)}
+.pboard b{font-family:var(--f-data);font-size:15px}
+.pevs{display:flex;flex-direction:column;gap:6px}
+.pev{display:grid;grid-template-columns:auto auto 1fr auto;gap:10px;align-items:center;padding:10px 14px;border-radius:10px;text-decoration:none;color:var(--ink);background:rgba(22,24,32,.62);border:1px solid rgba(255,255,255,.12)}
+.pev:hover{border-color:var(--blue)}
+.pevd{font-family:var(--f-data);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);white-space:nowrap}
+.pevn{font-family:var(--f-data);font-weight:700;text-transform:uppercase;letter-spacing:.04em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pevc{font-family:var(--f-data);font-size:12px;font-weight:700;color:var(--muted);white-space:nowrap}
+.pevc.on{color:#B8F03A}
+.prules ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;color:var(--muted)}
+.prules b{color:var(--ink)}
+/* Bandeau en haut de la fight card */
+.pkbar{flex-direction:row;align-items:center;justify-content:space-between;gap:14px;border-color:color-mix(in srgb,var(--blue) 45%,transparent);padding:12px 16px}
+.pkbar>div{display:flex;flex-direction:column;gap:2px;min-width:0}
+.pkbar b{font-family:var(--f-data);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:14px}
+.pkbar span{color:var(--muted);font-size:13px}
+.pkgo{flex:none;font-family:var(--f-data);font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:9px 14px;border-radius:8px;border:1px solid var(--blue);color:var(--blue);background:transparent;text-decoration:none;cursor:pointer}
+.pkgo:hover{background:color-mix(in srgb,var(--blue) 15%,transparent)}
+/* Prono sous chaque combat */
+.bout>.pk{grid-column:1/-1}
+.pk{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 12px;margin:10px -4px 0;padding:9px 10px 2px;border-top:1px dashed rgba(255,255,255,.14);font-family:var(--f-data)}
+.pkl{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.pkfs,.pkms{display:inline-flex;gap:6px}
+.pkf,.pkm{font-family:var(--f-data);font-weight:700;text-transform:uppercase;letter-spacing:.05em;cursor:pointer;border-radius:7px;border:1px solid rgba(255,255,255,.22);background:rgba(0,0,0,.25);color:var(--ink)}
+.pkf{font-size:14px;padding:7px 14px;min-width:84px}
+.pkm{font-size:11px;padding:6px 9px;color:var(--muted)}
+.pkf:hover,.pkm:not(:disabled):hover{border-color:var(--blue)}
+.pkf.on{background:var(--blue);border-color:var(--blue);color:#06121F}
+.pkm.on{background:color-mix(in srgb,var(--blue) 25%,transparent);border-color:var(--blue);color:var(--ink)}
+.pkm:disabled{opacity:.35;cursor:default}
+.pkc{width:100%;text-align:center;color:var(--muted);font-size:12px}
+.pkw{font-size:13px;color:var(--muted)}
+.pkw b{color:var(--ink)}.pkw.me b{color:var(--blue)}
+.pkw em{font-style:normal;font-size:11px;text-transform:uppercase;letter-spacing:.06em}
+.pkpt{font-style:normal;font-weight:700;margin-left:5px;font-size:12px}
+.pkpt.ok{color:#B8F03A}.pkpt.ko{color:#FF1A2E}
+.prtoast{position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);z-index:200;max-width:min(92vw,520px);padding:11px 16px;border-radius:10px;background:rgba(20,22,30,.95);border:1px solid rgba(255,255,255,.2);color:var(--ink);font-size:14px;box-shadow:0 10px 30px rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}
+.prtoast.on{opacity:1;transform:translate(-50%,0)}
+@media (max-width:640px){
+  .pkbar{flex-direction:column;align-items:stretch}.pkbar .pkgo{text-align:center}
+  .pev{grid-template-columns:auto 1fr auto;row-gap:4px}.pev .evb{display:none}
+  .pkf{min-width:0;flex:1;padding:8px 10px}.pkfs{flex:1;min-width:100%}
+  .qr{width:160px;height:160px}
+  .pgroup .prow .pbtn.ghost:last-child{margin-left:0}
+}
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -1188,6 +1278,7 @@ h2.h::before,h2.h::after{background:rgba(255,255,255,.22)!important}
       </nav>
     </div>
     <button type="button" class="spoilbtn spoilside" id="spoilh" aria-pressed="false" title="Afficher ou masquer les résultats"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="eye" d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle class="eye" cx="12" cy="12" r="3"/><path class="slash" d="M3 3l18 18"/></svg><span>No spoil</span></button>
+    <a class="pronobtn" href="#pronos"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg><span>Pronos entre amis</span><i aria-hidden="true">→</i></a>
     <nav class="jumpnav" aria-label="Aller à une section">
       <button type="button" data-jump="nextsec">Soirées suivantes<i aria-hidden="true">↓</i></button>
       <button type="button" data-jump="radarsec">Radar francophone<i aria-hidden="true">↓</i></button>
@@ -1526,7 +1617,7 @@ const HSTRIPE=new Set(["RUS","GER","NED","HUN","AUT","UKR","POL","IDN","EST","BU
 let FAVS=[];
 try{const v=JSON.parse(localStorage.getItem("coinrouge-favs")||"[]");if(Array.isArray(v))FAVS=v.filter(x=>typeof x==="string");}catch(e){}
 const isFav=n=>FAVS.includes(n);
-function saveFavs(){try{localStorage.setItem("coinrouge-favs",JSON.stringify(FAVS));}catch(e){}}
+function saveFavs(){try{localStorage.setItem("coinrouge-favs",JSON.stringify(FAVS));}catch(e){}if(typeof accFavsChanged==="function")accFavsChanged();}
 function toggleFav(n){FAVS=isFav(n)?FAVS.filter(x=>x!==n):[...FAVS,n];saveFavs();render();}
 const HEART='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.5 8.2 3.6 4.5 7.3 4.5c2 0 3.6 1.1 4.7 2.7 1.1-1.6 2.7-2.7 4.7-2.7 3.7 0 5.8 3.7 4.6 6.8-1.8 4.6-9.3 9.2-9.3 9.2z"/></svg>';
 const HEART_OFF='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.5 8.2 3.6 4.5 7.3 4.5c2 0 3.6 1.1 4.7 2.7 1.1-1.6 2.7-2.7 4.7-2.7 3.7 0 5.8 3.7 4.6 6.8-1.8 4.6-9.3 9.2-9.3 9.2z"/><path d="M3 3L21 21"/></svg>';
@@ -1695,6 +1786,7 @@ function boutHTML(f,t,detail,total,me,ev,spoilOK){
       ${fighterHTML(f.b,"b",res?(res.w==="b"?"win":res.w==="a"?"lose":"draw"):"",res&&res.w==="b"?andTxt:"")}
     </div>
     ${f.note?`<div class="note">${esc(f.note)}</div>`:""}
+    ${detail&&ev&&typeof pkHTML==="function"?pkHTML(ev,f,t):""}
   </div>`;
 }
 
@@ -1950,7 +2042,7 @@ function detailHTML(ev,t){
       </div>
       ${schedHTML(ev)}
     </div>
-    <section>${cardHTML(ev,t,{detail:1})}</section>
+    ${typeof pkBar==="function"?pkBar(ev,t):""}<section>${cardHTML(ev,t,{detail:1})}</section>
     <p class="find">Les combats sont listés du plus important au premier de la soirée. L'heure de chaque combat est estimée ; l'ordre de passage peut changer le soir même. Les early prelims passent en général sur UFC Fight Pass.</p>
   </div>`;
 }
@@ -1973,10 +2065,10 @@ function renderDetail(t){
   const d=document.getElementById("detail");
   const m=location.hash.match(/^#ev-([a-z0-9-]+)$/);
   const ev=m&&EVENTS.find(e=>e.id===m[1]);
-  const isCal=location.hash==="#agenda";
+  const isCal=location.hash==="#agenda", isPro=location.hash==="#pronos";
   const ma=location.hash.match(/^#(a-[a-z0-9-]+)$/), ag=ma&&AGENDA.find(a=>agKey(a)===ma[1]);
   const reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if(!ev&&!isCal&&!ag){
+  if(!ev&&!isCal&&!ag&&!isPro){
     if(!d.hidden&&!d.classList.contains("off")){
       /* Glissement vers la droite, puis on masque */
       window.__frPause=Infinity; clearTimeout(d._sl); d.classList.add("sliding","off");
@@ -1991,9 +2083,11 @@ function renderDetail(t){
     return;
   }
   const opening=d.hidden||d.classList.contains("off");
+  /* Page Pronos : pas de rafraîchissement automatique (la saisie en cours serait effacée) */
+  if(isPro&&!opening&&d.dataset.view==="pronos") return;
   if(ev&&(opening||d.dataset.view!==ev.id)) SPOIL=false;
-  d.dataset.view=ev?ev.id:ag?ma[1]:"agenda";
-  d.innerHTML=ev?detailHTML(ev,t):ag?soonHTML(ag):calHTML(t);
+  d.dataset.view=ev?ev.id:ag?ma[1]:isPro?"pronos":"agenda";
+  d.innerHTML=ev?detailHTML(ev,t):ag?soonHTML(ag):isPro?pronosHTML():calHTML(t);
   if(!opening&&ev&&d.dataset.prev!==ev.id) d.scrollTop=0;
   d.dataset.prev=d.dataset.view;
   if(opening){
@@ -2539,7 +2633,7 @@ fetch("data/events.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=
   burger.addEventListener("click",()=>open(L)); favb.addEventListener("click",()=>open(Rt));
   [L,Rt].forEach(d=>{const p=d.querySelector(".mdr-panel");d.querySelector(".mdr-x").addEventListener("click",closeAll);
     d.addEventListener("click",e=>{if(!p.contains(e.target))closeAll();
-      if(e.target.closest(".agenda a,.agenda li,.allag,.seg button,.sportnav button,.favrow a,#find a,#favmore"))setTimeout(closeAll,120);});});
+      if(e.target.closest(".agenda a,.agenda li,.allag,.seg button,.sportnav button,.favrow a,#find a,#favmore,.pronobtn"))setTimeout(closeAll,120);});});
   document.addEventListener("keydown",e=>{if(e.key==="Escape")closeAll();});
   /* Glisser : bord gauche → menu, bord droit → favoris ; glisser vers l'extérieur pour refermer */
   let sx=null,sy=0,mode=0;
@@ -2575,6 +2669,326 @@ fetch("data/events.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=
     else { d.style.transform=""; }},{passive:true});
   d.addEventListener("touchcancel",()=>{x0=null;drag=false;d.style.transition="";d.style.transform="";},{passive:true});
 })();
+</script>
+<script>
+/* QR code (mode octets, correction M, versions 1 à 7) : renvoie une matrice de booléens. Sans dépendance. */
+const QR=(()=>{
+  const EXP=new Array(512),LOG=new Array(256);
+  for(let i=0,x=1;i<255;i++){EXP[i]=x;LOG[x]=i;x<<=1;if(x&256)x^=0x11d;}
+  for(let i=255;i<512;i++)EXP[i]=EXP[i-255];
+  const mul=(a,b)=>a&&b?EXP[LOG[a]+LOG[b]]:0;
+  function gen(n){let g=[1];for(let i=0;i<n;i++){const h=new Array(g.length+1).fill(0);for(let j=0;j<g.length;j++){h[j]^=g[j];h[j+1]^=mul(g[j],EXP[i]);}g=h;}return g;}
+  function rem(data,n){const g=gen(n),r=new Array(n).fill(0);for(const d of data){const f=d^r.shift();r.push(0);for(let i=0;i<n;i++)r[i]^=mul(g[i+1],f);}return r;}
+  /* [codes de correction par bloc, nombre de blocs, octets de données par bloc] */
+  const M=[null,[10,1,16],[16,1,28],[26,1,44],[18,2,32],[24,2,43],[16,4,27],[18,4,31]];
+  const ALIGN=[null,[],[6,18],[6,22],[6,26],[6,30],[6,34],[6,22,38]];
+  return function(text){
+    const bytes=[...new TextEncoder().encode(text)];
+    let v=1; while(v<=7&&M[v][1]*M[v][2]<bytes.length+2) v++;
+    if(v>7) throw new Error("Texte trop long pour le QR code");
+    const [ec,nb,dl]=M[v], cap=nb*dl, size=17+4*v;
+    /* Données : mode octets (0100), longueur sur 8 bits, octets, fin, remplissage */
+    const bits=[]; const put=(x,n)=>{for(let i=n-1;i>=0;i--)bits.push((x>>>i)&1);};
+    put(4,4); put(bytes.length,8); bytes.forEach(b=>put(b,8));
+    put(0,Math.min(4,cap*8-bits.length)); while(bits.length%8) bits.push(0);
+    const data=[]; for(let i=0;i<bits.length;i+=8){let b=0;for(let j=0;j<8;j++)b=b<<1|bits[i+j];data.push(b);}
+    for(let p=0;data.length<cap;p^=1) data.push(p?0x11:0xEC);
+    const blocks=[],ecs=[]; for(let i=0;i<nb;i++){const d=data.slice(i*dl,(i+1)*dl);blocks.push(d);ecs.push(rem(d,ec));}
+    const all=[]; for(let i=0;i<dl;i++)blocks.forEach(b=>all.push(b[i])); for(let i=0;i<ec;i++)ecs.forEach(e=>all.push(e[i]));
+    /* Motifs fixes */
+    const mod=[...Array(size)].map(()=>new Array(size).fill(false)), fn=[...Array(size)].map(()=>new Array(size).fill(false));
+    const set=(x,y,d)=>{mod[y][x]=d;fn[y][x]=true;};
+    for(let i=0;i<size;i++){set(6,i,i%2===0);set(i,6,i%2===0);}
+    [[3,3],[size-4,3],[3,size-4]].forEach(([cx,cy])=>{for(let dy=-4;dy<=4;dy++)for(let dx=-4;dx<=4;dx++){const x=cx+dx,y=cy+dy;if(x<0||y<0||x>=size||y>=size)continue;const d=Math.max(Math.abs(dx),Math.abs(dy));set(x,y,d!==2&&d!==4);}});
+    const al=ALIGN[v],L=al.length;
+    for(let i=0;i<L;i++)for(let j=0;j<L;j++){if(i===0&&j===0||i===0&&j===L-1||i===L-1&&j===0)continue;
+      for(let dy=-2;dy<=2;dy++)for(let dx=-2;dx<=2;dx++)set(al[i]+dx,al[j]+dy,Math.max(Math.abs(dx),Math.abs(dy))!==1);}
+    const format=mask=>{const d=mask;let r=d;for(let i=0;i<10;i++)r=(r<<1)^((r>>>9)*0x537);const b=((d<<10)|r)^0x5412,g=i=>((b>>>i)&1)===1;
+      for(let i=0;i<=5;i++)set(8,i,g(i)); set(8,7,g(6)); set(8,8,g(7)); set(7,8,g(8));
+      for(let i=9;i<15;i++)set(14-i,8,g(i));
+      for(let i=0;i<8;i++)set(size-1-i,8,g(i));
+      for(let i=8;i<15;i++)set(8,size-15+i,g(i));
+      set(8,size-8,true);};
+    format(0);
+    if(v>=7){let r=v;for(let i=0;i<12;i++)r=(r<<1)^((r>>>11)*0x1F25);const b=(v<<12)|r;
+      for(let i=0;i<18;i++){const d=((b>>>i)&1)===1,a=size-11+i%3,c=Math.floor(i/3);set(a,c,d);set(c,a,d);}}
+    /* Placement en zigzag */
+    let k=0;
+    for(let right=size-1;right>=1;right-=2){if(right===6)right=5;
+      for(let vert=0;vert<size;vert++)for(let j=0;j<2;j++){const x=right-j,up=((right+1)&2)===0,y=up?size-1-vert:vert;
+        if(!fn[y][x]&&k<all.length*8){mod[y][x]=((all[k>>>3]>>>(7-(k&7)))&1)===1;k++;}}}
+    /* Masque : celui qui donne la matrice la plus régulière */
+    const MK=[(x,y)=>(x+y)%2===0,(x,y)=>y%2===0,(x,y)=>x%3===0,(x,y)=>(x+y)%3===0,(x,y)=>(Math.floor(x/3)+Math.floor(y/2))%2===0,(x,y)=>x*y%2+x*y%3===0,(x,y)=>(x*y%2+x*y%3)%2===0,(x,y)=>((x+y)%2+x*y%3)%2===0];
+    const apply=m=>{for(let y=0;y<size;y++)for(let x=0;x<size;x++)if(!fn[y][x]&&MK[m](x,y))mod[y][x]=!mod[y][x];};
+    const penalty=()=>{let p=0,dark=0;
+      for(let y=0;y<size;y++){let rx=1,ry=1;for(let x=0;x<size;x++){if(mod[y][x])dark++;
+        if(x>0){if(mod[y][x]===mod[y][x-1]){rx++;if(rx===5)p+=3;else if(rx>5)p++;}else rx=1;
+          if(mod[x][y]===mod[x-1][y]){ry++;if(ry===5)p+=3;else if(ry>5)p++;}else ry=1;}
+        if(x>0&&y>0){const c=mod[y][x];if(c===mod[y-1][x]&&c===mod[y][x-1]&&c===mod[y-1][x-1])p+=3;}}}
+      return p+Math.floor(Math.abs(dark*20-size*size*10)/(size*size))*10;};
+    let best=0,bp=Infinity;
+    for(let m=0;m<8;m++){apply(m);format(m);const p=penalty();if(p<bp){bp=p;best=m;}apply(m);}
+    apply(best); format(best);
+    return mod;
+  };
+})();
+/* Matrice → SVG (marge de 4 modules) */
+function qrSVG(text){const m=QR(text),n=m.length;let d="";m.forEach((r,y)=>r.forEach((c,x)=>{if(c)d+=`M${x+4} ${y+4}h1v1h-1z`;}));
+  return `<svg class="qr" viewBox="0 0 ${n+8} ${n+8}" role="img" aria-label="QR code" shape-rendering="crispEdges"><rect width="100%" height="100%" fill="#fff"/><path d="${d}" fill="#000"/></svg>`;}
+/* ===== Comptes, favoris synchronisés et pronos entre amis (Supabase) ===== */
+const SB_URL="https://ggzlvczbbtwaqftuilck.supabase.co", SB_KEY="sb_publishable_QnpT5Iept57BszKZLvgTcA_bf6bvwLo";
+async function rpc(fn,args){
+  let r;
+  try{r=await fetch(`${SB_URL}/rest/v1/rpc/${fn}`,{method:"POST",headers:{"apikey":SB_KEY,"Content-Type":"application/json"},body:JSON.stringify(args||{})});}
+  catch(e){throw new Error("Connexion impossible. Vérifie ta connexion internet et réessaie.");}
+  const txt=await r.text(); let j=null; try{j=txt?JSON.parse(txt):null;}catch(_){}
+  if(!r.ok){const m=j&&j.message||"";throw new Error(/^[A-ZÀ-Ý]/.test(m)&&!/function|permission|schema|relation/i.test(m)?m:"Le service des pronos ne répond pas. Réessaie dans quelques minutes.");}
+  return j;
+}
+const lsGet=k=>{try{return localStorage.getItem(k);}catch(_){return null;}};
+const lsSet=(k,v)=>{try{v==null?localStorage.removeItem(k):localStorage.setItem(k,v);}catch(_){}};
+const MLBL={ko:"KO/TKO",sub:"Soumission",dec:"Décision"}, MSH={ko:"KO",sub:"Soum.",dec:"Déc."};
+const PRO={code:lsGet("fightradar-code"),me:null,busy:false,err:"",msg:"",newCode:null,boards:{},showBoard:{},showCode:false,confirm:"",counts:{},
+  invite:(()=>{try{return sessionStorage.getItem("fightradar-invite");}catch(_){return null;}})(),peek:null,peekErr:""};
+const PK={}; /* cache par soirée : {at, open:Map(clé→verrou), mine:Map(clé→{pick,m}), friends:Map(clé→[...]), counts:Map, loading} */
+const fkey=(a,b)=>a<b?a+" | "+b:b+" | "+a;
+const fmtCode=c=>{const s=String(c||"").toUpperCase().replace(/[^A-Z0-9]/g,"");return s.match(/.{1,4}/g)?.join("-")||"";};
+const loginURL=c=>`${location.origin}${location.pathname.replace(/index\.html$/,"")}#login=${fmtCode(c)}`;
+const inviteURL=c=>`${location.origin}${location.pathname.replace(/index\.html$/,"")}#rejoindre=${c}`;
+const shortN=(f,side)=>{const A=splitName(f.a).last,B=splitName(f.b).last;return A===B?(side==="a"?f.a.n:f.b.n):(side==="a"?A:B);};
+const nameOf=(f,n)=>n===f.a.n?shortN(f,"a"):n===f.b.n?shortN(f,"b"):n;
+
+function toast(m){let t=document.getElementById("prtoast");if(!t){t=document.createElement("div");t.id="prtoast";t.className="prtoast";t.setAttribute("role","status");document.body.appendChild(t);}
+  t.textContent=m;t.classList.add("on");clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove("on"),2600);}
+async function copyTxt(s,ok){try{await navigator.clipboard.writeText(s);toast(ok||"Copié");}catch(_){toast("Copie impossible : sélectionne le texte à la main");}}
+
+/* ---------- Favoris synchronisés ---------- */
+let favT=null, favQuiet=false;
+function accFavsChanged(){if(favQuiet||!PRO.code||!PRO.me)return;clearTimeout(favT);
+  favT=setTimeout(()=>rpc("fr_save_favs",{p_code:PRO.code,p_favs:FAVS}).catch(e=>toast(e.message)),700);}
+async function loadMe(){
+  if(!PRO.code) return;
+  try{
+    const me=await rpc("fr_me",{p_code:PRO.code});
+    const first=lsGet("fightradar-favsync")!==PRO.code.slice(0,6);
+    PRO.me=me; lsSet("fightradar-pseudo",me.pseudo);
+    const srv=Array.isArray(me.favs)?me.favs.filter(x=>typeof x==="string"):[];
+    if(first){ /* Première connexion sur cet appareil : on ajoute les favoris déjà présents ici */
+      FAVS=[...srv,...FAVS.filter(x=>!srv.includes(x))]; saveFavs(); lsSet("fightradar-favsync",PRO.code.slice(0,6));
+      clearTimeout(favT); await rpc("fr_save_favs",{p_code:PRO.code,p_favs:FAVS}).catch(()=>{});
+    } else { favQuiet=true; FAVS=srv; saveFavs(); favQuiet=false; }
+    render();
+  }catch(e){
+    if(/Compte introuvable/.test(e.message)){logoutLocal();PRO.err="Ce compte n'existe plus sur ce site. Tu peux en créer un nouveau.";}
+    else PRO.err=e.message;
+  }
+  proRefresh();
+}
+function logoutLocal(){PRO.code=null;PRO.me=null;PRO.boards={};PRO.showBoard={};PRO.counts={};lsSet("fightradar-code",null);lsSet("fightradar-favsync",null);lsSet("fightradar-pseudo",null);for(const k in PK)delete PK[k];}
+async function useCode(code,isNew){
+  PRO.code=fmtCode(code); lsSet("fightradar-code",PRO.code); lsSet("fightradar-favsync",null);
+  await loadMe();
+  if(PRO.me&&PRO.invite) await joinGroup(PRO.invite);
+  for(const k in PK)delete PK[k];
+  if(!isNew&&PRO.me) toast(`Connecté : ${PRO.me.pseudo}`);
+}
+async function joinGroup(c){
+  try{const g=await rpc("fr_group_join",{p_code:PRO.code,p_gcode:c});PRO.invite=null;try{sessionStorage.removeItem("fightradar-invite");}catch(_){}
+    toast(`Tu as rejoint « ${g.name} »`);await loadMe();for(const k in PK)delete PK[k];}
+  catch(e){PRO.err=e.message;proRefresh();}
+}
+
+/* ---------- Liens reçus : #login=CODE (autre appareil) et #rejoindre=CODE (invitation) ---------- */
+function takeHash(){
+  const h=decodeURIComponent(location.hash||"");
+  let m=h.match(/^#login=([A-Za-z0-9-]{10,40})$/);
+  if(m){history.replaceState(null,"",location.pathname+location.search+"#pronos");useCode(m[1]);return true;}
+  m=h.match(/^#rejoindre=([A-Za-z0-9]{6,12})$/);
+  if(m){PRO.invite=m[1].toUpperCase();try{sessionStorage.setItem("fightradar-invite",PRO.invite);}catch(_){}PRO.peek=null;PRO.peekErr="";
+    history.replaceState(null,"",location.pathname+location.search+"#pronos");return true;}
+  return false;
+}
+takeHash();
+window.addEventListener("hashchange",()=>{if(takeHash())renderDetail(now());});
+if(PRO.code) loadMe();
+
+/* ---------- Pronos d'une soirée ---------- */
+async function loadEvent(id,force){
+  if(!PRO.code) return;
+  const c=PK[id];
+  if(c&&(c.loading||(!force&&Date.now()-c.at<60000))) return;
+  PK[id]={...(c||{open:new Map(),mine:new Map(),friends:new Map(),counts:new Map()}),loading:true,at:Date.now()};
+  try{
+    const d=await rpc("fr_event",{p_code:PRO.code,p_event:id});
+    const fr=new Map(); (d.friends||[]).forEach(x=>{if(!fr.has(x.k))fr.set(x.k,[]);fr.get(x.k).push(x);});
+    PK[id]={at:Date.now(),open:new Map((d.open||[]).map(x=>[x.k,Date.parse(x.lock)])),mine:new Map((d.mine||[]).map(x=>[x.k,{pick:x.pick,m:x.m}])),
+      friends:fr,counts:new Map((d.counts||[]).map(x=>[x.k,x.n]))};
+  }catch(e){PK[id]={...(PK[id]||{}),loading:false,err:e.message,at:Date.now()};}
+  pkRefresh(id);
+}
+function pkRefresh(id){
+  const d=document.getElementById("detail"); if(!d||d.dataset.view!==id) return;
+  const ev=EVENTS.find(e=>e.id===id); if(!ev) return;
+  d.querySelectorAll(".pk[data-fi]").forEach(el=>{const f=ev.fights[+el.dataset.fi];if(f)el.outerHTML=pkHTML(ev,f,now());});
+  const b=d.querySelector(".pkbar"); if(b) b.outerHTML=pkBar(ev,now());
+}
+function pkBar(ev,t){
+  const live=t<ev.end;
+  if(!PRO.code||!PRO.me){
+    if(!live) return "";
+    return `<div class="pkbar pbox"><div><b>Pronos entre amis</b><span>Choisis tes vainqueurs sur cette soirée et compare avec tes potes. Rien à gagner, juste pour le plaisir.</span></div><a class="pkgo" href="#pronos">${PRO.code?"Mes pronos":"Commencer"}</a></div>`;
+  }
+  const c=PK[ev.id]; if(!c||(!c.open&&!c.err)) loadEvent(ev.id);
+  if(c&&c.err) return `<div class="pkbar pbox"><div><b>Pronos entre amis</b><span>${esc(c.err)}</span></div><button type="button" class="pkgo" data-pkreload="${esc(ev.id)}">Réessayer</button></div>`;
+  const n=c&&c.mine?c.mine.size:0, tot=ev.fights.filter(f=>!f.a.tbd&&!f.b.tbd).length;
+  const locks=ev.segs.map(s=>`${SEG[s.k]} ${fmtT(Date.parse(s.t))}`).join(" · ");
+  const noGroup=!(PRO.me.groups||[]).length;
+  return `<div class="pkbar pbox"><div><b>Tes pronos : ${c&&c.open?`${n}/${tot}`:"…"}</b><span>${live?`Fermeture au début de chaque partie : ${esc(locks)}.`:"Soirée terminée."}${noGroup?" Crée un groupe ou rejoins tes amis pour comparer vos pronos.":""}</span></div><a class="pkgo" href="#pronos">${noGroup?"Créer un groupe":"Mes groupes"}</a></div>`;
+}
+function pkHTML(ev,f,t){
+  const fi=ev.fights.indexOf(f);
+  if(!PRO.code||!PRO.me||f.a.tbd||f.b.tbd) return `<div class="pk" data-fi="${fi}" hidden></div>`;
+  const c=PK[ev.id]; if(!c||!c.open) return `<div class="pk" data-fi="${fi}" hidden></div>`;
+  const k=fkey(f.a.n,f.b.n), lock=c.open.get(k), mine=c.mine.get(k), fr=c.friends.get(k)||[], cnt=c.counts.get(k)||0;
+  const open=lock&&Date.now()<lock;
+  const res=SPOIL&&f.res?f.res:null, win=res?(res.w==="a"?f.a.n:res.w==="b"?f.b.n:null):null;
+  const wcat=res?({KO:"ko",TKO:"ko"}[(res.method||"").split(/[\s(/]/)[0]]||(/^Soumission/.test(res.method||"")?"sub":/^Décision/.test(res.method||"")?"dec":null)):null;
+  const pts=p=>!res||!win?"":p.pick===win?(p.m&&p.m===wcat?`<i class="pkpt ok">+2</i>`:`<i class="pkpt ok">+1</i>`):`<i class="pkpt ko">0</i>`;
+  const show=p=>`<b>${esc(nameOf(f,p.pick))}</b>${p.m?` <em>${MSH[p.m]}</em>`:""}${pts(p)}`;
+  if(open){
+    const meth=(ev.sport==="boxe"?["ko","dec"]:["ko","sub","dec"]).map(m=>`<button type="button" class="pkm${mine&&mine.m===m?" on":""}" data-pm="${m}" ${mine?"":"disabled"} aria-pressed="${!!(mine&&mine.m===m)}" title="${MLBL[m]} (+1 point si c'est la bonne méthode)">${MSH[m]}</button>`).join("");
+    const side=s=>{const p=s==="a"?f.a:f.b,on=mine&&mine.pick===p.n;return `<button type="button" class="pkf${on?" on":""}" data-pp="${s}" aria-pressed="${!!on}" title="${on?"Retirer mon prono":"Victoire de "+esc(p.n)}">${esc(shortN(f,s))}</button>`;};
+    return `<div class="pk open" data-fi="${fi}" data-ev="${esc(ev.id)}"><span class="pkl">Ton prono</span><span class="pkfs">${side("a")}${side("b")}</span><span class="pkms" aria-label="Méthode (facultatif)">${meth}</span>${cnt?`<small class="pkc">${cnt} ami${cnt>1?"s ont":" a"} déjà pronostiqué</small>`:""}</div>`;
+  }
+  if(!lock){ /* combat pas encore recopié (ajouté récemment) */
+    return t<ev.start?`<div class="pk" data-fi="${fi}"><span class="pkl">Pronos bientôt ouverts pour ce combat</span></div>`:`<div class="pk" data-fi="${fi}" hidden></div>`;
+  }
+  if(!mine&&!fr.length) return `<div class="pk shut" data-fi="${fi}"><span class="pkl">Pronos fermés</span><span class="pkw">Pas de prono sur ce combat</span></div>`;
+  const list=[...(mine?[`<span class="pkw me">Toi : ${show(mine)}</span>`]:[]),...fr.map(p=>`<span class="pkw">${esc(p.who)} : ${show({pick:p.pick,m:p.m})}</span>`)];
+  return `<div class="pk shut" data-fi="${fi}"><span class="pkl">Pronos fermés</span>${list.join("")}</div>`;
+}
+async function setPick(ev,f,pick,m){
+  const k=fkey(f.a.n,f.b.n), c=PK[ev.id]; if(!c) return;
+  const before=c.mine.get(k);
+  if(pick) c.mine.set(k,{pick,m}); else c.mine.delete(k);
+  pkRefresh(ev.id);
+  try{await rpc("fr_pick",{p_code:PRO.code,p_event:ev.id,p_fkey:k,p_pick:pick||null,p_method:pick?m||null:null});PRO.countsAt=0;}
+  catch(e){if(before)c.mine.set(k,before);else c.mine.delete(k);pkRefresh(ev.id);toast(e.message);if(/fermés/.test(e.message))loadEvent(ev.id,true);}
+}
+document.addEventListener("click",e=>{
+  const rl=e.target.closest("[data-pkreload]"); if(rl){loadEvent(rl.dataset.pkreload,true);return;}
+  const b=e.target.closest(".pk.open button"); if(!b) return;
+  const box=b.closest(".pk"), ev=EVENTS.find(x=>x.id===box.dataset.ev), f=ev&&ev.fights[+box.dataset.fi]; if(!f) return;
+  const k=fkey(f.a.n,f.b.n), mine=PK[ev.id]&&PK[ev.id].mine.get(k);
+  if(b.dataset.pp){const n=b.dataset.pp==="a"?f.a.n:f.b.n; if(mine&&mine.pick===n) setPick(ev,f,null); else setPick(ev,f,n,mine&&mine.m);}
+  else if(b.dataset.pm&&mine) setPick(ev,f,mine.pick,mine.m===b.dataset.pm?null:b.dataset.pm);
+});
+
+/* ---------- Page « Pronos entre amis » (#pronos) ---------- */
+function proRefresh(){
+  const d=document.getElementById("detail"); if(!d||d.dataset.view!=="pronos"||d.hidden) return;
+  const keep={}; d.querySelectorAll("input[id]").forEach(i=>keep[i.id]=i.value);
+  const foc=document.activeElement&&d.contains(document.activeElement)?document.activeElement.id:null;
+  const y=d.scrollTop; d.innerHTML=pronosHTML(); d.scrollTop=y;
+  for(const id in keep){const i=document.getElementById(id);if(i&&!i.value)i.value=keep[id];}
+  if(foc){const i=document.getElementById(foc);if(i)i.focus({preventScroll:true});}
+}
+function upcomingPro(){const t=Date.now();return EVENTS.filter(e=>t<e.end&&e.fights.length&&!/^a-/.test(e.id)).slice(0,8);}
+function pronosHTML(){
+  const me=PRO.me, busy=PRO.busy?" disabled":"";
+  const conf=(key,label,sure)=>`<button type="button" class="pbtn ghost${PRO.confirm===key?" warn":""}" data-pa="${key}"${busy}>${PRO.confirm===key?sure:label}</button>`;
+  let inv="";
+  if(PRO.invite){
+    if(!PRO.peek&&!PRO.peekErr){rpc("fr_group_peek",{p_gcode:PRO.invite}).then(p=>{PRO.peek=p;proRefresh();}).catch(e=>{PRO.peekErr=e.message;proRefresh();});}
+    inv=`<div class="pbox pinv"><small>Invitation</small>${PRO.peekErr?`<p>${esc(PRO.peekErr)}</p><div class="prow"><button type="button" class="pbtn ghost" data-pa="invno">Fermer</button></div>`:
+      `<p>${PRO.peek?`Tu es invité à rejoindre le groupe <b>« ${esc(PRO.peek.name)} »</b> (${PRO.peek.n} membre${PRO.peek.n>1?"s":""}).`:"Chargement de l'invitation…"}</p>
+      ${me?`<div class="prow"><button type="button" class="pbtn" data-pa="invyes"${busy}>Rejoindre le groupe</button><button type="button" class="pbtn ghost" data-pa="invno">Non merci</button></div>`:`<p class="pnote">Crée ton compte ci-dessous (ou connecte-toi) : tu rejoindras le groupe automatiquement.</p>`}`}</div>`;
+  }
+  const head=`<div class="dbar"><div class="dleft"><a class="dbrand homelink" href="#" title="Retour à l'accueil"><canvas class="frlogo frmini" role="img" aria-label="Fight Radar"></canvas></a><a class="back" href="#">← Retour</a></div></div>
+  <div class="dwrap pro"><div class="dtitle"><h1>Pronos entre amis</h1><span>Pour le plaisir, rien à gagner</span></div>
+  ${PRO.err?`<div class="perr" role="alert">${esc(PRO.err)}</div>`:""}${inv}`;
+  const rules=`<div class="pbox prules"><small>Comment ça marche</small><ul>
+    <li>Sur chaque fight card, choisis le vainqueur de chaque combat : <b>1 point</b> s'il gagne.</li>
+    <li>Ajoute la méthode si tu veux (KO, soumission, décision) : <b>1 point de plus</b> si c'est la bonne.</li>
+    <li>Les pronos ferment au début de chaque partie de la soirée (préliminaires, main card). Ceux de tes amis s'affichent à ce moment-là.</li>
+    <li>Le classement de chaque groupe reste caché tant que tu ne demandes pas à le voir (No spoil).</li></ul></div>`;
+  if(PRO.code&&!me&&!PRO.err) return head+`<div class="pbox"><p>Connexion…</p></div></div>`;
+  if(!me) return head+`
+    <div class="pgrid">
+      <div class="pbox"><small>Nouveau</small><h3>Créer mon compte</h3>
+        <p class="pnote">Pas d'e-mail ni de mot de passe : choisis un pseudo, tu recevras un code personnel pour retrouver ton compte sur tes autres appareils.</p>
+        <label class="pfield"><span>Pseudo</span><input id="pr-pseudo" maxlength="20" autocomplete="nickname" placeholder="Ton pseudo" data-enter="signup"></label>
+        <button type="button" class="pbtn" data-pa="signup"${busy}>Créer mon compte</button></div>
+      <div class="pbox"><small>Déjà inscrit</small><h3>Me connecter</h3>
+        <p class="pnote">Tape ton code personnel, ou scanne le QR code affiché sur ton autre appareil (page Pronos, « Connecter un autre appareil »).</p>
+        <label class="pfield"><span>Code personnel</span><input id="pr-code" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" data-enter="login"></label>
+        <button type="button" class="pbtn" data-pa="login"${busy}>Me connecter</button></div>
+    </div>${rules}
+    <p class="soonp">Un compte sert aussi à retrouver tes favoris sur tous tes appareils. Données gardées : ton pseudo, tes groupes, tes pronos et tes favoris (voir les <a href="mentions.html">mentions légales</a>).</p></div>`;
+  const nc=PRO.newCode?`<div class="pbox pcode"><small>Ton code personnel</small><b class="pcodev">${esc(PRO.newCode)}</b>
+      <p>Garde-le précieusement (capture d'écran, note…) : c'est la seule façon de retrouver ton compte sur un autre appareil. Si tu le perds, le compte est perdu.</p>
+      <div class="prow"><button type="button" class="pbtn ghost" data-pa="copycode">Copier le code</button><button type="button" class="pbtn" data-pa="codeok">C'est noté</button></div></div>`:"";
+  const groups=(me.groups||[]).map(g=>{
+    const bd=PRO.boards[g.id], sh=PRO.showBoard[g.id];
+    const board=!sh?`<button type="button" class="pbtn ghost" data-pa="board:${g.id}"${busy}>Voir le classement (spoil)</button>`:
+      !bd?`<p class="pnote">Chargement du classement…</p>`:`<ol class="pboard">${bd.rows.map((r,i)=>`<li class="${r.me?"me":""}"><span class="prk">${i&&bd.rows[i-1].pts===r.pts?"":i+1}</span><span class="pnm">${esc(r.pseudo)}${r.me?" (toi)":""}</span><span class="pst">${r.good}/${r.judged} bons</span><b>${r.pts} pt${r.pts>1?"s":""}</b></li>`).join("")}</ol><button type="button" class="pbtn ghost small" data-pa="hide:${g.id}">Masquer le classement</button>`;
+    return `<div class="pbox pgroup"><div class="pgh"><h3>${esc(g.name)}</h3><span>${g.n} membre${g.n>1?"s":""}</span></div>${board}
+      <div class="prow"><button type="button" class="pbtn" data-pa="share:${g.id}">Inviter des amis</button><span class="pgcode" title="Code d'invitation">Code : <b>${esc(g.code)}</b></span>${conf("leave:"+g.id,"Quitter","Confirmer ?")}</div></div>`;}).join("");
+  const ups=upcomingPro();
+  if(ups.length&&!PRO.countsLoading&&Date.now()-(PRO.countsAt||0)>60000){PRO.countsLoading=1;
+    rpc("fr_my_counts",{p_code:PRO.code,p_events:ups.map(e=>e.id)}).then(c=>{PRO.counts=c||{};}).catch(()=>{}).finally(()=>{PRO.countsLoading=0;PRO.countsAt=Date.now();proRefresh();});}
+  const evs=ups.map(e=>{const n=PRO.counts[e.id]||0,tot=e.fights.filter(f=>!f.a.tbd&&!f.b.tbd).length,t=Date.now();
+    return `<a class="pev" href="#ev-${esc(e.id)}"><span class="pevd">${esc(fmtDS(e.start))}</span>${evBadge(e,1)}<span class="pevn">${esc(e.a)} vs ${esc(e.b)}</span><span class="pevc${n?" on":""}">${t>=e.start?"En cours · ":""}${n}/${tot} pronos</span></a>`;}).join("");
+  return head+nc+`
+    <div class="pbox pme"><small>Connecté</small><h3>${esc(me.pseudo)}</h3><p class="pnote">Tes favoris et tes pronos sont enregistrés sur ton compte.</p></div>
+    <section class="psec"><h2 class="h">Prochaines <span>soirées</span></h2><div class="pevs">${evs||`<p class="pnote">Aucune soirée annoncée pour l'instant.</p>`}</div></section>
+    <section class="psec"><h2 class="h">Mes <span>groupes</span></h2>
+      ${groups||`<p class="pnote">Tu n'es dans aucun groupe pour l'instant. Crée le tien et invite tes amis, ou rejoins le groupe d'un ami avec son code.</p>`}
+      <div class="pgrid">
+        <div class="pbox"><h3>Créer un groupe</h3><label class="pfield"><span>Nom du groupe</span><input id="pr-gname" maxlength="30" placeholder="Ex. Les potes du samedi" data-enter="gcreate"></label><button type="button" class="pbtn" data-pa="gcreate"${busy}>Créer</button></div>
+        <div class="pbox"><h3>Rejoindre un groupe</h3><label class="pfield"><span>Code d'invitation</span><input id="pr-gcode" maxlength="12" autocapitalize="characters" spellcheck="false" placeholder="Ex. K7M2QX9P" data-enter="gjoin"></label><button type="button" class="pbtn" data-pa="gjoin"${busy}>Rejoindre</button></div>
+      </div></section>
+    ${rules}
+    <section class="psec"><h2 class="h">Mon <span>compte</span></h2>
+      <div class="pbox"><h3>Connecter un autre appareil</h3>
+        ${PRO.showCode?`<div class="pqr">${qrSVG(loginURL(PRO.code))}<div><p>Scanne ce QR code avec l'appareil photo de ton téléphone, ou tape ce code sur la page Pronos de l'autre appareil :</p><b class="pcodev">${esc(fmtCode(PRO.code))}</b>
+          <div class="prow"><button type="button" class="pbtn ghost" data-pa="copycode">Copier le code</button><button type="button" class="pbtn ghost" data-pa="hidecode">Masquer</button></div></div></div>`:
+          `<p class="pnote">Affiche ton code personnel et son QR code pour retrouver ton compte (favoris et pronos) sur ton téléphone ou un autre ordinateur. Ne le montre à personne d'autre.</p><button type="button" class="pbtn" data-pa="showcode">Afficher mon code</button>`}</div>
+      <div class="pgrid">
+        <div class="pbox"><h3>Changer de pseudo</h3><label class="pfield"><span>Nouveau pseudo</span><input id="pr-rename" maxlength="20" placeholder="${esc(me.pseudo)}" data-enter="rename"></label><button type="button" class="pbtn" data-pa="rename"${busy}>Enregistrer</button></div>
+        <div class="pbox"><h3>Déconnexion</h3><p class="pnote">Pense à noter ton code avant : sans lui, impossible de te reconnecter.</p>
+          <div class="prow">${conf("logout","Me déconnecter","Confirmer la déconnexion")}${conf("delete","Supprimer mon compte","Tout supprimer ?")}</div></div>
+      </div></section>
+  </div>`;
+}
+async function proAct(a){
+  const val=id=>(document.getElementById(id)||{}).value||"";
+  const run=async(fn)=>{PRO.busy=true;PRO.err="";proRefresh();try{await fn();}catch(e){PRO.err=e.message;}PRO.busy=false;proRefresh();};
+  if(PRO.confirm&&a!==PRO.confirm) PRO.confirm="";
+  const [act,arg]=a.split(":");
+  if(act==="signup") return run(async()=>{const r=await rpc("fr_signup",{p_pseudo:val("pr-pseudo")});PRO.newCode=r.code;await useCode(r.code,true);window.scrollTo(0,0);});
+  if(act==="login") return run(async()=>{const c=fmtCode(val("pr-code"));if(c.replace(/-/g,"").length<20)throw new Error("Le code personnel fait 20 caractères (ex. ABCD-EFGH-JKLM-NPQR-STUV).");
+    const old=PRO.code; PRO.code=c; try{await rpc("fr_me",{p_code:c});}catch(e){PRO.code=old;throw e;} await useCode(c);});
+  if(act==="copycode") return copyTxt(PRO.newCode||fmtCode(PRO.code),"Code copié");
+  if(act==="codeok"){PRO.newCode=null;return proRefresh();}
+  if(act==="showcode"||act==="hidecode"){PRO.showCode=act==="showcode";return proRefresh();}
+  if(act==="invyes") return run(()=>joinGroup(PRO.invite));
+  if(act==="invno"){PRO.invite=null;PRO.peek=null;PRO.peekErr="";try{sessionStorage.removeItem("fightradar-invite");}catch(_){}return proRefresh();}
+  if(act==="gcreate") return run(async()=>{const g=await rpc("fr_group_create",{p_code:PRO.code,p_name:val("pr-gname")});const i=document.getElementById("pr-gname");if(i)i.value="";await loadMe();toast(`Groupe « ${g.name} » créé : invite tes amis !`);});
+  if(act==="gjoin") return run(async()=>{const c=val("pr-gcode").toUpperCase().replace(/[^A-Z0-9]/g,"");if(c.length<6)throw new Error("Tape le code d'invitation du groupe.");await joinGroup(c);const i=document.getElementById("pr-gcode");if(i)i.value="";});
+  if(act==="share"){const g=(PRO.me.groups||[]).find(x=>x.id===arg);if(!g)return;const url=inviteURL(g.code),text=`Rejoins mon groupe de pronos « ${g.name} » sur Fight Radar`;
+    if(navigator.share){try{await navigator.share({title:"Fight Radar",text,url});}catch(_){}}else copyTxt(`${text} : ${url}`,"Lien d'invitation copié");return;}
+  if(act==="board"){PRO.showBoard[arg]=true;proRefresh();try{PRO.boards[arg]=await rpc("fr_group_board",{p_code:PRO.code,p_group:arg});}catch(e){PRO.err=e.message;PRO.showBoard[arg]=false;}return proRefresh();}
+  if(act==="hide"){PRO.showBoard[arg]=false;return proRefresh();}
+  if(act==="rename") return run(async()=>{const r=await rpc("fr_rename",{p_code:PRO.code,p_pseudo:val("pr-rename")});PRO.me.pseudo=r.pseudo;const i=document.getElementById("pr-rename");if(i)i.value="";toast("Pseudo changé");});
+  if(["leave","logout","delete"].includes(act)&&PRO.confirm!==a){PRO.confirm=a;return proRefresh();}
+  PRO.confirm="";
+  if(act==="leave") return run(async()=>{await rpc("fr_group_leave",{p_code:PRO.code,p_group:arg});delete PRO.boards[arg];await loadMe();toast("Tu as quitté le groupe");});
+  if(act==="logout"){logoutLocal();toast("Déconnecté de cet appareil");return proRefresh();}
+  if(act==="delete") return run(async()=>{await rpc("fr_delete_account",{p_code:PRO.code});logoutLocal();toast("Compte supprimé");});
+}
+document.addEventListener("click",e=>{const b=e.target.closest("#detail [data-pa]");if(!b||b.disabled)return;e.preventDefault();proAct(b.dataset.pa);});
+document.addEventListener("keydown",e=>{if(e.key!=="Enter")return;const i=e.target.closest&&e.target.closest("#detail input[data-enter]");if(!i)return;e.preventDefault();proAct(i.dataset.enter);});
 </script>
 </body>
 </html>

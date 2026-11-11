@@ -25,3 +25,6 @@ jobs:
           git add data/events.json data/fighters-cache.json data/annuaire.json out/update.log
           git commit -m "Mise à jour automatique des fight cards" || exit 0
           git pull --rebase -q && git push
+      # Pronos : garde la base Supabase éveillée et relance la copie des combats (clé publique, sans risque)
+      - run: |
+          curl -s -m 20 -X POST "https://ggzlvczbbtwaqftuilck.supabase.co/rest/v1/rpc/fr_ping" -H "apikey: sb_publishable_QnpT5Iept57BszKZLvgTcA_bf6bvwLo" -H "Content-Type: application/json" -d '{}' || true

@@ -2510,7 +2510,7 @@ fetch("data/events.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=
   let sx=null,sy=0,mode=0;
   document.addEventListener("touchstart",e=>{if(!mq.matches)return;const t=e.touches[0];sx=t.clientX;sy=t.clientY;
     const det=document.getElementById("detail");
-    mode=L.classList.contains("open")?1:Rt.classList.contains("open")?2:(det&&!det.hidden)?0:t.clientX<22?3:t.clientX>innerWidth-22?4:0;},{passive:true});
+    mode=L.classList.contains("open")?1:Rt.classList.contains("open")?2:0; /* ouverture par le bord retirée : le bord de l'écran sert au geste « retour » du téléphone */},{passive:true});
   document.addEventListener("touchend",e=>{if(sx===null||!mode){sx=null;return;}const t=e.changedTouches[0],dx=t.clientX-sx;
     if(Math.abs(t.clientY-sy)<60){if(mode===3&&dx>50)open(L);if(mode===4&&dx<-50)open(Rt);if(mode===1&&dx<-50)closeAll();if(mode===2&&dx>50)closeAll();}sx=null;},{passive:true});
   /* Pastille : nombre de favoris */

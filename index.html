@@ -2818,7 +2818,7 @@ const MLBL={ko:"KO/TKO",sub:"Soumission",dec:"Décision"}, MSH={ko:"KO",sub:"Sou
 const PRO={tab:"groupes",code:lsGet("fightradar-code"),me:null,busy:false,err:"",msg:"",newCode:null,boards:{},showBoard:{},showCode:false,confirm:"",counts:{},
   invite:(()=>{try{return sessionStorage.getItem("fightradar-invite");}catch(_){return null;}})(),peek:null,peekErr:""};
 /* Pronos pas encore annoncés : bouton et bandeaux cachés, page #pronos accessible seulement par son adresse */
-const PRONOS_PUBLIC=false;
+const PRONOS_PUBLIC=true;
 function proVis(){const on=PRONOS_PUBLIC||!!PRO.code;document.querySelectorAll(".pronohd").forEach(a=>a.hidden=!on);}
 const PK={}; /* cache par soirée : {at, open:Map(clé→verrou), mine:Map(clé→{pick,m}), friends:Map(clé→[...]), counts:Map, loading} */
 const fkey=(a,b)=>a<b?a+" | "+b:b+" | "+a;

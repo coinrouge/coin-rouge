@@ -53,6 +53,15 @@ create table if not exists fr.group_off(
   primary key(group_id,event_id)
 );
 alter table fr.group_off enable row level security;
+-- Choix du chef / de l'adjoint par événement (remplace group_off). Sans choix : ouvert par défaut
+-- seulement si la soirée a une vedette, un champion, un UFC numéroté ou un francophone (colonne evdef).
+create table if not exists fr.group_ev(
+  group_id uuid not null references fr.groups(id) on delete cascade,
+  event_id text not null,
+  is_on boolean not null,
+  primary key(group_id,event_id)
+);
+alter table fr.group_ev enable row level security;
 create table if not exists fr.migrations(name text primary key, done_at timestamptz not null default now());
 alter table fr.migrations enable row level security;
 -- Combats ouverts aux pronos : recopiés automatiquement depuis https://fightradar.fr/data/events.json
@@ -72,6 +81,7 @@ alter table fr.fights add column if not exists seg text;
 alter table fr.fights add column if not exists bonus int not null default 0;
 -- Grosse soirée (UFC numéroté, ou au moins un combattant vedette sur la carte) : +1 sur chaque bon vainqueur
 alter table fr.fights add column if not exists evbonus int not null default 0;
+alter table fr.fights add column if not exists evdef boolean not null default false;
 -- Combattants « vedettes » (même liste que sur le site) : combat vedette = +1
 create table if not exists fr.stars(name text primary key);
 alter table fr.stars enable row level security;
@@ -179,6 +189,12 @@ language sql immutable set search_path='' as $$
   select case coalesce(seg,'main') when 'main' then 3 when 'prelims' then 2 else 1 end
 $$;
 
+create or replace function fr.ev_open(p_group uuid, p_event text) returns boolean
+language sql stable set search_path='' as $$
+  select coalesce((select is_on from fr.group_ev where group_id=p_group and event_id=p_event),
+                  (select bool_or(evdef) from fr.fights where event_id=p_event), false)
+$$;
+
 -- ---------------------------------------------------------------------------
 -- Copie des combats depuis le site (toutes les 10 min) : verrous et résultats
 -- ---------------------------------------------------------------------------
@@ -193,7 +209,9 @@ begin
       case when e->>'name' ~ '^UFC [0-9]' or exists (
         select 1 from jsonb_array_elements(coalesce(e->'fights','[]'::jsonb)) y, (values ('a'),('b')) c(sd)
         where y->sd ? 'star' or y->sd ? 'champ' or exists (select 1 from fr.stars st where st.name = y->sd->>'n'))
-      then 1 else 0 end as evb
+      then 1 else 0 end as evb,
+      exists (select 1 from jsonb_array_elements(coalesce(e->'fights','[]'::jsonb)) y, (values ('a'),('b')) c(sd)
+        where y->sd ? 'fr' or y->sd->>'nat' in ('FRA','BEL')) as evfr
     from ev, jsonb_array_elements(coalesce(e->'fights','[]'::jsonb)) with ordinality t(x,i)
     where coalesce(x->'a'->>'n','') <> '' and coalesce(x->'b'->>'n','') <> ''
       and not coalesce((x->'a'->>'tbd')::boolean,false) and not coalesce((x->'b'->>'tbd')::boolean,false)
@@ -215,19 +233,19 @@ begin
              or x->'a' ? 'star' or x->'b' ? 'star' or x->'a' ? 'champ' or x->'b' ? 'champ'
              or exists (select 1 from fr.stars st where st.name in (x->'a'->>'n', x->'b'->>'n')) then 1
            else 0 end as bonus,
-      evb
+      evb, evfr
     from fx
   )
-  insert into fr.fights(event_id,fkey,a,b,lock_at,winner,method,seg,bonus,evbonus,updated_at)
-  select eid,k,a,b,lock_at,winner,method,seg,bonus,evb,now() from rows where lock_at is not null
+  insert into fr.fights(event_id,fkey,a,b,lock_at,winner,method,seg,bonus,evbonus,evdef,updated_at)
+  select eid,k,a,b,lock_at,winner,method,seg,bonus,evb,(evb=1 or evfr),now() from rows where lock_at is not null
   on conflict (event_id,fkey) do update
     set a=excluded.a, b=excluded.b, lock_at=excluded.lock_at,
         winner=coalesce(excluded.winner, fr.fights.winner),
         method=coalesce(excluded.method, fr.fights.method),
-        seg=excluded.seg, bonus=excluded.bonus, evbonus=excluded.evbonus,
+        seg=excluded.seg, bonus=excluded.bonus, evbonus=excluded.evbonus, evdef=excluded.evdef,
         updated_at=now()
-    where (fr.fights.a,fr.fights.b,fr.fights.lock_at,fr.fights.winner,fr.fights.method,fr.fights.seg,fr.fights.bonus,fr.fights.evbonus)
-          is distinct from (excluded.a,excluded.b,excluded.lock_at,coalesce(excluded.winner,fr.fights.winner),coalesce(excluded.method,fr.fights.method),excluded.seg,excluded.bonus,excluded.evbonus);
+    where (fr.fights.a,fr.fights.b,fr.fights.lock_at,fr.fights.winner,fr.fights.method,fr.fights.seg,fr.fights.bonus,fr.fights.evbonus,fr.fights.evdef)
+          is distinct from (excluded.a,excluded.b,excluded.lock_at,coalesce(excluded.winner,fr.fights.winner),coalesce(excluded.method,fr.fights.method),excluded.seg,excluded.bonus,excluded.evbonus,excluded.evdef);
   get diagnostics n = row_count;
   return n;
 end $$;
@@ -282,7 +300,8 @@ begin
     'favs', u.favs,
     'groups', coalesce((select json_agg(json_build_object('id',g.id,'name',g.name,'code',g.code,'role',m.role,
                  'n',(select count(*) from fr.members m2 where m2.group_id=g.id),
-                 'off',coalesce((select json_agg(go.event_id) from fr.group_off go where go.group_id=g.id),'[]'::json)) order by m.joined_at)
+                 'open',coalesce((select json_agg(x.event_id) from (select distinct f.event_id from fr.fights f
+                     where f.lock_at > now() - interval '120 days' and fr.ev_open(g.id,f.event_id)) x),'[]'::json)) order by m.joined_at)
                from fr.members m join fr.groups g on g.id=m.group_id where m.user_id=v), '[]'::json)
   ) from fr.users u where u.id=v);
 end $$;
@@ -448,7 +467,7 @@ begin
         count(*) filter (where f.winner is not null and f.winner not in ('draw','nc'))::int as judged
       from fr.members m join fr.users u on u.id=m.user_id
       left join fr.picks p on p.user_id=u.id
-        and not exists (select 1 from fr.group_off go where go.group_id=p_group and go.event_id=p.event_id)
+        and fr.ev_open(p_group, p.event_id)
       left join fr.fights f on f.event_id=p.event_id and f.fkey=p.fkey
       where m.group_id=p_group
       group by u.id, u.pseudo, m.role) r), '[]'::json)
@@ -466,12 +485,9 @@ begin
   select min(lock_at) into st from fr.fights where event_id=p_event;
   if st is null then raise exception 'Cette soirée n''est pas encore ouverte aux pronos. Réessaie dans quelques minutes.'; end if;
   if st <= now() then raise exception 'Cette soirée a déjà commencé : on ne peut plus la changer.'; end if;
-  if p_on then
-    delete from fr.group_off where group_id=p_group and event_id=p_event;
-  else
-    if (select count(*) from fr.group_off where group_id=p_group) >= 1000 then raise exception 'Trop de soirées retirées dans ce groupe.'; end if;
-    insert into fr.group_off(group_id,event_id) values (p_group,p_event) on conflict do nothing;
-  end if;
+  if (select count(*) from fr.group_ev where group_id=p_group) >= 2000 then raise exception 'Trop de choix enregistrés dans ce groupe.'; end if;
+  insert into fr.group_ev(group_id,event_id,is_on) values (p_group,p_event,p_on)
+    on conflict (group_id,event_id) do update set is_on=excluded.is_on;
   return json_build_object('ok',true);
 end $$;
 
@@ -528,6 +544,18 @@ do $$ begin
     update fr.members m set role='chef' where m.role='membre' and not exists (select 1 from fr.members x where x.group_id=m.group_id and x.role='chef')
       and m.joined_at=(select min(joined_at) from fr.members y where y.group_id=m.group_id);
     insert into fr.migrations(name) values ('roles-v1');
+  end if;
+end $$;
+
+do $$ begin
+  if not exists (select 1 from fr.migrations where name='group-ev-v2') then
+    insert into fr.group_ev(group_id,event_id,is_on) select group_id,event_id,false from fr.group_off on conflict do nothing;
+    -- Les événements où des membres ont déjà pronostiqué restent ouverts (pas de points perdus)
+    insert into fr.group_ev(group_id,event_id,is_on)
+      select distinct m.group_id, p.event_id, true from fr.members m join fr.picks p on p.user_id=m.user_id
+      where not exists (select 1 from fr.group_off o where o.group_id=m.group_id and o.event_id=p.event_id)
+      on conflict do nothing;
+    insert into fr.migrations(name) values ('group-ev-v2');
   end if;
 end $$;
 

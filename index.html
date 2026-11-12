@@ -1150,6 +1150,18 @@ h2.h::before,h2.h::after{background:rgba(255,255,255,.22)!important}
 </style>
 <style>
 /* ===== Pronos entre amis ===== */
+.pcrow{display:flex;align-items:stretch;gap:8px}
+.pcrow>.pev{flex:1;min-width:0}
+.pchkb{flex:none;width:44px;border-radius:10px;border:1px solid rgba(255,255,255,.18);background:rgba(22,24,32,.62);cursor:pointer;display:grid;place-items:center;padding:0}
+.pchkb span{width:20px;height:20px;border-radius:5px;border:1.5px solid rgba(255,255,255,.4);display:grid;place-items:center;font-size:13px;font-weight:900;color:#06121F}
+.pchkb.on span{background:#B8F03A;border-color:#B8F03A}
+.pchkb:hover{border-color:#B8F03A}.pchkb:disabled{opacity:.4;cursor:default}
+.pcrow.off .pevoff{opacity:.5}
+.pevoff .pevc{color:var(--muted)}
+.pev.nod{grid-template-columns:auto 1fr auto}
+@media (max-width:640px){.pev.nod{grid-template-columns:1fr auto}}
+.pday{margin:10px 0 2px;font-family:var(--f-data);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.pday:first-child{margin-top:0}
 @media (max-width:640px){.prate small,ol.pboard .pnm small{display:none}.prole{font-size:9px;padding:0 4px;margin-left:5px}ol.pboard>li{gap:8px;padding:9px 10px}.pgroup .prow .pboss{margin-left:0;flex:1;text-align:center}}
 .pgroup .prow .pboss{margin-left:auto;text-decoration:none}
 .prole{font-style:normal;margin-left:8px;font-family:var(--f-data);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:1px 6px;border-radius:4px;vertical-align:2px;border:1px solid}
@@ -3002,10 +3014,11 @@ document.addEventListener("click",e=>{
 /* ---------- Page « Pronos entre amis » (#pronos) ---------- */
 const bigEv=e=>isNum(e)||e.fights.some(f=>[f.a,f.b].some(p=>p.star||p.champ));
 const ROLE={chef:"Chef",adjoint:"Adjoint"};
-function nextNight(){const T=Date.now(),up=EVENTS.filter(e=>T<e.end&&e.fights.some(f=>!f.a.tbd&&!f.b.tbd)).sort((a,b)=>a.start-b.start);
-  if(!up.length) return []; const d=fmtD(up[0].start); return up.filter(e=>fmtD(e.start)===d);}
-/* Soirée ouverte dans un groupe = pas retirée par le chef ou l'adjoint */
-const openIn=(g,id)=>!(g.off||[]).includes(id);
+/* Les 3 prochaines dates de soirée (événements groupés par jour) */
+function nextNights(n=3){const T=Date.now(),up=EVENTS.filter(e=>T<e.end&&e.fights.some(f=>!f.a.tbd&&!f.b.tbd)).sort((a,b)=>a.start-b.start);
+  const days=[...new Set(up.map(e=>fmtD(e.start)))].slice(0,n); return days.map(d=>({d,evs:up.filter(e=>fmtD(e.start)===d)}));}
+/* Ouvert dans un groupe : décidé par la base (vedette / francophone par défaut, puis choix du chef ou de l'adjoint) */
+const openIn=(g,id)=>(g.open||[]).includes(id);
 const isBoss=g=>g&&(g.role==="chef"||g.role==="adjoint");
 const rateCls=r=>!r.judged?"":r.good/r.judged>=.65?"rhi":r.good/r.judged>=.5?"rmid":"rlo";
 const pct=r=>r.judged?Math.round(100*r.good/r.judged)+" %":"–";
@@ -3019,17 +3032,14 @@ function boardHTML(rows,n,full){
 }
 function manageHTML(g){
   const T=Date.now(), busy=PRO.busy?" disabled":"";
-  const list=nextNight();
+  const nights=nextNights();
   const bd=PRO.boards[g.id];
   if(g.role==="chef"&&!bd&&!PRO.showBoard[g.id]){PRO.showBoard[g.id]=1;rpc("fr_group_board",{p_code:PRO.code,p_group:g.id}).then(r=>{PRO.boards[g.id]={...r,at:Date.now()};}).catch(()=>{}).finally(()=>{PRO.showBoard[g.id]=0;proRefresh();});}
   const dep=bd&&bd.rows.find(r=>r.role==="adjoint");
   return `<div class="dbar"><div class="dleft"><a class="dbrand homelink" href="#" title="Retour à l'accueil"><canvas class="frlogo frmini" role="img" aria-label="Fight Radar"></canvas></a><a class="back" href="#pronos">← Pronos</a></div></div>
-  <div class="dwrap pro"><div class="dtitle"><h1 class="pital">${esc(g.name)}</h1><span>${g.role==="chef"?"Tu es le chef du groupe":"Tu es l'adjoint du groupe"}</span></div>
+  <div class="dwrap pro"><div class="dtitle"><h1 class="pital">${esc(g.name)}</h1><span>Tu es le chef du groupe</span></div>
   ${PRO.err?`<div class="perr" role="alert">${esc(PRO.err)}</div>`:""}
-  <section class="psec"><h2 class="h">Soirée <span>du groupe</span></h2>
-  <p class="pnote">Prochaine soirée${list[0]?` : <b>${esc(fmtDS(list[0].start).replace(/\.$/,""))}</b>`:""}. Tout est coché par défaut : décoche les événements que le groupe ne pronostique pas, ils ne compteront pas dans le classement. Un événement commencé ne peut plus être changé.</p>
-  <div class="pevs">${list.map(e=>{const st=T>=e.start,ck=openIn(g,e.id);return `<button type="button" class="pev ptog${ck?" on":""} ${isNum(e)?"onum":orgCls(e)}" data-pa="gev:${g.id}:${esc(e.id)}:${ck?0:1}"${st?" disabled":""}${busy} aria-pressed="${ck}"><span class="pchk" aria-hidden="true">${ck?"✓":""}</span><span class="pevd">${esc(fmtDS(e.start))}</span>${evBadge(e,1)}<span class="pevn">${esc(e.a)} vs ${esc(e.b)}${bigEv(e)?`<i class="pbig" aria-label="Soirée avec une vedette">★</i>`:""}</span><span class="pevc">${st?"Commencé":ck?"Ouvert":"Retiré"}</span></button>`;}).join("")||`<p class="pnote">Aucune soirée annoncée pour l'instant.</p>`}</div></section>
-  ${g.role==="chef"?`<section class="psec"><h2 class="h">Adjoint <span>du groupe</span></h2><div class="pbox"><p class="pnote">L'adjoint peut aussi choisir les événements de la soirée. Si tu quittes le groupe, il devient chef. Un seul adjoint par groupe.</p>
+  ${g.role==="chef"?`<section class="psec"><h2 class="h">Adjoint <span>du groupe</span></h2><div class="pbox"><p class="pnote">L'adjoint peut aussi cocher les événements pronostiqués par le groupe (dans « Pronos disponibles »). Si tu quittes le groupe, il devient chef. Un seul adjoint par groupe.</p>
     ${!bd?`<p class="pnote">Chargement des membres…</p>`:bd.rows.length<2?`<p class="pnote">Invite des amis pour pouvoir nommer un adjoint.</p>`:`<div class="pdeps">${bd.rows.filter(r=>r.role!=="chef").map(r=>`<button type="button" class="pdep${r.role==="adjoint"?" on":""}" data-pa="dep:${g.id}:${r.role==="adjoint"?"":r.mid}"${busy}>${avatar(r.pseudo)}<span class="pdn">${esc(r.pseudo)}</span><i>${r.role==="adjoint"?"Adjoint · retirer":"Nommer adjoint"}</i></button>`).join("")}</div>`}
     ${dep?"":`<p class="pnote">Pas d'adjoint pour l'instant.</p>`}</div></section>`:""}
   </div>`;
@@ -3057,7 +3067,7 @@ function pronosHTML(){
   <div class="dwrap pro"><div class="ptitle"><div class="dtitle"><h1>Pronos entre amis</h1><span>Pour le plaisir</span></div>${me?`<button type="button" class="pwho" data-pa="tab:compte" title="Mon compte"><i aria-hidden="true"></i>${esc(me.pseudo)}</button>`:""}</div>
   ${PRO.err?`<div class="perr" role="alert">${esc(PRO.err)}</div>`:""}${inv}`;
   const rules=`<div class="pbox prules"><small>Comment ça marche</small><ul>
-    <li>Les pronos portent sur la prochaine soirée. Le chef du groupe (et son adjoint) peut en retirer des événements : ils ne comptent alors pas dans le classement.</li>
+    <li>Les pronos sont ouverts sur les 3 prochaines soirées. Par défaut : les événements avec une vedette, un UFC numéroté ou un francophone. Le chef du groupe (et son adjoint) peut en ajouter ou en retirer ; seuls ceux retenus comptent dans le classement.</li>
     <li>Ouvre un événement dans « Pronos disponibles » et choisis le vainqueur de chaque combat. Un bon vainqueur rapporte <b>3 points</b> en main card, <b>2</b> en préliminaires, <b>1</b> en early prelims.</li>
     <li>Bonus : <b>+2</b> pour le main event, <b>+1</b> pour le co-main event ou un combat vedette.</li>
     <li>Grosse soirée (UFC numéroté, ou au moins une vedette à l'affiche) : <b>+1</b> sur chaque bon vainqueur. La valeur de chaque combat est affichée à côté de « Ton prono ».</li>
@@ -3099,7 +3109,7 @@ function pronosHTML(){
       rpc("fr_group_board",{p_code:PRO.code,p_group:g.id}).then(r=>{PRO.boards[g.id]={...r,at:Date.now()};}).catch(()=>{}).finally(()=>{PRO.showBoard[g.id]=0;proRefresh();});}
     const board=!bd?`<p class="pnote">Chargement du classement…</p>`:boardHTML(bd.rows,5)+(bd.rows.length>5?"":"")+`<a class="pbtn ghost small pfull" href="#pronos-classement-${g.id}">Voir le classement complet</a>`;
     return `<div class="pbox pgroup"><div class="pgh"><h3>${esc(g.name)}</h3><span>${g.n} membre${g.n>1?"s":""}</span></div>${board}
-      <div class="prow"><button type="button" class="pbtn" data-pa="share:${g.id}">Inviter des amis</button><span class="pgcode" title="Code d'invitation">Code : <b>${esc(g.code)}</b></span>${isBoss(g)?`<a class="pbtn ghost pboss" href="#pronos-soirees-${g.id}">${g.role==="chef"?"Gérer le groupe":"Choisir les événements"}</a>`:""}</div></div>`;}).join("");
+      <div class="prow"><button type="button" class="pbtn" data-pa="share:${g.id}">Inviter des amis</button><span class="pgcode" title="Code d'invitation">Code : <b>${esc(g.code)}</b></span>${g.role==="chef"?`<a class="pbtn ghost pboss" href="#pronos-soirees-${g.id}">Gérer le groupe</a>`:""}</div></div>`;}).join("");
   const tab=PRO.tab==="compte"?"compte":"groupes";
   const tabs=`<div class="ptabs" role="tablist">${[["groupes","Mes groupes"],["compte","Mon compte"]].map(([k,l])=>`<button type="button" role="tab" aria-selected="${tab===k}" data-pa="tab:${k}">${l}</button>`).join("")}</div>`;
   if(tab==="compte") return head+nc+tabs+`
@@ -3121,17 +3131,21 @@ function pronosHTML(){
   </div>`;
   const T=Date.now();
   const gs=me.groups||[], anyOpen=id=>gs.some(g=>openIn(g,id));
-  const avail=gs.length?nextNight().filter(e=>anyOpen(e.id)):[];
+  const boss0=gs.find(isBoss);
+  const nights=gs.length?nextNights().map(x=>({...x,evs:boss0?x.evs:x.evs.filter(e=>anyOpen(e.id))})).filter(x=>x.evs.length):[];
+  const avail=nights.flatMap(x=>x.evs);
   const past=EVENTS.filter(e=>T>=e.end&&e.end>T-120*864e5&&anyOpen(e.id)).sort((x,y)=>y.start-x.start).slice(0,40);
   const boss=(me.groups||[]).find(isBoss);
   const ids=[...avail,...past].map(e=>e.id);
   if(ids.length&&!PRO.countsLoading&&Date.now()-(PRO.countsAt||0)>60000){PRO.countsLoading=1;
     rpc("fr_my_counts",{p_code:PRO.code,p_events:ids}).then(c=>{PRO.counts=c||{};}).catch(()=>{}).finally(()=>{PRO.countsLoading=0;PRO.countsAt=Date.now();proRefresh();});}
   const row=(e,done)=>{const n=PRO.counts[e.id]||0,tot=e.fights.filter(f=>!f.a.tbd&&!f.b.tbd).length;
-    return `<a class="pev ${isNum(e)?"onum":orgCls(e)}" href="#pronos-${esc(e.id)}"><span class="pevd">${esc(fmtDS(e.start))}</span>${evBadge(e,1)}<span class="pevn">${esc(e.a)} vs ${esc(e.b)}${bigEv(e)?`<i class="pbig" title="Soirée avec une vedette : +1 point sur chaque bon vainqueur" aria-label="Soirée avec une vedette">★</i>`:""}</span><span class="pevc${done?" done":n?" on":""}">${done?"Terminé":(T>=e.start?`<span class="pill live plive">Live</span> `:"")+`${n}/${tot} pronos`}</span></a>`;};
+    return `<a class="pev${done?"":" nod"} ${isNum(e)?"onum":orgCls(e)}" href="#pronos-${esc(e.id)}">${done?`<span class="pevd">${esc(fmtDS(e.start))}</span>`:""}${evBadge(e,1)}<span class="pevn">${esc(e.a)} vs ${esc(e.b)}${bigEv(e)?`<i class="pbig" title="Soirée avec une vedette : +1 point sur chaque bon vainqueur" aria-label="Soirée avec une vedette">★</i>`:""}</span><span class="pevc${done?" done":n?" on":""}">${done?"Terminé":(T>=e.start?`<span class="pill live plive">Live</span> `:"")+`${n}/${tot} pronos`}</span></a>`;};
   const done=past.filter(e=>PRO.counts[e.id]>0);
   return head+nc+tabs+`
-    <section class="psec"><h2 class="h">Pronos <span>disponibles</span></h2><div class="pevs">${avail.map(e=>row(e,false)).join("")||(!(me.groups||[]).length?`<p class="pnote">Rejoins ou crée un groupe pour faire tes pronos.</p>`:boss?`<p class="pnote">Toutes les soirées de la prochaine date sont retirées. En tant que ${boss.role}, tu peux les rouvrir.</p><a class="pbtn small" href="#pronos-soirees-${boss.id}">Choisir les soirées</a>`:`<p class="pnote">Pas de soirée ouverte aux pronos pour l'instant dans ton groupe.</p>`)}</div></section>
+    <section class="psec"><h2 class="h">Pronos <span>disponibles</span></h2><div class="pevs">${boss0&&nights.length?`<p class="pnote">Tu es ${boss0.role} de « ${esc(boss0.name)} » : coche les événements que le groupe pronostique. Seuls ceux cochés comptent dans le classement.</p>`:""}${nights.map(x=>`<h3 class="pday">${esc(fmtDS(x.evs[0].start).replace(/\.$/,""))}</h3>${x.evs.map(e=>{if(!boss0)return row(e,false);
+      const ck=openIn(boss0,e.id),st=T>=e.start;
+      return `<div class="pcrow${ck?"":" off"}"><button type="button" class="pchkb${ck?" on":""}" data-pa="gev:${boss0.id}:${esc(e.id)}:${ck?0:1}"${st?" disabled":""} aria-pressed="${ck}" title="${st?"Événement commencé : on ne peut plus le changer":ck?"Retirer des pronos du groupe":"Ajouter aux pronos du groupe"}"><span aria-hidden="true">${ck?"✓":""}</span></button>${ck?row(e,false):`<div class="pev nod pevoff ${isNum(e)?"onum":orgCls(e)}">${evBadge(e,1)}<span class="pevn">${esc(e.a)} vs ${esc(e.b)}${bigEv(e)?`<i class="pbig" aria-label="Soirée avec une vedette">★</i>`:""}</span><span class="pevc">Non retenu</span></div>`}</div>`;}).join("")}`).join("")||(!(me.groups||[]).length?`<p class="pnote">Rejoins ou crée un groupe pour faire tes pronos.</p>`:boss?`<p class="pnote">Aucun événement ouvert pour les prochaines soirées. En tant que ${boss.role}, tu peux en ouvrir.</p><a class="pbtn small" href="#pronos-soirees-${boss.id}">Choisir les soirées</a>`:`<p class="pnote">Pas de soirée ouverte aux pronos pour l'instant dans ton groupe.</p>`)}</div></section>
     <section class="psec"><h2 class="h">Mon <span>groupe</span></h2>
     ${groups||`<div class="pbox"><p class="pnote">Tu n'es dans aucun groupe pour l'instant. Crée le tien et invite tes amis, ou rejoins le groupe d'un ami avec son code.</p></div><div class="pgrid">
         <div class="pbox"><h3>Créer un groupe</h3><label class="pfield"><span>Nom du groupe</span><input id="pr-gname" maxlength="30" placeholder="Ex. Golmon Fighters" data-enter="gcreate"></label><button type="button" class="pbtn" data-pa="gcreate"${busy}>Créer</button></div>
@@ -3154,7 +3168,7 @@ async function proAct(a){
   if(act==="codeok"){PRO.newCode=null;return proRefresh();}
   if(act==="evreload"){loadEvent(arg,true);return;}
   if(act==="gev"){const [,gid,eid,flag]=a.split(":");return run(async()=>{await rpc("fr_group_event",{p_code:PRO.code,p_group:gid,p_event:eid,p_on:flag==="1"});
-    const g=(PRO.me.groups||[]).find(x=>x.id===gid);if(g){const off=new Set(g.off||[]);flag==="1"?off.delete(eid):off.add(eid);g.off=[...off];}delete PRO.boards[gid];PRO.countsAt=0;});}
+    const g=(PRO.me.groups||[]).find(x=>x.id===gid);if(g){const op=new Set(g.open||[]);flag==="1"?op.add(eid):op.delete(eid);g.open=[...op];}delete PRO.boards[gid];PRO.countsAt=0;});}
   if(act==="dep"){const [,gid,mid]=a.split(":");return run(async()=>{await rpc("fr_group_deputy",{p_code:PRO.code,p_group:gid,p_member:mid||null});delete PRO.boards[gid];toast(mid?"Adjoint nommé":"Adjoint retiré");});}
   if(act==="tab"){PRO.tab=arg;PRO.err="";proRefresh();const d=document.getElementById("detail");if(d)d.scrollTop=0;return;}
   if(act==="showcode"||act==="hidecode"){PRO.showCode=act==="showcode";return proRefresh();}

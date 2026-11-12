@@ -1258,6 +1258,7 @@ ol.pboard .pnm small{color:var(--muted);font-weight:500}
 .ptabs button{border:0;background:transparent;padding:11px 18px;cursor:pointer;font-family:var(--f-data);font-weight:700;text-transform:uppercase;letter-spacing:.07em;font-size:13px;color:var(--muted)}
 .ptabs button[aria-selected="true"]{background:var(--ink);color:#0B0C10}
 .ptabs button:not([aria-selected="true"]):hover{color:var(--ink)}
+@media (max-width:640px){.mtopbtns .pronohd{height:40px;padding:0 12px;font-size:12px;margin:0}.mdr-body .spoilbtn{width:100%;justify-content:center;height:44px;margin:0}}
 @media (max-width:640px){.ptabs{align-self:stretch}.ptabs button{flex:1}.mdr-body .pronohd{justify-content:center;height:44px}}
 .pbox{background:rgba(22,24,32,.62);border:1px solid rgba(255,255,255,.13);border-radius:14px;padding:16px 18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 10px 30px rgba(0,0,0,.28);display:flex;flex-direction:column;gap:10px}
 .pbox>small,.pinv small{font-family:var(--f-data);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
@@ -2733,14 +2734,15 @@ fetch("data/events.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=
 })();
 </script>
 <script>
-/* Téléphone : menu latéral à gauche (recherche, filtres, Sport, raccourcis, calendrier), favoris dans un panneau à droite ; No spoil reste dans l'en-tête */
+/* Téléphone : menu latéral à gauche (recherche, filtres, No spoil, Sport, raccourcis, calendrier), favoris dans un panneau à droite ; Pronos dans l'en-tête */
 (function(){
   const mq=matchMedia("(max-width:640px)");
   const mast=document.querySelector(".mast"), mtools=document.querySelector(".mtools"), side=document.querySelector(".layout>.side"), fav=document.getElementById("rside"), find=document.getElementById("find");
   if(!mast||!mtools||!side) return;
   const spoil=side.querySelector(".spoilbtn");
   const home=el=>el?[el.parentNode,el.nextSibling]:null;
-  const H={fd:home(find),mt:home(mtools),side:home(side),sp:home(spoil),fav:home(fav)};
+  const pro=mtools.querySelector(".pronohd");
+  const H={fd:home(find),mt:home(mtools),side:home(side),sp:home(spoil),fav:home(fav),pr:home(pro)};
   const mk=(id,title,right)=>{const d=document.createElement("div");d.className="mdrawer"+(right?" right":"");d.id=id;
     d.innerHTML='<div class="mdr-panel" role="dialog" aria-modal="true" aria-label="'+title+'"><div class="mdr-h"><span>'+title+'</span><button type="button" class="mdr-x" aria-label="Fermer">✕</button></div><div class="mdr-body"></div></div>';document.body.appendChild(d);return d;};
   const L=mk("mdrawer","Menu",0), Rt=mk("mfavdrawer","Mes favoris",1);
@@ -2766,9 +2768,9 @@ fetch("data/events.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=
   const badge=()=>{try{const n=(JSON.parse(localStorage.getItem("coinrouge-favs")||"[]")||[]).length;const b=favb.querySelector("b");b.hidden=!n;b.textContent=n;}catch(_){}};
   function apply(){
     const lb=L.querySelector(".mdr-body"), rb=Rt.querySelector(".mdr-body");
-    if(mq.matches){ lb.append(mtools); if(find) lb.append(find); lb.append(side); if(fav) rb.append(fav); if(spoil) top.append(spoil); top.append(favb); mast.prepend(burger); mast.append(top); badge(); }
+    if(mq.matches){ lb.append(mtools); if(find) lb.append(find); lb.append(side); if(fav) rb.append(fav); /* en-tête : Pronos à la place de No spoil ; No spoil passe dans le menu, à la place de Pronos */ if(pro){top.append(pro);} if(spoil&&pro&&H.pr){H.pr[0].insertBefore(spoil,H.pr[1]&&H.pr[1].parentNode===H.pr[0]?H.pr[1]:null);} else if(spoil) top.append(spoil); top.append(favb); mast.prepend(burger); mast.append(top); badge(); }
     else { closeAll(); const put=(el,h)=>{if(el&&h)h[0].insertBefore(el,h[1]&&h[1].parentNode===h[0]?h[1]:null);};
-      put(mtools,H.mt); put(find,H.fd); put(side,H.side); put(spoil,H.sp); put(fav,H.fav); burger.remove(); top.remove(); }
+      put(mtools,H.mt); put(find,H.fd); put(side,H.side); put(spoil,H.sp); put(pro,H.pr); put(fav,H.fav); burger.remove(); top.remove(); }
   }
   apply(); mq.addEventListener&&mq.addEventListener("change",apply);
   document.addEventListener("click",e=>{if(e.target.closest(".favbtn"))setTimeout(badge,50);});

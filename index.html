@@ -1154,6 +1154,9 @@ h2.h::before,h2.h::after{background:rgba(255,255,255,.22)!important}
 </style>
 <style>
 /* ===== Pronos entre amis ===== */
+ol.pboard>li:not(.p1):not(.p2):not(.p3) .prk,ol.pboard>li:not(.p1):not(.p2):not(.p3):not(.me) .pnm,ol.pboard>li:not(.p1):not(.p2):not(.p3)>b{color:#8E95A2}
+ol.pboard .pnm small,ol.pboard>li .pnm small{color:#B8F03A}
+ol.pboard>li.p1 .prk,ol.pboard>li.p1.p1 .pnm,ol.pboard>li.p1.p1>b{color:#E3B85A}ol.pboard>li.p2 .prk,ol.pboard>li.p2.p2 .pnm,ol.pboard>li.p2.p2>b{color:#E4E9F0}ol.pboard>li.p3 .prk,ol.pboard>li.p3.p3 .pnm,ol.pboard>li.p3.p3>b{color:#C9803F}
 .pkw .pkn.ca,.pkw .pkmeth.ca{color:var(--cr)}.pkw .pkn.cb,.pkw .pkmeth.cb{color:var(--cb)}
 .pman{width:13px;height:13px;vertical-align:-2px;margin-right:4px}
 .pfrc{font-family:var(--f-data);font-size:12px;font-weight:700;color:var(--muted);white-space:nowrap;margin:0 4px 0 12px;padding:2px 8px;border-radius:999px;border:1px solid rgba(255,255,255,.14)}
@@ -1216,11 +1219,10 @@ ol.pboard.full>li{grid-template-columns:30px 30px 1fr 80px 70px 70px 70px}
 ol.pboard{gap:6px}
 ol.pboard>li{grid-template-columns:30px 30px 1fr auto auto;padding:9px 14px;border-radius:6px;background:rgba(255,255,255,.04);border-left:3px solid transparent}
 ol.pboard>li.p1{border-left-color:#E3B85A;background:linear-gradient(90deg,rgba(227,184,90,.16),rgba(255,255,255,.03) 60%)}
-ol.pboard>li.p2{border-left-color:#AEB6C2;background:linear-gradient(90deg,rgba(174,182,194,.14),rgba(255,255,255,.03) 60%)}
+ol.pboard>li.p2{border-left-color:#E4E9F0;background:linear-gradient(90deg,rgba(228,233,240,.16),rgba(255,255,255,.03) 60%)}
 ol.pboard>li.p3{border-left-color:#C9803F;background:linear-gradient(90deg,rgba(201,128,63,.16),rgba(255,255,255,.03) 60%)}
 ol.pboard>li.me .pnm{color:var(--blue)}
 ol.pboard .prk{font-family:var(--f-data);font-size:15px;color:var(--ink)}
-ol.pboard>li:first-child .prk{color:var(--ink)}
 ol.pboard .pnm small{color:var(--muted);font-weight:500}
 .pav{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-family:var(--f-data);font-weight:700;font-size:13px;color:#fff;background:hsl(var(--h) 55% 38%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.25)}
 .pevc.done{color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:2px 7px;text-transform:uppercase;letter-spacing:.06em;font-size:11px}

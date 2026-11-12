@@ -426,7 +426,9 @@ begin
     'friends', coalesce((select json_agg(json_build_object('k',p.fkey,'who',u.pseudo,'pick',p.pick,'m',p.method) order by u.pseudo)
                       from fr.picks p join fr.fights f on f.event_id=p.event_id and f.fkey=p.fkey
                       join fr.users u on u.id=p.user_id
-                      where p.event_id=p_event and p.user_id<>v and f.lock_at<=now()
+                      -- Visibles une fois le combat fermé, ou dès que j'ai fait mon propre prono sur ce combat
+                      where p.event_id=p_event and p.user_id<>v
+                        and (f.lock_at<=now() or exists (select 1 from fr.picks mp where mp.user_id=v and mp.event_id=p.event_id and mp.fkey=p.fkey))
                         and exists (select 1 from fr.members m1 join fr.members m2 on m1.group_id=m2.group_id
                                     where m1.user_id=v and m2.user_id=p.user_id)), '[]'::json),
     -- Avant la fermeture : seulement le nombre d'amis qui ont déjà pronostiqué chaque combat
@@ -507,6 +509,20 @@ begin
   return json_build_object('ok',true);
 end $$;
 
+-- Avancement des amis : sur chaque soirée, combien d'amis (membres de mes groupes) ont fait au moins un prono
+create or replace function public.fr_group_progress(p_code text, p_events text[]) returns json
+language plpgsql security definer set search_path='' as $$
+declare v uuid := fr.need_uid(p_code); tot int;
+begin
+  select count(distinct m2.user_id) into tot from fr.members m1 join fr.members m2 on m1.group_id=m2.group_id
+    where m1.user_id=v and m2.user_id<>v;
+  return json_build_object('of', tot, 'ev', coalesce((select json_object_agg(e, n) from (
+    select p.event_id e, count(distinct p.user_id) n from fr.picks p
+    where p.event_id = any(p_events) and p.user_id<>v
+      and exists (select 1 from fr.members m1 join fr.members m2 on m1.group_id=m2.group_id where m1.user_id=v and m2.user_id=p.user_id)
+    group by p.event_id) s), '{}'::json));
+end $$;
+
 -- Garde la base éveillée et déclenche une copie des combats (appelé par la mise à jour automatique du site)
 create or replace function public.fr_ping() returns json
 language plpgsql security definer set search_path='' as $$
@@ -525,7 +541,7 @@ begin
   foreach fn in array array[
     'fr_signup(text)','fr_me(text)','fr_save_favs(text,jsonb)','fr_rename(text,text)','fr_delete_account(text)',
     'fr_group_create(text,text)','fr_group_peek(text)','fr_group_join(text,text)','fr_group_leave(text,uuid)',
-    'fr_pick(text,text,text,text,text)','fr_event(text,text)','fr_my_counts(text,text[])','fr_group_board(text,uuid)','fr_group_event(text,uuid,text,boolean)','fr_group_deputy(text,uuid,uuid)','fr_ping()']
+    'fr_pick(text,text,text,text,text)','fr_event(text,text)','fr_my_counts(text,text[])','fr_group_board(text,uuid)','fr_group_event(text,uuid,text,boolean)','fr_group_deputy(text,uuid,uuid)','fr_group_progress(text,text[])','fr_ping()']
   loop
     execute format('revoke execute on function public.%s from public', fn);
     if exists (select 1 from pg_roles where rolname='authenticated') then

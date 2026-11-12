@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-12T07:27:38.482Z",
+ "updated": "2026-11-12T11:32:36.332Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -2492,6 +2492,79 @@
     }
    ],
    "wiki": "UFC Fight Night: Cortes-Acosta vs. Walker"
+  },
+  {
+   "id": "bx-jkitou-corzo",
+   "sport": "boxe",
+   "org": "Boxe",
+   "name": "Paris Fight Night",
+   "a": "Jkitou",
+   "b": "Corzo",
+   "venue": "Clichy Hall",
+   "city": "Clichy",
+   "ctry": "FRA",
+   "tz": "Europe/Paris",
+   "tbc": 1,
+   "partial": 1,
+   "segs": [
+    {
+     "k": "main",
+     "t": "2026-11-13T18:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "Moyens",
+     "title": "Titre mondial IBA",
+     "a": {
+      "n": "Bilel Jkitou",
+      "nat": "FRA",
+      "rec": "21-2-0",
+      "fr": 1
+     },
+     "b": {
+      "n": "Gabriel Corzo",
+      "nat": "ARG",
+      "rec": "23-1-0"
+     },
+     "r": 12,
+     "ru": 1
+    },
+    {
+     "s": "main",
+     "w": "Lourds",
+     "a": {
+      "n": "Maxime Vaz",
+      "nat": "FRA",
+      "rec": "6-0-0",
+      "fr": 1
+     },
+     "b": {
+      "n": "Wilmer Vasquez",
+      "nat": "VEN",
+      "rec": "14-5-2"
+     },
+     "r": 8,
+     "ru": 1
+    },
+    {
+     "s": "main",
+     "w": "Moyens",
+     "a": {
+      "n": "Damien Lapilus",
+      "nat": "FRA",
+      "rec": "17-18-2",
+      "fr": 1
+     },
+     "b": {
+      "n": "Data Gelashvili",
+      "rec": "1-2-0"
+     },
+     "r": 6,
+     "ru": 1
+    }
+   ]
   },
   {
    "tvx": [
@@ -12605,6 +12678,12 @@
    "boxe"
   ],
   [
+   "Damien Lapilus",
+   "FRA",
+   "17-18-2",
+   "boxe"
+  ],
+  [
    "Ghassen Jbalia",
    "FRA",
    "6-1-0",
@@ -12639,6 +12718,12 @@
    "FRA",
    "3-2-0",
    "mma"
+  ],
+  [
+   "Maxime Vaz",
+   "FRA",
+   "6-0-0",
+   "boxe"
   ],
   [
    "Modibo Diakité",

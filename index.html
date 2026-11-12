@@ -376,6 +376,11 @@ a.nm:hover{text-decoration:underline;text-decoration-thickness:2px;text-underlin
 .seg-main .bout:first-child .nm{font-size:clamp(22px,4.6vw,32px)}
 .seg-main .bout:first-child .av{width:52px;height:52px;font-size:20px}
 .seg-main .bout:first-child .time b{font-size:22px}
+/* Carte complète : Préliminaires et Early prelims dans un encadré plus clair que la Main card */
+.seg-prelims,.seg-early{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);border-radius:6px;padding:0 14px}
+.seg-prelims .bout:last-child,.seg-early .bout:last-child{border-bottom:0}
+.seg-prelims .bout,.seg-early .bout{padding:14px 0}
+
 
 .seg-prelims .bout,.seg-early .bout{padding:8px 4px;gap:12px}
 .seg-prelims .f .nm,.seg-early .f .nm{font-family:var(--f-body);font-weight:600;text-transform:none;font-size:15px;line-height:1.25;letter-spacing:0}
@@ -906,13 +911,13 @@ html:root[data-theme="dark"]{--win:#B8F03A;--lost:#FF1A2E;--loss:#FF1A2E;--surfa
 /* Fond dégradé bruité : calque fixe posé une fois (plus fluide au défilement) */
 body{background:#0B0C12!important}
 body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:
- image-set(url("grain1.png") 1x,url("grain2.png") 2x) 0 0/240px 240px repeat,
  url("bg-l.jpg") center/cover no-repeat,
- #0B0C12;background-blend-mode:soft-light,normal}
+ #0B0C12;background-blend-mode:normal}
 /* Fond lisse précalculé (portrait/paysage) + grain en tuile nette à la taille réelle des pixels : rien à recalculer */
-@media (orientation:portrait){body::before,.detail.closing{background-image:image-set(url("grain1.png") 1x,url("grain2.png") 2x),url("bg-p.jpg")!important}}
+@media (orientation:portrait){body::before,.detail.closing{background-image:url("bg-p.jpg")!important}}
 /* Fond dessiné à la taille de l'écran (bg.js) : le calque CSS ne sert plus qu'en attendant */
 html.bgbaked body::before{display:none}
+html.bgcopy .detail.closing{background:#0B0C12 var(--bgbake) 0 0/100% 100% no-repeat!important;background-blend-mode:normal!important}
 
 /* Verre liquide */
 .hero,.favs,.favsug,.rcard,details.ev,.dhead,.search,.seg,.spoilbtn,.jumpnav button,.sportbtn,.gear,.findbox,.soon>div,.sim{
@@ -957,9 +962,8 @@ html:root[data-theme="dark"]{--fr-t:rgba(84,20,28,.9);--fav-t:rgba(200,30,110,.4
 .wrap.indet>:not(#detail){visibility:hidden;opacity:0;transition:opacity .12s ease,visibility 0s linear .12s}
 /* Retour : la page de soirée emporte une copie du fond en glissant, l'accueil est déjà affiché dessous */
 .detail.closing{background:
- image-set(url("grain1.png") 1x,url("grain2.png") 2x) 0 0/240px 240px repeat,
  url("bg-l.jpg") center/cover no-repeat,
- #0B0C12!important;background-blend-mode:soft-light,normal}
+ #0B0C12!important;background-blend-mode:normal}
 .wrap.snap>:not(#detail){transition:none!important}
 /* Francophones : le fond derrière est désaturé, le rouge reste rouge */
 /* Bandeau des pages de soirée : teinte translucide sans flou (le flou faisait ramer le défilement) */

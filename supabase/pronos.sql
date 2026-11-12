@@ -50,6 +50,16 @@ create table if not exists fr.fights(
   updated_at timestamptz not null default now(),
   primary key(event_id,fkey)
 );
+-- Barème : colonnes ajoutées (partie de soirée, bonus main event / co-main / combat vedette)
+alter table fr.fights add column if not exists seg text;
+alter table fr.fights add column if not exists bonus int not null default 0;
+-- Grosse soirée (UFC numéroté, ou au moins un combattant vedette sur la carte) : +1 sur chaque bon vainqueur
+alter table fr.fights add column if not exists evbonus int not null default 0;
+-- Combattants « vedettes » (même liste que sur le site) : combat vedette = +1
+create table if not exists fr.stars(name text primary key);
+alter table fr.stars enable row level security;
+insert into fr.stars(name) values ('Alexander Volkanovski'),('Petr Yan'),('Merab Dvalishvili'),('Movsar Evloev'),('Islam Makhachev'),('Ilia Topuria'),('Tom Aspinall'),('Jon Jones'),('Khamzat Chimaev'),('Sean Strickland'),('Max Holloway'),('Justin Gaethje'),('Paddy Pimblett'),('Sean O''Malley'),('Conor McGregor'),('Valentina Shevchenko'),('Zhang Weili'),('Alex Pereira'),('Jiří Procházka'),('Magomed Ankalaev'),('Dricus du Plessis'),('Charles Oliveira'),('Dustin Poirier'),('Israel Adesanya'),('Kamaru Usman'),('Leon Edwards'),('Belal Muhammad'),('Jack Della Maddalena'),('Alexandre Pantoja'),('Joshua Van'),('Brandon Moreno'),('Diego Lopes'),('Arman Tsarukyan'),('Ciryl Gane'),('Benoît Saint Denis'),('Benoît Saint-Denis'),('Manon Fiorot'),('Nassourdine Imavov'),('Amanda Nunes'),('Kayla Harrison'),('Julianna Peña'),('Robert Whittaker'),('Michael Chandler'),('Colby Covington'),('Shavkat Rakhmonov'),('Bo Nickal'),('Derrick Lewis'),('Umar Nurmagomedov'),('Aljamain Sterling'),('Francis Ngannou'),('Cris Cyborg'),('Usman Nurmagomedov'),('Patrick Habirora'),('A. J. McKee'),('Johnny Eblen'),('Cédric Doumbè'),('Canelo Álvarez'),('Tyson Fury'),('Anthony Joshua'),('Oleksandr Usyk'),('Naoya Inoue'),('Terence Crawford'),('Dmitry Bivol'),('Artur Beterbiev'),('Gervonta Davis'),('Shakur Stevenson'),('Devin Haney'),('Ryan Garcia'),('Jake Paul'),('Deontay Wilder'),('David Benavidez'),('Jaime Munguía'),('Agit Kabayel'),('Daniel Dubois'),('Jai Opetaia'),('Junto Nakatani'),('Teofimo Lopez'),('Errol Spence Jr.'),('Vasiliy Lomachenko'),('Christian M''billi'),('Tony Yoka') on conflict do nothing;
+
 create table if not exists fr.picks(
   user_id uuid not null references fr.users(id) on delete cascade,
   event_id text not null,
@@ -145,6 +155,13 @@ language sql immutable set search_path='' as $$
     else null end
 $$;
 
+-- Barème d'un bon vainqueur : main card 3, préliminaires 2, early prelims 1 ;
+-- + bonus (main event +2, co-main ou combat vedette +1) ; + 1 sur une grosse soirée. Bonne méthode : +1 en plus.
+create or replace function fr.base_pts(seg text) returns int
+language sql immutable set search_path='' as $$
+  select case coalesce(seg,'main') when 'main' then 3 when 'prelims' then 2 else 1 end
+$$;
+
 -- ---------------------------------------------------------------------------
 -- Copie des combats depuis le site (toutes les 10 min) : verrous et résultats
 -- ---------------------------------------------------------------------------
@@ -155,8 +172,12 @@ begin
   with ev as (
     select e from jsonb_array_elements(coalesce(j->'events','[]'::jsonb)) e
   ), fx as (
-    select e->>'id' as eid, e->'segs' as segs, x
-    from ev, jsonb_array_elements(coalesce(e->'fights','[]'::jsonb)) x
+    select e->>'id' as eid, e->'segs' as segs, x, i,
+      case when e->>'name' ~ '^UFC [0-9]' or exists (
+        select 1 from jsonb_array_elements(coalesce(e->'fights','[]'::jsonb)) y, (values ('a'),('b')) c(sd)
+        where y->sd ? 'star' or y->sd ? 'champ' or exists (select 1 from fr.stars st where st.name = y->sd->>'n'))
+      then 1 else 0 end as evb
+    from ev, jsonb_array_elements(coalesce(e->'fights','[]'::jsonb)) with ordinality t(x,i)
     where coalesce(x->'a'->>'n','') <> '' and coalesce(x->'b'->>'n','') <> ''
       and not coalesce((x->'a'->>'tbd')::boolean,false) and not coalesce((x->'b'->>'tbd')::boolean,false)
   ), rows as (
@@ -170,18 +191,26 @@ begin
       ) as lock_at,
       case x->'res'->>'w' when 'a' then x->'a'->>'n' when 'b' then x->'b'->>'n'
         when 'draw' then 'draw' when 'nc' then 'nc' else null end as winner,
-      fr.method_cat(x->'res'->>'method') as method
+      fr.method_cat(x->'res'->>'method') as method,
+      coalesce(x->>'s','main') as seg,
+      case when i=1 then 2
+           when (i=2 and coalesce(x->>'s','main')='main')
+             or x->'a' ? 'star' or x->'b' ? 'star' or x->'a' ? 'champ' or x->'b' ? 'champ'
+             or exists (select 1 from fr.stars st where st.name in (x->'a'->>'n', x->'b'->>'n')) then 1
+           else 0 end as bonus,
+      evb
     from fx
   )
-  insert into fr.fights(event_id,fkey,a,b,lock_at,winner,method,updated_at)
-  select eid,k,a,b,lock_at,winner,method,now() from rows where lock_at is not null
+  insert into fr.fights(event_id,fkey,a,b,lock_at,winner,method,seg,bonus,evbonus,updated_at)
+  select eid,k,a,b,lock_at,winner,method,seg,bonus,evb,now() from rows where lock_at is not null
   on conflict (event_id,fkey) do update
     set a=excluded.a, b=excluded.b, lock_at=excluded.lock_at,
         winner=coalesce(excluded.winner, fr.fights.winner),
         method=coalesce(excluded.method, fr.fights.method),
+        seg=excluded.seg, bonus=excluded.bonus, evbonus=excluded.evbonus,
         updated_at=now()
-    where (fr.fights.a,fr.fights.b,fr.fights.lock_at,fr.fights.winner,fr.fights.method)
-          is distinct from (excluded.a,excluded.b,excluded.lock_at,coalesce(excluded.winner,fr.fights.winner),coalesce(excluded.method,fr.fights.method));
+    where (fr.fights.a,fr.fights.b,fr.fights.lock_at,fr.fights.winner,fr.fights.method,fr.fights.seg,fr.fights.bonus,fr.fights.evbonus)
+          is distinct from (excluded.a,excluded.b,excluded.lock_at,coalesce(excluded.winner,fr.fights.winner),coalesce(excluded.method,fr.fights.method),excluded.seg,excluded.bonus,excluded.evbonus);
   get diagnostics n = row_count;
   return n;
 end $$;
@@ -344,7 +373,7 @@ language plpgsql security definer set search_path='' as $$
 declare v uuid := fr.need_uid(p_code);
 begin
   return json_build_object(
-    'open', coalesce((select json_agg(json_build_object('k',f.fkey,'lock',f.lock_at)) from fr.fights f
+    'open', coalesce((select json_agg(json_build_object('k',f.fkey,'lock',f.lock_at,'pts',fr.base_pts(f.seg)+f.bonus+f.evbonus)) from fr.fights f
                       where f.event_id=p_event), '[]'::json),
     'mine', coalesce((select json_agg(json_build_object('k',p.fkey,'pick',p.pick,'m',p.method)) from fr.picks p
                       where p.user_id=v and p.event_id=p_event), '[]'::json),
@@ -373,7 +402,7 @@ begin
     select p.event_id e, count(*) n from fr.picks p where p.user_id=v and p.event_id = any(p_events) group by p.event_id) s), '{}'::json);
 end $$;
 
--- Classement d'un groupe. 1 point par bon vainqueur, +1 si la méthode est aussi la bonne.
+-- Classement d'un groupe (barème : voir fr.base_pts et la colonne bonus).
 create or replace function public.fr_group_board(p_code text, p_group uuid) returns json
 language plpgsql security definer set search_path='' as $$
 declare v uuid := fr.need_uid(p_code); g fr.groups;
@@ -386,7 +415,7 @@ begin
     'name', g.name, 'code', g.code,
     'rows', coalesce((select json_agg(r order by r.pts desc, r.good desc, r.pseudo) from (
       select u.pseudo, (u.id=v) as me,
-        coalesce(sum(case when f.winner is not null and p.pick=f.winner then 1 + (case when p.method is not null and p.method=f.method then 1 else 0 end) else 0 end),0)::int as pts,
+        coalesce(sum(case when f.winner is not null and p.pick=f.winner then fr.base_pts(f.seg) + f.bonus + f.evbonus + (case when p.method is not null and p.method=f.method then 1 else 0 end) else 0 end),0)::int as pts,
         count(*) filter (where f.winner is not null and p.pick=f.winner)::int as good,
         count(*) filter (where f.winner is not null and p.pick=f.winner and p.method is not null and p.method=f.method)::int as exact,
         count(*) filter (where f.winner is not null and f.winner not in ('draw','nc'))::int as judged

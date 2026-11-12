@@ -1148,10 +1148,63 @@ h2.h::before,h2.h::after{background:rgba(255,255,255,.22)!important}
 </style>
 <style>
 /* ===== Pronos entre amis ===== */
+.plive{font-size:11px;padding:2px 7px;vertical-align:1px}
+.pnight{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding:12px 16px;border-radius:10px;border:1px solid color-mix(in srgb,#B8F03A 40%,transparent);background:color-mix(in srgb,#B8F03A 8%,rgba(22,24,32,.62))}
+.pnight span{font-family:var(--f-data);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.pnight b{font-family:var(--f-display);font-style:italic;font-weight:900;font-size:30px;color:#B8F03A;line-height:1}
+.pnight small{color:var(--muted);font-size:12px}
+.prate{font-weight:700;font-size:13px}.prate small{font-weight:500;font-size:11px;color:var(--muted);margin-left:2px}
+.prate.rhi{color:#B8F03A}.prate.rmid{color:#FFC20E}.prate.rlo{color:#FF6B4A}
+.pk[data-side="a"] .pkm:not(:disabled){border-color:color-mix(in srgb,var(--cr) 55%,transparent)}
+.pk[data-side="b"] .pkm:not(:disabled){border-color:color-mix(in srgb,var(--cb) 55%,transparent)}
+.pk[data-side="a"] .pkm.on{background:var(--cr);border-color:var(--cr);color:#fff}
+.pk[data-side="b"] .pkm.on{background:var(--cb);border-color:var(--cb);color:#06121F}
+ol.pboard.full>li{grid-template-columns:30px 30px 1fr 80px 70px 70px 70px}
+.phead{display:grid;grid-template-columns:30px 30px 1fr 80px 70px 70px 70px;gap:10px;padding:0 14px 4px 17px;font-family:var(--f-data);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.phead span:nth-child(n+4),ol.pboard.full .pst,ol.pboard.full b{text-align:right}
+.prate{min-width:42px;text-align:right}
+.pgap{list-style:none;text-align:center;color:var(--muted);background:none!important;border:0!important;padding:0!important;display:block!important}
+.pgroup .pfull{align-self:stretch;display:block;text-align:center;text-decoration:none;padding:10px 14px;font-size:12px}
+.pital{font-style:italic}
+@media (max-width:640px){ol.pboard.full>li{grid-template-columns:26px 28px 1fr 46px 56px}ol.pboard.full>li .pcv,ol.pboard.full>li .pcm{display:none}.phead{grid-template-columns:26px 28px 1fr 46px 56px;padding-left:15px}.phead span:nth-child(4),.phead span:nth-child(5){display:none}}
+.pleave{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 0;border-top:1px solid var(--line)}
+.pleave:first-of-type{border-top:0}
+.ptitle .dtitle h1{font-style:italic}
+ol.pboard{gap:6px}
+ol.pboard>li{grid-template-columns:30px 30px 1fr auto auto;padding:9px 14px;border-radius:6px;background:rgba(255,255,255,.04);border-left:3px solid transparent}
+ol.pboard>li.p1{border-left-color:#E3B85A;background:linear-gradient(90deg,rgba(227,184,90,.16),rgba(255,255,255,.03) 60%)}
+ol.pboard>li.p2{border-left-color:#AEB6C2;background:linear-gradient(90deg,rgba(174,182,194,.14),rgba(255,255,255,.03) 60%)}
+ol.pboard>li.p3{border-left-color:#C9803F;background:linear-gradient(90deg,rgba(201,128,63,.16),rgba(255,255,255,.03) 60%)}
+ol.pboard>li.me .pnm{color:var(--blue)}
+ol.pboard .prk{font-family:var(--f-data);font-size:15px;color:var(--ink)}
+ol.pboard>li:first-child .prk{color:var(--ink)}
+ol.pboard .pnm small{color:var(--muted);font-weight:500}
+.pav{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-family:var(--f-data);font-weight:700;font-size:13px;color:#fff;background:hsl(var(--h) 55% 38%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.25)}
+.pevc.done{color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:2px 7px;text-transform:uppercase;letter-spacing:.06em;font-size:11px}
+.pevt h1{margin:0;font-family:var(--f-display);font-weight:800;font-style:italic;text-transform:uppercase;font-size:clamp(26px,5vw,40px);line-height:1}
+.pk .pkf[data-pp="a"]{border-color:color-mix(in srgb,var(--cr) 70%,transparent)}
+.pk .pkf[data-pp="b"]{border-color:color-mix(in srgb,var(--cb) 70%,transparent)}
+.pk .pkf[data-pp="a"]:hover{background:color-mix(in srgb,var(--cr) 22%,transparent)}
+.pk .pkf[data-pp="b"]:hover{background:color-mix(in srgb,var(--cb) 22%,transparent)}
+.pk .pkf[data-pp="a"].on{background:var(--cr);border-color:var(--cr);color:#fff}
+.pk .pkf[data-pp="b"].on{background:var(--cb);border-color:var(--cb);color:#06121F}
+.pevs .pev{cursor:pointer;--evc:var(--fn-ink)}
+.pevs .pev.onum{--evc:var(--num-bg)}
+.pevs .pev:hover{border-color:var(--evc);background:color-mix(in srgb,var(--evc) 10%,rgba(22,24,32,.62))}
+.pevh{display:flex;flex-direction:column;gap:10px}
+.pevt{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
+.pevt h2{margin:0;font-family:var(--f-display);font-weight:800;font-style:italic;text-transform:uppercase;font-size:24px;line-height:1}
+.pevt>span{font-family:var(--f-data);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.pseg{display:flex;flex-direction:column;gap:6px}
+.pseg h3{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:10px 0 2px;font-family:var(--f-data);font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.pseg h3 span{font-size:12px;letter-spacing:.06em;color:var(--muted)}
+.pkh{font-size:14px;color:var(--muted)}.pkh b{color:var(--ink);font-family:var(--f-data);text-transform:uppercase;letter-spacing:.03em}
+.pkh small{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;margin-top:2px}
+@media (max-width:640px){.ptitle{flex-direction:column;gap:2px}.pwho{max-width:none;margin-top:0}}
 .pronohd[hidden]{display:none}
-.pronohd{display:inline-flex;align-items:center;gap:7px;height:38px;padding:0 13px;border:1px solid color-mix(in srgb,var(--blue) 55%,transparent);border-radius:6px;background:color-mix(in srgb,var(--blue) 12%,var(--surface));color:var(--ink);text-decoration:none;font-family:var(--f-data);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:13px}
-.pronohd svg{width:16px;height:16px;color:var(--blue)}
-.pronohd:hover{border-color:var(--blue)}
+.pronohd{display:inline-flex;align-items:center;gap:7px;height:38px;padding:0 13px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--muted);text-decoration:none;font-family:var(--f-data);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:13px}
+.pronohd svg{width:16px;height:16px}
+.pronohd:hover{color:var(--ink)}
 .ptitle{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
 .pwho{display:inline-flex;align-items:center;gap:7px;margin-top:6px;padding:6px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.3);color:var(--muted);font-family:var(--f-data);font-size:12px;font-weight:700;letter-spacing:.05em;cursor:pointer;white-space:nowrap;max-width:45%;overflow:hidden;text-overflow:ellipsis}
 .pwho i{width:7px;height:7px;border-radius:50%;background:#B8F03A;flex:none}
@@ -1230,9 +1283,17 @@ h2.h::before,h2.h::after{background:rgba(255,255,255,.22)!important}
 .pkm.on{background:color-mix(in srgb,var(--blue) 25%,transparent);border-color:var(--blue);color:var(--ink)}
 .pkm:disabled{opacity:.35;cursor:default}
 .pkc{width:100%;text-align:center;color:var(--muted);font-size:12px}
-.pkw{font-size:13px;color:var(--muted)}
+.pkw{font-size:13px;color:var(--muted);padding:3px 9px;border-radius:6px;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.08);white-space:nowrap}
+.pkw .pkn.ok,.pkw .pkmeth.ok{color:#B8F03A}.pkw .pkn.ko,.pkw .pkmeth.ko{color:#FF1A2E}
+.pkw.me{border-color:color-mix(in srgb,var(--blue) 50%,transparent)}
 .pkw b{color:var(--ink)}.pkw.me b{color:var(--blue)}
 .pkw em{font-style:normal;font-size:11px;text-transform:uppercase;letter-spacing:.06em}
+.pbig{font-style:normal;margin-left:8px;color:var(--gold);font-size:15px;vertical-align:0}
+.pk.open{flex-direction:column;gap:8px}
+.pkr1{display:flex;flex-direction:column;align-items:center;gap:8px}
+@media (max-width:640px){.pkr1{width:100%}}
+.pkv small{font-size:10px;opacity:.75;margin-left:4px}
+.pkv{font-family:var(--f-data);font-size:11px;font-weight:700;letter-spacing:.06em;color:#FFC20E;border:1px solid color-mix(in srgb,#FFC20E 45%,transparent);border-radius:4px;padding:2px 6px}
 .pkpt{font-style:normal;font-weight:700;margin-left:5px;font-size:12px}
 .pkpt.ok{color:#B8F03A}.pkpt.ko{color:#FF1A2E}
 .prtoast{position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);z-index:200;max-width:min(92vw,520px);padding:11px 16px;border-radius:10px;background:rgba(20,22,30,.95);border:1px solid rgba(255,255,255,.2);color:var(--ink);font-size:14px;box-shadow:0 10px 30px rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}
@@ -1792,7 +1853,7 @@ function boutHTML(f,t,detail,total,me,ev,spoilOK){
       ${fighterHTML(f.b,"b",res?(res.w==="b"?"win":res.w==="a"?"lose":"draw"):"",res&&res.w==="b"?andTxt:"")}
     </div>
     ${f.note?`<div class="note">${esc(f.note)}</div>`:""}
-    ${detail&&ev&&typeof pkHTML==="function"?pkHTML(ev,f,t):""}
+    ${detail&&ev&&typeof PK_ON!=="undefined"&&PK_ON?pkHTML(ev,f,t):""}
   </div>`;
 }
 
@@ -2048,7 +2109,7 @@ function detailHTML(ev,t){
       </div>
       ${schedHTML(ev)}
     </div>
-    ${typeof pkBar==="function"?pkBar(ev,t):""}<section>${cardHTML(ev,t,{detail:1})}</section>
+    <section>${cardHTML(ev,t,{detail:1})}</section>
     <p class="find">Les combats sont listés du plus important au premier de la soirée. L'heure de chaque combat est estimée ; l'ordre de passage peut changer le soir même. Les early prelims passent en général sur UFC Fight Pass.</p>
   </div>`;
 }
@@ -2071,7 +2132,7 @@ function renderDetail(t){
   const d=document.getElementById("detail");
   const m=location.hash.match(/^#ev-([a-z0-9-]+)$/);
   const ev=m&&EVENTS.find(e=>e.id===m[1]);
-  const isCal=location.hash==="#agenda", isPro=location.hash==="#pronos";
+  const isCal=location.hash==="#agenda", isPro=/^#pronos(-|$)/.test(location.hash);
   const ma=location.hash.match(/^#(a-[a-z0-9-]+)$/), ag=ma&&AGENDA.find(a=>agKey(a)===ma[1]);
   const reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
   if(!ev&&!isCal&&!ag&&!isPro){
@@ -2090,9 +2151,9 @@ function renderDetail(t){
   }
   const opening=d.hidden||d.classList.contains("off");
   /* Page Pronos : pas de rafraîchissement automatique (la saisie en cours serait effacée) */
-  if(isPro&&!opening&&d.dataset.view==="pronos") return;
+  if(isPro&&!opening&&d.dataset.view===location.hash.slice(1)) return;
   if(ev&&(opening||d.dataset.view!==ev.id)) SPOIL=false;
-  d.dataset.view=ev?ev.id:ag?ma[1]:isPro?"pronos":"agenda";
+  d.dataset.view=ev?ev.id:ag?ma[1]:isPro?location.hash.slice(1):"agenda";
   d.innerHTML=ev?detailHTML(ev,t):ag?soonHTML(ag):isPro?pronosHTML():calHTML(t);
   if(!opening&&ev&&d.dataset.prev!==ev.id) d.scrollTop=0;
   d.dataset.prev=d.dataset.view;
@@ -2830,29 +2891,46 @@ async function loadEvent(id,force){
   try{
     const d=await rpc("fr_event",{p_code:PRO.code,p_event:id});
     const fr=new Map(); (d.friends||[]).forEach(x=>{if(!fr.has(x.k))fr.set(x.k,[]);fr.get(x.k).push(x);});
-    PK[id]={at:Date.now(),open:new Map((d.open||[]).map(x=>[x.k,Date.parse(x.lock)])),mine:new Map((d.mine||[]).map(x=>[x.k,{pick:x.pick,m:x.m}])),
+    PK[id]={at:Date.now(),val:new Map((d.open||[]).map(x=>[x.k,x.pts||1])),open:new Map((d.open||[]).map(x=>[x.k,Date.parse(x.lock)])),mine:new Map((d.mine||[]).map(x=>[x.k,{pick:x.pick,m:x.m}])),
       friends:fr,counts:new Map((d.counts||[]).map(x=>[x.k,x.n]))};
   }catch(e){PK[id]={...(PK[id]||{}),loading:false,err:e.message,at:Date.now()};}
   pkRefresh(id);
 }
 function pkRefresh(id){
-  const d=document.getElementById("detail"); if(!d||d.dataset.view!==id) return;
-  const ev=EVENTS.find(e=>e.id===id); if(!ev) return;
-  d.querySelectorAll(".pk[data-fi]").forEach(el=>{const f=ev.fights[+el.dataset.fi];if(f)el.outerHTML=pkHTML(ev,f,now());});
-  const b=d.querySelector(".pkbar"); if(b) b.outerHTML=pkBar(ev,now());
+  const d=document.getElementById("detail"); if(!d||!/^pronos/.test(d.dataset.view||"")) return;
+  proRefresh();
 }
-function pkBar(ev,t){
-  const live=t<ev.end;
-  if(!PRO.code||!PRO.me){
-    if(!live||!PRONOS_PUBLIC) return "";
-    return `<div class="pkbar pbox"><div><b>Pronos entre amis</b><span>Choisis tes vainqueurs sur cette soirée et compare avec tes potes. Rien à gagner, juste pour le plaisir.</span></div><a class="pkgo" href="#pronos">${PRO.code?"Mes pronos":"Commencer"}</a></div>`;
-  }
-  const c=PK[ev.id]; if(!c||(!c.open&&!c.err)) loadEvent(ev.id);
-  if(c&&c.err) return `<div class="pkbar pbox"><div><b>Pronos entre amis</b><span>${esc(c.err)}</span></div><button type="button" class="pkgo" data-pkreload="${esc(ev.id)}">Réessayer</button></div>`;
-  const n=c&&c.mine?c.mine.size:0, tot=ev.fights.filter(f=>!f.a.tbd&&!f.b.tbd).length;
-  const locks=ev.segs.map(s=>`${SEG[s.k]} ${fmtT(Date.parse(s.t))}`).join(" · ");
-  const noGroup=!(PRO.me.groups||[]).length;
-  return `<div class="pkbar pbox"><div><b>Tes pronos : ${c&&c.open?`${n}/${tot}`:"…"}</b><span>${live?`Fermeture au début de chaque partie : ${esc(locks)}.`:"Soirée terminée."}${noGroup?" Crée un groupe ou rejoins tes amis pour comparer vos pronos.":""}</span></div><a class="pkgo" href="#pronos">${noGroup?"Créer un groupe":"Mes groupes"}</a></div>`;
+let PK_ON=false;
+const isLive=ev=>{const T=Date.now();return T>=ev.start&&T<ev.end;};
+/* Mes points sur une soirée (calculés comme dans la base) */
+function myNight(ev,c){let pts=0,good=0,judged=0;
+  ev.fights.forEach(f=>{const k=fkey(f.a.n,f.b.n),p=c.mine.get(k);if(!p||!f.res)return;
+    const w=f.res.w==="a"?f.a.n:f.res.w==="b"?f.b.n:null; if(!w)return; judged++;
+    if(p.pick!==w)return; good++;
+    const m=f.res.method||"", wc=/^(T?KO|KO\/TKO|Arr[eê]t|Abandon|RTD)/i.test(m)?"ko":/^Soumission/.test(m)?"sub":/^D[ée]cision/.test(m)?"dec":null;
+    pts+=((c.val&&c.val.get(k))||1)+(p.m&&p.m===wc?1:0);});
+  return {pts,good,judged};}
+/* Mode live : toutes les minutes, résultats frais (data/events.json) + pronos des amis */
+setInterval(async()=>{
+  const m=location.hash.match(/^#pronos-(.+)$/); if(!m||/^classement-/.test(m[1])||document.hidden) return;
+  const ev=EVENTS.find(e=>e.id===decodeURIComponent(m[1])); if(!ev||!isLive(ev)) return;
+  try{const d=await fetch("data/events.json",{cache:"no-store"}).then(r=>r.ok?r.json():null);
+    const nv=d&&(d.events||[]).find(x=>x.id===ev.id);
+    if(nv) nv.fights.forEach(x=>{const f=ev.fights.find(y=>fkey(y.a.n,y.b.n)===fkey(x.a.n,x.b.n));if(f){if(x.res)f.res=x.res;if(x.t)f.t=x.t;}});
+  }catch(_){}
+  loadEvent(ev.id,true);
+},60000);
+function proEventHTML(ev){
+  const c=PK[ev.id]; if(!c||(!c.open&&!c.err&&!c.loading)) loadEvent(ev.id);
+  const head=`<div class="pevt">${isLive(ev)?`<span class="pill live plive">Live</span>`:""}${evBadge(ev,1)}<h1>${esc(ev.a)} vs ${esc(ev.b)}</h1><span>${esc(fmtDS(ev.start))}${Date.now()>=ev.end?" · Terminé":""}</span></div>`;
+  if(c&&c.err) return `<section class="psec">${head}<div class="perr">${esc(c.err)}</div><button type="button" class="pbtn" data-pa="evreload:${esc(ev.id)}">Réessayer</button></section>`;
+  if(!c||!c.open) return `<section class="psec">${head}<p class="pnote">Chargement des pronos…</p></section>`;
+  const t=now(), n=c.mine.size, tot=ev.fights.filter(f=>!f.a.tbd&&!f.b.tbd).length;
+  const locks=ev.segs.map(sg=>`${SEG[sg.k]} ${fmtT(Date.parse(sg.t))}`).join(" · ");
+  PK_ON=true; let card=""; try{card=cardHTML(ev,t,{detail:1});}finally{PK_ON=false;}
+  const fin=Date.now()>=ev.end;
+  const night=SPOIL&&(isLive(ev)||fin)?myNight(ev,c):null;
+  return `<section class="psec pcard">${head}${night?`<div class="pnight"><span>${fin?"Tes points sur la soirée":"Tes points ce soir"}</span><b>${night.pts} pt${night.pts>1?"s":""}</b><small>${night.good}/${night.judged} bons vainqueurs${isLive(ev)?" · se met à jour tout seul":""}</small></div>`:""}<p class="pnote">Tes pronos : <b>${n}/${tot}</b>. ${fin?`Soirée terminée.${SPOIL?"":" Active Spoil pour voir les résultats et les points."}`:isLive(ev)?`Soirée en cours : les pronos des parties commencées sont fermés, la page se met à jour toute seule.${SPOIL?"":" Active Spoil pour suivre tes points en direct."}`:`Fermeture au début de chaque partie : ${esc(locks)}. Ceux de tes amis s'affichent à ce moment-là.`}</p><section>${card}</section></section>`;
 }
 function pkHTML(ev,f,t){
   const fi=ev.fights.indexOf(f);
@@ -2862,12 +2940,14 @@ function pkHTML(ev,f,t){
   const open=lock&&Date.now()<lock;
   const res=SPOIL&&f.res?f.res:null, win=res?(res.w==="a"?f.a.n:res.w==="b"?f.b.n:null):null;
   const wcat=res?({KO:"ko",TKO:"ko"}[(res.method||"").split(/[\s(/]/)[0]]||(/^Soumission/.test(res.method||"")?"sub":/^Décision/.test(res.method||"")?"dec":null)):null;
-  const pts=p=>!res||!win?"":p.pick===win?(p.m&&p.m===wcat?`<i class="pkpt ok">+2</i>`:`<i class="pkpt ok">+1</i>`):`<i class="pkpt ko">0</i>`;
-  const show=p=>`<b>${esc(nameOf(f,p.pick))}</b>${p.m?` <em>${MSH[p.m]}</em>`:""}${pts(p)}`;
+  const val=(c.val&&c.val.get(k))||1;
+  const pts=p=>!res||!win?"":p.pick===win?`<i class="pkpt ok">+${val+(p.m&&p.m===wcat?1:0)}</i>`:`<i class="pkpt ko">0</i>`;
+  const okW=p=>res&&win?(p.pick===win?" ok":" ko"):"", okM=p=>res&&win?(p.pick===win&&p.m===wcat?" ok":" ko"):"";
+  const show=p=>`<b class="pkn${okW(p)}">${esc(nameOf(f,p.pick))}</b>${p.m?` <em class="pkmeth${okM(p)}">${MSH[p.m]}</em>`:""}${pts(p)}`;
   if(open){
     const meth=(ev.sport==="boxe"?["ko","dec"]:["ko","sub","dec"]).map(m=>`<button type="button" class="pkm${mine&&mine.m===m?" on":""}" data-pm="${m}" ${mine?"":"disabled"} aria-pressed="${!!(mine&&mine.m===m)}" title="${MLBL[m]} (+1 point si c'est la bonne méthode)">${MSH[m]}</button>`).join("");
     const side=s=>{const p=s==="a"?f.a:f.b,on=mine&&mine.pick===p.n;return `<button type="button" class="pkf${on?" on":""}" data-pp="${s}" aria-pressed="${!!on}" title="${on?"Retirer mon prono":"Victoire de "+esc(p.n)}">${esc(shortN(f,s))}</button>`;};
-    return `<div class="pk open" data-fi="${fi}" data-ev="${esc(ev.id)}"><span class="pkl">Ton prono</span><span class="pkfs">${side("a")}${side("b")}</span><span class="pkms" aria-label="Méthode (facultatif)">${meth}</span>${cnt?`<small class="pkc">${cnt} ami${cnt>1?"s ont":" a"} déjà pronostiqué</small>`:""}</div>`;
+    return `<div class="pk open" data-fi="${fi}" data-ev="${esc(ev.id)}"${mine?` data-side="${mine.pick===f.a.n?"a":"b"}"`:""}><span class="pkr1"><span class="pkl">Ton prono</span><span class="pkfs">${side("a")}${side("b")}</span></span><span class="pkms" aria-label="Méthode (facultatif)">${meth}</span><span class="pkv" title="Points si tu trouves le vainqueur, +1 avec la bonne méthode">${val} pt${val>1?"s":""} à gagner <small>+1 méthode</small></span>${cnt?`<small class="pkc">${cnt} ami${cnt>1?"s ont":" a"} déjà pronostiqué</small>`:""}</div>`;
   }
   if(!lock){ /* combat pas encore recopié (ajouté récemment) */
     return t<ev.start?`<div class="pk" data-fi="${fi}"><span class="pkl">Pronos bientôt ouverts pour ce combat</span></div>`:`<div class="pk" data-fi="${fi}" hidden></div>`;
@@ -2885,7 +2965,6 @@ async function setPick(ev,f,pick,m){
   catch(e){if(before)c.mine.set(k,before);else c.mine.delete(k);pkRefresh(ev.id);toast(e.message);if(/fermés/.test(e.message))loadEvent(ev.id,true);}
 }
 document.addEventListener("click",e=>{
-  const rl=e.target.closest("[data-pkreload]"); if(rl){loadEvent(rl.dataset.pkreload,true);return;}
   const b=e.target.closest(".pk.open button"); if(!b) return;
   const box=b.closest(".pk"), ev=EVENTS.find(x=>x.id===box.dataset.ev), f=ev&&ev.fights[+box.dataset.fi]; if(!f) return;
   const k=fkey(f.a.n,f.b.n), mine=PK[ev.id]&&PK[ev.id].mine.get(k);
@@ -2894,15 +2973,26 @@ document.addEventListener("click",e=>{
 });
 
 /* ---------- Page « Pronos entre amis » (#pronos) ---------- */
+const bigEv=e=>isNum(e)||e.fights.some(f=>[f.a,f.b].some(p=>p.star||p.champ));
+const rateCls=r=>!r.judged?"":r.good/r.judged>=.65?"rhi":r.good/r.judged>=.5?"rmid":"rlo";
+const pct=r=>r.judged?Math.round(100*r.good/r.judged)+" %":"–";
+/* Classement : n premières lignes (+ ta ligne si tu es plus bas) ; full = colonnes détaillées */
+function boardHTML(rows,n,full){
+  const ranked=rows.map(r=>({...r,pos:rows.findIndex(x=>x.pts===r.pts)+1}));
+  let list=n?ranked.slice(0,n):ranked; const me=ranked.find(r=>r.me);
+  const gap=n&&me&&!list.includes(me);
+  const li=r=>`<li class="${r.pos<=3?"p"+r.pos:""}${r.me?" me":""}"><span class="prk">${r.pos}.</span>${avatar(r.pseudo)}<span class="pnm">${esc(r.pseudo)}${r.me?" <small>(toi)</small>":""}</span>${full?`<span class="pst pcv" title="Bons vainqueurs">${r.good}/${r.judged}</span><span class="pst pcm" title="Méthodes trouvées">${r.exact} méth.</span>`:""}<span class="pst prate ${rateCls(r)}" title="Taux de réussite">${pct(r)}${full?"":" <small>réussite</small>"}</span><b>${r.pts} pt${r.pts>1?"s":""}</b></li>`;
+  return `<ol class="pboard${full?" full":""}">${list.map(li).join("")}${gap?`<li class="pgap" aria-hidden="true">…</li>${li(me)}`:""}</ol>`;
+}
+function avatar(n){let h=7;for(const c of n)h=(h*131+c.codePointAt(0))>>>0;const H=[8,28,48,95,160,195,220,265,300,335][h%10];return `<span class="pav" style="--h:${H}" aria-hidden="true">${esc([...n.trim()][0]||"?").toUpperCase()}</span>`;}
 function proRefresh(){
-  const d=document.getElementById("detail"); if(!d||d.dataset.view!=="pronos"||d.hidden) return;
+  const d=document.getElementById("detail"); if(!d||!/^pronos/.test(d.dataset.view||"")||d.hidden) return;
   const keep={}; d.querySelectorAll("input[id]").forEach(i=>keep[i.id]=i.value);
   const foc=document.activeElement&&d.contains(document.activeElement)?document.activeElement.id:null;
   const y=d.scrollTop; d.innerHTML=pronosHTML(); d.scrollTop=y;
   for(const id in keep){const i=document.getElementById(id);if(i&&!i.value)i.value=keep[id];}
   if(foc){const i=document.getElementById(foc);if(i)i.focus({preventScroll:true});}
 }
-function upcomingPro(){const t=Date.now();return EVENTS.filter(e=>t<e.end&&e.fights.length&&!/^a-/.test(e.id)).slice(0,8);}
 function pronosHTML(){
   const me=PRO.me, busy=PRO.busy?" disabled":"";
   const conf=(key,label,sure)=>`<button type="button" class="pbtn ghost${PRO.confirm===key?" warn":""}" data-pa="${key}"${busy}>${PRO.confirm===key?sure:label}</button>`;
@@ -2914,14 +3004,27 @@ function pronosHTML(){
       ${me?`<div class="prow"><button type="button" class="pbtn" data-pa="invyes"${busy}>Rejoindre le groupe</button><button type="button" class="pbtn ghost" data-pa="invno">Non merci</button></div>`:`<p class="pnote">Crée ton compte ci-dessous (ou connecte-toi) : tu rejoindras le groupe automatiquement.</p>`}`}</div>`;
   }
   const head=`<div class="dbar"><div class="dleft"><a class="dbrand homelink" href="#" title="Retour à l'accueil"><canvas class="frlogo frmini" role="img" aria-label="Fight Radar"></canvas></a><a class="back" href="#">← Retour</a></div></div>
-  <div class="dwrap pro"><div class="ptitle"><div class="dtitle"><h1>Pronos entre amis</h1><span>Pour le plaisir, rien à gagner</span></div>${me?`<button type="button" class="pwho" data-pa="tab:compte" title="Mon compte"><i aria-hidden="true"></i>${esc(me.pseudo)}</button>`:""}</div>
+  <div class="dwrap pro"><div class="ptitle"><div class="dtitle"><h1>Pronos entre amis</h1><span>Pour le plaisir</span></div>${me?`<button type="button" class="pwho" data-pa="tab:compte" title="Mon compte"><i aria-hidden="true"></i>${esc(me.pseudo)}</button>`:""}</div>
   ${PRO.err?`<div class="perr" role="alert">${esc(PRO.err)}</div>`:""}${inv}`;
   const rules=`<div class="pbox prules"><small>Comment ça marche</small><ul>
-    <li>Sur chaque fight card, choisis le vainqueur de chaque combat : <b>1 point</b> s'il gagne.</li>
+    <li>Ouvre une soirée dans « Pronos disponibles » et choisis le vainqueur de chaque combat. Un bon vainqueur rapporte <b>3 points</b> en main card, <b>2</b> en préliminaires, <b>1</b> en early prelims.</li>
+    <li>Bonus : <b>+2</b> pour le main event, <b>+1</b> pour le co-main event ou un combat vedette.</li>
+    <li>Grosse soirée (UFC numéroté, ou au moins une vedette à l'affiche) : <b>+1</b> sur chaque bon vainqueur. La valeur de chaque combat est affichée à côté de « Ton prono ».</li>
     <li>Ajoute la méthode si tu veux (KO, soumission, décision) : <b>1 point de plus</b> si c'est la bonne.</li>
     <li>Les pronos ferment au début de chaque partie de la soirée (préliminaires, main card). Ceux de tes amis s'affichent à ce moment-là.</li>
-    <li>Le classement de chaque groupe reste caché tant que tu ne demandes pas à le voir (No spoil).</li></ul></div>`;
+    <li>Le classement de ton groupe se met à jour dès que les résultats sont connus.</li></ul></div>`;
   if(PRO.code&&!me&&!PRO.err) return head+`<div class="pbox"><p>Connexion…</p></div></div>`;
+  const gm=me&&location.hash.match(/^#pronos-classement-(.+)$/), pg=gm&&(me.groups||[]).find(g=>g.id===gm[1]);
+  if(pg){const bd=PRO.boards[pg.id];
+    if(!bd&&!PRO.showBoard[pg.id]){PRO.showBoard[pg.id]=1;rpc("fr_group_board",{p_code:PRO.code,p_group:pg.id}).then(r=>{PRO.boards[pg.id]={...r,at:Date.now()};}).catch(e=>{PRO.err=e.message;}).finally(()=>{PRO.showBoard[pg.id]=0;proRefresh();});}
+    const tot=bd?bd.rows.reduce((a,r)=>({g:a.g+r.good,j:a.j+r.judged}),{g:0,j:0}):null;
+    return `<div class="dbar"><div class="dleft"><a class="dbrand homelink" href="#" title="Retour à l'accueil"><canvas class="frlogo frmini" role="img" aria-label="Fight Radar"></canvas></a><a class="back" href="#pronos">← Pronos</a></div></div>
+    <div class="dwrap pro"><div class="dtitle"><h1 class="pital">${esc(pg.name)}</h1><span>Classement complet · ${pg.n} membre${pg.n>1?"s":""}${tot&&tot.j?` · réussite du groupe ${Math.round(100*tot.g/tot.j)} %`:""}</span></div>
+    ${bd?`<div class="pbox"><div class="phead"><span>#</span><span></span><span>Joueur</span><span>Vainqueurs</span><span>Méthodes</span><span>Réussite</span><span>Points</span></div>${boardHTML(bd.rows,0,1)}</div>`:`<p class="pnote">Chargement du classement…</p>`}
+    <p class="pnote">Réussite : part des combats terminés où le vainqueur choisi a gagné. Méthodes : nombre de fois où la méthode était aussi la bonne.</p></div>`;}
+  const evm=!gm&&location.hash.match(/^#pronos-(.+)$/), pev=me&&evm&&EVENTS.find(e=>e.id===decodeURIComponent(evm[1]));
+  if(pev) return `<div class="dbar"><div class="dleft"><a class="dbrand homelink" href="#" title="Retour à l'accueil"><canvas class="frlogo frmini" role="img" aria-label="Fight Radar"></canvas></a><a class="back" href="#pronos">← Pronos</a></div>${Date.now()>=pev.start?`<button type="button" class="spoilbtn" id="spoil" aria-pressed="${SPOIL}" title="Afficher ou masquer les résultats"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="eye" d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle class="eye" cx="12" cy="12" r="3"/><path class="slash" d="M3 3l18 18"/></svg><span>${SPOIL?"Spoil":"No spoil"}</span></button>`:""}</div>
+    <div class="dwrap pro">${PRO.err?`<div class="perr" role="alert">${esc(PRO.err)}</div>`:""}${proEventHTML(pev)}</div>`;
   if(!me) return head+`
     <div class="pgrid">
       <div class="pbox"><small>Nouveau</small><h3>Créer mon compte</h3>
@@ -2938,20 +3041,21 @@ function pronosHTML(){
       <p>Garde-le précieusement (capture d'écran, note…) : c'est la seule façon de retrouver ton compte sur un autre appareil. Si tu le perds, le compte est perdu.</p>
       <div class="prow"><button type="button" class="pbtn ghost" data-pa="copycode">Copier le code</button><button type="button" class="pbtn" data-pa="codeok">C'est noté</button></div></div>`:"";
   const groups=(me.groups||[]).map(g=>{
-    const bd=PRO.boards[g.id], sh=PRO.showBoard[g.id];
-    const board=!sh?`<button type="button" class="pbtn ghost" data-pa="board:${g.id}"${busy}>Voir le classement (spoil)</button>`:
-      !bd?`<p class="pnote">Chargement du classement…</p>`:`<ol class="pboard">${bd.rows.map((r,i)=>`<li class="${r.me?"me":""}"><span class="prk">${i&&bd.rows[i-1].pts===r.pts?"":i+1}</span><span class="pnm">${esc(r.pseudo)}${r.me?" (toi)":""}</span><span class="pst">${r.good}/${r.judged} bons</span><b>${r.pts} pt${r.pts>1?"s":""}</b></li>`).join("")}</ol><button type="button" class="pbtn ghost small" data-pa="hide:${g.id}">Masquer le classement</button>`;
+    const bd=PRO.boards[g.id];
+    if((!bd||Date.now()-bd.at>60000)&&!PRO.showBoard[g.id]){PRO.showBoard[g.id]=1;
+      rpc("fr_group_board",{p_code:PRO.code,p_group:g.id}).then(r=>{PRO.boards[g.id]={...r,at:Date.now()};}).catch(()=>{}).finally(()=>{PRO.showBoard[g.id]=0;proRefresh();});}
+    const board=!bd?`<p class="pnote">Chargement du classement…</p>`:boardHTML(bd.rows,5)+(bd.rows.length>5?"":"")+`<a class="pbtn ghost small pfull" href="#pronos-classement-${g.id}">Voir le classement complet</a>`;
     return `<div class="pbox pgroup"><div class="pgh"><h3>${esc(g.name)}</h3><span>${g.n} membre${g.n>1?"s":""}</span></div>${board}
-      <div class="prow"><button type="button" class="pbtn" data-pa="share:${g.id}">Inviter des amis</button><span class="pgcode" title="Code d'invitation">Code : <b>${esc(g.code)}</b></span>${conf("leave:"+g.id,"Quitter","Confirmer ?")}</div></div>`;}).join("");
-  const ups=upcomingPro();
-  if(ups.length&&!PRO.countsLoading&&Date.now()-(PRO.countsAt||0)>60000){PRO.countsLoading=1;
-    rpc("fr_my_counts",{p_code:PRO.code,p_events:ups.map(e=>e.id)}).then(c=>{PRO.counts=c||{};}).catch(()=>{}).finally(()=>{PRO.countsLoading=0;PRO.countsAt=Date.now();proRefresh();});}
-  const evs=ups.map(e=>{const n=PRO.counts[e.id]||0,tot=e.fights.filter(f=>!f.a.tbd&&!f.b.tbd).length,t=Date.now();
-    return `<a class="pev" href="#ev-${esc(e.id)}"><span class="pevd">${esc(fmtDS(e.start))}</span>${evBadge(e,1)}<span class="pevn">${esc(e.a)} vs ${esc(e.b)}</span><span class="pevc${n?" on":""}">${t>=e.start?"En cours · ":""}${n}/${tot} pronos</span></a>`;}).join("");
+      <div class="prow"><button type="button" class="pbtn" data-pa="share:${g.id}">Inviter des amis</button><span class="pgcode" title="Code d'invitation">Code : <b>${esc(g.code)}</b></span></div></div>`;}).join("");
   const tab=PRO.tab==="compte"?"compte":"groupes";
   const tabs=`<div class="ptabs" role="tablist">${[["groupes","Mes groupes"],["compte","Mon compte"]].map(([k,l])=>`<button type="button" role="tab" aria-selected="${tab===k}" data-pa="tab:${k}">${l}</button>`).join("")}</div>`;
   if(tab==="compte") return head+nc+tabs+`
     <p class="pnote">Tes favoris et tes pronos sont enregistrés sur ton compte <b>${esc(me.pseudo)}</b>.</p>
+    <div class="pgrid">
+        <div class="pbox"><h3>Créer un groupe</h3><label class="pfield"><span>Nom du groupe</span><input id="pr-gname" maxlength="30" placeholder="Ex. Golmon Fighters" data-enter="gcreate"></label><button type="button" class="pbtn" data-pa="gcreate"${busy}>Créer</button></div>
+        <div class="pbox"><h3>Rejoindre un groupe</h3><label class="pfield"><span>Code d'invitation</span><input id="pr-gcode" maxlength="12" autocapitalize="characters" spellcheck="false" placeholder="Ex. K7M2QX9P" data-enter="gjoin"></label><button type="button" class="pbtn" data-pa="gjoin"${busy}>Rejoindre</button></div>
+    </div>
+    ${(me.groups||[]).length?`<div class="pbox"><h3>Mes groupes</h3>${me.groups.map(g=>`<div class="pleave"><span><b>${esc(g.name)}</b> · ${g.n} membre${g.n>1?"s":""}</span>${conf("leave:"+g.id,"Quitter le groupe","Confirmer ?")}</div>`).join("")}</div>`:""}
     <div class="pbox"><h3>Connecter un autre appareil</h3>
         ${PRO.showCode?`<div class="pqr">${qrSVG(loginURL(PRO.code))}<div><p>Scanne ce QR code avec l'appareil photo de ton téléphone, ou tape ce code sur la page Pronos de l'autre appareil :</p><b class="pcodev">${esc(fmtCode(PRO.code))}</b>
           <div class="prow"><button type="button" class="pbtn ghost" data-pa="copycode">Copier le code</button><button type="button" class="pbtn ghost" data-pa="hidecode">Masquer</button></div></div></div>`:
@@ -2962,17 +3066,28 @@ function pronosHTML(){
           <div class="prow">${conf("logout","Me déconnecter","Confirmer la déconnexion")}${conf("delete","Supprimer mon compte","Tout supprimer ?")}</div></div>
     </div>
   </div>`;
+  const T=Date.now();
+  let avail=EVENTS.filter(e=>T<e.end&&e.start<T+7*864e5&&e.fights.some(f=>!f.a.tbd&&!f.b.tbd));
+  if(!avail.length){const h=heroEvent(T);if(h)avail=[h];}
+  const past=EVENTS.filter(e=>T>=e.end&&e.end>T-120*864e5).sort((x,y)=>y.start-x.start).slice(0,40);
+  const ids=[...avail,...past].map(e=>e.id);
+  if(ids.length&&!PRO.countsLoading&&Date.now()-(PRO.countsAt||0)>60000){PRO.countsLoading=1;
+    rpc("fr_my_counts",{p_code:PRO.code,p_events:ids}).then(c=>{PRO.counts=c||{};}).catch(()=>{}).finally(()=>{PRO.countsLoading=0;PRO.countsAt=Date.now();proRefresh();});}
+  const row=(e,done)=>{const n=PRO.counts[e.id]||0,tot=e.fights.filter(f=>!f.a.tbd&&!f.b.tbd).length;
+    return `<a class="pev ${isNum(e)?"onum":orgCls(e)}" href="#pronos-${esc(e.id)}"><span class="pevd">${esc(fmtDS(e.start))}</span>${evBadge(e,1)}<span class="pevn">${esc(e.a)} vs ${esc(e.b)}${bigEv(e)?`<i class="pbig" title="Soirée avec une vedette : +1 point sur chaque bon vainqueur" aria-label="Soirée avec une vedette">★</i>`:""}</span><span class="pevc${done?" done":n?" on":""}">${done?"Terminé":(T>=e.start?`<span class="pill live plive">Live</span> `:"")+`${n}/${tot} pronos`}</span></a>`;};
+  const done=past.filter(e=>PRO.counts[e.id]>0);
   return head+nc+tabs+`
-    <section class="psec"><h2 class="h">Prochaines <span>soirées</span></h2><div class="pevs">${evs||`<p class="pnote">Aucune soirée annoncée pour l'instant.</p>`}</div></section>
-    <section class="psec"><h2 class="h">Mes <span>groupes</span></h2>
-      ${groups||`<p class="pnote">Tu n'es dans aucun groupe pour l'instant. Crée le tien et invite tes amis, ou rejoins le groupe d'un ami avec son code.</p>`}
-      <div class="pgrid">
+    <section class="psec"><h2 class="h">Pronos <span>disponibles</span></h2><div class="pevs">${avail.map(e=>row(e,false)).join("")||`<p class="pnote">Aucune soirée annoncée pour l'instant.</p>`}</div></section>
+    <section class="psec"><h2 class="h">Mon <span>groupe</span></h2>
+    ${groups||`<div class="pbox"><p class="pnote">Tu n'es dans aucun groupe pour l'instant. Crée le tien et invite tes amis, ou rejoins le groupe d'un ami avec son code.</p></div><div class="pgrid">
         <div class="pbox"><h3>Créer un groupe</h3><label class="pfield"><span>Nom du groupe</span><input id="pr-gname" maxlength="30" placeholder="Ex. Golmon Fighters" data-enter="gcreate"></label><button type="button" class="pbtn" data-pa="gcreate"${busy}>Créer</button></div>
         <div class="pbox"><h3>Rejoindre un groupe</h3><label class="pfield"><span>Code d'invitation</span><input id="pr-gcode" maxlength="12" autocapitalize="characters" spellcheck="false" placeholder="Ex. K7M2QX9P" data-enter="gjoin"></label><button type="button" class="pbtn" data-pa="gjoin"${busy}>Rejoindre</button></div>
-      </div></section>
+      </div>`}</section>
+    ${done.length?`<section class="psec"><h2 class="h">Pronos <span>terminés</span></h2><div class="pevs">${done.map(e=>row(e,true)).join("")}</div></section>`:""}
     ${rules}
   </div>`;
 }
+
 async function proAct(a){
   const val=id=>(document.getElementById(id)||{}).value||"";
   const run=async(fn)=>{PRO.busy=true;PRO.err="";proRefresh();try{await fn();}catch(e){PRO.err=e.message;}PRO.busy=false;proRefresh();};
@@ -2983,6 +3098,7 @@ async function proAct(a){
     const old=PRO.code; PRO.code=c; try{await rpc("fr_me",{p_code:c});}catch(e){PRO.code=old;throw e;} await useCode(c);});
   if(act==="copycode") return copyTxt(PRO.newCode||fmtCode(PRO.code),"Code copié");
   if(act==="codeok"){PRO.newCode=null;return proRefresh();}
+  if(act==="evreload"){loadEvent(arg,true);return;}
   if(act==="tab"){PRO.tab=arg;PRO.err="";proRefresh();const d=document.getElementById("detail");if(d)d.scrollTop=0;return;}
   if(act==="showcode"||act==="hidecode"){PRO.showCode=act==="showcode";return proRefresh();}
   if(act==="invyes") return run(()=>joinGroup(PRO.invite));
@@ -3000,6 +3116,7 @@ async function proAct(a){
   if(act==="logout"){logoutLocal();toast("Déconnecté de cet appareil");return proRefresh();}
   if(act==="delete") return run(async()=>{await rpc("fr_delete_account",{p_code:PRO.code});logoutLocal();toast("Compte supprimé");});
 }
+document.addEventListener("click",e=>{if(e.target.closest("#spoil")&&/^#pronos-/.test(location.hash))proRefresh();});
 document.addEventListener("click",e=>{const b=e.target.closest("#detail [data-pa]");if(!b||b.disabled)return;e.preventDefault();proAct(b.dataset.pa);});
 document.addEventListener("keydown",e=>{if(e.key!=="Enter")return;const i=e.target.closest&&e.target.closest("#detail input[data-enter]");if(!i)return;e.preventDefault();proAct(i.dataset.enter);});
 </script>

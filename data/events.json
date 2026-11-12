@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-11T17:54:36.672Z",
+ "updated": "2026-11-12T07:27:38.482Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -3973,6 +3973,20 @@
     },
     {
      "s": "main",
+     "w": "WW",
+     "r": 3,
+     "a": {
+      "n": "Oualy Tandia"
+     },
+     "b": {
+      "n": "Alex Lohoré",
+      "rec": "26-12-0",
+      "nat": "FRA",
+      "fr": 1
+     }
+    },
+    {
+     "s": "main",
      "w": "MW",
      "r": 3,
      "a": {
@@ -3998,36 +4012,20 @@
       "fr": 1
      },
      "b": {
-      "n": "Liam Gittins",
-      "rec": "13-6-0",
+      "n": "Jack Cartwright",
+      "rec": "14-2-0",
       "nat": "GBR"
      }
     },
     {
      "s": "main",
-     "w": "BW",
+     "w": "LHW",
      "r": 3,
      "a": {
-      "n": "Brandon Brachet"
+      "n": "Bafode Gassama"
      },
      "b": {
-      "n": "Adam Meskini",
-      "rec": "11-3-0",
-      "nat": "FRA",
-      "fr": 1
-     }
-    },
-    {
-     "s": "main",
-     "w": "WSW",
-     "r": 3,
-     "a": {
-      "n": "Mathilde Aschenbrenner"
-     },
-     "b": {
-      "n": "Shelda Chipito",
-      "rec": "2-0-0",
-      "nat": "ZAM"
+      "n": "Coby Bradford"
      }
     },
     {
@@ -4048,20 +4046,6 @@
     },
     {
      "s": "main",
-     "w": "WW",
-     "r": 3,
-     "a": {
-      "n": "Oualy Tandia"
-     },
-     "b": {
-      "n": "Alex Lohoré",
-      "rec": "26-12-0",
-      "nat": "FRA",
-      "fr": 1
-     }
-    },
-    {
-     "s": "main",
      "w": "BW",
      "r": 3,
      "a": {
@@ -4072,6 +4056,44 @@
      },
      "b": {
       "n": "Mauricio Partida"
+     }
+    },
+    {
+     "s": "main",
+     "w": "BW",
+     "r": 3,
+     "a": {
+      "n": "Brandon Brachet"
+     },
+     "b": {
+      "n": "Adam Meskini",
+      "rec": "11-3-0",
+      "nat": "FRA",
+      "fr": 1
+     }
+    },
+    {
+     "s": "main",
+     "w": "FW",
+     "r": 3,
+     "a": {
+      "n": "Zakaria Hamou"
+     },
+     "b": {
+      "n": "Amin Bouazza"
+     }
+    },
+    {
+     "s": "main",
+     "w": "WSW",
+     "r": 3,
+     "a": {
+      "n": "Mathilde Aschenbrenner"
+     },
+     "b": {
+      "n": "Shelda Chipito",
+      "rec": "2-0-0",
+      "nat": "ZAM"
      }
     }
    ],

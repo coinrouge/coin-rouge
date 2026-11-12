@@ -1855,7 +1855,7 @@ function boutHTML(f,t,detail,total,me,ev,spoilOK){
     return "";})();
   /* Le titre est déjà affiché en haut (étiquettes) : pas de doublon au centre */
   const _fv=isFav(f.a.n)||isFav(f.b.n), labTitle=me||(!_fv&&(f.a.star||f.b.star||f.a.fr||f.b.fr));
-  const mid=`${detail?`<span class="mtime ${cls}"><b>${tb}</b>${cls==="skip"?"":`<span class="tzfr">Heure française</span>`}</span>`:""}${resHTML}${f.title&&!labTitle?`<span class="belt">${esc(f.title)}</span>`:""}${detail?`<span class="rd">${W[f.w]||f.w}</span><span class="rds">${f.ru?"Rounds à confirmer":f.r+" rounds"}</span>`:`<span class="rd">${W[f.w]||f.w} · ${f.r} rds</span>`}${detail?`<span class="lim">${LIM[f.w]||""}</span><span class="cnum">Combat ${f.ord}/${total}</span>`:""}`;
+  const mid=`${detail?`<span class="mtime ${cls}"><b>${tb}</b>${cls==="skip"?"":`<span class="tzfr">Heure française</span>`}</span>`:""}${resHTML}${f.title&&!labTitle?`<span class="belt">${esc(f.title)}</span>`:""}${detail?`<span class="rd">${W[f.w]||f.w}</span><span class="rds">${f.ru?"Rounds à confirmer":f.r+" rounds"}</span>`:`<span class="rd">${W[f.w]||f.w}${f.ru?"":` · ${f.r} rds`}</span>`}${detail?`<span class="lim">${LIM[f.w]||""}</span><span class="cnum">Combat ${f.ord}/${total}</span>`:""}`;
   const fv=isFav(f.a.n)||isFav(f.b.n);
   const sf=!me&&!fv&&(f.a.star||f.b.star);
   const favLabel=`<span class="fvl">♥ Favori</span>`;

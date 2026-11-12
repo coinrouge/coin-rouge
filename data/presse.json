@@ -1362,6 +1362,81 @@
     "https://boxemag.ouest-france.fr/evenement/hexagone-mma-49-ulrich-vs-gallon/",
     "https://www.breizh-info.com/2026/11/06/265192/hexagone-mma-49-une-finale-a-100-000-euros-et-des-combattants-bretons-aux-portes-de-rennes/"
    ]
+  },
+  {
+   "id": "bx-jkitou-corzo",
+   "sport": "boxe",
+   "org": "Boxe",
+   "name": "Paris Fight Night",
+   "a": "Jkitou",
+   "b": "Corzo",
+   "venue": "Clichy Hall",
+   "city": "Clichy",
+   "ctry": "FRA",
+   "tz": "Europe/Paris",
+   "tbc": 1,
+   "partial": 1,
+   "segs": [
+    {
+     "k": "main",
+     "t": "2026-11-13T18:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "Moyens",
+     "title": "Titre mondial IBA",
+     "a": {
+      "n": "Bilel Jkitou",
+      "nat": "FRA",
+      "rec": "21-2-0"
+     },
+     "b": {
+      "n": "Gabriel Corzo",
+      "nat": "ARG",
+      "rec": "23-1-0"
+     },
+     "r": 12,
+     "ru": 1
+    },
+    {
+     "s": "main",
+     "w": "Lourds",
+     "a": {
+      "n": "Maxime Vaz",
+      "nat": "FRA",
+      "rec": "6-0-0"
+     },
+     "b": {
+      "n": "Wilmer Vasquez",
+      "nat": "VEN",
+      "rec": "14-5-2"
+     },
+     "r": 8,
+     "ru": 1
+    },
+    {
+     "s": "main",
+     "w": "Moyens",
+     "a": {
+      "n": "Damien Lapilus",
+      "nat": "FRA",
+      "rec": "17-18-2"
+     },
+     "b": {
+      "n": "Data Gelashvili",
+      "rec": "1-2-0"
+     },
+     "r": 6,
+     "ru": 1
+    }
+   ],
+   "sources": [
+    "https://boxemag.ouest-france.fr/evenement/bilel-jkitou-vs-gabriel-corzo/",
+    "https://boxemag.ouest-france.fr/boxe/jkitou-vs-corzo-decouvrez-la-carte-complete-des-combats-prevus-pour-vendredi-au-clichy-hall/",
+    "https://tr78.fr/2026/11/09/champion-du-monde-avant-gta-6-le-pari-fou-de-bilel-jkitou-qui-boxe-pour-le-titre-quelques-jours-avant-la-sortie-du-jeu/"
+   ]
   }
  ],
  "agenda": [

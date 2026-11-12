@@ -105,6 +105,7 @@ button,input,select{font:inherit;color:inherit}
 .homelink{color:inherit;text-decoration:none}
 .tvx{display:block;font-size:12px;color:var(--muted);font-weight:500;margin-top:2px}
 .loading .layout{visibility:hidden}
+.favacct{margin:10px 0 0;font-size:12.5px;line-height:1.45;color:var(--muted);text-align:center}.favacct a{color:var(--fav);font-weight:700;text-decoration:none}.favacct a:hover{text-decoration:underline}
 .favtoggle{display:block;width:100%;margin:-4px 0 10px;padding:11px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink);font-family:var(--f-data);font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;text-align:center}
 .favtoggle:hover{border-color:var(--ink)}
 /* Beaucoup d'encadrés (3 ou plus) : encadrés plus petits et titre recentré au-dessus de l'heure */
@@ -1375,6 +1376,7 @@ ol.pboard .pnm small{color:var(--muted);font-weight:500}
       <div class="favsug" id="favsug"></div>
     </div>
     <div class="favs" id="favs"></div>
+    <p class="favacct" id="favacct"></p>
   </section>
 
   <section id="nextsec">
@@ -1737,7 +1739,12 @@ function favSuggest(){
   box.innerHTML=html||`<div class="sugrow"><span>Aucun combattant trouvé.</span></div>`;
 }
 document.getElementById("favq").addEventListener("input",favSuggest);
+/* Sous les favoris : rappel qu'un compte (page Pronos) garde les favoris sur tous les appareils */
+function favAcct(){const p=document.getElementById("favacct");if(!p)return;let on=false;try{on=!!localStorage.getItem("fightradar-code");}catch(e){}
+  p.innerHTML=on?"Tes favoris sont synchronisés sur tous tes appareils grâce à ton compte.":'Tes favoris sont gardés sur cet appareil seulement. <a href="#pronos">Crée un compte</a> pour les retrouver sur tous tes appareils (téléphone, ordinateur…).';}
+addEventListener("hashchange",favAcct);
 function favs(t){
+  favAcct();
   const sec=document.getElementById("favsec"), hero=document.getElementById("hero");
   sec.hidden=false;
   /* Onglet Favoris : la gestion (ajout, tri, liste) est pliée par défaut pour laisser voir les cartes */
@@ -2700,7 +2707,7 @@ fetch("data/events.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=
   burger.addEventListener("click",()=>open(L)); favb.addEventListener("click",()=>open(Rt));
   [L,Rt].forEach(d=>{const p=d.querySelector(".mdr-panel");d.querySelector(".mdr-x").addEventListener("click",closeAll);
     d.addEventListener("click",e=>{if(!p.contains(e.target))closeAll();
-      if(e.target.closest(".agenda a,.agenda li,.allag,.seg button,.sportnav button,.favrow a,#find a,#favmore,.pronohd"))setTimeout(closeAll,120);});});
+      if(e.target.closest(".agenda a,.agenda li,.allag,.seg button,.sportnav button,.favrow a,#find a,#favmore,.pronohd,.favacct a"))setTimeout(closeAll,120);});});
   document.addEventListener("keydown",e=>{if(e.key==="Escape")closeAll();});
   /* Glisser : bord gauche → menu, bord droit → favoris ; glisser vers l'extérieur pour refermer */
   let sx=null,sy=0,mode=0;

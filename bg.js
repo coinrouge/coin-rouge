@@ -14,8 +14,8 @@
     var W=Math.round(w*dpr),H=Math.round(h*dpr);c.width=W;c.height=H;
     var x=c.getContext("2d",{alpha:false}),M=Math.max(W,H);
     x.fillStyle="#0B0C12";x.fillRect(0,0,W,H);
-    /* couleurs de la DA : bleu #1E90FF (un peu réchauffé vers le rouge pour coller au logo) et rouge #E0121B du logo */
-    [[98,60,44,"224,18,27",.42],[40,55,38,"224,18,27",.26],[55,10,34,"235,240,255",.18],[8,85,44,"55,130,255",.45]].forEach(function(g){
+    /* couleurs de la DA : bleu #1E90FF (entre l ancien bleu roi et #1E90FF, pour coller au logo) et rouge #E0121B du logo */
+    [[98,60,44,"224,18,27",.42],[40,55,38,"224,18,27",.26],[55,10,34,"235,240,255",.18],[8,85,44,"42,105,228",.50]].forEach(function(g){
       var cx=g[0]/100*W,cy=g[1]/100*H,r=g[2]/100*M,gr=x.createRadialGradient(cx,cy,0,cx,cy,r);
       gr.addColorStop(0,"rgba("+g[3]+","+(g[4]*.855)+")");gr.addColorStop(.7,"rgba("+g[3]+",0)");
       x.fillStyle=gr;x.fillRect(0,0,W,H);

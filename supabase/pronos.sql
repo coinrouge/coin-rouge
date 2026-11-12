@@ -38,6 +38,23 @@ create table if not exists fr.members(
   primary key(group_id,user_id)
 );
 create index if not exists members_user on fr.members(user_id);
+-- Rôles : chef (créateur, décide), adjoint (un seul, nommé par le chef, choisit aussi les soirées), membre
+alter table fr.members add column if not exists role text not null default 'membre';
+do $$ begin
+  if not exists (select 1 from pg_constraint where conname='members_role_chk') then
+    alter table fr.members add constraint members_role_chk check (role in ('chef','adjoint','membre'));
+  end if;
+end $$;
+-- Soirées retirées des pronos par le chef ou l'adjoint (par défaut, toutes les soirées comptent)
+create table if not exists fr.group_off(
+  group_id uuid not null references fr.groups(id) on delete cascade,
+  event_id text not null,
+  added_at timestamptz not null default now(),
+  primary key(group_id,event_id)
+);
+alter table fr.group_off enable row level security;
+create table if not exists fr.migrations(name text primary key, done_at timestamptz not null default now());
+alter table fr.migrations enable row level security;
 -- Combats ouverts aux pronos : recopiés automatiquement depuis https://fightradar.fr/data/events.json
 create table if not exists fr.fights(
   event_id text not null,
@@ -263,8 +280,9 @@ begin
   return (select json_build_object(
     'pseudo', u.pseudo,
     'favs', u.favs,
-    'groups', coalesce((select json_agg(json_build_object('id',g.id,'name',g.name,'code',g.code,
-                 'n',(select count(*) from fr.members m2 where m2.group_id=g.id)) order by m.joined_at)
+    'groups', coalesce((select json_agg(json_build_object('id',g.id,'name',g.name,'code',g.code,'role',m.role,
+                 'n',(select count(*) from fr.members m2 where m2.group_id=g.id),
+                 'off',coalesce((select json_agg(go.event_id) from fr.group_off go where go.group_id=g.id),'[]'::json)) order by m.joined_at)
                from fr.members m join fr.groups g on g.id=m.group_id where m.user_id=v), '[]'::json)
   ) from fr.users u where u.id=v);
 end $$;
@@ -296,6 +314,9 @@ declare v uuid := fr.need_uid(p_code);
 begin
   delete from fr.users where id=v;
   delete from fr.groups g where not exists (select 1 from fr.members m where m.group_id=g.id);
+  update fr.members m set role='chef' where m.user_id=(
+    select x.user_id from fr.members x where x.group_id=m.group_id order by (x.role='adjoint') desc, x.joined_at limit 1)
+    and not exists (select 1 from fr.members c where c.group_id=m.group_id and c.role='chef');
   return json_build_object('ok',true);
 end $$;
 
@@ -310,7 +331,7 @@ begin
     exit when not exists (select 1 from fr.groups where code=c);
   end loop;
   insert into fr.groups(name,code,owner) values (nm,c,v) returning id into g;
-  insert into fr.members(group_id,user_id) values (g,v);
+  insert into fr.members(group_id,user_id,role) values (g,v,'chef');
   return json_build_object('id',g,'name',nm,'code',c);
 end $$;
 
@@ -341,10 +362,16 @@ end $$;
 
 create or replace function public.fr_group_leave(p_code text, p_group uuid) returns json
 language plpgsql security definer set search_path='' as $$
-declare v uuid := fr.need_uid(p_code);
+declare v uuid := fr.need_uid(p_code); was text;
 begin
-  delete from fr.members where group_id=p_group and user_id=v;
+  delete from fr.members where group_id=p_group and user_id=v returning role into was;
   delete from fr.groups g where g.id=p_group and not exists (select 1 from fr.members m where m.group_id=g.id);
+  if was='chef' then
+    -- L'adjoint devient chef ; sinon le membre le plus ancien
+    update fr.members set role='chef' where group_id=p_group and user_id=coalesce(
+      (select user_id from fr.members where group_id=p_group and role='adjoint' limit 1),
+      (select user_id from fr.members where group_id=p_group order by joined_at limit 1));
+  end if;
   return json_build_object('ok',true);
 end $$;
 
@@ -414,17 +441,54 @@ begin
   return json_build_object(
     'name', g.name, 'code', g.code,
     'rows', coalesce((select json_agg(r order by r.pts desc, r.good desc, r.pseudo) from (
-      select u.pseudo, (u.id=v) as me,
+      select u.pseudo, (u.id=v) as me, u.id as mid, m.role,
         coalesce(sum(case when f.winner is not null and p.pick=f.winner then fr.base_pts(f.seg) + f.bonus + f.evbonus + (case when p.method is not null and p.method=f.method then 1 else 0 end) else 0 end),0)::int as pts,
         count(*) filter (where f.winner is not null and p.pick=f.winner)::int as good,
         count(*) filter (where f.winner is not null and p.pick=f.winner and p.method is not null and p.method=f.method)::int as exact,
         count(*) filter (where f.winner is not null and f.winner not in ('draw','nc'))::int as judged
       from fr.members m join fr.users u on u.id=m.user_id
       left join fr.picks p on p.user_id=u.id
+        and not exists (select 1 from fr.group_off go where go.group_id=p_group and go.event_id=p.event_id)
       left join fr.fights f on f.event_id=p.event_id and f.fkey=p.fkey
       where m.group_id=p_group
-      group by u.id, u.pseudo) r), '[]'::json)
+      group by u.id, u.pseudo, m.role) r), '[]'::json)
   );
+end $$;
+
+-- Ouvrir / retirer une soirée des pronos du groupe (chef ou adjoint, avant le début de la soirée)
+create or replace function public.fr_group_event(p_code text, p_group uuid, p_event text, p_on boolean) returns json
+language plpgsql security definer set search_path='' as $$
+declare v uuid := fr.need_uid(p_code); st timestamptz;
+begin
+  if not exists (select 1 from fr.members where group_id=p_group and user_id=v and role in ('chef','adjoint')) then
+    raise exception 'Seuls le chef et l''adjoint du groupe choisissent les soirées.';
+  end if;
+  select min(lock_at) into st from fr.fights where event_id=p_event;
+  if st is null then raise exception 'Cette soirée n''est pas encore ouverte aux pronos. Réessaie dans quelques minutes.'; end if;
+  if st <= now() then raise exception 'Cette soirée a déjà commencé : on ne peut plus la changer.'; end if;
+  if p_on then
+    delete from fr.group_off where group_id=p_group and event_id=p_event;
+  else
+    if (select count(*) from fr.group_off where group_id=p_group) >= 1000 then raise exception 'Trop de soirées retirées dans ce groupe.'; end if;
+    insert into fr.group_off(group_id,event_id) values (p_group,p_event) on conflict do nothing;
+  end if;
+  return json_build_object('ok',true);
+end $$;
+
+-- Nommer l'adjoint (chef seulement ; un seul adjoint, p_member vide = aucun)
+create or replace function public.fr_group_deputy(p_code text, p_group uuid, p_member uuid) returns json
+language plpgsql security definer set search_path='' as $$
+declare v uuid := fr.need_uid(p_code);
+begin
+  if not exists (select 1 from fr.members where group_id=p_group and user_id=v and role='chef') then
+    raise exception 'Seul le chef du groupe nomme l''adjoint.';
+  end if;
+  if p_member is not null and not exists (select 1 from fr.members where group_id=p_group and user_id=p_member and role<>'chef') then
+    raise exception 'Ce joueur ne fait pas partie du groupe.';
+  end if;
+  update fr.members set role='membre' where group_id=p_group and role='adjoint';
+  if p_member is not null then update fr.members set role='adjoint' where group_id=p_group and user_id=p_member; end if;
+  return json_build_object('ok',true);
 end $$;
 
 -- Garde la base éveillée et déclenche une copie des combats (appelé par la mise à jour automatique du site)
@@ -445,7 +509,7 @@ begin
   foreach fn in array array[
     'fr_signup(text)','fr_me(text)','fr_save_favs(text,jsonb)','fr_rename(text,text)','fr_delete_account(text)',
     'fr_group_create(text,text)','fr_group_peek(text)','fr_group_join(text,text)','fr_group_leave(text,uuid)',
-    'fr_pick(text,text,text,text,text)','fr_event(text,text)','fr_my_counts(text,text[])','fr_group_board(text,uuid)','fr_ping()']
+    'fr_pick(text,text,text,text,text)','fr_event(text,text)','fr_my_counts(text,text[])','fr_group_board(text,uuid)','fr_group_event(text,uuid,text,boolean)','fr_group_deputy(text,uuid,uuid)','fr_ping()']
   loop
     execute format('revoke execute on function public.%s from public', fn);
     if exists (select 1 from pg_roles where rolname='authenticated') then
@@ -455,6 +519,16 @@ begin
       execute format('grant execute on function public.%s to anon', fn);
     end if;
   end loop;
+end $$;
+
+-- Migration unique : chef = créateur
+do $$ begin
+  if not exists (select 1 from fr.migrations where name='roles-v1') then
+    update fr.members m set role='chef' from fr.groups g where g.id=m.group_id and g.owner=m.user_id;
+    update fr.members m set role='chef' where m.role='membre' and not exists (select 1 from fr.members x where x.group_id=m.group_id and x.role='chef')
+      and m.joined_at=(select min(joined_at) from fr.members y where y.group_id=m.group_id);
+    insert into fr.migrations(name) values ('roles-v1');
+  end if;
 end $$;
 
 -- Copie automatique des combats toutes les 10 minutes

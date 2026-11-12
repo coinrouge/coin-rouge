@@ -1150,6 +1150,23 @@ h2.h::before,h2.h::after{background:rgba(255,255,255,.22)!important}
 </style>
 <style>
 /* ===== Pronos entre amis ===== */
+@media (max-width:640px){.prate small,ol.pboard .pnm small{display:none}.prole{font-size:9px;padding:0 4px;margin-left:5px}ol.pboard>li{gap:8px;padding:9px 10px}.pgroup .prow .pboss{margin-left:0;flex:1;text-align:center}}
+.pgroup .prow .pboss{margin-left:auto;text-decoration:none}
+.prole{font-style:normal;margin-left:8px;font-family:var(--f-data);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:1px 6px;border-radius:4px;vertical-align:2px;border:1px solid}
+.prole.chef{color:#FFC20E;border-color:color-mix(in srgb,#FFC20E 50%,transparent)}
+.prole.adjoint{color:var(--blue);border-color:color-mix(in srgb,var(--blue) 50%,transparent)}
+.pevs .ptog{display:flex;align-items:center;gap:10px;width:100%;text-align:left;font:inherit;color:var(--ink);cursor:pointer}
+.ptog .pevn{flex:1;min-width:0}
+.ptog:disabled{opacity:.45;cursor:default}
+.pchk{width:20px;height:20px;border-radius:5px;border:1.5px solid rgba(255,255,255,.35);display:grid;place-items:center;font-size:13px;font-weight:900;color:#06121F}
+.ptog.on .pchk{background:#B8F03A;border-color:#B8F03A}
+.ptog.on{border-color:color-mix(in srgb,#B8F03A 45%,transparent)}
+.ptog.on .pevc{color:#B8F03A}
+.pdeps{display:flex;flex-direction:column;gap:6px}
+.pdep{display:flex;align-items:center;gap:10px;width:100%;text-align:left;font:inherit;color:var(--ink);cursor:pointer;padding:8px 12px;border-radius:8px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04)}
+.pdep .pdn{flex:1;font-weight:600}.pdep i{font-style:normal;font-family:var(--f-data);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.pdep:hover{border-color:var(--blue)}.pdep.on{border-color:var(--blue);background:color-mix(in srgb,var(--blue) 14%,transparent)}.pdep.on i{color:var(--blue)}
+@media (max-width:640px){.ptog .evb{display:none}}
 .plive{font-size:11px;padding:2px 7px;vertical-align:1px}
 .pnight{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding:12px 16px;border-radius:10px;border:1px solid color-mix(in srgb,#B8F03A 40%,transparent);background:color-mix(in srgb,#B8F03A 8%,rgba(22,24,32,.62))}
 .pnight span{font-family:var(--f-data);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
@@ -2922,7 +2939,7 @@ function myNight(ev,c){let pts=0,good=0,judged=0;
   return {pts,good,judged};}
 /* Mode live : toutes les minutes, résultats frais (data/events.json) + pronos des amis */
 setInterval(async()=>{
-  const m=location.hash.match(/^#pronos-(.+)$/); if(!m||/^classement-/.test(m[1])||document.hidden) return;
+  const m=location.hash.match(/^#pronos-(.+)$/); if(!m||/^(classement|soirees)-/.test(m[1])||document.hidden) return;
   const ev=EVENTS.find(e=>e.id===decodeURIComponent(m[1])); if(!ev||!isLive(ev)) return;
   try{const d=await fetch("data/events.json",{cache:"no-store"}).then(r=>r.ok?r.json():null);
     const nv=d&&(d.events||[]).find(x=>x.id===ev.id);
@@ -2984,6 +3001,12 @@ document.addEventListener("click",e=>{
 
 /* ---------- Page « Pronos entre amis » (#pronos) ---------- */
 const bigEv=e=>isNum(e)||e.fights.some(f=>[f.a,f.b].some(p=>p.star||p.champ));
+const ROLE={chef:"Chef",adjoint:"Adjoint"};
+function nextNight(){const T=Date.now(),up=EVENTS.filter(e=>T<e.end&&e.fights.some(f=>!f.a.tbd&&!f.b.tbd)).sort((a,b)=>a.start-b.start);
+  if(!up.length) return []; const d=fmtD(up[0].start); return up.filter(e=>fmtD(e.start)===d);}
+/* Soirée ouverte dans un groupe = pas retirée par le chef ou l'adjoint */
+const openIn=(g,id)=>!(g.off||[]).includes(id);
+const isBoss=g=>g&&(g.role==="chef"||g.role==="adjoint");
 const rateCls=r=>!r.judged?"":r.good/r.judged>=.65?"rhi":r.good/r.judged>=.5?"rmid":"rlo";
 const pct=r=>r.judged?Math.round(100*r.good/r.judged)+" %":"–";
 /* Classement : n premières lignes (+ ta ligne si tu es plus bas) ; full = colonnes détaillées */
@@ -2991,8 +3014,25 @@ function boardHTML(rows,n,full){
   const ranked=rows.map(r=>({...r,pos:rows.findIndex(x=>x.pts===r.pts)+1}));
   let list=n?ranked.slice(0,n):ranked; const me=ranked.find(r=>r.me);
   const gap=n&&me&&!list.includes(me);
-  const li=r=>`<li class="${r.pos<=3?"p"+r.pos:""}${r.me?" me":""}"><span class="prk">${r.pos}.</span>${avatar(r.pseudo)}<span class="pnm">${esc(r.pseudo)}${r.me?" <small>(toi)</small>":""}</span>${full?`<span class="pst pcv" title="Bons vainqueurs">${r.good}/${r.judged}</span><span class="pst pcm" title="Méthodes trouvées">${r.exact} méth.</span>`:""}<span class="pst prate ${rateCls(r)}" title="Taux de réussite">${pct(r)}${full?"":" <small>réussite</small>"}</span><b>${r.pts} pt${r.pts>1?"s":""}</b></li>`;
+  const li=r=>`<li class="${r.pos<=3?"p"+r.pos:""}${r.me?" me":""}"><span class="prk">${r.pos}.</span>${avatar(r.pseudo)}<span class="pnm">${esc(r.pseudo)}${r.me?" <small>(toi)</small>":""}${ROLE[r.role]?`<i class="prole ${r.role}">${ROLE[r.role]}</i>`:""}</span>${full?`<span class="pst pcv" title="Bons vainqueurs">${r.good}/${r.judged}</span><span class="pst pcm" title="Méthodes trouvées">${r.exact} méth.</span>`:""}<span class="pst prate ${rateCls(r)}" title="Taux de réussite">${pct(r)}${full?"":" <small>réussite</small>"}</span><b>${r.pts} pt${r.pts>1?"s":""}</b></li>`;
   return `<ol class="pboard${full?" full":""}">${list.map(li).join("")}${gap?`<li class="pgap" aria-hidden="true">…</li>${li(me)}`:""}</ol>`;
+}
+function manageHTML(g){
+  const T=Date.now(), busy=PRO.busy?" disabled":"";
+  const list=nextNight();
+  const bd=PRO.boards[g.id];
+  if(g.role==="chef"&&!bd&&!PRO.showBoard[g.id]){PRO.showBoard[g.id]=1;rpc("fr_group_board",{p_code:PRO.code,p_group:g.id}).then(r=>{PRO.boards[g.id]={...r,at:Date.now()};}).catch(()=>{}).finally(()=>{PRO.showBoard[g.id]=0;proRefresh();});}
+  const dep=bd&&bd.rows.find(r=>r.role==="adjoint");
+  return `<div class="dbar"><div class="dleft"><a class="dbrand homelink" href="#" title="Retour à l'accueil"><canvas class="frlogo frmini" role="img" aria-label="Fight Radar"></canvas></a><a class="back" href="#pronos">← Pronos</a></div></div>
+  <div class="dwrap pro"><div class="dtitle"><h1 class="pital">${esc(g.name)}</h1><span>${g.role==="chef"?"Tu es le chef du groupe":"Tu es l'adjoint du groupe"}</span></div>
+  ${PRO.err?`<div class="perr" role="alert">${esc(PRO.err)}</div>`:""}
+  <section class="psec"><h2 class="h">Soirée <span>du groupe</span></h2>
+  <p class="pnote">Prochaine soirée${list[0]?` : <b>${esc(fmtDS(list[0].start).replace(/\.$/,""))}</b>`:""}. Tout est coché par défaut : décoche les événements que le groupe ne pronostique pas, ils ne compteront pas dans le classement. Un événement commencé ne peut plus être changé.</p>
+  <div class="pevs">${list.map(e=>{const st=T>=e.start,ck=openIn(g,e.id);return `<button type="button" class="pev ptog${ck?" on":""} ${isNum(e)?"onum":orgCls(e)}" data-pa="gev:${g.id}:${esc(e.id)}:${ck?0:1}"${st?" disabled":""}${busy} aria-pressed="${ck}"><span class="pchk" aria-hidden="true">${ck?"✓":""}</span><span class="pevd">${esc(fmtDS(e.start))}</span>${evBadge(e,1)}<span class="pevn">${esc(e.a)} vs ${esc(e.b)}${bigEv(e)?`<i class="pbig" aria-label="Soirée avec une vedette">★</i>`:""}</span><span class="pevc">${st?"Commencé":ck?"Ouvert":"Retiré"}</span></button>`;}).join("")||`<p class="pnote">Aucune soirée annoncée pour l'instant.</p>`}</div></section>
+  ${g.role==="chef"?`<section class="psec"><h2 class="h">Adjoint <span>du groupe</span></h2><div class="pbox"><p class="pnote">L'adjoint peut aussi choisir les événements de la soirée. Si tu quittes le groupe, il devient chef. Un seul adjoint par groupe.</p>
+    ${!bd?`<p class="pnote">Chargement des membres…</p>`:bd.rows.length<2?`<p class="pnote">Invite des amis pour pouvoir nommer un adjoint.</p>`:`<div class="pdeps">${bd.rows.filter(r=>r.role!=="chef").map(r=>`<button type="button" class="pdep${r.role==="adjoint"?" on":""}" data-pa="dep:${g.id}:${r.role==="adjoint"?"":r.mid}"${busy}>${avatar(r.pseudo)}<span class="pdn">${esc(r.pseudo)}</span><i>${r.role==="adjoint"?"Adjoint · retirer":"Nommer adjoint"}</i></button>`).join("")}</div>`}
+    ${dep?"":`<p class="pnote">Pas d'adjoint pour l'instant.</p>`}</div></section>`:""}
+  </div>`;
 }
 function avatar(n){let h=7;for(const c of n)h=(h*131+c.codePointAt(0))>>>0;const H=[8,28,48,95,160,195,220,265,300,335][h%10];return `<span class="pav" style="--h:${H}" aria-hidden="true">${esc([...n.trim()][0]||"?").toUpperCase()}</span>`;}
 function proRefresh(){
@@ -3017,7 +3057,8 @@ function pronosHTML(){
   <div class="dwrap pro"><div class="ptitle"><div class="dtitle"><h1>Pronos entre amis</h1><span>Pour le plaisir</span></div>${me?`<button type="button" class="pwho" data-pa="tab:compte" title="Mon compte"><i aria-hidden="true"></i>${esc(me.pseudo)}</button>`:""}</div>
   ${PRO.err?`<div class="perr" role="alert">${esc(PRO.err)}</div>`:""}${inv}`;
   const rules=`<div class="pbox prules"><small>Comment ça marche</small><ul>
-    <li>Ouvre une soirée dans « Pronos disponibles » et choisis le vainqueur de chaque combat. Un bon vainqueur rapporte <b>3 points</b> en main card, <b>2</b> en préliminaires, <b>1</b> en early prelims.</li>
+    <li>Les pronos portent sur la prochaine soirée. Le chef du groupe (et son adjoint) peut en retirer des événements : ils ne comptent alors pas dans le classement.</li>
+    <li>Ouvre un événement dans « Pronos disponibles » et choisis le vainqueur de chaque combat. Un bon vainqueur rapporte <b>3 points</b> en main card, <b>2</b> en préliminaires, <b>1</b> en early prelims.</li>
     <li>Bonus : <b>+2</b> pour le main event, <b>+1</b> pour le co-main event ou un combat vedette.</li>
     <li>Grosse soirée (UFC numéroté, ou au moins une vedette à l'affiche) : <b>+1</b> sur chaque bon vainqueur. La valeur de chaque combat est affichée à côté de « Ton prono ».</li>
     <li>Ajoute la méthode si tu veux (KO, soumission, décision) : <b>1 point de plus</b> si c'est la bonne.</li>
@@ -3032,7 +3073,9 @@ function pronosHTML(){
     <div class="dwrap pro"><div class="dtitle"><h1 class="pital">${esc(pg.name)}</h1><span>Classement complet · ${pg.n} membre${pg.n>1?"s":""}${tot&&tot.j?` · réussite du groupe ${Math.round(100*tot.g/tot.j)} %`:""}</span></div>
     ${bd?`<div class="pbox"><div class="phead"><span>#</span><span></span><span>Joueur</span><span>Vainqueurs</span><span>Méthodes</span><span>Réussite</span><span>Points</span></div>${boardHTML(bd.rows,0,1)}</div>`:`<p class="pnote">Chargement du classement…</p>`}
     <p class="pnote">Réussite : part des combats terminés où le vainqueur choisi a gagné. Méthodes : nombre de fois où la méthode était aussi la bonne.</p></div>`;}
-  const evm=!gm&&location.hash.match(/^#pronos-(.+)$/), pev=me&&evm&&EVENTS.find(e=>e.id===decodeURIComponent(evm[1]));
+  const sm=me&&location.hash.match(/^#pronos-soirees-(.+)$/), sg=sm&&(me.groups||[]).find(g=>g.id===sm[1]);
+  if(sg) return manageHTML(sg);
+  const evm=!gm&&!sm&&location.hash.match(/^#pronos-(.+)$/), pev=me&&evm&&EVENTS.find(e=>e.id===decodeURIComponent(evm[1]));
   if(pev) return `<div class="dbar"><div class="dleft"><a class="dbrand homelink" href="#" title="Retour à l'accueil"><canvas class="frlogo frmini" role="img" aria-label="Fight Radar"></canvas></a><a class="back" href="#pronos">← Pronos</a></div>${Date.now()>=pev.start?`<button type="button" class="spoilbtn" id="spoil" aria-pressed="${SPOIL}" title="Afficher ou masquer les résultats"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="eye" d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle class="eye" cx="12" cy="12" r="3"/><path class="slash" d="M3 3l18 18"/></svg><span>${SPOIL?"Spoil":"No spoil"}</span></button>`:""}</div>
     <div class="dwrap pro">${PRO.err?`<div class="perr" role="alert">${esc(PRO.err)}</div>`:""}${proEventHTML(pev)}</div>`;
   if(!me) return head+`
@@ -3056,7 +3099,7 @@ function pronosHTML(){
       rpc("fr_group_board",{p_code:PRO.code,p_group:g.id}).then(r=>{PRO.boards[g.id]={...r,at:Date.now()};}).catch(()=>{}).finally(()=>{PRO.showBoard[g.id]=0;proRefresh();});}
     const board=!bd?`<p class="pnote">Chargement du classement…</p>`:boardHTML(bd.rows,5)+(bd.rows.length>5?"":"")+`<a class="pbtn ghost small pfull" href="#pronos-classement-${g.id}">Voir le classement complet</a>`;
     return `<div class="pbox pgroup"><div class="pgh"><h3>${esc(g.name)}</h3><span>${g.n} membre${g.n>1?"s":""}</span></div>${board}
-      <div class="prow"><button type="button" class="pbtn" data-pa="share:${g.id}">Inviter des amis</button><span class="pgcode" title="Code d'invitation">Code : <b>${esc(g.code)}</b></span></div></div>`;}).join("");
+      <div class="prow"><button type="button" class="pbtn" data-pa="share:${g.id}">Inviter des amis</button><span class="pgcode" title="Code d'invitation">Code : <b>${esc(g.code)}</b></span>${isBoss(g)?`<a class="pbtn ghost pboss" href="#pronos-soirees-${g.id}">${g.role==="chef"?"Gérer le groupe":"Choisir les événements"}</a>`:""}</div></div>`;}).join("");
   const tab=PRO.tab==="compte"?"compte":"groupes";
   const tabs=`<div class="ptabs" role="tablist">${[["groupes","Mes groupes"],["compte","Mon compte"]].map(([k,l])=>`<button type="button" role="tab" aria-selected="${tab===k}" data-pa="tab:${k}">${l}</button>`).join("")}</div>`;
   if(tab==="compte") return head+nc+tabs+`
@@ -3065,7 +3108,7 @@ function pronosHTML(){
         <div class="pbox"><h3>Créer un groupe</h3><label class="pfield"><span>Nom du groupe</span><input id="pr-gname" maxlength="30" placeholder="Ex. Golmon Fighters" data-enter="gcreate"></label><button type="button" class="pbtn" data-pa="gcreate"${busy}>Créer</button></div>
         <div class="pbox"><h3>Rejoindre un groupe</h3><label class="pfield"><span>Code d'invitation</span><input id="pr-gcode" maxlength="12" autocapitalize="characters" spellcheck="false" placeholder="Ex. K7M2QX9P" data-enter="gjoin"></label><button type="button" class="pbtn" data-pa="gjoin"${busy}>Rejoindre</button></div>
     </div>
-    ${(me.groups||[]).length?`<div class="pbox"><h3>Mes groupes</h3>${me.groups.map(g=>`<div class="pleave"><span><b>${esc(g.name)}</b> · ${g.n} membre${g.n>1?"s":""}</span>${conf("leave:"+g.id,"Quitter le groupe","Confirmer ?")}</div>`).join("")}</div>`:""}
+    ${(me.groups||[]).length?`<div class="pbox"><h3>Mes groupes</h3>${me.groups.map(g=>`<div class="pleave"><span><b>${esc(g.name)}</b> · ${g.n} membre${g.n>1?"s":""}${ROLE[g.role]?` · tu es <b>${ROLE[g.role].toLowerCase()}</b>`:""}</span>${conf("leave:"+g.id,"Quitter le groupe","Confirmer ?")}</div>`).join("")}</div>`:""}
     <div class="pbox"><h3>Connecter un autre appareil</h3>
         ${PRO.showCode?`<div class="pqr">${qrSVG(loginURL(PRO.code))}<div><p>Scanne ce QR code avec l'appareil photo de ton téléphone, ou tape ce code sur la page Pronos de l'autre appareil :</p><b class="pcodev">${esc(fmtCode(PRO.code))}</b>
           <div class="prow"><button type="button" class="pbtn ghost" data-pa="copycode">Copier le code</button><button type="button" class="pbtn ghost" data-pa="hidecode">Masquer</button></div></div></div>`:
@@ -3077,9 +3120,10 @@ function pronosHTML(){
     </div>
   </div>`;
   const T=Date.now();
-  let avail=EVENTS.filter(e=>T<e.end&&e.start<T+7*864e5&&e.fights.some(f=>!f.a.tbd&&!f.b.tbd));
-  if(!avail.length){const h=heroEvent(T);if(h)avail=[h];}
-  const past=EVENTS.filter(e=>T>=e.end&&e.end>T-120*864e5).sort((x,y)=>y.start-x.start).slice(0,40);
+  const gs=me.groups||[], anyOpen=id=>gs.some(g=>openIn(g,id));
+  const avail=gs.length?nextNight().filter(e=>anyOpen(e.id)):[];
+  const past=EVENTS.filter(e=>T>=e.end&&e.end>T-120*864e5&&anyOpen(e.id)).sort((x,y)=>y.start-x.start).slice(0,40);
+  const boss=(me.groups||[]).find(isBoss);
   const ids=[...avail,...past].map(e=>e.id);
   if(ids.length&&!PRO.countsLoading&&Date.now()-(PRO.countsAt||0)>60000){PRO.countsLoading=1;
     rpc("fr_my_counts",{p_code:PRO.code,p_events:ids}).then(c=>{PRO.counts=c||{};}).catch(()=>{}).finally(()=>{PRO.countsLoading=0;PRO.countsAt=Date.now();proRefresh();});}
@@ -3087,7 +3131,7 @@ function pronosHTML(){
     return `<a class="pev ${isNum(e)?"onum":orgCls(e)}" href="#pronos-${esc(e.id)}"><span class="pevd">${esc(fmtDS(e.start))}</span>${evBadge(e,1)}<span class="pevn">${esc(e.a)} vs ${esc(e.b)}${bigEv(e)?`<i class="pbig" title="Soirée avec une vedette : +1 point sur chaque bon vainqueur" aria-label="Soirée avec une vedette">★</i>`:""}</span><span class="pevc${done?" done":n?" on":""}">${done?"Terminé":(T>=e.start?`<span class="pill live plive">Live</span> `:"")+`${n}/${tot} pronos`}</span></a>`;};
   const done=past.filter(e=>PRO.counts[e.id]>0);
   return head+nc+tabs+`
-    <section class="psec"><h2 class="h">Pronos <span>disponibles</span></h2><div class="pevs">${avail.map(e=>row(e,false)).join("")||`<p class="pnote">Aucune soirée annoncée pour l'instant.</p>`}</div></section>
+    <section class="psec"><h2 class="h">Pronos <span>disponibles</span></h2><div class="pevs">${avail.map(e=>row(e,false)).join("")||(!(me.groups||[]).length?`<p class="pnote">Rejoins ou crée un groupe pour faire tes pronos.</p>`:boss?`<p class="pnote">Toutes les soirées de la prochaine date sont retirées. En tant que ${boss.role}, tu peux les rouvrir.</p><a class="pbtn small" href="#pronos-soirees-${boss.id}">Choisir les soirées</a>`:`<p class="pnote">Pas de soirée ouverte aux pronos pour l'instant dans ton groupe.</p>`)}</div></section>
     <section class="psec"><h2 class="h">Mon <span>groupe</span></h2>
     ${groups||`<div class="pbox"><p class="pnote">Tu n'es dans aucun groupe pour l'instant. Crée le tien et invite tes amis, ou rejoins le groupe d'un ami avec son code.</p></div><div class="pgrid">
         <div class="pbox"><h3>Créer un groupe</h3><label class="pfield"><span>Nom du groupe</span><input id="pr-gname" maxlength="30" placeholder="Ex. Golmon Fighters" data-enter="gcreate"></label><button type="button" class="pbtn" data-pa="gcreate"${busy}>Créer</button></div>
@@ -3109,6 +3153,9 @@ async function proAct(a){
   if(act==="copycode") return copyTxt(PRO.newCode||fmtCode(PRO.code),"Code copié");
   if(act==="codeok"){PRO.newCode=null;return proRefresh();}
   if(act==="evreload"){loadEvent(arg,true);return;}
+  if(act==="gev"){const [,gid,eid,flag]=a.split(":");return run(async()=>{await rpc("fr_group_event",{p_code:PRO.code,p_group:gid,p_event:eid,p_on:flag==="1"});
+    const g=(PRO.me.groups||[]).find(x=>x.id===gid);if(g){const off=new Set(g.off||[]);flag==="1"?off.delete(eid):off.add(eid);g.off=[...off];}delete PRO.boards[gid];PRO.countsAt=0;});}
+  if(act==="dep"){const [,gid,mid]=a.split(":");return run(async()=>{await rpc("fr_group_deputy",{p_code:PRO.code,p_group:gid,p_member:mid||null});delete PRO.boards[gid];toast(mid?"Adjoint nommé":"Adjoint retiré");});}
   if(act==="tab"){PRO.tab=arg;PRO.err="";proRefresh();const d=document.getElementById("detail");if(d)d.scrollTop=0;return;}
   if(act==="showcode"||act==="hidecode"){PRO.showCode=act==="showcode";return proRefresh();}
   if(act==="invyes") return run(()=>joinGroup(PRO.invite));

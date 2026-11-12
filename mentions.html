@@ -15,10 +15,10 @@
 *{box-sizing:border-box}
 body{margin:0;background:#0B0C12;color:var(--ink);font:16px/1.6 var(--f-body)}
 body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:
- url("bg-l.jpg") center/cover no-repeat,
+ url("bg-l.jpg?v=4") center/cover no-repeat,
  #0B0C12;background-blend-mode:normal}
 /* Fond lisse précalculé (portrait/paysage) + grain en tuile nette à la taille réelle des pixels : rien à recalculer */
-@media (orientation:portrait){body::before,.detail.closing{background-image:url("bg-p.jpg")!important}}
+@media (orientation:portrait){body::before,.detail.closing{background-image:url("bg-p.jpg?v=4")!important}}
 /* Fond dessiné à la taille de l'écran (bg.js) : le calque CSS ne sert plus qu'en attendant */
 html.bgbaked body::before{display:none}
 
@@ -94,6 +94,6 @@ address{font-style:normal}
     </ul>
   </section>
 </div>
-<script src="bg.js"></script>
+<script src="bg.js?v=4"></script>
 </body>
 </html>

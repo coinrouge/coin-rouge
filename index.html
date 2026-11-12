@@ -911,10 +911,10 @@ html:root[data-theme="dark"]{--win:#B8F03A;--lost:#FF1A2E;--loss:#FF1A2E;--surfa
 /* Fond dégradé bruité : calque fixe posé une fois (plus fluide au défilement) */
 body{background:#0B0C12!important}
 body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:
- url("bg-l.jpg") center/cover no-repeat,
+ url("bg-l.jpg?v=4") center/cover no-repeat,
  #0B0C12;background-blend-mode:normal}
 /* Fond lisse précalculé (portrait/paysage) + grain en tuile nette à la taille réelle des pixels : rien à recalculer */
-@media (orientation:portrait){body::before,.detail.closing{background-image:url("bg-p.jpg")!important}}
+@media (orientation:portrait){body::before,.detail.closing{background-image:url("bg-p.jpg?v=4")!important}}
 /* Fond dessiné à la taille de l'écran (bg.js) : le calque CSS ne sert plus qu'en attendant */
 html.bgbaked body::before{display:none}
 html.bgcopy .detail.closing{background:#0B0C12 var(--bgbake) 0 0/100% 100% no-repeat!important;background-blend-mode:normal!important}
@@ -962,7 +962,7 @@ html:root[data-theme="dark"]{--fr-t:rgba(84,20,28,.9);--fav-t:rgba(200,30,110,.4
 .wrap.indet>:not(#detail){visibility:hidden;opacity:0;transition:opacity .12s ease,visibility 0s linear .12s}
 /* Retour : la page de soirée emporte une copie du fond en glissant, l'accueil est déjà affiché dessous */
 .detail.closing{background:
- url("bg-l.jpg") center/cover no-repeat,
+ url("bg-l.jpg?v=4") center/cover no-repeat,
  #0B0C12!important;background-blend-mode:normal}
 .wrap.snap>:not(#detail){transition:none!important}
 /* Francophones : le fond derrière est désaturé, le rouge reste rouge */
@@ -3208,6 +3208,6 @@ document.addEventListener("click",e=>{if(e.target.closest("#spoil")&&/^#pronos-/
 document.addEventListener("click",e=>{const b=e.target.closest("#detail [data-pa]");if(!b||b.disabled)return;e.preventDefault();proAct(b.dataset.pa);});
 document.addEventListener("keydown",e=>{if(e.key!=="Enter")return;const i=e.target.closest&&e.target.closest("#detail input[data-enter]");if(!i)return;e.preventDefault();proAct(i.dataset.enter);});
 </script>
-<script src="bg.js"></script>
+<script src="bg.js?v=4"></script>
 </body>
 </html>

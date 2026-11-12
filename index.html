@@ -177,8 +177,8 @@ details.ev.num .sumsp{color:var(--gold)}
   -webkit-background-clip:text;background-clip:text;color:transparent!important;-webkit-text-fill-color:transparent}
 @keyframes shine{0%,28%{background-position:95% 0}60%,100%{background-position:5% 0}}
 .belt,.mltitle,.htitle,.rcard .rt{animation:starglow 4.4s ease-in-out infinite,shine 4.4s ease-in-out infinite}
-@media (prefers-reduced-motion: reduce){.belt,.mltitle,.htitle,.rcard .rt{animation:none}}
-@media (prefers-reduced-motion: reduce){.belt,.mltitle,.htitle,.rcard .rt,.belt::before,.mltitle::before,.htitle::before,.rcard .rt::before,.belt::after,.mltitle::after,.htitle::after,.rcard .rt::after{animation:none}}
+@media not all /* animations toujours actives, même si l'ordinateur demande de les réduire (choix de Manuel) */{.belt,.mltitle,.htitle,.rcard .rt{animation:none}}
+@media not all /* animations toujours actives, même si l'ordinateur demande de les réduire (choix de Manuel) */{.belt,.mltitle,.htitle,.rcard .rt,.belt::before,.mltitle::before,.htitle::before,.rcard .rt::before,.belt::after,.mltitle::after,.htitle::after,.rcard .rt::after{animation:none}}
 .melabel em.mltitle{color:var(--gold)}
 .melabel span.rdl{display:inline-flex;align-items:center;gap:6px;background:transparent!important;color:#C8102E!important;border:1px solid #C8102E;padding:2px 8px;border-radius:3px}
 :root[data-theme="dark"] .melabel span.rdl{color:#E0121B!important;border-color:#E0121B}
@@ -246,7 +246,7 @@ a.hero-top:hover .cta{color:var(--red)}
 .cta{grid-column:1/-1;font-family:var(--f-data);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:13px;color:var(--ink);display:inline-flex;gap:6px;align-items:center}
 .cta::after{content:"→";font-size:16px;transition:transform .15s}
 a.hero-top:hover .cta::after{transform:translateX(4px)}
-@media (prefers-reduced-motion:reduce){.cta::after,.hero-top{transition:none}}
+@media not all /* animations toujours actives, même si l'ordinateur demande de les réduire (choix de Manuel) */{.cta::after,.hero-top{transition:none}}
 .morebtn{display:block;text-align:center;margin-top:10px;padding:12px;border:1px solid var(--ink);border-radius:6px;font-family:var(--f-data);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:13px;color:var(--ink);text-decoration:none}
 .morebtn:hover{background:var(--ink);color:var(--bg)}
 
@@ -277,7 +277,7 @@ a.hero-top:hover .cta::after{transform:translateX(4px)}
 .pill.live::before{content:"";width:7px;height:7px;border-radius:50%;background:#fff;animation:pulse 1.2s infinite}
 .pill.next{border:1px solid var(--ink);color:var(--ink)}
 @keyframes pulse{50%{opacity:.25}}
-@media (prefers-reduced-motion:reduce){.pill.live::before,.pill.live{animation:none}}
+@media not all /* animations toujours actives, même si l'ordinateur demande de les réduire (choix de Manuel) */{.pill.live::before,.pill.live{animation:none}}
 .ev-title{font-family:var(--f-display);font-weight:900;text-transform:uppercase;font-size:clamp(30px,6.4vw,54px);line-height:.95;margin:8px 0 6px;text-wrap:balance}
 .ev-title .vs{color:var(--muted);font-weight:600;font-size:.6em;vertical-align:.15em;margin:0 .15em}
 .ev-meta{color:var(--muted);font-size:14px}
@@ -485,7 +485,7 @@ a.rcard.num:hover{border-color:var(--gold)}
 .champl.andl{font-family:var(--f-display);font-weight:900;font-size:15px;letter-spacing:.06em;animation:andglow 3.6s ease-in-out infinite}
 .champl.andl .beltic{width:1.3em;height:.75em}
 @keyframes andglow{0%,100%{text-shadow:0 0 2px color-mix(in srgb,var(--gold) 25%,transparent)}50%{text-shadow:0 0 6px color-mix(in srgb,var(--gold) 45%,transparent)}}
-@media (prefers-reduced-motion:reduce){.champl.andl{animation:none;text-shadow:0 0 4px color-mix(in srgb,var(--gold) 40%,transparent)}}
+@media not all /* animations toujours actives, même si l'ordinateur demande de les réduire (choix de Manuel) */{.champl.andl{animation:none;text-shadow:0 0 4px color-mix(in srgb,var(--gold) 40%,transparent)}}
 .rcard .star{color:var(--gold);margin-left:4px;font-size:.8em}
 .rcard .rfh{display:inline-block;margin-left:5px;width:.72em;height:.72em;vertical-align:.02em}.rcard .rfh svg{width:100%;height:100%;display:block;fill:var(--fav)}
 
@@ -563,7 +563,7 @@ h2.h::after{content:"";flex:1;height:1px;background:var(--line)}
 .fiche{padding:1px 6px;border-radius:3px;transition:background .12s,color .12s}
 .txt:has(a.nm:hover) .fiche,.txt .fiche:hover,.txt .fiche:focus-visible{background:var(--ink);color:var(--bg);text-decoration:none}
 .txt:has(.fiche:hover) a.nm{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
-@media (prefers-reduced-motion:reduce){.fiche{transition:none}}
+@media not all /* animations toujours actives, même si l'ordinateur demande de les réduire (choix de Manuel) */{.fiche{transition:none}}
 /* Main event : heure sur une ligne, catégorie sans retour à la ligne */
 .bout.me .time b{white-space:nowrap}
 .seg-main .bout.me .mid{max-width:170px}
@@ -743,7 +743,7 @@ h2.h::after{content:"";flex:1;height:1px;background:var(--line)}
 .detail.sliding .dbar{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
 .detail.sliding .sonar{display:none}
 .detail.off{transform:translate3d(100%,0,0)}
-@media (prefers-reduced-motion:reduce){.detail{transition:none}}
+@media not all /* animations toujours actives, même si l'ordinateur demande de les réduire (choix de Manuel) */{.detail{transition:none}}
 /* Roue de réglages */
 .gearwrap{position:relative}
 .gear{display:grid;place-items:center;width:38px;height:38px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--muted);cursor:pointer;padding:0}
@@ -756,7 +756,7 @@ h2.h::after{content:"";flex:1;height:1px;background:var(--line)}
 .gearmenu button:hover{background:var(--soft)}
 .gearmenu button::before{content:"";width:14px;height:14px;border-radius:50%;border:2px solid var(--line);flex:none}
 .gearmenu button[aria-checked="true"]::before{border-color:var(--red);background:radial-gradient(var(--red) 0 3px,transparent 4px)}
-@media (prefers-reduced-motion:reduce){.gear svg{transition:none}}
+@media not all /* animations toujours actives, même si l'ordinateur demande de les réduire (choix de Manuel) */{.gear svg{transition:none}}
 /* Ajout de favoris */
 .favadd{display:flex;flex-direction:column;gap:6px;margin-bottom:10px}
 .favadd .search{max-width:none}
@@ -880,7 +880,7 @@ details.ev.num summary:hover{background:var(--num-me)}
 details.ev.fn summary:hover .sum-t{color:var(--fn-ink)}
 details.ev.num summary:hover .sum-t{color:var(--gold)}
 details.ev summary:hover .chev{color:var(--ink)}
-@media (prefers-reduced-motion:reduce){details.ev summary,details.ev .sum-t{transition:none}}
+@media not all /* animations toujours actives, même si l'ordinateur demande de les réduire (choix de Manuel) */{details.ev summary,details.ev .sum-t{transition:none}}
 #detail .section-h.main-h{background:var(--surface);border:1px solid var(--line);border-bottom:0;border-radius:6px 6px 0 0;padding:16px 0 4px;margin:0}
 #detail .section-h.main-h span:last-child{display:block;font-family:var(--f-body);font-size:11px;font-weight:500;text-transform:none;letter-spacing:.02em;color:var(--muted)}
 #detail .section-h.main-h + .seg-main{border-top:0;border-radius:0 0 6px 6px}
@@ -898,7 +898,7 @@ details.ev>summary{border-radius:5px}
 .sonar.on b{animation:sonarBlip 2s ease-out forwards}
 @keyframes sonarRing{0%{opacity:.9;width:0;height:0}100%{opacity:0;width:var(--rs);height:var(--rs)}}
 @keyframes sonarBlip{0%{opacity:0;transform:scale(.4)}10%{opacity:1;transform:scale(1.4)}100%{opacity:0;transform:scale(1)}}
-@media (prefers-reduced-motion:reduce){.sonar{display:none}}
+@media not all /* animations toujours actives, même si l'ordinateur demande de les réduire (choix de Manuel) */{.sonar{display:none}}
 
 html:root[data-theme="dark"]{--win:#B8F03A;--lost:#FF1A2E;--loss:#FF1A2E;--surface:rgba(20,22,30,.40);--line:rgba(255,255,255,.10);--soft:rgba(255,255,255,.05)}
 /* Fond dégradé bruité : calque fixe posé une fois (plus fluide au défilement) */
@@ -2134,7 +2134,7 @@ function renderDetail(t){
   const ev=m&&EVENTS.find(e=>e.id===m[1]);
   const isCal=location.hash==="#agenda", isPro=/^#pronos(-|$)/.test(location.hash);
   const ma=location.hash.match(/^#(a-[a-z0-9-]+)$/), ag=ma&&AGENDA.find(a=>agKey(a)===ma[1]);
-  const reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const reduce=false; /* animations toujours actives (choix de Manuel) */
   if(!ev&&!isCal&&!ag&&!isPro){
     if(!d.hidden&&!d.classList.contains("off")){
       /* Glissement vers la droite, puis on masque */
@@ -2653,7 +2653,7 @@ fetch("data/events.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=
 
 /* Effet sonar au survol : cartes Radar francophone et lignes des soirées */
 (function(){
-  if(!window.matchMedia||!matchMedia("(hover:hover)").matches||matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+  if(!window.matchMedia||!matchMedia("(hover:hover)").matches)return;
   const SEL="a.rcard, details.ev>summary", RD=3;
   document.addEventListener("mouseover",ev=>{
     const el=ev.target.closest&&ev.target.closest(SEL);

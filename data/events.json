@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-13T07:24:49.204Z",
+ "updated": "2026-11-13T13:16:13.652Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -3301,7 +3301,9 @@
       "nat": "USA"
      },
      "b": {
-      "n": "Samuel Sanches"
+      "n": "Samuel Sanches",
+      "rec": "11-1-0",
+      "nat": "BRA"
      }
     }
    ],
@@ -6581,6 +6583,12 @@
    "mma"
   ],
   [
+   "Samuel Sanches",
+   "BRA",
+   "11-1-0",
+   "mma"
+  ],
+  [
    "Andre Fili",
    "USA",
    "26-14-0",
@@ -7481,12 +7489,6 @@
    "mma"
   ],
   [
-   "Luis Gurule",
-   "USA",
-   "11-4-0",
-   "mma"
-  ],
-  [
    "Malcolm Wellmaker",
    "USA",
    "10-3-0",
@@ -7829,6 +7831,12 @@
    "mma"
   ],
   [
+   "Luis Gurule",
+   "USA",
+   "11-4-0",
+   "mma"
+  ],
+  [
    "Alden Coria",
    "USA",
    "13-4-0",
@@ -7886,6 +7894,12 @@
    "Miesha Tate *",
    "USA",
    "20-10-0",
+   "mma"
+  ],
+  [
+   "Amanda Nunes *",
+   "BRA",
+   "23-5-0",
    "mma"
   ],
   [

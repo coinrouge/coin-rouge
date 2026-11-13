@@ -205,5 +205,923 @@
  "Bafode Gassama": null,
  "Coby Bradford": null,
  "Zakaria Hamou": null,
- "Amin Bouazza": null
+ "Amin Bouazza": null,
+ "Mike Malott": {
+  "nat": "USA",
+  "rec": [
+   15,
+   2,
+   1
+  ],
+  "v": 4
+ },
+ "Joaquin Buckley": {
+  "nat": "USA",
+  "rec": [
+   21,
+   9,
+   0
+  ],
+  "v": 4
+ },
+ "Jasmine Jasudavicius": {
+  "nat": "CAN",
+  "rec": [
+   4,
+   4,
+   0
+  ],
+  "v": 4
+ },
+ "Erin Blanchfield": {
+  "nat": "USA",
+  "rec": [
+   14,
+   3,
+   0
+  ],
+  "v": 4
+ },
+ "Cristian Pérez": null,
+ "Kyle Nelson": null,
+ "Marc-André Barriault": {
+  "nat": "CAN",
+  "rec": [
+   18,
+   11,
+   0
+  ],
+  "v": 4
+ },
+ "Kyle Daukaus": {
+  "nat": "USA",
+  "rec": [
+   17,
+   6,
+   0
+  ],
+  "v": 4
+ },
+ "Timothy Cuamba": null,
+ "Louis Jourdain": null,
+ "Mandel Nallo": null,
+ "Nate Landwehr": {
+  "nat": "USA",
+  "rec": [
+   18,
+   9,
+   0
+  ],
+  "v": 4
+ },
+ "Tanner Boser": {
+  "nat": "CAN",
+  "rec": [
+   23,
+   11,
+   1
+  ],
+  "v": 4
+ },
+ "Jhonata Diniz": {
+  "nat": "BRA",
+  "rec": [
+   9,
+   3,
+   0
+  ],
+  "v": 4
+ },
+ "Nick Galanti": null,
+ "Julien Leblanc": null,
+ "Joel Faglier": null,
+ "Javad Mahjoub": {
+  "nat": "IRI",
+  "rec": [
+   5,
+   1,
+   0
+  ],
+  "v": 4
+ },
+ "Katlyn Cerminara": {
+  "nat": "USA",
+  "rec": [
+   19,
+   6,
+   0
+  ],
+  "v": 4
+ },
+ "Mackenzie Stiller": null,
+ "Steven Koslow": null,
+ "Chad Anheliger": null,
+ "Chelsea Chandler": {
+  "nat": "USA",
+  "rec": [
+   8,
+   4,
+   0
+  ],
+  "v": 4
+ },
+ "Melissa Croden": null,
+ "You Su-young": null,
+ "Cody Chovancek": null,
+ "Alexander Volkanovski": {
+  "nat": "AUS",
+  "rec": [
+   29,
+   4,
+   0
+  ],
+  "v": 4
+ },
+ "Movsar Evloev": {
+  "nat": "RUS",
+  "rec": [
+   20,
+   1,
+   0
+  ],
+  "v": 4
+ },
+ "Petr Yan": {
+  "nat": "RUS",
+  "rec": [
+   21,
+   5,
+   0
+  ],
+  "v": 4
+ },
+ "Merab Dvalishvili": {
+  "nat": "GEO",
+  "rec": [
+   2,
+   1,
+   0
+  ],
+  "v": 4
+ },
+ "Lone'er Kavanagh": {
+  "nat": "GBR",
+  "rec": [
+   11,
+   2,
+   0
+  ],
+  "v": 4
+ },
+ "Ramazan Temirov": {
+  "nat": "UZB",
+  "rec": [
+   20,
+   4,
+   0
+  ],
+  "v": 4
+ },
+ "Alexander Volkov": null,
+ "Rizvan Kuniev": {
+  "nat": "RUS",
+  "rec": [
+   14,
+   4,
+   1
+  ],
+  "v": 4
+ },
+ "Losene Keita": {
+  "nat": "BEL",
+  "rec": [
+   17,
+   3,
+   0
+  ],
+  "v": 4
+ },
+ "Dominick Reyes": {
+  "nat": "USA",
+  "rec": [
+   17,
+   5,
+   0
+  ],
+  "v": 4
+ },
+ "Azamat Murzakanov": {
+  "nat": "RUS",
+  "rec": [
+   16,
+   2,
+   0
+  ],
+  "v": 4
+ },
+ "Abdul-Rakhman Yakhyaev": {
+  "nat": "RUS",
+  "rec": [
+   11,
+   0,
+   0
+  ],
+  "v": 4
+ },
+ "Nikita Krylov": {
+  "nat": "UKR",
+  "rec": [
+   31,
+   13,
+   0
+  ],
+  "v": 4
+ },
+ "Abusupiyan Magomedov": {
+  "nat": "GER",
+  "rec": [
+   30,
+   7,
+   1
+  ],
+  "v": 4
+ },
+ "Cameron Rowston": null,
+ "Grant Dawson": {
+  "nat": "USA",
+  "rec": [
+   25,
+   3,
+   1
+  ],
+  "v": 4
+ },
+ "Nurullo Aliev": {
+  "nat": "TJK",
+  "rec": [
+   12,
+   1,
+   0
+  ],
+  "v": 4
+ },
+ "Colby Thicknesse": {
+  "nat": "AUS",
+  "rec": [
+   10,
+   1,
+   0
+  ],
+  "v": 4
+ },
+ "Asaf Chopurov": null,
+ "Abubakar Vagaev": null,
+ "Jacob Malkoun": {
+  "nat": "AUS",
+  "rec": [
+   10,
+   4,
+   0
+  ],
+  "v": 4
+ },
+ "Daniel Santos": null,
+ "Bolaji Oki": null,
+ "Kody Steele": null,
+ "Noah Gugnon": null,
+ "Tom Nolan": null,
+ "Renato Moicano": {
+  "nat": "BRA",
+  "rec": [
+   21,
+   8,
+   1
+  ],
+  "v": 4
+ },
+ "Jacobe Smith": null,
+ "Randy Brown": null,
+ "Cody Durden": {
+  "nat": "USA",
+  "rec": [
+   19,
+   11,
+   1
+  ],
+  "v": 4
+ },
+ "Ode' Osbourne": {
+  "nat": "JAM",
+  "rec": [
+   13,
+   10,
+   0
+  ],
+  "v": 4
+ },
+ "Luana Santos": {
+  "nat": "",
+  "rec": [
+   12,
+   2,
+   0
+  ],
+  "v": 4
+ },
+ "Yana Santos": {
+  "nat": "RUS",
+  "rec": [
+   17,
+   9,
+   0
+  ],
+  "v": 4
+ },
+ "Jean-Paul Lebosnoyani": null,
+ "Farman Hasanov": {
+  "nat": "AZE",
+  "rec": [
+   5,
+   1,
+   0
+  ],
+  "v": 4
+ },
+ "Dakota Hope": null,
+ "Francis Marshall": null,
+ "Rodrigo Sezinando": null,
+ "Theodor Berggren": null,
+ "Lee Jeong-yeong": null,
+ "Zachary Reese": {
+  "nat": "USA",
+  "rec": [
+   11,
+   4,
+   0
+  ],
+  "v": 4
+ },
+ "Mickey Gall": {
+  "nat": "USA",
+  "rec": [
+   7,
+   8,
+   0
+  ],
+  "v": 4
+ },
+ "Nick Klein": null,
+ "Piera Rodríguez": {
+  "nat": "VEN",
+  "rec": [
+   13,
+   2,
+   0
+  ],
+  "v": 4
+ },
+ "Tainara Lisboa": null,
+ "Johnny Walker": null,
+ "Waldo Cortes-Acosta": {
+  "nat": "DOM",
+  "rec": [
+   17,
+   5,
+   0
+  ],
+  "v": 4
+ },
+ "Elijah Smith": null,
+ "Davey Grant": {
+  "nat": "GBR",
+  "rec": [
+   18,
+   9,
+   0
+  ],
+  "v": 4
+ },
+ "Lucas Fernando": null,
+ "Billy Elekana": {
+  "nat": "USA",
+  "rec": [
+   10,
+   3,
+   0
+  ],
+  "v": 4
+ },
+ "Nina Nikolija Milošević": null,
+ "Priscila Cachoeira": {
+  "nat": "BRA",
+  "rec": [
+   13,
+   10,
+   0
+  ],
+  "v": 4
+ },
+ "Mitch Raposo": null,
+ "Ollie Schmid": null,
+ "Keiichiro Nakamura": null,
+ "Thomas Petersen": null,
+ "Karine Silva": {
+  "nat": "BRA",
+  "rec": [
+   20,
+   7,
+   0
+  ],
+  "v": 4
+ },
+ "Gabriella Fernandes": null,
+ "Murtazali Magomedov": null,
+ "José Mauro Delano": null,
+ "Austin Bashi": null,
+ "Andre Petroski": {
+  "nat": "USA",
+  "rec": [
+   14,
+   6,
+   0
+  ],
+  "v": 4
+ },
+ "Mantas Kondratavičius": null,
+ "Ko Seok-hyeon": null,
+ "Wellington Turman": {
+  "nat": "BRA",
+  "rec": [
+   18,
+   9,
+   0
+  ],
+  "v": 4
+ },
+ "José Henrique Souza": null,
+ "Ciryl Gane": {
+  "nat": "FRA",
+  "rec": [
+   14,
+   2,
+   0
+  ],
+  "v": 4
+ },
+ "Josh Hokit": {
+  "nat": "USA",
+  "rec": [
+   10,
+   0,
+   0
+  ],
+  "v": 4
+ },
+ "Caio Borralho": {
+  "nat": "BRA",
+  "rec": [
+   18,
+   2,
+   0
+  ],
+  "v": 4
+ },
+ "Yousri Belgaroui": {
+  "nat": "NED",
+  "rec": [
+   11,
+   3,
+   0
+  ],
+  "v": 4
+ },
+ "Uroš Medić": {
+  "nat": "",
+  "rec": [
+   14,
+   3,
+   0
+  ],
+  "v": 4
+ },
+ "Kevin Holland": {
+  "nat": "USA",
+  "rec": [
+   5,
+   15,
+   0
+  ],
+  "v": 4
+ },
+ "Bilal Hasan": {
+  "nat": "USA",
+  "rec": [
+   10,
+   0,
+   0
+  ],
+  "v": 4
+ },
+ "Luis Gurule": null,
+ "Stephen Thompson": null,
+ "Charles Radtke": null,
+ "Drew Dober": {
+  "nat": "USA",
+  "rec": [
+   29,
+   15,
+   0
+  ],
+  "v": 4
+ },
+ "Chris Duncan": null,
+ "Jim Miller": null,
+ "Terrance McKinney": {
+  "nat": "USA",
+  "rec": [
+   18,
+   9,
+   0
+  ],
+  "v": 4
+ },
+ "Donte Johnson": null,
+ "César Almeida": null,
+ "Jared Gordon": {
+  "nat": "USA",
+  "rec": [
+   21,
+   9,
+   0
+  ],
+  "v": 4
+ },
+ "Melquizael Costa": {
+  "nat": "BRA",
+  "rec": [
+   26,
+   8,
+   0
+  ],
+  "v": 4
+ },
+ "Macy Chiasson": {
+  "nat": "USA",
+  "rec": [
+   10,
+   6,
+   0
+  ],
+  "v": 4
+ },
+ "Beatriz Mesquita": {
+  "nat": "BRA",
+  "rec": [
+   8,
+   0,
+   0
+  ],
+  "v": 4
+ },
+ "Alateng Heili": {
+  "nat": "CHN",
+  "rec": [
+   18,
+   10,
+   2
+  ],
+  "v": 4
+ },
+ "Juan Díaz": null,
+ "Evan Elder": null,
+ "Jiří Procházka": {
+  "nat": "",
+  "rec": [
+   32,
+   6,
+   1
+  ],
+  "v": 4
+ },
+ "Navajo Stirling": {
+  "nat": "NZL",
+  "rec": [
+   11,
+   0,
+   0
+  ],
+  "v": 4
+ },
+ "Aljamain Sterling": {
+  "nat": "USA",
+  "rec": [
+   26,
+   5,
+   0
+  ],
+  "v": 4
+ },
+ "Kevin Vallejos": {
+  "nat": "ARG",
+  "rec": [
+   18,
+   1,
+   0
+  ],
+  "v": 4
+ },
+ "Dan Hooker": {
+  "nat": "NZL",
+  "rec": [
+   24,
+   15,
+   3
+  ],
+  "v": 4
+ },
+ "Brian Ortega": {
+  "nat": "USA",
+  "rec": [
+   16,
+   5,
+   0
+  ],
+  "v": 4
+ },
+ "Kyoji Horiguchi": {
+  "nat": "JPN",
+  "rec": [
+   36,
+   6,
+   0
+  ],
+  "v": 4
+ },
+ "Asu Almabayev": {
+  "nat": "KAZ",
+  "rec": [
+   24,
+   3,
+   0
+  ],
+  "v": 4
+ },
+ "Jared Cannonier": {
+  "nat": "USA",
+  "rec": [
+   18,
+   10,
+   0
+  ],
+  "v": 4
+ },
+ "Ikram Aliskerov": {
+  "nat": "RUS",
+  "rec": [
+   18,
+   2,
+   0
+  ],
+  "v": 4
+ },
+ "Aleksandre Topuria": {
+  "nat": "GER",
+  "rec": [
+   7,
+   1,
+   0
+  ],
+  "v": 4
+ },
+ "Santiago Luna": null,
+ "Shamil Gaziev": {
+  "nat": "",
+  "rec": [
+   15,
+   3,
+   0
+  ],
+  "v": 4
+ },
+ "Tallison Teixeira": {
+  "nat": "BRA",
+  "rec": [
+   9,
+   2,
+   0
+  ],
+  "v": 4
+ },
+ "Amir Albazi": {
+  "nat": "IRQ",
+  "rec": [
+   17,
+   3,
+   0
+  ],
+  "v": 4
+ },
+ "Alessandro Costa": null,
+ "Jake Matthews": null,
+ "Tahir Abdullayev": null,
+ "Israel Adesanya": {
+  "nat": "NZL",
+  "rec": [
+   24,
+   6,
+   0
+  ],
+  "v": 4
+ },
+ "Sharabutdin Magomedov": {
+  "nat": "RUS",
+  "rec": [
+   17,
+   1,
+   0
+  ],
+  "v": 4
+ },
+ "Ian Machado Garry": {
+  "nat": "IRL",
+  "rec": [
+   6,
+   1,
+   0
+  ],
+  "v": 4
+ },
+ "Yaroslav Amosov": {
+  "nat": "UKR",
+  "rec": [
+   30,
+   1,
+   0
+  ],
+  "v": 4
+ },
+ "Serghei Spivac": {
+  "nat": "MDA",
+  "rec": [
+   18,
+   7,
+   0
+  ],
+  "v": 4
+ },
+ "Mário Pinto": null,
+ "Levan Chokheli": null,
+ "Islam Dulatov": {
+  "nat": "RUS",
+  "rec": [
+   12,
+   1,
+   0
+  ],
+  "v": 4
+ },
+ "Mairon Santos": null,
+ "Magomed Tuchalov": null,
+ "Ion Cuțelaba": {
+  "nat": "MDA",
+  "rec": [
+   20,
+   11,
+   1
+  ],
+  "v": 4
+ },
+ "Bruno Gustavo da Silva": {
+  "nat": "BRA",
+  "rec": [
+   15,
+   9,
+   2
+  ],
+  "v": 4
+ },
+ "Jafel Filho": null,
+ "Uran Satybaldiev": null,
+ "Marco Tulio": null,
+ "Park Jun-yong": {
+  "nat": "KOR",
+  "rec": [
+   19,
+   7,
+   0
+  ],
+  "v": 4
+ },
+ "Pavel Andrusca": null,
+ "Mehemmedeli Osmanli": null,
+ "Matthieu Letho Duclos": null,
+ "Abdul Hussein": null,
+ "Hecher Sosa": null,
+ "Charles Oliveira": {
+  "nat": "BRA",
+  "rec": [
+   37,
+   11,
+   0
+  ],
+  "v": 4
+ },
+ "Diego Lopes": null,
+ "Sergei Pavlovich": {
+  "nat": "RUS",
+  "rec": [
+   21,
+   3,
+   0
+  ],
+  "v": 4
+ },
+ "Alex Pereira": {
+  "nat": "BRA",
+  "rec": [
+   13,
+   4,
+   0
+  ],
+  "v": 4
+ },
+ "Brandon Moreno": {
+  "nat": "MEX",
+  "rec": [
+   24,
+   10,
+   2
+  ],
+  "v": 4
+ },
+ "Charles Johnson": null,
+ "Junior Tafa": {
+  "nat": "NZL",
+  "rec": [
+   7,
+   6,
+   1
+  ],
+  "v": 4
+ },
+ "Joshua Van": {
+  "nat": "MYA",
+  "rec": [
+   18,
+   2,
+   0
+  ],
+  "v": 4
+ },
+ "Manel Kape": {
+  "nat": "ANG",
+  "rec": [
+   23,
+   7,
+   0
+  ],
+  "v": 4
+ },
+ "Carlos Prates": {
+  "nat": "BRA",
+  "rec": [
+   24,
+   7,
+   0
+  ],
+  "v": 4
+ },
+ "Michael Morales": null,
+ "Quillan Salkilld": {
+  "nat": "AUS",
+  "rec": [
+   13,
+   1,
+   0
+  ],
+  "v": 4
+ },
+ "Benoît Saint Denis": {
+  "nat": "FRA",
+  "rec": [
+   3,
+   4,
+   0
+  ],
+  "v": 4
+ },
+ "Bogdan Guskov": {
+  "nat": "UZB",
+  "rec": [
+   18,
+   4,
+   1
+  ],
+  "v": 4
+ },
+ "Robert Whittaker": null,
+ "Marwan Rahiki": null,
+ "Yoo Joo-sang": null,
+ "Kaan Ofli": null,
+ "Joanderson Brito": null
 }

@@ -1,22 +1,82 @@
-Combattants : 972
+  List of current UFC fighters : HTTP 504
+Combattants : 312
   2027 in Professional Fighters League : HTTP 404
 Soirées retenues : UFC Fight Night: Buckley vs. Malott / PFL Chicago: Carmouche vs. Bishop 2 / UFC 333: Volkanovski vs. Evloev / UFC Fight Night: Moicano vs. Nolan / UFC Fight Night: Cortes-Acosta vs. Walker / UFC 334: Gane vs. Hokit / PFL Dubai: Nemkov vs. Bilostenniy / UFC Fight Night: Procházka vs. Stirling / UFC Fight Night: Adesanya vs. Magomedov / UFC 335: Oliveira vs. Lopes / PFL Lyon: Lapilus vs. McKee / UFC Fight Night 296 / UFC Fight Night 297 / UFC 336: Van vs. Kape / UFC Fight Night: Salkilld vs. Saint Denis
+  Timothy Cuamba : HTTP 404
+  Louis Jourdain : HTTP 404
+  Mandel Nallo : HTTP 404
+  Nick Galanti : HTTP 404
+  Julien Leblanc : HTTP 404
+  Joel Faglier : HTTP 404
+  Mackenzie Stiller : HTTP 404
+  Steven Koslow : HTTP 404
+  Chad Anheliger : HTTP 404
+  Melissa Croden : HTTP 404
+  You Su-young : HTTP 404
+  Cody Chovancek : HTTP 404
   fn-buckley-malott : 13 combats, 13 résultats
   pfl-carmouche-bishop : 13 combats, 13 résultats
+  Cameron Rowston : HTTP 404
+  Asaf Chopurov : HTTP 404
+  Abubakar Vagaev : HTTP 404
+  Bolaji Oki : HTTP 404
+  Kody Steele : HTTP 404
+  Noah Gugnon : HTTP 404
   ufc333 : 14 combats, 14 résultats
+  Jacobe Smith : HTTP 404
+  nationalité inconnue : Luana Santos ← {"B":"Luana do Valle Lopes Gonzalez Santos (2000-04-16) 16 April 2000 (age 26)"}
+  Jean-Paul Lebosnoyani : HTTP 404
+  Dakota Hope : HTTP 404
+  Rodrigo Sezinando : HTTP 404
+  Theodor Berggren : HTTP 404
+  Tainara Lisboa : HTTP 404
   fn-moicano-nolan : 12 combats, 12 résultats
+  Lucas Fernando : HTTP 404
+  Nina Nikolija Milošević : HTTP 404
+  Mitch Raposo : HTTP 404
+  Ollie Schmid : HTTP 404
+  Keiichiro Nakamura : HTTP 404
+  Gabriella Fernandes : HTTP 404
+  Murtazali Magomedov : HTTP 404
+  José Mauro Delano : HTTP 404
+  Austin Bashi : HTTP 404
+  Mantas Kondratavičius : HTTP 404
+  Ko Seok-hyeon : HTTP 404
+  José Henrique Souza : HTTP 404
   fn-cortesacosta-walker : 14 combats, 14 résultats
+  nationalité inconnue : Uroš Medić ← {"N":"Serbian","B":"(1993-04-25) April 25, 1993 (age 33)Novi Sad, Serbia, FR Yugoslavia"}
+  Luis Gurule : HTTP 404
+  Donte Johnson : HTTP 404
+  Evan Elder : HTTP 404
   ufc334 : 13 combats, 0 résultats
   pfl-nemkov-bilostenniy : 13 combats, 0 résultats
+  nationalité inconnue : Jiří Procházka ← {"N":"Czech","B":"(1992-10-14) October 14, 1992 (age 34)Znojmo, Czechoslovakia"}
+  nationalité inconnue : Shamil Gaziev ← {"B":"Shamil Hasbulatovich Gaziev (1990-02-10) February 10, 1990 (age 36)Khunzakh, Dagestan ASSR, Russian SFSR, Soviet Union"}
+  Tahir Abdullayev : HTTP 404
   fn-prochazka-stirling : 9 combats, 0 résultats
+  Levan Chokheli : HTTP 404
+  Mairon Santos : HTTP 404
+  Magomed Tuchalov : HTTP 404
+  Jafel Filho : HTTP 404
+  Uran Satybaldiev : HTTP 404
+  Pavel Andrusca : HTTP 404
+  Mehemmedeli Osmanli : HTTP 404
+  Matthieu Letho Duclos : HTTP 404
+  Hecher Sosa : HTTP 404
   fn-adesanya-magomedov : 12 combats, 0 résultats
   ufc335 : 4 combats, 0 résultats
   pfl-lapilus-mckee : 12 combats, 0 résultats
   ufc336 : 2 combats, 0 résultats
+  Marwan Rahiki : HTTP 429
+  Yoo Joo-sang : HTTP 429
+  Kaan Ofli : HTTP 429
+  Joanderson Brito : HTTP 429
   fn-salkilld-saintdenis : 4 combats, 0 résultats
 Presse : 11 soirées, 3 à l'agenda
-  2027 in Zuffa Boxing : HTTP 404
-Annuaire : 1043 combattants (dont 71 champions de boxe)
-Annuaire francophone (fr.wikipedia) : 334 ajoutés
-Annuaire permanent : 42 francophones (21 hors autres listes)
+  2026 in Zuffa Boxing : HTTP 429
+  2027 in Zuffa Boxing : HTTP 429
+  List of current world boxing champions : HTTP 429
+Annuaire : 312 combattants (dont 0 champions de boxe)
+Annuaire francophone (fr.wikipedia) : 298 ajoutés
+Annuaire permanent : 42 francophones (29 hors autres listes)
 data/events.json écrit (24 soirées détaillées, 5 à l'agenda).

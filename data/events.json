@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-12T19:02:09.650Z",
+ "updated": "2026-11-13T01:18:00.127Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -331,7 +331,7 @@
      "a": {
       "n": "Mike Malott",
       "rec": "14-2-1",
-      "nat": "CAN",
+      "nat": "USA",
       "wk": "Mike Malott"
      },
      "b": {
@@ -353,7 +353,7 @@
      "r": 3,
      "a": {
       "n": "Jasmine Jasudavicius",
-      "rec": "15-4-0",
+      "rec": "3-4-0",
       "nat": "CAN",
       "wk": "Jasmine Jasudavicius"
      },
@@ -375,14 +375,10 @@
      "w": "LW",
      "r": 3,
      "a": {
-      "n": "Cristian Pérez",
-      "rec": "15-2-0",
-      "nat": "MEX"
+      "n": "Cristian Pérez"
      },
      "b": {
       "n": "Kyle Nelson",
-      "rec": "17-7-1",
-      "nat": "CAN",
       "wk": "Kyle Nelson (fighter)"
      },
      "res": {
@@ -398,7 +394,7 @@
      "r": 3,
      "a": {
       "n": "Marc-André Barriault",
-      "rec": "17-10-0",
+      "rec": "17-11-0",
       "nat": "CAN",
       "wk": "Marc-André Barriault"
      },
@@ -420,14 +416,10 @@
      "w": "BW",
      "r": 3,
      "a": {
-      "n": "Timothy Cuamba",
-      "rec": "10-4-0",
-      "nat": "USA"
+      "n": "Timothy Cuamba"
      },
      "b": {
-      "n": "Louis Jourdain",
-      "rec": "9-3-0",
-      "nat": "CAN"
+      "n": "Louis Jourdain"
      },
      "res": {
       "w": "a",
@@ -441,9 +433,7 @@
      "w": "LW",
      "r": 3,
      "a": {
-      "n": "Mandel Nallo",
-      "rec": "14-4-0",
-      "nat": "CAN"
+      "n": "Mandel Nallo"
      },
      "b": {
       "n": "Nate Landwehr",
@@ -486,14 +476,10 @@
      "w": "MW",
      "r": 3,
      "a": {
-      "n": "Nick Galanti",
-      "rec": "9-1-0",
-      "nat": "USA"
+      "n": "Nick Galanti"
      },
      "b": {
-      "n": "Julien Leblanc",
-      "rec": "10-3-0",
-      "nat": "CAN"
+      "n": "Julien Leblanc"
      },
      "res": {
       "w": "a",
@@ -507,9 +493,7 @@
      "w": "HW",
      "r": 3,
      "a": {
-      "n": "Joel Faglier",
-      "rec": "6-0-0",
-      "nat": "USA"
+      "n": "Joel Faglier"
      },
      "b": {
       "n": "Javad Mahjoub",
@@ -535,9 +519,7 @@
       "wk": "Katlyn Cerminara"
      },
      "b": {
-      "n": "Mackenzie Stiller",
-      "rec": "6-1-0",
-      "nat": "USA"
+      "n": "Mackenzie Stiller"
      },
      "res": {
       "w": "a",
@@ -551,14 +533,10 @@
      "w": "BW",
      "r": 3,
      "a": {
-      "n": "Steven Koslow",
-      "rec": "6-1-0",
-      "nat": "USA"
+      "n": "Steven Koslow"
      },
      "b": {
-      "n": "Chad Anheliger",
-      "rec": "13-8-0",
-      "nat": "CAN"
+      "n": "Chad Anheliger"
      },
      "res": {
       "w": "a",
@@ -578,9 +556,7 @@
       "wk": "Chelsea Chandler"
      },
      "b": {
-      "n": "Melissa Croden",
-      "rec": "8-3-0",
-      "nat": "CAN"
+      "n": "Melissa Croden"
      },
      "res": {
       "w": "a",
@@ -594,14 +570,10 @@
      "w": "BW",
      "r": 3,
      "a": {
-      "n": "You Su-young",
-      "rec": "16-4-0",
-      "nat": "KOR"
+      "n": "You Su-young"
      },
      "b": {
-      "n": "Cody Chovancek",
-      "rec": "9-0-0",
-      "nat": "CAN"
+      "n": "Cody Chovancek"
      },
      "res": {
       "w": "a",
@@ -682,7 +654,7 @@
      },
      "b": {
       "n": "Merab Dvalishvili",
-      "rec": "21-5-0",
+      "rec": "2-0-0",
       "nat": "GEO",
       "wk": "Merab Dvalishvili"
      },
@@ -706,7 +678,7 @@
      },
      "b": {
       "n": "Ramazan Temirov",
-      "rec": "18-2-0",
+      "rec": "20-3-0",
       "nat": "UZB",
       "wk": "Ramazan Temirov"
      },
@@ -723,8 +695,6 @@
      "r": 3,
      "a": {
       "n": "Alexander Volkov",
-      "rec": "40-11-0",
-      "nat": "RUS",
       "wk": "Alexander Volkov (fighter)"
      },
      "b": {
@@ -793,13 +763,13 @@
      "a": {
       "n": "Abdul-Rakhman Yakhyaev",
       "rec": "10-0-0",
-      "nat": "TUR",
+      "nat": "RUS",
       "wk": "Abdul-Rakhman Yakhyaev"
      },
      "b": {
       "n": "Nikita Krylov",
       "rec": "31-12-0",
-      "nat": "RUS",
+      "nat": "UKR",
       "wk": "Nikita Krylov"
      },
      "res": {
@@ -820,9 +790,7 @@
       "wk": "Abusupiyan Magomedov"
      },
      "b": {
-      "n": "Cameron Rowston",
-      "rec": "15-3-0",
-      "nat": "AUS"
+      "n": "Cameron Rowston"
      },
      "res": {
       "w": "a",
@@ -843,7 +811,7 @@
      },
      "b": {
       "n": "Nurullo Aliev",
-      "rec": "11-0-0",
+      "rec": "12-0-0",
       "nat": "TJK",
       "wk": "Nurullo Aliev"
      },
@@ -865,9 +833,7 @@
       "wk": "Colby Thicknesse"
      },
      "b": {
-      "n": "Asaf Chopurov",
-      "rec": "11-0-0",
-      "nat": "RUS"
+      "n": "Asaf Chopurov"
      },
      "res": {
       "w": "a",
@@ -881,9 +847,7 @@
      "w": "MW",
      "r": 3,
      "a": {
-      "n": "Abubakar Vagaev",
-      "rec": "25-4-0",
-      "nat": "RUS"
+      "n": "Abubakar Vagaev"
      },
      "b": {
       "n": "Jacob Malkoun",
@@ -904,14 +868,10 @@
      "r": 3,
      "a": {
       "n": "Daniel Santos",
-      "rec": "13-3-0",
-      "nat": "BRA",
       "wk": "Daniel Santos (fighter)"
      },
      "b": {
-      "n": "Bolaji Oki",
-      "rec": "10-4-0",
-      "nat": "BEL"
+      "n": "Bolaji Oki"
      },
      "res": {
       "w": "a",
@@ -925,15 +885,10 @@
      "w": "LW",
      "r": 3,
      "a": {
-      "n": "Kody Steele",
-      "rec": "8-1-0",
-      "nat": "USA"
+      "n": "Kody Steele"
      },
      "b": {
-      "n": "Noah Gugnon",
-      "rec": "10-2-0",
-      "nat": "FRA",
-      "fr": 1
+      "n": "Noah Gugnon"
      },
      "res": {
       "w": "a",
@@ -953,9 +908,7 @@
       "wk": "Iasmin Lucindo"
      },
      "b": {
-      "n": "Nicolle Caliari",
-      "rec": "9-4-0",
-      "nat": "BRA"
+      "n": "Nicolle Caliari"
      },
      "res": {
       "w": "a",
@@ -1417,8 +1370,6 @@
      "r": 5,
      "a": {
       "n": "Tom Nolan",
-      "rec": "11-1-0",
-      "nat": "AUS",
       "wk": "Tom Nolan (fighter)"
      },
      "b": {
@@ -1439,14 +1390,10 @@
      "w": "WW",
      "r": 3,
      "a": {
-      "n": "Jacobe Smith",
-      "rec": "13-0-0",
-      "nat": "USA"
+      "n": "Jacobe Smith"
      },
      "b": {
       "n": "Randy Brown",
-      "rec": "20-8-0",
-      "nat": "JAM",
       "wk": "Randy Brown (fighter)"
      },
      "res": {
@@ -1486,7 +1433,6 @@
      "a": {
       "n": "Luana Santos",
       "rec": "11-2-0",
-      "nat": "BRA",
       "wk": "Luana Santos"
      },
      "b": {
@@ -1507,9 +1453,7 @@
      "w": "WW",
      "r": 3,
      "a": {
-      "n": "Jean-Paul Lebosnoyani",
-      "rec": "11-2-0",
-      "nat": "USA"
+      "n": "Jean-Paul Lebosnoyani"
      },
      "b": {
       "n": "Farman Hasanov",
@@ -1529,14 +1473,10 @@
      "w": "Catchweight (148 lb)",
      "r": 3,
      "a": {
-      "n": "Dakota Hope",
-      "rec": "11-2-0",
-      "nat": "USA"
+      "n": "Dakota Hope"
      },
      "b": {
-      "n": "Francis Marshall",
-      "rec": "10-3-0",
-      "nat": "USA"
+      "n": "Francis Marshall"
      },
      "res": {
       "w": "a",
@@ -1550,14 +1490,10 @@
      "w": "WW",
      "r": 3,
      "a": {
-      "n": "Rodrigo Sezinando",
-      "rec": "8-2-0",
-      "nat": "BRA"
+      "n": "Rodrigo Sezinando"
      },
      "b": {
-      "n": "Theodor Berggren",
-      "rec": "8-4-0",
-      "nat": "SWE"
+      "n": "Theodor Berggren"
      },
      "res": {
       "w": "a",
@@ -1577,9 +1513,7 @@
       "wk": "Julian Erosa"
      },
      "b": {
-      "n": "Lee Jeong-yeong",
-      "rec": "11-2-0",
-      "nat": "KOR"
+      "n": "Lee Jeong-yeong"
      },
      "res": {
       "w": "a",
@@ -1616,14 +1550,10 @@
      "w": "MW",
      "r": 3,
      "a": {
-      "n": "Joseph Kropschot",
-      "rec": "9-3-0",
-      "nat": "USA"
+      "n": "Joseph Kropschot"
      },
      "b": {
-      "n": "Nick Klein",
-      "rec": "6-3-0",
-      "nat": "USA"
+      "n": "Nick Klein"
      },
      "res": {
       "w": "a",
@@ -1644,7 +1574,7 @@
      },
      "b": {
       "n": "Talita Alencar",
-      "rec": "8-1-1",
+      "rec": "8-0-1",
       "nat": "BRA",
       "wk": "Talita Alencar"
      },
@@ -1661,14 +1591,12 @@
      "r": 3,
      "a": {
       "n": "Lucia Szabová",
-      "rec": "10-0-0",
+      "rec": "11-0-0",
       "nat": "SVK",
       "wk": "Lucia Szabová"
      },
      "b": {
-      "n": "Tainara Lisboa",
-      "rec": "7-4-0",
-      "nat": "BRA"
+      "n": "Tainara Lisboa"
      },
      "res": {
       "w": "a",
@@ -2192,8 +2120,6 @@
      "r": 5,
      "a": {
       "n": "Johnny Walker",
-      "rec": "23-10-0",
-      "nat": "BRA",
       "wk": "Johnny Walker (fighter)"
      },
      "b": {
@@ -2215,13 +2141,13 @@
      "r": 3,
      "a": {
       "n": "Tatiana Suarez",
-      "rec": "12-1-0",
+      "rec": "11-1-0",
       "nat": "USA",
       "wk": "Tatiana Suarez"
      },
      "b": {
       "n": "Virna Jandiroba",
-      "rec": "23-4-0",
+      "rec": "23-3-0",
       "nat": "BRA",
       "wk": "Virna Jandiroba"
      },
@@ -2237,9 +2163,7 @@
      "w": "BW",
      "r": 3,
      "a": {
-      "n": "Elijah Smith",
-      "rec": "10-1-0",
-      "nat": "USA"
+      "n": "Elijah Smith"
      },
      "b": {
       "n": "Davey Grant",
@@ -2259,9 +2183,7 @@
      "w": "LHW",
      "r": 3,
      "a": {
-      "n": "Lucas Fernando",
-      "rec": "14-3-0",
-      "nat": "BRA"
+      "n": "Lucas Fernando"
      },
      "b": {
       "n": "Billy Elekana",
@@ -2281,9 +2203,7 @@
      "w": "WBW",
      "r": 3,
      "a": {
-      "n": "Nina Nikolija Milošević",
-      "rec": "9-1-0",
-      "nat": "SRB"
+      "n": "Nina Nikolija Milošević"
      },
      "b": {
       "n": "Priscila Cachoeira",
@@ -2303,14 +2223,10 @@
      "w": "FLW",
      "r": 3,
      "a": {
-      "n": "Mitch Raposo",
-      "rec": "11-2-0",
-      "nat": "USA"
+      "n": "Mitch Raposo"
      },
      "b": {
-      "n": "Marcos Degli",
-      "rec": "15-3-0",
-      "nat": "BRA"
+      "n": "Marcos Degli"
      },
      "res": {
       "w": "a",
@@ -2324,14 +2240,10 @@
      "w": "FW",
      "r": 3,
      "a": {
-      "n": "Ollie Schmid",
-      "rec": "4-3-0",
-      "nat": "HUN"
+      "n": "Ollie Schmid"
      },
      "b": {
-      "n": "Keiichiro Nakamura",
-      "rec": "8-1-0",
-      "nat": "JPN"
+      "n": "Keiichiro Nakamura"
      },
      "res": {
       "w": "a",
@@ -2345,14 +2257,10 @@
      "w": "HW",
      "r": 3,
      "a": {
-      "n": "Thomas Petersen",
-      "rec": "11-5-0",
-      "nat": "USA"
+      "n": "Thomas Petersen"
      },
      "b": {
-      "n": "Gabriel Lorenço",
-      "rec": "8-1-0",
-      "nat": "BRA"
+      "n": "Gabriel Lorenço"
      },
      "res": {
       "w": "a",
@@ -2372,9 +2280,7 @@
       "wk": "Karine Silva"
      },
      "b": {
-      "n": "Gabriella Fernandes",
-      "rec": "11-4-0",
-      "nat": "BRA"
+      "n": "Gabriella Fernandes"
      },
      "res": {
       "w": "a",
@@ -2388,14 +2294,10 @@
      "w": "FW",
      "r": 3,
      "a": {
-      "n": "Murtazali Magomedov",
-      "rec": "11-0-0",
-      "nat": "KGZ"
+      "n": "Murtazali Magomedov"
      },
      "b": {
-      "n": "José Mauro Delano",
-      "rec": "16-3-0",
-      "nat": "BRA"
+      "n": "José Mauro Delano"
      },
      "res": {
       "w": "a",
@@ -2409,14 +2311,10 @@
      "w": "FW",
      "r": 3,
      "a": {
-      "n": "Austin Bashi",
-      "rec": "14-2-0",
-      "nat": "USA"
+      "n": "Austin Bashi"
      },
      "b": {
-      "n": "Carlos Calderon",
-      "rec": "11-4-0",
-      "nat": "USA"
+      "n": "Carlos Calderon"
      },
      "res": {
       "w": "a",
@@ -2436,9 +2334,7 @@
       "wk": "Andre Petroski"
      },
      "b": {
-      "n": "Mantas Kondratavičius",
-      "rec": "9-1-0",
-      "nat": "LTU"
+      "n": "Mantas Kondratavičius"
      },
      "res": {
       "w": "a",
@@ -2452,9 +2348,7 @@
      "w": "WW",
      "r": 3,
      "a": {
-      "n": "Ko Seok-hyeon",
-      "rec": "13-3-0",
-      "nat": "KOR"
+      "n": "Ko Seok-hyeon"
      },
      "b": {
       "n": "Wellington Turman",
@@ -2474,14 +2368,10 @@
      "w": "WW",
      "r": 3,
      "a": {
-      "n": "José Henrique Souza",
-      "rec": "9-1-0",
-      "nat": "BRA"
+      "n": "José Henrique Souza"
      },
      "b": {
-      "n": "Jonny Parsons",
-      "rec": "9-3-0",
-      "nat": "USA"
+      "n": "Jonny Parsons"
      },
      "res": {
       "w": "a",
@@ -2990,7 +2880,7 @@
      "r": 5,
      "a": {
       "n": "Ciryl Gane",
-      "rec": "13-2-0",
+      "rec": "14-2-0",
       "nat": "FRA",
       "fr": 1,
       "champ": 1,
@@ -3047,12 +2937,11 @@
      "a": {
       "n": "Uroš Medić",
       "rec": "14-3-0",
-      "nat": "SRB",
       "wk": "Uroš Medić"
      },
      "b": {
       "n": "Kevin Holland",
-      "rec": "29-15-0",
+      "rec": "5-15-0",
       "nat": "USA",
       "wk": "Kevin Holland"
      }
@@ -3064,13 +2953,11 @@
      "a": {
       "n": "Bilal Hasan",
       "rec": "10-0-0",
-      "nat": "IDN",
+      "nat": "USA",
       "wk": "Bilal Hasan"
      },
      "b": {
-      "n": "Luis Gurule",
-      "rec": "11-4-0",
-      "nat": "USA"
+      "n": "Luis Gurule"
      }
     },
     {
@@ -3079,14 +2966,10 @@
      "r": 3,
      "a": {
       "n": "Stephen Thompson",
-      "rec": "17-9-1",
-      "nat": "USA",
       "wk": "Stephen Thompson (fighter)"
      },
      "b": {
-      "n": "Charles Radtke",
-      "rec": "12-5-0",
-      "nat": "USA"
+      "n": "Charles Radtke"
      }
     },
     {
@@ -3101,8 +2984,6 @@
      },
      "b": {
       "n": "Chris Duncan",
-      "rec": "15-2-0",
-      "nat": "GBR",
       "wk": "Chris Duncan (fighter)"
      }
     },
@@ -3112,8 +2993,6 @@
      "r": 3,
      "a": {
       "n": "Jim Miller",
-      "rec": "39-19-0",
-      "nat": "USA",
       "wk": "Jim Miller (fighter)"
      },
      "b": {
@@ -3128,14 +3007,10 @@
      "w": "MW",
      "r": 3,
      "a": {
-      "n": "Donte Johnson",
-      "rec": "9-0-0",
-      "nat": "USA"
+      "n": "Donte Johnson"
      },
      "b": {
       "n": "César Almeida",
-      "rec": "7-3-0",
-      "nat": "BRA",
       "wk": "César Almeida (fighter)"
      }
     },
@@ -3184,9 +3059,7 @@
       "wk": "Alateng Heili"
      },
      "b": {
-      "n": "Juan Díaz",
-      "rec": "16-1-1",
-      "nat": "PER"
+      "n": "Juan Díaz"
      }
     },
     {
@@ -3194,14 +3067,10 @@
      "w": "LW",
      "r": 3,
      "a": {
-      "n": "Evan Elder",
-      "rec": "10-2-0",
-      "nat": "USA"
+      "n": "Evan Elder"
      },
      "b": {
-      "n": "Samuel Sanches",
-      "rec": "11-1-0",
-      "nat": "BRA"
+      "n": "Samuel Sanches"
      }
     }
    ],
@@ -3319,7 +3188,6 @@
      "a": {
       "n": "Jiří Procházka",
       "rec": "32-6-1",
-      "nat": "CZE",
       "wk": "Jiří Procházka"
      },
      "b": {
@@ -3352,7 +3220,7 @@
      "r": 3,
      "a": {
       "n": "Dan Hooker",
-      "rec": "24-15-0",
+      "rec": "24-15-3",
       "nat": "NZL",
       "wk": "Dan Hooker"
      },
@@ -3404,13 +3272,11 @@
      "a": {
       "n": "Aleksandre Topuria",
       "rec": "7-1-0",
-      "nat": "GEO",
+      "nat": "GER",
       "wk": "Aleksandre Topuria"
      },
      "b": {
       "n": "Santiago Luna",
-      "rec": "8-1-0",
-      "nat": "MEX",
       "wk": "Santiago Luna (fighter)"
      }
     },
@@ -3421,7 +3287,6 @@
      "a": {
       "n": "Shamil Gaziev",
       "rec": "15-3-0",
-      "nat": "BHR",
       "wk": "Shamil Gaziev"
      },
      "b": {
@@ -3442,9 +3307,7 @@
       "wk": "Amir Albazi"
      },
      "b": {
-      "n": "Alessandro Costa",
-      "rec": "17-5-0",
-      "nat": "BRA"
+      "n": "Alessandro Costa"
      }
     },
     {
@@ -3453,14 +3316,10 @@
      "r": 3,
      "a": {
       "n": "Jake Matthews",
-      "rec": "23-8-0",
-      "nat": "AUS",
       "wk": "Jake Matthews (fighter)"
      },
      "b": {
-      "n": "Tahir Abdullayev",
-      "rec": "20-3-0",
-      "nat": "AZE"
+      "n": "Tahir Abdullayev"
      }
     }
    ],
@@ -3646,7 +3505,7 @@
      "a": {
       "n": "Israel Adesanya",
       "rec": "24-6-0",
-      "nat": "NGR",
+      "nat": "NZL",
       "wk": "Israel Adesanya"
      },
      "b": {
@@ -3662,7 +3521,7 @@
      "r": 3,
      "a": {
       "n": "Ian Machado Garry",
-      "rec": "17-2-0",
+      "rec": "6-1-0",
       "nat": "IRL",
       "wk": "Ian Machado Garry"
      },
@@ -3685,8 +3544,6 @@
      },
      "b": {
       "n": "Mário Pinto",
-      "rec": "13-0-0",
-      "nat": "POR",
       "wk": "Mario Pinto"
      }
     },
@@ -3695,14 +3552,12 @@
      "w": "WW",
      "r": 3,
      "a": {
-      "n": "Levan Chokheli",
-      "rec": "15-3-0",
-      "nat": "GEO"
+      "n": "Levan Chokheli"
      },
      "b": {
       "n": "Islam Dulatov",
       "rec": "12-1-0",
-      "nat": "GER",
+      "nat": "RUS",
       "wk": "Islam Dulatov"
      }
     },
@@ -3711,9 +3566,7 @@
      "w": "LW",
      "r": 3,
      "a": {
-      "n": "Mairon Santos",
-      "rec": "17-1-0",
-      "nat": "BRA"
+      "n": "Mairon Santos"
      },
      "b": {
       "n": "Akbar Abdullaev",
@@ -3727,13 +3580,11 @@
      "w": "LHW",
      "r": 3,
      "a": {
-      "n": "Magomed Tuchalov",
-      "rec": "6-0-0",
-      "nat": "RUS"
+      "n": "Magomed Tuchalov"
      },
      "b": {
       "n": "Ion Cuțelaba",
-      "rec": "20-12-1",
+      "rec": "20-11-1",
       "nat": "MDA",
       "wk": "Ion Cuțelaba"
      }
@@ -3749,9 +3600,7 @@
       "wk": "Bruno Gustavo da Silva"
      },
      "b": {
-      "n": "Jafel Filho",
-      "rec": "17-5-0",
-      "nat": "BRA"
+      "n": "Jafel Filho"
      }
     },
     {
@@ -3759,9 +3608,7 @@
      "w": "LHW",
      "r": 3,
      "a": {
-      "n": "Uran Satybaldiev",
-      "rec": "10-1-0",
-      "nat": "KGZ"
+      "n": "Uran Satybaldiev"
      },
      "b": {
       "n": "Ivan Gnizditskiy"
@@ -3772,13 +3619,11 @@
      "w": "MW",
      "r": 3,
      "a": {
-      "n": "Marco Tulio",
-      "rec": "14-3-0",
-      "nat": "BRA"
+      "n": "Marco Tulio"
      },
      "b": {
       "n": "Park Jun-yong",
-      "rec": "18-8-0",
+      "rec": "19-7-0",
       "nat": "KOR",
       "wk": "Jun Yong Park"
      }
@@ -3788,14 +3633,10 @@
      "w": "BW",
      "r": 3,
      "a": {
-      "n": "Pavel Andrusca",
-      "rec": "9-0-0",
-      "nat": "MDA"
+      "n": "Pavel Andrusca"
      },
      "b": {
-      "n": "Mehemmedeli Osmanli",
-      "rec": "11-2-0",
-      "nat": "AZE"
+      "n": "Mehemmedeli Osmanli"
      }
     },
     {
@@ -3806,10 +3647,7 @@
       "n": "Modestino Rodrigues"
      },
      "b": {
-      "n": "Matthieu Letho Duclos",
-      "rec": "11-3-0",
-      "nat": "FRA",
-      "fr": 1
+      "n": "Matthieu Letho Duclos"
      }
     },
     {
@@ -3818,14 +3656,10 @@
      "r": 3,
      "a": {
       "n": "Abdul Hussein",
-      "rec": "16-2-0",
-      "nat": "FIN",
       "wk": "Abdul Hussein (fighter)"
      },
      "b": {
-      "n": "Hecher Sosa",
-      "rec": "14-1-0",
-      "nat": "ESP"
+      "n": "Hecher Sosa"
      }
     }
    ],
@@ -3915,8 +3749,6 @@
      },
      "b": {
       "n": "Diego Lopes",
-      "rec": "28-8-0",
-      "nat": "BRA",
       "wk": "Diego Lopes (fighter)"
      },
      "title": "Ceinture BMF"
@@ -3950,8 +3782,6 @@
      },
      "b": {
       "n": "Charles Johnson",
-      "rec": "20-9-0",
-      "nat": "USA",
       "wk": "Charles Johnson (fighter)"
      }
     },
@@ -3964,8 +3794,8 @@
      },
      "b": {
       "n": "Junior Tafa",
-      "rec": "7-6-0",
-      "nat": "AUS",
+      "rec": "7-6-1",
+      "nat": "NZL",
       "wk": "Junior Tafa"
      }
     }
@@ -4231,8 +4061,6 @@
      },
      "b": {
       "n": "Michael Morales",
-      "rec": "19-0-0",
-      "nat": "ECU",
       "wk": "Michael Morales (fighter)"
      }
     }
@@ -4278,7 +4106,7 @@
      },
      "b": {
       "n": "Benoît Saint Denis",
-      "rec": "17-4-0",
+      "rec": "3-4-0",
       "nat": "FRA",
       "fr": 1,
       "wk": "Benoît Saint Denis"
@@ -4296,8 +4124,6 @@
      },
      "b": {
       "n": "Robert Whittaker",
-      "rec": "27-9-0",
-      "nat": "AUS",
       "wk": "Robert Whittaker (fighter)"
      }
     },
@@ -4306,14 +4132,10 @@
      "w": "FW",
      "r": 3,
      "a": {
-      "n": "Marwan Rahiki",
-      "rec": "9-1-0",
-      "nat": "MAR"
+      "n": "Marwan Rahiki"
      },
      "b": {
-      "n": "Yoo Joo-sang",
-      "rec": "9-2-0",
-      "nat": "KOR"
+      "n": "Yoo Joo-sang"
      }
     },
     {
@@ -4321,14 +4143,10 @@
      "w": "FW",
      "r": 3,
      "a": {
-      "n": "Kaan Ofli",
-      "rec": "14-4-1",
-      "nat": "AUS"
+      "n": "Kaan Ofli"
      },
      "b": {
       "n": "Joanderson Brito",
-      "rec": "20-5-1",
-      "nat": "BRA",
       "wk": "Joanderson Brito"
      }
     }
@@ -4376,50 +4194,8 @@
  ],
  "roster": [
   [
-   "Alibi Idiris",
-   "KAZ",
-   "",
-   "mma"
-  ],
-  [
-   "Bassil Hafez",
-   "USA",
-   "",
-   "mma"
-  ],
-  [
-   "Volkan Oezdemir",
-   "SUI",
-   "",
-   "mma"
-  ],
-  [
-   "Jaqueline Amorim",
-   "BRA",
-   "",
-   "mma"
-  ],
-  [
-   "FLW",
-   "",
-   "",
-   "mma"
-  ],
-  [
-   "SW",
-   "Strawweight (MMA)",
-   "",
-   "mma"
-  ],
-  [
    ">115 Ib >52.2 kg",
    "Flyweight (MMA)",
-   "",
-   "mma"
-  ],
-  [
-   "Natália Silva",
-   "",
    "",
    "mma"
   ],
@@ -4427,12 +4203,6 @@
    ">125 Ib >56.7 kg",
    "Bantamweight (MMA)",
    "",
-   "mma"
-  ],
-  [
-   "Kayla Harrison",
-   "USA",
-   "19-1-0",
    "mma"
   ],
   [
@@ -4469,3918 +4239,6 @@
    ">205 Ib >93 kg",
    "Heavyweight (MMA)",
    "",
-   "mma"
-  ],
-  [
-   "Derrick Lewis",
-   "USA",
-   "28-14-0",
-   "mma"
-  ],
-  [
-   "Curtis Blaydes",
-   "USA",
-   "20-6-0",
-   "mma"
-  ],
-  [
-   "Marcin Tybura",
-   "POL",
-   "27-12-0",
-   "mma"
-  ],
-  [
-   "Alexander Volkov",
-   "RUS",
-   "41-11-0",
-   "mma"
-  ],
-  [
-   "Tai Tuivasa",
-   "AUS",
-   "14-11-0",
-   "mma"
-  ],
-  [
-   "Aleksandar Rakić",
-   "AUT",
-   "15-6-0",
-   "mma"
-  ],
-  [
-   "Ryan Spann",
-   "USA",
-   "24-12-0",
-   "mma"
-  ],
-  [
-   "Johnny Walker",
-   "BRA",
-   "24-10-0",
-   "mma"
-  ],
-  [
-   "Sergei Pavlovich",
-   "RUS",
-   "21-3-0",
-   "mma"
-  ],
-  [
-   "Kennedy Nzechukwu",
-   "NGR",
-   "14-7-1",
-   "mma"
-  ],
-  [
-   "Serghei Spivac",
-   "MDA",
-   "18-7-0",
-   "mma"
-  ],
-  [
-   "Ciryl Gane",
-   "FRA",
-   "13-2-0",
-   "mma"
-  ],
-  [
-   "Tanner Boser",
-   "CAN",
-   "23-11-1",
-   "mma"
-  ],
-  [
-   "Tom Aspinall",
-   "GBR",
-   "15-3-0",
-   "mma"
-  ],
-  [
-   "Alex Pereira",
-   "BRA",
-   "13-4-0",
-   "mma"
-  ],
-  [
-   "Waldo Cortes-Acosta",
-   "DOM",
-   "17-5-0",
-   "mma"
-  ],
-  [
-   "Vitor Petrino",
-   "BRA",
-   "15-2-0",
-   "mma"
-  ],
-  [
-   "Mick Parkin",
-   "GBR",
-   "10-2-0",
-   "mma"
-  ],
-  [
-   "Shamil Gaziev",
-   "BHR",
-   "15-3-0",
-   "mma"
-  ],
-  [
-   "Thomas Petersen",
-   "USA",
-   "12-5-0",
-   "mma"
-  ],
-  [
-   "Robelis Despaigne",
-   "CUB",
-   "7-2-0",
-   "mma"
-  ],
-  [
-   "Valter Walker",
-   "BRA",
-   "16-1-0",
-   "mma"
-  ],
-  [
-   "Jhonata Diniz",
-   "BRA",
-   "9-3-0",
-   "mma"
-  ],
-  [
-   "Sean Sharaf",
-   "USA",
-   "5-2-0",
-   "mma"
-  ],
-  [
-   "Tallison Teixeira",
-   "BRA",
-   "9-2-0",
-   "mma"
-  ],
-  [
-   "Mário Pinto",
-   "POR",
-   "13-0-0",
-   "mma"
-  ],
-  [
-   "Rizvan Kuniev",
-   "RUS",
-   "14-4-1",
-   "mma"
-  ],
-  [
-   "Alvin Hines",
-   "USA",
-   "7-2-0",
-   "mma"
-  ],
-  [
-   "Marcus Buchecha",
-   "BRA",
-   "5-3-1",
-   "mma"
-  ],
-  [
-   "Ante Delija",
-   "CRO",
-   "26-8-0",
-   "mma"
-  ],
-  [
-   "Brando Peričić",
-   "AUS",
-   "7-1-0",
-   "mma"
-  ],
-  [
-   "Elisha Ellison",
-   "USA",
-   "5-3-0",
-   "mma"
-  ],
-  [
-   "Louie Sutherland",
-   "GBR",
-   "11-6-0",
-   "mma"
-  ],
-  [
-   "Josh Hokit",
-   "USA",
-   "10-0-0",
-   "mma"
-  ],
-  [
-   "Max Gimenis",
-   "BRA",
-   "6-2-0",
-   "mma"
-  ],
-  [
-   "Denzel Freeman",
-   "USA",
-   "7-2-0",
-   "mma"
-  ],
-  [
-   "Guilherme Pat",
-   "BRA",
-   "6-2-0",
-   "mma"
-  ],
-  [
-   "Allen Frye Jr.",
-   "USA",
-   "7-1-0",
-   "mma"
-  ],
-  [
-   "Steven Asplund",
-   "USA",
-   "7-2-0",
-   "mma"
-  ],
-  [
-   "Tyrell Fortune",
-   "USA",
-   "18-4-0",
-   "mma"
-  ],
-  [
-   "Gökhan Saricam",
-   "TUR",
-   "12-2-0",
-   "mma"
-  ],
-  [
-   "Gable Steveson",
-   "USA",
-   "4-1-0",
-   "mma"
-  ],
-  [
-   "RJ Harris",
-   "USA",
-   "6-1-0",
-   "mma"
-  ],
-  [
-   "Jovan Leka",
-   "SRB",
-   "14-2-0",
-   "mma"
-  ],
-  [
-   "Alexander Poppeck",
-   "GER",
-   "21-6-0",
-   "mma"
-  ],
-  [
-   "José Luiz",
-   "BRA",
-   "7-1-0",
-   "mma"
-  ],
-  [
-   "Anthony Wint",
-   "USA",
-   "9-0-0",
-   "mma"
-  ],
-  [
-   "Terrance Chatman",
-   "USA",
-   "5-2-0",
-   "mma"
-  ],
-  [
-   "Lucas Armand",
-   "USA",
-   "6-1-0",
-   "mma"
-  ],
-  [
-   "Javad Mahjoub",
-   "IRI",
-   "5-1-0",
-   "mma"
-  ],
-  [
-   "Joel Faglier",
-   "USA",
-   "7-0-0",
-   "mma"
-  ],
-  [
-   "Gabriel Lorenço",
-   "BRA",
-   "8-2-0",
-   "mma"
-  ],
-  [
-   "Dustin Jacoby",
-   "USA",
-   "22-9-1",
-   "mma"
-  ],
-  [
-   "Robert Whittaker",
-   "AUS",
-   "27-9-0",
-   "mma"
-  ],
-  [
-   "Nikita Krylov",
-   "RUS",
-   "31-13-0",
-   "mma"
-  ],
-  [
-   "Jan Błachowicz",
-   "POL",
-   "29-12-2",
-   "mma"
-  ],
-  [
-   "Ion Cuțelaba",
-   "MDA",
-   "20-12-1",
-   "mma"
-  ],
-  [
-   "Khalil Rountree Jr.",
-   "USA",
-   "14-7-0",
-   "mma"
-  ],
-  [
-   "Paulo Costa",
-   "BRA",
-   "16-4-0",
-   "mma"
-  ],
-  [
-   "Dominick Reyes",
-   "USA",
-   "17-5-0",
-   "mma"
-  ],
-  [
-   "Magomed Ankalaev",
-   "RUS",
-   "22-2-1",
-   "mma"
-  ],
-  [
-   "Jimmy Crute",
-   "AUS",
-   "14-4-2",
-   "mma"
-  ],
-  [
-   "Alonzo Menifield",
-   "USA",
-   "19-6-1",
-   "mma"
-  ],
-  [
-   "Jamahal Hill",
-   "USA",
-   "13-3-0",
-   "mma"
-  ],
-  [
-   "Jiří Procházka",
-   "CZE",
-   "32-6-1",
-   "mma"
-  ],
-  [
-   "Modestas Bukauskas",
-   "LTU",
-   "21-7-0",
-   "mma"
-  ],
-  [
-   "Roman Dolidze",
-   "GEO",
-   "15-6-0",
-   "mma"
-  ],
-  [
-   "Carlos Ulberg",
-   "NZL",
-   "14-1-0",
-   "mma"
-  ],
-  [
-   "Azamat Murzakanov",
-   "RUS",
-   "16-2-0",
-   "mma"
-  ],
-  [
-   "Sedriques Dumas",
-   "USA",
-   "10-6-0",
-   "mma"
-  ],
-  [
-   "Junior Tafa",
-   "AUS",
-   "7-6-0",
-   "mma"
-  ],
-  [
-   "Bogdan Guskov",
-   "UZB",
-   "18-4-1",
-   "mma"
-  ],
-  [
-   "Rodolfo Bellato",
-   "BRA",
-   "13-4-1",
-   "mma"
-  ],
-  [
-   "Zhang Mingyang",
-   "CHN",
-   "19-8-0",
-   "mma"
-  ],
-  [
-   "Brendson Ribeiro",
-   "BRA",
-   "18-11-0",
-   "mma"
-  ],
-  [
-   "İbo Aslan",
-   "TUR",
-   "14-4-0",
-   "mma"
-  ],
-  [
-   "Oumar Sy",
-   "FRA",
-   "12-3-0",
-   "mma"
-  ],
-  [
-   "Reinier de Ridder",
-   "NED",
-   "22-4-0",
-   "mma"
-  ],
-  [
-   "Navajo Stirling",
-   "NZL",
-   "11-0-0",
-   "mma"
-  ],
-  [
-   "Billy Elekana",
-   "USA",
-   "10-3-0",
-   "mma"
-  ],
-  [
-   "Julius Walker",
-   "USA",
-   "8-3-0",
-   "mma"
-  ],
-  [
-   "Diyar Nurgozhay",
-   "KAZ",
-   "12-2-0",
-   "mma"
-  ],
-  [
-   "Uran Satybaldiev",
-   "KGZ",
-   "10-1-0",
-   "mma"
-  ],
-  [
-   "Kevin Christian",
-   "BRA",
-   "9-4-0",
-   "mma"
-  ],
-  [
-   "Abdul-Rakhman Yakhyaev",
-   "TUR",
-   "11-0-0",
-   "mma"
-  ],
-  [
-   "Iwo Baraniewski",
-   "POL",
-   "9-1-0",
-   "mma"
-  ],
-  [
-   "Luke Fernandez",
-   "USA",
-   "6-1-0",
-   "mma"
-  ],
-  [
-   "Rafael Tobias",
-   "BRA",
-   "14-3-0",
-   "mma"
-  ],
-  [
-   "Felipe Franco",
-   "BRA",
-   "11-3-0",
-   "mma"
-  ],
-  [
-   "Christian Edwards",
-   "USA",
-   "9-5-0",
-   "mma"
-  ],
-  [
-   "Levi Rodrigues Jr.",
-   "BRA",
-   "5-2-0",
-   "mma"
-  ],
-  [
-   "Magomed Tuchalov",
-   "RUS",
-   "6-0-0",
-   "mma"
-  ],
-  [
-   "Muhammad Saidov",
-   "RUS",
-   "10-0-0",
-   "mma"
-  ],
-  [
-   "Lucas Fernando",
-   "BRA",
-   "15-3-0",
-   "mma"
-  ],
-  [
-   "Liu Ce",
-   "CHN",
-   "4-1-0",
-   "mma"
-  ],
-  [
-   "Luis Hernandez",
-   "USA",
-   "9-0-0",
-   "mma"
-  ],
-  [
-   "Brad Tavares",
-   "USA",
-   "21-12-0",
-   "mma"
-  ],
-  [
-   "Kelvin Gastelum",
-   "USA",
-   "20-11-0",
-   "mma"
-  ],
-  [
-   "Sean Strickland",
-   "USA",
-   "31-7-0",
-   "mma"
-  ],
-  [
-   "Jared Cannonier",
-   "USA",
-   "18-10-0",
-   "mma"
-  ],
-  [
-   "Vicente Luque",
-   "BRA",
-   "24-13-1",
-   "mma"
-  ],
-  [
-   "Kamaru Usman",
-   "NGR",
-   "21-5-0",
-   "mma"
-  ],
-  [
-   "Mickey Gall",
-   "USA",
-   "7-8-0",
-   "mma"
-  ],
-  [
-   "Marvin Vettori",
-   "ITA",
-   "19-11-1",
-   "mma"
-  ],
-  [
-   "Michał Oleksiejczuk",
-   "POL",
-   "22-10-0",
-   "mma"
-  ],
-  [
-   "Israel Adesanya",
-   "NGR",
-   "24-6-0",
-   "mma"
-  ],
-  [
-   "Edmen Shahbazyan",
-   "USA",
-   "17-6-0",
-   "mma"
-  ],
-  [
-   "Anthony Hernandez",
-   "USA",
-   "15-4-0",
-   "mma"
-  ],
-  [
-   "Ismail Naurdiev",
-   "AUT",
-   "26-8-0",
-   "mma"
-  ],
-  [
-   "Marc-André Barriault",
-   "CAN",
-   "18-10-0",
-   "mma"
-  ],
-  [
-   "Rodolfo Vieira",
-   "BRA",
-   "12-5-0",
-   "mma"
-  ],
-  [
-   "Park Jun-yong",
-   "KOR",
-   "18-8-0",
-   "mma"
-  ],
-  [
-   "Brendan Allen",
-   "USA",
-   "28-7-0",
-   "mma"
-  ],
-  [
-   "Roman Kopylov",
-   "RUS",
-   "16-5-0",
-   "mma"
-  ],
-  [
-   "Kyle Daukaus",
-   "USA",
-   "17-6-0",
-   "mma"
-  ],
-  [
-   "Khamzat Chimaev",
-   "UAE",
-   "15-1-0",
-   "mma"
-  ],
-  [
-   "Nassourdine Imavov",
-   "FRA",
-   "17-4-0",
-   "mma"
-  ],
-  [
-   "Duško Todorović",
-   "SRB",
-   "13-7-0",
-   "mma"
-  ],
-  [
-   "Dricus du Plessis",
-   "RSA",
-   "24-3-0",
-   "mma"
-  ],
-  [
-   "Gilbert Urbina",
-   "USA",
-   "8-4-0",
-   "mma"
-  ],
-  [
-   "Cody Brundage",
-   "USA",
-   "12-9-1",
-   "mma"
-  ],
-  [
-   "Jacob Malkoun",
-   "AUS",
-   "10-4-0",
-   "mma"
-  ],
-  [
-   "Dustin Stoltzfus",
-   "USA",
-   "17-8-0",
-   "mma"
-  ],
-  [
-   "Gregory Rodrigues",
-   "BRA",
-   "20-6-0",
-   "mma"
-  ],
-  [
-   "Andre Petroski",
-   "USA",
-   "14-6-0",
-   "mma"
-  ],
-  [
-   "Tresean Gore",
-   "USA",
-   "7-4-0",
-   "mma"
-  ],
-  [
-   "Caio Borralho",
-   "BRA",
-   "18-2-0",
-   "mma"
-  ],
-  [
-   "Abusupiyan Magomedov",
-   "GER",
-   "30-7-1",
-   "mma"
-  ],
-  [
-   "Joe Pyfer",
-   "USA",
-   "16-3-0",
-   "mma"
-  ],
-  [
-   "Brunno Ferreira",
-   "BRA",
-   "15-5-0",
-   "mma"
-  ],
-  [
-   "Bo Nickal",
-   "USA",
-   "9-1-0",
-   "mma"
-  ],
-  [
-   "Christian Leroy Duncan",
-   "GBR",
-   "15-3-0",
-   "mma"
-  ],
-  [
-   "Ikram Aliskerov",
-   "RUS",
-   "18-2-0",
-   "mma"
-  ],
-  [
-   "Nursulton Ruziboev",
-   "UZB",
-   "37-10-2",
-   "mma"
-  ],
-  [
-   "Sharabutdin Magomedov",
-   "RUS",
-   "17-1-0",
-   "mma"
-  ],
-  [
-   "Zachary Reese",
-   "USA",
-   "11-4-0",
-   "mma"
-  ],
-  [
-   "Robert Bryczek",
-   "POL",
-   "18-7-0",
-   "mma"
-  ],
-  [
-   "César Almeida",
-   "BRA",
-   "7-3-0",
-   "mma"
-  ],
-  [
-   "Robert Valentin",
-   "SUI",
-   "12-6-0",
-   "mma"
-  ],
-  [
-   "Ryan Loder",
-   "USA",
-   "7-3-0",
-   "mma"
-  ],
-  [
-   "Mansur Abdul-Malik",
-   "USA",
-   "10-2-1",
-   "mma"
-  ],
-  [
-   "Osman Diaz",
-   "USA",
-   "10-5-0",
-   "mma"
-  ],
-  [
-   "Marco Tulio",
-   "BRA",
-   "14-3-0",
-   "mma"
-  ],
-  [
-   "Azamat Bekoev",
-   "RUS",
-   "20-5-0",
-   "mma"
-  ],
-  [
-   "Eric McConico",
-   "USA",
-   "11-5-1",
-   "mma"
-  ],
-  [
-   "Nick Klein",
-   "USA",
-   "6-4-0",
-   "mma"
-  ],
-  [
-   "Djorden Santos",
-   "BRA",
-   "11-4-0",
-   "mma"
-  ],
-  [
-   "Andrey Pulyaev",
-   "RUS",
-   "10-6-0",
-   "mma"
-  ],
-  [
-   "Ateba Gautier",
-   "CMR",
-   "11-2-0",
-   "mma"
-  ],
-  [
-   "Torrez Finney",
-   "USA",
-   "11-1-0",
-   "mma"
-  ],
-  [
-   "Jackson McVey",
-   "USA",
-   "8-2-0",
-   "mma"
-  ],
-  [
-   "Baisangur Susurkaev",
-   "RUS",
-   "12-0-0",
-   "mma"
-  ],
-  [
-   "Cameron Rowston",
-   "AUS",
-   "15-4-0",
-   "mma"
-  ],
-  [
-   "Tre'ston Vines",
-   "USA",
-   "10-4-1",
-   "mma"
-  ],
-  [
-   "Yousri Belgaroui",
-   "NED",
-   "11-3-0",
-   "mma"
-  ],
-  [
-   "Donte Johnson",
-   "USA",
-   "9-0-0",
-   "mma"
-  ],
-  [
-   "Cezary Oleksiejczuk",
-   "POL",
-   "17-3-0",
-   "mma"
-  ],
-  [
-   "Damian Pinas",
-   "ARU",
-   "11-1-0",
-   "mma"
-  ],
-  [
-   "Wesley Schultz",
-   "USA",
-   "9-4-0",
-   "mma"
-  ],
-  [
-   "Ryan Gandra",
-   "BRA",
-   "11-1-0",
-   "mma"
-  ],
-  [
-   "Mantas Kondratavičius",
-   "LTU",
-   "9-2-0",
-   "mma"
-  ],
-  [
-   "Julien Leblanc",
-   "CAN",
-   "10-4-0",
-   "mma"
-  ],
-  [
-   "Ben Johnston",
-   "AUS",
-   "5-2-0",
-   "mma"
-  ],
-  [
-   "Lee Yi-sak",
-   "KOR",
-   "8-2-0",
-   "mma"
-  ],
-  [
-   "Luis Felipe Dias",
-   "BRA",
-   "18-6-0",
-   "mma"
-  ],
-  [
-   "Abubakar Vagaev",
-   "RUS",
-   "26-4-0",
-   "mma"
-  ],
-  [
-   "Vlasto Čepo",
-   "SRB",
-   "14-4-0",
-   "mma"
-  ],
-  [
-   "Yilizhati Maimaitijiang",
-   "CHN",
-   "7-1-1",
-   "mma"
-  ],
-  [
-   "Matthieu Letho Duclos",
-   "FRA",
-   "11-3-0",
-   "mma"
-  ],
-  [
-   "Nick Galanti",
-   "USA",
-   "10-1-0",
-   "mma"
-  ],
-  [
-   "Joseph Kropschot",
-   "USA",
-   "10-3-0",
-   "mma"
-  ],
-  [
-   "Stephen Thompson",
-   "USA",
-   "17-9-1",
-   "mma"
-  ],
-  [
-   "Max Holloway",
-   "USA",
-   "28-9-0",
-   "mma"
-  ],
-  [
-   "Tim Means",
-   "USA",
-   "33-17-1",
-   "mma"
-  ],
-  [
-   "Gunnar Nelson",
-   "Iceland",
-   "19-6-1",
-   "mma"
-  ],
-  [
-   "Neil Magny",
-   "USA",
-   "32-14-0",
-   "mma"
-  ],
-  [
-   "Conor McGregor",
-   "IRL",
-   "22-7-0",
-   "mma"
-  ],
-  [
-   "Santiago Ponzinibbio",
-   "ARG",
-   "30-10-0",
-   "mma"
-  ],
-  [
-   "Jake Matthews",
-   "AUS",
-   "23-8-0",
-   "mma"
-  ],
-  [
-   "Leon Edwards",
-   "GBR",
-   "22-6-0",
-   "mma"
-  ],
-  [
-   "Islam Makhachev",
-   "RUS",
-   "29-1-0",
-   "mma"
-  ],
-  [
-   "Nicolas Dalby",
-   "DEN",
-   "24-6-1",
-   "mma"
-  ],
-  [
-   "Randy Brown",
-   "JAM",
-   "20-9-0",
-   "mma"
-  ],
-  [
-   "Belal Muhammad",
-   "USA",
-   "24-5-0",
-   "mma"
-  ],
-  [
-   "Jack Hermansson",
-   "NOR",
-   "24-10-0",
-   "mma"
-  ],
-  [
-   "Song Kenan",
-   "CHN",
-   "22-9-0",
-   "mma"
-  ],
-  [
-   "Muslim Salikhov",
-   "RUS",
-   "22-7-0",
-   "mma"
-  ],
-  [
-   "Geoff Neal",
-   "USA",
-   "16-8-0",
-   "mma"
-  ],
-  [
-   "Kevin Holland",
-   "USA",
-   "29-15-0",
-   "mma"
-  ],
-  [
-   "Joel Álvarez",
-   "ESP",
-   "23-5-0",
-   "mma"
-  ],
-  [
-   "Wellington Turman",
-   "BRA",
-   "18-9-0",
-   "mma"
-  ],
-  [
-   "Sean Brady",
-   "USA",
-   "19-2-0",
-   "mma"
-  ],
-  [
-   "Punahele Soriano",
-   "USA",
-   "13-5-0",
-   "mma"
-  ],
-  [
-   "Khaos Williams",
-   "USA",
-   "16-6-0",
-   "mma"
-  ],
-  [
-   "Joaquin Buckley",
-   "USA",
-   "21-9-0",
-   "mma"
-  ],
-  [
-   "Daniel Rodriguez",
-   "USA",
-   "20-6-0",
-   "mma"
-  ],
-  [
-   "Shavkat Rakhmonov",
-   "KAZ",
-   "19-0-0",
-   "mma"
-  ],
-  [
-   "Ramiz Brahimaj",
-   "USA",
-   "13-7-0",
-   "mma"
-  ],
-  [
-   "Uroš Medić",
-   "SRB",
-   "14-3-0",
-   "mma"
-  ],
-  [
-   "Ignacio Bahamondes",
-   "CHI",
-   "18-7-0",
-   "mma"
-  ],
-  [
-   "Jeremiah Wells",
-   "USA",
-   "14-4-1",
-   "mma"
-  ],
-  [
-   "Chris Curtis",
-   "USA",
-   "32-13-0",
-   "mma"
-  ],
-  [
-   "Ian Machado Garry",
-   "IRL",
-   "17-2-0",
-   "mma"
-  ],
-  [
-   "Jack Della Maddalena",
-   "AUS",
-   "18-4-0",
-   "mma"
-  ],
-  [
-   "Michael Morales",
-   "ECU",
-   "19-0-0",
-   "mma"
-  ],
-  [
-   "Chidi Njokuani",
-   "USA",
-   "26-12-0",
-   "mma"
-  ],
-  [
-   "Mike Malott",
-   "CAN",
-   "15-2-1",
-   "mma"
-  ],
-  [
-   "Gabriel Bonfim",
-   "BRA",
-   "19-1-0",
-   "mma"
-  ],
-  [
-   "Sam Patterson",
-   "GBR",
-   "15-3-1",
-   "mma"
-  ],
-  [
-   "Jonny Parsons",
-   "USA",
-   "9-4-0",
-   "mma"
-  ],
-  [
-   "Billy Ray Goff",
-   "USA",
-   "9-5-0",
-   "mma"
-  ],
-  [
-   "Charles Radtke",
-   "USA",
-   "12-5-0",
-   "mma"
-  ],
-  [
-   "Myktybek Orolbai",
-   "KGZ",
-   "16-3-1",
-   "mma"
-  ],
-  [
-   "Carlos Prates",
-   "BRA",
-   "24-7-0",
-   "mma"
-  ],
-  [
-   "Oban Elliott",
-   "GBR",
-   "12-5-0",
-   "mma"
-  ],
-  [
-   "Nikolay Veretennikov",
-   "KAZ",
-   "14-8-0",
-   "mma"
-  ],
-  [
-   "Carlos Leal",
-   "BRA",
-   "23-7-0",
-   "mma"
-  ],
-  [
-   "Jacobe Smith",
-   "USA",
-   "14-0-0",
-   "mma"
-  ],
-  [
-   "Jonathan Micallef",
-   "AUS",
-   "10-1-0",
-   "mma"
-  ],
-  [
-   "Austin Vanderford",
-   "USA",
-   "13-3-0",
-   "mma"
-  ],
-  [
-   "Ko Seok-hyeon",
-   "KOR",
-   "14-3-0",
-   "mma"
-  ],
-  [
-   "Islam Dulatov",
-   "GER",
-   "12-1-0",
-   "mma"
-  ],
-  [
-   "Eric Nolan",
-   "USA",
-   "9-5-0",
-   "mma"
-  ],
-  [
-   "Taiyilake Nueraji",
-   "CHN",
-   "12-1-0",
-   "mma"
-  ],
-  [
-   "Rodrigo Sezinando",
-   "BRA",
-   "9-2-0",
-   "mma"
-  ],
-  [
-   "Daniil Donchenko",
-   "UKR",
-   "15-2-0",
-   "mma"
-  ],
-  [
-   "Yaroslav Amosov",
-   "UKR",
-   "30-1-0",
-   "mma"
-  ],
-  [
-   "Ty Miller",
-   "USA",
-   "8-0-0",
-   "mma"
-  ],
-  [
-   "Jean-Paul Lebosnoyani",
-   "USA",
-   "12-2-0",
-   "mma"
-  ],
-  [
-   "Victor Valenzuela",
-   "CHI",
-   "14-4-0",
-   "mma"
-  ],
-  [
-   "Ding Meng",
-   "CHN",
-   "35-11-0",
-   "mma"
-  ],
-  [
-   "José Henrique Souza",
-   "BRA",
-   "10-1-0",
-   "mma"
-  ],
-  [
-   "Leon Shahbazyan",
-   "USA",
-   "12-6-0",
-   "mma"
-  ],
-  [
-   "Levan Chokheli",
-   "GEO",
-   "15-3-0",
-   "mma"
-  ],
-  [
-   "Tahir Abdullayev",
-   "AZE",
-   "20-3-0",
-   "mma"
-  ],
-  [
-   "Jefferson Nascimento",
-   "BRA",
-   "13-1-0",
-   "mma"
-  ],
-  [
-   "Theodor Berggren",
-   "SWE",
-   "8-5-0",
-   "mma"
-  ],
-  [
-   "Farman Hasanov",
-   "AZE",
-   "5-1-0",
-   "mma"
-  ],
-  [
-   "Michael Oliveira",
-   "BRA",
-   "10-0-0",
-   "mma"
-  ],
-  [
-   "Cameron Nelson",
-   "CAN",
-   "8-1-0",
-   "mma"
-  ],
-  [
-   "Bruce Whitehead",
-   "USA",
-   "8-3-0",
-   "mma"
-  ],
-  [
-   "Roberto Soldić",
-   "CRO",
-   "22-4-0",
-   "mma"
-  ],
-  [
-   "Jeremy Stephens",
-   "USA",
-   "29-23-0",
-   "mma"
-  ],
-  [
-   "Rafael dos Anjos",
-   "BRA",
-   "32-18-0",
-   "mma"
-  ],
-  [
-   "Jim Miller",
-   "USA",
-   "39-19-0",
-   "mma"
-  ],
-  [
-   "Charles Oliveira",
-   "BRA",
-   "37-11-0",
-   "mma"
-  ],
-  [
-   "Michael Johnson",
-   "USA",
-   "24-20-0",
-   "mma"
-  ],
-  [
-   "King Green *",
-   "USA",
-   "36-18-1",
-   "mma"
-  ],
-  [
-   "Drew Dober",
-   "USA",
-   "29-15-0",
-   "mma"
-  ],
-  [
-   "Beneil Dariush",
-   "USA",
-   "23-8-1",
-   "mma"
-  ],
-  [
-   "Dan Hooker",
-   "NZL",
-   "24-15-0",
-   "mma"
-  ],
-  [
-   "Carlos Diego Ferreira",
-   "BRA",
-   "20-7-0",
-   "mma"
-  ],
-  [
-   "Renato Moicano",
-   "BRA",
-   "21-8-1",
-   "mma"
-  ],
-  [
-   "Joaquim Silva",
-   "BRA",
-   "14-5-0",
-   "mma"
-  ],
-  [
-   "Damir Hadžović",
-   "DEN",
-   "14-8-0",
-   "mma"
-  ],
-  [
-   "Claudio Puelles",
-   "PER",
-   "12-5-0",
-   "mma"
-  ],
-  [
-   "Drakkar Klose",
-   "USA",
-   "16-4-1",
-   "mma"
-  ],
-  [
-   "Jared Gordon",
-   "USA",
-   "21-9-0",
-   "mma"
-  ],
-  [
-   "Justin Gaethje",
-   "USA",
-   "28-5-0",
-   "mma"
-  ],
-  [
-   "Nasrat Haqparast",
-   "MAR",
-   "18-7-0",
-   "mma"
-  ],
-  [
-   "Matt Frevola",
-   "USA",
-   "11-6-1",
-   "mma"
-  ],
-  [
-   "Alexander Hernandez",
-   "USA",
-   "19-9-0",
-   "mma"
-  ],
-  [
-   "Jalin Turner",
-   "USA",
-   "16-9-0",
-   "mma"
-  ],
-  [
-   "Sodiq Yusuff",
-   "NGR",
-   "13-5-0",
-   "mma"
-  ],
-  [
-   "Kyle Nelson",
-   "CAN",
-   "17-8-1",
-   "mma"
-  ],
-  [
-   "Grant Dawson",
-   "USA",
-   "25-3-1",
-   "mma"
-  ],
-  [
-   "Rafael Fiziev",
-   "AZE",
-   "14-5-0",
-   "mma"
-  ],
-  [
-   "Arman Tsarukyan",
-   "ARM",
-   "24-3-0",
-   "mma"
-  ],
-  [
-   "Mike Davis",
-   "USA",
-   "12-4-0",
-   "mma"
-  ],
-  [
-   "Kyle Prepolec",
-   "CAN",
-   "18-11-0",
-   "mma"
-  ],
-  [
-   "Farès Ziam",
-   "FRA",
-   "18-6-0",
-   "mma"
-  ],
-  [
-   "Ottman Azaitar",
-   "GER",
-   "13-3-0",
-   "mma"
-  ],
-  [
-   "Billy Quarantillo",
-   "USA",
-   "18-8-0",
-   "mma"
-  ],
-  [
-   "Chase Hooper",
-   "USA",
-   "17-5-1",
-   "mma"
-  ],
-  [
-   "Nate Landwehr",
-   "USA",
-   "18-9-0",
-   "mma"
-  ],
-  [
-   "Gabriel Green",
-   "USA",
-   "12-5-0",
-   "mma"
-  ],
-  [
-   "Jai Herbert",
-   "GBR",
-   "15-6-1",
-   "mma"
-  ],
-  [
-   "Ľudovít Klein",
-   "SVK",
-   "24-6-1",
-   "mma"
-  ],
-  [
-   "Ilia Topuria",
-   "GEO",
-   "17-1-0",
-   "mma"
-  ],
-  [
-   "Mateusz Gamrot",
-   "POL",
-   "26-5-0",
-   "mma"
-  ],
-  [
-   "Mason Jones",
-   "GBR",
-   "18-3-0",
-   "mma"
-  ],
-  [
-   "Michael Chandler",
-   "USA",
-   "23-11-0",
-   "mma"
-  ],
-  [
-   "Rafa García",
-   "MEX",
-   "18-5-0",
-   "mma"
-  ],
-  [
-   "Rong Zhu",
-   "CHN",
-   "29-6-0",
-   "mma"
-  ],
-  [
-   "Terrance McKinney",
-   "USA",
-   "18-9-0",
-   "mma"
-  ],
-  [
-   "Paddy Pimblett",
-   "GBR",
-   "24-4-0",
-   "mma"
-  ],
-  [
-   "Benoît Saint Denis",
-   "FRA",
-   "17-4-0",
-   "mma"
-  ],
-  [
-   "Nikolas Motta",
-   "BRA",
-   "15-6-0",
-   "mma"
-  ],
-  [
-   "Trey Ogden",
-   "USA",
-   "17-7-0",
-   "mma"
-  ],
-  [
-   "Evan Elder",
-   "USA",
-   "10-2-0",
-   "mma"
-  ],
-  [
-   "Manuel Torres",
-   "MEX",
-   "17-4-0",
-   "mma"
-  ],
-  [
-   "Maheshate Hayisaer",
-   "CHN",
-   "12-5-0",
-   "mma"
-  ],
-  [
-   "Daniel Zellhuber",
-   "MEX",
-   "15-4-0",
-   "mma"
-  ],
-  [
-   "Mateusz Rębecki",
-   "POL",
-   "21-5-0",
-   "mma"
-  ],
-  [
-   "Anshul Jubli",
-   "India",
-   "7-2-0",
-   "mma"
-  ],
-  [
-   "Elves Brener",
-   "BRA",
-   "17-6-0",
-   "mma"
-  ],
-  [
-   "Francisco Prado",
-   "ARG",
-   "13-5-0",
-   "mma"
-  ],
-  [
-   "Nazim Sadykhov",
-   "AZE",
-   "11-3-1",
-   "mma"
-  ],
-  [
-   "Nurullo Aliev",
-   "TJK",
-   "11-1-0",
-   "mma"
-  ],
-  [
-   "Esteban Ribovics",
-   "ARG",
-   "17-3-0",
-   "mma"
-  ],
-  [
-   "Chris Duncan",
-   "GBR",
-   "15-2-0",
-   "mma"
-  ],
-  [
-   "Darrius Flowers",
-   "USA",
-   "13-9-1",
-   "mma"
-  ],
-  [
-   "Charlie Campbell",
-   "USA",
-   "9-3-0",
-   "mma"
-  ],
-  [
-   "Kauê Fernandes",
-   "BRA",
-   "11-3-0",
-   "mma"
-  ],
-  [
-   "Tom Nolan",
-   "AUS",
-   "12-1-0",
-   "mma"
-  ],
-  [
-   "MarQuel Mederos",
-   "USA",
-   "12-1-1",
-   "mma"
-  ],
-  [
-   "Abdul-Kareem Al-Selwady",
-   "Palestine",
-   "16-4-0",
-   "mma"
-  ],
-  [
-   "Mitch Ramirez",
-   "USA",
-   "8-4-0",
-   "mma"
-  ],
-  [
-   "Chris Padilla",
-   "USA",
-   "18-6-1",
-   "mma"
-  ],
-  [
-   "Maurício Ruffy",
-   "BRA",
-   "14-3-0",
-   "mma"
-  ],
-  [
-   "Quillan Salkilld",
-   "AUS",
-   "13-1-0",
-   "mma"
-  ],
-  [
-   "Kody Steele",
-   "USA",
-   "9-1-0",
-   "mma"
-  ],
-  [
-   "Gauge Young",
-   "USA",
-   "13-4-0",
-   "mma"
-  ],
-  [
-   "Matheus Camilo",
-   "BRA",
-   "10-4-0",
-   "mma"
-  ],
-  [
-   "Mark Choinski",
-   "USA",
-   "7-1-0",
-   "mma"
-  ],
-  [
-   "Tofiq Musayev",
-   "AZE",
-   "24-6-0",
-   "mma"
-  ],
-  [
-   "Axel Sola",
-   "FRA",
-   "13-1-1",
-   "mma"
-  ],
-  [
-   "Lance Gibson Jr.",
-   "CAN",
-   "10-2-0",
-   "mma"
-  ],
-  [
-   "Dom Mar Fan",
-   "AUS",
-   "9-3-0",
-   "mma"
-  ],
-  [
-   "Josiah Harrell",
-   "USA",
-   "11-2-0",
-   "mma"
-  ],
-  [
-   "Manoel Sousa",
-   "BRA",
-   "15-1-0",
-   "mma"
-  ],
-  [
-   "Mandel Nallo",
-   "CAN",
-   "15-4-0",
-   "mma"
-  ],
-  [
-   "Lucas Brennan",
-   "USA",
-   "11-3-0",
-   "mma"
-  ],
-  [
-   "Thomas Gantt",
-   "USA",
-   "13-0-0",
-   "mma"
-  ],
-  [
-   "Artur Minev",
-   "UKR",
-   "7-1-0",
-   "mma"
-  ],
-  [
-   "Magomed Zaynukov",
-   "RUS",
-   "8-0-0",
-   "mma"
-  ],
-  [
-   "Damian Rzepecki",
-   "POL",
-   "10-1-0",
-   "mma"
-  ],
-  [
-   "Miloš Janičić",
-   "Montenegro",
-   "19-4-0",
-   "mma"
-  ],
-  [
-   "Noah Gugnon",
-   "FRA",
-   "10-3-0",
-   "mma"
-  ],
-  [
-   "Richie Miranda",
-   "USA",
-   "13-2-0",
-   "mma"
-  ],
-  [
-   "Stanley Dorsainvil",
-   "USA",
-   "6-0-0",
-   "mma"
-  ],
-  [
-   "Salahdine Parnasse",
-   "FRA",
-   "24-2-0",
-   "mma"
-  ],
-  [
-   "Cristian Pérez",
-   "MEX",
-   "16-2-0",
-   "mma"
-  ],
-  [
-   "Samuel Sanches",
-   "BRA",
-   "11-1-0",
-   "mma"
-  ],
-  [
-   "Andre Fili",
-   "USA",
-   "26-14-0",
-   "mma"
-  ],
-  [
-   "Douglas Silva de Andrade",
-   "BRA",
-   "29-7-0",
-   "mma"
-  ],
-  [
-   "Aljamain Sterling",
-   "USA",
-   "26-5-0",
-   "mma"
-  ],
-  [
-   "Brian Ortega",
-   "USA",
-   "16-5-0",
-   "mma"
-  ],
-  [
-   "Yair Rodríguez",
-   "MEX",
-   "16-5-0",
-   "mma"
-  ],
-  [
-   "Choi Doo-ho",
-   "KOR",
-   "17-5-1",
-   "mma"
-  ],
-  [
-   "Arnold Allen",
-   "GBR",
-   "21-4-0",
-   "mma"
-  ],
-  [
-   "Josh Emmett",
-   "USA",
-   "19-7-0",
-   "mma"
-  ],
-  [
-   "Alexander Volkanovski",
-   "AUS",
-   "29-4-0",
-   "mma"
-  ],
-  [
-   "Calvin Kattar",
-   "USA",
-   "23-9-0",
-   "mma"
-  ],
-  [
-   "Dan Ige",
-   "USA",
-   "19-12-0",
-   "mma"
-  ],
-  [
-   "Nathaniel Wood",
-   "GBR",
-   "24-7-0",
-   "mma"
-  ],
-  [
-   "Movsar Evloev",
-   "RUS",
-   "20-1-0",
-   "mma"
-  ],
-  [
-   "Lerone Murphy",
-   "GBR",
-   "17-1-1",
-   "mma"
-  ],
-  [
-   "Miles Johns",
-   "USA",
-   "16-5-0",
-   "mma"
-  ],
-  [
-   "Giga Chikadze",
-   "GEO",
-   "15-7-0",
-   "mma"
-  ],
-  [
-   "Sean Woodson",
-   "USA",
-   "14-2-1",
-   "mma"
-  ],
-  [
-   "Youssef Zalal",
-   "MAR",
-   "18-6-1",
-   "mma"
-  ],
-  [
-   "Steve Garcia",
-   "USA",
-   "19-6-0",
-   "mma"
-  ],
-  [
-   "Jamall Emmers",
-   "USA",
-   "23-8-0",
-   "mma"
-  ],
-  [
-   "Kai Kamaka III",
-   "USA",
-   "18-9-1",
-   "mma"
-  ],
-  [
-   "Jordan Leavitt",
-   "USA",
-   "13-4-0",
-   "mma"
-  ],
-  [
-   "Pat Sabatini",
-   "USA",
-   "22-5-0",
-   "mma"
-  ],
-  [
-   "Melsik Baghdasaryan",
-   "ARM",
-   "8-4-0",
-   "mma"
-  ],
-  [
-   "Ricky Turcios",
-   "USA",
-   "12-6-0",
-   "mma"
-  ],
-  [
-   "David Onama",
-   "UGA",
-   "14-3-0",
-   "mma"
-  ],
-  [
-   "Joanderson Brito",
-   "BRA",
-   "20-5-1",
-   "mma"
-  ],
-  [
-   "Christian Rodriguez",
-   "USA",
-   "13-4-0",
-   "mma"
-  ],
-  [
-   "Daniel Santos",
-   "BRA",
-   "14-3-0",
-   "mma"
-  ],
-  [
-   "William Gomis",
-   "FRA",
-   "15-4-0",
-   "mma"
-  ],
-  [
-   "Francis Marshall",
-   "USA",
-   "10-4-0",
-   "mma"
-  ],
-  [
-   "Melquizael Costa",
-   "BRA",
-   "26-8-0",
-   "mma"
-  ],
-  [
-   "Lee Jeong-yeong",
-   "KOR",
-   "11-3-0",
-   "mma"
-  ],
-  [
-   "Yi Zha",
-   "CHN",
-   "26-6-0",
-   "mma"
-  ],
-  [
-   "Jack Jenkins",
-   "AUS",
-   "14-5-0",
-   "mma"
-  ],
-  [
-   "Trevor Peek",
-   "USA",
-   "9-4-0",
-   "mma"
-  ],
-  [
-   "Gabriel Santos",
-   "BRA",
-   "12-2-0",
-   "mma"
-  ],
-  [
-   "Gastón Bolaños",
-   "PER",
-   "9-5-0",
-   "mma"
-  ],
-  [
-   "Marcus McGhee",
-   "USA",
-   "12-2-0",
-   "mma"
-  ],
-  [
-   "Fernando Padilla",
-   "MEX",
-   "16-6-0",
-   "mma"
-  ],
-  [
-   "Diego Lopes",
-   "BRA",
-   "28-8-0",
-   "mma"
-  ],
-  [
-   "Chepe Mariscal",
-   "USA",
-   "18-7-0",
-   "mma"
-  ],
-  [
-   "Morgan Charrière",
-   "FRA",
-   "21-13-1",
-   "mma"
-  ],
-  [
-   "Manolo Zecchini",
-   "ITA",
-   "11-5-0",
-   "mma"
-  ],
-  [
-   "Jean Silva",
-   "BRA",
-   "18-3-0",
-   "mma"
-  ],
-  [
-   "Ramon Taveras",
-   "USA",
-   "10-4-0",
-   "mma"
-  ],
-  [
-   "Hyder Amil",
-   "USA",
-   "11-3-0",
-   "mma"
-  ],
-  [
-   "Bolaji Oki",
-   "BEL",
-   "10-5-0",
-   "mma"
-  ],
-  [
-   "Vinicius Oliveira",
-   "BRA",
-   "24-4-0",
-   "mma"
-  ],
-  [
-   "Danny Silva",
-   "USA",
-   "11-2-0",
-   "mma"
-  ],
-  [
-   "Steven Nguyen",
-   "USA",
-   "10-2-0",
-   "mma"
-  ],
-  [
-   "Felipe Lima",
-   "BRA",
-   "15-2-0",
-   "mma"
-  ],
-  [
-   "Mairon Santos",
-   "BRA",
-   "17-1-0",
-   "mma"
-  ],
-  [
-   "Kaan Ofli",
-   "AUS",
-   "14-4-1",
-   "mma"
-  ],
-  [
-   "Roberto Romero",
-   "MEX",
-   "8-5-1",
-   "mma"
-  ],
-  [
-   "Austin Bashi",
-   "USA",
-   "15-2-0",
-   "mma"
-  ],
-  [
-   "Bogdan Grad",
-   "AUT",
-   "16-4-0",
-   "mma"
-  ],
-  [
-   "José Miguel Delgado",
-   "MEX",
-   "12-3-0",
-   "mma"
-  ],
-  [
-   "Kevin Vallejos",
-   "ARG",
-   "18-1-0",
-   "mma"
-  ],
-  [
-   "Patrício Pitbull",
-   "BRA",
-   "38-9-0",
-   "mma"
-  ],
-  [
-   "Yadier del Valle",
-   "CUB",
-   "10-1-0",
-   "mma"
-  ],
-  [
-   "Michael Aswell Jr.",
-   "USA",
-   "12-5-0",
-   "mma"
-  ],
-  [
-   "Yoo Joo-sang",
-   "KOR",
-   "9-2-0",
-   "mma"
-  ],
-  [
-   "Aaron Pico",
-   "USA",
-   "15-5-0",
-   "mma"
-  ],
-  [
-   "Harry Hardwick",
-   "GBR",
-   "13-5-1",
-   "mma"
-  ],
-  [
-   "Robert Ruchała",
-   "POL",
-   "11-3-0",
-   "mma"
-  ],
-  [
-   "Luke Riley",
-   "GBR",
-   "14-0-0",
-   "mma"
-  ],
-  [
-   "Isaac Thomson",
-   "AUS",
-   "9-3-0",
-   "mma"
-  ],
-  [
-   "Keiichiro Nakamura",
-   "JPN",
-   "8-2-0",
-   "mma"
-  ],
-  [
-   "Gianni Vázquez",
-   "MEX",
-   "14-7-0",
-   "mma"
-  ],
-  [
-   "Javier Reyes",
-   "COL",
-   "23-6-0",
-   "mma"
-  ],
-  [
-   "Alberto Montes",
-   "VEN",
-   "12-2-0",
-   "mma"
-  ],
-  [
-   "Marwan Rahiki",
-   "MAR",
-   "9-1-0",
-   "mma"
-  ],
-  [
-   "Losene Keita",
-   "BEL",
-   "17-3-0",
-   "mma"
-  ],
-  [
-   "Kurtis Campbell",
-   "GBR",
-   "9-1-0",
-   "mma"
-  ],
-  [
-   "Lerryan Douglas",
-   "BRA",
-   "14-6-0",
-   "mma"
-  ],
-  [
-   "José Mauro Delano",
-   "BRA",
-   "16-4-0",
-   "mma"
-  ],
-  [
-   "Dakota Hope",
-   "USA",
-   "12-2-0",
-   "mma"
-  ],
-  [
-   "Tommy McMillen",
-   "USA",
-   "12-0-0",
-   "mma"
-  ],
-  [
-   "Márcio Barbosa",
-   "BRA",
-   "19-2-0",
-   "mma"
-  ],
-  [
-   "Ollie Schmid",
-   "HUN",
-   "5-3-0",
-   "mma"
-  ],
-  [
-   "Zhu Kangjie",
-   "CHN",
-   "21-5-0",
-   "mma"
-  ],
-  [
-   "Rodrigo Vera",
-   "PER",
-   "22-1-1",
-   "mma"
-  ],
-  [
-   "Shane Collins",
-   "USA",
-   "8-0-0",
-   "mma"
-  ],
-  [
-   "Murtazali Magomedov",
-   "KGZ",
-   "12-0-0",
-   "mma"
-  ],
-  [
-   "Ezra Elliott",
-   "USA",
-   "8-0-0",
-   "mma"
-  ],
-  [
-   "Damien Anderson",
-   "USA",
-   "5-1-0",
-   "mma"
-  ],
-  [
-   "Ryan Kuse",
-   "USA",
-   "9-3-0",
-   "mma"
-  ],
-  [
-   "Pavel Andrusca",
-   "MDA",
-   "9-0-0",
-   "mma"
-  ],
-  [
-   "Jessie Rosas",
-   "MEX",
-   "8-2-0",
-   "mma"
-  ],
-  [
-   "Sean King III",
-   "USA",
-   "7-0-0",
-   "mma"
-  ],
-  [
-   "Anthony Romero",
-   "USA",
-   "7-3-0",
-   "mma"
-  ],
-  [
-   "Carlos Calderon",
-   "USA",
-   "11-5-0",
-   "mma"
-  ],
-  [
-   "Davey Grant",
-   "GBR",
-   "18-9-0",
-   "mma"
-  ],
-  [
-   "Rob Font",
-   "USA",
-   "22-10-0",
-   "mma"
-  ],
-  [
-   "Marlon Vera",
-   "ECU",
-   "24-12-1",
-   "mma"
-  ],
-  [
-   "Cody Garbrandt",
-   "USA",
-   "15-8-0",
-   "mma"
-  ],
-  [
-   "Aiemann Zahabi",
-   "CAN",
-   "14-3-0",
-   "mma"
-  ],
-  [
-   "Deiveson Figueiredo",
-   "BRA",
-   "25-8-1",
-   "mma"
-  ],
-  [
-   "Song Yadong",
-   "CHN",
-   "24-9-1",
-   "mma"
-  ],
-  [
-   "Sean O'Malley",
-   "USA",
-   "20-3-0",
-   "mma"
-  ],
-  [
-   "Merab Dvalishvili",
-   "GEO",
-   "21-6-0",
-   "mma"
-  ],
-  [
-   "Cory Sandhagen",
-   "USA",
-   "18-7-0",
-   "mma"
-  ],
-  [
-   "Ricky Simón",
-   "USA",
-   "22-8-1",
-   "mma"
-  ],
-  [
-   "Bryce Mitchell",
-   "USA",
-   "19-3-0",
-   "mma"
-  ],
-  [
-   "Raoni Barcelos",
-   "BRA",
-   "22-6-0",
-   "mma"
-  ],
-  [
-   "Petr Yan",
-   "RUS",
-   "21-5-0",
-   "mma"
-  ],
-  [
-   "Said Nurmagomedov",
-   "RUS",
-   "18-5-0",
-   "mma"
-  ],
-  [
-   "Montel Jackson",
-   "USA",
-   "16-4-0",
-   "mma"
-  ],
-  [
-   "Chris Gutiérrez",
-   "USA",
-   "22-7-2",
-   "mma"
-  ],
-  [
-   "Jonathan Martinez",
-   "USA",
-   "19-6-0",
-   "mma"
-  ],
-  [
-   "Mario Bautista",
-   "USA",
-   "18-3-0",
-   "mma"
-  ],
-  [
-   "Charles Jourdain",
-   "CAN",
-   "18-9-1",
-   "mma"
-  ],
-  [
-   "Alateng Heili",
-   "CHN",
-   "18-10-2",
-   "mma"
-  ],
-  [
-   "Kyler Phillips",
-   "USA",
-   "12-5-0",
-   "mma"
-  ],
-  [
-   "John Castañeda",
-   "USA",
-   "21-9-1",
-   "mma"
-  ],
-  [
-   "Adrian Yañez",
-   "USA",
-   "18-6-1",
-   "mma"
-  ],
-  [
-   "Umar Nurmagomedov",
-   "RUS",
-   "20-2-0",
-   "mma"
-  ],
-  [
-   "Brady Hiestand",
-   "USA",
-   "9-2-0",
-   "mma"
-  ],
-  [
-   "Saimon Oliveira",
-   "BRA",
-   "18-7-0",
-   "mma"
-  ],
-  [
-   "Victor Henry",
-   "USA",
-   "25-7-0",
-   "mma"
-  ],
-  [
-   "Chad Anheliger",
-   "CAN",
-   "13-9-0",
-   "mma"
-  ],
-  [
-   "Garrett Armfield",
-   "USA",
-   "10-5-0",
-   "mma"
-  ],
-  [
-   "Da'Mon Blackshear",
-   "USA",
-   "17-8-1",
-   "mma"
-  ],
-  [
-   "Cristian Quiñónez",
-   "MEX",
-   "19-5-0",
-   "mma"
-  ],
-  [
-   "Cameron Saaiman",
-   "RSA",
-   "9-3-0",
-   "mma"
-  ],
-  [
-   "Steven Koslow",
-   "USA",
-   "7-1-0",
-   "mma"
-  ],
-  [
-   "Raul Rosas Jr.",
-   "MEX",
-   "13-1-0",
-   "mma"
-  ],
-  [
-   "Rinya Nakamura",
-   "JPN",
-   "10-2-0",
-   "mma"
-  ],
-  [
-   "Toshiomi Kazama",
-   "JPN",
-   "11-5-0",
-   "mma"
-  ],
-  [
-   "Jafel Filho",
-   "BRA",
-   "17-5-0",
-   "mma"
-  ],
-  [
-   "Muin Gafurov",
-   "TJK",
-   "20-7-0",
-   "mma"
-  ],
-  [
-   "Rafael Estevam",
-   "BRA",
-   "14-1-0",
-   "mma"
-  ],
-  [
-   "Payton Talbott",
-   "USA",
-   "12-1-0",
-   "mma"
-  ],
-  [
-   "Serhiy Sidey",
-   "CAN",
-   "12-2-0",
-   "mma"
-  ],
-  [
-   "Timothy Cuamba",
-   "USA",
-   "11-4-0",
-   "mma"
-  ],
-  [
-   "Carlos Vera",
-   "ECU",
-   "12-4-0",
-   "mma"
-  ],
-  [
-   "Bernardo Sopaj",
-   "Albania",
-   "13-3-0",
-   "mma"
-  ],
-  [
-   "Angel Pacheco",
-   "USA",
-   "7-4-0",
-   "mma"
-  ],
-  [
-   "Jean Matsumoto",
-   "BRA",
-   "18-2-0",
-   "mma"
-  ],
-  [
-   "Lee Chang-ho",
-   "KOR",
-   "11-2-0",
-   "mma"
-  ],
-  [
-   "Xiao Long",
-   "CHN",
-   "27-12-0",
-   "mma"
-  ],
-  [
-   "Cody Haddon",
-   "AUS",
-   "9-1-0",
-   "mma"
-  ],
-  [
-   "You Su-young",
-   "KOR",
-   "17-4-0",
-   "mma"
-  ],
-  [
-   "Kai Asakura",
-   "JPN",
-   "23-6-0",
-   "mma"
-  ],
-  [
-   "Colby Thicknesse",
-   "AUS",
-   "10-1-0",
-   "mma"
-  ],
-  [
-   "Aleksandre Topuria",
-   "GEO",
-   "7-1-0",
-   "mma"
-  ],
-  [
-   "Elijah Smith",
-   "USA",
-   "11-1-0",
-   "mma"
-  ],
-  [
-   "Josias Musasa",
-   "COD",
-   "8-2-0",
-   "mma"
-  ],
-  [
-   "David Martínez",
-   "MEX",
-   "15-1-0",
-   "mma"
-  ],
-  [
-   "Malcolm Wellmaker",
-   "USA",
-   "10-3-0",
-   "mma"
-  ],
-  [
-   "John Yannis",
-   "USA",
-   "10-5-0",
-   "mma"
-  ],
-  [
-   "Santiago Luna",
-   "MEX",
-   "8-1-0",
-   "mma"
-  ],
-  [
-   "Jakub Wikłacz",
-   "POL",
-   "18-3-2",
-   "mma"
-  ],
-  [
-   "Ethyn Ewing",
-   "USA",
-   "10-2-0",
-   "mma"
-  ],
-  [
-   "Lawrence Lui",
-   "NZL",
-   "8-2-0",
-   "mma"
-  ],
-  [
-   "Hecher Sosa",
-   "ESP",
-   "14-1-0",
-   "mma"
-  ],
-  [
-   "Jamie Siraj",
-   "CAN",
-   "14-4-0",
-   "mma"
-  ],
-  [
-   "Mark Vologdin",
-   "RUS",
-   "12-5-2",
-   "mma"
-  ],
-  [
-   "Adrián Luna Martinetti",
-   "ECU",
-   "17-1-0",
-   "mma"
-  ],
-  [
-   "Juan Díaz",
-   "PER",
-   "16-1-1",
-   "mma"
-  ],
-  [
-   "Otari Tanzilovi",
-   "GEO",
-   "11-2-0",
-   "mma"
-  ],
-  [
-   "John Garza",
-   "USA",
-   "7-2-0",
-   "mma"
-  ],
-  [
-   "Abdul Hussein",
-   "FIN",
-   "16-2-0",
-   "mma"
-  ],
-  [
-   "Borislav Nikolić",
-   "SRB",
-   "17-2-0",
-   "mma"
-  ],
-  [
-   "Hector Santiago",
-   "BRA",
-   "7-1-0",
-   "mma"
-  ],
-  [
-   "Francesco Nuzzi",
-   "ITA",
-   "12-2-0",
-   "mma"
-  ],
-  [
-   "Mehemmedeli Osmanli",
-   "AZE",
-   "11-2-0",
-   "mma"
-  ],
-  [
-   "Ilimbek Akylbek Uulu",
-   "KGZ",
-   "10-3-0",
-   "mma"
-  ],
-  [
-   "Cody Chovancek",
-   "CAN",
-   "9-1-0",
-   "mma"
-  ],
-  [
-   "Louis Jourdain",
-   "CAN",
-   "9-4-0",
-   "mma"
-  ],
-  [
-   "Asaf Chopurov",
-   "RUS",
-   "11-1-0",
-   "mma"
-  ],
-  [
-   "Tim Elliott",
-   "USA",
-   "21-15-1",
-   "mma"
-  ],
-  [
-   "Kyoji Horiguchi",
-   "JPN",
-   "36-6-0",
-   "mma"
-  ],
-  [
-   "Brandon Moreno",
-   "MEX",
-   "24-10-2",
-   "mma"
-  ],
-  [
-   "Alexandre Pantoja",
-   "BRA",
-   "30-7-0",
-   "mma"
-  ],
-  [
-   "Joseph Morales",
-   "USA",
-   "14-3-0",
-   "mma"
-  ],
-  [
-   "Alex Perez",
-   "USA",
-   "26-11-0",
-   "mma"
-  ],
-  [
-   "Su Mudaerji",
-   "CHN",
-   "20-7-0",
-   "mma"
-  ],
-  [
-   "Kai Kara-France",
-   "NZL",
-   "25-12-0",
-   "mma"
-  ],
-  [
-   "Bruno Gustavo da Silva",
-   "BRA",
-   "15-9-2",
-   "mma"
-  ],
-  [
-   "Ode' Osbourne",
-   "JAM",
-   "13-10-0",
-   "mma"
-  ],
-  [
-   "Brandon Royval",
-   "USA",
-   "18-9-0",
-   "mma"
-  ],
-  [
-   "Amir Albazi",
-   "IRQ",
-   "17-3-0",
-   "mma"
-  ],
-  [
-   "Cody Durden",
-   "USA",
-   "19-11-1",
-   "mma"
-  ],
-  [
-   "Tagir Ulanbekov",
-   "RUS",
-   "17-3-0",
-   "mma"
-  ],
-  [
-   "Manel Kape",
-   "ANG",
-   "23-7-0",
-   "mma"
-  ],
-  [
-   "Tatsuro Taira",
-   "JPN",
-   "18-2-0",
-   "mma"
-  ],
-  [
-   "Charles Johnson",
-   "USA",
-   "20-9-0",
-   "mma"
-  ],
-  [
-   "Alessandro Costa",
-   "BRA",
-   "17-5-0",
-   "mma"
-  ],
-  [
-   "Park Hyun-sung",
-   "KOR",
-   "10-2-0",
-   "mma"
-  ],
-  [
-   "Clayton Carpenter",
-   "USA",
-   "8-3-0",
-   "mma"
-  ],
-  [
-   "Steve Erceg",
-   "AUS",
-   "14-5-0",
-   "mma"
-  ],
-  [
-   "Joshua Van",
-   "MYA",
-   "18-2-0",
-   "mma"
-  ],
-  [
-   "Édgar Cháirez",
-   "MEX",
-   "14-7-0",
-   "mma"
-  ],
-  [
-   "Asu Almabayev",
-   "KAZ",
-   "24-3-0",
-   "mma"
-  ],
-  [
-   "Kevin Borjas",
-   "PER",
-   "11-6-0",
-   "mma"
-  ],
-  [
-   "Ronaldo Rodríguez",
-   "MEX",
-   "17-3-0",
-   "mma"
-  ],
-  [
-   "André Lima",
-   "BRA",
-   "12-1-0",
-   "mma"
-  ],
-  [
-   "Mitch Raposo",
-   "USA",
-   "12-2-0",
-   "mma"
-  ],
-  [
-   "Rei Tsuruya",
-   "JPN",
-   "12-1-0",
-   "mma"
-  ],
-  [
-   "Lucas Rocha",
-   "BRA",
-   "18-2-0",
-   "mma"
-  ],
-  [
-   "Ramazan Temirov",
-   "UZB",
-   "18-3-0",
-   "mma"
-  ],
-  [
-   "Lone'er Kavanagh",
-   "GBR",
-   "11-2-0",
-   "mma"
-  ],
-  [
-   "José Ochoa",
-   "PER",
-   "9-2-0",
-   "mma"
-  ],
-  [
-   "Nyamjargal Tumendemberel",
-   "MGL",
-   "10-1-0",
-   "mma"
-  ],
-  [
-   "Choi Dong-hun",
-   "KOR",
-   "9-0-0",
-   "mma"
-  ],
-  [
-   "Luis Gurule",
-   "USA",
-   "11-4-0",
-   "mma"
-  ],
-  [
-   "Alden Coria",
-   "USA",
-   "13-4-0",
-   "mma"
-  ],
-  [
-   "Imanol Rodríguez",
-   "MEX",
-   "8-0-0",
-   "mma"
-  ],
-  [
-   "Eduardo Henrique",
-   "BRA",
-   "15-3-0",
-   "mma"
-  ],
-  [
-   "Namsrai Batbayar",
-   "MGL",
-   "10-2-0",
-   "mma"
-  ],
-  [
-   "Bilal Hasan",
-   "IDN",
-   "10-0-0",
-   "mma"
-  ],
-  [
-   "Nilson Rojas",
-   "PER",
-   "9-1-0",
-   "mma"
-  ],
-  [
-   "Michael Aljarouj",
-   "FRA",
-   "13-4-0",
-   "mma"
-  ],
-  [
-   "Fabià Sintes",
-   "ESP",
-   "12-3-0",
-   "mma"
-  ],
-  [
-   "Marcos Degli",
-   "BRA",
-   "15-4-0",
-   "mma"
-  ],
-  [
-   "Miesha Tate *",
-   "USA",
-   "20-10-0",
-   "mma"
-  ],
-  [
-   "Amanda Nunes *",
-   "BRA",
-   "23-5-0",
-   "mma"
-  ],
-  [
-   "Julianna Peña",
-   "USA",
-   "12-6-0",
-   "mma"
-  ],
-  [
-   "Raquel Pennington",
-   "USA",
-   "16-9-0",
-   "mma"
-  ],
-  [
-   "Priscila Cachoeira",
-   "BRA",
-   "13-10-0",
-   "mma"
-  ],
-  [
-   "Yana Santos",
-   "RUS",
-   "17-9-0",
-   "mma"
-  ],
-  [
-   "Macy Chiasson",
-   "USA",
-   "10-6-0",
-   "mma"
-  ],
-  [
-   "Karol Rosa",
-   "BRA",
-   "19-8-0",
-   "mma"
-  ],
-  [
-   "Norma Dumont",
-   "BRA",
-   "13-4-0",
-   "mma"
-  ],
-  [
-   "Joselyne Edwards",
-   "Panama",
-   "18-6-0",
-   "mma"
-  ],
-  [
-   "Josiane Nunes",
-   "BRA",
-   "10-4-0",
-   "mma"
-  ],
-  [
-   "Ailín Pérez",
-   "ARG",
-   "14-2-0",
-   "mma"
-  ],
-  [
-   "Chelsea Chandler",
-   "USA",
-   "8-4-0",
-   "mma"
-  ],
-  [
-   "Luana Santos",
-   "BRA",
-   "12-2-0",
-   "mma"
-  ],
-  [
-   "Jacqueline Cavalcanti",
-   "POR",
-   "10-2-0",
-   "mma"
-  ],
-  [
-   "Nora Cornolle",
-   "FRA",
-   "10-4-0",
-   "mma"
-  ],
-  [
-   "Melissa Mullins",
-   "GBR",
-   "7-3-0",
-   "mma"
-  ],
-  [
-   "Darya Zheleznyakova",
-   "RUS",
-   "10-4-0",
-   "mma"
-  ],
-  [
-   "Klaudia Syguła",
-   "POL",
-   "8-3-0",
-   "mma"
-  ],
-  [
-   "Alice Pereira",
-   "BRA",
-   "8-1-0",
-   "mma"
-  ],
-  [
-   "Michelle Montague",
-   "NZL",
-   "8-0-0",
-   "mma"
-  ],
-  [
-   "Beatriz Mesquita",
-   "BRA",
-   "8-0-0",
-   "mma"
-  ],
-  [
-   "Melissa Croden",
-   "CAN",
-   "8-4-0",
-   "mma"
-  ],
-  [
-   "Nina Nikolija Milošević",
-   "SRB",
-   "10-1-0",
-   "mma"
-  ],
-  [
-   "Rose Namajunas",
-   "USA",
-   "14-8-0",
-   "mma"
-  ],
-  [
-   "Valentina Shevchenko",
-   "KGZ",
-   "26-5-1",
-   "mma"
-  ],
-  [
-   "Veronica Hardy",
-   "VEN",
-   "10-5-1",
-   "mma"
-  ],
-  [
-   "Katlyn Cerminara",
-   "USA",
-   "19-6-0",
-   "mma"
-  ],
-  [
-   "Alexa Grasso",
-   "MEX",
-   "18-5-1",
-   "mma"
-  ],
-  [
-   "JJ Aldrich",
-   "USA",
-   "15-8-0",
-   "mma"
-  ],
-  [
-   "Zhang Weili",
-   "CHN",
-   "26-4-0",
-   "mma"
-  ],
-  [
-   "Maycee Barber",
-   "USA",
-   "15-3-0",
-   "mma"
-  ],
-  [
-   "Tracy Cortez",
-   "USA",
-   "12-4-0",
-   "mma"
-  ],
-  [
-   "Miranda Maverick",
-   "USA",
-   "15-6-0",
-   "mma"
-  ],
-  [
-   "Manon Fiorot",
-   "FRA",
-   "13-3-0",
-   "mma"
-  ],
-  [
-   "Casey O'Neill",
-   "GBR",
-   "13-2-0",
-   "mma"
-  ],
-  [
-   "Melissa Gatto",
-   "BRA",
-   "9-3-3",
-   "mma"
-  ],
-  [
-   "Erin Blanchfield",
-   "USA",
-   "14-3-0",
-   "mma"
-  ],
-  [
-   "Jasmine Jasudavicius",
-   "CAN",
-   "16-4-0",
-   "mma"
-  ],
-  [
-   "Karine Silva",
-   "BRA",
-   "20-7-0",
-   "mma"
-  ],
-  [
-   "Juliana Miller",
-   "USA",
-   "5-4-0",
-   "mma"
-  ],
-  [
-   "Tereza Bledá",
-   "CZE",
-   "7-2-0",
-   "mma"
-  ],
-  [
-   "Gabriella Fernandes",
-   "BRA",
-   "11-5-0",
-   "mma"
-  ],
-  [
-   "Jamey-Lyn Horth",
-   "CAN",
-   "10-3-0",
-   "mma"
-  ],
-  [
-   "Tainara Lisboa",
-   "BRA",
-   "7-5-0",
-   "mma"
-  ],
-  [
-   "Dione Barbosa",
-   "BRA",
-   "10-4-0",
-   "mma"
-  ],
-  [
-   "Ernesta Kareckaitė",
-   "LTU",
-   "6-2-2",
-   "mma"
-  ],
-  [
-   "Eduarda Moura",
-   "BRA",
-   "12-3-0",
-   "mma"
-  ],
-  [
-   "Carli Judice",
-   "USA",
-   "7-2-0",
-   "mma"
-  ],
-  [
-   "Wang Cong",
-   "CHN",
-   "10-2-0",
-   "mma"
-  ],
-  [
-   "Yuneisy Duben",
-   "VEN",
-   "6-2-0",
-   "mma"
-  ],
-  [
-   "Regina Tarín",
-   "MEX",
-   "9-0-0",
-   "mma"
-  ],
-  [
-   "Jeisla Chaves",
-   "BRA",
-   "8-1-0",
-   "mma"
-  ],
-  [
-   "Anna Melisano",
-   "USA",
-   "6-2-0",
-   "mma"
-  ],
-  [
-   "Mackenzie Stiller",
-   "USA",
-   "6-2-0",
-   "mma"
-  ],
-  [
-   "Lucia Szabová",
-   "SVK",
-   "11-0-0",
-   "mma"
-  ],
-  [
-   "Jéssica Andrade",
-   "BRA",
-   "26-15-0",
-   "mma"
-  ],
-  [
-   "Angela Hill",
-   "USA",
-   "19-16-0",
-   "mma"
-  ],
-  [
-   "Karolina Kowalkiewicz",
-   "POL",
-   "17-9-0",
-   "mma"
-  ],
-  [
-   "Tatiana Suarez",
-   "USA",
-   "13-1-0",
-   "mma"
-  ],
-  [
-   "Amanda Lemos",
-   "BRA",
-   "15-7-1",
-   "mma"
-  ],
-  [
-   "Yan Xiaonan",
-   "CHN",
-   "18-6-0",
-   "mma"
-  ],
-  [
-   "Gillian Robertson",
-   "CAN",
-   "17-9-0",
-   "mma"
-  ],
-  [
-   "Polyana Viana",
-   "BRA",
-   "13-9-0",
-   "mma"
-  ],
-  [
-   "Mackenzie Dern",
-   "BRA",
-   "17-5-0",
-   "mma"
-  ],
-  [
-   "Virna Jandiroba",
-   "BRA",
-   "23-5-0",
-   "mma"
-  ],
-  [
-   "Amanda Ribas",
-   "BRA",
-   "12-7-0",
-   "mma"
-  ],
-  [
-   "Mizuki Inoue",
-   "JPN",
-   "16-6-0",
-   "mma"
-  ],
-  [
-   "Loma Lookboonmee",
-   "THA",
-   "10-5-0",
-   "mma"
-  ],
-  [
-   "Sam Hughes",
-   "USA",
-   "11-7-0",
-   "mma"
-  ],
-  [
-   "Montserrat Ruiz",
-   "MEX",
-   "10-5-0",
-   "mma"
-  ],
-  [
-   "Loopy Godinez",
-   "MEX",
-   "15-6-0",
-   "mma"
-  ],
-  [
-   "Luana Pinheiro",
-   "BRA",
-   "11-5-0",
-   "mma"
-  ],
-  [
-   "Tabatha Ricci",
-   "BRA",
-   "12-5-0",
-   "mma"
-  ],
-  [
-   "Elise Reed",
-   "USA",
-   "8-6-0",
-   "mma"
-  ],
-  [
-   "Vanessa Demopoulos",
-   "USA",
-   "11-9-0",
-   "mma"
-  ],
-  [
-   "Piera Rodríguez",
-   "VEN",
-   "13-2-0",
-   "mma"
-  ],
-  [
-   "Yazmin Jauregui",
-   "MEX",
-   "12-2-0",
-   "mma"
-  ],
-  [
-   "Iasmin Lucindo",
-   "BRA",
-   "19-6-0",
-   "mma"
-  ],
-  [
-   "Denise Gomes",
-   "BRA",
-   "13-3-0",
-   "mma"
-  ],
-  [
-   "Ketlen Souza",
-   "BRA",
-   "17-7-0",
-   "mma"
-  ],
-  [
-   "Shauna Bannon",
-   "IRL",
-   "7-3-0",
-   "mma"
-  ],
-  [
-   "Talita Alencar",
-   "BRA",
-   "8-2-1",
-   "mma"
-  ],
-  [
-   "Rayanne dos Santos",
-   "BRA",
-   "14-8-0",
-   "mma"
-  ],
-  [
-   "Puja Tomar",
-   "India",
-   "9-6-0",
-   "mma"
-  ],
-  [
-   "Julia Polastri",
-   "BRA",
-   "15-5-0",
-   "mma"
-  ],
-  [
-   "Fatima Kline",
-   "USA",
-   "10-1-0",
-   "mma"
-  ],
-  [
-   "Nicolle Caliari",
-   "BRA",
-   "9-5-0",
-   "mma"
-  ],
-  [
-   "Alice Ardelean",
-   "ROU",
-   "12-7-0",
-   "mma"
-  ],
-  [
-   "Stephanie Luciano",
-   "BRA",
-   "8-2-1",
-   "mma"
-  ],
-  [
-   "Shi Ming",
-   "CHN",
-   "18-6-0",
-   "mma"
-  ],
-  [
-   "Alexia Thainara",
-   "BRA",
-   "15-1-0",
-   "mma"
-  ],
-  [
-   "Shanelle Dyer",
-   "GBR",
-   "8-1-0",
-   "mma"
-  ],
-  [
-   "Xiong Jingnan",
-   "CHN",
-   "19-4-0",
-   "mma"
-  ],
-  [
-   "Marina Spasić",
-   "SRB",
-   "7-2-0",
-   "mma"
-  ],
-  [
-   "Giovanna Canuto",
-   "BRA",
-   "7-2-0",
-   "mma"
-  ],
-  [
-   "Carol Foro",
-   "BRA",
-   "10-1-0",
-   "mma"
-  ],
-  [
-   "Delphine Benouaich",
-   "FRA",
-   "8-2-0",
-   "mma"
-  ],
-  [
-   "Sofia Montenegro",
-   "ARG",
-   "6-3-0",
-   "mma"
-  ],
-  [
-   "Melissa Amaya",
-   "USA",
-   "8-1-0",
-   "mma"
-  ],
-  [
-   "Valesca Machado",
-   "BRA",
-   "16-4-0",
    "mma"
   ],
   [
@@ -10208,654 +6066,6 @@
    "mma"
   ],
   [
-   "Murat Gassiev",
-   "",
-   "34-2-0",
-   "boxe"
-  ],
-  [
-   "Agit Kabayel",
-   "",
-   "27-0-0",
-   "boxe"
-  ],
-  [
-   "Filip Hrgović",
-   "",
-   "21-1-0",
-   "boxe"
-  ],
-  [
-   "Daniel Dubois",
-   "",
-   "24-3-0",
-   "boxe"
-  ],
-  [
-   "Oleksandr Usyk",
-   "",
-   "25-0-0",
-   "boxe"
-  ],
-  [
-   "Ryad Merhy",
-   "",
-   "36-3-0",
-   "boxe"
-  ],
-  [
-   "David Benavidez",
-   "",
-   "32-0-0",
-   "boxe"
-  ],
-  [
-   "Michał Cieślak",
-   "",
-   "28-2-0",
-   "boxe"
-  ],
-  [
-   "Jai Opetaia",
-   "",
-   "31-0-0",
-   "boxe"
-  ],
-  [
-   "Dmitry Bivol",
-   "",
-   "25-1-0",
-   "boxe"
-  ],
-  [
-   "Willy Hutchinson",
-   "",
-   "21-2-0",
-   "boxe"
-  ],
-  [
-   "Albert Ramírez",
-   "",
-   "23-0-0",
-   "boxe"
-  ],
-  [
-   "Callum Smith",
-   "",
-   "31-2-0",
-   "boxe"
-  ],
-  [
-   "Jaime Munguia",
-   "",
-   "47-2-0",
-   "boxe"
-  ],
-  [
-   "Canelo Álvarez",
-   "",
-   "64-3-2",
-   "boxe"
-  ],
-  [
-   "Osleys Iglesias",
-   "",
-   "16-0-0",
-   "boxe"
-  ],
-  [
-   "Lester Martínez",
-   "",
-   "21-0-1",
-   "boxe"
-  ],
-  [
-   "Erislandy Lara",
-   "",
-   "32-3-3",
-   "boxe"
-  ],
-  [
-   "Carlos Adames",
-   "",
-   "25-1-1",
-   "boxe"
-  ],
-  [
-   "Aaron McKenna",
-   "",
-   "21-0-0",
-   "boxe"
-  ],
-  [
-   "Jesus Ramos",
-   "",
-   "24-1-0",
-   "boxe"
-  ],
-  [
-   "Jaron Ennis",
-   "",
-   "36-0-0",
-   "boxe"
-  ],
-  [
-   "Sebastian Fundora",
-   "",
-   "25-1-1",
-   "boxe"
-  ],
-  [
-   "Josh Kelly",
-   "",
-   "18-1-1",
-   "boxe"
-  ],
-  [
-   "Vergil Ortiz Jr.",
-   "",
-   "24-0-0",
-   "boxe"
-  ],
-  [
-   "Teofimo Lopez",
-   "",
-   "23-2-0",
-   "boxe"
-  ],
-  [
-   "Ryan Garcia",
-   "",
-   "26-2-0",
-   "boxe"
-  ],
-  [
-   "Liam Paro",
-   "",
-   "28-1-0",
-   "boxe"
-  ],
-  [
-   "Devin Haney",
-   "",
-   "33-0-0",
-   "boxe"
-  ],
-  [
-   "Jack Catterall",
-   "",
-   "33-2-0",
-   "boxe"
-  ],
-  [
-   "Gary Antuanne Russell",
-   "",
-   "19-1-0",
-   "boxe"
-  ],
-  [
-   "Shakur Stevenson",
-   "",
-   "25-0-0",
-   "boxe"
-  ],
-  [
-   "Khariton Agrba",
-   "",
-   "18-1-0",
-   "boxe"
-  ],
-  [
-   "Isaac Cruz",
-   "",
-   "29-3-2",
-   "boxe"
-  ],
-  [
-   "Floyd Schofield",
-   "",
-   "20-0-0",
-   "boxe"
-  ],
-  [
-   "William Zepeda",
-   "",
-   "34-1-0",
-   "boxe"
-  ],
-  [
-   "Abdullah Mason",
-   "",
-   "21-0-0",
-   "boxe"
-  ],
-  [
-   "Jadier Herrera",
-   "",
-   "18-0-0",
-   "boxe"
-  ],
-  [
-   "Anthony Cacace",
-   "",
-   "26-1-0",
-   "boxe"
-  ],
-  [
-   "O'Shaquie Foster",
-   "",
-   "26-3-0",
-   "boxe"
-  ],
-  [
-   "Elnur Samedov",
-   "",
-   "22-1-0",
-   "boxe"
-  ],
-  [
-   "Ryan Garner",
-   "",
-   "20-0-0",
-   "boxe"
-  ],
-  [
-   "Bruce Carrington",
-   "",
-   "18-0-0",
-   "boxe"
-  ],
-  [
-   "Angelo Leo",
-   "",
-   "26-1-0",
-   "boxe"
-  ],
-  [
-   "Rafael Espinoza",
-   "",
-   "29-0-0",
-   "boxe"
-  ],
-  [
-   "Naoya Inoue",
-   "",
-   "33-0-0",
-   "boxe"
-  ],
-  [
-   "Gary Antonio Russell",
-   "",
-   "22-1-0",
-   "boxe"
-  ],
-  [
-   "Sam Goodman",
-   "",
-   "23-1-0",
-   "boxe"
-  ],
-  [
-   "Jesse Rodriguez",
-   "",
-   "24-0-0",
-   "boxe"
-  ],
-  [
-   "Takuma Inoue",
-   "",
-   "23-2-0",
-   "boxe"
-  ],
-  [
-   "José Salas",
-   "",
-   "17-0-0",
-   "boxe"
-  ],
-  [
-   "Christian Medina",
-   "",
-   "27-4-0",
-   "boxe"
-  ],
-  [
-   "Riku Masuda",
-   "",
-   "11-1-0",
-   "boxe"
-  ],
-  [
-   "David Jiménez",
-   "",
-   "18-1-0",
-   "boxe"
-  ],
-  [
-   "Ricardo Malajika",
-   "",
-   "18-2-0",
-   "boxe"
-  ],
-  [
-   "Andrew Moloney",
-   "",
-   "29-4-0",
-   "boxe"
-  ],
-  [
-   "Kenshiro Teraji",
-   "",
-   "26-2-0",
-   "boxe"
-  ],
-  [
-   "Sergio Mendoza",
-   "",
-   "28-1-0",
-   "boxe"
-  ],
-  [
-   "Masamichi Yabuki",
-   "",
-   "20-4-0",
-   "boxe"
-  ],
-  [
-   "Anthony Olascuaga",
-   "",
-   "12-1-0",
-   "boxe"
-  ],
-  [
-   "Abraham Perez",
-   "",
-   "16-0-0",
-   "boxe"
-  ],
-  [
-   "Galal Yafai",
-   "",
-   "9-0-0",
-   "boxe"
-  ],
-  [
-   "René Santiago",
-   "",
-   "16-4-0",
-   "boxe"
-  ],
-  [
-   "Shokichi Iwata",
-   "",
-   "17-2-0",
-   "boxe"
-  ],
-  [
-   "Thanongsak Simsri",
-   "",
-   "41-1-0",
-   "boxe"
-  ],
-  [
-   "Daiya Kira",
-   "",
-   "5-0-0",
-   "boxe"
-  ],
-  [
-   "Oscar Collazo",
-   "",
-   "15-0-0",
-   "boxe"
-  ],
-  [
-   "Siyakholwa Kuse",
-   "",
-   "10-3-1",
-   "boxe"
-  ],
-  [
-   "Pedro Taduran",
-   "",
-   "21-4-1",
-   "boxe"
-  ],
-  [
-   "Ryūsei Matsumoto",
-   "",
-   "9-0-0",
-   "boxe"
-  ],
-  [
-   "Takeshi Ishii",
-   "",
-   "12-1-0",
-   "boxe"
-  ],
-  [
-   "Djihene Abdellilah",
-   "FRA",
-   "",
-   "mma"
-  ],
-  [
-   "Cyril Abidi",
-   "FRA",
-   "",
-   "mma"
-  ],
-  [
-   "Sofiane Aïssaoui",
-   "FRA",
-   "",
-   "mma"
-  ],
-  [
-   "Bertrand Amoussou",
-   "FRA",
-   "",
-   "mma"
-  ],
-  [
-   "Karl Amoussou",
-   "FRA",
-   "",
-   "mma"
-  ],
-  [
-   "Cyril Asker",
-   "FRA",
-   "",
-   "mma"
-  ],
-  [
-   "Mehdi Baghdad",
-   "FRA",
-   "",
-   "mma"
-  ],
-  [
-   "David Baron",
-   "FRA",
-   "",
-   "mma"
-  ],
-  [
-   "Mehdi Ben Lakhdhar",
-   "FRA",
-   "",
-   "mma"
-  ],
-  [
-   "Mikael Benatar",
-   "FRA",
-   "",
-   "mma"
-  ],
-  [
-   "Grégory Bouchelaghem",
-   "FRA",
-   "",
-   "mma"
-  ],
-  [
-   "Francis Carmont",
-   "FRA",
-   "",
-   "mma"
-  ],
-  [
-   "Baïssangour Chamsoudinov",
-   "FRA",
-   "",
-   "mma"
-  ],
-  [
-   "Cyrille Diabaté",
-   "FRA",
-   "",
-   "mma"
-  ],
-  [
-   "Cédric Doumbè",
-   "FRA",
-   "",
-   "mma"
-  ],
-  [
-   "Tom Duquesnoy",
-   "FRA",
-   "",
-   "mma"
-  ],
-  [
-   "Emmanuel Fernandez",
-   "FRA",
-   "",
-   "mma"
-  ],
-  [
-   "Davy Gallon",
-   "FRA",
-   "",
-   "mma"
-  ],
-  [
-   "Ferrid Kheder",
-   "FRA",
-   "",
-   "mma"
-  ],
-  [
-   "Cheick Kongo",
-   "FRA",
-   "",
-   "mma"
-  ],
-  [
-   "Jérôme Le Banner",
-   "FRA",
-   "",
-   "mma"
-  ],
-  [
-   "Ragnar Le Breton",
-   "FRA",
-   "",
-   "mma"
-  ],
-  [
-   "Arnaud Lepont",
-   "FRA",
-   "",
-   "mma"
-  ],
-  [
-   "Jess Liaudin",
-   "FRA",
-   "",
-   "mma"
-  ],
-  [
-   "Fernand Lopez",
-   "FRA",
-   "",
-   "mma"
-  ],
-  [
-   "Christian M'Pumbu",
-   "FRA",
-   "",
-   "mma"
-  ],
-  [
-   "Paul Denis Navero",
-   "FRA",
-   "",
-   "mma"
-  ],
-  [
-   "Mathieu Nicourt",
-   "FRA",
-   "",
-   "mma"
-  ],
-  [
-   "Norman Paraisy",
-   "FRA",
-   "",
-   "mma"
-  ],
-  [
-   "Antony Réa",
-   "FRA",
-   "",
-   "mma"
-  ],
-  [
-   "Moïse Rimbon",
-   "FRA",
-   "",
-   "mma"
-  ],
-  [
-   "Samy Schiavo",
-   "FRA",
-   "",
-   "mma"
-  ],
-  [
-   "Nordine Taleb",
-   "FRA",
-   "",
-   "mma"
-  ],
-  [
-   "Maximilien Vallot",
-   "FRA",
-   "",
-   "mma"
-  ],
-  [
-   "Jordan Zébo",
-   "FRA",
-   "",
-   "mma"
-  ],
-  [
-   "Leslie Neufcœur",
-   "BEL",
-   "",
-   "mma"
-  ],
-  [
-   "Tarec Saffiedine",
-   "BEL",
-   "",
-   "mma"
-  ],
-  [
    "Djamili-Dini Aboudou",
    "FRA",
    "",
@@ -12566,6 +7776,12 @@
    "boxe"
   ],
   [
+   "Ryad Merhy",
+   "BEL",
+   "",
+   "boxe"
+  ],
+  [
    "Miko Khatchatryan",
    "BEL",
    "",
@@ -12686,16 +7902,40 @@
    "mma"
   ],
   [
+   "Benoît Saint Denis",
+   "FRA",
+   "3-4-0",
+   "mma"
+  ],
+  [
+   "Bolaji Oki",
+   "BEL",
+   "10-4-0",
+   "mma"
+  ],
+  [
    "Christian M'billi",
    "FRA",
    "",
    "boxe"
   ],
   [
+   "Ciryl Gane",
+   "FRA",
+   "14-2-0",
+   "mma"
+  ],
+  [
    "Damien Lapilus",
    "FRA",
    "17-18-2",
    "boxe"
+  ],
+  [
+   "Davy Gallon",
+   "FRA",
+   "22-10-2",
+   "mma"
   ],
   [
    "Ghassen Jbalia",
@@ -12716,9 +7956,21 @@
    "mma"
   ],
   [
+   "Jordan Zébo",
+   "FRA",
+   "11-1-0",
+   "mma"
+  ],
+  [
    "Lasha Gogishvili",
    "BEL",
    "3-1-0",
+   "mma"
+  ],
+  [
+   "Losene Keita",
+   "BEL",
+   "17-2-0",
    "mma"
   ],
   [
@@ -12731,6 +7983,12 @@
    "Maher Belkhadir",
    "FRA",
    "3-2-0",
+   "mma"
+  ],
+  [
+   "Matthieu Letho Duclos",
+   "FRA",
+   "11-3-0",
    "mma"
   ],
   [
@@ -12749,6 +8007,12 @@
    "Mohamed Soumah",
    "FRA",
    "4-3-0",
+   "mma"
+  ],
+  [
+   "Noah Gugnon",
+   "FRA",
+   "10-2-0",
    "mma"
   ],
   [

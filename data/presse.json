@@ -1323,10 +1323,12 @@
      "r": 3,
      "ru": 1,
      "a": {
-      "n": "Antero dos Santos"
+      "n": "Antero dos Santos",
+      "tp": "213648-antero-dos-santos"
      },
      "b": {
-      "n": "Georges N'Goma"
+      "n": "Georges N'Goma",
+      "tp": "394189-georges-n-goma"
      }
     },
     {
@@ -1336,7 +1338,8 @@
      "ru": 1,
      "a": {
       "n": "Allan Landouzy",
-      "nat": "FRA"
+      "nat": "FRA",
+      "tp": "337538-allan-landouzy"
      },
      "b": {
       "n": "Benjamin Molnar"
@@ -1390,12 +1393,14 @@
      "a": {
       "n": "Bilel Jkitou",
       "nat": "FRA",
-      "rec": "21-2-0"
+      "rec": "21-2-0",
+      "tp": "238253-bilel-jkitou"
      },
      "b": {
       "n": "Gabriel Corzo",
       "nat": "ARG",
-      "rec": "23-1-0"
+      "rec": "23-1-0",
+      "tp": "286417-gabriel-alberto-corzo-el-terrible"
      },
      "r": 12,
      "ru": 1
@@ -1437,6 +1442,109 @@
     "https://boxemag.ouest-france.fr/boxe/jkitou-vs-corzo-decouvrez-la-carte-complete-des-combats-prevus-pour-vendredi-au-clichy-hall/",
     "https://tr78.fr/2026/11/09/champion-du-monde-avant-gta-6-le-pari-fou-de-bilel-jkitou-qui-boxe-pour-le-titre-quelques-jours-avant-la-sortie-du-jeu/"
    ]
+  },
+  {
+   "id": "bx-riley-coupe",
+   "sport": "boxe",
+   "org": "Boxe",
+   "name": "Riley vs Coupé",
+   "a": "Riley",
+   "b": "Coupé",
+   "venue": "OVO Arena Wembley",
+   "city": "Londres",
+   "ctry": "GBR",
+   "tz": "Europe/London",
+   "tbc": 1,
+   "partial": 1,
+   "segs": [
+    {
+     "k": "main",
+     "t": "2026-11-14T17:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "Lourds-légers",
+     "r": 12,
+     "sub": "Titre européen EBU",
+     "a": {
+      "n": "Viddal Riley",
+      "nat": "GBR",
+      "rec": "14-0-0",
+      "tp": "208140-viddal-riley"
+     },
+     "b": {
+      "n": "Seydi Coupé",
+      "nat": "FRA",
+      "rec": "14-0-0",
+      "tp": "341026-seydi-coupe"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Légers",
+     "r": 10,
+     "ru": 1,
+     "a": {
+      "n": "Zelfa Barrett",
+      "nat": "GBR",
+      "rec": "35-3-0",
+      "tp": "217234-zelfa-barrett-brown-flash"
+     },
+     "b": {
+      "n": "Gavin Gwynne",
+      "nat": "GBR",
+      "rec": "19-4-2",
+      "tp": "228371-gavin-gwynne"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Super-légers",
+     "r": 10,
+     "ru": 1,
+     "sub": "Titres Commonwealth et WBO European",
+     "a": {
+      "n": "Yaser Al Ghena"
+     },
+     "b": {
+      "n": "Ben Marksby"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Super-welters",
+     "r": 8,
+     "ru": 1,
+     "a": {
+      "n": "Dan Toward"
+     },
+     "b": {
+      "n": "Jak Corrie"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Plumes",
+     "r": 10,
+     "ru": 1,
+     "a": {
+      "n": "Tom Welland"
+     },
+     "b": {
+      "n": "Jack Dillingham"
+     }
+    }
+   ],
+   "tvx": [
+    "DAZN (Royaume-Uni)",
+    "DAZN (États-Unis)"
+   ],
+   "sources": [
+    "https://www.fightmag.com/viddal-riley-faces-seydi-coupe-in-main-event-in-london-in-november/",
+    "https://champinon.info/schedule/riley-vs-coupe/"
+   ]
   }
  ],
  "agenda": [
@@ -1462,6 +1570,14 @@
    "name": "ARES 46",
    "org": "ARES · Adidas Arena, Paris",
    "note": "Jade Jorand pour la ceinture · carte à venir",
+   "fr": 1
+  },
+  {
+   "sport": "boxe",
+   "date": "2026-12-24",
+   "name": "Jake Paul vs Cédric Doumbè",
+   "org": "Boxe · Dubaï",
+   "note": "Combat de boxe annoncé · carte et diffusion à venir",
    "fr": 1
   }
  ]

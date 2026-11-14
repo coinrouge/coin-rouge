@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-14T01:08:59.078Z",
+ "updated": "2026-11-14T18:35:39.414Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -2667,8 +2667,14 @@
      },
      "b": {
       "n": "Nawras Abzakh",
-      "rec": "15-6-0",
+      "rec": "15-5-0",
       "nat": "JOR"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (retirement)",
+      "round": 1,
+      "time": "5:00"
      }
     },
     {
@@ -2676,12 +2682,20 @@
      "w": "LW",
      "r": 3,
      "a": {
-      "n": "Shaqueme Rock"
+      "n": "Connor Hughes",
+      "rec": "11-3-0",
+      "nat": "GBR"
      },
      "b": {
-      "n": "Connor Hughes",
-      "rec": "12-3-0",
+      "n": "Shaqueme Rock",
+      "rec": "12-2-1",
       "nat": "GBR"
+     },
+     "res": {
+      "w": "a",
+      "method": "KO (coups de poing)",
+      "round": 2,
+      "time": "1:04"
      }
     },
     {
@@ -2689,12 +2703,20 @@
      "w": "WW",
      "r": 3,
      "a": {
-      "n": "Saygid Izagakhmaev"
+      "n": "Saygid Izagakhmaev",
+      "rec": "21-4-0",
+      "nat": "RUS"
      },
      "b": {
       "n": "David Martinez",
-      "rec": "17-6-0",
+      "rec": "17-5-0",
       "nat": "AUS"
+     },
+     "res": {
+      "w": "a",
+      "method": "Soumission (étranglement arrière)",
+      "round": 3,
+      "time": "4:27"
      }
     },
     {
@@ -2702,12 +2724,20 @@
      "w": "LW",
      "r": 3,
      "a": {
+      "n": "Akhmed Magomedov",
+      "rec": "10-2-0",
+      "nat": "RUS"
+     },
+     "b": {
       "n": "Alexei Pergande",
       "rec": "8-0-0",
       "nat": "USA"
      },
-     "b": {
-      "n": "Akhmed Magomedov"
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
      }
     },
     {
@@ -2715,16 +2745,22 @@
      "w": "FW",
      "r": 3,
      "a": {
+      "n": "Ádám Borics",
+      "rec": "20-4-0",
+      "nat": "HUN",
+      "wk": "Ádám Borics"
+     },
+     "b": {
       "n": "Khasan Magomedsharipov",
       "rec": "11-0-0",
       "nat": "RUS",
       "wk": "Khasan Magomedsharipov"
      },
-     "b": {
-      "n": "Ádám Borics",
-      "rec": "20-4-0",
-      "nat": "HUN",
-      "wk": "Ádám Borics"
+     "res": {
+      "w": "a",
+      "method": "Soumission (triangle armbar)",
+      "round": 1,
+      "time": "4:17"
      }
     },
     {
@@ -2741,6 +2777,12 @@
       "n": "Maxwell Djantou Nana",
       "rec": "9-2-0",
       "nat": "CMR"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (coups de poing)",
+      "round": 1,
+      "time": "3:41"
      }
     },
     {
@@ -2748,15 +2790,21 @@
      "w": "WW",
      "r": 3,
      "a": {
+      "n": "Ernesto Rodriguez",
+      "rec": "11-2-0",
+      "nat": "CUB"
+     },
+     "b": {
       "n": "Rhys McKee",
       "rec": "15-7-1",
       "nat": "IRL",
       "wk": "Rhys McKee"
      },
-     "b": {
-      "n": "Ernesto Rodriguez",
-      "rec": "11-2-0",
-      "nat": "CUB"
+     "res": {
+      "w": "a",
+      "method": "TKO (coups de poing)",
+      "round": 1,
+      "time": "2:28"
      }
     },
     {
@@ -2770,6 +2818,12 @@
      },
      "b": {
       "n": "Styve Ngono Essono"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (elbow and punches)",
+      "round": 3,
+      "time": "0:46"
      }
     },
     {
@@ -2785,6 +2839,12 @@
       "n": "Jacinta Austin",
       "rec": "9-2-0",
       "nat": "AUS"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
      }
     }
    ],
@@ -4452,7 +4512,7 @@
    "sport": "mma",
    "date": "2027-01-23",
    "name": "Affiche à annoncer",
-   "org": "UFC Fight Night · TBA"
+   "org": "UFC Fight Night · Las Vegas"
   },
   {
    "sport": "mma",
@@ -8511,7 +8571,7 @@
   [
    "Denis Goltsov",
    "RUS",
-   "37-9-0",
+   "38-9-0",
    "mma"
   ],
   [
@@ -8535,7 +8595,7 @@
   [
    "Maxwell Djantou Nana",
    "CMR",
-   "9-2-0",
+   "9-3-0",
    "mma"
   ],
   [
@@ -8649,13 +8709,19 @@
   [
    "Khabib Nabiev",
    "RUS",
-   "12-0-0",
+   "13-0-0",
    "mma"
   ],
   [
    "Tyson Pedro",
    "AUS",
    "10-7-0",
+   "mma"
+  ],
+  [
+   "Styve Ngono",
+   "CMR",
+   "8-2-0",
    "mma"
   ],
   [
@@ -8901,7 +8967,7 @@
   [
    "Ernesto Rodriguez",
    "CUB",
-   "11-2-0",
+   "12-2-0",
    "mma"
   ],
   [
@@ -8925,7 +8991,7 @@
   [
    "Rhys McKee",
    "IRL",
-   "15-7-1",
+   "15-8-1",
    "mma"
   ],
   [
@@ -8962,6 +9028,12 @@
    "Oualay Tandia",
    "FRA",
    "6-0-0",
+   "mma"
+  ],
+  [
+   "Saygid Izagakhmaev",
+   "RUS",
+   "22-4-0",
    "mma"
   ],
   [
@@ -9037,9 +9109,15 @@
    "mma"
   ],
   [
-   "Connor Hughes",
-   "GBR",
-   "12-3-0",
+   "Alexei Pergande",
+   "USA",
+   "8-0-0",
+   "mma"
+  ],
+  [
+   "Akhmed Magomedov",
+   "RUS",
+   "11-2-0",
    "mma"
   ],
   [
@@ -9052,6 +9130,12 @@
    "Mansour Barnaoui",
    "TUN",
    "22-7-0",
+   "mma"
+  ],
+  [
+   "Connor Hughes",
+   "GBR",
+   "12-3-0",
    "mma"
   ],
   [
@@ -9193,6 +9277,12 @@
    "mma"
   ],
   [
+   "Shaqueme Rock",
+   "GBR",
+   "12-3-1",
+   "mma"
+  ],
+  [
    "A. J. McKee",
    "USA",
    "25-3-0",
@@ -9201,7 +9291,7 @@
   [
    "Ádám Borics",
    "HUN",
-   "20-4-0",
+   "21-4-0",
    "mma"
   ],
   [
@@ -9231,19 +9321,13 @@
   [
    "Khasan Magomedsharipov",
    "RUS",
-   "11-0-0",
+   "11-1-0",
    "mma"
   ],
   [
    "Nathan Kelly",
    "IRL",
    "11-5-0",
-   "mma"
-  ],
-  [
-   "Alexei Pergande",
-   "USA",
-   "8-0-0",
    "mma"
   ],
   [
@@ -9763,12 +9847,6 @@
    "mma"
   ],
   [
-   "Aleksandra Savicheva",
-   "RUS",
-   "8-2-0",
-   "mma"
-  ],
-  [
    "Montana De La Rosa",
    "USA",
    "13-10-1",
@@ -9783,7 +9861,7 @@
   [
    "Jacinta Austin",
    "AUS",
-   "9-2-0",
+   "9-3-0",
    "mma"
   ],
   [
@@ -9799,6 +9877,12 @@
    "mma"
   ],
   [
+   "Aleksandra Savicheva",
+   "RUS",
+   "9-2-0",
+   "mma"
+  ],
+  [
    "Abdoullah Kane",
    "SEN",
    "6-2-0",
@@ -9808,12 +9892,6 @@
    "Justin Clarke",
    "RSA",
    "5-1-0",
-   "mma"
-  ],
-  [
-   "Styve Ngono",
-   "CMR",
-   "8-1-0",
    "mma"
   ],
   [

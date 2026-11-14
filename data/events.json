@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-14T22:55:13.243Z",
+ "updated": "2026-11-14T23:29:35.078Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -2718,7 +2718,7 @@
      },
      "res": {
       "w": "a",
-      "method": "KO (coups de poing)",
+      "method": "KO (coup de poing)",
       "round": 2,
       "time": "1:04"
      }
@@ -3348,16 +3348,22 @@
      "w": "WBW",
      "r": 3,
      "a": {
+      "n": "Beatriz Mesquita",
+      "rec": "7-0-0",
+      "nat": "BRA",
+      "wk": "Beatriz Mesquita"
+     },
+     "b": {
       "n": "Macy Chiasson",
-      "rec": "10-6-0",
+      "rec": "10-5-0",
       "nat": "USA",
       "wk": "Macy Chiasson"
      },
-     "b": {
-      "n": "Beatriz Mesquita",
-      "rec": "8-0-0",
-      "nat": "BRA",
-      "wk": "Beatriz Mesquita"
+     "res": {
+      "w": "a",
+      "method": "Soumission (étranglement arrière)",
+      "round": 1,
+      "time": "3:23"
      }
     },
     {
@@ -3365,15 +3371,21 @@
      "w": "Catchweight (136.4 lb)",
      "r": 3,
      "a": {
+      "n": "Juan Díaz",
+      "rec": "15-1-1",
+      "nat": "PER"
+     },
+     "b": {
       "n": "Alateng Heili",
-      "rec": "18-10-2",
+      "rec": "18-9-2",
       "nat": "CHN",
       "wk": "Alateng Heili"
      },
-     "b": {
-      "n": "Juan Díaz",
-      "rec": "16-1-1",
-      "nat": "PER"
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
      }
     },
     {

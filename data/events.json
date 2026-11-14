@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-14T20:14:59.739Z",
+ "updated": "2026-11-14T21:35:29.297Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -2599,18 +2599,24 @@
      "w": "HW",
      "r": 5,
      "a": {
+      "n": "Sergey Bilostenniy",
+      "rec": "15-4-0",
+      "nat": "RUS"
+     },
+     "b": {
       "n": "Vadim Nemkov",
       "rec": "20-2-0",
       "nat": "RUS",
       "champ": 1,
       "wk": "Vadim Nemkov"
      },
-     "b": {
-      "n": "Sergey Bilostenniy",
-      "rec": "15-4-0",
-      "nat": "RUS"
-     },
-     "title": "Titre Heavyweight"
+     "title": "Titre Heavyweight",
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 5,
+      "time": "5:00"
+     }
     },
     {
      "s": "main",
@@ -2640,7 +2646,7 @@
      "r": 3,
      "a": {
       "n": "Oleg Popov",
-      "rec": "21-2-0",
+      "rec": "22-2-0",
       "nat": "RUS",
       "wk": "Oleg Popov (fighter)"
      },
@@ -8583,7 +8589,7 @@
   [
    "Vadim Nemkov",
    "RUS",
-   "20-2-0",
+   "20-3-0",
    "mma"
   ],
   [
@@ -8601,13 +8607,13 @@
   [
    "Oleg Popov",
    "RUS",
-   "22-2-0",
+   "23-2-0",
    "mma"
   ],
   [
    "Sergey Bilostenniy",
    "RUS",
-   "15-4-0",
+   "16-4-0",
    "mma"
   ],
   [
@@ -8625,7 +8631,7 @@
   [
    "Pouya Rahmani",
    "IRI",
-   "6-0-0",
+   "6-1-0",
    "mma"
   ],
   [

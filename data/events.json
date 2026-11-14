@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-14T18:35:39.414Z",
+ "updated": "2026-11-14T19:24:51.071Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -2649,13 +2649,19 @@
      "w": "BW",
      "r": 3,
      "a": {
+      "n": "Joji Goto"
+     },
+     "b": {
       "n": "Sergio Pettis",
-      "rec": "25-8-0",
+      "rec": "25-7-0",
       "nat": "USA",
       "wk": "Sergio Pettis"
      },
-     "b": {
-      "n": "Joji Goto"
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
      }
     },
     {

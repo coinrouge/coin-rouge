@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-14T21:35:29.297Z",
+ "updated": "2026-11-14T22:55:13.243Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -2601,7 +2601,8 @@
      "a": {
       "n": "Sergey Bilostenniy",
       "rec": "15-4-0",
-      "nat": "RUS"
+      "nat": "RUS",
+      "wk": "Sergey Bilostenniy"
      },
      "b": {
       "n": "Vadim Nemkov",
@@ -3388,6 +3389,12 @@
       "n": "Samuel Sanches",
       "rec": "11-1-0",
       "nat": "BRA"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
      }
     }
    ],
@@ -6405,7 +6412,7 @@
   [
    "Evan Elder",
    "USA",
-   "10-2-0",
+   "11-2-0",
    "mma"
   ],
   [
@@ -6669,7 +6676,7 @@
   [
    "Samuel Sanches",
    "BRA",
-   "11-1-0",
+   "11-2-0",
    "mma"
   ],
   [

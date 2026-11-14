@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-14T19:24:51.071Z",
+ "updated": "2026-11-14T20:14:59.739Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -2618,14 +2618,20 @@
      "r": 3,
      "a": {
       "n": "Patrick Habirora",
-      "rec": "9-0-0",
+      "rec": "8-0-0",
       "nat": "BEL",
       "wk": "Patrick Habirora"
      },
      "b": {
       "n": "Omar El Dafrawy",
-      "rec": "16-6-0",
+      "rec": "16-5-0",
       "nat": "EGY"
+     },
+     "res": {
+      "w": "a",
+      "method": "Soumission technique (guillotine)",
+      "round": 1,
+      "time": "3:11"
      }
     },
     {
@@ -2634,7 +2640,7 @@
      "r": 3,
      "a": {
       "n": "Oleg Popov",
-      "rec": "22-2-0",
+      "rec": "21-2-0",
       "nat": "RUS",
       "wk": "Oleg Popov (fighter)"
      },
@@ -2642,6 +2648,12 @@
       "n": "Pouya Rahmani",
       "rec": "6-0-0",
       "nat": "IRI"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
      }
     },
     {
@@ -2649,7 +2661,7 @@
      "w": "BW",
      "r": 3,
      "a": {
-      "n": "Joji Goto"
+      "n": "Jōji Gotō"
      },
      "b": {
       "n": "Sergio Pettis",
@@ -2710,7 +2722,7 @@
      "r": 3,
      "a": {
       "n": "Saygid Izagakhmaev",
-      "rec": "21-4-0",
+      "rec": "22-4-0",
       "nat": "RUS"
      },
      "b": {
@@ -9039,7 +9051,7 @@
   [
    "Saygid Izagakhmaev",
    "RUS",
-   "22-4-0",
+   "23-4-0",
    "mma"
   ],
   [

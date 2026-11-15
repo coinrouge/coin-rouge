@@ -1606,7 +1606,8 @@ const RADAR=[
 
 /* Durées estimées par combat, entrées des combattants et pauses comprises (en minutes) */
 /* Durée moyenne d'un combat MMA, entrées comprises : beaucoup de finish, donc nettement moins que la durée maximale (3 rounds : 17 min de combat + repos, 5 rounds : 29) */
-const DUR={3:20,5:32};
+/* Recalé le 15 nov. 2026 sur l'UFC 334 (on était souvent en avance) : entrées, présentations, pubs et interviews prennent plus de temps */
+const DUR={3:30,5:40};
 /* Boxe : environ 4 min par round + présentations ; heure annoncée par la presse (f.t) prioritaire */
 const dur=f=>DUR[f.r]||(f.r*4+6);
 /* Recalage : un combat terminé dont on connaît le round et le temps (ex. KO R1 1:31) a duré beaucoup moins (ou plus) que la moyenne.
@@ -1617,14 +1618,15 @@ function realDur(ev,f){
   const rl=ev.sport==="boxe"?3:5, rest=1;
   const m=/^(\d+):(\d\d)$/.exec(r.time||"");
   const inRound=m?(+m[1])+(+m[2])/60:rl;           /* sans temps (décision) : round complet */
-  return 7+(r.round-1)*(rl+rest)+inRound+3;
+  return ev.sport==="boxe" ? 7+(r.round-1)*(rl+rest)+inRound+3 : 13+(r.round-1)*(rl+rest)+inRound+5; /* MMA : entrées + pub avant, annonce + interview après */
 }
 function prepEvents(){EVENTS.forEach(ev=>{
   const order=["early","prelims","main"];
   let cur=0, n=0;
   order.forEach(k=>{
     const sg=ev.segs.find(x=>x.k===k); if(!sg) return;
-    const st=Date.parse(sg.t); cur=Math.max(cur,st);
+    /* MMA : le 1er combat d'une partie commence en général ~10 min après le début de la diffusion (présentation) */
+    const st=Date.parse(sg.t)+(ev.sport==="boxe"?0:10*60000); cur=Math.max(cur,st);
     /* Combats déjà terminés (résultat connu) d'abord : l'ordre réel peut différer de l'ordre annoncé */
     const l0=ev.fights.filter(f=>f.s===k).slice().reverse(), list=[...l0.filter(f=>f.res&&!f.t),...l0.filter(f=>f.res&&f.t).sort((x,y)=>Date.parse(x.t)-Date.parse(y.t)),...l0.filter(f=>!f.res)];
     /* sure : on n'affiche un combat « en cours » que si son heure de début est CONFIRMÉE (annoncée ou signalée). Sinon : heures estimées seulement */
@@ -1965,7 +1967,21 @@ document.addEventListener("click",e=>{const b=e.target.closest(".jumpnav [data-j
   const dr=b.closest(".mdrawer");if(dr){dr.classList.remove("open");document.documentElement.style.overflow="";setTimeout(()=>el.scrollIntoView({behavior:"smooth",block:"start"}),300);}else el.scrollIntoView({behavior:"smooth",block:"start"});});
 document.addEventListener("click",e=>{if(e.target.closest("#allothers")){showAllOthers=!showAllOthers;render();}});
 function syncSpoilBtn(){const b=document.getElementById("spoilh");if(!b)return;b.setAttribute("aria-pressed",SPOIL);b.querySelector("span").textContent=SPOIL?"Spoil":"No spoil";}
+/* Pendant une soirée : si un combat sans résultat aurait déjà dû finir (il est en cours, ou son résultat n'est pas encore remonté),
+   on considère qu'il dure encore au moins 12 min et on décale d'autant tous les combats suivants. Recalculé à chaque rafraîchissement. */
+function liveShift(t){EVENTS.forEach(ev=>{
+  ev.fights.forEach(f=>{if(f.est0==null){f.est0=f.est;f.end0=f.end;}f.est=f.est0;f.end=f.end0;});
+  if(ev.end0==null)ev.end0=ev.end; ev.end=ev.end0;
+  if(!ev.fights.length||t<ev.start||t>ev.end0+3*36e5) return;
+  /* Le 1er combat sans résultat (dans l'ordre de passage) est supposé en cours : s'il aurait déjà dû finir, il dure encore au moins 12 min
+     et tous les combats suivants glissent d'autant */
+  const q=ev.fights.filter(f=>!f.res&&!f.skip).sort((x,y)=>x.est0-y.est0), F=q[0]; let sh=0;
+  if(F&&F.est0<=t) sh=Math.max(0,t+12*60000-F.end0);
+  if(sh){F.end=F.end0+sh; q.slice(1).forEach(f=>{if(f.known)return;f.est=Math.round((f.est0+sh)/3e5)*3e5;f.end=f.end0+sh;});}
+  ev.end=ev.end0+sh;
+});}
 function render(){
+  liveShift(now());
   syncSpoilBtn();
   const t=now();
   document.getElementById("clock").textContent=fmtT(t)+(simOffset!=null?" (test)":"");
@@ -2202,6 +2218,7 @@ function soonHTML(a){
   </div>`;
 }
 function renderDetail(t){
+  liveShift(t);
   const d=document.getElementById("detail");
   const m=location.hash.match(/^#ev-([a-z0-9-]+)$/);
   const ev=m&&EVENTS.find(e=>e.id===m[1]);
@@ -2348,8 +2365,10 @@ const STARS=new Set(EVENTS.flatMap(e=>e.fights.flatMap(f=>[f.a,f.b])).filter(p=>
  "Canelo Álvarez","Tyson Fury","Anthony Joshua","Oleksandr Usyk","Naoya Inoue","Terence Crawford","Dmitry Bivol","Artur Beterbiev","Gervonta Davis","Shakur Stevenson","Devin Haney","Ryan Garcia","Jake Paul","Deontay Wilder","David Benavidez","Jaime Munguía","Agit Kabayel","Daniel Dubois","Jai Opetaia","Junto Nakatani","Teofimo Lopez","Errol Spence Jr.","Vasiliy Lomachenko","Christian M'billi","Tony Yoka"].forEach(n=>STARS.add(n));
 /* Jamais vedette, même champion (choix éditorial) */
 const NOSTAR=new Set([]);;
-fetch("data/events.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=>{
+let LASTUPD=null;
+function applyData(d){
   if(!d||!Array.isArray(d.events)||!d.events.length) return;
+  LASTUPD=d.updated;
   const past=EVENTS.filter(e=>!d.events.some(x=>x.id===e.id)&&e.fights.some(f=>f.res));
   const fix=p=>{if(p.nat&&!NAT[p.n])NAT[p.n]=p.nat; markFranco(p); if(NOSTAR.has(p.n))delete p.star; else if(STARS.has(p.n)||p.champ)p.star=1; return p;};
   const evs=d.events.map(e=>({...e,fights:e.fights.map(f=>{const a=fix(f.a),b=fix(f.b);if(e.sport==="boxe"){a.bx=1;b.bx=1;}return {...f,a,b};})}));
@@ -2361,10 +2380,15 @@ fetch("data/events.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=
   prepEvents(); EVENTS.sort((a,b)=>a.start-b.start);
   const u=new Date(d.updated);
   document.getElementById("srcline").textContent=`Cartes mises à jour automatiquement le ${fmtD(u)} à ${fmtT(u)} depuis Wikipédia (CC BY-SA)${d.presse?" et la presse spécialisée (boxe, MMA français)":""}. Elles peuvent encore changer d'ici le jour J.`;
-}).catch(()=>{}).finally(()=>{
+}
+fetch("data/events.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(applyData).catch(()=>{}).finally(()=>{
   /* Premier affichage seulement une fois les données à jour chargées (pas d'ancienne affiche qui clignote) */
   render(); renderDetail(now()); document.documentElement.classList.remove("loading");
   setInterval(render,30000);
+  /* Pendant une soirée en cours : on relit les données toutes les 2 min ; dès qu'un nouveau résultat arrive, les heures estimées se recalent toutes seules */
+  setInterval(()=>{const t=now();if(!EVENTS.some(e=>t>=e.start-30*60000&&t<=e.end+60*60000))return;
+    fetch("data/events.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=>{if(!d||d.updated===LASTUPD)return;applyData(d);render();if(/^#ev-/.test(location.hash))renderDetail(now());}).catch(()=>{});
+  },120000);
 });
 </script>
 

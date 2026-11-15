@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T03:47:35.758Z",
+ "updated": "2026-11-15T03:57:42.396Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -4590,6 +4590,12 @@
    "date": "2027-01-23",
    "name": "Affiche à annoncer",
    "org": "UFC Fight Night · Las Vegas"
+  },
+  {
+   "sport": "mma",
+   "date": "2027-02-20",
+   "name": "Affiche à annoncer",
+   "org": "UFC 337"
   },
   {
    "sport": "mma",

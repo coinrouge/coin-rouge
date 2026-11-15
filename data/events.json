@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T02:38:34.781Z",
+ "updated": "2026-11-15T03:13:20.241Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -3249,15 +3249,21 @@
      "w": "FLW",
      "r": 3,
      "a": {
+      "n": "Luis Gurule",
+      "rec": "11-4-0",
+      "nat": "USA"
+     },
+     "b": {
       "n": "Bilal Hasan",
       "rec": "10-0-0",
       "nat": "IDN",
       "wk": "Bilal Hasan"
      },
-     "b": {
-      "n": "Luis Gurule",
-      "rec": "11-4-0",
-      "nat": "USA"
+     "res": {
+      "w": "a",
+      "method": "Décision partagée",
+      "round": 3,
+      "time": "5:00"
      }
     },
     {
@@ -7958,7 +7964,7 @@
   [
    "Luis Gurule",
    "USA",
-   "11-4-0",
+   "12-4-0",
    "mma"
   ],
   [
@@ -7988,7 +7994,7 @@
   [
    "Bilal Hasan",
    "IDN",
-   "10-0-0",
+   "10-1-0",
    "mma"
   ],
   [

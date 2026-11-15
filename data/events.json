@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T01:14:06.833Z",
+ "updated": "2026-11-15T01:58:39.590Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -3281,16 +3281,22 @@
      "w": "LW",
      "r": 3,
      "a": {
+      "n": "Chris Duncan",
+      "rec": "15-2-0",
+      "nat": "GBR",
+      "wk": "Chris Duncan (fighter)"
+     },
+     "b": {
       "n": "Drew Dober",
       "rec": "29-15-0",
       "nat": "USA",
       "wk": "Drew Dober"
      },
-     "b": {
-      "n": "Chris Duncan",
-      "rec": "15-2-0",
-      "nat": "GBR",
-      "wk": "Chris Duncan (fighter)"
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
      }
     },
     {
@@ -6196,7 +6202,7 @@
   [
    "Drew Dober",
    "USA",
-   "29-15-0",
+   "29-16-0",
    "mma"
   ],
   [
@@ -6514,7 +6520,7 @@
   [
    "Chris Duncan",
    "GBR",
-   "15-2-0",
+   "16-2-0",
    "mma"
   ],
   [

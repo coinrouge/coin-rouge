@@ -1989,6 +1989,9 @@ function liveShift(t){EVENTS.forEach(ev=>{
   ev.fights.forEach(f=>{if(f.est0==null){f.est0=f.est;f.end0=f.end;}f.est=f.est0;f.end=f.end0;});
   if(ev.end0==null)ev.end0=ev.end; ev.end=ev.end0;
   if(!ev.fights.length||t<ev.start||t>ev.end0+3*36e5) return;
+  /* Seulement si les résultats remontent en direct (UFC, PFL… via Wikipédia). Sans résultats (ARES, Hexagone, boxe), on garde les heures moyennes :
+     décaler sans information ferait glisser toute la soirée trop tard et risquerait de faire rater un combat */
+  if(!ev.fights.some(f=>f.res)) return;
   /* Combats sans résultat, dans l'ordre de passage. Le résultat peut remonter en retard : un combat ne peut pas durer plus que sa durée
      maximale (tous les rounds + entrées, pub, annonce). Au-delà, on le considère terminé et c'est le suivant qui est « en cours ».
      Le combat en cours : le suivant ne commence pas avant 10 min (annonce, pub, entrées), sans dépasser cette durée maximale. */

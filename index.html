@@ -1614,12 +1614,12 @@ const RADAR=[
 /* Durées estimées par combat, entrées des combattants et pauses comprises (en minutes) */
 /* Durée moyenne d'un combat MMA, entrées comprises : beaucoup de finish, donc nettement moins que la durée maximale (3 rounds : 17 min de combat + repos, 5 rounds : 29) */
 /* Recalé le 15 nov. 2026 sur l'UFC 334 (on était souvent en avance) : entrées, présentations, pubs et interviews prennent plus de temps */
-const DUR={3:30,5:40};
-/* Autres organisations MMA (ARES, Hexagone…) : moins de pubs, combats plus rapprochés */
+const DUR={3:37,5:45}; /* UFC 334 : ~35-40 min entre deux débuts de combat, même avec des KO rapides */
+/* Autres organisations MMA (ARES, Hexagone…) et early prelims : moins de pubs, combats plus rapprochés */
 const DUR2={3:24,5:36};
 /* Boxe : environ 4 min par round + présentations ; heure annoncée par la presse (f.t) prioritaire */
 let DUREV=null; /* soirée en cours de calcul (pour choisir la table de durées) */
-const dur=f=>((DUREV&&!/^(UFC|PFL)/.test(DUREV.org||"")&&DUREV.sport!=="boxe")?DUR2[f.r]:DUR[f.r])||(f.r*4+6);
+const dur=f=>((DUREV&&DUREV.sport!=="boxe"&&(!/^(UFC|PFL)/.test(DUREV.org||"")||f.s==="early"))?DUR2[f.r]:DUR[f.r])||(f.r*4+6);
 /* Recalage : un combat terminé dont on connaît le round et le temps (ex. KO R1 1:31) a duré beaucoup moins (ou plus) que la moyenne.
    Durée réelle = entrées et présentations (7 min) + temps de combat, repos compris + annonce du résultat (3 min).
    Les combats suivants sont décalés d'autant : les heures estimées se corrigent toutes seules au fil des résultats. */
@@ -1628,7 +1628,11 @@ function realDur(ev,f){
   const rl=ev.sport==="boxe"?3:5, rest=1;
   const m=/^(\d+):(\d\d)$/.exec(r.time||"");
   const inRound=m?(+m[1])+(+m[2])/60:rl;           /* sans temps (décision) : round complet */
-  return ev.sport==="boxe" ? 7+(r.round-1)*(rl+rest)+inRound+3 : 13+(r.round-1)*(rl+rest)+inRound+5; /* MMA : entrées + pub avant, annonce + interview après */
+  if(ev.sport==="boxe") return 7+(r.round-1)*(rl+rest)+inRound+3;
+  /* MMA : entrées + pub avant, annonce + interview après. UFC/PFL (télé, beaucoup de pubs) : ~27 min hors combat, mesuré sur l'UFC 334 */
+  /* early prelims (streaming, peu de pubs) : ~13 min ; prelims et main card télé : ~25 min */
+  const big=/^(UFC|PFL)/.test(ev.org||"")&&f.s!=="early";
+  return (big?18:9)+(r.round-1)*(rl+rest)+inRound+(big?7:4);
 }
 function prepEvents(){EVENTS.forEach(ev=>{
   DUREV=ev;
@@ -1985,13 +1989,20 @@ function liveShift(t){EVENTS.forEach(ev=>{
   ev.fights.forEach(f=>{if(f.est0==null){f.est0=f.est;f.end0=f.end;}f.est=f.est0;f.end=f.end0;});
   if(ev.end0==null)ev.end0=ev.end; ev.end=ev.end0;
   if(!ev.fights.length||t<ev.start||t>ev.end0+3*36e5) return;
-  /* Le 1er combat sans résultat (dans l'ordre de passage) est supposé en cours : s'il aurait déjà dû finir, le suivant ne commence pas avant 10 min
-     et tous les combats suivants glissent d'autant */
-  const q=ev.fights.filter(f=>!f.res&&!f.skip).sort((x,y)=>x.est0-y.est0), F=q[0]; let sh=0;
-  /* 10 min : même si le combat en cours finit à l'instant, il faut l'annonce du résultat, la pub et les entrées avant le suivant.
-     Pas plus : le résultat peut arriver en retard, il ne faut pas faire rater le combat suivant */
-  if(F&&F.est0<=t) sh=Math.max(0,t+10*60000-F.end0);
-  if(sh){F.end=F.end0+sh; q.slice(1).forEach(f=>{if(f.known)return;f.est=Math.floor((f.est0+sh)/3e5)*3e5;f.end=f.end0+sh;});}
+  /* Combats sans résultat, dans l'ordre de passage. Le résultat peut remonter en retard : un combat ne peut pas durer plus que sa durée
+     maximale (tous les rounds + entrées, pub, annonce). Au-delà, on le considère terminé et c'est le suivant qui est « en cours ».
+     Le combat en cours : le suivant ne commence pas avant 10 min (annonce, pub, entrées), sans dépasser cette durée maximale. */
+  const q=ev.fights.filter(f=>!f.res&&!f.skip).sort((x,y)=>x.est0-y.est0); let sh=0;
+  const maxD=f=>(ev.sport==="boxe"?f.r*4+12:(f.r>=5?60:45))*60000;
+  for(let i=0;i<q.length;i++){const f=q[i]; if(f.known) continue;
+    const st=f.est0+sh; if(st>t) break;
+    const lim=st+maxD(f), want=Math.min(Math.max(f.end0+sh,t+10*60000),lim);
+    if(t<lim){sh+=Math.max(0,want-(f.end0+sh)); break;}           /* en cours */
+    sh+=Math.max(0,lim-(f.end0+sh));                              /* sans doute terminé, résultat pas encore arrivé */
+  }
+  if(sh) q.forEach(f=>{if(f.known)return;f.est=Math.floor((f.est0+sh)/3e5)*3e5;f.end=f.end0+sh;});
+  /* le 1er combat sans résultat garde son heure de début */
+  if(sh&&q[0]&&!q[0].known){q[0].est=q[0].est0;}
   ev.end=ev.end0+sh;
 });}
 function render(){

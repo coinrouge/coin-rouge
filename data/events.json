@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T05:32:21.166Z",
+ "updated": "2026-11-15T06:32:28.255Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -3189,7 +3189,13 @@
       "nat": "USA",
       "wk": "Josh Hokit"
      },
-     "title": "Titre Heavyweight"
+     "title": "Titre Heavyweight",
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 5,
+      "time": "5:00"
+     }
     },
     {
      "s": "main",
@@ -4714,20 +4720,60 @@
     }
    ],
    "wiki": "UFC Fight Night: Salkilld vs. Saint Denis"
+  },
+  {
+   "tvx": [
+    "TNT Sports (Royaume-Uni)",
+    "VOOsport World (Belgique)",
+    "Paramount+ (États-Unis)"
+   ],
+   "id": "fn-pyfer-nickal",
+   "org": "UFC",
+   "name": "UFC Fight Night",
+   "a": "Pyfer",
+   "b": "Nickal",
+   "venue": "Rocket Arena",
+   "city": "Cleveland",
+   "ctry": "USA",
+   "tz": "America/New_York",
+   "segs": [
+    {
+     "k": "prelims",
+     "t": "2027-02-13T22:00:00Z"
+    },
+    {
+     "k": "main",
+     "t": "2027-02-14T01:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "MW",
+     "r": 5,
+     "a": {
+      "n": "Joe Pyfer",
+      "rec": "16-3-0",
+      "nat": "USA",
+      "wk": "Joe Pyfer"
+     },
+     "b": {
+      "n": "Bo Nickal",
+      "rec": "9-1-0",
+      "nat": "USA",
+      "wk": "Bo Nickal"
+     }
+    }
+   ],
+   "wiki": "UFC Fight Night: Pyfer vs. Nickal"
   }
  ],
  "agenda": [
   {
    "sport": "mma",
-   "date": "2027-02-13",
-   "name": "Affiche à annoncer",
-   "org": "UFC Fight Night"
-  },
-  {
-   "sport": "mma",
    "date": "2027-02-20",
    "name": "Affiche à annoncer",
-   "org": "UFC 337"
+   "org": "UFC 337 · Orlando"
   },
   {
    "sport": "mma",
@@ -4928,7 +4974,7 @@
   [
    "Ciryl Gane",
    "FRA",
-   "13-2-0",
+   "14-2-0",
    "mma"
   ],
   [
@@ -5060,7 +5106,7 @@
   [
    "Josh Hokit",
    "USA",
-   "10-0-0",
+   "10-1-0",
    "mma"
   ],
   [

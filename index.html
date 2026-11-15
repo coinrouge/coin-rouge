@@ -1973,15 +1973,17 @@ document.addEventListener("click",e=>{const b=e.target.closest(".jumpnav [data-j
 document.addEventListener("click",e=>{if(e.target.closest("#allothers")){showAllOthers=!showAllOthers;render();}});
 function syncSpoilBtn(){const b=document.getElementById("spoilh");if(!b)return;b.setAttribute("aria-pressed",SPOIL);b.querySelector("span").textContent=SPOIL?"Spoil":"No spoil";}
 /* Pendant une soirée : si un combat sans résultat aurait déjà dû finir (il est en cours, ou son résultat n'est pas encore remonté),
-   on considère qu'il dure encore au moins 5 min et on décale d'autant tous les combats suivants. Recalculé à chaque rafraîchissement. */
+   on considère que le suivant ne commence pas avant 10 min et on décale d'autant tous les combats suivants. Recalculé à chaque rafraîchissement. */
 function liveShift(t){EVENTS.forEach(ev=>{
   ev.fights.forEach(f=>{if(f.est0==null){f.est0=f.est;f.end0=f.end;}f.est=f.est0;f.end=f.end0;});
   if(ev.end0==null)ev.end0=ev.end; ev.end=ev.end0;
   if(!ev.fights.length||t<ev.start||t>ev.end0+3*36e5) return;
-  /* Le 1er combat sans résultat (dans l'ordre de passage) est supposé en cours : s'il aurait déjà dû finir, il dure encore au moins 5 min
+  /* Le 1er combat sans résultat (dans l'ordre de passage) est supposé en cours : s'il aurait déjà dû finir, le suivant ne commence pas avant 10 min
      et tous les combats suivants glissent d'autant */
   const q=ev.fights.filter(f=>!f.res&&!f.skip).sort((x,y)=>x.est0-y.est0), F=q[0]; let sh=0;
-  if(F&&F.est0<=t) sh=Math.max(0,t+5*60000-F.end0); /* 5 min seulement : le résultat peut arriver en retard, il ne faut pas faire rater le combat suivant */
+  /* 10 min : même si le combat en cours finit à l'instant, il faut l'annonce du résultat, la pub et les entrées avant le suivant.
+     Pas plus : le résultat peut arriver en retard, il ne faut pas faire rater le combat suivant */
+  if(F&&F.est0<=t) sh=Math.max(0,t+10*60000-F.end0);
   if(sh){F.end=F.end0+sh; q.slice(1).forEach(f=>{if(f.known)return;f.est=Math.floor((f.est0+sh)/3e5)*3e5;f.end=f.end0+sh;});}
   ev.end=ev.end0+sh;
 });}

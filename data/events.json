@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T03:13:20.241Z",
+ "updated": "2026-11-15T03:37:24.661Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -3232,16 +3232,22 @@
      "w": "WW",
      "r": 3,
      "a": {
+      "n": "Kevin Holland",
+      "rec": "28-15-0",
+      "nat": "USA",
+      "wk": "Kevin Holland"
+     },
+     "b": {
       "n": "Uroš Medić",
-      "rec": "14-3-0",
+      "rec": "14-2-0",
       "nat": "SRB",
       "wk": "Uroš Medić"
      },
-     "b": {
-      "n": "Kevin Holland",
-      "rec": "29-15-0",
-      "nat": "USA",
-      "wk": "Kevin Holland"
+     "res": {
+      "w": "a",
+      "method": "Décision majoritaire",
+      "round": 3,
+      "time": "5:00"
      }
     },
     {

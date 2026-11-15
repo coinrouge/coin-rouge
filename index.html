@@ -1157,6 +1157,13 @@ h2.h::before,h2.h::after{background:rgba(255,255,255,.22)!important}
 </style>
 <style>
 /* ===== Pronos entre amis ===== */
+.pkw.me.rmid{border-color:#B8F03A;background:color-mix(in srgb,#B8F03A 12%,rgba(0,0,0,.25))}.pkw.me.rok{border-color:#B8F03A;background:color-mix(in srgb,#B8F03A 18%,rgba(0,0,0,.25));box-shadow:0 0 10px rgba(184,240,58,.65),0 0 2px rgba(184,240,58,.9)}.pkw.me.rko{border-color:#FF1A2E;background:color-mix(in srgb,#FF1A2E 14%,rgba(0,0,0,.25))}
+.pbarr{margin-left:auto;display:flex;gap:8px;align-items:center}
+.dbar .pbarr .spoilbtn{margin-left:0}
+.spoilbtn.prevb{border-color:color-mix(in srgb,var(--blue) 55%,transparent);color:var(--ink)}
+.spoilbtn.prevb svg{color:var(--blue)}
+.spoilbtn.prevb.on{background:var(--blue);border-color:var(--blue);color:#06121F}.spoilbtn.prevb.on svg{color:#06121F}
+@media (max-width:640px){.pbarr{gap:6px}.pbarr .spoilbtn{padding:0 10px}.pbarr .spoilbtn span{display:none}}
 ol.pboard>li:not(.p1):not(.p2):not(.p3) .prk,ol.pboard>li:not(.p1):not(.p2):not(.p3):not(.me) .pnm,ol.pboard>li:not(.p1):not(.p2):not(.p3)>b{color:#8E95A2}
 ol.pboard .pnm small,ol.pboard>li .pnm small{color:#B8F03A}
 ol.pboard>li.p1 .prk,ol.pboard>li.p1.p1 .pnm,ol.pboard>li.p1.p1>b{color:#E3B85A}ol.pboard>li.p2 .prk,ol.pboard>li.p2.p2 .pnm,ol.pboard>li.p2.p2>b{color:#E4E9F0}ol.pboard>li.p3 .prk,ol.pboard>li.p3.p3 .pnm,ol.pboard>li.p3.p3>b{color:#C9803F}
@@ -3054,8 +3061,7 @@ function proEventHTML(ev){
   PK_ON=true; let card=""; try{card=cardHTML(ev,t,{detail:1});}finally{PK_ON=false;}
   const fin=Date.now()>=ev.end;
   const night=SPOIL&&(isLive(ev)||fin)?myNight(ev,c):null;
-  const revBtn=`<button type="button" class="prev${PRO.reveal?" on":""}" data-pa="reveal" aria-pressed="${!!PRO.reveal}"><svg class="pman" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><circle cx="12" cy="7.5" r="4"/><path d="M4 21c0-4.4 3.6-7.5 8-7.5s8 3.1 8 7.5z"/></svg>${PRO.reveal?"Masquer les pronos des amis":"Afficher les pronos des amis"}</button>`;
-  return `<section class="psec pcard">${head}${revBtn}${night?`<div class="pnight"><span>${fin?"Tes points sur la soirée":"Tes points ce soir"}</span><b>${night.pts} pt${night.pts>1?"s":""}</b><small>${night.good}/${night.judged} bons vainqueurs${isLive(ev)?" · se met à jour tout seul":""}</small></div>`:""}<p class="pnote">Tes pronos : <b>${n}/${tot}</b>. ${fin?`Soirée terminée.${SPOIL?"":" Active Spoil pour voir les résultats et les points."}`:isLive(ev)?`Soirée en cours : les pronos des parties commencées sont fermés, la page se met à jour toute seule.${SPOIL?"":" Active Spoil pour suivre tes points en direct."}`:`Fermeture au début de chaque partie : ${esc(locks)}. Les pronos d'un ami sur un combat se révèlent une fois ton propre prono fait (ou à la fermeture).`}</p><section>${card}</section></section>`;
+  return `<section class="psec pcard">${head}${night?`<div class="pnight"><span>${fin?"Tes points sur la soirée":"Tes points ce soir"}</span><b>${night.pts} pt${night.pts>1?"s":""}</b><small>${night.good}/${night.judged} bons vainqueurs${isLive(ev)?" · se met à jour tout seul":""}</small></div>`:""}<p class="pnote">Tes pronos : <b>${n}/${tot}</b>. ${fin?`Soirée terminée.${SPOIL?"":" Active Spoil pour voir les résultats et les points."}`:isLive(ev)?`Soirée en cours : les pronos des parties commencées sont fermés, la page se met à jour toute seule.${SPOIL?"":" Active Spoil pour suivre tes points en direct."}`:`Fermeture au début de chaque partie : ${esc(locks)}. Les pronos d'un ami sur un combat se révèlent une fois ton propre prono fait (ou à la fermeture).`}</p><section>${card}</section></section>`;
 }
 function pkHTML(ev,f,t){
   const fi=ev.fights.indexOf(f);
@@ -3079,7 +3085,7 @@ function pkHTML(ev,f,t){
     return t<ev.start?`<div class="pk" data-fi="${fi}"><span class="pkl">Pronos bientôt ouverts pour ce combat</span></div>`:`<div class="pk" data-fi="${fi}" hidden></div>`;
   }
   if(!mine&&!fr.length) return `<div class="pk shut" data-fi="${fi}"><span class="pkl">Pronos fermés</span><span class="pkw">Pas de prono sur ce combat</span></div>`;
-  const list=[...(mine?[`<span class="pkw me${chip(mine)}">Toi : ${show(mine)}</span>`]:[]),...(rev?fr.map(p=>`<span class="pkw${chip(p)}">${esc(p.who)} : ${show({pick:p.pick,m:p.m})}</span>`):fr.length?[`<span class="pkw">${fr.length} ami${fr.length>1?"s":""} · masqué${fr.length>1?"s":""}</span>`]:[])];
+  const list=[...(mine?[`<span class="pkw me${chip(mine)}${res&&win?(mine.pick!==win?" rko":mine.m&&mine.m===wcat?" rok":" rmid"):""}">Toi : ${show(mine)}</span>`]:[]),...(rev?fr.map(p=>`<span class="pkw${chip(p)}">${esc(p.who)} : ${show({pick:p.pick,m:p.m})}</span>`):fr.length?[`<span class="pkw">${fr.length} ami${fr.length>1?"s":""} · masqué${fr.length>1?"s":""}</span>`]:[])];
   return `<div class="pk shut" data-fi="${fi}"><span class="pkl">Pronos fermés</span>${list.join("")}</div>`;
 }
 async function setPick(ev,f,pick,m){
@@ -3173,7 +3179,7 @@ function pronosHTML(){
   const sm=me&&location.hash.match(/^#pronos-soirees-(.+)$/), sg=sm&&(me.groups||[]).find(g=>g.id===sm[1]);
   if(sg) return manageHTML(sg);
   const evm=!gm&&!sm&&location.hash.match(/^#pronos-(.+)$/), pev=me&&evm&&EVENTS.find(e=>e.id===decodeURIComponent(evm[1]));
-  if(pev) return `<div class="dbar"><div class="dleft"><a class="dbrand homelink" href="#" title="Retour à l'accueil"><canvas class="frlogo frmini" role="img" aria-label="Fight Radar"></canvas></a><a class="back" href="#pronos">← Pronos</a></div>${Date.now()>=pev.start?`<button type="button" class="spoilbtn" id="spoil" aria-pressed="${SPOIL}" title="Afficher ou masquer les résultats"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="eye" d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle class="eye" cx="12" cy="12" r="3"/><path class="slash" d="M3 3l18 18"/></svg><span>${SPOIL?"Spoil":"No spoil"}</span></button>`:""}</div>
+  if(pev) return `<div class="dbar"><div class="dleft"><a class="dbrand homelink" href="#" title="Retour à l'accueil"><canvas class="frlogo frmini" role="img" aria-label="Fight Radar"></canvas></a><a class="back" href="#pronos">← Pronos</a></div><div class="pbarr"><button type="button" class="spoilbtn prevb${PRO.reveal?" on":""}" data-pa="reveal" aria-pressed="${!!PRO.reveal}" title="${PRO.reveal?"Masquer les pronos des amis":"Afficher les pronos des amis"}"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><circle cx="12" cy="7.5" r="4"/><path d="M4 21c0-4.4 3.6-7.5 8-7.5s8 3.1 8 7.5z"/></svg><span>${PRO.reveal?"Masquer les amis":"Pronos des amis"}</span></button>${Date.now()>=pev.start?`<button type="button" class="spoilbtn" id="spoil" aria-pressed="${SPOIL}" title="Afficher ou masquer les résultats"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="eye" d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle class="eye" cx="12" cy="12" r="3"/><path class="slash" d="M3 3l18 18"/></svg><span>${SPOIL?"Spoil":"No spoil"}</span></button>`:""}</div></div>
     <div class="dwrap pro">${PRO.err?`<div class="perr" role="alert">${esc(PRO.err)}</div>`:""}${proEventHTML(pev)}</div>`;
   if(!me) return head+`
     <div class="pgrid">

@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T03:57:42.396Z",
+ "updated": "2026-11-15T04:36:00.287Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -3225,6 +3225,12 @@
       "rec": "11-3-0",
       "nat": "NED",
       "wk": "Yousri Belgaroui"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
      }
     },
     {
@@ -4422,6 +4428,132 @@
     "VOOsport World (Belgique)",
     "Paramount+ (États-Unis)"
    ],
+   "id": "fn-rodriguez-garcia",
+   "org": "UFC",
+   "name": "UFC Fight Night",
+   "a": "Rodríguez",
+   "b": "Garcia",
+   "venue": "American Airlines Center",
+   "city": "Dallas",
+   "ctry": "USA",
+   "tz": "America/Chicago",
+   "segs": [
+    {
+     "k": "prelims",
+     "t": "2027-01-16T22:00:00Z"
+    },
+    {
+     "k": "main",
+     "t": "2027-01-17T01:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "FW",
+     "r": 5,
+     "a": {
+      "n": "Yair Rodríguez",
+      "rec": "16-5-0",
+      "nat": "MEX",
+      "wk": "Yair Rodríguez"
+     },
+     "b": {
+      "n": "Steve Garcia",
+      "rec": "19-6-0",
+      "nat": "USA",
+      "wk": "Steve Garcia"
+     }
+    },
+    {
+     "s": "main",
+     "w": "WW",
+     "r": 3,
+     "a": {
+      "n": "Daniel Rodriguez",
+      "rec": "20-6-0",
+      "nat": "USA",
+      "wk": "Daniel Rodriguez (fighter)"
+     },
+     "b": {
+      "n": "Roberto Soldić",
+      "rec": "22-4-0",
+      "nat": "CRO",
+      "wk": "Roberto Soldić"
+     }
+    },
+    {
+     "s": "main",
+     "w": "WW",
+     "r": 3,
+     "a": {
+      "n": "Chidi Njokuani",
+      "rec": "26-12-0",
+      "nat": "USA",
+      "wk": "Chidi Njokuani"
+     },
+     "b": {
+      "n": "Ignacio Bahamondes",
+      "rec": "18-7-0",
+      "nat": "CHI",
+      "wk": "Ignacio Bahamondes"
+     }
+    }
+   ],
+   "wiki": "UFC Fight Night: Rodríguez vs. Garcia"
+  },
+  {
+   "tvx": [
+    "TNT Sports (Royaume-Uni)",
+    "VOOsport World (Belgique)",
+    "Paramount+ (États-Unis)"
+   ],
+   "id": "fn-bonfim-brady",
+   "org": "UFC",
+   "name": "UFC Fight Night",
+   "a": "Bonfim",
+   "b": "Brady",
+   "venue": "Meta Apex",
+   "city": "Las Vegas",
+   "ctry": "USA",
+   "tz": "America/Los_Angeles",
+   "segs": [
+    {
+     "k": "prelims",
+     "t": "2027-01-23T22:00:00Z"
+    },
+    {
+     "k": "main",
+     "t": "2027-01-24T01:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "WW",
+     "r": 5,
+     "a": {
+      "n": "Gabriel Bonfim",
+      "rec": "19-1-0",
+      "nat": "BRA",
+      "wk": "Gabriel Bonfim"
+     },
+     "b": {
+      "n": "Sean Brady",
+      "rec": "19-2-0",
+      "nat": "USA",
+      "wk": "Sean Brady (fighter)"
+     }
+    }
+   ],
+   "wiki": "UFC Fight Night: Bonfim vs. Brady"
+  },
+  {
+   "tvx": [
+    "TNT Sports (Royaume-Uni)",
+    "VOOsport World (Belgique)",
+    "Paramount+ (États-Unis)"
+   ],
    "id": "ufc336",
    "org": "UFC",
    "name": "UFC 336",
@@ -4581,15 +4713,9 @@
  "agenda": [
   {
    "sport": "mma",
-   "date": "2027-01-16",
+   "date": "2027-02-13",
    "name": "Affiche à annoncer",
-   "org": "UFC Fight Night · Dallas"
-  },
-  {
-   "sport": "mma",
-   "date": "2027-01-23",
-   "name": "Affiche à annoncer",
-   "org": "UFC Fight Night · Las Vegas"
+   "org": "UFC Fight Night"
   },
   {
    "sport": "mma",
@@ -5486,7 +5612,7 @@
   [
    "Caio Borralho",
    "BRA",
-   "18-2-0",
+   "19-2-0",
    "mma"
   ],
   [
@@ -5654,7 +5780,7 @@
   [
    "Yousri Belgaroui",
    "NED",
-   "11-3-0",
+   "11-4-0",
    "mma"
   ],
   [

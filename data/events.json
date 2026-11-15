@@ -58,16 +58,16 @@
      "w": "FW",
      "r": 3,
      "a": {
+      "n": "Gabriel Braga"
+     },
+     "b": {
       "n": "Timur Khizriev",
       "rec": "18-0-0",
       "nat": "RUS",
       "wk": "Timur Khizriev"
      },
-     "b": {
-      "n": "Gabriel Braga"
-     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "Décision partagée",
       "round": 3,
       "time": "5:00"
@@ -78,17 +78,17 @@
      "w": "BW",
      "r": 3,
      "a": {
-      "n": "Sarvarjon Khamidov",
-      "rec": "17-1-0",
-      "nat": "TJK"
-     },
-     "b": {
       "n": "Rafael do Nascimento",
       "rec": "13-2-0",
       "nat": "BRA"
      },
+     "b": {
+      "n": "Sarvarjon Khamidov",
+      "rec": "17-1-0",
+      "nat": "TJK"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "KO (coups de poing)",
       "round": 1,
       "time": "1:49"
@@ -99,13 +99,13 @@
      "w": "WW",
      "r": 3,
      "a": {
-      "n": "Oualy Tandia"
-     },
-     "b": {
       "n": "J.P. Saint Louis"
      },
+     "b": {
+      "n": "Oualy Tandia"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "Décision unanime",
       "round": 3,
       "time": "5:00"
@@ -137,18 +137,18 @@
      "w": "LHW",
      "r": 3,
      "a": {
+      "n": "Abraham Bably",
+      "rec": "8-3-0",
+      "nat": "GBR"
+     },
+     "b": {
       "n": "Emiliano Sordi",
       "rec": "27-14-1",
       "nat": "ARG",
       "wk": "Emiliano Sordi"
      },
-     "b": {
-      "n": "Abraham Bably",
-      "rec": "8-3-0",
-      "nat": "GBR"
-     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "TKO (coups de poing)",
       "round": 2,
       "time": "3:13"
@@ -159,15 +159,15 @@
      "w": "LW",
      "r": 3,
      "a": {
+      "n": "Cássio Barão"
+     },
+     "b": {
       "n": "Kevin Pease",
       "rec": "8-0-0",
       "nat": "USA"
      },
-     "b": {
-      "n": "Cássio Barão"
-     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "Soumission (étranglement arrière)",
       "round": 1,
       "time": "3:28"
@@ -178,17 +178,17 @@
      "w": "WFLW",
      "r": 3,
      "a": {
-      "n": "Shannon Clark",
-      "rec": "8-1-0",
-      "nat": "CAN"
-     },
-     "b": {
       "n": "Lucero Acosta",
       "rec": "6-2-0",
       "nat": "MEX"
      },
+     "b": {
+      "n": "Shannon Clark",
+      "rec": "8-1-0",
+      "nat": "CAN"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "TKO (coudes)",
       "round": 3,
       "time": "1:59"
@@ -239,15 +239,15 @@
      "w": "LW",
      "r": 3,
      "a": {
+      "n": "Brock Hamer"
+     },
+     "b": {
       "n": "Levan Khabalaev",
       "rec": "6-0-0",
       "nat": "GEO"
      },
-     "b": {
-      "n": "Brock Hamer"
-     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "TKO (knees and punches)",
       "round": 1,
       "time": "1:01"
@@ -258,19 +258,19 @@
      "w": "WFLW",
      "r": 3,
      "a": {
-      "n": "Paulina Wiśniewska",
-      "rec": "6-1-0",
-      "nat": "POL",
-      "wk": "Paulina Wiśniewska"
-     },
-     "b": {
       "n": "Chelsea Hackett",
       "rec": "5-3-1",
       "nat": "AUS",
       "wk": "Chelsea Hackett"
      },
+     "b": {
+      "n": "Paulina Wiśniewska",
+      "rec": "6-1-0",
+      "nat": "POL",
+      "wk": "Paulina Wiśniewska"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "Décision unanime",
       "round": 3,
       "time": "5:00"
@@ -281,15 +281,15 @@
      "w": "FW",
      "r": 3,
      "a": {
+      "n": "Caden Cox"
+     },
+     "b": {
       "n": "Noah Hermosillo",
       "rec": "1-0-0",
       "nat": "USA"
      },
-     "b": {
-      "n": "Caden Cox"
-     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "TKO (body kick and punches)",
       "round": 3,
       "time": "1:43"
@@ -329,19 +329,19 @@
      "w": "WW",
      "r": 5,
      "a": {
-      "n": "Mike Malott",
-      "rec": "14-2-1",
-      "nat": "CAN",
-      "wk": "Mike Malott"
-     },
-     "b": {
       "n": "Joaquin Buckley",
       "rec": "21-8-0",
       "nat": "USA",
       "wk": "Joaquin Buckley"
      },
+     "b": {
+      "n": "Mike Malott",
+      "rec": "14-2-1",
+      "nat": "CAN",
+      "wk": "Mike Malott"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "KO (knee and punch)",
       "round": 2,
       "time": "2:32"
@@ -352,19 +352,19 @@
      "w": "WFLW",
      "r": 3,
      "a": {
-      "n": "Jasmine Jasudavicius",
-      "rec": "15-4-0",
-      "nat": "CAN",
-      "wk": "Jasmine Jasudavicius"
-     },
-     "b": {
       "n": "Erin Blanchfield",
       "rec": "14-2-0",
       "nat": "USA",
       "wk": "Erin Blanchfield"
      },
+     "b": {
+      "n": "Jasmine Jasudavicius",
+      "rec": "15-4-0",
+      "nat": "CAN",
+      "wk": "Jasmine Jasudavicius"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "Décision unanime",
       "round": 3,
       "time": "5:00"
@@ -397,19 +397,19 @@
      "w": "MW",
      "r": 3,
      "a": {
-      "n": "Marc-André Barriault",
-      "rec": "17-10-0",
-      "nat": "CAN",
-      "wk": "Marc-André Barriault"
-     },
-     "b": {
       "n": "Kyle Daukaus",
       "rec": "17-5-0",
       "nat": "USA",
       "wk": "Kyle Daukaus"
      },
+     "b": {
+      "n": "Marc-André Barriault",
+      "rec": "17-10-0",
+      "nat": "CAN",
+      "wk": "Marc-André Barriault"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "TKO (punches and elbows)",
       "round": 1,
       "time": "4:28"
@@ -420,17 +420,17 @@
      "w": "BW",
      "r": 3,
      "a": {
-      "n": "Timothy Cuamba",
-      "rec": "10-4-0",
-      "nat": "USA"
-     },
-     "b": {
       "n": "Louis Jourdain",
       "rec": "9-3-0",
       "nat": "CAN"
      },
+     "b": {
+      "n": "Timothy Cuamba",
+      "rec": "10-4-0",
+      "nat": "USA"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "Soumission (neck crank)",
       "round": 2,
       "time": "2:48"
@@ -463,19 +463,19 @@
      "w": "HW",
      "r": 3,
      "a": {
-      "n": "Tanner Boser",
-      "rec": "22-11-1",
-      "nat": "CAN",
-      "wk": "Tanner Boser"
-     },
-     "b": {
       "n": "Jhonata Diniz",
       "rec": "9-2-0",
       "nat": "BRA",
       "wk": "Jhonata Diniz"
      },
+     "b": {
+      "n": "Tanner Boser",
+      "rec": "22-11-1",
+      "nat": "CAN",
+      "wk": "Tanner Boser"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "TKO (coups de poing)",
       "round": 3,
       "time": "4:26"
@@ -486,17 +486,17 @@
      "w": "MW",
      "r": 3,
      "a": {
-      "n": "Nick Galanti",
-      "rec": "9-1-0",
-      "nat": "USA"
-     },
-     "b": {
       "n": "Julien Leblanc",
       "rec": "10-3-0",
       "nat": "CAN"
      },
+     "b": {
+      "n": "Nick Galanti",
+      "rec": "9-1-0",
+      "nat": "USA"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "Soumission (neck crank)",
       "round": 1,
       "time": "1:26"
@@ -507,18 +507,18 @@
      "w": "HW",
      "r": 3,
      "a": {
-      "n": "Joel Faglier",
-      "rec": "6-0-0",
-      "nat": "USA"
-     },
-     "b": {
       "n": "Javad Mahjoub",
       "rec": "5-0-0",
       "nat": "IRI",
       "wk": "Javad Mahjoub"
      },
+     "b": {
+      "n": "Joel Faglier",
+      "rec": "6-0-0",
+      "nat": "USA"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "TKO (coups de poing)",
       "round": 2,
       "time": "2:11"
@@ -551,17 +551,17 @@
      "w": "BW",
      "r": 3,
      "a": {
-      "n": "Steven Koslow",
-      "rec": "6-1-0",
-      "nat": "USA"
-     },
-     "b": {
       "n": "Chad Anheliger",
       "rec": "13-8-0",
       "nat": "CAN"
      },
+     "b": {
+      "n": "Steven Koslow",
+      "rec": "6-1-0",
+      "nat": "USA"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "Soumission (étranglement arrière)",
       "round": 3,
       "time": "4:31"
@@ -594,17 +594,17 @@
      "w": "BW",
      "r": 3,
      "a": {
-      "n": "You Su-young",
-      "rec": "16-4-0",
-      "nat": "KOR"
-     },
-     "b": {
       "n": "Cody Chovancek",
       "rec": "9-0-0",
       "nat": "CAN"
      },
+     "b": {
+      "n": "You Su-young",
+      "rec": "16-4-0",
+      "nat": "KOR"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "Soumission (kimura)",
       "round": 3,
       "time": "4:19"
@@ -674,21 +674,21 @@
      "w": "BW",
      "r": 5,
      "a": {
+      "n": "Merab Dvalishvili",
+      "rec": "21-5-0",
+      "nat": "GEO",
+      "wk": "Merab Dvalishvili"
+     },
+     "b": {
       "n": "Petr Yan",
       "rec": "20-5-0",
       "nat": "RUS",
       "champ": 1,
       "wk": "Petr Yan"
      },
-     "b": {
-      "n": "Merab Dvalishvili",
-      "rec": "21-5-0",
-      "nat": "GEO",
-      "wk": "Merab Dvalishvili"
-     },
      "title": "Titre Bantamweight",
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "Décision unanime",
       "round": 5,
       "time": "5:00"
@@ -768,19 +768,19 @@
      "w": "LHW",
      "r": 3,
      "a": {
-      "n": "Dominick Reyes",
-      "rec": "16-5-0",
-      "nat": "USA",
-      "wk": "Dominick Reyes"
-     },
-     "b": {
       "n": "Azamat Murzakanov",
       "rec": "16-1-0",
       "nat": "RUS",
       "wk": "Azamat Murzakanov"
      },
+     "b": {
+      "n": "Dominick Reyes",
+      "rec": "16-5-0",
+      "nat": "USA",
+      "wk": "Dominick Reyes"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "TKO (high kick et coups)",
       "round": 1,
       "time": "2:40"
@@ -859,18 +859,18 @@
      "w": "BW",
      "r": 3,
      "a": {
+      "n": "Asaf Chopurov",
+      "rec": "11-0-0",
+      "nat": "RUS"
+     },
+     "b": {
       "n": "Colby Thicknesse",
       "rec": "9-1-0",
       "nat": "AUS",
       "wk": "Colby Thicknesse"
      },
-     "b": {
-      "n": "Asaf Chopurov",
-      "rec": "11-0-0",
-      "nat": "RUS"
-     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "Décision partagée",
       "round": 3,
       "time": "5:00"
@@ -903,18 +903,18 @@
      "w": "FW",
      "r": 3,
      "a": {
+      "n": "Bolaji Oki",
+      "rec": "10-4-0",
+      "nat": "BEL"
+     },
+     "b": {
       "n": "Daniel Santos",
       "rec": "13-3-0",
       "nat": "BRA",
       "wk": "Daniel Santos (fighter)"
      },
-     "b": {
-      "n": "Bolaji Oki",
-      "rec": "10-4-0",
-      "nat": "BEL"
-     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "Décision unanime",
       "round": 3,
       "time": "5:00"
@@ -1067,21 +1067,21 @@
      "w": "Super-plumes",
      "r": 10,
      "a": {
-      "n": "Reito Tsutsumi",
-      "nat": "JPN",
-      "rec": "5-0-0",
-      "tp": "493346-reito-tsutsumi"
-     },
-     "b": {
       "n": "Raymundo Rojas García",
       "nat": "MEX",
       "rec": "16-2-0",
       "tp": "320203-raymundo-rojas-garcia"
      },
+     "b": {
+      "n": "Reito Tsutsumi",
+      "nat": "JPN",
+      "rec": "5-0-0",
+      "tp": "493346-reito-tsutsumi"
+     },
      "ru": 1,
      "t": "2026-10-31T18:26:00Z",
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "TKO",
       "round": 2
      }
@@ -1091,17 +1091,17 @@
      "w": "Super-coqs",
      "r": 10,
      "a": {
-      "n": "Carl Jammes Martin",
-      "nat": "PHI"
-     },
-     "b": {
       "n": "David Picasso",
       "nat": "MEX"
+     },
+     "b": {
+      "n": "Carl Jammes Martin",
+      "nat": "PHI"
      },
      "ru": 1,
      "sub": "Titre WBC Silver",
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "Décision partagée",
       "round": 10
      }
@@ -1260,18 +1260,18 @@
      "w": "LW",
      "r": 3,
      "a": {
-      "n": "Mario Gagliardi",
-      "rec": "4-0-0",
-      "nat": "ITA"
-     },
-     "b": {
       "n": "Sofiane El Fatni",
       "rec": "4-1-0",
       "nat": "MAR"
      },
+     "b": {
+      "n": "Mario Gagliardi",
+      "rec": "4-0-0",
+      "nat": "ITA"
+     },
      "t": "2026-10-31T21:04:00Z",
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "Décision partagée",
       "round": 3
      }
@@ -1343,18 +1343,18 @@
      "w": "LW",
      "r": 3,
      "a": {
-      "n": "Marc-Philippe Ngatchou",
-      "rec": "2-1-1",
-      "nat": "GER"
-     },
-     "b": {
       "n": "Maher Belkhadir",
       "rec": "3-2-0",
       "nat": "FRA",
       "fr": 1
      },
+     "b": {
+      "n": "Marc-Philippe Ngatchou",
+      "rec": "2-1-1",
+      "nat": "GER"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "Décision unanime",
       "round": 3
      }
@@ -1416,19 +1416,19 @@
      "w": "LW",
      "r": 5,
      "a": {
-      "n": "Tom Nolan",
-      "rec": "11-1-0",
-      "nat": "AUS",
-      "wk": "Tom Nolan (fighter)"
-     },
-     "b": {
       "n": "Renato Moicano",
       "rec": "21-7-1",
       "nat": "BRA",
       "wk": "Renato Moicano"
      },
+     "b": {
+      "n": "Tom Nolan",
+      "rec": "11-1-0",
+      "nat": "AUS",
+      "wk": "Tom Nolan (fighter)"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "TKO (punches and elbows)",
       "round": 3,
       "time": "1:28"
@@ -1439,18 +1439,18 @@
      "w": "WW",
      "r": 3,
      "a": {
-      "n": "Jacobe Smith",
-      "rec": "13-0-0",
-      "nat": "USA"
-     },
-     "b": {
       "n": "Randy Brown",
       "rec": "20-8-0",
       "nat": "JAM",
       "wk": "Randy Brown (fighter)"
      },
+     "b": {
+      "n": "Jacobe Smith",
+      "rec": "13-0-0",
+      "nat": "USA"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "Décision unanime",
       "round": 3,
       "time": "5:00"
@@ -1461,19 +1461,19 @@
      "w": "FLW",
      "r": 3,
      "a": {
-      "n": "Cody Durden",
-      "rec": "18-11-1",
-      "nat": "USA",
-      "wk": "Cody Durden"
-     },
-     "b": {
       "n": "Ode' Osbourne",
       "rec": "13-9-0",
       "nat": "JAM",
       "wk": "Ode' Osbourne"
      },
+     "b": {
+      "n": "Cody Durden",
+      "rec": "18-11-1",
+      "nat": "USA",
+      "wk": "Cody Durden"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "Décision unanime",
       "round": 3,
       "time": "5:00"
@@ -1484,19 +1484,19 @@
      "w": "WBW",
      "r": 3,
      "a": {
-      "n": "Luana Santos",
-      "rec": "11-2-0",
-      "nat": "BRA",
-      "wk": "Luana Santos"
-     },
-     "b": {
       "n": "Yana Santos",
       "rec": "17-8-0",
       "nat": "RUS",
       "wk": "Yana Santos"
      },
+     "b": {
+      "n": "Luana Santos",
+      "rec": "11-2-0",
+      "nat": "BRA",
+      "wk": "Luana Santos"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "Décision unanime",
       "round": 3,
       "time": "5:00"
@@ -1529,17 +1529,17 @@
      "w": "Catchweight (148 lb)",
      "r": 3,
      "a": {
-      "n": "Dakota Hope",
-      "rec": "11-2-0",
-      "nat": "USA"
-     },
-     "b": {
       "n": "Francis Marshall",
       "rec": "10-3-0",
       "nat": "USA"
      },
+     "b": {
+      "n": "Dakota Hope",
+      "rec": "11-2-0",
+      "nat": "USA"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "Décision partagée",
       "round": 3,
       "time": "5:00"
@@ -1616,17 +1616,17 @@
      "w": "MW",
      "r": 3,
      "a": {
-      "n": "Joseph Kropschot",
-      "rec": "9-3-0",
-      "nat": "USA"
-     },
-     "b": {
       "n": "Nick Klein",
       "rec": "6-3-0",
       "nat": "USA"
      },
+     "b": {
+      "n": "Joseph Kropschot",
+      "rec": "9-3-0",
+      "nat": "USA"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "Soumission (reverse triangle armbar)",
       "round": 2,
       "time": "1:25"
@@ -1637,19 +1637,19 @@
      "w": "WSW",
      "r": 3,
      "a": {
-      "n": "Piera Rodríguez",
-      "rec": "12-2-0",
-      "nat": "VEN",
-      "wk": "Piera Rodríguez"
-     },
-     "b": {
       "n": "Talita Alencar",
       "rec": "8-1-1",
       "nat": "BRA",
       "wk": "Talita Alencar"
      },
+     "b": {
+      "n": "Piera Rodríguez",
+      "rec": "12-2-0",
+      "nat": "VEN",
+      "wk": "Piera Rodríguez"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "Décision unanime",
       "round": 3,
       "time": "5:00"
@@ -1707,19 +1707,19 @@
      "w": "Lourds-légers",
      "r": 10,
      "a": {
-      "n": "Cheavon Clarke",
-      "nat": "GBR",
-      "tp": "324167-cheavon-clarke",
-      "rec": "12-2-0"
-     },
-     "b": {
       "n": "Chris Billam-Smith",
       "nat": "GBR",
       "tp": "223576-chris-billam-smith-the-gentleman",
       "rec": "22-2-0"
      },
+     "b": {
+      "n": "Cheavon Clarke",
+      "nat": "GBR",
+      "tp": "324167-cheavon-clarke",
+      "rec": "12-2-0"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "TKO",
       "round": 7,
       "time": "1:24"
@@ -1752,20 +1752,20 @@
      "w": "Mi-lourds",
      "r": 10,
      "a": {
-      "n": "Umar Dzambekov",
-      "nat": "AUT",
-      "rec": "14-0-0",
-      "tp": "303660-umar-dzambekov"
-     },
-     "b": {
       "n": "Zach Parker",
       "nat": "GBR",
       "rec": "26-2-0",
       "tp": "223627-zach-parker"
      },
+     "b": {
+      "n": "Umar Dzambekov",
+      "nat": "AUT",
+      "rec": "14-0-0",
+      "tp": "303660-umar-dzambekov"
+     },
      "ru": 1,
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "KO",
       "round": 4,
       "time": "1:47"
@@ -1798,16 +1798,16 @@
      "w": "Moyens",
      "r": 8,
      "a": {
+      "n": "Amaury Massenaux"
+     },
+     "b": {
       "n": "Sam Hickey",
       "nat": "GBR",
       "tp": "463404-sam-hickey",
       "rec": "6-0-0"
      },
-     "b": {
-      "n": "Amaury Massenaux"
-     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "TKO",
       "round": 5,
       "time": "2:31"
@@ -1858,13 +1858,13 @@
      "r": 8,
      "ru": 1,
      "a": {
-      "n": "Vinnie Kemp"
-     },
-     "b": {
       "n": "Liam McElhinney"
      },
+     "b": {
+      "n": "Vinnie Kemp"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "TKO",
       "round": 1,
       "time": "2:33"
@@ -1927,20 +1927,20 @@
      "r": 12,
      "title": "Titre WBC light heavyweight (vacant)",
      "a": {
-      "n": "Willy Hutchinson",
-      "nat": "GBR",
-      "tp": "204583-willy-hutchinson-braveheart",
-      "rec": "20-2-0"
-     },
-     "b": {
       "n": "Joshua Buatsi",
       "nat": "GBR",
       "tp": "205234-joshua-buatsi",
       "rec": "20-1-0"
      },
+     "b": {
+      "n": "Willy Hutchinson",
+      "nat": "GBR",
+      "tp": "204583-willy-hutchinson-braveheart",
+      "rec": "20-2-0"
+     },
      "t": "2026-11-07T22:00:00Z",
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "Décision unanime",
       "round": 12
      }
@@ -1973,20 +1973,20 @@
      "w": "Plumes",
      "r": 12,
      "a": {
-      "n": "Gully Powar",
-      "nat": "GBR",
-      "rec": "13-1-1",
-      "tp": "359518-gully-powar"
-     },
-     "b": {
       "n": "Zak Miller",
       "nat": "GBR",
       "rec": "17-1-0",
       "tp": "243228-zack-miller"
      },
+     "b": {
+      "n": "Gully Powar",
+      "nat": "GBR",
+      "rec": "13-1-1",
+      "tp": "359518-gully-powar"
+     },
      "sub": "Titre britannique featherweight (vacant)",
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "Décision technique unanime",
       "round": 10
      }
@@ -2096,13 +2096,13 @@
      "w": "Mi-lourds",
      "r": 6,
      "a": {
-      "n": "Ryan Macmillan"
-     },
-     "b": {
       "n": "Nazeer Khan"
      },
+     "b": {
+      "n": "Ryan Macmillan"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "KO",
       "round": 2
      }
@@ -2191,19 +2191,19 @@
      "w": "HW",
      "r": 5,
      "a": {
-      "n": "Johnny Walker",
-      "rec": "23-10-0",
-      "nat": "BRA",
-      "wk": "Johnny Walker (fighter)"
-     },
-     "b": {
       "n": "Waldo Cortes-Acosta",
       "rec": "17-4-0",
       "nat": "DOM",
       "wk": "Waldo Cortes-Acosta"
      },
+     "b": {
+      "n": "Johnny Walker",
+      "rec": "23-10-0",
+      "nat": "BRA",
+      "wk": "Johnny Walker (fighter)"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "TKO (coups de poing)",
       "round": 3,
       "time": "2:27"
@@ -2237,18 +2237,18 @@
      "w": "BW",
      "r": 3,
      "a": {
-      "n": "Elijah Smith",
-      "rec": "10-1-0",
-      "nat": "USA"
-     },
-     "b": {
       "n": "Davey Grant",
       "rec": "18-8-0",
       "nat": "GBR",
       "wk": "Davey Grant"
      },
+     "b": {
+      "n": "Elijah Smith",
+      "rec": "10-1-0",
+      "nat": "USA"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "KO (coups de poing)",
       "round": 1,
       "time": "1:00"
@@ -2259,18 +2259,18 @@
      "w": "LHW",
      "r": 3,
      "a": {
-      "n": "Lucas Fernando",
-      "rec": "14-3-0",
-      "nat": "BRA"
-     },
-     "b": {
       "n": "Billy Elekana",
       "rec": "10-2-0",
       "nat": "USA",
       "wk": "Billy Elekana"
      },
+     "b": {
+      "n": "Lucas Fernando",
+      "rec": "14-3-0",
+      "nat": "BRA"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "Décision unanime",
       "round": 3,
       "time": "5:00"
@@ -2281,18 +2281,18 @@
      "w": "WBW",
      "r": 3,
      "a": {
-      "n": "Nina Nikolija Milošević",
-      "rec": "9-1-0",
-      "nat": "SRB"
-     },
-     "b": {
       "n": "Priscila Cachoeira",
       "rec": "13-9-0",
       "nat": "BRA",
       "wk": "Priscila Cachoeira"
      },
+     "b": {
+      "n": "Nina Nikolija Milošević",
+      "rec": "9-1-0",
+      "nat": "SRB"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "TKO (coudes et coups)",
       "round": 2,
       "time": "3:40"
@@ -2324,17 +2324,17 @@
      "w": "FW",
      "r": 3,
      "a": {
-      "n": "Ollie Schmid",
-      "rec": "4-3-0",
-      "nat": "HUN"
-     },
-     "b": {
       "n": "Keiichiro Nakamura",
       "rec": "8-1-0",
       "nat": "JPN"
      },
+     "b": {
+      "n": "Ollie Schmid",
+      "rec": "4-3-0",
+      "nat": "HUN"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "Décision unanime",
       "round": 3,
       "time": "5:00"
@@ -2345,17 +2345,17 @@
      "w": "HW",
      "r": 3,
      "a": {
-      "n": "Thomas Petersen",
-      "rec": "11-5-0",
-      "nat": "USA"
-     },
-     "b": {
       "n": "Gabriel Lorenço",
       "rec": "8-1-0",
       "nat": "BRA"
      },
+     "b": {
+      "n": "Thomas Petersen",
+      "rec": "11-5-0",
+      "nat": "USA"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "TKO (coups de poing)",
       "round": 3,
       "time": "4:47"
@@ -2388,17 +2388,17 @@
      "w": "FW",
      "r": 3,
      "a": {
-      "n": "Murtazali Magomedov",
-      "rec": "11-0-0",
-      "nat": "KGZ"
-     },
-     "b": {
       "n": "José Mauro Delano",
       "rec": "16-3-0",
       "nat": "BRA"
      },
+     "b": {
+      "n": "Murtazali Magomedov",
+      "rec": "11-0-0",
+      "nat": "KGZ"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "Décision unanime",
       "round": 3,
       "time": "5:00"
@@ -2430,18 +2430,18 @@
      "w": "MW",
      "r": 3,
      "a": {
+      "n": "Mantas Kondratavičius",
+      "rec": "9-1-0",
+      "nat": "LTU"
+     },
+     "b": {
       "n": "Andre Petroski",
       "rec": "13-6-0",
       "nat": "USA",
       "wk": "Andre Petroski"
      },
-     "b": {
-      "n": "Mantas Kondratavičius",
-      "rec": "9-1-0",
-      "nat": "LTU"
-     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "TKO (coudes et coups)",
       "round": 2,
       "time": "4:39"
@@ -2474,17 +2474,17 @@
      "w": "WW",
      "r": 3,
      "a": {
-      "n": "José Henrique Souza",
-      "rec": "9-1-0",
-      "nat": "BRA"
-     },
-     "b": {
       "n": "Jonny Parsons",
       "rec": "9-3-0",
       "nat": "USA"
      },
+     "b": {
+      "n": "José Henrique Souza",
+      "rec": "9-1-0",
+      "nat": "BRA"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "KO (coups de poing)",
       "round": 1,
       "time": "4:16"
@@ -2599,21 +2599,21 @@
      "w": "HW",
      "r": 5,
      "a": {
-      "n": "Sergey Bilostenniy",
-      "rec": "15-4-0",
-      "nat": "RUS",
-      "wk": "Sergey Bilostenniy"
-     },
-     "b": {
       "n": "Vadim Nemkov",
       "rec": "20-2-0",
       "nat": "RUS",
       "champ": 1,
       "wk": "Vadim Nemkov"
      },
+     "b": {
+      "n": "Sergey Bilostenniy",
+      "rec": "15-4-0",
+      "nat": "RUS",
+      "wk": "Sergey Bilostenniy"
+     },
      "title": "Titre Heavyweight",
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "Décision unanime",
       "round": 5,
       "time": "5:00"
@@ -2707,17 +2707,17 @@
      "w": "LW",
      "r": 3,
      "a": {
-      "n": "Connor Hughes",
-      "rec": "11-3-0",
-      "nat": "GBR"
-     },
-     "b": {
       "n": "Shaqueme Rock",
       "rec": "12-2-1",
       "nat": "GBR"
      },
+     "b": {
+      "n": "Connor Hughes",
+      "rec": "11-3-0",
+      "nat": "GBR"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "KO (coup de poing)",
       "round": 2,
       "time": "1:04"
@@ -2749,17 +2749,17 @@
      "w": "LW",
      "r": 3,
      "a": {
-      "n": "Akhmed Magomedov",
-      "rec": "10-2-0",
-      "nat": "RUS"
-     },
-     "b": {
       "n": "Alexei Pergande",
       "rec": "8-0-0",
       "nat": "USA"
      },
+     "b": {
+      "n": "Akhmed Magomedov",
+      "rec": "10-2-0",
+      "nat": "RUS"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "Décision unanime",
       "round": 3,
       "time": "5:00"
@@ -2770,19 +2770,19 @@
      "w": "FW",
      "r": 3,
      "a": {
-      "n": "Ádám Borics",
-      "rec": "20-4-0",
-      "nat": "HUN",
-      "wk": "Ádám Borics"
-     },
-     "b": {
       "n": "Khasan Magomedsharipov",
       "rec": "11-0-0",
       "nat": "RUS",
       "wk": "Khasan Magomedsharipov"
      },
+     "b": {
+      "n": "Ádám Borics",
+      "rec": "20-4-0",
+      "nat": "HUN",
+      "wk": "Ádám Borics"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "Soumission (triangle armbar)",
       "round": 1,
       "time": "4:17"
@@ -2815,18 +2815,18 @@
      "w": "WW",
      "r": 3,
      "a": {
-      "n": "Ernesto Rodriguez",
-      "rec": "11-2-0",
-      "nat": "CUB"
-     },
-     "b": {
       "n": "Rhys McKee",
       "rec": "15-7-1",
       "nat": "IRL",
       "wk": "Rhys McKee"
      },
+     "b": {
+      "n": "Ernesto Rodriguez",
+      "rec": "11-2-0",
+      "nat": "CUB"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "TKO (coups de poing)",
       "round": 1,
       "time": "2:28"
@@ -3232,16 +3232,16 @@
      "w": "WW",
      "r": 3,
      "a": {
-      "n": "Kevin Holland",
-      "rec": "29-15-1",
-      "nat": "USA",
-      "wk": "Kevin Holland"
-     },
-     "b": {
       "n": "Uroš Medić",
       "rec": "14-3-1",
       "nat": "SRB",
       "wk": "Uroš Medić"
+     },
+     "b": {
+      "n": "Kevin Holland",
+      "rec": "29-15-1",
+      "nat": "USA",
+      "wk": "Kevin Holland"
      }
     },
     {
@@ -3249,18 +3249,18 @@
      "w": "FLW",
      "r": 3,
      "a": {
-      "n": "Luis Gurule",
-      "rec": "11-4-0",
-      "nat": "USA"
-     },
-     "b": {
       "n": "Bilal Hasan",
       "rec": "10-0-0",
       "nat": "IDN",
       "wk": "Bilal Hasan"
      },
+     "b": {
+      "n": "Luis Gurule",
+      "rec": "11-4-0",
+      "nat": "USA"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "Décision partagée",
       "round": 3,
       "time": "5:00"
@@ -3291,19 +3291,19 @@
      "w": "LW",
      "r": 3,
      "a": {
-      "n": "Chris Duncan",
-      "rec": "15-2-0",
-      "nat": "GBR",
-      "wk": "Chris Duncan (fighter)"
-     },
-     "b": {
       "n": "Drew Dober",
       "rec": "29-15-0",
       "nat": "USA",
       "wk": "Drew Dober"
      },
+     "b": {
+      "n": "Chris Duncan",
+      "rec": "15-2-0",
+      "nat": "GBR",
+      "wk": "Chris Duncan (fighter)"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "Décision unanime",
       "round": 3,
       "time": "5:00"
@@ -3314,19 +3314,19 @@
      "w": "Catchweight (160.2 lb)",
      "r": 3,
      "a": {
-      "n": "Terrance McKinney",
-      "rec": "18-9-0",
-      "nat": "USA",
-      "wk": "Terrance McKinney"
-     },
-     "b": {
       "n": "Jim Miller",
       "rec": "39-19-0",
       "nat": "USA",
       "wk": "Jim Miller (fighter)"
      },
+     "b": {
+      "n": "Terrance McKinney",
+      "rec": "18-9-0",
+      "nat": "USA",
+      "wk": "Terrance McKinney"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "TKO (coups de poing)",
       "round": 1,
       "time": "1:53"
@@ -3337,18 +3337,18 @@
      "w": "Catchweight (190 lb)",
      "r": 3,
      "a": {
+      "n": "Donte Johnson",
+      "rec": "9-0-0",
+      "nat": "USA"
+     },
+     "b": {
       "n": "César Almeida",
       "rec": "7-3-0",
       "nat": "BRA",
       "wk": "César Almeida (fighter)"
      },
-     "b": {
-      "n": "Donte Johnson",
-      "rec": "9-0-0",
-      "nat": "USA"
-     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "TKO (coups de poing)",
       "round": 1,
       "time": "3:20"
@@ -3359,19 +3359,19 @@
      "w": "LW",
      "r": 3,
      "a": {
-      "n": "Melquizael Costa",
-      "rec": "26-8-0",
-      "nat": "BRA",
-      "wk": "Melquizael Costa"
-     },
-     "b": {
       "n": "Jared Gordon",
       "rec": "21-9-0",
       "nat": "USA",
       "wk": "Jared Gordon"
      },
+     "b": {
+      "n": "Melquizael Costa",
+      "rec": "26-8-0",
+      "nat": "BRA",
+      "wk": "Melquizael Costa"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "Décision unanime",
       "round": 3,
       "time": "5:00"
@@ -3382,19 +3382,19 @@
      "w": "WBW",
      "r": 3,
      "a": {
-      "n": "Beatriz Mesquita",
-      "rec": "8-0-0",
-      "nat": "BRA",
-      "wk": "Beatriz Mesquita"
-     },
-     "b": {
       "n": "Macy Chiasson",
       "rec": "10-6-0",
       "nat": "USA",
       "wk": "Macy Chiasson"
      },
+     "b": {
+      "n": "Beatriz Mesquita",
+      "rec": "8-0-0",
+      "nat": "BRA",
+      "wk": "Beatriz Mesquita"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "Soumission (étranglement arrière)",
       "round": 1,
       "time": "3:23"
@@ -3405,18 +3405,18 @@
      "w": "Catchweight (136.4 lb)",
      "r": 3,
      "a": {
-      "n": "Juan Díaz",
-      "rec": "16-1-1",
-      "nat": "PER"
-     },
-     "b": {
       "n": "Alateng Heili",
       "rec": "18-10-2",
       "nat": "CHN",
       "wk": "Alateng Heili"
      },
+     "b": {
+      "n": "Juan Díaz",
+      "rec": "16-1-1",
+      "nat": "PER"
+     },
      "res": {
-      "w": "a",
+      "w": "b",
       "method": "Décision unanime",
       "round": 3,
       "time": "5:00"
@@ -3607,16 +3607,16 @@
      "w": "FLW",
      "r": 3,
      "a": {
-      "n": "Kyoji Horiguchi",
-      "rec": "36-6-0",
-      "nat": "JPN",
-      "wk": "Kyoji Horiguchi"
-     },
-     "b": {
       "n": "Asu Almabayev",
       "rec": "24-3-0",
       "nat": "KAZ",
       "wk": "Asu Almabayev"
+     },
+     "b": {
+      "n": "Kyoji Horiguchi",
+      "rec": "36-6-0",
+      "nat": "JPN",
+      "wk": "Kyoji Horiguchi"
      }
     },
     {

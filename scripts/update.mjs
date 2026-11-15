@@ -405,6 +405,19 @@ const dir = Object.entries(roster).filter(([n, r]) => r && r.org && !/^_/.test(n
 }
 
 await writeFile(cacheFile, JSON.stringify(cache, null, 1));
+/* No spoil : Wikipédia met le VAINQUEUR en premier une fois le combat fini. On garde donc l'ordre d'avant le combat
+   (relu dans l'ancien events.json) ; si on ne l'a jamais connu, ordre alphabétique : le vainqueur n'est pas toujours à gauche. */
+{
+  const prevA = new Map();
+  try { const od = JSON.parse(await readFile(new URL("../data/events.json", import.meta.url), "utf8"));
+    for (const e of od.events || []) for (const f of e.fights || []) prevA.set(e.id + "|" + [f.a.n, f.b.n].sort().join("|"), f.a.n); } catch {}
+  const flip = (f) => { [f.a, f.b] = [f.b, f.a]; if (f.res?.w === "a") f.res.w = "b"; else if (f.res?.w === "b") f.res.w = "a"; };
+  for (const e of events) for (const f of e.fights) {
+    const pa = prevA.get(e.id + "|" + [f.a.n, f.b.n].sort().join("|"));
+    if (pa) { if (pa !== f.a.n) flip(f); }
+    else if (f.res && f.a.n.localeCompare(f.b.n) > 0) flip(f);
+  }
+}
 const data = { updated: new Date().toISOString(), source: "Wikipédia (en), licence CC BY-SA, et veille presse", presse: !!presse.events, events, agenda, roster: dir, tapology: JSON.parse(await readFile(new URL("../data/tapology.json", import.meta.url), "utf8").catch(() => "{}")) };
 await mkdir(new URL("../data/", import.meta.url), { recursive: true });
 const file = new URL("../data/events.json", import.meta.url);

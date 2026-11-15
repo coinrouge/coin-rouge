@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T00:53:42.375Z",
+ "updated": "2026-11-15T01:14:06.833Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -3299,19 +3299,19 @@
      "r": 3,
      "a": {
       "n": "Terrance McKinney",
-      "rec": "17-9-0",
+      "rec": "18-9-0",
       "nat": "USA",
       "wk": "Terrance McKinney"
      },
      "b": {
       "n": "Jim Miller",
-      "rec": "39-18-0",
+      "rec": "39-19-0",
       "nat": "USA",
       "wk": "Jim Miller (fighter)"
      },
      "res": {
       "w": "a",
-      "method": "KO (coups de poing)",
+      "method": "TKO (coups de poing)",
       "round": 1,
       "time": "1:53"
      }
@@ -3322,7 +3322,7 @@
      "r": 3,
      "a": {
       "n": "César Almeida",
-      "rec": "6-3-0",
+      "rec": "7-3-0",
       "nat": "BRA",
       "wk": "César Almeida (fighter)"
      },
@@ -5530,7 +5530,7 @@
   [
    "César Almeida",
    "BRA",
-   "7-3-0",
+   "8-3-0",
    "mma"
   ],
   [
@@ -5638,7 +5638,7 @@
   [
    "Donte Johnson",
    "USA",
-   "9-0-0",
+   "9-1-0",
    "mma"
   ],
   [
@@ -6172,7 +6172,7 @@
   [
    "Jim Miller",
    "USA",
-   "39-19-0",
+   "39-20-0",
    "mma"
   ],
   [
@@ -6412,7 +6412,7 @@
   [
    "Terrance McKinney",
    "USA",
-   "18-9-0",
+   "19-9-0",
    "mma"
   ],
   [

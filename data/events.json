@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T04:36:00.287Z",
+ "updated": "2026-11-15T05:32:21.166Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -3197,18 +3197,24 @@
      "r": 5,
      "a": {
       "n": "Kayla Harrison",
-      "rec": "19-1-0",
+      "rec": "18-1-0",
       "nat": "USA",
       "champ": 1,
       "wk": "Kayla Harrison"
      },
      "b": {
       "n": "Amanda Nunes",
-      "rec": "23-5-0",
+      "rec": "23-4-0",
       "nat": "BRA",
       "wk": "Amanda Nunes"
      },
-     "title": "Titre Women's Bantamweight"
+     "title": "Titre Women's Bantamweight",
+     "res": {
+      "w": "a",
+      "method": "Soumission (étranglement arrière)",
+      "round": 4,
+      "time": "1:29"
+     }
     },
     {
      "s": "main",
@@ -8162,7 +8168,7 @@
   [
    "Amanda Nunes *",
    "BRA",
-   "23-5-0",
+   "23-6-0",
    "mma"
   ],
   [
@@ -10958,7 +10964,7 @@
   [
    "Anthony Olascuaga",
    "",
-   "12-1-0",
+   "13-1-0",
    "boxe"
   ],
   [

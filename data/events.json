@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T03:37:24.661Z",
+ "updated": "2026-11-15T03:47:35.758Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -3233,21 +3233,15 @@
      "r": 3,
      "a": {
       "n": "Kevin Holland",
-      "rec": "28-15-0",
+      "rec": "29-15-1",
       "nat": "USA",
       "wk": "Kevin Holland"
      },
      "b": {
       "n": "Uroš Medić",
-      "rec": "14-2-0",
+      "rec": "14-3-1",
       "nat": "SRB",
       "wk": "Uroš Medić"
-     },
-     "res": {
-      "w": "a",
-      "method": "Décision majoritaire",
-      "round": 3,
-      "time": "5:00"
      }
     },
     {
@@ -5852,7 +5846,7 @@
   [
    "Kevin Holland",
    "USA",
-   "29-15-0",
+   "29-15-1",
    "mma"
   ],
   [
@@ -5912,7 +5906,7 @@
   [
    "Uroš Medić",
    "SRB",
-   "14-3-0",
+   "14-3-1",
    "mma"
   ],
   [

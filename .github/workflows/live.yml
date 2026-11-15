@@ -1,0 +1,53 @@
+name: Résultats en direct (soirées)
+# Pendant une soirée, relit Wikipédia toutes les 5 min et publie dès qu'un résultat change.
+# Une seule exécution qui tourne en boucle (jusqu'à ~5 h 50) : on ne dépend plus des lancements
+# programmés de GitHub, qui peuvent être retardés ou sautés. Plusieurs départs prévus par sécurité :
+# un nouveau départ remplace l'ancien (même groupe). S'il n'y a pas de soirée en cours ou proche, il s'arrête tout de suite.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "41 16,19,22 * * 5,6"   # vendredi et samedi (UTC)
+    - cron: "41 1,4 * * 0,6"        # nuits vers samedi et dimanche (UTC)
+permissions:
+  contents: write
+concurrency: { group: live, cancel-in-progress: true }
+jobs:
+  live:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm install --no-save cheerio@1.0.0
+      - name: Boucle de mise à jour
+        run: |
+          git config user.name "coin-rouge-bot"
+          git config user.email "actions@users.noreply.github.com"
+          mkdir -p out
+          # Soirée en cours ou qui commence dans moins de 90 min ?
+          enCours() { node -e '
+            const d=require("./data/events.json"),t=Date.now();
+            const ok=d.events.some(e=>{const s=e.segs.map(x=>Date.parse(x.t)).filter(Boolean);if(!s.length)return false;
+              const a=Math.min(...s),b=Math.max(...s);return t>=a-90*60e3&&t<=b+5*3600e3&&!(e.fights.length&&e.fights.every(f=>f.res));});
+            process.exit(ok?0:1);'; }
+          debut=$(date +%s)
+          while [ $(( $(date +%s) - debut )) -lt 20700 ]; do
+            git pull -q --rebase || true
+            if ! enCours; then echo "Pas de soirée en cours : arrêt."; break; fi
+            node scripts/update.mjs > out/update.log 2>&1 || true
+            # On ne publie que si quelque chose a vraiment changé (pas seulement l'heure de mise à jour)
+            if node -e '
+              const {execSync}=require("child_process");
+              const strip=s=>{const o=JSON.parse(s);delete o.updated;return JSON.stringify(o);};
+              let old="{}";try{old=execSync("git show HEAD:data/events.json",{maxBuffer:1e8}).toString();}catch(e){}
+              process.exit(strip(old)===strip(require("fs").readFileSync("data/events.json","utf8"))?1:0);'; then
+              git add data/events.json data/fighters-cache.json data/annuaire.json
+              git commit -qm "Résultats en direct" && (git pull -q --rebase && git push -q || (sleep 5; git pull -q --rebase && git push -q)) || true
+              echo "$(date -u +%H:%M) publié"
+            else
+              git checkout -q -- data/ 2>/dev/null || true
+              echo "$(date -u +%H:%M) rien de nouveau"
+            fi
+            sleep 300
+          done

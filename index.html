@@ -1608,8 +1608,11 @@ const RADAR=[
 /* Durée moyenne d'un combat MMA, entrées comprises : beaucoup de finish, donc nettement moins que la durée maximale (3 rounds : 17 min de combat + repos, 5 rounds : 29) */
 /* Recalé le 15 nov. 2026 sur l'UFC 334 (on était souvent en avance) : entrées, présentations, pubs et interviews prennent plus de temps */
 const DUR={3:30,5:40};
+/* Autres organisations MMA (ARES, Hexagone…) : moins de pubs, combats plus rapprochés */
+const DUR2={3:24,5:36};
 /* Boxe : environ 4 min par round + présentations ; heure annoncée par la presse (f.t) prioritaire */
-const dur=f=>DUR[f.r]||(f.r*4+6);
+let DUREV=null; /* soirée en cours de calcul (pour choisir la table de durées) */
+const dur=f=>((DUREV&&!/^(UFC|PFL)/.test(DUREV.org||"")&&DUREV.sport!=="boxe")?DUR2[f.r]:DUR[f.r])||(f.r*4+6);
 /* Recalage : un combat terminé dont on connaît le round et le temps (ex. KO R1 1:31) a duré beaucoup moins (ou plus) que la moyenne.
    Durée réelle = entrées et présentations (7 min) + temps de combat, repos compris + annonce du résultat (3 min).
    Les combats suivants sont décalés d'autant : les heures estimées se corrigent toutes seules au fil des résultats. */
@@ -1621,6 +1624,7 @@ function realDur(ev,f){
   return ev.sport==="boxe" ? 7+(r.round-1)*(rl+rest)+inRound+3 : 13+(r.round-1)*(rl+rest)+inRound+5; /* MMA : entrées + pub avant, annonce + interview après */
 }
 function prepEvents(){EVENTS.forEach(ev=>{
+  DUREV=ev;
   const order=["early","prelims","main"];
   let cur=0, n=0;
   order.forEach(k=>{
@@ -1633,7 +1637,8 @@ function prepEvents(){EVENTS.forEach(ev=>{
     /* Un combat dont l'heure de début est connue clôt tous ceux d'avant dans cette partie : jamais deux combats « en cours » à la fois */
     list.forEach((f,i)=>{f.late=0;if(f.t&&i>0&&list[i-1].known&&Date.parse(f.t)<cur){f.late=1;}else if(f.t){cur=Date.parse(f.t);f.known=1;list.slice(0,i).forEach(p=>{if(p.est>=cur&&!p.res)p.skip=1;if(p.end>cur)p.end=cur;if(p.est>cur)p.est=cur;});} /* Heure annoncée mais le combat d'avant a commencé plus tard : en retard, l'heure redevient une estimation */ f.sure=!!f.known; f.est=cur; f.end=cur+(realDur(ev,f)||dur(f))*60000; cur=f.end; f.ord=++n;
       /* Heure estimée arrondie aux 5 minutes (plus lisible : 16:00 plutôt que 16:02) */
-      if(!f.known) f.est=Math.round(f.est/3e5)*3e5;});
+      /* arrondi à 5 min VERS LE BAS : mieux vaut être un peu en avance que rater le combat */
+      if(!f.known) f.est=Math.floor(f.est/3e5)*3e5;});
   });
   ev.start=Date.parse(ev.segs[0].t); ev.end=cur+15*60000;
 });}
@@ -1968,16 +1973,16 @@ document.addEventListener("click",e=>{const b=e.target.closest(".jumpnav [data-j
 document.addEventListener("click",e=>{if(e.target.closest("#allothers")){showAllOthers=!showAllOthers;render();}});
 function syncSpoilBtn(){const b=document.getElementById("spoilh");if(!b)return;b.setAttribute("aria-pressed",SPOIL);b.querySelector("span").textContent=SPOIL?"Spoil":"No spoil";}
 /* Pendant une soirée : si un combat sans résultat aurait déjà dû finir (il est en cours, ou son résultat n'est pas encore remonté),
-   on considère qu'il dure encore au moins 12 min et on décale d'autant tous les combats suivants. Recalculé à chaque rafraîchissement. */
+   on considère qu'il dure encore au moins 5 min et on décale d'autant tous les combats suivants. Recalculé à chaque rafraîchissement. */
 function liveShift(t){EVENTS.forEach(ev=>{
   ev.fights.forEach(f=>{if(f.est0==null){f.est0=f.est;f.end0=f.end;}f.est=f.est0;f.end=f.end0;});
   if(ev.end0==null)ev.end0=ev.end; ev.end=ev.end0;
   if(!ev.fights.length||t<ev.start||t>ev.end0+3*36e5) return;
-  /* Le 1er combat sans résultat (dans l'ordre de passage) est supposé en cours : s'il aurait déjà dû finir, il dure encore au moins 12 min
+  /* Le 1er combat sans résultat (dans l'ordre de passage) est supposé en cours : s'il aurait déjà dû finir, il dure encore au moins 5 min
      et tous les combats suivants glissent d'autant */
   const q=ev.fights.filter(f=>!f.res&&!f.skip).sort((x,y)=>x.est0-y.est0), F=q[0]; let sh=0;
-  if(F&&F.est0<=t) sh=Math.max(0,t+12*60000-F.end0);
-  if(sh){F.end=F.end0+sh; q.slice(1).forEach(f=>{if(f.known)return;f.est=Math.round((f.est0+sh)/3e5)*3e5;f.end=f.end0+sh;});}
+  if(F&&F.est0<=t) sh=Math.max(0,t+5*60000-F.end0); /* 5 min seulement : le résultat peut arriver en retard, il ne faut pas faire rater le combat suivant */
+  if(sh){F.end=F.end0+sh; q.slice(1).forEach(f=>{if(f.known)return;f.est=Math.floor((f.est0+sh)/3e5)*3e5;f.end=f.end0+sh;});}
   ev.end=ev.end0+sh;
 });}
 function render(){

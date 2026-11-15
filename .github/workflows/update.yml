@@ -3,8 +3,8 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "17 */6 * * *"        # toutes les 6 heures
-    - cron: "*/20 18-23 * * 6"    # samedi soir (UTC) : toutes les 20 min
-    - cron: "*/20 0-7 * * 0"      # nuit de samedi à dimanche (UTC)
+    - cron: "*/10 18-23 * * 5,6"  # vendredi et samedi soir (UTC) : toutes les 10 min (GitHub peut retarder)
+    - cron: "*/10 0-7 * * 0,6"    # nuits vers samedi et dimanche (UTC)
   push:
     paths: ["scripts/update.mjs", "data/overrides.json", "data/presse.json", "data/tapology.json", ".github/workflows/update.yml"]
 permissions:

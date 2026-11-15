@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T01:58:39.590Z",
+ "updated": "2026-11-15T02:38:34.781Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -3266,14 +3266,18 @@
      "r": 3,
      "a": {
       "n": "Stephen Thompson",
-      "rec": "17-9-1",
-      "nat": "USA",
       "wk": "Stephen Thompson (fighter)"
      },
      "b": {
       "n": "Charles Radtke",
       "rec": "12-5-0",
       "nat": "USA"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (spinning wheel kick)",
+      "round": 3,
+      "time": "2:54"
      }
     },
     {
@@ -5738,12 +5742,6 @@
    "mma"
   ],
   [
-   "Stephen Thompson",
-   "USA",
-   "17-9-1",
-   "mma"
-  ],
-  [
    "Max Holloway",
    "USA",
    "28-9-0",
@@ -5980,7 +5978,7 @@
   [
    "Charles Radtke",
    "USA",
-   "12-5-0",
+   "12-6-0",
    "mma"
   ],
   [

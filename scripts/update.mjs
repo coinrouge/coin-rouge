@@ -189,7 +189,8 @@ async function eventPage(name) {
       const f = { s: seg, w: WEIGHT[wRaw] || c[0], a, b };
       f.wn = wRaw;
       if (a.champ || b.champ) f.title = `Titre ${wRaw}`;
-      if (/^def\./.test(c[2]) && c[4]) {
+      /* Match nul et no contest : Wikipédia écrit « vs. » (pas « def. ») mais la méthode est remplie */
+      if (c[4] && (/^def\./.test(c[2]) || /^(Draw|No Contest|NC\b)/i.test(c[4]))) {
         const m = method(c[4]);
         f.res = { w: /^Match nul/.test(m) ? "draw" : /^No contest/.test(m) ? "nc" : "a", method: m, round: +c[5] || 0, time: c[6] || "" };
       }
@@ -331,7 +332,10 @@ for (const year of [2026, 2027]) {
         if (/\(c\)/.test(c[1])) f.a.champ = 1;
         if (/\(c\)/.test(c[3])) f.b.champ = 1;
         { const tds = $(tr).find("td,th"); for (const [i, x] of [[1, f.a], [3, f.b]]) { const t = $(tds[i]).find('a[rel="mw:WikiLink"]:not(.new)').first().attr("title") || ""; if (t && !/:/.test(t)) x.wk = t; } }
-        if (/^def\./.test(c[2]) && c[4]) { const me = (BXM.find(([re]) => re.test(c[4])) || [0, c[4]])[1]; f.res = { w: me === "Match nul" ? "draw" : me === "No contest" ? "nc" : "a", method: me, round: +((c[5] || "").match(/^(\d+)/) || [0, 0])[1], time: c[6] || "" }; }
+        /* « vs. » avec une méthode remplie = match nul (ou no contest) ; « def. » = victoire du premier nommé */
+        if (c[4] && (/^def\./.test(c[2]) || /^vs\./.test(c[2]))) { const me0 = (BXM.find(([re]) => re.test(c[4])) || [0, c[4]])[1], vs = /^vs\./.test(c[2]);
+          const me = vs ? (me0 === "No contest" ? "No contest" : /Décision/.test(me0) ? "Match nul (" + me0.replace("Décision ", "décision ") + ")" : "Match nul") : me0;
+          f.res = { w: vs ? (me === "No contest" ? "nc" : "draw") : me === "Match nul" ? "draw" : me === "No contest" ? "nc" : "a", method: me, round: +((c[5] || "").match(/^(\d+)/) || [0, 0])[1], time: c[6] || "" }; }
         if (f.a.n === "TBA" || f.b.n === "TBA") return;
         fights.push(f);
       });

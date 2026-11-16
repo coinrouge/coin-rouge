@@ -450,30 +450,80 @@ begin
     select p.event_id e, count(*) n from fr.picks p where p.user_id=v and p.event_id = any(p_events) group by p.event_id) s), '{}'::json);
 end $$;
 
+-- Mois (saison) d'une soirée : mois de son début, heure de Paris (ex. 2026-11)
+create or replace function fr.evmonth(p_event text) returns text
+language sql stable set search_path='' as $$
+  select to_char(min(lock_at) at time zone 'Europe/Paris','YYYY-MM') from fr.fights where event_id=p_event
+$$;
+
+-- Soirée terminée pour les pronos : commencée, avec des résultats, et plus aucun combat pronostiqué
+-- en attente de résultat (ou 24 h après le début de la main card, pour les combats annulés).
+create or replace function fr.ev_done(p_event text) returns boolean
+language sql stable set search_path='' as $$
+  select coalesce(max(f.lock_at) < now() and bool_or(f.winner is not null)
+    and (max(f.lock_at) < now() - interval '24 hours' or not exists (
+      select 1 from fr.fights f2 where f2.event_id=p_event and f2.winner is null
+        and exists (select 1 from fr.picks pp where pp.event_id=f2.event_id and pp.fkey=f2.fkey))), false)
+  from fr.fights f where f.event_id=p_event
+$$;
+
+-- Lignes de classement d'un groupe, sur un mois (p_month) ou depuis le début (null)
+create or replace function fr.gboard(p_group uuid, v uuid, p_month text) returns json
+language sql stable set search_path='' as $$
+  select coalesce(json_agg(r order by r.pts desc, r.good desc, r.pseudo), '[]'::json) from (
+    select u.pseudo, (u.id=v) as me, u.id as mid, m.role,
+      coalesce(sum(case when f.winner is not null and p.pick=f.winner then fr.base_pts(f.seg) + f.bonus + f.evbonus + (case when p.method is not null and p.method=f.method then 1 else 0 end) else 0 end),0)::int as pts,
+      count(*) filter (where f.winner is not null and p.pick=f.winner)::int as good,
+      count(*) filter (where f.winner is not null and p.pick=f.winner and p.method is not null and p.method=f.method)::int as exact,
+      count(*) filter (where f.winner is not null and f.winner not in ('draw','nc'))::int as judged
+    from fr.members m join fr.users u on u.id=m.user_id
+    left join fr.picks p on p.user_id=u.id
+      and fr.ev_open(p_group, p.event_id)
+      and (p_month is null or fr.evmonth(p.event_id)=p_month)
+    left join fr.fights f on f.event_id=p.event_id and f.fkey=p.fkey
+    where m.group_id=p_group
+    group by u.id, u.pseudo, m.role) r
+$$;
+
 -- Classement d'un groupe (barème : voir fr.base_pts et la colonne bonus).
+-- rows : saison du mois en cours ; all : depuis le début ; months : saisons passées et leurs champions ;
+-- nights : gagnants des soirées terminées.
 create or replace function public.fr_group_board(p_code text, p_group uuid) returns json
 language plpgsql security definer set search_path='' as $$
-declare v uuid := fr.need_uid(p_code); g fr.groups;
+declare v uuid := fr.need_uid(p_code); g fr.groups; cur text := to_char(now() at time zone 'Europe/Paris','YYYY-MM');
 begin
   if not exists (select 1 from fr.members where group_id=p_group and user_id=v) then
     raise exception 'Tu ne fais pas partie de ce groupe.';
   end if;
   select * into g from fr.groups where id=p_group;
-  return json_build_object(
-    'name', g.name, 'code', g.code,
-    'rows', coalesce((select json_agg(r order by r.pts desc, r.good desc, r.pseudo) from (
-      select u.pseudo, (u.id=v) as me, u.id as mid, m.role,
-        coalesce(sum(case when f.winner is not null and p.pick=f.winner then fr.base_pts(f.seg) + f.bonus + f.evbonus + (case when p.method is not null and p.method=f.method then 1 else 0 end) else 0 end),0)::int as pts,
-        count(*) filter (where f.winner is not null and p.pick=f.winner)::int as good,
-        count(*) filter (where f.winner is not null and p.pick=f.winner and p.method is not null and p.method=f.method)::int as exact,
-        count(*) filter (where f.winner is not null and f.winner not in ('draw','nc'))::int as judged
-      from fr.members m join fr.users u on u.id=m.user_id
-      left join fr.picks p on p.user_id=u.id
-        and fr.ev_open(p_group, p.event_id)
-      left join fr.fights f on f.event_id=p.event_id and f.fkey=p.fkey
-      where m.group_id=p_group
-      group by u.id, u.pseudo, m.role) r), '[]'::json)
-  );
+  return (with sc as (
+    select p.event_id e, fr.evmonth(p.event_id) mo, u.id uid, u.pseudo,
+      coalesce(sum(case when f.winner is not null and p.pick=f.winner then fr.base_pts(f.seg) + f.bonus + f.evbonus + (case when p.method is not null and p.method=f.method then 1 else 0 end) else 0 end),0)::int pts,
+      count(*) filter (where f.winner is not null and p.pick=f.winner)::int good
+    from fr.members m join fr.users u on u.id=m.user_id join fr.picks p on p.user_id=u.id
+    left join fr.fights f on f.event_id=p.event_id and f.fkey=p.fkey
+    where m.group_id=p_group and fr.ev_open(p_group, p.event_id)
+    group by p.event_id, u.id, u.pseudo
+  ), mo as (
+    select mo, uid, pseudo, sum(pts)::int pts, sum(good)::int good,
+      rank() over (partition by mo order by sum(pts) desc, sum(good) desc) rk
+    from sc where mo < cur group by mo, uid, pseudo
+  ), ni as (
+    select e, uid, pseudo, pts, rank() over (partition by e order by pts desc, good desc) rk
+    from sc where fr.ev_done(e)
+  )
+  select json_build_object(
+    'name', g.name, 'code', g.code, 'cur', cur,
+    'rows', fr.gboard(p_group, v, cur),
+    'all', fr.gboard(p_group, v, null),
+    'months', coalesce((select json_agg(x order by x.m desc) from (
+        select mo m, fr.gboard(p_group, v, mo) rows, max(pts) pts,
+          json_agg(json_build_object('pseudo',pseudo,'me',uid=v) order by pseudo) filter (where rk=1 and pts>0) champs
+        from mo group by mo) x), '[]'::json),
+    'nights', coalesce((select json_agg(y) from (
+        select e, max(pts) pts, json_agg(json_build_object('pseudo',pseudo,'me',uid=v) order by pseudo) w
+        from ni where rk=1 and pts>0 group by e) y), '[]'::json)
+  ));
 end $$;
 
 -- Ouvrir / retirer une soirée des pronos du groupe (chef ou adjoint, avant le début de la soirée)

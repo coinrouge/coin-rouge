@@ -1205,6 +1205,12 @@ ol.pboard>li.p1 .prk,ol.pboard>li.p1.p1 .pnm,ol.pboard>li.p1.p1>b{color:#E3B85A}
 .pdep:hover{border-color:var(--blue)}.pdep.on{border-color:var(--blue);background:color-mix(in srgb,var(--blue) 14%,transparent)}.pdep.on i{color:var(--blue)}
 @media (max-width:640px){.ptog .evb{display:none}}
 .plive{font-size:11px;padding:2px 7px;vertical-align:1px}
+.pseason{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin:2px 0 8px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut,#8E95A2);font-weight:700}.pseason b{color:var(--ink);letter-spacing:.06em}.pseason span{white-space:nowrap}@media(max-width:600px){.pseason span+span{display:none}}
+.pchamp{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:10px 0 2px;padding:8px 12px;border-radius:9px;border:1px solid color-mix(in srgb,#E3B85A 45%,transparent);background:color-mix(in srgb,#E3B85A 9%,rgba(22,24,32,.62));font-size:13px;letter-spacing:0;text-transform:none}.pchamp b{color:#E3B85A}.pchamp small{color:#8E95A2}.pchamp .me{color:#B8F03A}
+.pmonths{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}.pmonths button{font:inherit;font-size:12px;font-weight:700;padding:7px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.03);color:#C9CED8;cursor:pointer}.pmonths button::first-letter,.ppalm .pmo::first-letter{text-transform:uppercase}.pmonths button[aria-pressed="true"]{background:#B8F03A;border-color:#B8F03A;color:#0B0D12}
+.ppalm{list-style:none;margin:0;padding:0;display:grid;gap:6px}.ppalm li{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:9px 12px;border-radius:9px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);font-size:13px}.ppalm .pmo{min-width:120px;color:#8E95A2;font-weight:700}.ppalm b{color:#E3B85A}.ppalm b.me{color:#B8F03A}.ppalm small{margin-left:auto;color:#8E95A2}
+.pnwin{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-top:8px;padding:10px 16px;border-radius:10px;border:1px solid color-mix(in srgb,#E3B85A 45%,transparent);background:color-mix(in srgb,#E3B85A 9%,rgba(22,24,32,.62))}.pnwin span{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#8E95A2;font-weight:700}.pnwin b{color:#E3B85A;font-size:16px}.pnwin b.me{color:#B8F03A}.pnwin small{color:#8E95A2}
+.pevc.done.won{color:#E3B85A;border-color:color-mix(in srgb,#E3B85A 50%,transparent);text-transform:none}
 .pnight{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding:12px 16px;border-radius:10px;border:1px solid color-mix(in srgb,#B8F03A 40%,transparent);background:color-mix(in srgb,#B8F03A 8%,rgba(22,24,32,.62))}
 .pnight span{font-family:var(--f-data);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .pnight b{font-family:var(--f-display);font-style:italic;font-weight:900;font-size:30px;color:#B8F03A;line-height:1}
@@ -2960,7 +2966,7 @@ async function rpc(fn,args){
 const lsGet=k=>{try{return localStorage.getItem(k);}catch(_){return null;}};
 const lsSet=(k,v)=>{try{v==null?localStorage.removeItem(k):localStorage.setItem(k,v);}catch(_){}};
 const MLBL={ko:"KO/TKO",sub:"Soumission",dec:"Décision"}, MSH={ko:"KO",sub:"Soum.",dec:"Déc."};
-const PRO={tab:"groupes",code:lsGet("fightradar-code"),me:null,busy:false,err:"",msg:"",newCode:null,boards:{},showBoard:{},showCode:false,confirm:"",counts:{},
+const PRO={tab:"groupes",code:lsGet("fightradar-code"),me:null,busy:false,err:"",msg:"",newCode:null,boards:{},showBoard:{},bmonth:{},showCode:false,confirm:"",counts:{},
   invite:(()=>{try{return sessionStorage.getItem("fightradar-invite");}catch(_){return null;}})(),peek:null,peekErr:""};
 /* Pronos pas encore annoncés : bouton et bandeaux cachés, page #pronos accessible seulement par son adresse */
 const PRONOS_PUBLIC=true;
@@ -3075,7 +3081,9 @@ function proEventHTML(ev){
   PK_ON=true; let card=""; try{card=cardHTML(ev,t,{detail:1});}finally{PK_ON=false;}
   const fin=Date.now()>=ev.end;
   const night=SPOIL&&(isLive(ev)||fin)?myNight(ev,c):null;
-  return `<section class="psec pcard">${head}${night?`<div class="pnight"><span>${fin?"Tes points sur la soirée":"Tes points ce soir"}</span><b>${night.pts} pt${night.pts>1?"s":""}</b><small>${night.good}/${night.judged} bons vainqueurs${isLive(ev)?" · se met à jour tout seul":""}</small></div>`:""}<p class="pnote">Tes pronos : <b>${n}/${tot}</b>. ${fin?`Soirée terminée.${SPOIL?"":" Active Spoil pour voir les résultats et les points."}`:isLive(ev)?`Soirée en cours : les pronos des parties commencées sont fermés, la page se met à jour toute seule.${SPOIL?"":" Active Spoil pour suivre tes points en direct."}`:`Fermeture au début de chaque partie : ${esc(locks)}. Les pronos d'un ami sur un combat se révèlent une fois ton propre prono fait (ou à la fermeture).`}</p><section>${card}</section></section>`;
+  if(SPOIL&&fin)((PRO.me&&PRO.me.groups)||[]).forEach(g=>{if(!PRO.boards[g.id]&&!PRO.showBoard[g.id]){PRO.showBoard[g.id]=1;rpc("fr_group_board",{p_code:PRO.code,p_group:g.id}).then(r=>{PRO.boards[g.id]={...r,at:Date.now()};}).catch(()=>{}).finally(()=>{PRO.showBoard[g.id]=0;proRefresh();});}});
+  const wins=SPOIL&&fin?nightWins(ev.id):[], multi=((PRO.me&&PRO.me.groups)||[]).length>1;
+  return `<section class="psec pcard">${head}${night?`<div class="pnight"><span>${fin?"Tes points sur la soirée":"Tes points ce soir"}</span><b>${night.pts} pt${night.pts>1?"s":""}</b><small>${night.good}/${night.judged} bons vainqueurs${isLive(ev)?" · se met à jour tout seul":""}</small></div>`:""}${wins.map(({g,n})=>`<div class="pnwin"><span>🏆 Gagnant${n.w.length>1?"s":""} de la soirée${multi?" · "+esc(g.name):""}</span>${whoL(n.w)}<small>${n.pts} pts</small></div>`).join("")}<p class="pnote">Tes pronos : <b>${n}/${tot}</b>. ${fin?`Soirée terminée.${SPOIL?"":" Active Spoil pour voir les résultats et les points."}`:isLive(ev)?`Soirée en cours : les pronos des parties commencées sont fermés, la page se met à jour toute seule.${SPOIL?"":" Active Spoil pour suivre tes points en direct."}`:`Fermeture au début de chaque partie : ${esc(locks)}. Les pronos d'un ami sur un combat se révèlent une fois ton propre prono fait (ou à la fermeture).`}</p><section>${card}</section></section>`;
 }
 function pkHTML(ev,f,t){
   const fi=ev.fights.indexOf(f);
@@ -3130,11 +3138,15 @@ const isBoss=g=>g&&(g.role==="chef"||g.role==="adjoint");
 const rateCls=r=>!r.judged?"":r.good/r.judged>=.65?"rhi":r.good/r.judged>=.5?"rmid":"rlo";
 const pct=r=>r.judged?Math.round(100*r.good/r.judged)+" %":"–";
 /* Classement : n premières lignes (+ ta ligne si tu es plus bas) ; full = colonnes détaillées */
+const moName=(m,y)=>{const [a,b]=m.split("-");return new Date(+a,+b-1,1).toLocaleDateString("fr-FR",y?{month:"long",year:"numeric"}:{month:"long"});};
+const whoL=(w,cls)=>w.map(x=>`<b class="${cls||""}${x.me?" me":""}">${esc(x.pseudo)}${x.me?" (toi)":""}</b>`).join(" & ");
+/* Gagnants d'une soirée dans mes groupes (classements déjà chargés) */
+function nightWins(id){return ((PRO.me&&PRO.me.groups)||[]).map(g=>{const bd=PRO.boards[g.id],n=bd&&(bd.nights||[]).find(x=>x.e===id);return n?{g,n}:null;}).filter(Boolean);}
 function boardHTML(rows,n,full){
-  const ranked=rows.map(r=>({...r,pos:rows.findIndex(x=>x.pts===r.pts)+1}));
+  const ranked=rows.map(r=>({...r,pos:r.pts>0?rows.findIndex(x=>x.pts===r.pts)+1:rows.findIndex(x=>x.pts===0)+1,zero:!r.pts}));
   let list=n?ranked.slice(0,n):ranked; const me=ranked.find(r=>r.me);
   const gap=n&&me&&!list.includes(me);
-  const li=r=>`<li class="${r.pos<=3?"p"+r.pos:""}${r.me?" me":""}"><span class="prk">${r.pos}.</span>${avatar(r.pseudo)}<span class="pnm">${esc(r.pseudo)}${r.me?" <small>(toi)</small>":""}${ROLE[r.role]?`<i class="prole ${r.role}">${ROLE[r.role]}</i>`:""}</span>${full?`<span class="pst pcv" title="Bons vainqueurs">${r.good}/${r.judged}</span><span class="pst pcm" title="Méthodes trouvées">${r.exact} méth.</span>`:""}<span class="pst prate ${rateCls(r)}" title="Taux de réussite">${pct(r)}${full?"":" <small>réussite</small>"}</span><b>${r.pts} pt${r.pts>1?"s":""}</b></li>`;
+  const li=r=>`<li class="${r.pos<=3&&!r.zero?"p"+r.pos:""}${r.me?" me":""}"><span class="prk">${r.pos}.</span>${avatar(r.pseudo)}<span class="pnm">${esc(r.pseudo)}${r.me?" <small>(toi)</small>":""}${ROLE[r.role]?`<i class="prole ${r.role}">${ROLE[r.role]}</i>`:""}</span>${full?`<span class="pst pcv" title="Bons vainqueurs">${r.good}/${r.judged}</span><span class="pst pcm" title="Méthodes trouvées">${r.exact} méth.</span>`:""}<span class="pst prate ${rateCls(r)}" title="Taux de réussite">${pct(r)}${full?"":" <small>réussite</small>"}</span><b>${r.pts} pt${r.pts>1?"s":""}</b></li>`;
   return `<ol class="pboard${full?" full":""}">${list.map(li).join("")}${gap?`<li class="pgap" aria-hidden="true">…</li>${li(me)}`:""}</ol>`;
 }
 function manageHTML(g){
@@ -3180,16 +3192,23 @@ function pronosHTML(){
     <li>Grosse soirée (UFC numéroté, ou au moins une vedette à l'affiche) : <b>+1</b> sur chaque bon vainqueur. La valeur de chaque combat est affichée à côté de « Ton prono ».</li>
     <li>Ajoute la méthode si tu veux (KO, soumission, décision) : <b>1 point de plus</b> si c'est la bonne.</li>
     <li>Les pronos ferment au début de chaque partie de la soirée (préliminaires, main card). Ceux de tes amis s'affichent à ce moment-là.</li>
-    <li>Le classement de ton groupe se met à jour dès que les résultats sont connus.</li></ul></div>`;
+    <li>Le classement de ton groupe se met à jour dès que les résultats sont connus. Chaque mois est une saison : le classement repart à zéro le 1er et le meilleur du mois est sacré champion. Le meilleur de chaque soirée est aussi désigné gagnant de la soirée.</li></ul></div>`;
   if(PRO.code&&!me&&!PRO.err) return head+`<div class="pbox"><p>Connexion…</p></div></div>`;
   const gm=me&&location.hash.match(/^#pronos-classement-(.+)$/), pg=gm&&(me.groups||[]).find(g=>g.id===gm[1]);
   if(pg){const bd=PRO.boards[pg.id];
     if(!bd&&!PRO.showBoard[pg.id]){PRO.showBoard[pg.id]=1;rpc("fr_group_board",{p_code:PRO.code,p_group:pg.id}).then(r=>{PRO.boards[pg.id]={...r,at:Date.now()};}).catch(e=>{PRO.err=e.message;}).finally(()=>{PRO.showBoard[pg.id]=0;proRefresh();});}
-    const tot=bd?bd.rows.reduce((a,r)=>({g:a.g+r.good,j:a.j+r.judged}),{g:0,j:0}):null;
+    const sel=PRO.bmonth[pg.id]||(bd&&bd.cur)||"", ms=bd?[{m:bd.cur,rows:bd.rows},...(bd.months||[]),{m:"all",rows:bd.all||bd.rows}]:[], cm=ms.find(x=>x.m===sel)||ms[0];
+    const rows=cm?cm.rows:[];
+    const tot=bd?rows.reduce((a,r)=>({g:a.g+r.good,j:a.j+r.judged}),{g:0,j:0}):null;
+    const palm=bd?(bd.months||[]).filter(x=>x.champs&&x.champs.length):[];
+    const nts=bd?(bd.nights||[]).map(x=>({...x,ev:EVENTS.find(e=>e.id===x.e)})).filter(x=>x.ev).sort((a,b)=>b.ev.start-a.ev.start).slice(0,12):[];
     return `<div class="dbar"><div class="dleft"><a class="dbrand homelink" href="#" title="Retour à l'accueil"><canvas class="frlogo frmini" role="img" aria-label="Fight Radar"></canvas></a><a class="back" href="#pronos">← Pronos</a></div></div>
-    <div class="dwrap pro"><div class="dtitle"><h1 class="pital">${esc(pg.name)}</h1><span>Classement complet · ${pg.n} membre${pg.n>1?"s":""}${tot&&tot.j?` · réussite du groupe ${Math.round(100*tot.g/tot.j)} %`:""}</span></div>
-    ${bd?`<div class="pbox"><div class="phead"><span>#</span><span></span><span>Joueur</span><span>Vainqueurs</span><span>Méthodes</span><span>Réussite</span><span>Points</span></div>${boardHTML(bd.rows,0,1)}</div>`:`<p class="pnote">Chargement du classement…</p>`}
-    <p class="pnote">Réussite : part des combats terminés où le vainqueur choisi a gagné. Méthodes : nombre de fois où la méthode était aussi la bonne.</p></div>`;}
+    <div class="dwrap pro"><div class="dtitle"><h1 class="pital">${esc(pg.name)}</h1><span>Classement · ${pg.n} membre${pg.n>1?"s":""}${tot&&tot.j?` · réussite du groupe ${Math.round(100*tot.g/tot.j)} %`:""}</span></div>
+    ${bd?`<div class="pmonths" role="group" aria-label="Saison">${ms.map(x=>`<button type="button" data-pa="bmonth:${pg.id}:${x.m}" aria-pressed="${x===cm}">${x.m==="all"?"Depuis le début":x.m===bd.cur?esc(moName(x.m))+" (en cours)":esc(moName(x.m,1))}</button>`).join("")}</div>
+      <div class="pbox"><div class="phead"><span>#</span><span></span><span>Joueur</span><span>Vainqueurs</span><span>Méthodes</span><span>Réussite</span><span>Points</span></div>${boardHTML(rows,0,1)}</div>
+      <section class="psec"><h2 class="h">Palmarès <span>des saisons</span></h2>${palm.length?`<ol class="ppalm">${palm.map(x=>`<li><span class="pmo">${esc(moName(x.m,1))}</span>🏆 ${whoL(x.champs)}<small>${x.pts} pts</small></li>`).join("")}</ol>`:`<p class="pnote">Le premier champion sera sacré à la fin du mois de ${esc(moName(bd.cur))}.</p>`}</section>
+      ${nts.length?`<section class="psec"><h2 class="h">Gagnants <span>des soirées</span></h2><ol class="ppalm">${nts.map(x=>`<li><span class="pmo">${esc(fmtDS(x.ev.start).replace(/\.$/,""))}</span><span>${esc(x.ev.a)} vs ${esc(x.ev.b)}</span> · ${whoL(x.w)}<small>${x.pts} pts</small></li>`).join("")}</ol></section>`:""}`:`<p class="pnote">Chargement du classement…</p>`}
+    <p class="pnote">Chaque mois est une saison : le classement repart à zéro le 1er, et le meilleur du mois est sacré champion (une soirée compte dans le mois où elle commence). Réussite : part des combats terminés où le vainqueur choisi a gagné. Méthodes : nombre de fois où la méthode était aussi la bonne.</p></div>`;}
   const sm=me&&location.hash.match(/^#pronos-soirees-(.+)$/), sg=sm&&(me.groups||[]).find(g=>g.id===sm[1]);
   if(sg) return manageHTML(sg);
   const evm=!gm&&!sm&&location.hash.match(/^#pronos-(.+)$/), pev=me&&evm&&EVENTS.find(e=>e.id===decodeURIComponent(evm[1]));
@@ -3214,7 +3233,8 @@ function pronosHTML(){
     const bd=PRO.boards[g.id];
     if((!bd||Date.now()-bd.at>60000)&&!PRO.showBoard[g.id]){PRO.showBoard[g.id]=1;
       rpc("fr_group_board",{p_code:PRO.code,p_group:g.id}).then(r=>{PRO.boards[g.id]={...r,at:Date.now()};}).catch(()=>{}).finally(()=>{PRO.showBoard[g.id]=0;proRefresh();});}
-    const board=!bd?`<p class="pnote">Chargement du classement…</p>`:boardHTML(bd.rows,5)+(bd.rows.length>5?"":"")+`<a class="pbtn ghost small pfull" href="#pronos-classement-${g.id}">Voir le classement complet</a>`;
+    const last=bd&&(bd.months||[])[0], lc=last&&last.champs&&last.champs.length?last:null;
+    const board=!bd?`<p class="pnote">Chargement du classement…</p>`:(bd.cur?`<div class="pseason"><span>Saison de <b>${esc(moName(bd.cur))}</b></span><span>remise à zéro chaque mois</span></div>`:"")+boardHTML(bd.rows,5)+(lc?`<div class="pchamp">🏆 <span>Champion${lc.champs.length>1?"s":""} ${/^[aeiou]/.test(moName(lc.m))?"d'":"de "}${esc(moName(lc.m))} :</span>${whoL(lc.champs)}<small>${lc.pts} pts</small></div>`:"")+`<a class="pbtn ghost small pfull" href="#pronos-classement-${g.id}">Classement complet et palmarès</a>`;
     return `<div class="pbox pgroup"><div class="pgh"><h3>${esc(g.name)}</h3><span>${g.n} membre${g.n>1?"s":""}</span></div>${board}
       <div class="prow"><button type="button" class="pbtn" data-pa="share:${g.id}">Inviter des amis</button><span class="pgcode" title="Code d'invitation">Code : <b>${esc(g.code)}</b></span>${g.role==="chef"?`<a class="pbtn ghost pboss" href="#pronos-soirees-${g.id}">Gérer le groupe</a>`:""}</div></div>`;}).join("");
   const tab=PRO.tab==="compte"?"compte":"groupes";
@@ -3248,8 +3268,8 @@ function pronosHTML(){
     Promise.all([rpc("fr_my_counts",{p_code:PRO.code,p_events:ids}).then(c=>{PRO.counts=c||{};}).catch(()=>{}),
       rpc("fr_group_progress",{p_code:PRO.code,p_events:ids}).then(c=>{PRO.prog=c||null;}).catch(()=>{})])
       .finally(()=>{PRO.countsLoading=0;PRO.countsAt=Date.now();proRefresh();});}
-  const row=(e,done)=>{const n=PRO.counts[e.id]||0,tot=e.fights.filter(f=>!f.a.tbd&&!f.b.tbd).length;
-    return `<a class="pev${done?"":" nod"} ${isNum(e)?"onum":orgCls(e)}" href="#pronos-${esc(e.id)}">${done?`<span class="pevd">${esc(fmtDS(e.start))}</span>`:""}${evBadge(e,1)}<span class="pevn">${esc(e.a)} vs ${esc(e.b)}${bigEv(e)?`<i class="pbig" title="Soirée avec une vedette : +1 point sur chaque bon vainqueur" aria-label="Soirée avec une vedette">★</i>`:""}</span>${!done&&PRO.prog&&PRO.prog.of?`<span class="pfrc${(PRO.prog.ev||{})[e.id]?" on":""}" title="Amis qui ont fait leurs pronos sur cette soirée"><svg class="pman" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><circle cx="12" cy="7.5" r="4"/><path d="M4 21c0-4.4 3.6-7.5 8-7.5s8 3.1 8 7.5z"/></svg>${(PRO.prog.ev||{})[e.id]||0}/${PRO.prog.of}</span>`:""}<span class="pevc${done?" done":n?" on":""}">${done?"Terminé":(T>=e.start?`<span class="pill live plive">Live</span> `:"")+`${n}/${tot} pronos`}</span></a>`;};
+  const row=(e,done)=>{const dw=done?nightWins(e.id)[0]:null,n=PRO.counts[e.id]||0,tot=e.fights.filter(f=>!f.a.tbd&&!f.b.tbd).length;
+    return `<a class="pev${done?"":" nod"} ${isNum(e)?"onum":orgCls(e)}" href="#pronos-${esc(e.id)}">${done?`<span class="pevd">${esc(fmtDS(e.start))}</span>`:""}${evBadge(e,1)}<span class="pevn">${esc(e.a)} vs ${esc(e.b)}${bigEv(e)?`<i class="pbig" title="Soirée avec une vedette : +1 point sur chaque bon vainqueur" aria-label="Soirée avec une vedette">★</i>`:""}</span>${!done&&PRO.prog&&PRO.prog.of?`<span class="pfrc${(PRO.prog.ev||{})[e.id]?" on":""}" title="Amis qui ont fait leurs pronos sur cette soirée"><svg class="pman" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><circle cx="12" cy="7.5" r="4"/><path d="M4 21c0-4.4 3.6-7.5 8-7.5s8 3.1 8 7.5z"/></svg>${(PRO.prog.ev||{})[e.id]||0}/${PRO.prog.of}</span>`:""}<span class="pevc${done?" done":n?" on":""}${dw?" won":""}"${dw?` title="Gagnant de la soirée"`:""}>${done?(dw?"🏆 "+esc(dw.n.w.map(x=>x.pseudo).join(" & ")):"Terminé"):(T>=e.start?`<span class="pill live plive">Live</span> `:"")+`${n}/${tot} pronos`}</span></a>`;};
   const done=past.filter(e=>PRO.counts[e.id]>0);
   return head+nc+tabs+`
     <section class="psec"><h2 class="h">Pronos <span>disponibles</span></h2><div class="pevs">${boss0&&nights.length?`<p class="pnote">Tu es ${boss0.role} de « ${esc(boss0.name)} » : coche les événements que le groupe pronostique. Seuls ceux cochés comptent dans le classement.</p>`:""}${nights.map(x=>`<h3 class="pday">${esc(fmtDS(x.evs[0].start).replace(/\.$/,""))}</h3>${x.evs.map(e=>{if(!boss0)return row(e,false);
@@ -3289,6 +3309,7 @@ async function proAct(a){
   if(act==="share"){const g=(PRO.me.groups||[]).find(x=>x.id===arg);if(!g)return;const url=inviteURL(g.code),text=`Rejoins mon groupe de pronos « ${g.name} » sur Fight Radar`;
     if(navigator.share){try{await navigator.share({title:"Fight Radar",text,url});}catch(_){}}else copyTxt(`${text} : ${url}`,"Lien d'invitation copié");return;}
   if(act==="board"){PRO.showBoard[arg]=true;proRefresh();try{PRO.boards[arg]=await rpc("fr_group_board",{p_code:PRO.code,p_group:arg});}catch(e){PRO.err=e.message;PRO.showBoard[arg]=false;}return proRefresh();}
+  if(act==="bmonth"){const [,gid,m]=a.split(":");PRO.bmonth[gid]=m;return proRefresh();}
   if(act==="hide"){PRO.showBoard[arg]=false;return proRefresh();}
   if(act==="rename") return run(async()=>{const r=await rpc("fr_rename",{p_code:PRO.code,p_pseudo:val("pr-rename")});PRO.me.pseudo=r.pseudo;const i=document.getElementById("pr-rename");if(i)i.value="";toast("Pseudo changé");});
   if(["leave","logout","delete"].includes(act)&&PRO.confirm!==a){PRO.confirm=a;return proRefresh();}

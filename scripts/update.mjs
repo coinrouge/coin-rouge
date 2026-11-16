@@ -413,6 +413,8 @@ for (const e of events) {
   const t = Date.parse(e.segs?.[0]?.t || ""), f = e.fights?.[0];
   if (!f || !(t > now - DAY)) continue;
   for (const x of [f.a, f.b]) {
+    /* surnom corrigé ou ajouté à la main (data/overrides.json, "_nick") : prioritaire */
+    if ((overrides._nick || {})[x.n]) { x.nick = overrides._nick[x.n]; continue; }
     if (x.nick || !x.n || x.n === "TBA") continue;
     const k = "nick2:" + x.n;
     if (!(k in cache)) {

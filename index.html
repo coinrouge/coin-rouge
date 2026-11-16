@@ -2326,6 +2326,12 @@ function fitNames(){
     const r=document.createRange(); r.selectNodeContents(b); const w=r.getBoundingClientRect().width;
     if(w>box) b.style.fontSize=(parseFloat(getComputedStyle(b).fontSize)*box/w*.97)+"px";
   });
+  /* Affiche du main event : les deux noms posés sur la même ligne de base, même si l'un est réduit (nom long) */
+  document.querySelectorAll(".pduel").forEach(d=>{const bs=[...d.querySelectorAll(".pside>b")];if(bs.length!==2)return;
+    /* le décalage va au-dessus du prénom, pour que le prénom reste collé au nom */
+    const top=b=>b.previousElementSibling||b;
+    bs.forEach(b=>top(b).style.marginTop="");const r=bs.map(b=>b.getBoundingClientRect().bottom-b.parentElement.getBoundingClientRect().top),m=Math.max(...r);
+    bs.forEach((b,i)=>{if(m-r[i]>1)top(b).style.marginTop=(m-r[i])+"px";});});
 }
 addEventListener("resize",()=>{fitNames();alignVS();});
 /* Retour à l'accueil : toujours en No spoil */

@@ -414,13 +414,17 @@ for (const e of events) {
   if (!f || !(t > now - DAY)) continue;
   for (const x of [f.a, f.b]) {
     if (x.nick || !x.n || x.n === "TBA") continue;
-    const k = "nick:" + x.n;
+    const k = "nick2:" + x.n;
     if (!(k in cache)) {
       let nick = null;
       try {
         const $ = await page(x.wk || x.n);
-        if ($) $("table.infobox tr").each((_, tr) => { const th = cell($, $(tr).find("th").first()); if (!nick && /^(Nickname|Nickname\(s\)|Other names)$/i.test(th)) nick = cell($, $(tr).find("td").first()); });
-        if (nick) nick = nick.split(/\s*[,;\n]\s*|\s{2,}/)[0].replace(/^["“”'«»\s]+|["“”'«»\s]+$/g, "").trim() || null;
+        /* plusieurs surnoms possibles (liste ou retours à la ligne) : on garde le premier, sans notes ni traduction entre parenthèses */
+        if ($) $("table.infobox tr").each((_, tr) => { const th = cell($, $(tr).find("th").first()); if (nick || !/^(Nickname|Nickname\(s\)|Other names)$/i.test(th)) return;
+          const td = $(tr).find("td").first(); td.find("sup,style,.reference").remove();
+          const li = td.find("li").first(); const html = (li.length ? li.html() : td.html()) || "";
+          nick = clean(cheerio.load("<p>" + html.split(/<br\s*\/?>/i)[0] + "</p>")("p").text()); });
+        if (nick) nick = nick.split(/\s*[,;\n]\s*/)[0].replace(/\s*\(.*?\)\s*/g, " ").replace(/^["“”'«»\s]+|["“”'«»\s]+$/g, "").trim() || null;
         if (nick && nick.length > 28) nick = null;
       } catch {}
       cache[k] = nick;

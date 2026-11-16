@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-16T18:23:57.129Z",
+ "updated": "2026-11-16T18:32:54.858Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -2890,6 +2890,7 @@
       "rec": "11-1-0",
       "champ": 1,
       "tp": "242335-jordan-zebo",
+      "nick": "Le Fauve",
       "fr": 1
      },
      "b": {
@@ -2897,6 +2898,7 @@
       "nat": "FRA",
       "rec": "9-1-0",
       "tp": "245988-chamsoudinov-baysangur",
+      "nick": "Baki",
       "fr": 1
      },
      "title": "Titre welterweight ARES"
@@ -2973,7 +2975,8 @@
       "n": "Jiří Procházka",
       "rec": "32-6-1",
       "nat": "CZE",
-      "wk": "Jiří Procházka"
+      "wk": "Jiří Procházka",
+      "nick": "BJPDenisa"
      },
      "b": {
       "n": "Navajo Stirling",
@@ -3303,13 +3306,15 @@
       "n": "Israel Adesanya",
       "rec": "24-6-0",
       "nat": "NGR",
-      "wk": "Israel Adesanya"
+      "wk": "Israel Adesanya",
+      "nick": "The Last Stylebender"
      },
      "b": {
       "n": "Sharabutdin Magomedov",
       "rec": "17-1-0",
       "nat": "RUS",
-      "wk": "Sharabutdin Magomedov"
+      "wk": "Sharabutdin Magomedov",
+      "nick": "Shara Bullet"
      }
     },
     {
@@ -3515,7 +3520,8 @@
       "n": "Tyson Fury",
       "nat": "GBR",
       "star": 1,
-      "tp": "202714-tyson-fury"
+      "tp": "202714-tyson-fury",
+      "nick": "The Gypsy King"
      },
      "b": {
       "n": "Anthony Joshua",
@@ -3567,7 +3573,8 @@
       "rec": "37-11-0",
       "nat": "BRA",
       "champ": 1,
-      "wk": "Charles Oliveira"
+      "wk": "Charles Oliveira",
+      "nick": "do Bronxs"
      },
      "b": {
       "n": "Diego Lopes",
@@ -3663,7 +3670,8 @@
       "rec": "25-4-0",
       "nat": "FRA",
       "fr": 1,
-      "wk": "Taylor Lapilus"
+      "wk": "Taylor Lapilus",
+      "nick": "Double Impact"
      },
      "b": {
       "n": "Mitchell McKee",
@@ -3864,13 +3872,15 @@
       "n": "Yair Rodríguez",
       "rec": "16-5-0",
       "nat": "MEX",
-      "wk": "Yair Rodríguez"
+      "wk": "Yair Rodríguez",
+      "nick": "El Pantera (The Panther)"
      },
      "b": {
       "n": "Steve Garcia",
       "rec": "19-6-0",
       "nat": "USA",
-      "wk": "Steve Garcia"
+      "wk": "Steve Garcia",
+      "nick": "Mean Machine"
      }
     },
     {
@@ -3944,7 +3954,8 @@
       "n": "Gabriel Bonfim",
       "rec": "19-1-0",
       "nat": "BRA",
-      "wk": "Gabriel Bonfim"
+      "wk": "Gabriel Bonfim",
+      "nick": "Marretinha"
      },
      "b": {
       "n": "Sean Brady",
@@ -3991,13 +4002,15 @@
       "rec": "18-2-0",
       "nat": "MYA",
       "champ": 1,
-      "wk": "Joshua Van"
+      "wk": "Joshua Van",
+      "nick": "The Fearless"
      },
      "b": {
       "n": "Manel Kape",
       "rec": "23-7-0",
       "nat": "ANG",
-      "wk": "Manel Kape"
+      "wk": "Manel Kape",
+      "nick": "Starboy"
      },
      "title": "Titre Flyweight"
     },
@@ -4056,14 +4069,16 @@
       "n": "Quillan Salkilld",
       "rec": "13-1-0",
       "nat": "AUS",
-      "wk": "Quillan Salkilld"
+      "wk": "Quillan Salkilld",
+      "nick": "The Inventor of Sex"
      },
      "b": {
       "n": "Benoît Saint Denis",
       "rec": "17-4-0",
       "nat": "FRA",
       "fr": 1,
-      "wk": "Benoît Saint Denis"
+      "wk": "Benoît Saint Denis",
+      "nick": "God of War"
      }
     },
     {
@@ -4151,7 +4166,8 @@
       "n": "Joe Pyfer",
       "rec": "16-3-0",
       "nat": "USA",
-      "wk": "Joe Pyfer"
+      "wk": "Joe Pyfer",
+      "nick": "Bodybagz"
      },
      "b": {
       "n": "Bo Nickal",

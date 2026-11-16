@@ -1,8 +1,6 @@
 Combattants : 974
   2027 in Professional Fighters League : HTTP 404
-Soirées retenues : UFC Fight Night: Buckley vs. Malott / PFL Chicago: Carmouche vs. Bishop 2 / UFC 333: Volkanovski vs. Evloev / UFC Fight Night: Moicano vs. Nolan / UFC Fight Night: Cortes-Acosta vs. Walker / UFC 334: Gane vs. Hokit / PFL Dubai: Nemkov vs. Bilostenniy / UFC Fight Night: Procházka vs. Stirling / UFC Fight Night: Adesanya vs. Magomedov / UFC 335: Oliveira vs. Lopes / PFL Lyon: Lapilus vs. McKee / UFC Fight Night: Rodríguez vs. Garcia / UFC Fight Night: Bonfim vs. Brady / UFC 336: Van vs. Kape / UFC Fight Night: Salkilld vs. Saint Denis / UFC Fight Night: Pyfer vs. Nickal / UFC 337
-  fn-buckley-malott : 13 combats, 13 résultats
-  pfl-carmouche-bishop : 13 combats, 13 résultats
+Soirées retenues : UFC 333: Volkanovski vs. Evloev / UFC Fight Night: Moicano vs. Nolan / UFC Fight Night: Cortes-Acosta vs. Walker / UFC 334: Gane vs. Hokit / PFL Dubai: Nemkov vs. Bilostenniy / UFC Fight Night: Procházka vs. Stirling / UFC Fight Night: Adesanya vs. Magomedov / UFC 335: Oliveira vs. Lopes / PFL Lyon: Lapilus vs. McKee / UFC Fight Night: Rodríguez vs. Garcia / UFC Fight Night: Bonfim vs. Brady / UFC 336: Van vs. Kape / UFC Fight Night: Salkilld vs. Saint Denis / UFC Fight Night: Pyfer vs. Nickal / UFC 337
   ufc333 : 14 combats, 14 résultats
   fn-moicano-nolan : 12 combats, 12 résultats
   fn-cortesacosta-walker : 14 combats, 14 résultats
@@ -22,4 +20,4 @@ Presse : 12 soirées, 4 à l'agenda
 Annuaire : 1045 combattants (dont 71 champions de boxe)
 Annuaire francophone (fr.wikipedia) : 334 ajoutés
 Annuaire permanent : 43 francophones (22 hors autres listes)
-Aucun changement.
+data/events.json écrit (26 soirées détaillées, 5 à l'agenda).

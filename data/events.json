@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-16T18:35:30.790Z",
+ "updated": "2026-11-16T18:38:28.210Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -3527,7 +3527,8 @@
       "n": "Anthony Joshua",
       "nat": "GBR",
       "star": 1,
-      "tp": "212010-anthony-joshua-aj"
+      "tp": "212010-anthony-joshua-aj",
+      "nick": "AJ"
      },
      "title": "Titre WBA heavyweight (vacant)"
     }
@@ -3574,7 +3575,7 @@
       "nat": "BRA",
       "champ": 1,
       "wk": "Charles Oliveira",
-      "nick": "do Bronxs"
+      "nick": "Do Bronx"
      },
      "b": {
       "n": "Diego Lopes",

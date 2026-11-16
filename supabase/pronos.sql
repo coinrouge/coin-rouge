@@ -487,7 +487,7 @@ $$;
 
 -- Classement d'un groupe (barème : voir fr.base_pts et la colonne bonus).
 -- rows : saison du mois en cours ; all : depuis le début ; months : saisons passées et leurs champions ;
--- nights : gagnants des soirées terminées.
+-- nights : gagnants et classement de chaque soirée terminée.
 create or replace function public.fr_group_board(p_code text, p_group uuid) returns json
 language plpgsql security definer set search_path='' as $$
 declare v uuid := fr.need_uid(p_code); g fr.groups; cur text := to_char(now() at time zone 'Europe/Paris','YYYY-MM');
@@ -499,7 +499,9 @@ begin
   return (with sc as (
     select p.event_id e, fr.evmonth(p.event_id) mo, u.id uid, u.pseudo,
       coalesce(sum(case when f.winner is not null and p.pick=f.winner then fr.base_pts(f.seg) + f.bonus + f.evbonus + (case when p.method is not null and p.method=f.method then 1 else 0 end) else 0 end),0)::int pts,
-      count(*) filter (where f.winner is not null and p.pick=f.winner)::int good
+      count(*) filter (where f.winner is not null and p.pick=f.winner)::int good,
+      count(*) filter (where f.winner is not null and p.pick=f.winner and p.method is not null and p.method=f.method)::int exact,
+      count(*) filter (where f.winner is not null and f.winner not in ('draw','nc'))::int judged
     from fr.members m join fr.users u on u.id=m.user_id join fr.picks p on p.user_id=u.id
     left join fr.fights f on f.event_id=p.event_id and f.fkey=p.fkey
     where m.group_id=p_group and fr.ev_open(p_group, p.event_id)
@@ -509,7 +511,7 @@ begin
       rank() over (partition by mo order by sum(pts) desc, sum(good) desc) rk
     from sc where mo < cur group by mo, uid, pseudo
   ), ni as (
-    select e, uid, pseudo, pts, rank() over (partition by e order by pts desc, good desc) rk
+    select e, uid, pseudo, pts, good, exact, judged, rank() over (partition by e order by pts desc, good desc) rk
     from sc where fr.ev_done(e)
   )
   select json_build_object(
@@ -521,8 +523,10 @@ begin
           json_agg(json_build_object('pseudo',pseudo,'me',uid=v) order by pseudo) filter (where rk=1 and pts>0) champs
         from mo group by mo) x), '[]'::json),
     'nights', coalesce((select json_agg(y) from (
-        select e, max(pts) pts, json_agg(json_build_object('pseudo',pseudo,'me',uid=v) order by pseudo) w
-        from ni where rk=1 and pts>0 group by e) y), '[]'::json)
+        select e, max(pts) pts,
+          json_agg(json_build_object('pseudo',pseudo,'me',uid=v) order by pseudo) filter (where rk=1) w,
+          json_agg(json_build_object('pseudo',pseudo,'me',uid=v,'pts',pts,'good',good,'exact',exact,'judged',judged) order by pts desc, good desc, pseudo) rows
+        from ni group by e having max(pts)>0) y), '[]'::json)
   ));
 end $$;
 

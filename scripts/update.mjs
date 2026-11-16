@@ -408,6 +408,26 @@ const dir = Object.entries(roster).filter(([n, r]) => r && r.org && !/^_/.test(n
   console.log(`Annuaire permanent : ${Object.keys(sorted).length} francophones (${n} hors autres listes)`);
 }
 
+/* Surnom (champ « Nickname » de la page Wikipédia) : seulement pour le main event des soirées à venir. Gardé en cache. */
+for (const e of events) {
+  const t = Date.parse(e.segs?.[0]?.t || ""), f = e.fights?.[0];
+  if (!f || !(t > now - DAY)) continue;
+  for (const x of [f.a, f.b]) {
+    if (x.nick || !x.n || x.n === "TBA") continue;
+    const k = "nick:" + x.n;
+    if (!(k in cache)) {
+      let nick = null;
+      try {
+        const $ = await page(x.wk || x.n);
+        if ($) $("table.infobox tr").each((_, tr) => { const th = cell($, $(tr).find("th").first()); if (!nick && /^(Nickname|Nickname\(s\)|Other names)$/i.test(th)) nick = cell($, $(tr).find("td").first()); });
+        if (nick) nick = nick.split(/\s*[,;\n]\s*|\s{2,}/)[0].replace(/^["“”'«»\s]+|["“”'«»\s]+$/g, "").trim() || null;
+        if (nick && nick.length > 28) nick = null;
+      } catch {}
+      cache[k] = nick;
+    }
+    if (cache[k]) x.nick = cache[k];
+  }
+}
 await writeFile(cacheFile, JSON.stringify(cache, null, 1));
 /* No spoil : Wikipédia met le VAINQUEUR en premier une fois le combat fini. On garde donc l'ordre d'avant le combat
    (relu dans l'ancien events.json) ; si on ne l'a jamais connu, ordre alphabétique : le vainqueur n'est pas toujours à gauche. */

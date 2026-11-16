@@ -226,6 +226,8 @@ a.poster:hover{background:var(--soft)}
 .pside b{font-family:var(--f-display);font-weight:900;text-transform:uppercase;font-size:clamp(30px,7.6vw,68px);line-height:.9;overflow-wrap:anywhere}
 .pside.red b{color:var(--red)} .pside.blue b{color:var(--blue)}
 .pside em{font-style:normal;font-family:var(--f-data);font-size:13px;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums}
+.pside .pnick{font-family:var(--f-data);font-style:italic;font-weight:500;font-size:13px;letter-spacing:.02em;color:rgba(232,236,243,.62);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.pside .pchamp-u{margin:4px 0 0;font-family:var(--f-data);font-weight:600;text-transform:uppercase;letter-spacing:.12em} /* même police qu'avant, quand elle était dans la ligne du prénom */
 .pvs{flex:none;font-family:var(--f-display);font-weight:900;font-size:17px;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:var(--bg);letter-spacing:.04em}
 .pbot{display:flex;justify-content:space-between;align-items:center;gap:8px 16px;flex-wrap:wrap}
 @media (max-width:560px){.pduel{gap:8px}.pvs{width:34px;height:34px;font-size:13px}.pside small{font-size:11px}}
@@ -349,7 +351,7 @@ a.hero-top:hover .cta::after{transform:translateX(4px)}
 .txt{display:flex;flex-direction:column;min-width:0}
 .f.b .txt{align-items:flex-end;text-align:right}
 .av{flex:none;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-family:var(--f-display);font-weight:800;font-size:17px;letter-spacing:.02em;color:var(--av-ink)}
-.f.a .av{background:var(--red)} .f.b .av{background:var(--blue)}
+.f.a .av{background:var(--cr)} .f.b .av{background:var(--cb)} /* couleurs des coins, pas celle de l'organisation */
 .av.tbd{background:var(--soft);color:var(--muted);border:1px dashed var(--line)}
 .f .nm{font-family:var(--f-display);font-weight:800;font-size:clamp(17px,3.4vw,22px);text-transform:uppercase;line-height:1.05;overflow-wrap:anywhere;color:inherit;text-decoration:none}
 a.nm:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
@@ -385,8 +387,8 @@ a.nm:hover{text-decoration:underline;text-decoration-thickness:2px;text-underlin
 .seg-prelims .bout,.seg-early .bout{padding:8px 4px;gap:12px}
 .seg-prelims .f .nm,.seg-early .f .nm{font-family:var(--f-body);font-weight:600;text-transform:none;font-size:15px;line-height:1.25;letter-spacing:0}
 .seg-prelims .av,.seg-early .av{width:26px;height:26px;font-size:11px;background:transparent!important;border:1.5px solid currentColor}
-.seg-prelims .f.a .av,.seg-early .f.a .av{color:var(--red)}
-.seg-prelims .f.b .av,.seg-early .f.b .av{color:var(--blue)}
+.seg-prelims .f.a .av,.seg-early .f.a .av{color:var(--cr)}
+.seg-prelims .f.b .av,.seg-early .f.b .av{color:var(--cb)}
 .seg-prelims .av.tbd,.seg-early .av.tbd{color:var(--muted);border-style:dashed}
 .seg-prelims .fx,.seg-early .fx{gap:8px}
 .seg-prelims .time b,.seg-early .time b{font-size:15px;font-weight:600}
@@ -436,7 +438,7 @@ details.ev summary::-webkit-details-marker{display:none}
 .ptime{font-family:var(--f-data);font-weight:600;font-size:.6em;letter-spacing:.06em;color:var(--muted);margin-left:4px;white-space:nowrap}
 .pbot{align-items:flex-end}
 .av.flagged{padding:0;overflow:hidden;background:var(--surface)!important;border:2.5px solid}
-.f.a .av.flagged{border-color:var(--red)} .f.b .av.flagged{border-color:var(--blue)}
+.f.a .av.flagged{border-color:var(--cr)} .f.b .av.flagged{border-color:var(--cb)}
 .av.flagged svg{width:100%;height:100%;display:block}
 .seg-prelims .av.flagged,.seg-early .av.flagged{border-width:1.5px}
 .evb{display:inline-flex;align-items:center;padding:3px 9px;border-radius:3px;font-family:var(--f-data);font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;line-height:1.2}
@@ -541,7 +543,8 @@ h2.h::after{content:"";flex:1;height:1px;background:var(--line)}
 .pside b.natc{width:fit-content;max-width:100%}
 .pside b.natc.natch{background-size:100% 100%,100% 100%}
 .pside.blue b.natc{margin-left:auto}
-.pside.red small{color:var(--red)} .pside.blue small{color:var(--blue)}
+/* Prénoms : toujours les couleurs des coins (rouge / bleu), même sur une soirée à la couleur de son organisation (ARES vert…) */
+.pside.red small{color:var(--cr)} .pside.blue small{color:var(--cb)}
 /* Vue détaillée : même affiche que l'accueil */
 .dduel{margin:14px 0 16px}
 /* Main event mis en avant dans la carte */
@@ -1767,7 +1770,8 @@ function posterSide(p,c){
   const w=p.n.split(/\s+/); const last=w.pop(); const first=w.join(" ");
   const nat=NAT[p.n], fl=nat&&FLAGS[nat];
   const bg=fl?` style="--natbg:url('data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20"${HSTRIPE.has(nat)?' preserveAspectRatio="none"':""}>${fl}</svg>`)}')"`:"";
-  return `<span class="pside ${c}"><small>${c==="blue"&&p.champ?`<span class="pchamp">${BELT}Champion</span>`:""}${esc(first)}${flag(p)}${c!=="blue"&&p.champ?`<span class="pchamp">${BELT}Champion</span>`:""}</small><b class="${/[\u0300-\u036f]/.test(last.normalize("NFD"))?"acc ":""}${fl?"natc":""}${fl&&HSTRIPE.has(nat)?" natch":""}${last.length>9?" plong":""}"${bg}${fl?` title="${CTRY[nat]}"`:""}>${esc(last)}</b>${p.rec?`<em>${recHTML(p.rec)}</em>`:""}</span>`;
+  /* Affiche du main event : surnom discret entre guillemets sous le nom, étiquette Champion sous le palmarès */
+  return `<span class="pside ${c}"><small>${esc(first)}${flag(p)}</small><b class="${/[\u0300-\u036f]/.test(last.normalize("NFD"))?"acc ":""}${fl?"natc":""}${fl&&HSTRIPE.has(nat)?" natch":""}${last.length>9?" plong":""}"${bg}${fl?` title="${CTRY[nat]}"`:""}>${esc(last)}</b>${p.nick?`<i class="pnick">« ${esc(p.nick)} »</i>`:""}${p.rec?`<em>${recHTML(p.rec)}</em>`:""}${p.champ?`<span class="pchamp pchamp-u">${BELT}Champion</span>`:""}</span>`;
 }
 /* Drapeaux à bandes horizontales : étirés sur toute la hauteur du nom (sinon on ne voit que la bande du milieu) */
 const HSTRIPE=new Set(["RUS","GER","NED","HUN","AUT","UKR","POL","IDN","EST","BUL","LTU","ARM","SRB","CRO","SVK","SLO","LAT","YEM","GAB","SLE","BOL","COL","LUX","MON","GHA","EGY","IRQ","IRI","TJK","KGZ","AZE","UZB","CUB","PUR","THA","MGL"]);

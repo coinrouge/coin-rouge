@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-17T01:18:51.359Z",
+ "updated": "2026-11-17T03:51:59.661Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -1921,7 +1921,12 @@
       "tp": "286417-gabriel-alberto-corzo-el-terrible"
      },
      "r": 12,
-     "ru": 1
+     "ru": 1,
+     "res": {
+      "w": "a",
+      "method": "Arrêt de l'arbitre (TKO)",
+      "round": 8
+     }
     },
     {
      "s": "main",
@@ -2299,6 +2304,11 @@
       "nat": "GBR",
       "tp": "245959-gerome-warburton-bread-maker",
       "rec": "18-2-2"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 10
      }
     },
     {
@@ -2316,6 +2326,11 @@
       "nat": "MEX",
       "rec": "19-2-0",
       "tp": "268929-jose-andres-teran-loquillo"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 10
      }
     },
     {
@@ -2334,6 +2349,11 @@
       "nat": "POL",
       "tp": "174234-kamil-bednarek",
       "rec": "17-0-0"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 10
      }
     },
     {
@@ -2351,6 +2371,11 @@
       "nat": "COL",
       "rec": "15-2-0",
       "tp": "274254-alexander-castro"
+     },
+     "res": {
+      "w": "b",
+      "method": "Décision majoritaire",
+      "round": 10
      }
     },
     {
@@ -2366,6 +2391,11 @@
       "n": "Dariial Kuchmenov",
       "rec": "10-0-0",
       "tp": "301416-darial-kuchmenov"
+     },
+     "res": {
+      "w": "b",
+      "method": "Décision partagée",
+      "round": 8
      }
     },
     {
@@ -2381,6 +2411,12 @@
      "b": {
       "n": "Moro Kanla Inusah",
       "rec": "10-1-0"
+     },
+     "res": {
+      "w": "a",
+      "method": "KO",
+      "round": 1,
+      "time": "1:29"
      }
     }
    ],
@@ -2427,6 +2463,11 @@
       "rec": "14-0-0",
       "tp": "341026-seydi-coupe",
       "fr": 1
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 12
      }
     },
     {
@@ -2445,31 +2486,46 @@
       "nat": "GBR",
       "rec": "19-4-2",
       "tp": "228371-gavin-gwynne"
+     },
+     "sub": "Titre WBA Intercontinental (vacant)",
+     "res": {
+      "w": "a",
+      "method": "Abandon à la fin du round (TKO)",
+      "round": 5
      }
     },
     {
      "s": "main",
      "w": "Super-légers",
-     "r": 10,
-     "ru": 1,
+     "r": 12,
      "sub": "Titres Commonwealth et WBO European",
      "a": {
       "n": "Yaser Al Ghena"
      },
      "b": {
       "n": "Ben Marksby"
+     },
+     "res": {
+      "w": "b",
+      "method": "Décision unanime",
+      "round": 12
      }
     },
     {
      "s": "main",
      "w": "Super-welters",
-     "r": 8,
-     "ru": 1,
+     "r": 10,
      "a": {
       "n": "Dan Toward"
      },
      "b": {
       "n": "Jak Corrie"
+     },
+     "sub": "Titre WBA Continental Europe (vacant)",
+     "res": {
+      "w": "a",
+      "method": "Décision partagée",
+      "round": 10
      }
     },
     {
@@ -2482,6 +2538,13 @@
      },
      "b": {
       "n": "Jack Dillingham"
+     },
+     "sub": "Titre anglais (vacant)",
+     "res": {
+      "w": "a",
+      "method": "TKO",
+      "round": 7,
+      "time": "2:50"
      }
     }
    ],
@@ -2513,9 +2576,8 @@
     {
      "s": "main",
      "w": "Super-welters",
-     "r": 10,
-     "ru": 1,
-     "sub": "Titre WBC International",
+     "r": 12,
+     "sub": "Titre WBC Silver",
      "a": {
       "n": "Bakary Samaké",
       "nat": "FRA",
@@ -2527,6 +2589,11 @@
       "nat": "POR",
       "rec": "16-2-0",
       "tp": "309147-uisma-lima"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 12
      }
     }
    ]
@@ -2937,6 +3004,73 @@
       "rec": "4-0-0",
       "tp": "367052-modibo-diakite",
       "fr": 1
+     }
+    },
+    {
+     "s": "main",
+     "w": "WW",
+     "r": 3,
+     "ru": 1,
+     "a": {
+      "n": "Marvin Capéran",
+      "tp": "372034-marvin-caperan"
+     },
+     "b": {
+      "n": "Bruno Pudins",
+      "tp": "557216-bruno-pudins"
+     }
+    },
+    {
+     "s": "main",
+     "w": "WSW",
+     "r": 3,
+     "ru": 1,
+     "a": {
+      "n": "Sarah Moussaddak",
+      "tp": "237511-sarah-moussaddak"
+     },
+     "b": {
+      "n": "Diná da Silva"
+     }
+    },
+    {
+     "s": "main",
+     "w": "FW",
+     "r": 3,
+     "ru": 1,
+     "a": {
+      "n": "Lamp Touré",
+      "tp": "356098-lamp-toure"
+     },
+     "b": {
+      "n": "Valeriu Asaftei",
+      "tp": "526750-asaftei-valeriu"
+     }
+    },
+    {
+     "s": "main",
+     "w": "MW",
+     "r": 3,
+     "ru": 1,
+     "a": {
+      "n": "Alou Camara",
+      "tp": "339043-alou-camara"
+     },
+     "b": {
+      "n": "Garcia Kinkela"
+     }
+    },
+    {
+     "s": "main",
+     "w": "LHW",
+     "r": 3,
+     "ru": 1,
+     "a": {
+      "n": "Ibrahima Wade",
+      "tp": "340401-ibrahim-wade"
+     },
+     "b": {
+      "n": "Jovan Todorović"
      }
     }
    ]
@@ -3621,6 +3755,22 @@
     },
     {
      "s": "main",
+     "w": "BW",
+     "r": 3,
+     "a": {
+      "n": "Kyler Phillips",
+      "rec": "12-5-0",
+      "nat": "USA",
+      "wk": "Kyler Phillips"
+     },
+     "b": {
+      "n": "Ethyn Ewing",
+      "rec": "10-2-0",
+      "nat": "USA"
+     }
+    },
+    {
+     "s": "main",
      "w": "LHW",
      "r": 3,
      "a": {
@@ -3631,6 +3781,22 @@
       "rec": "7-6-0",
       "nat": "AUS",
       "wk": "Junior Tafa"
+     }
+    },
+    {
+     "s": "main",
+     "w": "MW",
+     "r": 3,
+     "a": {
+      "n": "Damian Pinas",
+      "rec": "11-1-0",
+      "nat": "ARU",
+      "wk": "Damian Pinas"
+     },
+     "b": {
+      "n": "Baisangur Susurkaev",
+      "rec": "12-0-0",
+      "nat": "RUS"
      }
     }
    ],
@@ -3840,6 +4006,66 @@
    "wiki": "PFL Lyon: Lapilus vs. McKee"
   },
   {
+   "id": "bx-yoka-miller",
+   "sport": "boxe",
+   "org": "Boxe",
+   "name": "Matchroom Boxing",
+   "a": "Yoka",
+   "b": "Miller",
+   "venue": "The Grand Arena",
+   "city": "Accra",
+   "ctry": "GHA",
+   "tz": "Africa/Accra",
+   "tv": "DAZN",
+   "tbc": 1,
+   "partial": 1,
+   "segs": [
+    {
+     "k": "main",
+     "t": "2026-12-20T17:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "Lourds",
+     "r": 10,
+     "ru": 1,
+     "a": {
+      "n": "Tony Yoka",
+      "nat": "FRA",
+      "rec": "16-3-0",
+      "star": 1,
+      "tp": "228969-tony-yoka-la-conquete",
+      "fr": 1
+     },
+     "b": {
+      "n": "Jarrell Miller",
+      "nat": "USA",
+      "rec": "28-1-2",
+      "nick": "Big Baby",
+      "tp": "29674-jarrell-miller"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Super-moyens",
+     "r": 10,
+     "ru": 1,
+     "a": {
+      "n": "Jonathan Tetteh",
+      "nat": "GHA",
+      "rec": "12-0-0"
+     },
+     "b": {
+      "n": "Elvis Ahorgah",
+      "nat": "GHA",
+      "rec": "15-4-0"
+     }
+    }
+   ]
+  },
+  {
    "tvx": [
     "TNT Sports (Royaume-Uni)",
     "VOOsport World (Belgique)",
@@ -4030,6 +4256,48 @@
       "rec": "19-0-0",
       "nat": "ECU",
       "wk": "Michael Morales (fighter)"
+     }
+    },
+    {
+     "s": "main",
+     "w": "LW",
+     "r": 3,
+     "a": {
+      "n": "Lance Gibson Jr.",
+      "rec": "10-2-0",
+      "nat": "CAN"
+     },
+     "b": {
+      "n": "Michael Johnson",
+      "rec": "24-20-0",
+      "nat": "USA",
+      "wk": "Michael Johnson (fighter)"
+     }
+    },
+    {
+     "s": "main",
+     "w": "BW",
+     "r": 3,
+     "a": {
+      "n": "Serhiy Sidey",
+      "rec": "12-2-0",
+      "nat": "CAN"
+     },
+     "b": {
+      "n": "Louis Lee Scott"
+     }
+    },
+    {
+     "s": "main",
+     "w": "WW",
+     "r": 3,
+     "a": {
+      "n": "Cameron Nelson",
+      "rec": "8-1-0",
+      "nat": "CAN"
+     },
+     "b": {
+      "n": "Sean Clancy Jr."
      }
     }
    ],
@@ -12768,6 +13036,17 @@
   "Saygid Izagakhmaev": "104330-saigid-izagahmayev",
   "Antero dos Santos": "213648-antero-dos-santos",
   "Georges N'Goma": "394189-georges-n-goma",
-  "Allan Landouzy": "337538-allan-landouzy"
+  "Allan Landouzy": "337538-allan-landouzy",
+  "Serghei Spivac": "90068-sergey-spivak",
+  "Mário Pinto": "181550-mario-pinto",
+  "Islam Dulatov": "143542-islam-dultakov",
+  "Mairon Santos": "194524-mairon-santos",
+  "Akbar Abdullaev": "275039-akbar-abdullaev",
+  "Magomed Tuchalov": "219695-magomed-tuchalov",
+  "Ion Cuțelaba": "34843-ion-cutelaba",
+  "Quentin Pasley": "322970-quentin-parsley",
+  "Jack Cartwright": "43571-jack-cartwright",
+  "Oualy Tandia": "364456-oualy-tandia",
+  "Alex Lohoré": "78745-alex-lohore"
  }
 }

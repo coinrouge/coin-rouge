@@ -26,7 +26,7 @@ for (const e of d.events || []) {
     if (f.t && !iso(f.t)) err.push(`${fw} : t doit être une date ISO UTC en Z`);
     for (const x of [f.a, f.b]) if (x?.nat && !/^[A-Z]{3}$/.test(x.nat)) err.push(`${fw} : nat doit être un code à 3 lettres`);
     for (const x of [f.a, f.b]) if (x?.tp && !/^(\d+-)?[a-z0-9-]+$/.test(x.tp)) err.push(`${fw} : tp (fiche Tapology) doit ressembler à 202714-tyson-fury`);
-    if (f.res && !["a", "draw", "nc"].includes(f.res.w)) err.push(`${fw} : res.w doit être "a" (a gagne), "draw" ou "nc"`);
+    if (f.res && !["a", "b", "draw", "nc"].includes(f.res.w)) err.push(`${fw} : res.w doit être "a" (a gagne), "b" (b gagne), "draw" ou "nc"`);
   }
   if (e.fights?.[0] && e.fights[0].s !== "main") err.push(`${w} le premier combat doit être le combat principal (s: "main")`);
 }

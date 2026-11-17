@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-17T07:27:31.891Z",
+ "updated": "2026-11-17T19:09:50.534Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -3404,6 +3404,129 @@
    "tvx": [
     "DAZN (monde entier)"
    ]
+  },
+  {
+   "id": "bx-zuffa-14",
+   "sport": "boxe",
+   "org": "Boxe",
+   "name": "Zuffa Boxing 14",
+   "a": "",
+   "b": "",
+   "venue": "The Venue",
+   "city": "Riyadh",
+   "tz": "Asia/Riyadh",
+   "tbc": 1,
+   "tv": "RMC Sport",
+   "tvx": [
+    "Paramount+ (Royaume-Uni)",
+    "Paramount+ (États-Unis)"
+   ],
+   "segs": [
+    {
+     "k": "main",
+     "t": "2026-12-04T17:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "Weight class",
+     "r": 10,
+     "a": {
+      "n": ""
+     },
+     "b": {
+      "n": ""
+     }
+    },
+    {
+     "s": "main",
+     "w": "Moyens",
+     "r": 12,
+     "a": {
+      "n": "Aaron McKenna",
+      "wk": "Aaron McKenna"
+     },
+     "b": {
+      "n": "Jevgenijs Aleksejevs",
+      "wk": "Jevgenijs Aleksejevs"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Lourds-légers",
+     "r": 10,
+     "a": {
+      "n": "Jack Massey",
+      "wk": "Jack Massey (boxer)"
+     },
+     "b": {
+      "n": "Andrew Tabiti",
+      "wk": "Andrew Tabiti"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Mi-lourds",
+     "r": 10,
+     "a": {
+      "n": "Zak Chelli",
+      "wk": "Zak Chelli"
+     },
+     "b": {
+      "n": "Jesse Hart",
+      "wk": "Jesse Hart"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Lourds-légers",
+     "r": 10,
+     "a": {
+      "n": "Ryan Rozicki",
+      "wk": "Ryan Rozicki"
+     },
+     "b": {
+      "n": "Gaetan Ntambwe"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Lourds",
+     "r": 10,
+     "a": {
+      "n": "Vladyslav Sirenko",
+      "wk": "Vladyslav Sirenko"
+     },
+     "b": {
+      "n": "Charles Martin",
+      "wk": "Charles Martin (boxer)"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Mi-lourds",
+     "r": 8,
+     "a": {
+      "n": "Artjom Kasparian"
+     },
+     "b": {
+      "n": "Suray Mahmutovic"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Lourds-légers",
+     "r": 8,
+     "a": {
+      "n": "Jamar Talley"
+     },
+     "b": {
+      "n": "Sherif Musah"
+     }
+    }
+   ],
+   "wiki": "2026 in Zuffa Boxing"
   },
   {
    "tvx": [

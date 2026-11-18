@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-17T19:09:50.534Z",
+ "updated": "2026-11-18T01:25:39.192Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -3251,6 +3251,35 @@
       "n": "Tahir Abdullayev",
       "rec": "20-3-0",
       "nat": "AZE"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "LW",
+     "r": 3,
+     "a": {
+      "n": "Nikolas Motta",
+      "rec": "15-6-0",
+      "nat": "BRA",
+      "wk": "Nikolas Motta"
+     },
+     "b": {
+      "n": "Dom Mar Fan",
+      "rec": "9-3-0",
+      "nat": "AUS"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "LHW",
+     "r": 3,
+     "a": {
+      "n": "Diyar Nurgozhay",
+      "rec": "12-2-0",
+      "nat": "KAZ"
+     },
+     "b": {
+      "n": "Alik Lorenz"
      }
     }
    ],

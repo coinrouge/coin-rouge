@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-18T01:25:39.192Z",
+ "updated": "2026-11-18T19:03:59.560Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -1611,7 +1611,7 @@
      },
      "b": {
       "n": "Virna Jandiroba",
-      "rec": "23-4-0",
+      "rec": "23-3-0",
       "nat": "BRA",
       "wk": "Virna Jandiroba"
      },
@@ -3686,7 +3686,7 @@
      }
     },
     {
-     "s": "main",
+     "s": "prelims",
      "w": "FLW",
      "r": 3,
      "a": {
@@ -3702,7 +3702,7 @@
      }
     },
     {
-     "s": "main",
+     "s": "prelims",
      "w": "LHW",
      "r": 3,
      "a": {
@@ -3715,7 +3715,7 @@
      }
     },
     {
-     "s": "main",
+     "s": "prelims",
      "w": "MW",
      "r": 3,
      "a": {
@@ -3731,7 +3731,7 @@
      }
     },
     {
-     "s": "main",
+     "s": "prelims",
      "w": "BW",
      "r": 3,
      "a": {
@@ -3746,7 +3746,7 @@
      }
     },
     {
-     "s": "main",
+     "s": "prelims",
      "w": "MW",
      "r": 3,
      "a": {
@@ -3760,7 +3760,7 @@
      }
     },
     {
-     "s": "main",
+     "s": "prelims",
      "w": "BW",
      "r": 3,
      "a": {
@@ -8390,12 +8390,6 @@
    "Mackenzie Dern",
    "BRA",
    "17-5-0",
-   "mma"
-  ],
-  [
-   "Virna Jandiroba",
-   "BRA",
-   "23-5-0",
    "mma"
   ],
   [

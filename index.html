@@ -1160,6 +1160,8 @@ h2.h::before,h2.h::after{background:rgba(255,255,255,.22)!important}
 </style>
 <style>
 /* ===== Pronos entre amis ===== */
+.pkx{font:inherit;font-size:11px;font-weight:700;letter-spacing:.04em;padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:transparent;color:#8E95A2;cursor:pointer;margin-left:auto}.pkx:hover{color:#FF1A2E;border-color:#FF1A2E}.pkx.on{color:#B8F03A;border-color:color-mix(in srgb,#B8F03A 50%,transparent)}.pkx.on:hover{background:color-mix(in srgb,#B8F03A 12%,transparent);color:#B8F03A}
+.pk.off{opacity:.85;padding-bottom:6px}.pk.off .pkl{color:#8E95A2}.pkoff{color:#8E95A2;font-size:12px}
 .pkw.me.rmid{border-color:#B8F03A;background:color-mix(in srgb,#B8F03A 12%,rgba(0,0,0,.25))}.pkw.me.rok{border-color:#B8F03A;background:color-mix(in srgb,#B8F03A 18%,rgba(0,0,0,.25));box-shadow:0 0 10px rgba(184,240,58,.65),0 0 2px rgba(184,240,58,.9)}.pkw.me.rko{border-color:#FF1A2E;background:color-mix(in srgb,#FF1A2E 14%,rgba(0,0,0,.25))}
 .pbarr{margin-left:auto;display:flex;gap:8px;align-items:center}
 .dbar .pbarr .spoilbtn{margin-left:0}
@@ -3096,12 +3098,28 @@ function proEventHTML(ev){
   const wins=SPOIL&&fin?nightWins(ev.id):[], multi=((PRO.me&&PRO.me.groups)||[]).length>1;
   return `<section class="psec pcard">${head}${night?`<div class="pnight"><span>${fin?"Tes points sur la soirée":"Tes points ce soir"}</span><b>${night.pts} pt${night.pts>1?"s":""}</b><small>${night.good}/${night.judged} bons vainqueurs${isLive(ev)?" · se met à jour tout seul":""}</small></div>`:""}${wins.map(({g,n})=>`<div class="pnwin"><span>🏆 Gagnant${n.w.length>1?"s":""} de la soirée${multi?" · "+esc(g.name):""}</span>${whoL(n.w)}<small>${n.pts} pts</small></div>`).join("")}<p class="pnote">Tes pronos : <b>${n}/${tot}</b>. ${fin?`Soirée terminée.${SPOIL?"":" Active Spoil pour voir les résultats et les points."}`:isLive(ev)?`Soirée en cours : les pronos des parties commencées sont fermés, la page se met à jour toute seule.${SPOIL?"":" Active Spoil pour suivre tes points en direct."}`:`Fermeture au début de chaque partie : ${esc(locks)}. Les pronos d'un ami sur un combat se révèlent une fois ton propre prono fait (ou à la fermeture).`}</p><section>${card}</section></section>`;
 }
+/* Combats retirés des pronos : retiré si tous mes groupes qui suivent la soirée l'ont retiré */
+function fOff(id,k){const gs=((PRO.me&&PRO.me.groups)||[]).filter(g=>(g.open||[]).includes(id));return gs.length>0&&gs.every(g=>((g.foff||{})[id]||[]).includes(k));}
+function fMng(id){return ((PRO.me&&PRO.me.groups)||[]).filter(g=>(g.role==="chef"||g.role==="adjoint")&&(g.open||[]).includes(id));}
+async function setFOff(ev,f,off){
+  const k=fkey(f.a.n,f.b.n), gs=fMng(ev.id); if(!gs.length) return;
+  const snap=gs.map(g=>[g,JSON.stringify(g.foff||{})]);
+  gs.forEach(g=>{g.foff=g.foff||{};const l=(g.foff[ev.id]||[]).filter(x=>x!==k);if(off)l.push(k);g.foff[ev.id]=l;});
+  pkRefresh(ev.id);
+  try{for(const g of gs) await rpc("fr_group_fight",{p_code:PRO.code,p_group:g.id,p_event:ev.id,p_fkey:k,p_on:!off});toast(off?"Combat retiré des pronos du groupe":"Combat remis dans les pronos du groupe");}
+  catch(e){snap.forEach(([g,j])=>g.foff=JSON.parse(j));pkRefresh(ev.id);toast(e.message);}
+}
+document.addEventListener("click",e=>{
+  const b=e.target.closest(".pk [data-px]"); if(!b) return; e.stopPropagation();
+  const box=b.closest(".pk"), ev=EVENTS.find(x=>x.id===box.dataset.ev), f=ev&&ev.fights[+box.dataset.fi]; if(f) setFOff(ev,f,b.dataset.px==="off");
+},true);
 function pkHTML(ev,f,t){
   const fi=ev.fights.indexOf(f);
   if(!PRO.code||!PRO.me||f.a.tbd||f.b.tbd) return `<div class="pk" data-fi="${fi}" hidden></div>`;
   const c=PK[ev.id]; if(!c||!c.open) return `<div class="pk" data-fi="${fi}" hidden></div>`;
   const k=fkey(f.a.n,f.b.n), lock=c.open.get(k), mine=c.mine.get(k), fr=c.friends.get(k)||[], cnt=c.counts.get(k)||0;
-  const open=lock&&Date.now()<lock;
+  const open=lock&&Date.now()<lock, mng=open&&fMng(ev.id).length>0, many=fMng(ev.id).length>1;
+  if(lock&&fOff(ev.id,k)) return `<div class="pk off" data-fi="${fi}" data-ev="${esc(ev.id)}"><span class="pkl">Retiré des pronos du groupe</span><small class="pkoff">Ce combat ne compte pas dans le classement${many?" de tes groupes":""}.</small>${mng?`<button type="button" class="pkx on" data-px="on">Remettre ce combat</button>`:""}</div>`;
   const res=SPOIL&&f.res?f.res:null, win=res?(res.w==="a"?f.a.n:res.w==="b"?f.b.n:null):null;
   const wcat=res?({KO:"ko",TKO:"ko"}[(res.method||"").split(/[\s(/]/)[0]]||(/^Soumission/.test(res.method||"")?"sub":/^Décision/.test(res.method||"")?"dec":null)):null;
   const val=(c.val&&c.val.get(k))||1, rev=PRO.reveal;
@@ -3112,7 +3130,7 @@ function pkHTML(ev,f,t){
   if(open){
     const meth=(ev.sport==="boxe"?["ko","dec"]:["ko","sub","dec"]).map(m=>`<button type="button" class="pkm${mine&&mine.m===m?" on":""}" data-pm="${m}" ${mine?"":"disabled"} aria-pressed="${!!(mine&&mine.m===m)}" title="${MLBL[m]} (+1 point si c'est la bonne méthode)">${MSH[m]}</button>`).join("");
     const side=s=>{const p=s==="a"?f.a:f.b,on=mine&&mine.pick===p.n;return `<button type="button" class="pkf${on?" on":""}" data-pp="${s}" aria-pressed="${!!on}" title="${on?"Retirer mon prono":"Victoire de "+esc(p.n)}">${esc(shortN(f,s))}</button>`;};
-    return `<div class="pk open" data-fi="${fi}" data-ev="${esc(ev.id)}"${mine?` data-side="${mine.pick===f.a.n?"a":"b"}"`:""}><span class="pkr1"><span class="pkl">Ton prono</span><span class="pkfs">${side("a")}${side("b")}</span></span><span class="pkms" aria-label="Méthode (facultatif)">${meth}</span><span class="pkv" title="Points si tu trouves le vainqueur, +1 avec la bonne méthode">${val} pt${val>1?"s":""} à gagner <small>+1 méthode</small></span>${cnt?`<small class="pkc">${cnt} ami${cnt>1?"s ont":" a"} déjà pronostiqué${rev?" · fais ton prono pour voir les leurs":""}</small>`:""}${rev&&mine&&fr.length?`<span class="pkfr">${fr.map(p=>`<span class="pkw${chip(p)}">${esc(p.who)} : ${show({pick:p.pick,m:p.m})}</span>`).join("")}</span>`:""}</div>`;
+    return `<div class="pk open" data-fi="${fi}" data-ev="${esc(ev.id)}"${mine?` data-side="${mine.pick===f.a.n?"a":"b"}"`:""}><span class="pkr1"><span class="pkl">Ton prono</span><span class="pkfs">${side("a")}${side("b")}</span></span><span class="pkms" aria-label="Méthode (facultatif)">${meth}</span><span class="pkv" title="Points si tu trouves le vainqueur, +1 avec la bonne méthode">${val} pt${val>1?"s":""} à gagner <small>+1 méthode</small></span>${cnt?`<small class="pkc">${cnt} ami${cnt>1?"s ont":" a"} déjà pronostiqué${rev?" · fais ton prono pour voir les leurs":""}</small>`:""}${rev&&mine&&fr.length?`<span class="pkfr">${fr.map(p=>`<span class="pkw${chip(p)}">${esc(p.who)} : ${show({pick:p.pick,m:p.m})}</span>`).join("")}</span>`:""}${mng?`<button type="button" class="pkx" data-px="off" title="Ce combat ne comptera plus dans le classement${many?" de tes groupes":" du groupe"}">✕ Retirer du groupe</button>`:""}</div>`;
   }
   if(!lock){ /* combat pas encore recopié (ajouté récemment) */
     return t<ev.start?`<div class="pk" data-fi="${fi}"><span class="pkl">Pronos bientôt ouverts pour ce combat</span></div>`:`<div class="pk" data-fi="${fi}" hidden></div>`;
@@ -3279,7 +3297,7 @@ function pronosHTML(){
     Promise.all([rpc("fr_my_counts",{p_code:PRO.code,p_events:ids}).then(c=>{PRO.counts=c||{};}).catch(()=>{}),
       rpc("fr_group_progress",{p_code:PRO.code,p_events:ids}).then(c=>{PRO.prog=c||null;}).catch(()=>{})])
       .finally(()=>{PRO.countsLoading=0;PRO.countsAt=Date.now();proRefresh();});}
-  const row=(e,done)=>{const dw=done?nightWins(e.id)[0]:null,n=PRO.counts[e.id]||0,tot=e.fights.filter(f=>!f.a.tbd&&!f.b.tbd).length;
+  const row=(e,done)=>{const dw=done?nightWins(e.id)[0]:null,tot=e.fights.filter(f=>!f.a.tbd&&!f.b.tbd&&!fOff(e.id,fkey(f.a.n,f.b.n))).length,n=Math.min(PRO.counts[e.id]||0,tot);
     return `<a class="pev${done?"":" nod"} ${isNum(e)?"onum":orgCls(e)}" href="#pronos-${esc(e.id)}">${done?`<span class="pevd">${esc(fmtDS(e.start))}</span>`:""}${evBadge(e,1)}<span class="pevn">${esc(e.a)} vs ${esc(e.b)}${bigEv(e)?`<i class="pbig" title="Soirée avec une vedette : +1 point sur chaque bon vainqueur" aria-label="Soirée avec une vedette">★</i>`:""}</span>${!done&&PRO.prog&&PRO.prog.of?`<span class="pfrc${(PRO.prog.ev||{})[e.id]?" on":""}" title="Amis qui ont fait leurs pronos sur cette soirée"><svg class="pman" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><circle cx="12" cy="7.5" r="4"/><path d="M4 21c0-4.4 3.6-7.5 8-7.5s8 3.1 8 7.5z"/></svg>${(PRO.prog.ev||{})[e.id]||0}/${PRO.prog.of}</span>`:""}<span class="pevc${done?" done":n?" on":""}${dw?" won":""}"${dw?` title="Gagnant de la soirée"`:""}>${done?(dw?"🏆 "+esc(dw.n.w.map(x=>x.pseudo).join(" & ")):"Terminé"):(T>=e.start?`<span class="pill live plive">Live</span> `:"")+`${n}/${tot} pronos`}</span></a>`;};
   const done=past.filter(e=>PRO.counts[e.id]>0);
   return head+nc+tabs+`

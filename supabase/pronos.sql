@@ -62,6 +62,14 @@ create table if not exists fr.group_ev(
   primary key(group_id,event_id)
 );
 alter table fr.group_ev enable row level security;
+-- Combats retirés des pronos d'un groupe par le chef ou l'adjoint (ne comptent plus dans son classement)
+create table if not exists fr.group_foff(
+  group_id uuid not null references fr.groups(id) on delete cascade,
+  event_id text not null,
+  fkey text not null,
+  primary key(group_id,event_id,fkey)
+);
+alter table fr.group_foff enable row level security;
 create table if not exists fr.migrations(name text primary key, done_at timestamptz not null default now());
 alter table fr.migrations enable row level security;
 -- Combats ouverts aux pronos : recopiés automatiquement depuis https://fightradar.fr/data/events.json
@@ -301,7 +309,10 @@ begin
     'groups', coalesce((select json_agg(json_build_object('id',g.id,'name',g.name,'code',g.code,'role',m.role,
                  'n',(select count(*) from fr.members m2 where m2.group_id=g.id),
                  'open',coalesce((select json_agg(x.event_id) from (select distinct f.event_id from fr.fights f
-                     where f.lock_at > now() - interval '120 days' and fr.ev_open(g.id,f.event_id)) x),'[]'::json)) order by m.joined_at)
+                     where f.lock_at > now() - interval '120 days' and fr.ev_open(g.id,f.event_id)) x),'[]'::json),
+                 'foff',coalesce((select json_object_agg(x.event_id, x.ks) from (select o.event_id, json_agg(o.fkey) ks from fr.group_foff o
+                     where o.group_id=g.id and exists (select 1 from fr.fights f where f.event_id=o.event_id and f.lock_at > now() - interval '120 days')
+                     group by o.event_id) x),'{}'::json)) order by m.joined_at)
                from fr.members m join fr.groups g on g.id=m.group_id where m.user_id=v), '[]'::json)
   ) from fr.users u where u.id=v);
 end $$;
@@ -407,6 +418,12 @@ begin
     return json_build_object('ok',true);
   end if;
   if p_pick <> f.a and p_pick <> f.b then raise exception 'Choix invalide.'; end if;
+  -- Combat retiré par tous mes groupes qui suivent cette soirée
+  if exists (select 1 from fr.members m where m.user_id=v and fr.ev_open(m.group_id,p_event))
+     and not exists (select 1 from fr.members m where m.user_id=v and fr.ev_open(m.group_id,p_event)
+                     and not exists (select 1 from fr.group_foff o where o.group_id=m.group_id and o.event_id=p_event and o.fkey=p_fkey)) then
+    raise exception 'Ce combat a été retiré des pronos de ton groupe.';
+  end if;
   if p_method is not null and p_method not in ('ko','sub','dec') then raise exception 'Méthode invalide.'; end if;
   insert into fr.picks(user_id,event_id,fkey,pick,method) values (v,p_event,p_fkey,p_pick,p_method)
     on conflict (user_id,event_id,fkey) do update set pick=excluded.pick, method=excluded.method, updated_at=now();
@@ -480,6 +497,7 @@ language sql stable set search_path='' as $$
     left join fr.picks p on p.user_id=u.id
       and fr.ev_open(p_group, p.event_id)
       and (p_month is null or fr.evmonth(p.event_id)=p_month)
+      and not exists (select 1 from fr.group_foff o where o.group_id=p_group and o.event_id=p.event_id and o.fkey=p.fkey)
     left join fr.fights f on f.event_id=p.event_id and f.fkey=p.fkey
     where m.group_id=p_group
     group by u.id, u.pseudo, m.role) r
@@ -505,6 +523,7 @@ begin
     from fr.members m join fr.users u on u.id=m.user_id join fr.picks p on p.user_id=u.id
     left join fr.fights f on f.event_id=p.event_id and f.fkey=p.fkey
     where m.group_id=p_group and fr.ev_open(p_group, p.event_id)
+      and not exists (select 1 from fr.group_foff o where o.group_id=p_group and o.event_id=p.event_id and o.fkey=p.fkey)
     group by p.event_id, u.id, u.pseudo
   ), mo as (
     select mo, uid, pseudo, sum(pts)::int pts, sum(good)::int good,
@@ -544,6 +563,26 @@ begin
   if (select count(*) from fr.group_ev where group_id=p_group) >= 2000 then raise exception 'Trop de choix enregistrés dans ce groupe.'; end if;
   insert into fr.group_ev(group_id,event_id,is_on) values (p_group,p_event,p_on)
     on conflict (group_id,event_id) do update set is_on=excluded.is_on;
+  return json_build_object('ok',true);
+end $$;
+
+-- Retirer / remettre un combat dans les pronos du groupe (chef ou adjoint, avant le début de sa partie)
+create or replace function public.fr_group_fight(p_code text, p_group uuid, p_event text, p_fkey text, p_on boolean) returns json
+language plpgsql security definer set search_path='' as $$
+declare v uuid := fr.need_uid(p_code); lk timestamptz;
+begin
+  if not exists (select 1 from fr.members where group_id=p_group and user_id=v and role in ('chef','adjoint')) then
+    raise exception 'Seuls le chef et l''adjoint du groupe choisissent les combats.';
+  end if;
+  select lock_at into lk from fr.fights where event_id=p_event and fkey=p_fkey;
+  if lk is null then raise exception 'Combat inconnu. Réessaie dans quelques minutes.'; end if;
+  if lk <= now() then raise exception 'Ce combat est déjà fermé : on ne peut plus le changer.'; end if;
+  if p_on then
+    delete from fr.group_foff where group_id=p_group and event_id=p_event and fkey=p_fkey;
+  else
+    if (select count(*) from fr.group_foff where group_id=p_group) >= 3000 then raise exception 'Trop de combats retirés dans ce groupe.'; end if;
+    insert into fr.group_foff(group_id,event_id,fkey) values (p_group,p_event,p_fkey) on conflict do nothing;
+  end if;
   return json_build_object('ok',true);
 end $$;
 
@@ -595,7 +634,7 @@ begin
   foreach fn in array array[
     'fr_signup(text)','fr_me(text)','fr_save_favs(text,jsonb)','fr_rename(text,text)','fr_delete_account(text)',
     'fr_group_create(text,text)','fr_group_peek(text)','fr_group_join(text,text)','fr_group_leave(text,uuid)',
-    'fr_pick(text,text,text,text,text)','fr_event(text,text)','fr_my_counts(text,text[])','fr_group_board(text,uuid)','fr_group_event(text,uuid,text,boolean)','fr_group_deputy(text,uuid,uuid)','fr_group_progress(text,text[])','fr_ping()']
+    'fr_pick(text,text,text,text,text)','fr_event(text,text)','fr_my_counts(text,text[])','fr_group_board(text,uuid)','fr_group_event(text,uuid,text,boolean)','fr_group_fight(text,uuid,text,text,boolean)','fr_group_deputy(text,uuid,uuid)','fr_group_progress(text,text[])','fr_ping()']
   loop
     execute format('revoke execute on function public.%s from public', fn);
     if exists (select 1 from pg_roles where rolname='authenticated') then

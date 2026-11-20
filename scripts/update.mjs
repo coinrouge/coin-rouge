@@ -177,7 +177,7 @@ async function eventPage(name) {
         if (/Early preliminary/i.test(c[0])) seg = "early"; else if (/Preliminary/i.test(c[0])) seg = "prelims"; else if (/Main card/i.test(c[0])) seg = "main";
         return;
       }
-      if (c.length < 4 || c[0] === "Weight class" || !/^(vs\.|def\.)/.test(c[2] || "")) return;
+      if (c.length < 4 || c[0] === "Weight class" || !c[1] || !c[3] || !/^(vs\.|def\.)/.test(c[2] || "")) return;
       const side = (s) => { const champ = /\((c|ic)\)/.test(s); return { n: s.replace(/\s*\((c|ic)\)/g, "").trim(), champ }; };
       const a = side(c[1]), b = side(c[3]);
       /* Page Wikipédia du combattant (lien bleu dans la carte) : sert de lien de secours sans fiche Tapology */
@@ -325,7 +325,8 @@ for (const year of [2026, 2027]) {
       $(t).find("tr").each((_, tr) => {
         const c = $(tr).find("td,th").map((_, x) => cell($, x)).get();
         if (c.length === 1) { seg = /Preliminary/i.test(c[0]) ? "prelims" : "main"; return; }
-        if (c.length < 4 || !/^(vs\.?|def\.)$/.test(c[2] || "")) return;
+        /* ligne d'en-tête répétée (« Weight class … vs. … ») ou noms vides : ce n'est pas un combat */
+        if (c.length < 4 || c[0] === "Weight class" || !c[1] || !c[3] || !/^(vs\.?|def\.)$/.test(c[2] || "")) return;
         const rr = (c[5] || "").match(/(\d+)\)?\s*$/);
         const f = { s: seg, w: BXW[c[0].toLowerCase()] || c[0], r: rr ? Math.min(12, +rr[1]) : 10,
           a: { n: c[1].replace(/\s*\(c\)/, "") }, b: { n: c[3].replace(/\s*\(c\)/, "") } };

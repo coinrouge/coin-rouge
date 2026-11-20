@@ -1648,6 +1648,8 @@ function realDur(ev,f){
 }
 function prepEvents(){EVENTS.forEach(ev=>{
   DUREV=ev;
+  /* sécurité : une ligne sans noms (en-tête de tableau mal lu) n'est pas un combat */
+  ev.fights=ev.fights.filter(f=>f&&f.a&&f.b&&f.a.n&&f.b.n);
   /* MMA : un combat pour un titre se dispute toujours en 5 rounds (nombre de rounds alors certain) */
   if(ev.sport!=="boxe") ev.fights.forEach(f=>{if(f.title){f.r=5;delete f.ru;}});
   const order=["early","prelims","main"];

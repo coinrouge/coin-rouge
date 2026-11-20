@@ -928,7 +928,8 @@
    "segs": [
     {
      "k": "prelims",
-     "t": "2026-11-20T18:30:00Z"
+     "t": "2026-11-20T18:30:00Z",
+     "free": "Twitch (Canal+ Sport)"
     },
     {
      "k": "main",
@@ -1087,8 +1088,9 @@
    ],
    "sources": [
     "https://www.frontkick.fr/actu/ares-45-zebo-baki-2-heure-chaine-carte/",
-    "https://next-fight.com/en/news/ares-45-zebo-vs-baki-2-start-time-how-to-watch"
-   ]
+    "https://www.cnews.fr/sport/2026-11-18/ares-45-baki-zebo-2-carte-complete-lieu-tv-tout-savoir-sur-levenement-mma-1955879"
+   ],
+   "tv": "Canal+ Sport 360"
   },
   {
    "id": "bx-kabayel-hysa",

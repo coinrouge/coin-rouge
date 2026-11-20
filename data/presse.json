@@ -925,12 +925,14 @@
    "city": "Paris",
    "ctry": "FRA",
    "tz": "Europe/Paris",
-   "tbc": 1,
-   "partial": 1,
    "segs": [
     {
-     "k": "main",
+     "k": "prelims",
      "t": "2026-11-20T18:30:00Z"
+    },
+    {
+     "k": "main",
+     "t": "2026-11-20T19:30:00Z"
     }
    ],
    "fights": [
@@ -957,23 +959,6 @@
     },
     {
      "s": "main",
-     "w": "BW",
-     "r": 3,
-     "a": {
-      "n": "Amir Aliev",
-      "nat": "RUS",
-      "rec": "8-1-0",
-      "tp": "196749-amir-aliev"
-     },
-     "b": {
-      "n": "Adionai Maciel",
-      "rec": "12-2-0",
-      "tp": "236658-adionai-maciel-feijao",
-      "nat": "BRA"
-     }
-    },
-    {
-     "s": "main",
      "w": "FW",
      "r": 3,
      "a": {
@@ -991,16 +976,32 @@
     },
     {
      "s": "main",
-     "w": "WW",
+     "w": "Poids négocié (62,5 kg)",
+     "r": 3,
+     "a": {
+      "n": "Amir Aliev",
+      "nat": "RUS",
+      "rec": "8-1-0",
+      "tp": "196749-amir-aliev"
+     },
+     "b": {
+      "n": "Matheus Malta",
+      "rec": "13-7-0",
+      "tp": "106052-matheus-malta"
+     },
+     "ru": 1
+    },
+    {
+     "s": "main",
+     "w": "Poids négocié (80 kg)",
      "r": 3,
      "ru": 1,
      "a": {
-      "n": "Marvin Capéran",
-      "tp": "372034-marvin-caperan"
+      "n": "Nimo Djagbo",
+      "tp": "372025-djabo-nimo"
      },
      "b": {
-      "n": "Bruno Pudins",
-      "tp": "557216-bruno-pudins"
+      "n": "Sidney Aguero"
      }
     },
     {
@@ -1018,6 +1019,46 @@
     },
     {
      "s": "main",
+     "w": "WW",
+     "r": 3,
+     "ru": 1,
+     "a": {
+      "n": "Marvin Capéran",
+      "tp": "372034-marvin-caperan"
+     },
+     "b": {
+      "n": "Bruno Pudins",
+      "tp": "557216-bruno-pudins"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "MW",
+     "r": 3,
+     "ru": 1,
+     "a": {
+      "n": "Alou Camara",
+      "tp": "339043-alou-camara"
+     },
+     "b": {
+      "n": "Garcia Kinkela"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "LHW",
+     "r": 3,
+     "ru": 1,
+     "a": {
+      "n": "Ibrahima Wade",
+      "tp": "340401-ibrahim-wade"
+     },
+     "b": {
+      "n": "Jovan Todorović"
+     }
+    },
+    {
+     "s": "prelims",
      "w": "FW",
      "r": 3,
      "ru": 1,
@@ -1031,36 +1072,22 @@
      }
     },
     {
-     "s": "main",
-     "w": "MW",
+     "s": "prelims",
+     "w": "HW",
      "r": 3,
      "ru": 1,
      "a": {
-      "n": "Alou Camara",
-      "tp": "339043-alou-camara"
+      "n": "Rony Bouzy",
+      "tp": "157500-rony-bouzy"
      },
      "b": {
-      "n": "Garcia Kinkela"
-     }
-    },
-    {
-     "s": "main",
-     "w": "LHW",
-     "r": 3,
-     "ru": 1,
-     "a": {
-      "n": "Ibrahima Wade",
-      "tp": "340401-ibrahim-wade"
-     },
-     "b": {
-      "n": "Jovan Todorović"
+      "n": "Ezequias Glim"
      }
     }
    ],
    "sources": [
-    "https://www.ufc-fr.com/event-738.html",
-    "https://uk.tourisme93.com/ares-paris-mma.html",
-    "https://www.cnews.fr/sport/2026-07-29/mma-voici-la-date-officielle-du-combat-revanche-entre-jordan-zebo-et-baki-1897890"
+    "https://www.frontkick.fr/actu/ares-45-zebo-baki-2-heure-chaine-carte/",
+    "https://next-fight.com/en/news/ares-45-zebo-vs-baki-2-start-time-how-to-watch"
    ]
   },
   {
@@ -1091,7 +1118,8 @@
       "n": "Agit Kabayel",
       "nat": "GER",
       "champ": 1,
-      "tp": "210664-agit-kabayel"
+      "tp": "210664-agit-kabayel",
+      "rec": "27-0-0"
      },
      "b": {
       "n": "Nelson Hysa",
@@ -1107,6 +1135,94 @@
    "partial": 1,
    "tvx": [
     "DAZN (monde entier)"
+   ]
+  },
+  {
+   "id": "bx-benavidez-cieslak",
+   "sport": "boxe",
+   "org": "Boxe",
+   "name": "Benavidez vs Cieślak",
+   "a": "Benavidez",
+   "b": "Cieślak",
+   "venue": "Desert Diamond Arena",
+   "city": "Glendale",
+   "tz": "America/Phoenix",
+   "tbc": 1,
+   "partial": 1,
+   "segs": [
+    {
+     "k": "main",
+     "t": "2026-12-06T02:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "Lourds-légers",
+     "r": 12,
+     "title": "Titres WBA, WBO et WBC cruiserweight",
+     "a": {
+      "n": "David Benavidez",
+      "nat": "USA",
+      "rec": "32-0-0",
+      "star": 1,
+      "champ": 1,
+      "tp": "210762-david-benavidez-el-bandera-roja"
+     },
+     "b": {
+      "n": "Michał Cieślak",
+      "nat": "POL",
+      "rec": "28-2-0",
+      "champ": 1,
+      "tp": "222503-michal-cieslak"
+     }
+    }
+   ],
+   "sources": [
+    "https://www.fightmag.com/benavidez-vs-cieslak-confirmed-for-december-in-glendale-arizona/",
+    "https://boxingnews.com/news/benavidez-cieslak-december-5-unification/"
+   ]
+  },
+  {
+   "id": "bx-bivol-smith",
+   "sport": "boxe",
+   "org": "Boxe",
+   "name": "Bivol vs Smith",
+   "a": "Bivol",
+   "b": "Smith",
+   "venue": "UMMC Arena",
+   "city": "Iekaterinbourg",
+   "tz": "Asia/Yekaterinburg",
+   "tbc": 1,
+   "partial": 1,
+   "segs": [
+    {
+     "k": "main",
+     "t": "2026-12-12T16:00:00Z"
+    }
+   ],
+   "fights": [
+    {
+     "s": "main",
+     "w": "Mi-lourds",
+     "r": 12,
+     "title": "Titres WBA, IBF et WBO light heavyweight",
+     "a": {
+      "n": "Dmitry Bivol",
+      "nat": "RUS",
+      "star": 1,
+      "champ": 1,
+      "tp": "202077-dmitry-bivol"
+     },
+     "b": {
+      "n": "Callum Smith",
+      "nat": "GBR"
+     }
+    }
+   ],
+   "sources": [
+    "https://www.si.com/fannation/boxing/dmitry-bivol-set-for-light-heavyweight-showdown-with-british-star",
+    "https://boxingnews.com/news/bivol-sets-december-12-defense-against-callum-smith"
    ]
   },
   {
@@ -1146,11 +1262,66 @@
       "tp": "212010-anthony-joshua-aj"
      },
      "title": "Titre WBA heavyweight (vacant)"
+    },
+    {
+     "s": "main",
+     "w": "Lourds",
+     "r": 12,
+     "ru": 1,
+     "a": {
+      "n": "Deontay Wilder",
+      "nat": "USA",
+      "rec": "45-4-1",
+      "star": 1,
+      "tp": "202716-deontay-wilder-the-bronze-bomber"
+     },
+     "b": {
+      "n": "Jai Opetaia",
+      "nat": "AUS",
+      "rec": "31-0-0",
+      "tp": "222379-jai-opetaia"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Lourds",
+     "r": 10,
+     "ru": 1,
+     "a": {
+      "n": "Martin Bakole",
+      "nat": "COD",
+      "rec": "21-2-1",
+      "tp": "215997-martin-bakole-ilunga"
+     },
+     "b": {
+      "n": "Solomon Adebayo",
+      "nat": "NGA",
+      "rec": "15-0-0",
+      "tp": "329713-solomon-adebayo"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Lourds",
+     "r": 10,
+     "ru": 1,
+     "a": {
+      "n": "Da'Mazion Vanhouter",
+      "nat": "USA",
+      "rec": "14-0-0",
+      "tp": "332101-da-mazion-vanhouter-mazirati"
+     },
+     "b": {
+      "n": "Michael Essomba",
+      "nat": "BEL",
+      "rec": "11-2-0",
+      "tp": "290772-michael-essomba"
+     }
     }
    ],
    "sources": [
-    "https://www.seatunique.com/blog/fury-vs-joshua-fight-night-start-time-ring-walks-undercard/",
-    "https://www.thestar.com.my/sport/boxing/2026/10/09/boxing-cardiff-stadium-application-seeks-1-am-slot-for-fury-v-joshua-ring-walks"
+    "https://www.thestar.com.my/sport/boxing/2026/10/09/boxing-cardiff-stadium-application-seeks-1-am-slot-for-fury-v-joshua-ring-walks",
+    "https://www.fightmag.com/two-fights-added-to-fury-vs-joshua-undercard/"
    ],
    "partial": 1,
    "tvx": [

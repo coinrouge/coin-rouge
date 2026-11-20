@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20T13:21:29.087Z",
+ "updated": "2026-11-20T17:33:18.835Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -967,9 +967,7 @@
       "wk": "Julian Erosa"
      },
      "b": {
-      "n": "Lee Jeong-yeong",
-      "rec": "11-2-0",
-      "nat": "KOR"
+      "n": "Lee Jeong-yeong"
      },
      "res": {
       "w": "a",
@@ -2941,7 +2939,8 @@
    "segs": [
     {
      "k": "prelims",
-     "t": "2026-11-20T18:30:00Z"
+     "t": "2026-11-20T18:30:00Z",
+     "free": "Twitch (Canal+ Sport)"
     },
     {
      "k": "main",
@@ -3101,7 +3100,8 @@
       "n": "Ezequias Glim"
      }
     }
-   ]
+   ],
+   "tv": "Canal+ Sport 360"
   },
   {
    "tvx": [
@@ -3267,7 +3267,7 @@
     },
     {
      "s": "prelims",
-     "w": "WW",
+     "w": "Catchweight (172 lb)",
      "r": 3,
      "a": {
       "n": "Jake Matthews",
@@ -7283,12 +7283,6 @@
    "Francis Marshall",
    "USA",
    "10-4-0",
-   "mma"
-  ],
-  [
-   "Lee Jeong-yeong",
-   "KOR",
-   "11-3-0",
    "mma"
   ],
   [

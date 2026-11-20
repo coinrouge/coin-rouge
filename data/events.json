@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20T03:57:17.652Z",
+ "updated": "2026-11-20T13:21:29.087Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -3307,7 +3307,9 @@
       "nat": "KAZ"
      },
      "b": {
-      "n": "Alik Lorenz"
+      "n": "Alik Lorenz",
+      "rec": "8-2-0",
+      "nat": "USA"
      }
     },
     {
@@ -3315,10 +3317,14 @@
      "w": "LW",
      "r": 3,
      "a": {
-      "n": "Shoaib Yousaf"
+      "n": "Shoaib Yousaf",
+      "rec": "14-3-0",
+      "nat": "GBR"
      },
      "b": {
-      "n": "John Mitchell"
+      "n": "John Mitchell",
+      "rec": "11-3-0",
+      "nat": "IRL"
      }
     }
    ],
@@ -5660,6 +5666,12 @@
    "mma"
   ],
   [
+   "Alik Lorenz",
+   "USA",
+   "8-2-0",
+   "mma"
+  ],
+  [
    "Brad Tavares",
    "USA",
    "21-12-0",
@@ -6578,6 +6590,12 @@
    "mma"
   ],
   [
+   "Brian Ortega",
+   "USA",
+   "16-5-0",
+   "mma"
+  ],
+  [
    "Renato Moicano",
    "BRA",
    "21-8-1",
@@ -7076,6 +7094,18 @@
    "mma"
   ],
   [
+   "Shoaib Yousaf",
+   "GBR",
+   "14-3-0",
+   "mma"
+  ],
+  [
+   "John Mitchell",
+   "IRL",
+   "11-3-0",
+   "mma"
+  ],
+  [
    "Andre Fili",
    "USA",
    "26-14-0",
@@ -7091,12 +7121,6 @@
    "Aljamain Sterling",
    "USA",
    "26-5-0",
-   "mma"
-  ],
-  [
-   "Brian Ortega",
-   "USA",
-   "16-5-0",
    "mma"
   ],
   [

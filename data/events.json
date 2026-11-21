@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21T19:30:54.423Z",
+ "updated": "2026-11-21T20:22:37.785Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -3153,15 +3153,21 @@
      "r": 3,
      "a": {
       "n": "Aljamain Sterling",
-      "rec": "26-5-0",
+      "rec": "26-4-0",
       "nat": "USA",
       "wk": "Aljamain Sterling"
      },
      "b": {
       "n": "Kevin Vallejos",
-      "rec": "18-1-0",
+      "rec": "17-1-0",
       "nat": "ARG",
       "wk": "Kevin Vallejos"
+     },
+     "res": {
+      "w": "b",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
      }
     },
     {
@@ -3176,9 +3182,15 @@
      },
      "b": {
       "n": "Brian Ortega",
-      "rec": "16-5-0",
+      "rec": "16-4-0",
       "nat": "USA",
       "wk": "Brian Ortega"
+     },
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
      }
     },
     {
@@ -3187,13 +3199,13 @@
      "r": 3,
      "a": {
       "n": "Asu Almabayev",
-      "rec": "24-2-0",
+      "rec": "24-3-0",
       "nat": "KAZ",
       "wk": "Asu Almabayev"
      },
      "b": {
       "n": "Kyoji Horiguchi",
-      "rec": "35-6-0",
+      "rec": "36-6-0",
       "nat": "JPN",
       "wk": "Kyoji Horiguchi"
      },
@@ -6634,19 +6646,13 @@
   [
    "Dan Hooker",
    "NZL",
-   "24-15-0",
+   "25-15-0",
    "mma"
   ],
   [
    "Carlos Diego Ferreira",
    "BRA",
    "20-7-0",
-   "mma"
-  ],
-  [
-   "Brian Ortega",
-   "USA",
-   "16-5-0",
    "mma"
   ],
   [
@@ -8152,7 +8158,7 @@
   [
    "Kyoji Horiguchi",
    "JPN",
-   "36-6-0",
+   "37-6-0",
    "mma"
   ],
   [
@@ -8284,7 +8290,7 @@
   [
    "Asu Almabayev",
    "KAZ",
-   "24-3-0",
+   "24-4-0",
    "mma"
   ],
   [

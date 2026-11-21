@@ -1,4 +1,4 @@
-Combattants : 966
+Combattants : 965
   2027 in Professional Fighters League : HTTP 404
 Soirées retenues : UFC 333: Volkanovski vs. Evloev / UFC Fight Night: Moicano vs. Nolan / UFC Fight Night: Cortes-Acosta vs. Walker / UFC 334: Gane vs. Hokit / PFL Dubai: Nemkov vs. Bilostenniy / UFC Fight Night: Procházka vs. Stirling / UFC Fight Night: Adesanya vs. Magomedov / UFC 335: Oliveira vs. Lopes / PFL Lyon: Lapilus vs. McKee / UFC Fight Night: Rodríguez vs. Garcia / UFC Fight Night: Bonfim vs. Brady / UFC 336: Van vs. Kape / UFC Fight Night: Salkilld vs. Saint Denis / UFC Fight Night: Pyfer vs. Nickal / UFC 337
   ufc333 : 14 combats, 14 résultats
@@ -6,7 +6,7 @@ Soirées retenues : UFC 333: Volkanovski vs. Evloev / UFC Fight Night: Moicano v
   fn-cortesacosta-walker : 14 combats, 14 résultats
   ufc334 : 13 combats, 13 résultats
   pfl-nemkov-bilostenniy : 13 combats, 13 résultats
-  fn-prochazka-stirling : 12 combats, 9 résultats
+  fn-prochazka-stirling : 12 combats, 11 résultats
   fn-adesanya-magomedov : 12 combats, 0 résultats
   ufc335 : 6 combats, 0 résultats
   pfl-lapilus-mckee : 12 combats, 0 résultats
@@ -18,7 +18,7 @@ Soirées retenues : UFC 333: Volkanovski vs. Evloev / UFC Fight Night: Moicano v
 Presse : 15 soirées, 4 à l'agenda
   bx-zuffa-14 : 7 combats
   2027 in Zuffa Boxing : HTTP 404
-Annuaire : 1034 combattants (dont 68 champions de boxe)
+Annuaire : 1033 combattants (dont 68 champions de boxe)
 Annuaire francophone (fr.wikipedia) : 334 ajoutés
 Annuaire permanent : 45 francophones (23 hors autres listes)
 data/events.json écrit (30 soirées détaillées, 5 à l'agenda).

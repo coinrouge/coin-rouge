@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21T18:55:58.389Z",
+ "updated": "2026-11-21T19:30:54.423Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -3187,15 +3187,21 @@
      "r": 3,
      "a": {
       "n": "Asu Almabayev",
-      "rec": "24-3-0",
+      "rec": "24-2-0",
       "nat": "KAZ",
       "wk": "Asu Almabayev"
      },
      "b": {
       "n": "Kyoji Horiguchi",
-      "rec": "36-6-0",
+      "rec": "35-6-0",
       "nat": "JPN",
       "wk": "Kyoji Horiguchi"
+     },
+     "res": {
+      "w": "b",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
      }
     },
     {

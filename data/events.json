@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21T18:39:56.772Z",
+ "updated": "2026-11-21T18:55:58.389Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -3204,13 +3204,13 @@
      "r": 3,
      "a": {
       "n": "Jared Cannonier",
-      "rec": "18-9-0",
+      "rec": "18-10-0",
       "nat": "USA",
       "wk": "Jared Cannonier"
      },
      "b": {
       "n": "Ikram Aliskerov",
-      "rec": "17-2-0",
+      "rec": "18-2-0",
       "nat": "RUS",
       "wk": "Ikram Aliskerov"
      },
@@ -5740,7 +5740,7 @@
   [
    "Jared Cannonier",
    "USA",
-   "18-10-0",
+   "18-11-0",
    "mma"
   ],
   [
@@ -5938,7 +5938,7 @@
   [
    "Ikram Aliskerov",
    "RUS",
-   "18-2-0",
+   "19-2-0",
    "mma"
   ],
   [

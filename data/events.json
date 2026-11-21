@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21T06:59:32.216Z",
+ "updated": "2026-11-21T18:39:56.772Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -3204,15 +3204,21 @@
      "r": 3,
      "a": {
       "n": "Jared Cannonier",
-      "rec": "18-10-0",
+      "rec": "18-9-0",
       "nat": "USA",
       "wk": "Jared Cannonier"
      },
      "b": {
       "n": "Ikram Aliskerov",
-      "rec": "18-2-0",
+      "rec": "17-2-0",
       "nat": "RUS",
       "wk": "Ikram Aliskerov"
+     },
+     "res": {
+      "w": "b",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
      }
     },
     {
@@ -3230,6 +3236,12 @@
       "rec": "8-1-0",
       "nat": "MEX",
       "wk": "Santiago Luna (fighter)"
+     },
+     "res": {
+      "w": "b",
+      "method": "Décision partagée",
+      "round": 3,
+      "time": "5:00"
      }
     },
     {
@@ -3247,6 +3259,12 @@
       "rec": "9-2-0",
       "nat": "BRA",
       "wk": "Tallison Teixeira"
+     },
+     "res": {
+      "w": "b",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
      }
     },
     {
@@ -3263,6 +3281,12 @@
       "n": "Alessandro Costa",
       "rec": "17-5-0",
       "nat": "BRA"
+     },
+     "res": {
+      "w": "a",
+      "method": "Soumission (étranglement arrière)",
+      "round": 3,
+      "time": "4:34"
      }
     },
     {
@@ -3279,6 +3303,12 @@
       "n": "Tahir Abdullayev",
       "rec": "20-3-0",
       "nat": "AZE"
+     },
+     "res": {
+      "w": "b",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
      }
     },
     {
@@ -3295,6 +3325,12 @@
       "n": "Dom Mar Fan",
       "rec": "9-3-0",
       "nat": "AUS"
+     },
+     "res": {
+      "w": "b",
+      "method": "Décision unanime",
+      "round": 3,
+      "time": "5:00"
      }
     },
     {
@@ -3310,6 +3346,12 @@
       "n": "Alik Lorenz",
       "rec": "8-2-0",
       "nat": "USA"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (high kick et coups)",
+      "round": 2,
+      "time": "0:24"
      }
     },
     {
@@ -3325,6 +3367,12 @@
       "n": "John Mitchell",
       "rec": "11-3-0",
       "nat": "IRL"
+     },
+     "res": {
+      "w": "b",
+      "method": "TKO (genou et coups)",
+      "round": 1,
+      "time": "3:50"
      }
     }
    ],
@@ -5200,7 +5248,7 @@
   [
    "Shamil Gaziev",
    "BHR",
-   "15-3-0",
+   "15-4-0",
    "mma"
   ],
   [
@@ -5236,7 +5284,7 @@
   [
    "Tallison Teixeira",
    "BRA",
-   "9-2-0",
+   "10-2-0",
    "mma"
   ],
   [
@@ -5578,7 +5626,7 @@
   [
    "Diyar Nurgozhay",
    "KAZ",
-   "12-2-0",
+   "13-2-0",
    "mma"
   ],
   [
@@ -5668,7 +5716,7 @@
   [
    "Alik Lorenz",
    "USA",
-   "8-2-0",
+   "8-3-0",
    "mma"
   ],
   [
@@ -6154,7 +6202,7 @@
   [
    "Jake Matthews",
    "AUS",
-   "23-8-0",
+   "23-9-0",
    "mma"
   ],
   [
@@ -6484,7 +6532,7 @@
   [
    "Tahir Abdullayev",
    "AZE",
-   "20-3-0",
+   "21-3-0",
    "mma"
   ],
   [
@@ -6808,7 +6856,7 @@
   [
    "Nikolas Motta",
    "BRA",
-   "15-6-0",
+   "15-7-0",
    "mma"
   ],
   [
@@ -7000,7 +7048,7 @@
   [
    "Dom Mar Fan",
    "AUS",
-   "9-3-0",
+   "10-3-0",
    "mma"
   ],
   [
@@ -7096,13 +7144,13 @@
   [
    "Shoaib Yousaf",
    "GBR",
-   "14-3-0",
+   "14-4-0",
    "mma"
   ],
   [
    "John Mitchell",
    "IRL",
-   "11-3-0",
+   "12-3-0",
    "mma"
   ],
   [
@@ -7936,7 +7984,7 @@
   [
    "Aleksandre Topuria",
    "GEO",
-   "7-1-0",
+   "7-2-0",
    "mma"
   ],
   [
@@ -7972,7 +8020,7 @@
   [
    "Santiago Luna",
    "MEX",
-   "8-1-0",
+   "9-1-0",
    "mma"
   ],
   [
@@ -8158,7 +8206,7 @@
   [
    "Amir Albazi",
    "IRQ",
-   "17-3-0",
+   "18-3-0",
    "mma"
   ],
   [
@@ -8194,7 +8242,7 @@
   [
    "Alessandro Costa",
    "BRA",
-   "17-5-0",
+   "17-6-0",
    "mma"
   ],
   [

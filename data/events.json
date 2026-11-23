@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23T01:22:37.145Z",
+ "updated": "2026-11-23T19:10:23.598Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -4008,7 +4008,7 @@
     },
     {
      "s": "prelims",
-     "w": "BW",
+     "w": "FW",
      "r": 3,
      "a": {
       "n": "Brandon Brachet"
@@ -4022,6 +4022,19 @@
     },
     {
      "s": "prelims",
+     "w": "BW",
+     "r": 3,
+     "a": {
+      "n": "Ciarán Clarke",
+      "rec": "10-1-0",
+      "nat": "IRL"
+     },
+     "b": {
+      "n": "Mate Sanikidze"
+     }
+    },
+    {
+     "s": "prelims",
      "w": "FW",
      "r": 3,
      "a": {
@@ -4029,6 +4042,17 @@
      },
      "b": {
       "n": "Amin Bouazza"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "LW",
+     "r": 3,
+     "a": {
+      "n": "Lorenzo Parente"
+     },
+     "b": {
+      "n": "Stiven Shehu"
      }
     },
     {

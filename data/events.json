@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T01:19:48.785Z",
+ "updated": "2026-11-24T03:52:08.635Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -2615,7 +2615,12 @@
       "nick": "Baki",
       "fr": 1
      },
-     "title": "Titre welterweight ARES"
+     "title": "Titre welterweight ARES",
+     "res": {
+      "w": "b",
+      "method": "Décision unanime",
+      "round": 5
+     }
     },
     {
      "s": "main",
@@ -2634,6 +2639,11 @@
       "rec": "4-0-0",
       "tp": "367052-modibo-diakite",
       "fr": 1
+     },
+     "res": {
+      "w": "b",
+      "method": "Décision unanime",
+      "round": 3
      }
     },
     {
@@ -2651,7 +2661,12 @@
       "rec": "13-7-0",
       "tp": "106052-matheus-malta"
      },
-     "ru": 1
+     "ru": 1,
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 3
+     }
     },
     {
      "s": "main",
@@ -2664,19 +2679,12 @@
      },
      "b": {
       "n": "Sidney Aguero"
-     }
-    },
-    {
-     "s": "main",
-     "w": "WSW",
-     "r": 3,
-     "ru": 1,
-     "a": {
-      "n": "Sarah Moussaddak",
-      "tp": "237511-sarah-moussaddak"
      },
-     "b": {
-      "n": "Diná da Silva"
+     "res": {
+      "w": "a",
+      "method": "TKO",
+      "round": 1,
+      "time": "3:25"
      }
     },
     {
@@ -2691,19 +2699,12 @@
      "b": {
       "n": "Bruno Pudins",
       "tp": "557216-bruno-pudins"
-     }
-    },
-    {
-     "s": "prelims",
-     "w": "MW",
-     "r": 3,
-     "ru": 1,
-     "a": {
-      "n": "Alou Camara",
-      "tp": "339043-alou-camara"
      },
-     "b": {
-      "n": "Garcia Kinkela"
+     "res": {
+      "w": "a",
+      "method": "TKO (coudes et poings)",
+      "round": 1,
+      "time": "2:09"
      }
     },
     {
@@ -2717,6 +2718,12 @@
      },
      "b": {
       "n": "Jovan Todorović"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (poings)",
+      "round": 1,
+      "time": "4:18"
      }
     },
     {
@@ -2731,6 +2738,12 @@
      "b": {
       "n": "Valeriu Asaftei",
       "tp": "526750-asaftei-valeriu"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (frappes)",
+      "round": 3,
+      "time": "2:40"
      }
     },
     {
@@ -2744,6 +2757,12 @@
      },
      "b": {
       "n": "Ezequias Glim"
+     },
+     "res": {
+      "w": "a",
+      "method": "KO (poing)",
+      "round": 1,
+      "time": "1:38"
      }
     }
    ],
@@ -3078,6 +3097,7 @@
       "n": "Théo Ulrich",
       "nat": "FRA",
       "rec": "8-0-0",
+      "tp": "311067-theo-boudin",
       "fr": 1
      },
      "b": {
@@ -3143,6 +3163,7 @@
      "a": {
       "n": "Louis Bokola",
       "nat": "FRA",
+      "tp": "356096-louis-banhiet",
       "fr": 1
      },
      "b": {
@@ -3161,15 +3182,14 @@
    "name": "Bad Blood",
    "a": "Kabayel",
    "b": "Hysa",
-   "venue": "Merkur Spiel-Arena",
+   "venue": "ESPRIT arena",
    "city": "Düsseldorf",
    "tz": "Europe/Berlin",
    "tv": "DAZN",
-   "tbc": 1,
    "segs": [
     {
      "k": "main",
-     "t": "2026-11-28T19:00:00Z"
+     "t": "2026-11-28T18:00:00Z"
     }
    ],
    "fights": [
@@ -3188,7 +3208,56 @@
      "b": {
       "n": "Nelson Hysa",
       "nat": "ALB",
-      "tp": "351425-nelson-hysa"
+      "tp": "351425-nelson-hysa",
+      "rec": "25-0-0",
+      "nick": "The Albanian Eagle"
+     },
+     "t": "2026-11-28T22:00:00Z"
+    },
+    {
+     "s": "main",
+     "w": "Lourds-légers",
+     "r": 10,
+     "a": {
+      "n": "Aloys Junior",
+      "rec": "12-1-0",
+      "tp": "315862-aloys-junior-the-animal"
+     },
+     "b": {
+      "n": "Artur Mann",
+      "rec": "23-6-0",
+      "tp": "201099-artur-mann-thunderman"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Lourds",
+     "r": 10,
+     "a": {
+      "n": "Granit Shala",
+      "rec": "18-2-0",
+      "tp": "201614-granit-shala"
+     },
+     "b": {
+      "n": "Kolbeinn Kristinsson",
+      "nat": "ISL",
+      "rec": "20-0-0",
+      "tp": "249552-gunnar-kolbeinn-kristinsson-ice-bear"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Moyens",
+     "r": 10,
+     "a": {
+      "n": "Gleb Bakshi",
+      "rec": "7-0-0",
+      "tp": "343076-gleb-bakshi"
+     },
+     "b": {
+      "n": "Serhat Parlak",
+      "rec": "8-1-0",
+      "tp": "350756-serhat-parlak"
      }
     }
    ],
@@ -3562,7 +3631,8 @@
       "rec": "32-0-0",
       "star": 1,
       "champ": 1,
-      "tp": "210762-david-benavidez-el-bandera-roja"
+      "tp": "210762-david-benavidez-el-bandera-roja",
+      "nick": "The Mexican Monster"
      },
      "b": {
       "n": "Michał Cieślak",
@@ -3571,7 +3641,29 @@
       "champ": 1,
       "tp": "222503-michal-cieslak"
      }
+    },
+    {
+     "s": "main",
+     "w": "Moyens",
+     "r": 10,
+     "ru": 1,
+     "a": {
+      "n": "Vergil Ortiz Jr.",
+      "nat": "USA",
+      "rec": "24-0-0",
+      "star": 1,
+      "tp": "204537-vergil-ortiz-jr"
+     },
+     "b": {
+      "n": "Keith Thurman",
+      "nat": "USA",
+      "rec": "31-2-0",
+      "tp": "208944-keith-thurman-one-time"
+     }
     }
+   ],
+   "tvx": [
+    "DAZN PPV (Royaume-Uni, États-Unis)"
    ]
   },
   {

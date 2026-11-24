@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T03:52:08.635Z",
+ "updated": "2026-11-24T19:07:59.068Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -3445,6 +3445,22 @@
     },
     {
      "s": "main",
+     "w": "WW",
+     "r": 3,
+     "a": {
+      "n": "Levan Chokheli",
+      "rec": "15-3-0",
+      "nat": "GEO"
+     },
+     "b": {
+      "n": "Islam Dulatov",
+      "rec": "12-1-0",
+      "nat": "GER",
+      "wk": "Islam Dulatov"
+     }
+    },
+    {
+     "s": "main",
      "w": "HW",
      "r": 3,
      "a": {
@@ -3458,22 +3474,6 @@
       "rec": "13-0-0",
       "nat": "POR",
       "wk": "Mario Pinto"
-     }
-    },
-    {
-     "s": "main",
-     "w": "WW",
-     "r": 3,
-     "a": {
-      "n": "Levan Chokheli",
-      "rec": "15-3-0",
-      "nat": "GEO"
-     },
-     "b": {
-      "n": "Islam Dulatov",
-      "rec": "12-1-0",
-      "nat": "GER",
-      "wk": "Islam Dulatov"
      }
     },
     {
@@ -3506,6 +3506,21 @@
       "rec": "20-12-1",
       "nat": "MDA",
       "wk": "Ion Cuțelaba"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "FW",
+     "r": 3,
+     "a": {
+      "n": "Luke Riley",
+      "rec": "14-0-0",
+      "nat": "GBR"
+     },
+     "b": {
+      "n": "Gabriel Santos",
+      "rec": "12-2-0",
+      "nat": "BRA"
      }
     },
     {
@@ -3596,6 +3611,22 @@
       "n": "Hecher Sosa",
       "rec": "14-1-0",
       "nat": "ESP"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "LW",
+     "r": 3,
+     "a": {
+      "n": "Mateusz Rębecki",
+      "rec": "21-5-0",
+      "nat": "POL",
+      "wk": "Mateusz Rębecki"
+     },
+     "b": {
+      "n": "Elves Brener",
+      "rec": "17-6-0",
+      "nat": "BRA"
      }
     }
    ],
@@ -6047,7 +6078,7 @@
   [
    "Joel Álvarez",
    "ESP",
-   "18-9-0",
+   "23-5-0",
    "mma"
   ],
   [

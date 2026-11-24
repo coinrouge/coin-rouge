@@ -956,7 +956,12 @@
       "tp": "245988-chamsoudinov-baysangur",
       "nick": "Baki"
      },
-     "title": "Titre welterweight ARES"
+     "title": "Titre welterweight ARES",
+     "res": {
+      "w": "b",
+      "method": "Décision unanime",
+      "round": 5
+     }
     },
     {
      "s": "main",
@@ -973,6 +978,11 @@
       "nat": "FRA",
       "rec": "4-0-0",
       "tp": "367052-modibo-diakite"
+     },
+     "res": {
+      "w": "b",
+      "method": "Décision unanime",
+      "round": 3
      }
     },
     {
@@ -990,7 +1000,12 @@
       "rec": "13-7-0",
       "tp": "106052-matheus-malta"
      },
-     "ru": 1
+     "ru": 1,
+     "res": {
+      "w": "a",
+      "method": "Décision unanime",
+      "round": 3
+     }
     },
     {
      "s": "main",
@@ -1003,19 +1018,12 @@
      },
      "b": {
       "n": "Sidney Aguero"
-     }
-    },
-    {
-     "s": "main",
-     "w": "WSW",
-     "r": 3,
-     "ru": 1,
-     "a": {
-      "n": "Sarah Moussaddak",
-      "tp": "237511-sarah-moussaddak"
      },
-     "b": {
-      "n": "Diná da Silva"
+     "res": {
+      "w": "a",
+      "method": "TKO",
+      "round": 1,
+      "time": "3:25"
      }
     },
     {
@@ -1030,19 +1038,12 @@
      "b": {
       "n": "Bruno Pudins",
       "tp": "557216-bruno-pudins"
-     }
-    },
-    {
-     "s": "prelims",
-     "w": "MW",
-     "r": 3,
-     "ru": 1,
-     "a": {
-      "n": "Alou Camara",
-      "tp": "339043-alou-camara"
      },
-     "b": {
-      "n": "Garcia Kinkela"
+     "res": {
+      "w": "a",
+      "method": "TKO (coudes et poings)",
+      "round": 1,
+      "time": "2:09"
      }
     },
     {
@@ -1056,6 +1057,12 @@
      },
      "b": {
       "n": "Jovan Todorović"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (poings)",
+      "round": 1,
+      "time": "4:18"
      }
     },
     {
@@ -1070,6 +1077,12 @@
      "b": {
       "n": "Valeriu Asaftei",
       "tp": "526750-asaftei-valeriu"
+     },
+     "res": {
+      "w": "a",
+      "method": "TKO (frappes)",
+      "round": 3,
+      "time": "2:40"
      }
     },
     {
@@ -1083,12 +1096,18 @@
      },
      "b": {
       "n": "Ezequias Glim"
+     },
+     "res": {
+      "w": "a",
+      "method": "KO (poing)",
+      "round": 1,
+      "time": "1:38"
      }
     }
    ],
    "sources": [
-    "https://www.frontkick.fr/actu/ares-45-zebo-baki-2-heure-chaine-carte/",
-    "https://www.cnews.fr/sport/2026-11-18/ares-45-baki-zebo-2-carte-complete-lieu-tv-tout-savoir-sur-levenement-mma-1955879"
+    "https://mma-official.com/en/ares-45-results-baki-regains-welterweight-title-from-jordan-zebo/",
+    "https://sport-minute.com/en/mma/ares-45-zebo-baki"
    ],
    "tv": "Canal+ Sport 360"
   },
@@ -1099,15 +1118,14 @@
    "name": "Bad Blood",
    "a": "Kabayel",
    "b": "Hysa",
-   "venue": "Merkur Spiel-Arena",
+   "venue": "ESPRIT arena",
    "city": "Düsseldorf",
    "tz": "Europe/Berlin",
    "tv": "DAZN",
-   "tbc": 1,
    "segs": [
     {
      "k": "main",
-     "t": "2026-11-28T19:00:00Z"
+     "t": "2026-11-28T18:00:00Z"
     }
    ],
    "fights": [
@@ -1126,13 +1144,62 @@
      "b": {
       "n": "Nelson Hysa",
       "nat": "ALB",
-      "tp": "351425-nelson-hysa"
+      "tp": "351425-nelson-hysa",
+      "rec": "25-0-0",
+      "nick": "The Albanian Eagle"
+     },
+     "t": "2026-11-28T22:00:00Z"
+    },
+    {
+     "s": "main",
+     "w": "Lourds-légers",
+     "r": 10,
+     "a": {
+      "n": "Aloys Junior",
+      "rec": "12-1-0",
+      "tp": "315862-aloys-junior-the-animal"
+     },
+     "b": {
+      "n": "Artur Mann",
+      "rec": "23-6-0",
+      "tp": "201099-artur-mann-thunderman"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Lourds",
+     "r": 10,
+     "a": {
+      "n": "Granit Shala",
+      "rec": "18-2-0",
+      "tp": "201614-granit-shala"
+     },
+     "b": {
+      "n": "Kolbeinn Kristinsson",
+      "nat": "ISL",
+      "rec": "20-0-0",
+      "tp": "249552-gunnar-kolbeinn-kristinsson-ice-bear"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Moyens",
+     "r": 10,
+     "a": {
+      "n": "Gleb Bakshi",
+      "rec": "7-0-0",
+      "tp": "343076-gleb-bakshi"
+     },
+     "b": {
+      "n": "Serhat Parlak",
+      "rec": "8-1-0",
+      "tp": "350756-serhat-parlak"
      }
     }
    ],
    "sources": [
-    "https://www.thestar.com.my/sport/boxing/2026/10/02/boxing-wbc-heavyweight-champion-kabayel039s-first-defence-confirmed-for-duesseldorf-on-november-28",
-    "https://www.fightmag.com/agit-kabayel-to-face-nelson-hysa-in-germany-in-november/"
+    "https://www.dazn.com/en-US/news/boxing/kabayel-vs-hysa-how-to-watch-fight-time-ringwalks-prediction-undercard-news-odds/12pmf0g4srfw81jr8fx1jp9tws",
+    "https://boxemag.ouest-france.fr/boxe/kabayel-vs-hysa-decouvrez-la-carte-complete-des-combats-prevu-samedi-a-dusseldorf/"
    ],
    "partial": 1,
    "tvx": [
@@ -1169,7 +1236,8 @@
       "rec": "32-0-0",
       "star": 1,
       "champ": 1,
-      "tp": "210762-david-benavidez-el-bandera-roja"
+      "tp": "210762-david-benavidez-el-bandera-roja",
+      "nick": "The Mexican Monster"
      },
      "b": {
       "n": "Michał Cieślak",
@@ -1178,11 +1246,33 @@
       "champ": 1,
       "tp": "222503-michal-cieslak"
      }
+    },
+    {
+     "s": "main",
+     "w": "Moyens",
+     "r": 10,
+     "ru": 1,
+     "a": {
+      "n": "Vergil Ortiz Jr.",
+      "nat": "USA",
+      "rec": "24-0-0",
+      "star": 1,
+      "tp": "204537-vergil-ortiz-jr"
+     },
+     "b": {
+      "n": "Keith Thurman",
+      "nat": "USA",
+      "rec": "31-2-0",
+      "tp": "208944-keith-thurman-one-time"
+     }
     }
    ],
    "sources": [
-    "https://www.fightmag.com/benavidez-vs-cieslak-confirmed-for-december-in-glendale-arizona/",
-    "https://boxingnews.com/news/benavidez-cieslak-december-5-unification/"
+    "https://boxingnews.com/how-to-watch/benavidez-vs-cieslak-2026-12-05",
+    "https://www.fightmag.com/elijah-garcia-vs-thomas-otoole-headlines-benavidez-cieslak-prelims/"
+   ],
+   "tvx": [
+    "DAZN PPV (Royaume-Uni, États-Unis)"
    ]
   },
   {
@@ -1567,7 +1657,8 @@
      "a": {
       "n": "Théo Ulrich",
       "nat": "FRA",
-      "rec": "8-0-0"
+      "rec": "8-0-0",
+      "tp": "311067-theo-boudin"
      },
      "b": {
       "n": "Davy Gallon",
@@ -1628,7 +1719,8 @@
      "ru": 1,
      "a": {
       "n": "Louis Bokola",
-      "nat": "FRA"
+      "nat": "FRA",
+      "tp": "356096-louis-banhiet"
      },
      "b": {
       "n": "Václav Žemla",

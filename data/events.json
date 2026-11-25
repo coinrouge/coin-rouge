@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T19:07:59.068Z",
+ "updated": "2026-11-25T01:25:45.034Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -3920,22 +3920,6 @@
     },
     {
      "s": "main",
-     "w": "BW",
-     "r": 3,
-     "a": {
-      "n": "Kyler Phillips",
-      "rec": "12-5-0",
-      "nat": "USA",
-      "wk": "Kyler Phillips"
-     },
-     "b": {
-      "n": "Ethyn Ewing",
-      "rec": "10-2-0",
-      "nat": "USA"
-     }
-    },
-    {
-     "s": "main",
      "w": "MW",
      "r": 3,
      "a": {
@@ -3951,6 +3935,38 @@
      }
     },
     {
+     "s": "main",
+     "w": "BW",
+     "r": 3,
+     "a": {
+      "n": "Kyler Phillips",
+      "rec": "12-5-0",
+      "nat": "USA",
+      "wk": "Kyler Phillips"
+     },
+     "b": {
+      "n": "Ethyn Ewing",
+      "rec": "10-2-0",
+      "nat": "USA"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "WBW",
+     "r": 3,
+     "a": {
+      "n": "Jacqueline Cavalcanti",
+      "rec": "10-2-0",
+      "nat": "POR",
+      "wk": "Jacqueline Cavalcanti"
+     },
+     "b": {
+      "n": "Michelle Montague",
+      "rec": "8-0-0",
+      "nat": "NZL"
+     }
+    },
+    {
      "s": "prelims",
      "w": "LHW",
      "r": 3,
@@ -3962,6 +3978,19 @@
       "rec": "7-6-0",
       "nat": "AUS",
       "wk": "Junior Tafa"
+     }
+    },
+    {
+     "s": "prelims",
+     "w": "FLW",
+     "r": 3,
+     "a": {
+      "n": "Roque Conceição Jr."
+     },
+     "b": {
+      "n": "Nilson Rojas",
+      "rec": "9-1-0",
+      "nat": "PER"
      }
     }
    ],
@@ -4622,6 +4651,54 @@
     },
     {
      "s": "main",
+     "w": "HW",
+     "r": 3,
+     "a": {
+      "n": "Tanner Boser",
+      "rec": "23-11-1",
+      "nat": "CAN",
+      "wk": "Tanner Boser"
+     },
+     "b": {
+      "n": "José Montanha",
+      "rec": "7-1-0",
+      "nat": "BRA"
+     }
+    },
+    {
+     "s": "main",
+     "w": "MW",
+     "r": 3,
+     "a": {
+      "n": "Marc-André Barriault",
+      "rec": "18-10-0",
+      "nat": "CAN",
+      "wk": "Marc-André Barriault"
+     },
+     "b": {
+      "n": "Tresean Gore",
+      "rec": "7-4-0",
+      "nat": "USA"
+     }
+    },
+    {
+     "s": "main",
+     "w": "HW",
+     "r": 3,
+     "a": {
+      "n": "Gable Steveson",
+      "rec": "4-1-0",
+      "nat": "USA",
+      "wk": "Gable Steveson"
+     },
+     "b": {
+      "n": "Terrance Chatman",
+      "rec": "5-2-0",
+      "nat": "USA"
+     }
+    },
+    {
+     "s": "main",
      "w": "BW",
      "r": 3,
      "a": {
@@ -4644,6 +4721,21 @@
      },
      "b": {
       "n": "Sean Clancy Jr."
+     }
+    },
+    {
+     "s": "main",
+     "w": "MW",
+     "r": 3,
+     "a": {
+      "n": "Julien Leblanc",
+      "rec": "10-4-0",
+      "nat": "CAN"
+     },
+     "b": {
+      "n": "Vlasto Čepo",
+      "rec": "14-4-0",
+      "nat": "SRB"
      }
     }
    ],

@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T01:25:45.034Z",
+ "updated": "2026-11-26T01:25:57.756Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -4564,6 +4564,154 @@
       "rec": "19-2-0",
       "nat": "USA",
       "wk": "Sean Brady (fighter)"
+     }
+    },
+    {
+     "s": "main",
+     "w": "FW",
+     "r": 3,
+     "a": {
+      "n": "Pat Sabatini",
+      "rec": "22-5-0",
+      "nat": "USA",
+      "wk": "Pat Sabatini"
+     },
+     "b": {
+      "n": "Vinicius Oliveira",
+      "rec": "24-4-0",
+      "nat": "BRA",
+      "wk": "Vinicius Oliveira"
+     }
+    },
+    {
+     "s": "main",
+     "w": "WW",
+     "r": 3,
+     "a": {
+      "n": "Neil Magny",
+      "rec": "32-14-0",
+      "nat": "USA",
+      "wk": "Neil Magny"
+     },
+     "b": {
+      "n": "Daniil Donchenko",
+      "rec": "15-2-0",
+      "nat": "UKR"
+     }
+    },
+    {
+     "s": "main",
+     "w": "MW",
+     "r": 3,
+     "a": {
+      "n": "Azamat Bekoev",
+      "rec": "20-5-0",
+      "nat": "RUS",
+      "wk": "Azamat Bekoev"
+     },
+     "b": {
+      "n": "Eric McConico",
+      "rec": "11-5-1",
+      "nat": "USA"
+     }
+    },
+    {
+     "s": "main",
+     "w": "FW",
+     "r": 3,
+     "a": {
+      "n": "Yadier del Valle",
+      "rec": "10-1-0",
+      "nat": "CUB"
+     },
+     "b": {
+      "n": "Ezra Elliott",
+      "rec": "8-0-0",
+      "nat": "USA"
+     }
+    },
+    {
+     "s": "main",
+     "w": "MW",
+     "r": 3,
+     "a": {
+      "n": "Trent Miller"
+     },
+     "b": {
+      "n": "Nick Klein",
+      "rec": "6-4-0",
+      "nat": "USA"
+     }
+    },
+    {
+     "s": "main",
+     "w": "FW",
+     "r": 3,
+     "a": {
+      "n": "Ramon Taveras",
+      "rec": "10-4-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Roman Puga"
+     }
+    },
+    {
+     "s": "main",
+     "w": "FW",
+     "r": 3,
+     "a": {
+      "n": "Jamall Emmers",
+      "rec": "23-8-0",
+      "nat": "USA",
+      "wk": "Jamall Emmers"
+     },
+     "b": {
+      "n": "Ramiro Jiménez"
+     }
+    },
+    {
+     "s": "main",
+     "w": "WSW",
+     "r": 3,
+     "a": {
+      "n": "Anna Melisano",
+      "rec": "6-2-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Marina Spasić",
+      "rec": "7-2-0",
+      "nat": "SRB"
+     }
+    },
+    {
+     "s": "main",
+     "w": "WW",
+     "r": 3,
+     "a": {
+      "n": "Ty Miller",
+      "rec": "8-0-0",
+      "nat": "USA"
+     },
+     "b": {
+      "n": "Christopher Alvidrez"
+     }
+    },
+    {
+     "s": "main",
+     "w": "WBW",
+     "r": 3,
+     "a": {
+      "n": "Smilla Sundell",
+      "rec": "3-0-1",
+      "nat": "SWE",
+      "wk": "Smilla Sundell"
+     },
+     "b": {
+      "n": "Melissa Mullins",
+      "rec": "7-3-0",
+      "nat": "GBR"
      }
     }
    ],

@@ -1195,11 +1195,25 @@
       "rec": "8-1-0",
       "tp": "350756-serhat-parlak"
      }
+    },
+    {
+     "s": "main",
+     "w": "Super-moyens",
+     "r": 8,
+     "ru": 1,
+     "a": {
+      "n": "Simon Zachenhuber",
+      "nat": "GER",
+      "tp": "246912-simon-zachenhuber"
+     },
+     "b": {
+      "n": "Kamer Maloku"
+     }
     }
    ],
    "sources": [
-    "https://www.dazn.com/en-US/news/boxing/kabayel-vs-hysa-how-to-watch-fight-time-ringwalks-prediction-undercard-news-odds/12pmf0g4srfw81jr8fx1jp9tws",
-    "https://boxemag.ouest-france.fr/boxe/kabayel-vs-hysa-decouvrez-la-carte-complete-des-combats-prevu-samedi-a-dusseldorf/"
+    "https://www.dazn.com/en-US/news/boxing/agit-kabayel-vs-nelson-hysa-undercard-fighters-date-start-time-ringwalks/ks3igapa84lj122kh7zlc0k6q",
+    "https://sports.yahoo.com/articles/kabayel-vs-hysa-start-time-114737905.html"
    ],
    "partial": 1,
    "tvx": [
@@ -1265,11 +1279,41 @@
       "rec": "31-2-0",
       "tp": "208944-keith-thurman-one-time"
      }
+    },
+    {
+     "s": "main",
+     "w": "Super-légers",
+     "r": 10,
+     "a": {
+      "n": "Emiliano Vargas",
+      "nat": "USA",
+      "rec": "18-0-0",
+      "tp": "331046-emiliano-vargas"
+     },
+     "b": {
+      "n": "Omar Juarez",
+      "nat": "USA",
+      "tp": "212737-omar-juarez-el-relampago"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Super-welters",
+     "r": 8,
+     "a": {
+      "n": "Nikita Tszyu",
+      "nat": "AUS",
+      "rec": "12-0-1",
+      "tp": "325117-nikita-tszyu"
+     },
+     "b": {
+      "n": "Roberto Valenzuela Jr."
+     }
     }
    ],
    "sources": [
-    "https://boxingnews.com/how-to-watch/benavidez-vs-cieslak-2026-12-05",
-    "https://www.fightmag.com/elijah-garcia-vs-thomas-otoole-headlines-benavidez-cieslak-prelims/"
+    "https://www.dazn.com/en-GB/news/boxing/benavidez-vs-cieslak-how-to-watch-fight-time-ringwalks-prediction-undercard-news-odds/11bhjvkn8s2b21tczsa484php9",
+    "https://split-decision.co.uk/boxing-news/benavidez-vs-cieslak/"
    ],
    "tvx": [
     "DAZN PPV (Royaume-Uni, États-Unis)"
@@ -1644,7 +1688,7 @@
    "segs": [
     {
      "k": "main",
-     "t": "2026-11-27T18:00:00Z"
+     "t": "2026-11-27T20:00:00Z"
     }
    ],
    "fights": [
@@ -1731,8 +1775,8 @@
     }
    ],
    "sources": [
-    "https://boxemag.ouest-france.fr/evenement/hexagone-mma-49-ulrich-vs-gallon/",
-    "https://www.breizh-info.com/2026/11/06/265192/hexagone-mma-49-une-finale-a-100-000-euros-et-des-combattants-bretons-aux-portes-de-rennes/"
+    "https://boxemag.ouest-france.fr/mma/hexagone-mma-49-ulrich-vs-gallon-decouvrez-la-carte-complete-des-combats-pour-vendredi-a-rennes/",
+    "https://www.rmcsport.tv/sports-de-combat/hexagone-mma.html"
    ]
   },
   {

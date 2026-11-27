@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26T13:29:37.786Z",
+ "updated": "2026-11-27T03:49:54.118Z",
  "source": "Wikipédia (en), licence CC BY-SA, et veille presse",
  "presse": true,
  "events": [
@@ -3083,7 +3083,7 @@
    "segs": [
     {
      "k": "main",
-     "t": "2026-11-27T18:00:00Z"
+     "t": "2026-11-27T20:00:00Z"
     }
    ],
    "fights": [
@@ -3258,6 +3258,20 @@
       "n": "Serhat Parlak",
       "rec": "8-1-0",
       "tp": "350756-serhat-parlak"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Super-moyens",
+     "r": 8,
+     "ru": 1,
+     "a": {
+      "n": "Simon Zachenhuber",
+      "nat": "GER",
+      "tp": "246912-simon-zachenhuber"
+     },
+     "b": {
+      "n": "Kamer Maloku"
      }
     }
    ],
@@ -3690,6 +3704,36 @@
       "nat": "USA",
       "rec": "31-2-0",
       "tp": "208944-keith-thurman-one-time"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Super-légers",
+     "r": 10,
+     "a": {
+      "n": "Emiliano Vargas",
+      "nat": "USA",
+      "rec": "18-0-0",
+      "tp": "331046-emiliano-vargas"
+     },
+     "b": {
+      "n": "Omar Juarez",
+      "nat": "USA",
+      "tp": "212737-omar-juarez-el-relampago"
+     }
+    },
+    {
+     "s": "main",
+     "w": "Super-welters",
+     "r": 8,
+     "a": {
+      "n": "Nikita Tszyu",
+      "nat": "AUS",
+      "rec": "12-0-1",
+      "tp": "325117-nikita-tszyu"
+     },
+     "b": {
+      "n": "Roberto Valenzuela Jr."
      }
     }
    ],
@@ -13630,6 +13674,22 @@
   "Quentin Pasley": "322970-quentin-parsley",
   "Jack Cartwright": "43571-jack-cartwright",
   "Oualy Tandia": "364456-oualy-tandia",
-  "Alex Lohoré": "78745-alex-lohore"
+  "Alex Lohoré": "78745-alex-lohore",
+  "Matthieu Letho Duclos": "239830-matthieu-letho",
+  "Mateusz Rębecki": "65128-mateusz-rbecki-chiczyk",
+  "Modestino Rodrigues": "321755-modestino-rodrigues-the-slenderman",
+  "Elves Brener": "131388-elvis-brenner",
+  "Marco Tulio": "165750-marco-tulio-silva",
+  "Luke Riley": "243621-luke-riley",
+  "Jafel Filho": "46690-jafel-cavalcante-filho",
+  "Park Jun-yong": "64589-yoon-yong-park",
+  "Bruno Gustavo da Silva": "55253-bruno-gustavo-aparecido-da-silva-bulldog",
+  "Zakaria Hamou": "339041-zakaria-hamou",
+  "Amin Bouazza": "369218-amine-bouazza",
+  "Bafode Gassama": "359683-bafode-gassama",
+  "Damian Pinas": "389237-damian-pinas",
+  "Baisangur Susurkaev": "281344-baysangur-susurkaev",
+  "Uran Satybaldiev": "253924-uran-satybaldiev",
+  "Mehemmedeli Osmanli": "382346-mehemmedeli-osmanali"
  }
 }
